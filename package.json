@@ -1,0 +1,36 @@
+{
+  "name": "oodestiny",
+  "version": "1.0.0",
+  "description": "An object-oriented wrapper for the Destiny 2 portions of the Bungie.net API",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib_old"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owensimpson/oodestiny.git"
+  },
+  "keywords": [
+    "Destiny 2",
+    "Bungie.net",
+    "Object-oriented",
+    "Javascript"
+  ],
+  "author": "Owen Simpson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/owensimpson/oodestiny/issues"
+  },
+  "homepage": "https://github.com/owensimpson/oodestiny#readme",
+  "dependencies": {
+    "bungie-api-typedef": "^1.0.4",
+    "node-fetch": "^3.2.9"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
+  }
+}
