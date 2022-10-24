@@ -1,5 +1,5 @@
-import { getItem, setItem } from './lib/bungie-net-config.js';
-import { NotConfiguredError } from './lib/errors/NotConfiguredError.js';
+import { getItem, setItem } from './lib_old/bungie-net-config.js';
+import { NotConfiguredError } from './lib_old/errors/NotConfiguredError.js';
 
 /**
  * @typedef {Object} ConfigureOptions
@@ -49,8 +49,8 @@ export function createBungieNetOAuthURL(options) {
         'BUNGIE_CLIENT_ID')}&response_type=code` + redirectString + stateString;
 }
 
-export { getAccessTokenFromRefreshToken, getAccessTokenFromCode } from './lib/tokens.js';
+export { getAccessTokenFromRefreshToken, getAccessTokenFromCode } from './lib_old/tokens.js';
 
-export { DestinyAPIClient as Client } from './lib/structures/Client.js';
+export { DestinyAPIClient as Client } from './lib_old/structures/Client.js';
 
-export { updateManifest } from './lib/manifest-util.js';
+export { updateManifest } from './lib_old/manifest-util.js';
