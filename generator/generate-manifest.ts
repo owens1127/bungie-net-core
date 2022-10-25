@@ -1,17 +1,18 @@
 import { DefInfo } from './util';
 import { OpenAPIObject } from 'openapi3-ts';
 import fetch from 'node-fetch';
-import { writeOutFile } from './generate-common.js';
+import { docComment, writeOutFile } from './generate-common.js';
 
 const manifestMetadataPromise = manifestMetaResponse(false);
 
 // @ts-ignore
 async function manifestMetaResponse(retry: boolean) {
   try {
-    let manifestMeta = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
+    // @ts-ignore
+    let manifestMeta: { Response: Object } = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
         (res) => res.json()
     );
-    if (manifestMeta.Response == undefined) {
+    if (!manifestMeta?.Response) {
       if (retry) {
         console.error(new Error('Failed to download Manifest'));
         process.exit(1);
@@ -29,19 +30,22 @@ async function manifestMetaResponse(retry: boolean) {
 
 export async function generateManifestUtils(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
   const fromFile = componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename;
-  const manifestStructure = await generateManifestDefinitions(components, componentByDef, fromFile);
 
-  const filename = `lib/manifest/index.js`;
 
-  const definition =
-    [generateManifestHeader(doc), manifestStructure, manifestUtilDefinitions].join(
-      '\n\n'
-    ) + '\n';
+  await generateIndex(components, componentByDef, doc);
 
-  writeOutFile(filename, definition);
+  // const filename = `lib/manifest/index.js`;
+  //
+  // const definition =
+  //   [generateManifestHeader(doc), manifestStructure, manifestUtilDefinitions].join(
+  //     '\n\n'
+  //   ) + '\n';
+  //
+  // writeOutFile(filename, definition);
 }
 
-async function generateManifestDefinitions(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, fromFile: string) {
+async function generateIndex(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
+  const filename = `lib/manifest/index.js`;
   let manifestMetadata = await manifestMetadataPromise;
 
   // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
@@ -51,33 +55,34 @@ async function generateManifestDefinitions(components: DefInfo[], componentByDef
       (def) => jsonKeys.includes(def.typeName)
   );
 
+  const imports = `const DestinyManifest = require('../${componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename}');
+${defsToInclude.map(def => `const ${def.typeName} = require('../${def.filename}');`).join('\n')}`
+
+  const hashDef = docComment('Represents the look-up key for the manifest', ["@typedef {number} Hash"]);
+
+  const allComponentInfo = "this describes a big object holding several tables of hash-keyedDestinyDefinitions. This is roughly what you get if you decode the gigantic, single-json manifest blob, but also just what we use here to dole out single-table, typed definitions"
+  const allComponentParams = defsToInclude.map((manifestComponent) => `@property {Object.<Hash, ${manifestComponent.typeName}>} ${manifestComponent.typeName}s`);
+  const allComponents = docComment(allComponentInfo, ["@typedef AllDestinyManifestComponents", ...allComponentParams]);
+  const componentName = docComment('', [`@typedef {${defsToInclude.map(d => {return `'${d.typeName}'`}).join(' | ')}} DestinyManifestComponentName`]);
+
   const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
 
-  return `const DestinyManifest = require('../${componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename}');
-${defsToInclude.map(def => `const ${def.typeName} = require('../${def.filename}');`).join('\n')}
+  const languages = `const destinyManifestLanguages = {
+${languageList.map((l) => `  '${l}': '${l}',`).join('\n')}
+};
+exports.DestinyManifestLanguages = destinyManifestLanguages;
 
-/**
- * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
- * this is roughly what you get if you decode the gigantic, single-json manifest blob,
- * but also just what we use here to dole out single-table, typed definitions
- */
-class AllDestinyManifestComponents {
-${defsToInclude
-  .map((manifestComponent) => `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`)
-  .join('')}
-}
-exports.AllDestinyManifestComponents = AllDestinyManifestComponents;
-
-/**
- * languages the manifest comes in, as their required keys to download them
- */
-export const destinyManifestLanguages = [
-${languageList.map((l) => `  '${l}',`).join('\n')}
-] as const;
-
-export type DestinyManifestLanguage = typeof destinyManifestLanguages[number];
-
+${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' | ')}} DestinyManifestLanguage`])}
 `;
+
+  const definition =
+      [generateManifestHeader(doc), imports, hashDef, allComponents, componentName, languages].join(
+          '\n\n'
+      );
+
+  writeOutFile(filename, definition);
+
+
 }
 
 function generateManifestHeader(doc: OpenAPIObject): string {
