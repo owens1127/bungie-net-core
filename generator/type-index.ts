@@ -8,7 +8,6 @@ import {
 } from 'openapi3-ts';
 import {
   getRef,
-  lastPart,
   getReferencedTypes,
   DefInfo,
   typeName,
@@ -27,10 +26,11 @@ export function computeTypeMaps(
     defsByTag[tag] = defs;
   });
 
-  const componentsByFile: { [file: string]: DefInfo[] } = {};
+  const componentsByFile: Map<string, DefInfo> = new Map<string, DefInfo>();
   const componentsByTag: { [tag: string]: DefInfo[] } = {};
   const componentByDef: { [def: string]: DefInfo } = {};
   const manifestComponents: DefInfo[] = [];
+  const directoryExportsMap = new Map<string, Set<string>>();
 
   for (const def of allDefsEverywhere) {
     const tags: string[] = [];
@@ -39,11 +39,11 @@ export function computeTypeMaps(
         tags.push(tag);
       }
     });
-    const isEnum = getRef(doc, def)?.enum !== undefined
+    // const isEnum = getRef(doc, def)?.enum !== undefined
     const info: DefInfo = {
       def,
       tags,
-      filename: chooseFile(def, isEnum),
+      filename: addFile(def, directoryExportsMap),
       typeName: typeName(def, doc),
     };
 
@@ -51,10 +51,7 @@ export function computeTypeMaps(
       manifestComponents.push(info);
     }
 
-    if (!info.typeName.includes('<')) {
-      componentsByFile[info.filename] = componentsByFile[info.filename] || [];
-      componentsByFile[info.filename].push(info);
-    }
+    componentsByFile.set(info.filename, info);
 
     info.tags.forEach(tag => {
       componentsByTag[tag] = componentsByTag[tag] || [];
@@ -64,17 +61,35 @@ export function computeTypeMaps(
     componentByDef[info.def] = info;
   }
 
-  return { componentsByFile, componentsByTag, componentByDef, manifestComponents };
+  // console.log(directoryExportsMap)
+
+  return { manifestComponents, directoryExportsMap,
+    // TODO
+    componentsByFile, componentsByTag, componentByDef,  };
 }
 
-function chooseFile(def: string, isEnum: boolean) {
+function addFile(def: string, directories: Map<string, Set<string>>) {
 
   const split = def.split('/');
   const schemaName: string = _.last(split)!;
-  const root = split.length >= 3 ? split.slice(2, split.length-1).join('/') : 'ThisShouldNotHappen';
-  const directories = schemaName.split('.').join('/');
+  const root = split.slice(2, split.length-1).join('/');
+  const subDirectories = schemaName.split('.');
+  const pathToDefinition = subDirectories.join('/');
 
-  return root + '/' + directories + `${isEnum ? '' : '.d'}.ts`;
+  let basePath = root;
+  const entries: Set<string> = directories.get(basePath) || new Set<string>();
+  entries.add(subDirectories[0]);
+  directories.set(basePath, entries);
+  for (let i = 0; i < subDirectories.length - 1; i++) {
+    const folder = subDirectories[i];
+    const next = subDirectories[i+1];
+    basePath += ('/' + folder);
+    const entries: Set<string> = directories.get(basePath) || new Set<string>();
+    entries.add(next);
+    directories.set(basePath, entries);
+  }
+
+  return root + '/' + pathToDefinition + `.js`
 }
 
 function findReachableComponents(
@@ -174,4 +189,8 @@ function addDefinitionsFromComponent(
 
 function isMobileManifestEntity(def: string, doc: OpenAPIObject) {
   return getRef(doc, def)!['x-mobile-manifest-name']! !== undefined;
+}
+
+export function commentHyperReference(def: string) {
+  return `@see {@link https://bungie-net.github.io/${def}}`;
 }

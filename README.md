@@ -2,10 +2,8 @@ This is a work in progress Node wrapper for the Bungie API, specifically the in-
 
 Example usage
 ```javascript
-import * as dotenv from 'dotenv'
-import * as Destiny from '../index.js'
-
-dotenv.config();
+const Destiny = require('oodestiny');
+require('dotenv').config();
 
 /**
  * for back-end applications, these values should be retrieved from environmental variables
@@ -44,15 +42,6 @@ console.log({tokens});
 const client = new Destiny.Client();
 
 // authenticates the client with a users tokens
-client.login(tokens, false, () => {
-    // callbacks are optional if you prefer them over promises
-    console.log('Logged in as ' + client.user.bungieName);
-    console.log(client.user);
-    client.destinyProfiles.fetch(client.user).then(profile => {
-        console.log({updated_profile: profile})
-    });
-})
-    // Client#stop() deletes all the objects attached to the client in memory
-    .then(client.stop)
-    .catch(console.error)
+client.login(tokens);
+client.destroy();
 ```

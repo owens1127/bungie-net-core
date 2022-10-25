@@ -12,7 +12,7 @@ export interface DefInfo {
 export function resolveSchemaType(
   schema: SchemaObject | ReferenceObject,
   doc: OpenAPIObject,
-  importFiles?: { [filename: string]: Set<string> },
+  importFiles?: Set<string>,
   componentByDef?: { [def: string]: DefInfo }
 
 ): string {
@@ -20,12 +20,6 @@ export function resolveSchemaType(
     return typeName(schema.$ref, doc);
   } else if (schema['x-enum-reference']) {
     const ref = schema['x-enum-reference'].$ref
-    if (importFiles !== undefined &&
-        componentByDef !== undefined) {
-      importFiles[componentByDef[ref].filename] = importFiles[componentByDef[ref].filename] || new Set();
-      importFiles[componentByDef[ref].filename].add(componentByDef[ref].typeName);
-    }
-
     return typeName(ref, doc);
   } else {
     return typeMapping(schema, doc, importFiles, componentByDef);
@@ -35,7 +29,7 @@ export function resolveSchemaType(
 export function typeMapping(
     schema: SchemaObject,
     doc: OpenAPIObject,
-    importFiles?: { [filename: string]: Set<string> },
+    importFiles?: Set<string>,
     componentByDef?: { [def: string]: DefInfo }
 ): string {
   switch (schema.type) {
@@ -46,7 +40,7 @@ export function typeMapping(
       return schema.format === 'int64' ? 'string' : 'number';
 
     case 'array':
-      return resolveSchemaType(schema.items!, doc) + '[]';
+      return resolveSchemaType(schema.items!, doc, importFiles) + '[]';
     case 'object':
       if (schema.allOf) {
         return resolveSchemaType(schema.allOf[0], doc);
@@ -58,8 +52,7 @@ export function typeMapping(
         const keySchema: SchemaObject | ReferenceObject = schema['x-dictionary-key'];
         const key = isReferenceObject(keySchema) ? 'number' : resolveSchemaType(keySchema, doc, importFiles, componentByDef);
         const val = resolveSchemaType(schema.additionalProperties, doc);
-        const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
-        return `{ [${keyExp}]: ${val} }`;
+        return `Object.key<${key}, ${val}>`;
       }
   }
 
@@ -113,25 +106,15 @@ export function typeName(componentPath: string, doc: OpenAPIObject) {
     return 'any';
   }
 
-  const singleResponse = name.match(/SingleComponentResponseOf(.*)/);
-  if (singleResponse) {
-    return `SingleComponentResponse<${singleResponse[1]}>`;
-  }
-
-  const dictionaryResponse = name.match(/DictionaryComponentResponseOfu?int(?:64|32)And(.*)/);
-  if (dictionaryResponse) {
-    return `DictionaryComponentResponse<${dictionaryResponse[1]}>`;
-  }
-
-  if (componentPath.includes('/responses/')) {
-    const property = component.properties!.Response;
-    if (property) {
-      const paramType = resolveSchemaType(property, doc);
-      return `ServerResponse<${paramType}>`;
-    }
-  }
-
+  // if (componentPath.includes('/responses/')) {
+  //   const property = component.properties!.Response;
+  //   if (property) {
+  //     const paramType = resolveSchemaType(property, doc);
+  //     return `ServerResponse<${paramType}>`;
+  //   }
+  // }
   return name;
+
 }
 
 export function isRequestBodyObject(

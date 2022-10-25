@@ -1,25 +1,26 @@
-This is a work in progress Node wrapper for the Bungie API, specifically the in-game Destiny 2 functionality. It is currently a work in progress and not ready for release.
+This is a work in progress Node wrapper for the Bungie API using commonJS.
 
-Example usage
+# Installation
+```shell
+npm i oodestiny
+```
+# Example Usage
 ```javascript
-const Destiny = require("oodestiny");
+const OODestiny = require("oodestiny");
 require("dotenv").config();
 
-/**
- * for back-end applications, these values should be retrieved from environmental variables
- * for front-end applications, these values could be retrieved in a number of different ways
- */
-Destiny.configure({
+// configure the library
+OODestiny.configure({
     BUNGIE_API_KEY: process.env.BUNGIE_API_KEY,
     BUNGIE_CLIENT_ID: process.env.BUNGIE_CLIENT_ID,
     BUNGIE_SECRET: process.env.BUNGIE_SECRET
 })
 
 // you should use something more secure/complex, this is an example
-const state = (Math.random() * 323582).toString();
+const state = (Math.random() * 999).toString();
 
 // creates a url for users to click on to login with OAuth 2.0
-const url = Destiny.generateOAuthURL({
+const url = OODestiny.generateOAuthURL({
     redirectURL: 'google.com',
     state
 });
@@ -35,15 +36,12 @@ const code = urlObj.searchParams.get('code')
 // const tokens = await Schemas.getAccessTokenFromCode(code)
 
 // if you have a stored refresh token, you can do this instead
-const tokens = await Destiny.tokens.getAccessTokenFromRefreshToken(process.env.BUNGIE_NEWO_REFRESH)
+const tokens = await OODestiny.Tokens.getAccessTokenFromRefreshToken(process.env.BUNGIE_NEWO_REFRESH)
 console.log({tokens});
 
 // creates a new client
-const client = new Destiny.Client();
+const client = new OODestiny.Client();
 
 // authenticates the client with a users tokens
-// TODO
-client.login(tokens);
-// Client#stop() deletes all the objects attached to the client in memory
-client.stop();
+client.login(tokens.access_token.value);
 ```

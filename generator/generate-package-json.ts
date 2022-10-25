@@ -1,4 +1,5 @@
-import packageJson from './package.json';
+// @ts-ignore
+import packageJson from '../package.json';
 import { writeOutFile } from './generate-common.js';
 
 /**
@@ -11,15 +12,14 @@ export function generatePackageJson() {
   const newPackageJson = {
     ...packageJson,
     main: './index.js',
-    types: './index.d.ts',
-    module: './index.js',
+    type: 'commonjs',
     scripts: {},
     dependencies: {},
     devDependencies: {},
   };
 
   writeOutFile(
-    'generated-src/package.json.notyet',
+    'lib/package.json',
     JSON.stringify(newPackageJson, undefined, '  ')
   );
 }

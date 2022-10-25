@@ -46,8 +46,8 @@ function generateOAuthURL(options) {
 }
 
 module.exports = {
-    Client: require("./client"),
-    Tokens: require("./tokens"),
+    Client: require('./client.js'),
+    Tokens: require('./tokens'),
     generateOAuthURL,
     configure,
 }

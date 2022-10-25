@@ -1,54 +1,33 @@
 import {OpenAPIObject} from 'openapi3-ts';
 import {generateHeader, writeOutFile} from './generate-common.js';
 import {DefInfo} from './util.js';
+import _ from "underscore";
+import exp from "constants";
 
 export function generateIndices(
-    componentsByFile: { [p: string]: DefInfo[] },
     componentsByTag: { [p: string]: DefInfo[] },
-    generics: string[],
+    directoryExportsMap: Map<string, Set<string>>,
     doc: OpenAPIObject) {
-    generateSchemaIndex(componentsByFile, doc);
+    generateSchemaIndices(directoryExportsMap, doc);
     generateEndpointsIndex(componentsByTag, doc);
-    generateGenericIndex(generics, doc);
-    generateSuperIndex(doc);
 }
 
-function generateSchemaIndex(
-    componentsByFile: { [p: string]: DefInfo[] },
+function generateSchemaIndices(
+    directoryExportsMap: Map<string, Set<string>>,
     doc: OpenAPIObject) {
 
-    const filename = `generated-src/schemas/index.ts`;
+    directoryExportsMap.forEach((exports, filePath) => {
+        const filename = 'lib/' + filePath + '/index.js';
 
-    const schemaExports = Object.keys(componentsByFile).map(file => {
-        const typesOnly: boolean = file.endsWith('.d.ts')
-        return `export ${typesOnly ? 'type ' : ''}{ ${componentsByFile[file].map(component => {
-            return component.typeName
-        }).join(', ')} } from \'./${file.slice(8, typesOnly ? -5 : -3)}\';`;
-    }).join('\n');
+        const exportLines = [];
+        for (const exportName of exports) {
+            exportLines.push(`exports.${exportName} = require('./${exportName}');`);
+        }
+        const exportHeader = exportLines.join('\n');
 
-    const otherExports =`export type { SingleComponentResponse } from '../generics';
-export type { DictionaryComponentResponse } from '../generics'`;
-
-
-    const definition = [generateHeader(doc),schemaExports,otherExports].join('\n\n') + '\n';
-
-    writeOutFile(filename, definition);
-}
-
-function generateGenericIndex(
-    generics: string[],
-    doc: OpenAPIObject) {
-
-    const filename = `generated-src/generics/index.ts`;
-
-    const exports = generics.map(name => {
-        return `export * from \'./${name}\';`;
-    }).join('\n');
-
-
-    const definition = [generateHeader(doc),exports].join('\n\n') + '\n';
-
-    writeOutFile(filename, definition);
+        const definition = [generateHeader(doc),exportHeader].join('\n\n') + '\n';
+        writeOutFile(filename, definition);
+    })
 }
 
 function generateEndpointsIndex(
@@ -66,26 +45,6 @@ export type { ServerResponse } from '../generics'`;
 
 
     const definition = [generateHeader(doc),endpointExports,otherExports].join('\n\n') + '\n';
-
-    writeOutFile(filename, definition);
-}
-
-function generateSuperIndex(doc: OpenAPIObject) {
-
-    const filename = `generated-src/index.ts`;
-
-    const schemas = `export * as Schemas from './schemas'`
-
-    const endpoints = `export * as Endpoints from './endpoints'`
-
-    const manifestExport = `export * as Manifest from './manifest';`
-
-
-    const definition = [
-        generateHeader(doc),
-        schemas,
-        manifestExport,
-        endpoints].join('\n');
 
     writeOutFile(filename, definition);
 }
