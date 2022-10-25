@@ -8,7 +8,6 @@ import { writeOutFile } from './generate-common.js';
  */
 export function generatePackageJson() {
 
-  // clear out dependencies
   const newPackageJson = {
     ...packageJson,
     main: './index.js',
@@ -16,6 +15,7 @@ export function generatePackageJson() {
     scripts: {},
     dependencies: {},
     devDependencies: {},
+    homepage: "https://github.com/owensimpson/OODestiny/tree/master/lib",
   };
 
   writeOutFile(
