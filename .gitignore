@@ -3,6 +3,5 @@
 .gitmodules
 node_modules
 build
-lib_old
 .idea
 api-src
