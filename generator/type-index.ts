@@ -61,11 +61,7 @@ export function computeTypeMaps(
     componentByDef[info.def] = info;
   }
 
-  // console.log(directoryExportsMap)
-
-  return { manifestComponents, directoryExportsMap,
-    // TODO
-    componentsByFile, componentsByTag, componentByDef,  };
+  return { manifestComponents, directoryExportsMap, componentsByFile, componentsByTag, componentByDef};
 }
 
 function addFile(def: string, directories: Map<string, Set<string>>) {

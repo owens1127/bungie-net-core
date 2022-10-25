@@ -128,9 +128,10 @@ function generateTypeSchema(
       docComment(component.description, [typeTag, ...parameterArgs, hyperRef]) :
       docComment('', [typeTag, ...parameterArgs, hyperRef]));
   return `${docString}
-module.exports = class ${defInfo.typeName} {
+class ${defInfo.typeName} {
 ${indent(classFields.join('\n'), 1)}
-}`
+}
+module.exports = ${defInfo.typeName};`
 }
 
 

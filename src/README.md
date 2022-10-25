@@ -6,21 +6,21 @@ npm i oodestiny
 ```
 # Example Usage
 ```javascript
-const OODestiny = require("oodestiny");
+const { configure, generateOAuthURL, Tokens, Client } = require("oodestiny");
 require("dotenv").config();
 
 // configure the library
-OODestiny.configure({
-    BUNGIE_API_KEY: process.env.BUNGIE_API_KEY,
-    BUNGIE_CLIENT_ID: process.env.BUNGIE_CLIENT_ID,
-    BUNGIE_SECRET: process.env.BUNGIE_SECRET
-})
+configure(
+    process.env.BUNGIE_API_KEY, 
+    process.env.BUNGIE_CLIENT_ID, 
+    process.env.BUNGIE_SECRET
+);
 
 // you should use something more secure/complex, this is an example
 const state = (Math.random() * 999).toString();
 
 // creates a url for users to click on to login with OAuth 2.0
-const url = OODestiny.generateOAuthURL({
+const url = generateOAuthURL({
     redirectURL: 'google.com',
     state
 });
@@ -30,17 +30,18 @@ console.log({url});
 const urlObj = new URL(url);
 if (urlObj.searchParams.get('state') !== state) throw Error();
 
-const code = urlObj.searchParams.get('code')
+const code = urlObj.searchParams.get('code');
 
 // one way to get the tokens is with an oauth code, you'll need to do this the first time
-// const tokens = await Schemas.getAccessTokenFromCode(code)
-
-// if you have a stored refresh token, you can do this instead
-const tokens = await OODestiny.Tokens.getAccessTokenFromRefreshToken(process.env.BUNGIE_NEWO_REFRESH)
+const tokens = await Tokens.getAccessTokenFromAuthCode(code);
 console.log({tokens});
 
+// if you have a stored refresh token, you can do this instead
+const tokens2 = await Tokens.getAccessTokenFromRefreshToken(tokens.refresh_token.value);
+console.log({tokens2});
+
 // creates a new client
-const client = new OODestiny.Client();
+const client = new Client();
 
 // authenticates the client with a users tokens
 client.login(tokens.access_token.value);

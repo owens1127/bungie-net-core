@@ -3,39 +3,48 @@ import { OpenAPIObject } from 'openapi3-ts';
 import fetch from 'node-fetch';
 import { writeOutFile } from './generate-common.js';
 
-const httpClientType = `import { HttpClient } from '../http';`;
+const manifestMetadataPromise = manifestMetaResponse(false);
 
-const manifestMetadataPromise = (async () => {
+// @ts-ignore
+async function manifestMetaResponse(retry: boolean) {
   try {
     let manifestMeta = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
-      (res) => res.json()
+        (res) => res.json()
     );
+    if (manifestMeta.Response == undefined) {
+      if (retry) {
+        console.error(new Error('Failed to download Manifest'));
+        process.exit(1);
+      }
+      // try again
+      return await manifestMetaResponse(true);
+    }
     return manifestMeta.Response;
   } catch (e) {
     console.error(e);
     process.exit(1);
   }
-})();
+
+}
 
 export async function generateManifestUtils(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
   const fromFile = componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename;
-  const manifestStructure = await generateManifestDefinitions(components, fromFile);
+  const manifestStructure = await generateManifestDefinitions(components, componentByDef, fromFile);
 
-  const filename = `generated-src/manifest/index.ts`;
+  const filename = `lib/manifest/index.js`;
 
   const definition =
-    [generateManifestHeader(doc), httpClientType, manifestStructure, manifestUtilDefinitions].join(
+    [generateManifestHeader(doc), manifestStructure, manifestUtilDefinitions].join(
       '\n\n'
     ) + '\n';
 
   writeOutFile(filename, definition);
 }
 
-async function generateManifestDefinitions(components: DefInfo[], fromFile: string) {
+async function generateManifestDefinitions(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, fromFile: string) {
   let manifestMetadata = await manifestMetadataPromise;
 
   // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
-
   const jsonKeys = Object.keys(manifestMetadata.jsonWorldComponentContentPaths.en)
   // exclude some tables from the definitionmanifest table because we don't have the format for them
   const defsToInclude = components.filter(
@@ -44,18 +53,20 @@ async function generateManifestDefinitions(components: DefInfo[], fromFile: stri
 
   const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
 
-  return `import { DestinyManifest,
-${defsToInclude.map(def => `${def.typeName}`).join(',\n')} } from '../schemas';
+  return `const DestinyManifest = require('../${componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename}');
+${defsToInclude.map(def => `const ${def.typeName} = require('../${def.filename}');`).join('\n')}
 
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,
  * but also just what we use here to dole out single-table, typed definitions
  */
-export type AllDestinyManifestComponents = {
+class AllDestinyManifestComponents {
 ${defsToInclude
   .map((manifestComponent) => `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`)
-  .join('')}}
+  .join('')}
+}
+exports.AllDestinyManifestComponents = AllDestinyManifestComponents;
 
 /**
  * languages the manifest comes in, as their required keys to download them
@@ -87,14 +98,6 @@ function generateManifestHeader(doc: OpenAPIObject): string {
 }
 
 const manifestUtilDefinitions = `
-// thoughts:
-// this relies on the assumption that the separate
-// manifest pieces offered in jsonWorldComponentContentPaths,
-// will all be present in the big manifest at jsonWorldContentPaths.
-
-// this has been the case so far, but there aren't
-// strict spec standards for how the manifest will be available
-
 export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
 
 export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName[]>> = Pick<

@@ -9,7 +9,6 @@ export function generateIndices(
     directoryExportsMap: Map<string, Set<string>>,
     doc: OpenAPIObject) {
     generateSchemaIndices(directoryExportsMap, doc);
-    generateEndpointsIndex(componentsByTag, doc);
 }
 
 function generateSchemaIndices(
@@ -28,23 +27,4 @@ function generateSchemaIndices(
         const definition = [generateHeader(doc),exportHeader].join('\n\n') + '\n';
         writeOutFile(filename, definition);
     })
-}
-
-function generateEndpointsIndex(
-    componentsByTag: { [p: string]: DefInfo[] },
-    doc: OpenAPIObject) {
-
-    const filename = `generated-src/endpoints/index.ts`;
-
-    const endpointExports = Object.keys(componentsByTag).map(tag => {
-        return `export * as ${tag} from \'./${tag}\';`
-    }).join('\n');
-
-    const otherExports =`export type { HttpClientConfig, HttpClient } from '../http';
-export type { ServerResponse } from '../generics'`;
-
-
-    const definition = [generateHeader(doc),endpointExports,otherExports].join('\n\n') + '\n';
-
-    writeOutFile(filename, definition);
 }

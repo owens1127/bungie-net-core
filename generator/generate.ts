@@ -9,7 +9,7 @@ import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
 import { DefInfo } from './util.js';
 
 import { generateIndices } from './generate-indices.js';
-import { generateTypeDefinition } from './generate-types.js';
+import { generateTypeDefinition } from './generate-classes.js';
 import { generateManifestUtils } from './generate-manifest.js';
 import { generateServiceDefinition } from './generate-endpoints.js';
 import { generatePackageJson } from './generate-package-json.js';
@@ -43,17 +43,13 @@ import {generateClient} from "./generate-client.js";
     generateTypeDefinition(file, component, doc, componentByDef);
   });
 
-  // TODO
   await generateManifestUtils(manifestComponents, componentByDef, doc);
 
-  // TODO
   _.each(pathPairsByTag, (paths, tag) => {
     generateServiceDefinition(tag, paths, doc, componentByDef);
   });
 
-  // done
   generateIndices(componentsByTag, directoryExportsMap, doc);
 
-  // TODO make sure pack.json is how I want it to be
   generatePackageJson();
 })();
