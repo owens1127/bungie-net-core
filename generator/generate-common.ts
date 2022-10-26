@@ -29,7 +29,12 @@ export function docComment(text: string, params?: string[]) {
       .map((l) => l.replace(/(.{1,80}(?:\W|$))/g, '$1\n').split('\n'))
   ).map((s: string) => s.trim());
   lines.pop();
-  if (params) lines.push(...params)
+  if (params) {
+    params.forEach((p) => p.trim().split('\n').filter((s: string) => s.length > 0).forEach((l) => {
+      lines.push(l);
+    }))
+  }
+
 
   if (lines.length === 1) {
     return `/** ${lines} */`;

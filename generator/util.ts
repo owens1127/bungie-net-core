@@ -106,13 +106,6 @@ export function typeName(componentPath: string, doc: OpenAPIObject) {
     return 'any';
   }
 
-  // if (componentPath.includes('/responses/')) {
-  //   const property = component.properties!.Response;
-  //   if (property) {
-  //     const paramType = resolveSchemaType(property, doc);
-  //     return `ServerResponse<${paramType}>`;
-  //   }
-  // }
   return name;
 
 }
