@@ -1,7 +1,7 @@
 import { DefInfo } from './util';
 import { OpenAPIObject } from 'openapi3-ts';
 import fetch from 'node-fetch';
-import { docComment, writeOutFile } from './generate-common.js';
+import { docComment, indent, writeOutFile } from './generate-common.js';
 
 const manifestMetadataPromise = manifestMetaResponse(false);
 
@@ -33,15 +33,8 @@ export async function generateManifestUtils(components: DefInfo[], componentByDe
 
 
   await generateIndex(components, componentByDef, doc);
+  generateManifestFunctions();
 
-  // const filename = `lib/manifest/index.js`;
-  //
-  // const definition =
-  //   [generateManifestHeader(doc), manifestStructure, manifestUtilDefinitions].join(
-  //     '\n\n'
-  //   ) + '\n';
-  //
-  // writeOutFile(filename, definition);
 }
 
 async function generateIndex(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
@@ -55,28 +48,34 @@ async function generateIndex(components: DefInfo[], componentByDef: { [def: stri
       (def) => jsonKeys.includes(def.typeName)
   );
 
-  const imports = `const DestinyManifest = require('../${componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename}');
-${defsToInclude.map(def => `const ${def.typeName} = require('../${def.filename}');`).join('\n')}`
+  const inlineImports = new Map<string,string>();
+  const imports: string[] = [];
+  defsToInclude.forEach(def => {
+    imports.push(`const ${def.typeName} = require('../${def.filename}');`);
+    inlineImports.set(def.typeName, `import('../${def.filename}')`);
+  })
 
-  const hashDef = docComment('Represents the look-up key for the manifest', ["@typedef {number} Hash"]);
+  const componentTypes = generateComponentTypes(defsToInclude, inlineImports);
 
-  const allComponentInfo = "this describes a big object holding several tables of hash-keyedDestinyDefinitions. This is roughly what you get if you decode the gigantic, single-json manifest blob, but also just what we use here to dole out single-table, typed definitions"
-  const allComponentParams = defsToInclude.map((manifestComponent) => `@property {Object.<Hash, ${manifestComponent.typeName}>} ${manifestComponent.typeName}s`);
-  const allComponents = docComment(allComponentInfo, ["@typedef AllDestinyManifestComponents", ...allComponentParams]);
-  const componentName = docComment('', [`@typedef {${defsToInclude.map(d => {return `'${d.typeName}'`}).join(' | ')}} DestinyManifestComponentName`]);
+  const tables = `const TABLES = {\n${indent(defsToInclude.map((def) => {
+    return def.typeName
+  }).join(',\n'), 1)}\n}
+exports.TABLES = TABLES`;
 
   const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
 
-  const languages = `const destinyManifestLanguages = {
+  const languages = `const LANGUAGES = {
 ${languageList.map((l) => `  '${l}': '${l}',`).join('\n')}
 };
-exports.DestinyManifestLanguages = destinyManifestLanguages;
+exports.LANGUAGES = LANGUAGES;
 
 ${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' | ')}} DestinyManifestLanguage`])}
 `;
-
+  const exports = ['GetAllDestinyManifestComponents', 'GetDestinyManifestComponent', 'GetDestinyManifestSlice'].map((f) => {
+    return `exports.${f} = require('lib/manifest/${f}.js');`
+  }).join('\n');
   const definition =
-      [generateManifestHeader(doc), imports, hashDef, allComponents, componentName, languages].join(
+      [generateManifestHeader(doc), imports.join('\n'), hashDef(), componentTypes, tables, languages, exports].join(
           '\n\n'
       );
 
@@ -85,85 +84,68 @@ ${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' |
 
 }
 
+function generateComponentTypes(defsToInclude: DefInfo[], imports: Map<string, string>) {
+  const allComponentInfo = "this describes a big object holding several tables of hash-keyedDestinyDefinitions. This is roughly what you get if you decode the gigantic, single-json manifest blob, but also just what we use here to dole out single-table, typed definitions"
+  const allComponentParams = defsToInclude.map((manifestComponent) => `@property {{[key: Hash]: ${imports.get(manifestComponent.typeName)}}} ${manifestComponent.typeName}s`);
+  const allComponents = docComment(allComponentInfo, ["@typedef AllDestinyManifestComponents", ...allComponentParams]);
+  const destinyManifestComponents = docComment('', [`@typedef {${defsToInclude.map(d => {return `AllDestinyManifestComponents.${d.typeName}s`}).join(' | ')}} DestinyManifestComponents`]);
+  const slice = docComment('', [`@typedef {DestinyManifestComponents[]} DestinyManifestComponentSlice`]);
+  return [allComponents, destinyManifestComponents, slice].join('\n\n');
+}
+
 function generateManifestHeader(doc: OpenAPIObject): string {
   const { info } = doc;
   return `/**
- * these helper functions and definitions are based off the structure of DestinyManifest
+ * These definitions and helper fucntions are based off the structure of DestinyManifest
  * in the bungie.net API spec, but are not explicity defined endpoints in the spec.
- *
- * they were last hand-checked for OpenAPI spec version 2.8.0,
- * and have been automatically tested for the latest OpenAPI spec version ${info.version}.
- * if there are typing issues with them, please let us know at the below repo.
- *
- * NOTE: This class is auto generated by the bungie-api-typedef code generator program,
- * adapted from <@link https://github.com/DestinyItemManager/bungie-api-ts>
- * Repository: <@link https://github.com/owensimpson/bungie-api-typedef>
- * Do not edit these files manually.
  */`;
 }
 
-const manifestUtilDefinitions = `
-export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
+function generateManifestFunctions() {
+  const importStatement = `const http = require('../rate-limiter')`
+  generateGetAllDestinyManifestComponents(importStatement);
+  generateGetDestinyManifestComponent(importStatement);
+  generateGetDestinyManifestSlice();
 
-export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName[]>> = Pick<
-  AllDestinyManifestComponents,
-  K[number]
->;
-
-/**
- * given a STRING table name, returns that TYPE, so that you can write a function like:
- * func<K extends DestinyManifestComponentName>(arg0:K):DestinyDefinitionFrom<K>{...}
- * i.e.
- * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
- */
-export type DestinyDefinitionFrom<
-  K extends DestinyManifestComponentName
-> = AllDestinyManifestComponents[K][number];
-
-export type GetAllDestinyManifestComponentsParams = {
-  destinyManifest: DestinyManifest;
-  language: DestinyManifestLanguage;
 }
-/** fetches the enormous combined JSON manifest file */
-export function getAllDestinyManifestComponents(
-  http: HttpClient,
-  params: GetAllDestinyManifestComponentsParams
-): Promise<AllDestinyManifestComponents> {
+
+function generateGetAllDestinyManifestComponents(importStatement: string) {
+  const filename = `lib/manifest/GetAllDestinyManifestComponents.js`;
+
+  const comment = docComment('fetches the enormous combined JSON manifest file', [
+    `@param {DestinyManifest} destinyManifest`,
+    `@param {DestinyManifestLanguage?}`,
+    `@returns Promise<AllDestinyManifestComponents>`
+  ]);
+  const body = `async function getAllDestinyManifestComponents(destinyManifest, language) {
   return http({
     method: 'GET',
-    url: 'https://www.bungie.net'+params.destinyManifest.jsonWorldContentPaths[params.language],
+    url: 'https://www.bungie.net'+destinyManifest.jsonWorldContentPaths[language],
   });
 }
+module.exports = getAllDestinyManifestComponents;`
 
-export type GetDestinyManifestComponentParams<T extends DestinyManifestComponentName> = {
-  destinyManifest: DestinyManifest;
-  tableName: T;
-  language: DestinyManifestLanguage;
+  const definition = [importStatement, hashDef(), comment, body].join('\n');
+  writeOutFile(filename, definition);
 }
-/**
- * this fetches and returns a single table (Component) from the d2 manifest
- * i.e. DestinyInventoryItemDefinition / DestinyObjectiveDefinition /
- * DestinyVendorDefinition / DestinySeasonDefinition / etc.
- *
- * due to typescript limitations, the table name needs to be recognized by
- * typescript as a const (not mutable between inception and going into the function),
- * so that it considers it a table name and not just a string.
- *
- * this is easy with a string, since
- *
- * \`const x = 'thing';\` is type \`'thing'\`, not type \`string\`,
- *
- * but make sure it's not a \`let x =\` or a dynamically set string.
- */
- export async function getDestinyManifestComponent<T extends DestinyManifestComponentName>(
-  http: HttpClient,
-  params: GetDestinyManifestComponentParams<T>
-): Promise<AllDestinyManifestComponents[T]> {
+
+function generateGetDestinyManifestComponent(importStatement: string) {
+  const filename = `lib/manifest/GetDestinyManifestComponent.js`;
+  const comment = docComment(`this fetches and returns a single table (Component) from the d2 manifest i.e. DestinyInventoryItemDefinition / DestinyObjectiveDefinition / DestinyVendorDefinition / DestinySeasonDefinition / etc.`,
+      [
+          `@template Component`,
+          `@param {DestinyManifest} destinyManifest`,
+          `@param {Component} table The table to access. Import the TABLES enum to help.`,
+          `@param {DestinyManifestLanguage} language`,
+          `@return {Promise<{[key: Hash]: Component}>}`
+  ])
+  const body = `async function getDestinyManifestComponent(destinyManifest, table, language)  {
+  ${docComment('', ['@type FetchConfig'])}
   const r = {
-    method: 'GET' as const,
+    method: 'GET',
     url:
-      'https://www.bungie.net' +
-      params.destinyManifest.jsonWorldComponentContentPaths[params.language][params.tableName],
+        'https://www.bungie.net' +
+        destinyManifest.jsonWorldComponentContentPaths[language][table.name || table],
   };
   try {
     return await http(r);
@@ -176,50 +158,40 @@ export type GetDestinyManifestComponentParams<T extends DestinyManifestComponent
     }
   }
 }
-
-export type GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> = {
-  destinyManifest: DestinyManifest;
-  tableNames: T;
-  language: DestinyManifestLanguage;
+module.exports = getDestinyManifestComponent;`
+  const definition = [importStatement, hashDef(), comment, body].join('\n\n');
+  writeOutFile(filename, definition);
 }
-/**
- * this returns a similar structure to getAllDestinyManifestComponents (the big manifest json)
- * but only specific components within. it bundles multiple single tables requests,
- * into a single properly typed object with keys named after manifest components
- *
- * i.e. \`{ DestinyInventoryItemDefinition: etc...,
- * DestinyObjectiveDefinition: etc... }\`
- *
- * due to typescript limitations, the array of tableNames needs to be recognized by
- * typescript as readonly (not mutable between inception and going into the function),
- * so that it considers them table names and not just strings.
- *
- * like \`['DestinyInventoryItemDefinition' as const]\`
- *
- * or maybe \`['DestinyInventoryItemDefinition'] as const\`
- *
- * or just feed in into the function hardcoded like
- *
- * \`function(['DestinyInventoryItemDefinition'])\`
- */
-export async function getDestinyManifestSlice<T extends DestinyManifestComponentName[]>(
-  http: HttpClient,
-  params: GetDestinyManifestSliceParams<T>
-): Promise<DestinyManifestSlice<T>> {
+
+function generateGetDestinyManifestSlice() {
+  const importStatement = `const getDestinyManifestComponent = require('./GetDestinyManifestComponent');`
+  const filename = `lib/manifest/GetDestinyManifestSlice.js`;
+  const comment = docComment(`this returns a similar structure to getAllDestinyManifestComponents (the big manifest json) but only specific components within. it bundles multiple single tables requests, into a single properly typed object with keys named after manifest components`,
+      [
+        `@template Components`,
+        `@param {DestinyManifest} destinyManifest`,
+        `@param {Components} tables The tables to access. Import the TABLES enum to help.`,
+        `@param {DestinyManifestLanguage} language`,
+        `@return {Promise<AllDestinyManifestComponents>}`
+      ])
+  const body = `async function getDestinyManifestSlice(destinyManifest, tables, language) {
   const downloadedTables = await Promise.all(
-    params.tableNames.map(async (tableName) => {
-      const tableContent = await getDestinyManifestComponent(http, {
-        destinyManifest: params.destinyManifest,
-        tableName,
-        language: params.language,
-      });
-      return { tableName, tableContent };
+    tables.map(async (table) => {
+      const tableContent = await getDestinyManifestComponent(destinyManifest, table.name || table, language);
+      return { tableName: table.name || table, tableContent };
     })
   );
-  const manifestSlice = {} as AllDestinyManifestComponents;
+  const manifestSlice = {};
   for (const downloadedTable of downloadedTables) {
-    manifestSlice[downloadedTable.tableName] = downloadedTable.tableContent as any;
+    manifestSlice[downloadedTable.tableName] = downloadedTable.tableContent;
   }
-  return manifestSlice as DestinyManifestSlice<T>;
+  return manifestSlice;
 }
-`;
+module.exports = getDestinyManifestSlice;`;
+  const definition = [importStatement, hashDef(), comment, body].join('\n\n');
+  writeOutFile(filename, definition);
+}
+
+function hashDef(): string {
+  return docComment('Represents the look-up key for the manifest', ["@typedef {number} Hash"]);
+}

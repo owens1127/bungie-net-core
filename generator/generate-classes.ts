@@ -10,8 +10,9 @@ import {
 import {commentHyperReference} from "./type-index.js";
 
 /**
- * Some properties aren't marked as nullable in the openapi docs, but they are frequently null in practice and cause trouble.
- * Adding a property to this list forces it to be emitted as nullable.
+ * Some properties aren't marked as nullable in the openapi docs, but they are
+ * frequently null in practice and cause trouble. Adding a property to this
+ * list forces it to be emitted as nullable.
  */
 const frequentlyNullProperties = ['itemCategoryHashes'];
 
@@ -91,8 +92,7 @@ function generateTypeSchema(
   componentByDef: { [def: string]: DefInfo },
   importFiles: Set<string>
 ) {
-  const classFields: string[] = [];
-  const parameterArgs = _.map(component.properties!, (schema: SchemaObject, param) => {
+  const classFields = _.map(component.properties!, (schema: SchemaObject, param) => {
 
     const paramType = resolveSchemaType(schema, doc, importFiles, componentByDef);
 
@@ -116,17 +116,14 @@ function generateTypeSchema(
         schema.description?.toLowerCase().includes('null')
             ? '?'
             : '';
-    const readOnly = docComment('', ['@readonly'])
-    classFields.push(`${readOnly}\n${param};`)
-    return `@property {${paramType}${optional}} ${param} ${docs.join(' ')}`
+    const comment = docComment(docs.join(' '), ['@readonly', `@type ${paramType}${optional}`])
+    return `${comment}\n${param};`
   });
 
   const hyperRef = commentHyperReference(defInfo.def)
   const typeTag = `@type ${defInfo.typeName}`
 
-  const docString = (component.description ?
-      docComment(component.description, [typeTag, ...parameterArgs, hyperRef]) :
-      docComment('', [typeTag, ...parameterArgs, hyperRef]));
+  const docString = docComment(component.description! ? component.description : '', [typeTag, hyperRef])
   return `${docString}
 class ${defInfo.typeName} {
 ${indent(classFields.join('\n'), 1)}
