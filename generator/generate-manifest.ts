@@ -29,12 +29,8 @@ async function manifestMetaResponse(retry: boolean) {
 }
 
 export async function generateManifestUtils(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
-  const fromFile = componentByDef['#/components/schemas/Destiny.Config.DestinyManifest'].filename;
-
-
   await generateIndex(components, componentByDef, doc);
   generateManifestFunctions();
-
 }
 
 async function generateIndex(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
@@ -72,7 +68,7 @@ exports.LANGUAGES = LANGUAGES;
 ${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' | ')}} DestinyManifestLanguage`])}
 `;
   const exports = ['GetAllDestinyManifestComponents', 'GetDestinyManifestComponent', 'GetDestinyManifestSlice'].map((f) => {
-    return `exports.${f} = require('lib/manifest/${f}.js');`
+    return `exports.${f} = require('./${f}.js');`
   }).join('\n');
   const definition =
       [generateManifestHeader(doc), imports.join('\n'), hashDef(), componentTypes, tables, languages, exports].join(
@@ -94,7 +90,6 @@ function generateComponentTypes(defsToInclude: DefInfo[], imports: Map<string, s
 }
 
 function generateManifestHeader(doc: OpenAPIObject): string {
-  const { info } = doc;
   return `/**
  * These definitions and helper fucntions are based off the structure of DestinyManifest
  * in the bungie.net API spec, but are not explicity defined endpoints in the spec.
