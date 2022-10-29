@@ -8,8 +8,8 @@ const fetch = require('node-fetch-commonjs');
  * @typedef {Object} Token
  * @property {string} value
  * @property {'access' | 'refresh'} type
- * @property {Date} created
- * @property {Date} expires
+ * @property {number} created
+ * @property {number} expires
  */
 
 /**
@@ -92,14 +92,14 @@ function handleTokenResponse(response) {
             value: response.access_token,
             type: 'access',
             created,
-            expires: new Date(Date.now() + (response.expires_in * 1000)),
+            expires: Date.now() + (response.expires_in * 1000),
         };
         /** @type Token */
         const refresh_token = {
             value: response.refresh_token,
             type: 'refresh',
             created,
-            expires: new Date(Date.now() + (response.refresh_expires_in * 1000)),
+            expires: Date.now() + (response.refresh_expires_in * 1000),
         };
 
         return {
