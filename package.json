@@ -1,6 +1,6 @@
 {
   "name": "oodestiny",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "An easy way to interact with the Bungie.net API",
   "keywords": [
     "Destiny 2",
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "sh ./build.sh",
-    "publish": "cd lib/ && npm publish",
+    "publish": "sh ./publish.sh",
     "create-submodule": "git submodule add https://github.com/Bungie-net/api api-src",
     "update-spec": "git submodule update --remote --merge"
   },

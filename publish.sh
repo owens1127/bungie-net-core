@@ -1,17 +1,17 @@
 #!/bin/sh -ex
 
-# Prepare the library folder
-rm -rf ./lib
-mkdir -p lib
+# read package.json
+PACKAGE_VERSION=$(cat package.json \
+  | grep version \
+  | head -1 \
+  | awk -F: '{ print $2 }' \
+  | sed 's/[",]//g')
 
-# Compile the generator into ./build
-tsc -p tsconfig.json
+# commit to repo
+git add --all
+git commit -m "Release $PACKAGE_VERSION"
 
-# Run the generator to produce js in ./lib
-node --experimental-json-modules ./build/generate.js
-
-# Copy files from ./src into ./lib
-cp -a src/. lib/
-
+# publish
+cd lib/ && npm publish
 
 
