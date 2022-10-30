@@ -1,6 +1,7 @@
 const NotConfiguredError = require('./errors/NotConfiguredError.js');
 const credentials = require('./credentials.js');
 const BungieAPIError = require('./errors/BungieAPIError.js');
+const fetch = require('node-fetch-commonjs');
 
 const DELAY = 100;
 let _lastCall = 0;
@@ -14,11 +15,10 @@ let _lastCall = 0;
  */
 
 /**
- *
- * @param {FetchConfig} config
  * @param {BungieNetTokens?} access_token
+ * @param {FetchConfig} config
  */
-function rateLimitedRequest(config, access_token) {
+function rateLimitedRequest(access_token, config) {
     if (!credentials.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const time = Date.now();
     let wait = 0;
