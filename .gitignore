@@ -5,3 +5,4 @@ node_modules
 build
 .idea
 api-src
+.DS_Store
