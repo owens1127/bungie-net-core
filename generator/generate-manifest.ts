@@ -1,6 +1,6 @@
 import { DefInfo } from './util';
 import { OpenAPIObject } from 'openapi3-ts';
-import fetch from 'node-fetch';
+import fetch from 'node-fetch-commonjs';
 import { docComment, indent, writeOutFile } from './generate-common.js';
 
 const manifestMetadataPromise = manifestMetaResponse(false);

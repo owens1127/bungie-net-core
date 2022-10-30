@@ -6,7 +6,7 @@ export function generateClient(tags: string[]) {
         return `@property ${tag}`
     });
     const comment = docComment('A client for interacting with the Bungie.net API', properties);
-    const client = `${comment}\nmodule.exports = class Client {
+    const client = `${comment}\nmodule.exports = class BungieClient {
     constructor(access_token) {
 ${indent(`if (access_token) this.login(access_token);\n` + 
         tags.map(tag => {return `this.${tag} = require('./endpoints/${tag}/index.js');`}).join('\n') + `
