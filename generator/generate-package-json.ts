@@ -14,7 +14,8 @@ export function generatePackageJson() {
     type: 'commonjs',
     scripts: {},
     dependencies: {
-      "node-fetch-commonjs": "^3.2.4"
+      "node-fetch-commonjs": "^3.2.4",
+      "jsdoc-typeof-plugin": "^1.0.0"
     },
     devDependencies: {},
     homepage: "https://github.com/owensimpson/OODestiny/tree/master/lib",

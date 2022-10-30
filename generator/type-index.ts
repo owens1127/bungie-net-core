@@ -78,7 +78,7 @@ function addFile(def: string, directories: Map<string, Set<string>>) {
   directories.set(basePath, entries);
   for (let i = 0; i < subDirectories.length - 1; i++) {
     const folder = subDirectories[i];
-    const next = subDirectories[i+1];
+    let next = subDirectories[i+1];
     basePath += ('/' + folder);
     const entries: Set<string> = directories.get(basePath) || new Set<string>();
     entries.add(next);

@@ -2,10 +2,10 @@ import {docComment, indent, writeOutFile} from "./generate-common.js";
 
 export function generateClient(tags: string[]) {
 
-    const properties = tags.map((tag) => {
-        return `@property ${tag}`
-    });
-    const comment = docComment('A client for interacting with the Bungie.net API', properties);
+    // const properties = tags.map((tag) => {
+    //     return `@property ${tag}`
+    // });
+    const comment = docComment('A client for interacting with the Bungie.net API');
     const client = `${comment}\nmodule.exports = class BungieClient {
     constructor(access_token) {
 ${indent(`if (access_token) this.login(access_token);\n` + 

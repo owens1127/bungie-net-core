@@ -79,7 +79,7 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
 
   const docString = docs.length ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
 
-  return `${docString}exports.${defInfo.typeName} = Object.freeze({
+  return `${docString}module.exports = Object.freeze({
 ${indent(values, 1)}
 })`;
 }

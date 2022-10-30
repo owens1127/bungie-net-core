@@ -1,8 +1,6 @@
 import {OpenAPIObject} from 'openapi3-ts';
 import {generateHeader, writeOutFile} from './generate-common.js';
 import {DefInfo} from './util.js';
-import _ from "underscore";
-import exp from "constants";
 
 export function generateIndices(
     componentsByTag: { [p: string]: DefInfo[] },
