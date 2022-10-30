@@ -2,7 +2,8 @@
 
 
 
-publish {
+publish ()
+{
     # commit to repo
     git add --all
     git commit -m "Release $PACKAGE_VERSION"
