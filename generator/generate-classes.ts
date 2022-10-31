@@ -7,7 +7,7 @@ import {
   indent,
   writeOutFile,
 } from './generate-common.js';
-import {commentHyperReference} from "./type-index.js";
+import {seeDefHyperLink} from "./type-index.js";
 
 /**
  * Some properties aren't marked as nullable in the openapi docs, but they are
@@ -62,7 +62,7 @@ function generateComponentDefinition(
 }
 
 function generateEnum(defInfo: DefInfo, component: SchemaObject) {
-  const values = component['x-enum-values']
+  const fields = component['x-enum-values']
     .map((value: SchemaObject) => {
       const doc = value.description ? docComment(value.description) + '\n' : '';
       return `${doc}${value.identifier}: ${value.numericValue}`;
@@ -75,12 +75,18 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
       `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
     );
   }
-  const hyperRef = commentHyperReference(defInfo.def)
+  const enums = component['x-enum-values'].map((value: SchemaObject) => {
+    return defInfo.typeName + '.' + value.identifier;
+  })
+  const hyperRef = seeDefHyperLink(defInfo.def)
 
-  const docString = docs.length ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
+  const typeDef = docComment('', [`@typedef {number | ${enums.join(' | ')}}` + defInfo.typeName, hyperRef]) + `\n`
+  const type = '@type ' + defInfo.typeName;
 
-  return `${docString}module.exports = Object.freeze({
-${indent(values, 1)}
+  const docString = docs.length ? docComment(docs.join('\n'), [type, hyperRef]) + '\n' : '';
+
+  return `${typeDef}${docString}module.exports = Object.freeze({
+${indent(fields, 1)}
 })`;
 }
 
@@ -120,7 +126,7 @@ function generateTypeSchema(
     return `${comment}\n${param};`
   });
 
-  const hyperRef = commentHyperReference(defInfo.def)
+  const hyperRef = seeDefHyperLink(defInfo.def)
   const typeTag = `@type ${defInfo.typeName}`
 
   const docString = docComment(component.description! ? component.description : '', [typeTag, hyperRef])

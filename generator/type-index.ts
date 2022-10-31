@@ -187,6 +187,6 @@ function isMobileManifestEntity(def: string, doc: OpenAPIObject) {
   return getRef(doc, def)!['x-mobile-manifest-name']! !== undefined;
 }
 
-export function commentHyperReference(def: string) {
+export function seeDefHyperLink(def: string) {
   return `@see {@link https://bungie-net.github.io/${def}}`;
 }

@@ -14,7 +14,7 @@ import {
     writeOutFile,
 } from './generate-common.js';
 import _ from "underscore";
-import {commentHyperReference} from "./type-index.js";
+import {seeDefHyperLink} from "./type-index.js";
 
 export function generateServiceDefinition(
     tag: string,
@@ -59,7 +59,7 @@ function generatePathDefinition(
     const method = pathDef.get ? 'GET' : 'POST';
     const methodDef = pathDef.get || pathDef.post!;
     const params = (methodDef.parameters || []) as ParameterObject[];
-    const hyperRef = commentHyperReference('#' + pathDef.summary);
+    const hyperRef = seeDefHyperLink('#' + pathDef.summary);
 
     const queryParameterNames = params
         .filter((param) => param.in === 'query')
