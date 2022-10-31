@@ -52,7 +52,7 @@ export function typeMapping(
         const keySchema: SchemaObject | ReferenceObject = schema['x-dictionary-key'];
         const key = isReferenceObject(keySchema) ? 'number' : resolveSchemaType(keySchema, doc, importFiles, componentByDef);
         const val = resolveSchemaType(schema.additionalProperties, doc);
-        return `Object.key<${key}, ${val}>`;
+        return `{{[key: ${key}]: ${val}}}`;
       }
   }
 

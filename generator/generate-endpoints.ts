@@ -132,7 +132,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
     return `${imports}\n${typeDefinition}${docComment(methodDef.description!, 
         [`${withParams?`@param {${typeName}Params} params`:''}`, 
-            `@returns ${returnValue}`, 
+            `@returns Promise<${returnValue}>`, 
             `@this import(../../index).Client`,
             hyperRef])}
 module.exports = async function ${functionName}(${withParams?'params':''}) {

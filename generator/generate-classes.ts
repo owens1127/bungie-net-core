@@ -127,14 +127,13 @@ function generateTypeSchema(
   });
 
   const hyperRef = seeDefHyperLink(defInfo.def)
-  const typeTag = `@type ${defInfo.typeName}`
+  const typeTag = `@type {typeof ${defInfo.typeName}}`
 
   const docString = docComment(component.description! ? component.description : '', [typeTag, hyperRef])
   return `${docString}
-class ${defInfo.typeName} {
+module.exports = class ${defInfo.typeName} {
 ${indent(classFields.join('\n'), 1)}
-}
-module.exports = ${defInfo.typeName};`
+}`
 }
 
 

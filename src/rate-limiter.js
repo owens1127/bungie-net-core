@@ -45,12 +45,6 @@ function rateLimitedRequest(access_token, config) {
                 init.headers['Authorization'] = access_token;
             }
             resolve(fetch(url, init).then((response) => {
-                console.log({
-                    method: config.method,
-                    url,
-                    status: response.status,
-                    response_time: Date.now() - start
-                })
                 return response.json();
             })
                 .then((res) => {

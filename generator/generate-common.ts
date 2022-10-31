@@ -18,7 +18,8 @@ export function generateHeader(doc: OpenAPIObject): string {
  * adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
- */`;
+ */
+//`;
 }
 
 export function docComment(text: string, params?: string[]) {
