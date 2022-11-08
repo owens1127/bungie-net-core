@@ -97,7 +97,7 @@ function generateManifestHeader(doc: OpenAPIObject): string {
 }
 
 function generateManifestFunctions() {
-  const importStatement = `const http = require('../rate-limiter')`
+  const importStatement = `const http = require('../rate-limiter').manifestRequest;`
   generateGetAllDestinyManifestComponents(importStatement);
   generateGetDestinyManifestComponent(importStatement);
   generateGetDestinyManifestSlice();
@@ -109,7 +109,7 @@ function generateGetAllDestinyManifestComponents(importStatement: string) {
 
   const comment = docComment('fetches the enormous combined JSON manifest file', [
     `@param {DestinyManifest} destinyManifest`,
-    `@param {DestinyManifestLanguage?}`,
+    `@param {DestinyManifestLanguage?} language`,
     `@returns Promise<AllDestinyManifestComponents>`
   ]);
   const body = `async function getAllDestinyManifestComponents(destinyManifest, language) {

@@ -39,7 +39,6 @@ export function computeTypeMaps(
         tags.push(tag);
       }
     });
-    // const isEnum = getRef(doc, def)?.enum !== undefined
     const info: DefInfo = {
       def,
       tags,
@@ -47,18 +46,20 @@ export function computeTypeMaps(
       typeName: typeName(def, doc),
     };
 
-    if (isMobileManifestEntity(def, doc)) {
-      manifestComponents.push(info);
+    if (info.filename) {
+      if (isMobileManifestEntity(def, doc)) {
+        manifestComponents.push(info);
+      }
+
+      componentsByFile.set(info.filename, info);
+
+      info.tags.forEach(tag => {
+        componentsByTag[tag] = componentsByTag[tag] || [];
+        componentsByTag[tag].push(info);
+      })
+
+      componentByDef[info.def] = info;
     }
-
-    componentsByFile.set(info.filename, info);
-
-    info.tags.forEach(tag => {
-      componentsByTag[tag] = componentsByTag[tag] || [];
-      componentsByTag[tag].push(info);
-    })
-
-    componentByDef[info.def] = info;
   }
 
   return { manifestComponents, directoryExportsMap, componentsByFile, componentsByTag, componentByDef};
@@ -67,6 +68,7 @@ export function computeTypeMaps(
 function addFile(def: string, directories: Map<string, Set<string>>) {
 
   const split = def.split('/');
+  if (split[2] === 'responses') return '';
   const schemaName: string = _.last(split)!;
   const root = split.slice(2, split.length-1).join('/');
   const subDirectories = schemaName.split('.');

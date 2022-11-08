@@ -1,6 +1,6 @@
 {
   "name": "oodestiny",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "An easy way to interact with the Bungie.net API",
   "keywords": [
     "Destiny 2",
@@ -34,5 +34,8 @@
     "openapi3-ts": "^2.0.2",
     "typescript": "4.5.2",
     "underscore": "1.13.6"
+  },
+  "dependencies": {
+    "npm": "^8.19.3"
   }
 }

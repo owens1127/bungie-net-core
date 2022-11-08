@@ -1,5 +1,7 @@
 #!/bin/sh -ex
 
+npm run build
+
 publish ()
 {
     # commit to repo

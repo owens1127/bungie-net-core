@@ -1,5 +1,5 @@
 import {
-    DefInfo,
+    DefInfo, importType,
     isReferenceObject,
     isRequestBodyObject,
     lastPart,
@@ -45,6 +45,7 @@ function generatePathDefinition(
     doc: OpenAPIObject,
     componentByDef: { [def: string]: DefInfo }
 ): string {
+    const importFiles = new Map<string,string>();
     let server = doc.servers![0].url;
     // per https://github.com/Bungie-net/api/issues/853
     // strict condition, so no surprises if doc.servers changes
@@ -78,7 +79,7 @@ function generatePathDefinition(
         if (isRequestBodyObject(methodDef.requestBody)) {
             const schema = methodDef.requestBody.content['application/json'].schema!;
 
-            const paramType = resolveSchemaType(schema, doc);
+            const paramType = resolveSchemaType(schema, doc, importFiles);
             // addImport(doc, schema, componentByDef, importFiles);
             const docString = methodDef.requestBody.description
                 ? docComment(methodDef.requestBody.description) + '\n'
@@ -100,7 +101,7 @@ function generatePathDefinition(
     if (queryParameterNames.length) {
         const paramInitializers = queryParameterNames.map((p) => {
             const param = params.find((pa) => pa.name === p)!;
-            const paramType = resolveSchemaType(param.schema!, doc);
+            const paramType = resolveSchemaType(param.schema!, doc, importFiles);
 
             if (paramType.endsWith('[]')) {
                 if (!param.required) {
@@ -124,7 +125,14 @@ ${indent(paramInitializers.join(',\n'), 3)}
     body`;
     }
 
-    const returnValue = resolveSchemaType(methodDef.responses['200'], doc);
+    // TODO import
+    const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
+    // const importFile = importFiles.get(returnValue) || importFiles.get(returnValue.replace('[]', ''));
+    // let paramDef = returnValue;
+    // console.log(file)
+    // if (file) {
+    //     // paramDef = importType(file, componentByDef[typeName]);
+    // }
 
     const rateLimitedFunction = 'rateLimitedRequest'
     const imports = `const { ${rateLimitedFunction} } = require('../../rate-limiter.js');`
@@ -132,7 +140,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
     return `${imports}\n${typeDefinition}${docComment(methodDef.description!, 
         [`${withParams?`@param {${typeName}Params} params`:''}`, 
-            `@returns Promise<${returnValue}>`, 
+            `@returns Promise<BungieNetResponse<${returnValue}>>`, 
             `@this import(../../index).Client`,
             hyperRef])}
 module.exports = async function ${functionName}(${withParams?'params':''}) {
@@ -151,13 +159,14 @@ function generateParamsTypedef(
     reference: string,
 ) {
     const parameterArgs = _.compact(params.map((param) => {
-        const paramType = resolveSchemaType(param.schema!, doc);
+        const importFiles = new Map<string, string>();
+        const paramType = resolveSchemaType(param.schema!, doc, importFiles);
         if (paramType) {
             const required =
                 param.required || (param.name === 'components' && paramType === 'DestinyComponentType[]')
                     ? ''
                     : '?'
-
+            // TODO imports
             return `@property {${paramType}${required}} ${param.name} ${param.description}`
         } else {
             return '';

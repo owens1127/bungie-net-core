@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import { DefInfo, getRef, resolveSchemaType } from './util.js';
+import {DefInfo, getRef, importType, resolveSchemaType} from './util.js';
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import {
   generateHeader,
@@ -8,6 +8,7 @@ import {
   writeOutFile,
 } from './generate-common.js';
 import {seeDefHyperLink} from "./type-index.js";
+import path from "path";
 
 /**
  * Some properties aren't marked as nullable in the openapi docs, but they are
@@ -23,7 +24,7 @@ export function generateTypeDefinition(
   componentByDef: { [def: string]: DefInfo }
 ) {
 
-  const importFiles = new Set<string>();
+  const importFiles = new Map<string, string>();
 
   const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles);
 
@@ -41,7 +42,7 @@ function generateComponentDefinition(
   defInfo: DefInfo,
   doc: OpenAPIObject,
   componentByDef: { [def: string]: DefInfo },
-  importFiles: Set<string>
+  importFiles: Map<string, string>
 ) {
   const component = getRef(doc, defInfo.def);
   if (!component) {
@@ -80,14 +81,15 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
   })
   const hyperRef = seeDefHyperLink(defInfo.def)
 
-  const typeDef = docComment('', [`@typedef {number | ${enums.join(' | ')}}` + defInfo.typeName, hyperRef]) + `\n`
+  const typeDef = docComment('', [`@typedef {number | ${enums.join(' | ')}} ` + defInfo.typeName, hyperRef]) + `\n`
   const type = '@type ' + defInfo.typeName;
 
   const docString = docs.length ? docComment(docs.join('\n'), [type, hyperRef]) + '\n' : '';
 
-  return `${typeDef}${docString}module.exports = Object.freeze({
+  return `${typeDef}${docString}const ${defInfo.typeName} = Object.freeze({
 ${indent(fields, 1)}
-})`;
+})
+module.exports = ${defInfo.typeName}`;
 }
 
 // produces the body of a type definition
@@ -96,12 +98,18 @@ function generateTypeSchema(
   component: SchemaObject,
   doc: OpenAPIObject,
   componentByDef: { [def: string]: DefInfo },
-  importFiles: Set<string>
+  importFiles: Map<string, string>
 ) {
   const classFields = _.map(component.properties!, (schema: SchemaObject, param) => {
 
-    const paramType = resolveSchemaType(schema, doc, importFiles, componentByDef);
-
+    let paramType = resolveSchemaType(schema, doc, importFiles, componentByDef);
+    const isArray = paramType.includes('[]');
+    const file = importFiles.get(paramType) || (isArray && importFiles.get(paramType.replace('[]', '')));
+    let paramDef = paramType;
+    if (file) {
+      const importStr = importType(file, defInfo);
+      paramDef = isArray ? importStr + '[]' : importStr;
+    }
     const docs = schema.description ? [schema.description] : [];
     if (schema['x-mapped-definition']) {
       docs.push(
@@ -116,13 +124,13 @@ function generateTypeSchema(
       );
     }
 
-    const optional =
-        schema.nullable ||
-        frequentlyNullProperties.includes(param) ||
-        schema.description?.toLowerCase().includes('null')
-            ? '?'
-            : '';
-    const comment = docComment(docs.join(' '), ['@readonly', `@type ${paramType}${optional}`])
+    // const optional =
+    //     schema.nullable ||
+    //     frequentlyNullProperties.includes(param) ||
+    //     schema.description?.toLowerCase().includes('null')
+    //         ? '?'
+    //         : '';
+    const comment = docComment(docs.join(' '), ['@readonly', `@type {${paramDef}}`])
     return `${comment}\n${param};`
   });
 

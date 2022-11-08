@@ -3,7 +3,7 @@
  */
 class BungieAPIError extends TypeError {
 
-    /** @param {ServerResponse<any>} response */
+    /** @param {ServerResponsed<any>} response */
     constructor(response) {
         super(response.Message);
         /** @type {string} */
