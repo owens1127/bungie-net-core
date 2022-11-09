@@ -5,12 +5,13 @@ npm run build
 publish ()
 {
     # commit to repo
-    git add --all
-    git commit -m "Release $PACKAGE_VERSION"
+    git add --all && git commit -m "Release $PACKAGE_VERSION"
 
     # publish
-    cd lib/
-    npm publish
+    cd lib/ && npm publish
+
+    # push
+    cd .. && git push
 }
 
 # read package.json
