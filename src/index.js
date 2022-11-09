@@ -11,7 +11,7 @@ const BungieClient = require("./client");
  * @see {@link https://www.bungie.net/en/Application} for more details
  */
 function configure(bungie_api_key, bungie_client_id, bungie_secret) {
-    if (!(bungie_api_key || bungie_client_id || bungie_secret)) {
+    if (!bungie_api_key || !bungie_client_id || !bungie_secret) {
         throw new TypeError('Must enter a valid API Key, Client Id, and Client Secret');
     }
     const credentials = require("./credentials");
@@ -47,7 +47,6 @@ module.exports = {
     Client: require('./client.js'),
     Tokens: require('./tokens'),
     Schema: require('./schemas'),
-    Responses: require('./responses'),
     Manifest: require('./manifest'),
     Endpoints: require('./endpoints'),
     generateOAuthURL,
