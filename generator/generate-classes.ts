@@ -133,7 +133,7 @@ function generateTypeSchema(
     //     schema.description?.toLowerCase().includes('null')
     //         ? '?'
     //         : '';
-    const comment = docComment(docs.join(' '), ['@readonly', `@type {${paramDef}}`])
+    const comment = docComment(docs.join(' '), ['@readonly', `@type ${paramDef}`])
     return `${comment}\n${param};`
   });
 
