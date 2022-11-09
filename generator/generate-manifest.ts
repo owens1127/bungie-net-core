@@ -71,7 +71,7 @@ ${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' |
     return `exports.${f} = require('./${f}.js');`
   }).join('\n');
   const definition =
-      [generateManifestHeader(doc), imports.join('\n'), hashDef(), componentTypes, tables, languages, exports].join(
+      [generateManifestHeader(doc), imports.join('\n'), componentTypes, tables, languages, exports].join(
           '\n\n'
       );
 
@@ -82,7 +82,7 @@ ${docComment('', [`@typedef {${languageList.map(l => {return `'${l}'`}).join(' |
 
 function generateComponentTypes(defsToInclude: DefInfo[], imports: Map<string, string>) {
   const allComponentInfo = "this describes a big object holding several tables of hash-keyedDestinyDefinitions. This is roughly what you get if you decode the gigantic, single-json manifest blob, but also just what we use here to dole out single-table, typed definitions"
-  const allComponentParams = defsToInclude.map((manifestComponent) => `@property {{[key: Hash]: ${imports.get(manifestComponent.typeName)}}} ${manifestComponent.typeName}s`);
+  const allComponentParams = defsToInclude.map((manifestComponent) => `@property {{[key: number | string]: ${imports.get(manifestComponent.typeName)}}} ${manifestComponent.typeName}s`);
   const allComponents = docComment(allComponentInfo, ["@typedef AllDestinyManifestComponents", ...allComponentParams]);
   const destinyManifestComponents = docComment('', [`@typedef {${defsToInclude.map(d => {return `AllDestinyManifestComponents.${d.typeName}s`}).join(' | ')}} DestinyManifestComponents`]);
   const slice = docComment('', [`@typedef {DestinyManifestComponents[]} DestinyManifestComponentSlice`]);
@@ -91,8 +91,8 @@ function generateComponentTypes(defsToInclude: DefInfo[], imports: Map<string, s
 
 function generateManifestHeader(doc: OpenAPIObject): string {
   return `/**
- * These definitions and helper fucntions are based off the structure of DestinyManifest
- * in the bungie.net API spec, but are not explicity defined endpoints in the spec.
+ * These definitions and helper functions are based off the structure of DestinyManifest
+ * in the bungie.net API spec, but are not explicitly defined endpoints in the spec.
  */`;
 }
 
@@ -120,7 +120,7 @@ function generateGetAllDestinyManifestComponents(importStatement: string) {
 }
 module.exports = getAllDestinyManifestComponents;`
 
-  const definition = [importStatement, hashDef(), comment, body].join('\n');
+  const definition = [importStatement, comment, body].join('\n');
   writeOutFile(filename, definition);
 }
 
@@ -132,7 +132,7 @@ function generateGetDestinyManifestComponent(importStatement: string) {
           `@param {DestinyManifest} destinyManifest`,
           `@param {Component} table The table to access. Import the TABLES enum to help.`,
           `@param {DestinyManifestLanguage} language`,
-          `@return {Promise<{[key: Hash]: Component}>}`
+          `@return {Promise<{[key: number | string]: Component}>}`
   ])
   const body = `async function getDestinyManifestComponent(destinyManifest, table, language)  {
   ${docComment('', ['@type FetchConfig'])}
@@ -154,7 +154,7 @@ function generateGetDestinyManifestComponent(importStatement: string) {
   }
 }
 module.exports = getDestinyManifestComponent;`
-  const definition = [importStatement, hashDef(), comment, body].join('\n\n');
+  const definition = [importStatement, comment, body].join('\n\n');
   writeOutFile(filename, definition);
 }
 
@@ -183,10 +183,6 @@ function generateGetDestinyManifestSlice() {
   return manifestSlice;
 }
 module.exports = getDestinyManifestSlice;`;
-  const definition = [importStatement, hashDef(), comment, body].join('\n\n');
+  const definition = [importStatement, comment, body].join('\n\n');
   writeOutFile(filename, definition);
-}
-
-function hashDef(): string {
-  return docComment('Represents the look-up key for the manifest', ["@typedef {number} Hash"]);
 }

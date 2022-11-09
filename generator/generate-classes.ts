@@ -21,12 +21,13 @@ export function generateTypeDefinition(
   file: string,
   component: DefInfo,
   doc: OpenAPIObject,
-  componentByDef: { [def: string]: DefInfo }
+  componentByDef: { [def: string]: DefInfo },
+  enumsByName: Set<string>
 ) {
 
   const importFiles = new Map<string, string>();
 
-  const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles);
+  const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles, enumsByName);
 
   const filename = `lib/${file}`;
 
@@ -42,7 +43,8 @@ function generateComponentDefinition(
   defInfo: DefInfo,
   doc: OpenAPIObject,
   componentByDef: { [def: string]: DefInfo },
-  importFiles: Map<string, string>
+  importFiles: Map<string, string>,
+  enumsByName: Set<string>
 ) {
   const component = getRef(doc, defInfo.def);
   if (!component) {
@@ -50,6 +52,7 @@ function generateComponentDefinition(
   }
 
   if (component.enum) {
+    enumsByName.add(defInfo.typeName + '.js');
     return generateEnum(defInfo, component);
   } else {
     return generateTypeSchema(

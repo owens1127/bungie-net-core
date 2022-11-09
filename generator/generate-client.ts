@@ -9,7 +9,7 @@ export function generateClient(tags: string[]) {
     const client = `${comment}\nmodule.exports = class BungieClient {
     constructor(access_token) {
 ${indent(`if (access_token) this.login(access_token);\n` + 
-        tags.map(tag => {return `this.${tag} = require('./endpoints/${tag}/index.js');`}).join('\n') + `
+        tags.map(tag => {return `this.${tag} = require('../endpoints/${tag}/index.js');`}).join('\n') + `
 // bind 'this' to all API endpoint functions
 for (const tag in this) {
     for (const property in this[tag]) {

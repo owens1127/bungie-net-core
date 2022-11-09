@@ -74,17 +74,20 @@ function addFile(def: string, directories: Map<string, Set<string>>) {
   const subDirectories = schemaName.split('.');
   const pathToDefinition = subDirectories.join('/');
 
+  // add .js to the end of the file
+  subDirectories[subDirectories.length-1] += '.js';
+
   let basePath = root;
-  const entries: Set<string> = directories.get(basePath) || new Set<string>();
+  const entries: Set<string> = directories.get(root) || new Set();
   entries.add(subDirectories[0]);
   directories.set(basePath, entries);
   for (let i = 0; i < subDirectories.length - 1; i++) {
     const folder = subDirectories[i];
     let next = subDirectories[i+1];
     basePath += ('/' + folder);
-    const entries: Set<string> = directories.get(basePath) || new Set<string>();
-    entries.add(next);
-    directories.set(basePath, entries);
+    const exportSet: Set<string> = directories.get(basePath) || new Set();
+    exportSet.add(next);
+    directories.set(basePath, exportSet);
   }
 
   return root + '/' + pathToDefinition + `.js`
