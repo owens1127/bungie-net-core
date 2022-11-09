@@ -9,9 +9,6 @@ publish ()
 
     # publish
     cd lib/ && npm publish
-
-    # push
-    cd .. && git push
 }
 
 # read package.json

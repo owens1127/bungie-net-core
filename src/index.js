@@ -1,6 +1,6 @@
-const {NotConfiguredError} = require("./errors/NotConfiguredError");
-const credentials = require("./util/credentials.js");
-const BungieClient = require("./client");
+const {NotConfiguredError} = require('./errors/NotConfiguredError');
+const credentials = require('./util/credentials.js');
+const BungieClient = require('./util/client');
 
 /**
  * Configures the program to your specified credentials.
@@ -14,7 +14,7 @@ function configure(bungie_api_key, bungie_client_id, bungie_secret) {
     if (!bungie_api_key || !bungie_client_id || !bungie_secret) {
         throw new TypeError('Must enter a valid API Key, Client Id, and Client Secret');
     }
-    const credentials = require("./util/credentials.js");
+    const credentials = require('./util/credentials.js');
     credentials.BUNGIE_API_KEY = bungie_api_key;
     credentials.BUNGIE_CLIENT_ID = bungie_client_id;
     credentials.BUNGIE_SECRET = bungie_secret;
@@ -37,7 +37,8 @@ function generateOAuthURL(options) {
     if (!credentials.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const stateString = options?.state ? `&state=${options.state}` : '';
     const redirectString = options?.redirectURL ? `&redirect_uri=${options.redirectURL}` : '';
-    return `https://www.bungie.net/en/OAuth/Authorize?client_id=${credentials.BUNGIE_CLIENT_ID}&response_type=code` + redirectString + stateString;
+    return `https://www.bungie.net/en/OAuth/Authorize?client_id=${credentials.BUNGIE_CLIENT_ID}&response_type=code`
+        + redirectString + stateString;
 }
 
 module.exports = {
@@ -50,5 +51,5 @@ module.exports = {
     Manifest: require('./manifest'),
     Endpoints: require('./endpoints'),
     generateOAuthURL,
-    configure,
+    configure
 }
