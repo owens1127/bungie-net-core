@@ -1,6 +1,6 @@
-const NotConfiguredError = require('./errors/NotConfiguredError.js');
+const NotConfiguredError = require('../errors/NotConfiguredError.js');
 const credentials = require('./credentials.js');
-const BungieAPIError = require('./errors/BungieAPIError.js');
+const BungieAPIError = require('../errors/BungieAPIError.js');
 const fetch = require('node-fetch-commonjs');
 
 const DELAY = 100;

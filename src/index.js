@@ -1,5 +1,5 @@
 const {NotConfiguredError} = require("./errors/NotConfiguredError");
-const credentials = require("./credentials");
+const credentials = require("./util/credentials.js");
 const BungieClient = require("./client");
 
 /**
@@ -14,7 +14,7 @@ function configure(bungie_api_key, bungie_client_id, bungie_secret) {
     if (!bungie_api_key || !bungie_client_id || !bungie_secret) {
         throw new TypeError('Must enter a valid API Key, Client Id, and Client Secret');
     }
-    const credentials = require("./credentials");
+    const credentials = require("./util/credentials.js");
     credentials.BUNGIE_API_KEY = bungie_api_key;
     credentials.BUNGIE_CLIENT_ID = bungie_client_id;
     credentials.BUNGIE_SECRET = bungie_secret;
@@ -44,8 +44,8 @@ module.exports = {
     /**
      * @type {typeof BungieClient}
      */
-    Client: require('./client.js'),
-    Tokens: require('./tokens'),
+    Client: require('./util/client.js'),
+    Tokens: require('./util/tokens.js'),
     Schema: require('./schemas'),
     Manifest: require('./manifest'),
     Endpoints: require('./endpoints'),

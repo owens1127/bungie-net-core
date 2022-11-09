@@ -135,12 +135,12 @@ ${indent(paramInitializers.join(',\n'), 3)}
     // }
 
     const rateLimitedFunction = 'rateLimitedRequest'
-    const imports = `const { ${rateLimitedFunction} } = require('../../rate-limiter.js');`
+    const imports = `const { ${rateLimitedFunction} } = require('../../util/rate-limiter.js');`
     const withParams = params.length > 0;
 
     return `${imports}\n${typeDefinition}${docComment(methodDef.description!, 
         [`${withParams?`@param {${typeName}Params} params`:''}`, 
-            `@returns Promise<BungieNetResponse<${returnValue}>>`, 
+            `@returns Promise<import('../../util/server-response.d').BungieNetResponse<${returnValue}>>`, 
             `@this import(../../index).Client`,
             hyperRef])}
 module.exports = async function ${functionName}(${withParams?'params':''}) {

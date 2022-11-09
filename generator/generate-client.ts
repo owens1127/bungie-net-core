@@ -32,5 +32,5 @@ for (const tag in this) {
     }
 }`
 
-    writeOutFile('lib/client.js', client)
+    writeOutFile('lib/util/client.js', client)
 }

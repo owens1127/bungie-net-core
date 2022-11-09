@@ -97,7 +97,7 @@ function generateManifestHeader(doc: OpenAPIObject): string {
 }
 
 function generateManifestFunctions() {
-  const importStatement = `const http = require('../rate-limiter').manifestRequest;`
+  const importStatement = `const http = require('../util/rate-limiter').manifestRequest;`
   generateGetAllDestinyManifestComponents(importStatement);
   generateGetDestinyManifestComponent(importStatement);
   generateGetDestinyManifestSlice();

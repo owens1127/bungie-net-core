@@ -1,4 +1,4 @@
-import { PlatformErrorCodes } from './schemas/Exceptions';
+import { PlatformErrorCodes } from '../schemas/Exceptions';
 
 /**
  * A general interface for a Bungie API response
