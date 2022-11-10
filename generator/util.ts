@@ -134,18 +134,19 @@ export function isReferenceObject(
     return (schema as ReferenceObject).$ref !== undefined;
 }
 
-export function importType(
+export function importPath(
     componentPath: string,
-    defInfo: DefInfo): string {
-    let absImportFrom = defInfo.def.replace(/\./g, '/');
+    importInto: string): string {
+    let absImportFrom = importInto.replace(/\./g, '/');
     let absImportTo = componentPath.replace(/\./g, '/');
     if (absImportTo === absImportFrom) {
-        return lastPart(defInfo.def);
+        return lastPart(importInto);
     }
     let relativePath = path.relative(path.dirname(absImportFrom), absImportTo);
     if (!relativePath.startsWith('.')) {
         relativePath = './' + relativePath;
     }
     if (path.sep === '\\') relativePath = relativePath.replace(/\\/g, '/');
-    return `import('${relativePath}')`
+    //console.log(absImportTo, absImportFrom, relativePath)
+    return relativePath;
 }

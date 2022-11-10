@@ -6,13 +6,16 @@ export function generateClient(tags: string[]) {
     //     return `@property ${tag}`
     // });
     const comment = docComment('A client for interacting with the Bungie.net API');
-    const client = `${comment}\nmodule.exports = class BungieClient {
-    constructor(access_token) {
-${indent(`if (access_token) this.login(access_token);\n` + 
-        tags.map(tag => {return `this.${tag} = require('../endpoints/${tag}/index.js');`}).join('\n') + `
+    const imports = tags.map(tag => {return `import * as ${tag} from '../endpoints/${tag}';`});
+    const client = `${imports.join('\n')}\n${comment}\nexport class BungieClient {
+${indent(tags.map(tag => {return `private ${tag};`}).join('\n') + '\npublic access_token?: string', 1)}
+   constructor(access_token?: string) {
+${indent(`this.access_token = access_token;\n` + 
+        tags.map(tag => {return `this.${tag} = ${tag}`}).join('\n') + `
 // bind 'this' to all API endpoint functions
 for (const tag in this) {
     for (const property in this[tag]) {
+        // @ts-ignore
         if (typeof this[tag][property] === 'function') this[tag][property] = this[tag][property].bind(this);
     }
 }`, 3)}
@@ -20,7 +23,7 @@ for (const tag in this) {
     /**
      * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
      */
-    login(access_token) {
+    login(access_token: string) {
         this.access_token = access_token;
     }
     
@@ -28,9 +31,9 @@ for (const tag in this) {
      * Log the Client out.
      */
     logout() {
-        this.access_token = null;
+        this.access_token = undefined;
     }
 }`
 
-    writeOutFile('lib/util/client.js', client)
+    writeOutFile('lib-ts/util/client.ts', client)
 }

@@ -10,11 +10,11 @@ export function generatePackageJson() {
 
   const newPackageJson = {
     ...packageJson,
-    main: './index.js',
-    type: 'commonjs',
+    main: './index.ts',
+    type: 'module',
     scripts: {},
     dependencies: {
-      "node-fetch-commonjs": "^3.2.4",
+      "node-fetch": "^3.2.10",
       "jsdoc-typeof-plugin": "^1.0.0"
     },
     devDependencies: {},
@@ -22,7 +22,7 @@ export function generatePackageJson() {
   };
 
   writeOutFile(
-    'lib/package.json',
+    'lib-ts/package.json',
     JSON.stringify(newPackageJson, undefined, '  ')
   );
 }

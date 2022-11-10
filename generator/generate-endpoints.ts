@@ -1,5 +1,5 @@
 import {
-    DefInfo, importType,
+    DefInfo, importPath,
     isReferenceObject,
     isRequestBodyObject,
     lastPart,
@@ -27,15 +27,15 @@ export function generateServiceDefinition(
         // @ts-ignore
         const file = (_.last(pathDef.summary.split('.')));
         exports.push(file!);
-        const filename = `lib/endpoints/${tag}/${file}.js`;
+        const filename = `lib-ts/endpoints/${tag}/${file}.ts`;
         const pathDefinition = generatePathDefinition(path, pathDef, doc, componentByDef);
         const definition = [generateHeader(doc), pathDefinition].join('\n\n') + '\n';
 
         writeOutFile(filename, definition);
     });
-    writeOutFile(`lib/endpoints/${tag}/index.js`,
+    writeOutFile(`lib-ts/endpoints/${tag}/index.ts`,
         exports.map((endpt) => {
-            return `exports.${endpt} = require('./${endpt}.js');`
+            return `exports.${endpt} = require('./${endpt}');`
         }).join('\n'));
 }
 
@@ -45,7 +45,10 @@ function generatePathDefinition(
     doc: OpenAPIObject,
     componentByDef: { [def: string]: DefInfo }
 ): string {
+    const hyperRef = seeDefHyperLink('#' + pathDef.summary);
     const importFiles = new Map<string,string>();
+
+
     let server = doc.servers![0].url;
     // per https://github.com/Bungie-net/api/issues/853
     // strict condition, so no surprises if doc.servers changes
@@ -54,25 +57,22 @@ function generatePathDefinition(
         path.includes('/Stats/PostGameCarnageReport/')
     )
         server = 'https://stats.bungie.net/Platform';
-    const typeName = lastPart(pathDef.summary!);
-    const functionName = lcFirst(typeName);
+    const interfaceName = lastPart(pathDef.summary!);
 
     const method = pathDef.get ? 'GET' : 'POST';
     const methodDef = pathDef.get || pathDef.post!;
     const params = (methodDef.parameters || []) as ParameterObject[];
-    const hyperRef = seeDefHyperLink('#' + pathDef.summary);
 
     const queryParameterNames = params
         .filter((param) => param.in === 'query')
         .map((param) => param.name);
 
-    const parameterArgs = [];
-    let typeDefinition = '';
+    const parameterArgs = ['this: BungieClient'];
+    let paramsTypeDefinition = '';
     if (params.length) {
-        typeDefinition =
-            generateParamsTypedef(typeName + 'Params', params, componentByDef, doc, hyperRef) +
+        paramsTypeDefinition = generateParamsType(interfaceName + 'Params', params, componentByDef, doc, hyperRef, importFiles) +
             '\n\n';
-        parameterArgs.push(`params: ${typeName}Params`);
+        parameterArgs.push(`params: ${interfaceName}Params`);
     }
 
     if (methodDef.requestBody) {
@@ -80,7 +80,6 @@ function generatePathDefinition(
             const schema = methodDef.requestBody.content['application/json'].schema!;
 
             const paramType = resolveSchemaType(schema, doc, importFiles);
-            // addImport(doc, schema, componentByDef, importFiles);
             const docString = methodDef.requestBody.description
                 ? docComment(methodDef.requestBody.description) + '\n'
                 : '';
@@ -125,25 +124,25 @@ ${indent(paramInitializers.join(',\n'), 3)}
     body`;
     }
 
-    // TODO import
-    const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
-    // const importFile = importFiles.get(returnValue) || importFiles.get(returnValue.replace('[]', ''));
-    // let paramDef = returnValue;
-    // console.log(file)
-    // if (file) {
-    //     // paramDef = importType(file, componentByDef[typeName]);
-    // }
-
     const rateLimitedFunction = 'rateLimitedRequest'
-    const imports = `const { ${rateLimitedFunction} } = require('../../util/rate-limiter.js');`
-    const withParams = params.length > 0;
+    const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter';`,
+        `import { BungieNetResponse } from '../../util/server-response';`,
+        `import { BungieClient } from '../../util/client';`]
+    const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
-    return `${imports}\n${typeDefinition}${docComment(methodDef.description!, 
-        [`${withParams?`@param {${typeName}Params} params`:''}`, 
-            `@returns Promise<import('../../util/server-response.d').BungieNetResponse<${returnValue}>>`, 
-            `@this import(../../index).Client`,
-            hyperRef])}
-module.exports = async function ${functionName}(${withParams?'params':''}) {
+    const headerImports: string[] = [];
+    console.log(importFiles)
+    for (const [key] of importFiles) {
+        headerImports.push(`import { ${key} } from '../../schemas'`)
+    }
+    const rateDoc =
+        methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&
+        `Wait at least ${methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser}s between actions.`;
+
+    return `${staticImports.join('\n')}\n${headerImports.join('\n')}\n${paramsTypeDefinition}${docComment(
+        methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [hyperRef]
+    )}
+export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${returnValue}>> {
   return ${rateLimitedFunction}(this.access_token, {
     method: '${method}',
     url: ${templatizedPath}${paramsObject}${requestBodyParam}
@@ -151,27 +150,25 @@ module.exports = async function ${functionName}(${withParams?'params':''}) {
 }`;
 }
 
-function generateParamsTypedef(
+function generateParamsType(
     typeName: string,
     params: ParameterObject[],
     componentByDef: { [def: string]: DefInfo },
     doc: OpenAPIObject,
     reference: string,
+    importFiles: Map<string, string>
 ) {
-    const parameterArgs = _.compact(params.map((param) => {
-        const importFiles = new Map<string, string>();
+    const parameterArgs = params.map((param) => {
         const paramType = resolveSchemaType(param.schema!, doc, importFiles);
-        if (paramType) {
-            const required =
-                param.required || (param.name === 'components' && paramType === 'DestinyComponentType[]')
-                    ? ''
-                    : '?'
-            // TODO imports
-            return `@property {${paramType}${required}} ${param.name} ${param.description}`
-        } else {
-            return '';
-        }
+        const docString = param.description ? docComment(param.description) + '\n' : '';
+        return `${docString}${param.name}${
+            param.required || (param.name === 'components' && paramType === 'DestinyComponentType[]')
+                ? ''
+                : '?'
+        }: ${paramType};`;
+    });
 
-    }));
-    return docComment('', [`@typedef ${typeName}`, ...parameterArgs, reference]);
+    return `${docComment('', [reference])}\nexport type ${typeName} = {
+${indent(parameterArgs.join('\n'), 1)}
+}`;
 }

@@ -3,6 +3,7 @@
 .gitmodules
 node_modules
 build
+lib-ts
 .idea
 api-src
 .DS_Store

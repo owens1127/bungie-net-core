@@ -35,13 +35,12 @@ import {generateClient} from "./generate-client.js";
   generateClient(Object.keys(pathPairsByTag));
 
 
-  const { componentsByFile, componentByDef, componentsByTag, manifestComponents, directoryExportsMap }
+  const { componentsByFile, componentByDef, componentsByTag, manifestComponents }
       = computeTypeMaps(pathPairsByTag, doc);
 
   // done
-  const enumsByName = new Set<string>();
   componentsByFile.forEach((component, file) => {
-    generateTypeDefinition(file, component, doc, componentByDef, enumsByName);
+    generateTypeDefinition(file, component, doc, componentByDef);
   });
 
   await generateManifestUtils(manifestComponents, componentByDef, doc);
@@ -50,7 +49,7 @@ import {generateClient} from "./generate-client.js";
     generateServiceDefinition(tag, paths, doc, componentByDef);
   });
 
-  generateIndices(componentsByTag, directoryExportsMap, doc, enumsByName);
+  generateIndices(componentsByTag, doc, componentsByFile);
 
   generatePackageJson();
 })();

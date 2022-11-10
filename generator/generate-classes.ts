@@ -1,5 +1,5 @@
 import _ from 'underscore';
-import {DefInfo, getRef, importType, resolveSchemaType} from './util.js';
+import {DefInfo, getRef, importPath, resolveSchemaType} from './util.js';
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import {
   generateHeader,
@@ -22,17 +22,22 @@ export function generateTypeDefinition(
   component: DefInfo,
   doc: OpenAPIObject,
   componentByDef: { [def: string]: DefInfo },
-  enumsByName: Set<string>
 ) {
 
   const importFiles = new Map<string, string>();
 
-  const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles, enumsByName);
+  const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles);
 
-  const filename = `lib/${file}`;
+  const imports: string[] = [];
+  for (const [name, path] of importFiles) {
+    imports.push(`import { ${name} } from '${importPath(path.replace('#/components', ''),
+        '/' + file.replace('.ts', ''))}'`);
+  }
+
+  const filename = `lib-ts/${file}`;
 
   const definition =
-    _.compact([generateHeader(doc), componentDefiniton]).join(
+    _.compact([generateHeader(doc), imports.join('\n'), componentDefiniton]).join(
       '\n\n'
     ) + '\n';
 
@@ -44,7 +49,6 @@ function generateComponentDefinition(
   doc: OpenAPIObject,
   componentByDef: { [def: string]: DefInfo },
   importFiles: Map<string, string>,
-  enumsByName: Set<string>
 ) {
   const component = getRef(doc, defInfo.def);
   if (!component) {
@@ -52,7 +56,6 @@ function generateComponentDefinition(
   }
 
   if (component.enum) {
-    enumsByName.add(defInfo.typeName + '.js');
     return generateEnum(defInfo, component);
   } else {
     return generateTypeSchema(
@@ -66,33 +69,26 @@ function generateComponentDefinition(
 }
 
 function generateEnum(defInfo: DefInfo, component: SchemaObject) {
-  const fields = component['x-enum-values']
-    .map((value: SchemaObject) => {
-      const doc = value.description ? docComment(value.description) + '\n' : '';
-      return `${doc}${value.identifier}: ${value.numericValue}`;
-    })
-    .join(',\n');
+  const hyperRef = seeDefHyperLink(defInfo.def)
+  const values = component['x-enum-values']
+      .map((value: SchemaObject) => {
+        const doc = value.description ? docComment(value.description) + '\n' : '';
+        return `${doc}${value.identifier} = ${value.numericValue}`;
+      })
+      .join(',\n');
 
   const docs = component.description ? [component.description] : [];
   if (component['x-enum-is-bitmask']) {
     docs.push(
-      `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
+        `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
     );
   }
-  const enums = component['x-enum-values'].map((value: SchemaObject) => {
-    return defInfo.typeName + '.' + value.identifier;
-  })
-  const hyperRef = seeDefHyperLink(defInfo.def)
 
-  const typeDef = docComment('', [`@typedef {number | ${enums.join(' | ')}} ` + defInfo.typeName, hyperRef]) + `\n`
-  const type = '@type ' + defInfo.typeName;
+  const docString = hyperRef ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
 
-  const docString = docs.length ? docComment(docs.join('\n'), [type, hyperRef]) + '\n' : '';
-
-  return `${typeDef}${docString}const ${defInfo.typeName} = Object.freeze({
-${indent(fields, 1)}
-})
-module.exports = ${defInfo.typeName}`;
+  return `${docString}export const enum ${defInfo.typeName} {
+${indent(values, 1)}
+}`;
 }
 
 // produces the body of a type definition
@@ -105,14 +101,7 @@ function generateTypeSchema(
 ) {
   const classFields = _.map(component.properties!, (schema: SchemaObject, param) => {
 
-    let paramType = resolveSchemaType(schema, doc, importFiles, componentByDef);
-    const isArray = paramType.includes('[]');
-    const file = importFiles.get(paramType) || (isArray && importFiles.get(paramType.replace('[]', '')));
-    let paramDef = paramType;
-    if (file) {
-      const importStr = importType(file, defInfo);
-      paramDef = isArray ? importStr + '[]' : importStr;
-    }
+    const paramDef = resolveSchemaType(schema, doc, importFiles, componentByDef);
     const docs = schema.description ? [schema.description] : [];
     if (schema['x-mapped-definition']) {
       docs.push(
@@ -126,25 +115,22 @@ function generateTypeSchema(
         `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
       );
     }
-
-    // const optional =
-    //     schema.nullable ||
-    //     frequentlyNullProperties.includes(param) ||
-    //     schema.description?.toLowerCase().includes('null')
-    //         ? '?'
-    //         : '';
-    const comment = docComment(docs.join(' '), ['@readonly', `@type ${paramDef}`])
-    return `${comment}\n${param};`
+    const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
+    return `${comment}readonly ${param}${
+        schema.nullable ||
+        frequentlyNullProperties.includes(param) ||
+        schema.description?.toLowerCase().includes('null')
+            ? '?'
+            : ''
+    }: ${paramDef};`;
   });
 
   const hyperRef = seeDefHyperLink(defInfo.def)
-  const typeTag = `@type {typeof ${defInfo.typeName}}`
 
-  const docString = docComment(component.description! ? component.description : '', [typeTag, hyperRef])
-  return `${docString}
-module.exports = class ${defInfo.typeName} {
+  const docString = component.description ? docComment(component.description, [hyperRef]) : docComment('', [hyperRef]);
+  return `${docString}\nexport class ${defInfo.typeName} {
 ${indent(classFields.join('\n'), 1)}
-}`
+}`;
 }
 
 

@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "rootDir": "./generator",
         "outDir": "./build/",
         "sourceMap": false,
         "strictNullChecks": true,
@@ -12,5 +11,8 @@
         "resolveJsonModule": true,
         "allowJs": true
     },
+    "exclude": [
+        "src"
+    ],
     "include": ["./generator/**/*"]
 }

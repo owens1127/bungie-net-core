@@ -1,47 +1,37 @@
 import {OpenAPIObject} from 'openapi3-ts';
 import {docComment, generateHeader, writeOutFile} from './generate-common.js';
 import {DefInfo, getRef} from './util.js';
+import exp from "constants";
 
 export function generateIndices(
     componentsByTag: { [p: string]: DefInfo[] },
-    directoryExportsMap: Map<string, Set<string>>,
     doc: OpenAPIObject,
-    enumsByName: Set<string>
+    componentsByFile: Map<string, DefInfo>
 ) {
-    generateSchemaIndices(directoryExportsMap, doc, enumsByName);
+    generateSchemaIndex(doc, componentsByFile);
     generateEndpointsSuperIndex(componentsByTag, doc);
 }
 
-function generateSchemaIndices(
-    directoryExportsMap: Map<string, Set<string>>,
+function generateSchemaIndex(
     doc: OpenAPIObject,
-    enumsByName: Set<string>) {
+    componentsByFile: Map<string, DefInfo>
+) {
+    const filename = 'lib-ts/schemas/index.ts';
 
-    directoryExportsMap.forEach((exports, filePath) => {
-        const filename = 'lib/' + filePath + '/index.js';
+    const exports: string[] = [];
+    for (const [component,def] of componentsByFile) {
+        exports.push(`export { ${def.typeName} } from '${component
+            .replace('schemas/', './')
+            .replace('.ts', '')}';`)
+    }
 
-        const exportLines = [];
-        for (const exp of exports) {
-            let name;
-            if (exp.endsWith('.js')) {
-                name = exp.substring(0, exp.length-3);
-                if (!enumsByName.has(exp)) exportLines.push(docComment('', [`@type ${name}`]));
-            }
-             else {
-                name = exp;
-            }
+    const definition = [generateHeader(doc),exports.join('\n')].join('\n\n') + '\n';
 
-            exportLines.push(`exports.${name} = require('./${name}');`);
-        }
-        const exportHeader = exportLines.join('\n');
-
-        const definition = [generateHeader(doc),exportHeader].join('\n\n') + '\n';
-        writeOutFile(filename, definition);
-    })
+    writeOutFile(filename, definition);
 }
 
 function generateEndpointsSuperIndex(componentsByTag: { [p: string]: DefInfo[] }, doc: OpenAPIObject) {
-    const filename = 'lib/endpoints/index.js';
+    const filename = 'lib-ts/endpoints/index.ts';
     const exportLines = [];
 
     for (const exportName of Object.keys(componentsByTag)) {

@@ -42,7 +42,7 @@ export function computeTypeMaps(
     const info: DefInfo = {
       def,
       tags,
-      filename: addFile(def, directoryExportsMap),
+      filename: addFile(def),
       typeName: typeName(def, doc),
     };
 
@@ -65,7 +65,7 @@ export function computeTypeMaps(
   return { manifestComponents, directoryExportsMap, componentsByFile, componentsByTag, componentByDef};
 }
 
-function addFile(def: string, directories: Map<string, Set<string>>) {
+function addFile(def: string) {
 
   const split = def.split('/');
   if (split[2] === 'responses') return '';
@@ -74,23 +74,7 @@ function addFile(def: string, directories: Map<string, Set<string>>) {
   const subDirectories = schemaName.split('.');
   const pathToDefinition = subDirectories.join('/');
 
-  // add .js to the end of the file
-  subDirectories[subDirectories.length-1] += '.js';
-
-  let basePath = root;
-  const entries: Set<string> = directories.get(root) || new Set();
-  entries.add(subDirectories[0]);
-  directories.set(basePath, entries);
-  for (let i = 0; i < subDirectories.length - 1; i++) {
-    const folder = subDirectories[i];
-    let next = subDirectories[i+1];
-    basePath += ('/' + folder);
-    const exportSet: Set<string> = directories.get(basePath) || new Set();
-    exportSet.add(next);
-    directories.set(basePath, exportSet);
-  }
-
-  return root + '/' + pathToDefinition + `.js`
+  return root + '/' + pathToDefinition + `.ts`
 }
 
 function findReachableComponents(
