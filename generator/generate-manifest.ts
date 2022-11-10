@@ -42,7 +42,7 @@ export async function generateManifestUtils(components: DefInfo[], componentByDe
   const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
 
   const body = `import {${defsToInclude.map((c) => `\n  ${c.typeName},`).join('')}
-} from './schemas';
+} from '../schemas';
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,
@@ -59,6 +59,22 @@ export const destinyManifestLanguages = [
 ${languageList.map((l) => `  '${l}',`).join('\n')}
 ] as const;
 export type DestinyManifestLanguage = typeof destinyManifestLanguages[number];
+export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
+
+export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName[]>> = Pick<
+  AllDestinyManifestComponents,
+  K[number]
+>;
+
+/**
+ * given a STRING table name, returns that TYPE, so that you can write a function like:
+ * func<K extends DestinyManifestComponentName>(arg0:K):DestinyDefinitionFrom<K>{...}
+ * i.e.
+ * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
+ */
+export type DestinyDefinitionFrom<
+  K extends DestinyManifestComponentName
+> = AllDestinyManifestComponents[K][number];
 `;
 
   writeOutFile(filename, [generateManifestHeader(doc), body].join('\n\n'));

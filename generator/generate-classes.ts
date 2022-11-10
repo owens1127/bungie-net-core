@@ -30,8 +30,11 @@ export function generateTypeDefinition(
 
   const imports: string[] = [];
   for (const [name, path] of importFiles) {
-    imports.push(`import { ${name} } from '${importPath(path.replace('#/components', ''),
-        '/' + file.replace('.ts', ''))}'`);
+    const importPathStr = importPath(path.replace('#/components', ''),
+        '/' + file.replace('.ts', ''));
+    if (importPathStr !== name) {
+      imports.push(`import { ${name} } from '${importPathStr}'`);
+    }
   }
 
   const filename = `lib-ts/${file}`;
@@ -128,7 +131,7 @@ function generateTypeSchema(
   const hyperRef = seeDefHyperLink(defInfo.def)
 
   const docString = component.description ? docComment(component.description, [hyperRef]) : docComment('', [hyperRef]);
-  return `${docString}\nexport class ${defInfo.typeName} {
+  return `${docString}\nexport interface ${defInfo.typeName} {
 ${indent(classFields.join('\n'), 1)}
 }`;
 }

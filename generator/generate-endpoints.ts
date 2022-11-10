@@ -35,7 +35,7 @@ export function generateServiceDefinition(
     });
     writeOutFile(`lib-ts/endpoints/${tag}/index.ts`,
         exports.map((endpt) => {
-            return `exports.${endpt} = require('./${endpt}');`
+            return `export { ${endpt} } from './${endpt}';`
         }).join('\n'));
 }
 
@@ -47,6 +47,7 @@ function generatePathDefinition(
 ): string {
     const hyperRef = seeDefHyperLink('#' + pathDef.summary);
     const importFiles = new Map<string,string>();
+    //console.log(pathDef)
 
 
     let server = doc.servers![0].url;
@@ -131,7 +132,6 @@ ${indent(paramInitializers.join(',\n'), 3)}
     const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
     const headerImports: string[] = [];
-    console.log(importFiles)
     for (const [key] of importFiles) {
         headerImports.push(`import { ${key} } from '../../schemas'`)
     }
@@ -142,7 +142,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
     return `${staticImports.join('\n')}\n${headerImports.join('\n')}\n${paramsTypeDefinition}${docComment(
         methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [hyperRef]
     )}
-export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${returnValue}>> {
+export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<${returnValue}> {
   return ${rateLimitedFunction}(this.access_token, {
     method: '${method}',
     url: ${templatizedPath}${paramsObject}${requestBodyParam}

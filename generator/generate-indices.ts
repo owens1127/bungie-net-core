@@ -35,7 +35,7 @@ function generateEndpointsSuperIndex(componentsByTag: { [p: string]: DefInfo[] }
     const exportLines = [];
 
     for (const exportName of Object.keys(componentsByTag)) {
-        exportLines.push(`exports.${exportName} = require('./${exportName}');`);
+        exportLines.push(`export * as ${exportName} from './${exportName}';`);
     }
     const exportHeader = exportLines.join('\n');
 

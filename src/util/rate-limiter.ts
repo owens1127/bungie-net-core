@@ -2,6 +2,7 @@ import { NotConfiguredError } from '../errors/NotConfiguredError';
 import { __credentials__ } from './credentials'
 import {BungieNetTokens} from "./tokens";
 import {BungieAPIError} from "../errors/BungieAPIError";
+import {BungieNetResponse} from "./server-response";
 
 const DELAY = 100;
 let _lastCall = 0;
@@ -17,11 +18,11 @@ let _lastCall = 0;
 export type FetchConfig = {
     url: string;
     method: string,
-    params: {[p: string]: string},
-    body: {},
+    params?: {},
+    body?: {},
 }
 
-export function rateLimitedRequest(access_token: BungieNetTokens, config: FetchConfig) {
+export function rateLimitedRequest(access_token: string | undefined, config: FetchConfig): Promise<BungieNetResponse<any>> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const time = Date.now();
     let wait = 0;
@@ -30,7 +31,8 @@ export function rateLimitedRequest(access_token: BungieNetTokens, config: FetchC
     }
     _lastCall = time + wait;
     const params = config.params ? Object.keys(config.params).map(key => {
-        return (config.params[key] !== undefined) ? key + '=' + config.params[key] : '';
+        // @ts-ignore
+        return (config.params && key in config.params) ? key + '=' + config.params[key] : '';
     }).join('&') : null;
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -60,7 +62,7 @@ export function rateLimitedRequest(access_token: BungieNetTokens, config: FetchC
         }, wait);
     });
 }
-export function manifestRequest(config: FetchConfig) {
+export function manifestRequest(config: FetchConfig): Promise<any> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const time = Date.now();
     let wait = 0;
@@ -69,7 +71,8 @@ export function manifestRequest(config: FetchConfig) {
     }
     _lastCall = time + wait;
     const params = config.params ? Object.keys(config.params).map(key => {
-        return (config.params[key] !== undefined) ? key + '=' + config.params[key] : '';
+        // @ts-ignore
+        return (config.params && key in config.params) ? key + '=' + config.params[key] : '';
     }).join('&') : null;
     return new Promise((resolve) => {
         setTimeout(() => {

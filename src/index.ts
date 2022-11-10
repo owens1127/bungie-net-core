@@ -3,11 +3,6 @@ import { __credentials__ } from './util/credentials'
 import { BungieClient } from './util/client';
 
 /**
- * Configures the program to your specified credentials.
- * @param {string} bungie_api_key
- * @param {string} bungie_client_id
- * @param {string} bungie_secret
- * @return {void}
  * @see {@link https://www.bungie.net/en/Application} for more details
  */
 export function configure(bungie_api_key: string, bungie_client_id: string, bungie_secret: string) {

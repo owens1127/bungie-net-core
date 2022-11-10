@@ -51,8 +51,9 @@ export function typeMapping(
             ) {
                 const keySchema: SchemaObject | ReferenceObject = schema['x-dictionary-key'];
                 const key = isReferenceObject(keySchema) ? 'number' : resolveSchemaType(keySchema, doc, importFiles, componentByDef);
-                const val = resolveSchemaType(schema.additionalProperties, doc, importFiles);
-                return `{{[key: ${key}]: ${val}}}`;
+                const val = resolveSchemaType(schema.additionalProperties, doc, importFiles, componentByDef);
+                const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
+                return `{ [${keyExp}]: ${val} }`;
             }
     }
 
@@ -60,6 +61,7 @@ export function typeMapping(
 }
 
 export function getReferencedTypes(schema: SchemaObject | ReferenceObject): string | undefined {
+    //console.log(schema)
     if (isReferenceObject(schema)) {
         return schema.$ref;
     } else if (schema['x-enum-reference']) {
@@ -112,9 +114,19 @@ export function typeName(componentPath: string, doc: OpenAPIObject) {
 export function typeNameImports(componentPath: string, doc: OpenAPIObject, importFiles: Map<string, string>) {
     const name = lastPart(componentPath);
     const component = getRef(doc, componentPath);
+
     if (!component) {
         return 'any';
     }
+
+    if (componentPath.includes('/responses/')) {
+        const property = component.properties!.Response;
+        if (property) {
+            const paramType = resolveSchemaType(property, doc, importFiles);
+            return `BungieNetResponse<${paramType}>`;
+        }
+    }
+
     if (name !== 'int64' && name !== 'int32' && name !== 'boolean') {
         importFiles.set(name, componentPath);
     }

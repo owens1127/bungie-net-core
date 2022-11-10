@@ -2,8 +2,7 @@ import {
     AllDestinyManifestComponents,
     DestinyManifestComponentName, DestinyManifestLanguage,
     DestinyManifestSlice, getDestinyManifestComponent,
-    GetDestinyManifestSliceParams
-} from "./manifest";
+} from "./index";
 import { manifestRequest as http } from '../util/rate-limiter';
 import { DestinyManifest } from "../schemas";
 
@@ -39,7 +38,7 @@ export async function getDestinyManifestSlice<T extends DestinyManifestComponent
 ): Promise<DestinyManifestSlice<T>> {
     const downloadedTables = await Promise.all(
         params.tableNames.map(async (tableName) => {
-            const tableContent = await getDestinyManifestComponent(http, {
+            const tableContent = await getDestinyManifestComponent({
                 destinyManifest: params.destinyManifest,
                 tableName,
                 language: params.language,

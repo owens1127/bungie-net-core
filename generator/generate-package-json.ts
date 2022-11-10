@@ -10,7 +10,8 @@ export function generatePackageJson() {
 
   const newPackageJson = {
     ...packageJson,
-    main: './index.ts',
+    main: "./index.js",
+    module: "./index.js",
     type: 'module',
     scripts: {},
     dependencies: {

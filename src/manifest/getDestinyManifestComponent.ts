@@ -3,7 +3,7 @@ import {
   AllDestinyManifestComponents,
   DestinyManifestComponentName,
   DestinyManifestLanguage
-} from "./manifest";
+} from "./index";
 import { DestinyManifest } from "../schemas";
 
 

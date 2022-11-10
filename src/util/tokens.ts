@@ -1,5 +1,5 @@
-const credentials = require("./credentials.ts");
-const TokenRequestError = require("../errors/TokenRequestError.js");
+const credentials = require("./credentials");
+const TokenRequestError = require("../errors/TokenRequestError");
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 const fetch = require('node-fetch');
 

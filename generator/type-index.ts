@@ -68,12 +68,13 @@ export function computeTypeMaps(
 function addFile(def: string) {
 
   const split = def.split('/');
-  if (split[2] === 'responses') return '';
+  if (split[2] === 'responses') split[2] = 'schemas';
   const schemaName: string = _.last(split)!;
   const root = split.slice(2, split.length-1).join('/');
   const subDirectories = schemaName.split('.');
   const pathToDefinition = subDirectories.join('/');
 
+  if (pathToDefinition === 'boolean' || pathToDefinition === 'int32' || pathToDefinition === 'int64') return '';
   return root + '/' + pathToDefinition + `.ts`
 }
 
