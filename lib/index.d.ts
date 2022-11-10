@@ -1,3 +1,6 @@
+import * as TokensImport from './util/tokens.js';
+import * as ManifestImport from './manifest';
+import * as SchemaImport from './schemas';
 /**
  * @see {@link https://www.bungie.net/en/Application} for more details
  */
@@ -15,6 +18,6 @@ declare type CreateAuthURLOptions = {
  */
 export declare function generateOAuthURL(options: CreateAuthURLOptions): string;
 export { BungieClient } from './util/client';
-export * as Tokens from './util/tokens.js';
-export * as Schema from './schemas';
-export * as Manifest from './manifest';
+export declare const Tokens: typeof TokensImport;
+export declare const Manifest: typeof ManifestImport;
+export declare const Schema: typeof SchemaImport;

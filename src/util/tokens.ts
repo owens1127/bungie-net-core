@@ -1,7 +1,6 @@
-const credentials = require("./credentials");
-const TokenRequestError = require("../errors/TokenRequestError");
+import {__credentials__} from "./credentials";
+import {TokenRequestError} from "../errors/TokenRequestError";
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
-const fetch = require('node-fetch');
 
 export type Token = {
     value: string;
@@ -12,8 +11,8 @@ export type Token = {
 
 export type BungieNetTokens = {
     bungieMembershipId: string,
-    access_token: Token,
-    refresh_token: Token
+    access: Token,
+    refresh: Token
 }
 
 export type TokenResponse = {
@@ -25,8 +24,8 @@ export type TokenResponse = {
 }
 
 export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNetTokens> {
-    const clientId = credentials.BUNGIE_CLIENT_ID;
-    const secret = credentials.BUNGIE_SECRET;
+    const clientId = __credentials__.BUNGIE_CLIENT_ID;
+    const secret = __credentials__.BUNGIE_SECRET;
     const body = new URLSearchParams({
         grant_type: 'authorization_code',
         code,
@@ -40,13 +39,13 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-        .then((response: { json: () => TokenResponse; }) => (response.json()))
+        .then((response) => (response.json()))
         .then(handleTokenResponse);
 }
 
  export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
-    const clientId = credentials.BUNGIE_CLIENT_ID;
-    const secret = credentials.BUNGIE_SECRET;
+    const clientId = __credentials__.BUNGIE_CLIENT_ID;
+    const secret = __credentials__.BUNGIE_SECRET;
     const body = new URLSearchParams({
         grant_type: 'refresh_token',
         refresh_token: refreshToken,
@@ -61,7 +60,7 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
             'Content-Type': 'application/x-www-form-urlencoded'
         },
     })
-        .then((response: { json: () => TokenResponse; }) => (response.json()))
+        .then((response) => (response.json()))
         .then(handleTokenResponse);
 }
 
@@ -69,13 +68,13 @@ function handleTokenResponse(response: TokenResponse): BungieNetTokens {
     const time = Date.now();
     if (response?.access_token) {
         /** @type Token */
-        const access_token: Token = {
+        const access: Token = {
             value: response.access_token,
             type: 'access',
             created: time,
             expires: time + (response.expires_in * 1000),
         };
-        const refresh_token: Token = {
+        const refresh: Token = {
             value: response.refresh_token,
             type: 'refresh',
             created: time,
@@ -84,8 +83,8 @@ function handleTokenResponse(response: TokenResponse): BungieNetTokens {
 
         return {
             bungieMembershipId: response.membership_id,
-            access_token,
-            refresh_token
+            access,
+            refresh
         };
     } else {
         throw new TokenRequestError('No data or access token in response', response);

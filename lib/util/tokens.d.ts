@@ -6,8 +6,8 @@ export declare type Token = {
 };
 export declare type BungieNetTokens = {
     bungieMembershipId: string;
-    access_token: Token;
-    refresh_token: Token;
+    access: Token;
+    refresh: Token;
 };
 export declare type TokenResponse = {
     membership_id: string;
