@@ -2,6 +2,7 @@ import { NotConfiguredError } from '../errors/NotConfiguredError.js';
 import { __credentials__ } from './credentials.js'
 import {BungieAPIError} from "../errors/BungieAPIError.js";
 import {BungieNetResponse} from "./server-response.js";
+import fetch from 'node-fetch';
 
 const DELAY = 100;
 let _lastCall = 0;
@@ -49,9 +50,9 @@ export function rateLimitedRequest(access_token: string | undefined, config: Fet
                 Object.defineProperty(init.headers, 'Authorization', access_token);
             }
             resolve(fetch(url, init).then((response) => {
-                return response.json();
+                return response.json() as Promise<BungieNetResponse<any>>;
             })
-                .then((res) => {
+                .then((res: BungieNetResponse<any>) => {
                     if (res.ErrorCode !== 1) {
                         return Promise.reject(new BungieAPIError(res));
                     } else {

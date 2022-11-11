@@ -11,12 +11,12 @@ export function generateClient(tags: string[]) {
 ${indent(tags.map(tag => {return `readonly ${tag}: typeof ${tag}Import ;`}).join('\n') + '\npublic access_token?: string', 1)}
    constructor(access_token?: string) {
 ${indent(`this.access_token = access_token;\n` + 
-        tags.map(tag => {return `this.${tag} = ${tag}Import`}).join('\n') + `
+        tags.map(tag => {return `this.${tag} = {...${tag}Import};`}).join('\n') + `
 // bind 'this' to all API endpoint functions
 for (const tag in this) {
-    for (const property in this[tag]) {
+    for (const endpoint in this[tag]) {
         // @ts-ignore
-        if (typeof this[tag][property] === 'function') this[tag][property] = this[tag][property].bind(this);
+        if (typeof this[tag][endpoint] === 'function') this[tag][endpoint] = this[tag][endpoint].bind(this);
     }
 }`, 3)}
     }
