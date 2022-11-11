@@ -4,11 +4,11 @@ npm run build
 
 publish ()
 {
+    # publish
+    cd lib/ && npm publish ; cd ..
+
     # commit to repo
     git add --all && git commit -m "Release $PACKAGE_VERSION"
-
-    # publish
-    cd lib/ && npm publish
 }
 
 # read package.json
