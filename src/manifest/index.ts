@@ -2,8 +2,9 @@ export { getAllDestinyManifestComponents } from './getAllDestinyManifestComponen
 export { getDestinyManifestComponent } from './getDestinyManifestComponent';
 export { getDestinyManifestSlice } from './getDestinyManifestSlice';
 export {
+  ManifestComponents as Components,
+  destinyManifestLanguages as Languages,
   AllDestinyManifestComponents,
-  destinyManifestLanguages as DestinyManifestLanguages,
   DestinyManifestLanguage,
   DestinyManifestComponentName,
   DestinyDefinitionFrom,
