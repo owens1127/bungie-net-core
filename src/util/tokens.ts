@@ -1,5 +1,6 @@
 import {__credentials__} from "./credentials.js";
 import {TokenRequestError} from "../errors/TokenRequestError.js";
+import fetch from 'node-fetch';
 
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
