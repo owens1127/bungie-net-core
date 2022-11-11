@@ -1,5 +1,6 @@
-import {__credentials__} from "./credentials";
-import {TokenRequestError} from "../errors/TokenRequestError";
+import {__credentials__} from "./credentials.js";
+import {TokenRequestError} from "../errors/TokenRequestError.js";
+
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
 export type Token = {
@@ -43,7 +44,7 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
         .then(handleTokenResponse);
 }
 
- export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
+export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
     const clientId = __credentials__.BUNGIE_CLIENT_ID;
     const secret = __credentials__.BUNGIE_SECRET;
     const body = new URLSearchParams({

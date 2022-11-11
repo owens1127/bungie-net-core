@@ -1,4 +1,4 @@
-import { BungieNetResponse } from "./server-response";
+import { BungieNetResponse } from "./server-response.js";
 /**
  * @typedef {Object} FetchConfig
  * @property {string} url

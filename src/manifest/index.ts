@@ -1,6 +1,6 @@
-export { getAllDestinyManifestComponents } from './getAllDestinyManifestComponents';
-export { getDestinyManifestComponent } from './getDestinyManifestComponent';
-export { getDestinyManifestSlice } from './getDestinyManifestSlice';
+export { getAllDestinyManifestComponents } from './getAllDestinyManifestComponents.js';
+export { getDestinyManifestComponent } from './getDestinyManifestComponent.js';
+export { getDestinyManifestSlice } from './getDestinyManifestSlice.js';
 export {
   ManifestComponents as Components,
   destinyManifestLanguages as Languages,
@@ -9,4 +9,4 @@ export {
   DestinyManifestComponentName,
   DestinyDefinitionFrom,
   DestinyManifestSlice
-} from './manifest-types';
+} from './manifest-types.js';

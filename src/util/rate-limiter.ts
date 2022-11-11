@@ -1,8 +1,7 @@
-import { NotConfiguredError } from '../errors/NotConfiguredError';
-import { __credentials__ } from './credentials'
-import {BungieNetTokens} from "./tokens";
-import {BungieAPIError} from "../errors/BungieAPIError";
-import {BungieNetResponse} from "./server-response";
+import { NotConfiguredError } from '../errors/NotConfiguredError.js';
+import { __credentials__ } from './credentials.js'
+import {BungieAPIError} from "../errors/BungieAPIError.js";
+import {BungieNetResponse} from "./server-response.js";
 
 const DELAY = 100;
 let _lastCall = 0;

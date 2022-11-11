@@ -1,9 +1,9 @@
-import { NotConfiguredError } from './errors/NotConfiguredError';
-import { __credentials__ } from './util/credentials'
-import { BungieClient } from './util/client';
+import { NotConfiguredError } from './errors/NotConfiguredError.js';
+import { __credentials__ } from './util/credentials.js'
+import { BungieClient } from './util/client.js';
 import * as TokensImport from './util/tokens.js';
-import * as ManifestImport from './manifest';
-import * as SchemaImport from './schemas';
+import * as ManifestImport from './manifest/index.js';
+import * as SchemaImport from './schemas/index.js';
 
 /**
  * @see {@link https://www.bungie.net/en/Application} for more details

@@ -1,5 +1,5 @@
-import { DestinyManifestComponentName, DestinyManifestLanguage, DestinyManifestSlice } from "./index";
-import { DestinyManifest } from "../schemas";
+import { DestinyManifestComponentName, DestinyManifestLanguage, DestinyManifestSlice } from "./index.js";
+import { DestinyManifest } from "../schemas/index.js";
 export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
     destinyManifest: DestinyManifest;
     tableNames: T;

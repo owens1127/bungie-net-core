@@ -1,5 +1,5 @@
-import { AllDestinyManifestComponents, DestinyManifestLanguage } from "./index";
-import { DestinyManifest } from "../schemas";
+import { AllDestinyManifestComponents, DestinyManifestLanguage } from "./index.js";
+import { DestinyManifest } from "../schemas/index.js";
 export interface GetAllDestinyManifestComponentsParams {
     destinyManifest: DestinyManifest;
     language: DestinyManifestLanguage;

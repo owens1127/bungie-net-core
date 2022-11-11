@@ -2,9 +2,8 @@ import {
     AllDestinyManifestComponents,
     DestinyManifestComponentName, DestinyManifestLanguage,
     DestinyManifestSlice, getDestinyManifestComponent,
-} from "./index";
-import { manifestRequest as http } from '../util/rate-limiter';
-import { DestinyManifest } from "../schemas";
+} from "./index.js";
+import { DestinyManifest } from "../schemas/index.js";
 
 export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
     destinyManifest: DestinyManifest;
