@@ -1,7 +1,6 @@
 import {OpenAPIObject} from 'openapi3-ts';
 import {docComment, generateHeader, writeOutFile} from './generate-common.js';
 import {DefInfo, getRef} from './util.js';
-import exp from "constants";
 
 export function generateIndices(
     componentsByTag: { [p: string]: DefInfo[] },
@@ -22,7 +21,7 @@ function generateSchemaIndex(
     for (const [component,def] of componentsByFile) {
         exports.push(`export { ${def.typeName} } from '${component
             .replace('schemas/', './')
-            .replace('.ts', '')}';`)
+            .replace('.ts', '.js')}';`)
     }
 
     const definition = [generateHeader(doc),exports.join('\n')].join('\n\n') + '\n';
@@ -35,7 +34,7 @@ function generateEndpointsSuperIndex(componentsByTag: { [p: string]: DefInfo[] }
     const exportLines = [];
 
     for (const exportName of Object.keys(componentsByTag)) {
-        exportLines.push(`export * as ${exportName} from './${exportName}';`);
+        exportLines.push(`export * as ${exportName} from './${exportName}/index.js';`);
     }
     const exportHeader = exportLines.join('\n');
 

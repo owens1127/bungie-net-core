@@ -35,7 +35,7 @@ export function generateServiceDefinition(
     });
     writeOutFile(`lib-ts/endpoints/${tag}/index.ts`,
         exports.map((endpt) => {
-            return `export { ${endpt} } from './${endpt}';`
+            return `export { ${endpt} } from './${endpt}.js';`
         }).join('\n'));
 }
 

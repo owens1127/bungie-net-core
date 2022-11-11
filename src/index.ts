@@ -38,7 +38,7 @@ export function generateOAuthURL(options: CreateAuthURLOptions): string {
         + redirectString + stateString;
 }
 
-export { BungieClient } from './util/client';
+export { BungieClient } from './util/client.js';
 export const Tokens = TokensImport;
 export const Manifest = ManifestImport;
 export const Schema = SchemaImport;

@@ -1,2 +1,2 @@
-export { GetApplicationApiUsage } from './GetApplicationApiUsage';
-export { GetBungieApplications } from './GetBungieApplications';
+export { GetApplicationApiUsage } from './GetApplicationApiUsage.js';
+export { GetBungieApplications } from './GetBungieApplications.js';
