@@ -21,22 +21,22 @@ babel lib-ts --out-dir lib --extensions ".ts" --config-file './.babelrc'
 tsc -p tsconfig-lib.json ; echo Typings compiled with tsc
 
 #remove empty js files
-count=0
-find ./lib -type f |
-(echo 'Cleaned' &&
-while
-  read file;
-do
-  value=$(cat "$file")
-  # if there are only typings in a file, tsc will leave a blank file as such
-  if [ "$value" = "export {};" ]
-  then
-    rm "$file"
-    count=$((count+1))
-    echo $count
-  fi
-done | tail -n 1 &&
-echo 'empty files') | tr '\n' " " | sed 's/ $/\n/'
+#count=0
+#find ./lib -type f |
+#(echo 'Cleaned' &&
+#while
+#  read file;
+#do
+#  value=$(cat "$file")
+#  # if there are only typings in a file, tsc will leave a blank file as such
+#  if [ "$value" = "export {};" ]
+#  then
+#    rm "$file"
+#    count=$((count+1))
+#    echo $count
+#  fi
+#done | tail -n 1 &&
+#echo 'empty files') | tr '\n' " " | sed 's/ $/\n/'
 
 # move the info files into the lib
 mv ./lib-ts/bungie-api-LICENSE ./lib/bungie-api-LICENSE
