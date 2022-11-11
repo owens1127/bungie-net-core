@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyHistoricalStatsDefinition } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyHistoricalStatsDefinition } from '../../schemas/index.js';
 /**
  * Gets historical stats definitions.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsDefinition}

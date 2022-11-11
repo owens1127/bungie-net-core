@@ -17,9 +17,10 @@ function generateSchemaIndex(
 ) {
     const filename = 'lib-ts/schemas/index.ts';
 
+
     const exports: string[] = [];
-    for (const [component,def] of componentsByFile) {
-        exports.push(`export { ${def.typeName} } from '${component
+    for (const [component,defInfo] of componentsByFile) {
+        exports.push(`export ${getRef(doc, defInfo.def)?.enum ? "" : "type "}{ ${defInfo.typeName} } from '${component
             .replace('schemas/', './')
             .replace('.ts', '.js')}';`)
     }

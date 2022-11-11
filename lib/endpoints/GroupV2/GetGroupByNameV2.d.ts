@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupNameSearchRequest } from '../../schemas';
-import { GroupResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupNameSearchRequest } from '../../schemas/index.js';
+import { GroupResponse } from '../../schemas/index.js';
 /**
  * Get information about a specific group with the given name and type. The POST
  * version.

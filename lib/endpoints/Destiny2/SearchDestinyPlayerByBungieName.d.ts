@@ -10,11 +10,11 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { BungieMembershipType } from '../../schemas';
-import { ExactSearchRequest } from '../../schemas';
-import { UserInfoCard } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { ExactSearchRequest } from '../../schemas/index.js';
+import { UserInfoCard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName} */
 export declare type SearchDestinyPlayerByBungieNameParams = {
     /**

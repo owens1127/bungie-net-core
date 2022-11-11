@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { TrendingCategories } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { TrendingCategories } from '../../schemas/index.js';
 /**
  * Returns trending items for Bungie.net, collapsed into the first page of items
  * per category. For pagination within a category, call GetTrendingCategory.

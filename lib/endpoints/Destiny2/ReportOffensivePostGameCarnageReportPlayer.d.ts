@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyReportOffensePgcrRequest } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyReportOffensePgcrRequest } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer} */
 export declare type ReportOffensivePostGameCarnageReportPlayerParams = {
     /** The ID of the activity where you ran into the brigand that you're reporting. */

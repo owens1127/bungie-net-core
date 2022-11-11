@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { RuntimeGroupMemberType } from '../../schemas';
-import { SearchResultOfGroupMember } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { RuntimeGroupMemberType } from '../../schemas/index.js';
+import { SearchResultOfGroupMember } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
 export declare type GetMembersOfGroupParams = {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */

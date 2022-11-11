@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyLeaderboard } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyLeaderboard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards} */
 export declare type GetClanLeaderboardsParams = {
     /** Group ID of the clan whose leaderboards you wish to fetch. */

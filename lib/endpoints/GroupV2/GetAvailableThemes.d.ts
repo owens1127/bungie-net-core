@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupTheme } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupTheme } from '../../schemas/index.js';
 /**
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}

@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { AwaUserResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { AwaUserResponse } from '../../schemas/index.js';
 /**
  * Provide the result of the user interaction. Called by the Bungie Destiny App to
  * approve or reject a request.

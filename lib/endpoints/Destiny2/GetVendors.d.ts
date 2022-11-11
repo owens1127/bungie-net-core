@@ -10,12 +10,12 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyComponentType } from '../../schemas';
-import { DestinyVendorFilter } from '../../schemas';
-import { BungieMembershipType } from '../../schemas';
-import { DestinyVendorsResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyComponentType } from '../../schemas/index.js';
+import { DestinyVendorFilter } from '../../schemas/index.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { DestinyVendorsResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetVendors} */
 export declare type GetVendorsParams = {
     /** The Destiny Character ID of the character for whom we're getting vendor info. */

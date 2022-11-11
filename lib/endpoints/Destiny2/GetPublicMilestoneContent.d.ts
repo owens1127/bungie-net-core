@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyMilestoneContent } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyMilestoneContent } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent} */
 export declare type GetPublicMilestoneContentParams = {
     /** The identifier for the milestone to be returned. */

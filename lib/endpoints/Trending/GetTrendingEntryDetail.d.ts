@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { TrendingEntryType } from '../../schemas';
-import { TrendingDetail } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { TrendingEntryType } from '../../schemas/index.js';
+import { TrendingDetail } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail} */
 export declare type GetTrendingEntryDetailParams = {
     /** The identifier for the entity to be returned. */

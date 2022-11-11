@@ -10,11 +10,11 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupDateRange } from '../../schemas';
-import { GroupType } from '../../schemas';
-import { GroupV2Card } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupDateRange } from '../../schemas/index.js';
+import { GroupType } from '../../schemas/index.js';
+import { GroupV2Card } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups} */
 export declare type GetRecommendedGroupsParams = {
     /** Requested range in which to pull recommended groups */

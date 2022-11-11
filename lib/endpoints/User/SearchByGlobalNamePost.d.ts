@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { UserSearchPrefixRequest } from '../../schemas';
-import { UserSearchResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { UserSearchPrefixRequest } from '../../schemas/index.js';
+import { UserSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
 export declare type SearchByGlobalNamePostParams = {
     /** The zero-based page of results you desire. */

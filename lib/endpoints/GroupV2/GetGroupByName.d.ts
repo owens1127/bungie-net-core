@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupType } from '../../schemas';
-import { GroupResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupType } from '../../schemas/index.js';
+import { GroupResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName} */
 export declare type GetGroupByNameParams = {
     /** Exact name of the group to find. */

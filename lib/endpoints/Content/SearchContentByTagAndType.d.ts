@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { SearchResultOfContentItemPublicContract } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { SearchResultOfContentItemPublicContract } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType} */
 export declare type SearchContentByTagAndTypeParams = {
     /** Page number for the search results starting with page 1. */

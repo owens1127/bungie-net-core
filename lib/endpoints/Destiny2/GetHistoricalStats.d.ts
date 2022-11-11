@@ -10,13 +10,13 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyStatsGroupType } from '../../schemas';
-import { BungieMembershipType } from '../../schemas';
-import { DestinyActivityModeType } from '../../schemas';
-import { PeriodType } from '../../schemas';
-import { DestinyHistoricalStatsByPeriod } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyStatsGroupType } from '../../schemas/index.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { DestinyActivityModeType } from '../../schemas/index.js';
+import { PeriodType } from '../../schemas/index.js';
+import { DestinyHistoricalStatsByPeriod } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStats} */
 export declare type GetHistoricalStatsParams = {
     /**

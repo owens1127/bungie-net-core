@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { BungieMembershipType } from '../../schemas';
-import { DestinyLeaderboard } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { DestinyLeaderboard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboards} */
 export declare type GetLeaderboardsParams = {
     /** The Destiny membershipId of the user to retrieve. */

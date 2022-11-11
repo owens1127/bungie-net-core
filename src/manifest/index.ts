@@ -3,10 +3,13 @@ export { getDestinyManifestComponent } from './getDestinyManifestComponent.js';
 export { getDestinyManifestSlice } from './getDestinyManifestSlice.js';
 export {
   ManifestComponents as Components,
-  destinyManifestLanguages as Languages,
+  destinyManifestLanguages as Languages
+} from './manifest-types.js';
+
+export type {
   AllDestinyManifestComponents,
   DestinyManifestLanguage,
   DestinyManifestComponentName,
   DestinyDefinitionFrom,
   DestinyManifestSlice
-} from './manifest-types.js';
+} from './manifest-types';

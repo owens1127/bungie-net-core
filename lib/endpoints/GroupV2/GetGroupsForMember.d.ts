@@ -10,12 +10,12 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupsForMemberFilter } from '../../schemas';
-import { GroupType } from '../../schemas';
-import { BungieMembershipType } from '../../schemas';
-import { GetGroupsForMemberResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupsForMemberFilter } from '../../schemas/index.js';
+import { GroupType } from '../../schemas/index.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { GetGroupsForMemberResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember} */
 export declare type GetGroupsForMemberParams = {
     /** Filter apply to list of joined groups. */

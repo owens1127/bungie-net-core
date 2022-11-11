@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { NewsArticleRssResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { NewsArticleRssResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
 export declare type RssNewsArticlesParams = {
     /** Zero-based pagination token for paging through result sets. */

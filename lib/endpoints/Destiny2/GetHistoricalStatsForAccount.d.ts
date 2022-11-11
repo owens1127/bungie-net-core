@@ -10,11 +10,11 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyStatsGroupType } from '../../schemas';
-import { BungieMembershipType } from '../../schemas';
-import { DestinyHistoricalStatsAccountResult } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyStatsGroupType } from '../../schemas/index.js';
+import { BungieMembershipType } from '../../schemas/index.js';
+import { DestinyHistoricalStatsAccountResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount} */
 export declare type GetHistoricalStatsForAccountParams = {
     /** The Destiny membershipId of the user to retrieve. */

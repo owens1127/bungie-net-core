@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyPostmasterTransferRequest } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyPostmasterTransferRequest } from '../../schemas/index.js';
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
  * You must have a valid Destiny account. You must also pass BOTH a reference AND

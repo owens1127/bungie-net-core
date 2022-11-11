@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GlobalAlert } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GlobalAlert } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#.GetGlobalAlerts} */
 export declare type GetGlobalAlertsParams = {
     /** Determines whether Streaming Alerts are included in results */

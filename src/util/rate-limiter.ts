@@ -91,5 +91,3 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
         }, wait);
     });
 }
-exports.rateLimitedRequest = rateLimitedRequest;
-exports.manifestRequest = manifestRequest;

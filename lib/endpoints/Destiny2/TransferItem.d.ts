@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyItemTransferRequest } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyItemTransferRequest } from '../../schemas/index.js';
 /**
  * Transfer an item to/from your vault. You must have a valid Destiny account. You
  * must also pass BOTH a reference AND an instance ID if it's an instanced item.

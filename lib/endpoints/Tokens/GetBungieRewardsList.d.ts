@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { BungieRewardDisplay } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { BungieRewardDisplay } from '../../schemas/index.js';
 /**
  * Returns a list of the current bungie rewards
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsList}

@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { GroupApplicationRequest } from '../../schemas';
-import { EntityActionResult } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { GroupApplicationRequest } from '../../schemas/index.js';
+import { EntityActionResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.DenyAllPending} */
 export declare type DenyAllPendingParams = {
     /** ID of the group. */

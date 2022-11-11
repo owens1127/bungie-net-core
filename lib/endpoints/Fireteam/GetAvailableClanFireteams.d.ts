@@ -10,13 +10,13 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { FireteamDateRange } from '../../schemas';
-import { FireteamPlatform } from '../../schemas';
-import { FireteamPublicSearchOption } from '../../schemas';
-import { FireteamSlotSearch } from '../../schemas';
-import { SearchResultOfFireteamSummary } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { FireteamDateRange } from '../../schemas/index.js';
+import { FireteamPlatform } from '../../schemas/index.js';
+import { FireteamPublicSearchOption } from '../../schemas/index.js';
+import { FireteamSlotSearch } from '../../schemas/index.js';
+import { SearchResultOfFireteamSummary } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetAvailableClanFireteams} */
 export declare type GetAvailableClanFireteamsParams = {
     /** The activity type to filter by. */

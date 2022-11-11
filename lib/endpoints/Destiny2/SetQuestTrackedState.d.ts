@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyItemStateRequest } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyItemStateRequest } from '../../schemas/index.js';
 /**
  * Set the Tracking State for an instanced item, if that item is a Quest or Bounty.
  * You must have a valid Destiny Account. Yeah, it's an item.

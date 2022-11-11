@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyInsertPlugsFreeActionRequest } from '../../schemas';
-import { DestinyItemChangeResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyInsertPlugsFreeActionRequest } from '../../schemas/index.js';
+import { DestinyItemChangeResponse } from '../../schemas/index.js';
 /**
  * Insert a 'free' plug into an item's socket. This does not require 'Advanced
  * Write Action' authorization and is available to 3rd-party apps, but will only

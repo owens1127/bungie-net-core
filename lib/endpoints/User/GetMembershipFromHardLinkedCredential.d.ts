@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { BungieCredentialType } from '../../schemas';
-import { HardLinkedUserMembership } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { BungieCredentialType } from '../../schemas/index.js';
+import { HardLinkedUserMembership } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential} */
 export declare type GetMembershipFromHardLinkedCredentialParams = {
     /** The credential to look up. Must be a valid SteamID64. */

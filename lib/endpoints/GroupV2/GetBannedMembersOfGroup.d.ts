@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { SearchResultOfGroupBan } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { SearchResultOfGroupBan } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
 export declare type GetBannedMembersOfGroupParams = {
     /** Page number (starting with 1). Each page has a fixed size of 50 entries. */

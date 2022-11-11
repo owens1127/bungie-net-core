@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyItemActionRequest } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyItemActionRequest } from '../../schemas/index.js';
 /**
  * Equip an item. You must have a valid Destiny Account, and either be in a social
  * space, in orbit, or offline.

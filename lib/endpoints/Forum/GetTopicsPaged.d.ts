@@ -10,12 +10,12 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { ForumTopicsCategoryFiltersEnum } from '../../schemas';
-import { ForumTopicsQuickDateEnum } from '../../schemas';
-import { ForumTopicsSortEnum } from '../../schemas';
-import { PostSearchResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { ForumTopicsCategoryFiltersEnum } from '../../schemas/index.js';
+import { ForumTopicsQuickDateEnum } from '../../schemas/index.js';
+import { ForumTopicsSortEnum } from '../../schemas/index.js';
+import { PostSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged} */
 export declare type GetTopicsPagedParams = {
     /** A category filter */

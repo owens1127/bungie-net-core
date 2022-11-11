@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { DestinyItemSetActionRequest } from '../../schemas';
-import { DestinyEquipItemResults } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { DestinyItemSetActionRequest } from '../../schemas/index.js';
+import { DestinyEquipItemResults } from '../../schemas/index.js';
 /**
  * Equip a list of items by itemInstanceIds. You must have a valid Destiny Account,
  * and either be in a social space, in orbit, or offline. Any items not found on

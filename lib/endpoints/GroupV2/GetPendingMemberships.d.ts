@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { SearchResultOfGroupMemberApplication } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { SearchResultOfGroupMemberApplication } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships} */
 export declare type GetPendingMembershipsParams = {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */

@@ -10,9 +10,9 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { UserMembershipData } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { UserMembershipData } from '../../schemas/index.js';
 /**
  * Returns a list of accounts associated with signed in user. This is useful for
  * OAuth implementations that do not give you access to the token response.

@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { PlatformFriendType } from '../../schemas';
-import { PlatformFriendResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { PlatformFriendType } from '../../schemas/index.js';
+import { PlatformFriendResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList} */
 export declare type GetPlatformFriendListParams = {
     /** The platform friend type. */

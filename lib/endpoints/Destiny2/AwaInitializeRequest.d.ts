@@ -10,10 +10,10 @@
  * Repository: {@link https://github.com/owensimpson/oodestiny}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response';
-import { BungieClient } from '../../util/client';
-import { AwaPermissionRequested } from '../../schemas';
-import { AwaInitializeResponse } from '../../schemas';
+import { BungieNetResponse } from '../../util/server-response.js';
+import { BungieClient } from '../../util/client.js';
+import { AwaPermissionRequested } from '../../schemas/index.js';
+import { AwaInitializeResponse } from '../../schemas/index.js';
 /**
  * Initialize a request to perform an advanced write action.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaInitializeRequest}

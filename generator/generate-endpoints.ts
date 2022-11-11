@@ -126,14 +126,14 @@ ${indent(paramInitializers.join(',\n'), 3)}
     }
 
     const rateLimitedFunction = 'rateLimitedRequest'
-    const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter';`,
-        `import { BungieNetResponse } from '../../util/server-response';`,
-        `import { BungieClient } from '../../util/client';`]
+    const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
+        `import { BungieNetResponse } from '../../util/server-response.js';`,
+        `import { BungieClient } from '../../util/client.js';`]
     const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
     const headerImports: string[] = [];
     for (const [key] of importFiles) {
-        headerImports.push(`import { ${key} } from '../../schemas'`)
+        headerImports.push(`import { ${key} } from '../../schemas/index.js'`)
     }
     const rateDoc =
         methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&
