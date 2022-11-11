@@ -15,7 +15,7 @@ tsc -p tsconfig-generator.json ; echo Generator compiled with tsc
 node --experimental-json-modules ./build/generate.js ; echo Typings generated
 
 # compile typescript into js using babel
-babel lib-ts --out-dir lib --extensions ".ts" --presets @babel/preset-typescript
+babel lib-ts --out-dir lib --extensions ".ts" --config-file './.babelrc'
 
 # compile the typings to .d.ts files using tsc
 tsc -p tsconfig-lib.json ; echo Typings compiled with tsc

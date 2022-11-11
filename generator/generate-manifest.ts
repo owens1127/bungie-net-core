@@ -3,22 +3,23 @@ import {OpenAPIObject} from 'openapi3-ts';
 import fetch from 'node-fetch';
 import {docComment, indent, writeOutFile} from './generate-common.js';
 
-const manifestMetadataPromise = manifestMetaResponse(false);
+let attempts = 0;
+const manifestMetadataPromise = manifestMetaResponse(0);
 
 // @ts-ignore
-async function manifestMetaResponse(retry: boolean) {
+async function manifestMetaResponse(retry: number) {
     try {
         // @ts-ignore
         let manifestMeta: { Response: Object } = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
             (res) => res.json()
         );
         if (!manifestMeta?.Response) {
-            if (retry) {
+            if (retry > 5) {
                 console.error(new Error('Failed to download Manifest'));
                 process.exit(1);
             }
             // try again
-            return await manifestMetaResponse(true);
+            return await manifestMetaResponse(++attempts);
         }
         return manifestMeta.Response;
     } catch (e) {
@@ -52,6 +53,13 @@ export interface AllDestinyManifestComponents {
 ${defsToInclude
       .map((manifestComponent) => `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`)
       .join('')}}
+
+export const enum ManifestComponents {
+${defsToInclude
+      .map((manifestComponent) => `  ${manifestComponent.typeName} = '${manifestComponent.typeName}',\n`)
+      .join('')}
+}
+
 /**
  * languages the manifest comes in, as their required keys to download them
  */
