@@ -30,14 +30,11 @@ export function rateLimitedRequest(access_token: string | undefined, config: Fet
         wait = DELAY - (time - _lastCall);
     }
     _lastCall = time + wait;
-    const params = config.params ? Object.keys(config.params).map(key => {
-        // @ts-ignore
-        return (config.params && key in config.params) ? key + '=' + config.params[key] : '';
-    }).join('&') : null;
+    const params = equalsParams(config);
     return new Promise((resolve) => {
         setTimeout(() => {
             const start = Date.now()
-            const url = config.url + (params ? '?' + params : '')
+            const url = config.url + (params ? '?' + params.join('&') : '')
             let init = {
                 method: config.method,
                 body: config.body ? JSON.stringify(config.body) : null,
@@ -70,14 +67,11 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
         wait = DELAY - (time - _lastCall);
     }
     _lastCall = time + wait;
-    const params = config.params ? Object.keys(config.params).map(key => {
-        // @ts-ignore
-        return (config.params && key in config.params) ? key + '=' + config.params[key] : '';
-    }).join('&') : null;
+    const params = equalsParams(config);
     return new Promise((resolve) => {
         setTimeout(() => {
             const start = Date.now()
-            const url = config.url + (params ? '?' + params : '')
+            const url = config.url + (params ? '?' + params.join('&') : '')
             let init = {
                 method: config.method,
                 body: config.body ? JSON.stringify(config.body) : null,
@@ -91,4 +85,15 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
             }));
         }, wait);
     });
+}
+
+function equalsParams(config: FetchConfig): string[] | null {
+    return !!config.params ? Object.keys(config.params)
+        .filter(key => {
+            return (key in config.params!)
+                && config.params![key] !== undefined
+                && config.params![key] !== null
+        }).map(key => {
+            return key + '=' + config.params![key];
+        }) : null;
 }
