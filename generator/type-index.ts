@@ -65,10 +65,10 @@ export function computeTypeMaps(
   return { manifestComponents, directoryExportsMap, componentsByFile, componentsByTag, componentByDef};
 }
 
-function addFile(def: string) {
+function addFile(def: string): string {
 
   const split = def.split('/');
-  if (split[2] === 'responses') split[2] = 'schemas';
+  if (split[2] === 'responses') return '';
   const schemaName: string = _.last(split)!;
   const root = split.slice(2, split.length-1).join('/');
   const subDirectories = schemaName.split('.');
