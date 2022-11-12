@@ -47,7 +47,7 @@ export function rateLimitedRequest(access_token: string | undefined, config: Fet
                 }
             }
             if (access_token) {
-                init.headers['Authorization'] = access_token;
+                init.headers['Authorization'] = 'Bearer ' + access_token;
             }
             resolve(fetch(url, init).then((response) => {
                 return response.json() as Promise<BungieNetResponse<any>>;
