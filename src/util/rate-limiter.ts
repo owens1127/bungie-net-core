@@ -51,8 +51,9 @@ export function rateLimitedRequest(access_token: string | undefined, config: Fet
             })
                 .then((res: BungieNetResponse<any>) => {
                     if (res.ErrorCode !== 1) {
-                        return Promise.reject(new BungieAPIError(res));
+                        throw new BungieAPIError(res);
                     } else {
+                        res.ResponseTime = Date.now() - start;
                         return res;
                     }
                 }));

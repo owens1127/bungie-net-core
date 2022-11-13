@@ -12,4 +12,5 @@ export interface BungieNetResponse<R> {
         [key: string]: string;
     };
     readonly DetailedErrorTrace: string;
+    ResponseTime: number;
 }

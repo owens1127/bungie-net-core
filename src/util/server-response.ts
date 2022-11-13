@@ -11,4 +11,5 @@ export interface BungieNetResponse<R> {
     readonly Message: string;
     readonly MessageData: { [key: string]: string };
     readonly DetailedErrorTrace: string;
+    ResponseTime: number;
 }

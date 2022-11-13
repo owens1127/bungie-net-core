@@ -1,5 +1,5 @@
 // @ts-ignore
-import packageJson from '../package.json';
+import packageJson from '../package.json' assert { type: "json" };
 import { writeOutFile } from './generate-common.js';
 
 /**

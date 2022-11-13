@@ -1,11 +1,11 @@
 {
   "name": "oodestiny",
-  "version": "1.4.11",
+  "version": "1.4.12",
   "description": "An easy way to interact with the Bungie.net API",
   "keywords": [
     "Destiny 2",
     "Bungie",
-    "commonJS",
+    "TypeScript",
     "wrapper",
     "REST"
   ],
