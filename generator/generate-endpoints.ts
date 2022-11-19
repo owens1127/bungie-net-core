@@ -129,7 +129,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
     const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
         `import { BungieNetResponse } from '../../util/server-response.js';`,
         `import { BungieClient } from '../../util/client.js';`]
-    const returnValue = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
+    const responseType = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
     const headerImports: string[] = [];
     for (const [key] of importFiles) {
@@ -142,8 +142,8 @@ ${indent(paramInitializers.join(',\n'), 3)}
     return `${staticImports.join('\n')}\n${headerImports.join('\n')}\n${paramsTypeDefinition}${docComment(
         methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [hyperRef]
     )}
-export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<${returnValue}> {
-  return ${rateLimitedFunction}(this.access_token, {
+export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${responseType}>> {
+  return ${rateLimitedFunction}<${responseType}>(this.access_token, {
     method: '${method}',
     url: ${templatizedPath}${paramsObject}${requestBodyParam}
   });

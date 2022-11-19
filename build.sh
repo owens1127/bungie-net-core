@@ -9,16 +9,16 @@ rm -rf ./lib && mkdir -p lib
 cp -a src/. lib-ts/
 
 # Compile the generator into ./build
-tsc -p tsconfig-generator.json ; echo Generator compiled with tsc
+tsc -p tsconfig-generator.json ; echo Generator compiled to JavaScript with tsc
 
 # Run the generator to produce js in ./lib-ts
-node --experimental-json-modules ./build/generate.js ; echo Typings generated
+node --experimental-json-modules ./build/generate.js ; echo TypeScript generated
 
 # compile typescript into js using babel
 babel lib-ts --out-dir lib --extensions ".ts" --config-file './.babelrc'
 
 # compile the typings to .d.ts files using tsc
-tsc -p tsconfig-lib.json ; echo Typings compiled with tsc
+tsc -p tsconfig-lib.json ; echo TypeScript typings transpiled to .d.ts files with tsc
 
 #remove empty js files
 #count=0

@@ -1,4 +1,4 @@
-import { BungieNetResponse } from "./server-response.js";
+import { BungieNetResponse } from './server-response.js';
 /**
  * @typedef {Object} FetchConfig
  * @property {string} url
@@ -12,5 +12,5 @@ export declare type FetchConfig = {
     params?: {};
     body?: {};
 };
-export declare function rateLimitedRequest(access_token: string | undefined, config: FetchConfig): Promise<BungieNetResponse<any>>;
+export declare function rateLimitedRequest<T>(access_token: string | undefined, config: FetchConfig): Promise<BungieNetResponse<T>>;
 export declare function manifestRequest(config: FetchConfig): Promise<any>;

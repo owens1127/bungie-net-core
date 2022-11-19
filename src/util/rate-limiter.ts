@@ -1,10 +1,12 @@
 import { NotConfiguredError } from '../errors/NotConfiguredError.js';
 import { __credentials__ } from './credentials.js'
-import {BungieAPIError} from "../errors/BungieAPIError.js";
-import {BungieNetResponse} from "./server-response.js";
+import { BungieAPIError } from '../errors/BungieAPIError.js';
+import { BungieNetResponse } from './server-response.js';
 import fetch from 'node-fetch';
+import { PlatformErrorCodes } from '../schemas/index.js';
 
-const DELAY = 100;
+// rumored throttle seconds
+const DELAY = (10 * 1000) / 250;
 let _lastCall = 0;
 
 /**
@@ -22,7 +24,8 @@ export type FetchConfig = {
     body?: {},
 }
 
-export function rateLimitedRequest(access_token: string | undefined, config: FetchConfig): Promise<BungieNetResponse<any>> {
+export function rateLimitedRequest<T>(access_token: string | undefined,
+    config: FetchConfig): Promise<BungieNetResponse<T>> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const time = Date.now();
     let wait = 0;
@@ -47,19 +50,19 @@ export function rateLimitedRequest(access_token: string | undefined, config: Fet
                 init.headers['Authorization'] = 'Bearer ' + access_token;
             }
             resolve(fetch(url, init).then((response) => {
-                return response.json() as Promise<BungieNetResponse<any>>;
+                return response.json() as Promise<BungieNetResponse<T>>;
             })
-                .then((res: BungieNetResponse<any>) => {
-                    if (res.ErrorCode !== 1) {
-                        throw new BungieAPIError(res);
-                    } else {
-                        res.ResponseTime = Date.now() - start;
-                        return res;
-                    }
+                .then((res: BungieNetResponse<T>) => {
+                    // idk if this is the best way to do this
+                    if (res.ThrottleSeconds) wait += 1000 * res.ThrottleSeconds;
+                    res.ResponseTime = Date.now() - start;
+                    if (res.ErrorCode !== PlatformErrorCodes.Success) throw new BungieAPIError<T>(res);
+                    else return res;
                 }));
         }, wait);
     });
 }
+
 export function manifestRequest(config: FetchConfig): Promise<any> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const time = Date.now();

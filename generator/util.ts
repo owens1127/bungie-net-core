@@ -122,8 +122,7 @@ export function typeNameImports(componentPath: string, doc: OpenAPIObject, impor
     if (componentPath.includes('/responses/')) {
         const property = component.properties!.Response;
         if (property) {
-            const paramType = resolveSchemaType(property, doc, importFiles);
-            return `BungieNetResponse<${paramType}>`;
+            return resolveSchemaType(property, doc, importFiles);
         }
     }
 
