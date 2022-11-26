@@ -10,10 +10,10 @@ const timeoutCodes = [
 ]
 
 class QueueItem<T> {
-    private url: string
-    private init: { body, method, headers }
-    private resolve: (value: (BungieNetResponse<T>)) => Promise<void>;
-    private reject: (value: (Error)) => void;
+    protected readonly url: string
+    protected readonly init: { body, method, headers }
+    protected readonly resolve: (value: (BungieNetResponse<T>)) => Promise<void>;
+    protected readonly reject: (value: (Error)) => void;
 
     constructor(url, init, resolve, reject) {
         this.url = url;
@@ -37,6 +37,22 @@ class QueueItem<T> {
                 }
                 return res.ThrottleSeconds * 1000;
             })
+    }
+
+}
+
+class ManifestQueueItem<T> extends QueueItem<never> {
+    constructor(url, init, resolve, reject) {
+        super(url, init, resolve, reject);
+    }
+
+    async execute(retry?: boolean): Promise<number> {
+        return fetch(this.url, this.init)
+            .then((response) => response.json()
+                // @ts-ignore
+                .then((res) => this.resolve(res))
+                .catch((e => this.reject(e))))
+            .then(() => 0)
     }
 
 }
@@ -135,7 +151,6 @@ function socketAction(url: string): boolean {
 export function manifestRequest(config: FetchConfig): Promise<any> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const params = equalsParams(config);
-    const start = Date.now()
     const url = config.url + (params ? '?' + params.join('&') : '')
     let init = {
         method: config.method,
@@ -147,7 +162,7 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
     }
 
     return new Promise((resolve, reject) => {
-        manifestQueue.add(new QueueItem(url, init, resolve, reject));
+        manifestQueue.add(new ManifestQueueItem(url, init, resolve, reject));
     });
 }
 
