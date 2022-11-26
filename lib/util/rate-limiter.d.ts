@@ -1,11 +1,4 @@
 import { BungieNetResponse } from './server-response.js';
-/**
- * @typedef {Object} FetchConfig
- * @property {string} url
- * @property {string} method
- * @property {Object?} params
- * @property {Object?} body
- */
 export declare type FetchConfig = {
     url: string;
     method: string;

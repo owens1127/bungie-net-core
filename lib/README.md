@@ -43,11 +43,11 @@ if (urlObj.searchParams.get('state') !== state) throw Error();
 
 const code = urlObj.searchParams.get('code');
 
-// one way to get the tokens is with an oauth code, you'll need to do this the first time
+// one way to get the tokens is with an oauth code, you'll need to execute this the first time
 const tokens = await Tokens.getAccessTokenFromAuthCode(code);
 console.log({tokens});
 
-// if you have a stored refresh token, you can do this instead, you will do this more often then not
+// if you have a stored refresh token, you can execute this instead, you will execute this more often then not
 const tokens2 = await Tokens.getAccessTokenFromRefreshToken(tokens.refresh.value);
 console.log({tokens2});
 

@@ -5,17 +5,78 @@ import { BungieNetResponse } from './server-response.js';
 import fetch from 'node-fetch';
 import { PlatformErrorCodes } from '../schemas/index.js';
 
-// rumored throttle seconds
-const DELAY = (10 * 1000) / 250;
-let _lastCall = 0;
+const timeoutCodes = [
+    PlatformErrorCodes.DestinyDirectBabelClientTimeout
+]
 
-/**
- * @typedef {Object} FetchConfig
- * @property {string} url
- * @property {string} method
- * @property {Object?} params
- * @property {Object?} body
- */
+class QueueItem<T> {
+    private url: string
+    private init: { body, method, headers }
+    private resolve: (value: (BungieNetResponse<T>)) => Promise<void>;
+    private reject: (value: (Error)) => void;
+
+    constructor(url, init, resolve, reject) {
+        this.url = url;
+        this.init = init;
+        this.resolve = resolve;
+        this.reject = reject;
+    }
+
+    async execute(retry?: boolean): Promise<number> {
+        const start = Date.now();
+        return fetch(this.url, this.init)
+            .then((response) => response.json() as Promise<BungieNetResponse<T>>)
+            .then((res: BungieNetResponse<T>) => {
+                res.ResponseTime = Date.now() - start;
+                if (res.ErrorCode === PlatformErrorCodes.Success) {
+                    this.resolve(res);
+                } else if (!retry && timeoutCodes.includes(res.ErrorCode)) {
+                    return this.execute(true)
+                } else {
+                    this.reject(new BungieAPIError<T>(res));
+                }
+                return res.ThrottleSeconds * 1000;
+            })
+    }
+
+}
+
+class RateLimitedQueue {
+    private queue: QueueItem<any>[];
+    private rateLimit: number;
+    private size: number;
+    private timeout: number;
+
+    constructor(rateLimit: number) {
+        this.rateLimit = rateLimit;
+        this.queue = [];
+        this.size = 0;
+        this.timeout = 0;
+    }
+
+    add(item: QueueItem<any>): void {
+        this.queue.push(item);
+        this.size++;
+        setTimeout(this.process.bind(this), this.rateLimit * this.size + this.timeout);
+    }
+
+    private pop(): QueueItem<any> | null {
+        return this.queue.shift() ?? null;
+    }
+
+    private process() {
+        this.pop()?.execute().then(timeout => {
+            this.timeout = timeout;
+            this.size--
+            // TODO: should handle this if it happens
+        }).catch(console.error);
+    }
+}
+
+const basicQueue = new RateLimitedQueue(50);
+const transferQueue = new RateLimitedQueue(100);
+const socketQueue = new RateLimitedQueue(100);
+const manifestQueue = new RateLimitedQueue(100);
 
 export type FetchConfig = {
     url: string;
@@ -27,67 +88,66 @@ export type FetchConfig = {
 export function rateLimitedRequest<T>(access_token: string | undefined,
     config: FetchConfig): Promise<BungieNetResponse<T>> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
-    const time = Date.now();
-    let wait = 0;
-    if (time - _lastCall < DELAY) {
-        wait = DELAY - (time - _lastCall);
-    }
-    _lastCall = time + wait;
+
     const params = equalsParams(config);
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const start = Date.now()
-            const url = config.url + (params ? '?' + params.join('&') : '')
-            let init = {
-                method: config.method,
-                body: config.body ? JSON.stringify(config.body) : null,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-KEY': __credentials__.BUNGIE_API_KEY
-                }
-            }
-            if (access_token) {
-                init.headers['Authorization'] = 'Bearer ' + access_token;
-            }
-            resolve(fetch(url, init).then((response) => {
-                return response.json() as Promise<BungieNetResponse<T>>;
-            })
-                .then((res: BungieNetResponse<T>) => {
-                    // idk if this is the best way to do this
-                    if (res.ThrottleSeconds) wait += 1000 * res.ThrottleSeconds;
-                    res.ResponseTime = Date.now() - start;
-                    if (res.ErrorCode !== PlatformErrorCodes.Success) throw new BungieAPIError<T>(res);
-                    else return res;
-                }));
-        }, wait);
+    const url = config.url + (params ? '?' + params.join('&') : '')
+    const init = {
+        method: config.method,
+        body: config.body ? JSON.stringify(config.body) : null,
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': __credentials__.BUNGIE_API_KEY
+        }
+    }
+
+    if (access_token) init.headers['Authorization'] = `Bearer ${access_token}`;
+
+    return new Promise((resolve, reject) => {
+        let queue: RateLimitedQueue;
+        if (!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items/)) {
+            queue = basicQueue;
+        } else if (transferAction(url)) {
+            queue = transferQueue;
+        } else if (socketAction(url)) {
+            queue = socketQueue
+        } else {
+            queue = basicQueue;
+        }
+        queue.add(new QueueItem(url, init, resolve, reject));
     });
+}
+
+function transferAction(url: string): boolean {
+    return !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/TransferItem/)
+        || !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/PullFromPostmaster/)
+        || !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItem/)
+        || !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItems/)
+}
+
+function socketAction(url: string): boolean {
+    return !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlugFree/)
+        || !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlug/)
 }
 
 export function manifestRequest(config: FetchConfig): Promise<any> {
     if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
-    const time = Date.now();
-    let wait = 0;
-    if (time - _lastCall < DELAY) {
-        wait = DELAY - (time - _lastCall);
-    }
-    _lastCall = time + wait;
     const params = equalsParams(config);
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const start = Date.now()
-            const url = config.url + (params ? '?' + params.join('&') : '')
-            let init = {
-                method: config.method,
-                body: config.body ? JSON.stringify(config.body) : null,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-KEY': __credentials__.BUNGIE_API_KEY
-                }
-            }
-            resolve(fetch(url, init).then((response) => {
-                return response.json();
-            }));
-        }, wait);
+    const start = Date.now()
+    const url = config.url + (params ? '?' + params.join('&') : '')
+    let init = {
+        method: config.method,
+        body: config.body ? JSON.stringify(config.body) : null,
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': __credentials__.BUNGIE_API_KEY
+        }
+    }
+
+    return new Promise((resolve, reject) => {
+        manifestQueue.add(new QueueItem(url, init, resolve, reject));
     });
 }
 

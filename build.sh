@@ -26,7 +26,7 @@ tsc -p tsconfig-lib.json ; echo TypeScript typings transpiled to .d.ts files wit
 #(echo 'Cleaned' &&
 #while
 #  read file;
-#do
+#execute
 #  value=$(cat "$file")
 #  # if there are only typings in a file, tsc will leave a blank file as such
 #  if [ "$value" = "export {};" ]

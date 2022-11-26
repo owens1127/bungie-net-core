@@ -30,10 +30,10 @@ if (urlObj.searchParams.get('state') !== state) throw Error();
 
 const code = urlObj.searchParams.get('code')
 
-// one way to get the tokens is with an oauth code, you'll need to do this the first time
+// one way to get the tokens is with an oauth code, you'll need to execute this the first time
 // const tokens = await Schemas.getAccessTokenFromAuthCode(code)
 
-// if you have a stored refresh token, you can do this instead
+// if you have a stored refresh token, you can execute this instead
 const tokens = await Tokens.getAccessTokenFromRefreshToken(process.env.BUNGIE_NEWO_REFRESH)
 console.log({tokens});
 
