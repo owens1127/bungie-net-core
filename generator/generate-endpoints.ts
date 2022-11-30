@@ -1,20 +1,14 @@
 import {
-    DefInfo, importPath,
+    DefInfo,
     isReferenceObject,
     isRequestBodyObject,
     lastPart,
-    lcFirst,
-    resolveSchemaType,
+    resolveSchemaType
 } from './util.js';
-import {OpenAPIObject, ParameterObject, PathItemObject,} from 'openapi3-ts';
-import {
-    docComment,
-    generateHeader,
-    indent,
-    writeOutFile,
-} from './generate-common.js';
-import _ from "underscore";
-import {seeDefHyperLink} from "./type-index.js";
+import { OpenAPIObject, ParameterObject, PathItemObject } from 'openapi3-ts';
+import { docComment, generateHeader, indent, writeOutFile } from './generate-common.js';
+import _ from 'underscore';
+import { seeDefHyperLink } from './type-index.js';
 
 export function generateServiceDefinition(
     tag: string,
@@ -46,9 +40,8 @@ function generatePathDefinition(
     componentByDef: { [def: string]: DefInfo }
 ): string {
     const hyperRef = seeDefHyperLink('#' + pathDef.summary);
-    const importFiles = new Map<string,string>();
+    const importFiles = new Map<string, string>();
     //console.log(pathDef)
-
 
     let server = doc.servers![0].url;
     // per https://github.com/Bungie-net/api/issues/853
@@ -56,14 +49,20 @@ function generatePathDefinition(
     if (
         server === 'https://www.bungie.net/Platform' &&
         path.includes('/Stats/PostGameCarnageReport/')
-    )
+    ) {
         server = 'https://stats.bungie.net/Platform';
+    }
     const interfaceName = lastPart(pathDef.summary!);
 
     const method = pathDef.get ? 'GET' : 'POST';
     const methodDef = pathDef.get || pathDef.post!;
     const params = (methodDef.parameters || []) as ParameterObject[];
 
+    params.forEach((param) => {
+        // see https://github.com/Bungie-net/api/pull/1718/commits/2d4225f5a93a814daba9f9443986da77bdd0e7bf
+        if (param.name === 'currentpage') param.in = 'query'
+    });
+    console.log(params)
     const queryParameterNames = params
         .filter((param) => param.in === 'query')
         .map((param) => param.name);
@@ -71,7 +70,9 @@ function generatePathDefinition(
     const parameterArgs = ['this: BungieClient'];
     let paramsTypeDefinition = '';
     if (params.length) {
-        paramsTypeDefinition = generateParamsType(interfaceName + 'Params', params, componentByDef, doc, hyperRef, importFiles) +
+        paramsTypeDefinition =
+            generateParamsType(interfaceName + 'Params', params, componentByDef, doc, hyperRef,
+                importFiles) +
             '\n\n';
         parameterArgs.push(`params: ${interfaceName}Params`);
     }
@@ -88,7 +89,7 @@ function generatePathDefinition(
                 `${docString}body${methodDef.requestBody.required ? '' : '?'}: ${paramType}`
             );
         } else if (isReferenceObject(methodDef.requestBody)) {
-            throw new Error("didn't expect this");
+            throw new Error('didn\'t expect this');
         }
     }
 
@@ -139,10 +140,12 @@ ${indent(paramInitializers.join(',\n'), 3)}
         methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&
         `Wait at least ${methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser}s between actions.`;
 
-    return `${staticImports.join('\n')}\n${headerImports.join('\n')}\n${paramsTypeDefinition}${docComment(
+    return `${staticImports.join('\n')}\n${headerImports.join(
+        '\n')}\n${paramsTypeDefinition}${docComment(
         methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [hyperRef]
     )}
-export function ${interfaceName}(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${responseType}>> {
+export function ${interfaceName}(${parameterArgs.join(
+        ', ')}): Promise<BungieNetResponse<${responseType}>> {
   return ${rateLimitedFunction}<${responseType}>(this.access_token, {
     method: '${method}',
     url: ${templatizedPath}${paramsObject}${requestBodyParam}
@@ -162,7 +165,8 @@ function generateParamsType(
         const paramType = resolveSchemaType(param.schema!, doc, importFiles);
         const docString = param.description ? docComment(param.description) + '\n' : '';
         return `${docString}${param.name}${
-            param.required || (param.name === 'components' && paramType === 'DestinyComponentType[]')
+            param.required || (param.name === 'components' && paramType
+                === 'DestinyComponentType[]')
                 ? ''
                 : '?'
         }: ${paramType};`;
