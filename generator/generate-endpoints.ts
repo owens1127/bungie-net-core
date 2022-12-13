@@ -62,7 +62,7 @@ function generatePathDefinition(
         // see https://github.com/Bungie-net/api/pull/1718/commits/2d4225f5a93a814daba9f9443986da77bdd0e7bf
         if (param.name === 'currentpage') param.in = 'query'
     });
-    console.log(params)
+    // console.log(params)
     const queryParameterNames = params
         .filter((param) => param.in === 'query')
         .map((param) => param.name);
