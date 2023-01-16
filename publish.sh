@@ -1,7 +1,5 @@
 #!/bin/sh -ex
 
-npm run build
-
 publish ()
 {
     # publish
