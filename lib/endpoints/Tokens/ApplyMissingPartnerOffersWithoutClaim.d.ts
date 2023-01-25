@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 /** @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim} */
 export declare type ApplyMissingPartnerOffersWithoutClaimParams = {
     /** The partner application identifier. */
@@ -27,4 +27,4 @@ export declare type ApplyMissingPartnerOffersWithoutClaimParams = {
  * offer, but any already claimed offers will be applied to the game if not already.
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
 */
-export declare function ApplyMissingPartnerOffersWithoutClaim(this: BungieClient, params: ApplyMissingPartnerOffersWithoutClaimParams): Promise<BungieNetResponse<boolean>>;
+export declare function ApplyMissingPartnerOffersWithoutClaim(this: InstancedImport, params: ApplyMissingPartnerOffersWithoutClaimParams): Promise<BungieNetResponse<boolean>>;

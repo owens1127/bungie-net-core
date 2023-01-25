@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { PostSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent} */
 export declare type GetPostAndParentParams = {
@@ -23,4 +23,4 @@ export declare type GetPostAndParentParams = {
  * Returns the post specified and its immediate parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent}
 */
-export declare function GetPostAndParent(this: BungieClient, params: GetPostAndParentParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function GetPostAndParent(this: InstancedImport, params: GetPostAndParentParams): Promise<BungieNetResponse<PostSearchResponse>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ForumPostSortEnum } from '../../schemas/index.js';
 import { PostSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged} */
@@ -31,4 +31,4 @@ export declare type GetPostsThreadedPagedParams = {
  * those posts as well as the original parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged}
 */
-export declare function GetPostsThreadedPaged(this: BungieClient, params: GetPostsThreadedPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function GetPostsThreadedPaged(this: InstancedImport, params: GetPostsThreadedPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;

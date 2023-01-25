@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyClanAggregateStat } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
 export declare type GetClanAggregateStatsParams = {
@@ -31,4 +31,4 @@ export declare type GetClanAggregateStatsParams = {
  * operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
 */
-export declare function GetClanAggregateStats(this: BungieClient, params: GetClanAggregateStatsParams): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;
+export declare function GetClanAggregateStats(this: InstancedImport, params: GetClanAggregateStatsParams): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;

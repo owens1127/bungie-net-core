@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { DestinyPublicVendorsResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors} */
@@ -31,4 +31,4 @@ export declare type GetPublicVendorsParams = {
  * guilty of saying: 'It's a long story...'
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
 */
-export declare function GetPublicVendors(this: BungieClient, params: GetPublicVendorsParams): Promise<BungieNetResponse<DestinyPublicVendorsResponse>>;
+export declare function GetPublicVendors(this: InstancedImport, params: GetPublicVendorsParams): Promise<BungieNetResponse<DestinyPublicVendorsResponse>>;

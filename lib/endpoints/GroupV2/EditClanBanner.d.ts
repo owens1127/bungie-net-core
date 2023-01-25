@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ClanBanner } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner} */
 export declare type EditClanBannerParams = {
@@ -23,4 +23,4 @@ export declare type EditClanBannerParams = {
  * group to perform this operation. All fields are required.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
 */
-export declare function EditClanBanner(this: BungieClient, params: EditClanBannerParams, body: ClanBanner): Promise<BungieNetResponse<number>>;
+export declare function EditClanBanner(this: InstancedImport, params: EditClanBannerParams, body: ClanBanner): Promise<BungieNetResponse<number>>;

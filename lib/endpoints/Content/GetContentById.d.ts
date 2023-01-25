@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ContentItemPublicContract } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentById} */
 export declare type GetContentByIdParams = {
@@ -24,4 +24,4 @@ export declare type GetContentByIdParams = {
  * Returns a content item referenced by id
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
 */
-export declare function GetContentById(this: BungieClient, params: GetContentByIdParams): Promise<BungieNetResponse<ContentItemPublicContract>>;
+export declare function GetContentById(this: InstancedImport, params: GetContentByIdParams): Promise<BungieNetResponse<ContentItemPublicContract>>;

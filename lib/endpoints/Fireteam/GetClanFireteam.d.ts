@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { FireteamResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam} */
 export declare type GetClanFireteamParams = {
@@ -24,4 +24,4 @@ export declare type GetClanFireteamParams = {
  * Gets a specific fireteam.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
 */
-export declare function GetClanFireteam(this: BungieClient, params: GetClanFireteamParams): Promise<BungieNetResponse<FireteamResponse>>;
+export declare function GetClanFireteam(this: InstancedImport, params: GetClanFireteamParams): Promise<BungieNetResponse<FireteamResponse>>;

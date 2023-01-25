@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { SearchResultOfGroupBan } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
 export declare type GetBannedMembersOfGroupParams = {
@@ -25,4 +25,4 @@ export declare type GetBannedMembersOfGroupParams = {
  * and above. Not applicable to all groups. Check group features.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
 */
-export declare function GetBannedMembersOfGroup(this: BungieClient, params: GetBannedMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupBan>>;
+export declare function GetBannedMembersOfGroup(this: InstancedImport, params: GetBannedMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupBan>>;

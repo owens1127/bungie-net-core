@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { GroupMemberLeaveResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.KickMember} */
@@ -29,4 +29,4 @@ export declare type KickMemberParams = {
  * operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
 */
-export declare function KickMember(this: BungieClient, params: KickMemberParams): Promise<BungieNetResponse<GroupMemberLeaveResult>>;
+export declare function KickMember(this: InstancedImport, params: KickMemberParams): Promise<BungieNetResponse<GroupMemberLeaveResult>>;

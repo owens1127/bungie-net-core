@@ -11,13 +11,13 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { CoreSystem } from '../../schemas/index.js';
 /**
  * Get the user-specific system overrides that should be respected alongside common
  * systems.
  * @see {@link https://bungie-net.github.io/#.GetUserSystemOverrides}
 */
-export declare function GetUserSystemOverrides(this: BungieClient): Promise<BungieNetResponse<{
+export declare function GetUserSystemOverrides(this: InstancedImport): Promise<BungieNetResponse<{
     [key: string]: CoreSystem;
 }>>;

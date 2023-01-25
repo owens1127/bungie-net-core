@@ -11,12 +11,12 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieRewardDisplay } from '../../schemas/index.js';
 /**
  * Returns a list of the current bungie rewards
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsList}
 */
-export declare function GetBungieRewardsList(this: BungieClient): Promise<BungieNetResponse<{
+export declare function GetBungieRewardsList(this: InstancedImport): Promise<BungieNetResponse<{
     [key: string]: BungieRewardDisplay;
 }>>;

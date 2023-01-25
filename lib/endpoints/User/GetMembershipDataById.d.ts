@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { UserMembershipData } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipDataById} */
@@ -27,4 +27,4 @@ export declare type GetMembershipDataByIdParams = {
  * supplied credentials permit it.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataById}
 */
-export declare function GetMembershipDataById(this: BungieClient, params: GetMembershipDataByIdParams): Promise<BungieNetResponse<UserMembershipData>>;
+export declare function GetMembershipDataById(this: InstancedImport, params: GetMembershipDataByIdParams): Promise<BungieNetResponse<UserMembershipData>>;

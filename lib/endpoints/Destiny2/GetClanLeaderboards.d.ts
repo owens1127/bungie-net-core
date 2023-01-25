@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyLeaderboard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards} */
 export declare type GetClanLeaderboardsParams = {
@@ -38,7 +38,7 @@ export declare type GetClanLeaderboardsParams = {
  * that prevent desirable operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards}
 */
-export declare function GetClanLeaderboards(this: BungieClient, params: GetClanLeaderboardsParams): Promise<BungieNetResponse<{
+export declare function GetClanLeaderboards(this: InstancedImport, params: GetClanLeaderboardsParams): Promise<BungieNetResponse<{
     [key: string]: {
         [key: string]: DestinyLeaderboard;
     };

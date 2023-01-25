@@ -10,20 +10,23 @@ import * as TrendingImport from '../endpoints/Trending/index.js';
 import * as FireteamImport from '../endpoints/Fireteam/index.js';
 import * as SocialImport from '../endpoints/Social/index.js';
 import * as CoreImport from '../endpoints/Core/index.js';
+export declare type InstancedImport = {
+    client: BungieClient;
+};
 /** A client for interacting with the Bungie.net API */
 export declare class BungieClient {
-    readonly App: typeof AppImport;
-    readonly User: typeof UserImport;
-    readonly Content: typeof ContentImport;
-    readonly Forum: typeof ForumImport;
-    readonly GroupV2: typeof GroupV2Import;
-    readonly Tokens: typeof TokensImport;
-    readonly Destiny2: typeof Destiny2Import;
-    readonly CommunityContent: typeof CommunityContentImport;
-    readonly Trending: typeof TrendingImport;
-    readonly Fireteam: typeof FireteamImport;
-    readonly Social: typeof SocialImport;
-    readonly Core: typeof CoreImport;
+    readonly App: typeof AppImport & InstancedImport;
+    readonly User: typeof UserImport & InstancedImport;
+    readonly Content: typeof ContentImport & InstancedImport;
+    readonly Forum: typeof ForumImport & InstancedImport;
+    readonly GroupV2: typeof GroupV2Import & InstancedImport;
+    readonly Tokens: typeof TokensImport & InstancedImport;
+    readonly Destiny2: typeof Destiny2Import & InstancedImport;
+    readonly CommunityContent: typeof CommunityContentImport & InstancedImport;
+    readonly Trending: typeof TrendingImport & InstancedImport;
+    readonly Fireteam: typeof FireteamImport & InstancedImport;
+    readonly Social: typeof SocialImport & InstancedImport;
+    readonly Core: typeof CoreImport & InstancedImport;
     access_token?: string;
     constructor(access_token?: string);
     /**

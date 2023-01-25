@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyPostGameCarnageReportData } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport} */
 export declare type GetPostGameCarnageReportParams = {
@@ -22,4 +22,4 @@ export declare type GetPostGameCarnageReportParams = {
  * Gets the available post game carnage report for the activity ID.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport}
 */
-export declare function GetPostGameCarnageReport(this: BungieClient, params: GetPostGameCarnageReportParams): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>>;
+export declare function GetPostGameCarnageReport(this: InstancedImport, params: GetPostGameCarnageReportParams): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>>;

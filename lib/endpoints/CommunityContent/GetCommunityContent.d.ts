@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ForumTopicsCategoryFiltersEnum } from '../../schemas/index.js';
 import { CommunityContentSortMode } from '../../schemas/index.js';
 import { PostSearchResponse } from '../../schemas/index.js';
@@ -28,4 +28,4 @@ export declare type GetCommunityContentParams = {
  * Returns community content.
  * @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent}
 */
-export declare function GetCommunityContent(this: BungieClient, params: GetCommunityContentParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function GetCommunityContent(this: InstancedImport, params: GetCommunityContentParams): Promise<BungieNetResponse<PostSearchResponse>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyInsertPlugsFreeActionRequest } from '../../schemas/index.js';
 import { DestinyItemChangeResponse } from '../../schemas/index.js';
 /**
@@ -24,4 +24,4 @@ import { DestinyItemChangeResponse } from '../../schemas/index.js';
  * Wait at least 0.5s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.InsertSocketPlugFree}
 */
-export declare function InsertSocketPlugFree(this: BungieClient, body: DestinyInsertPlugsFreeActionRequest): Promise<BungieNetResponse<DestinyItemChangeResponse>>;
+export declare function InsertSocketPlugFree(this: InstancedImport, body: DestinyInsertPlugsFreeActionRequest): Promise<BungieNetResponse<DestinyItemChangeResponse>>;

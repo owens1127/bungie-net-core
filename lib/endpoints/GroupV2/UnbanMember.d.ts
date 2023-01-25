@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember} */
 export declare type UnbanMemberParams = {
@@ -25,4 +25,4 @@ export declare type UnbanMemberParams = {
  * Unbans the requested member, allowing them to re-apply for membership.
  * @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember}
 */
-export declare function UnbanMember(this: BungieClient, params: UnbanMemberParams): Promise<BungieNetResponse<number>>;
+export declare function UnbanMember(this: InstancedImport, params: UnbanMemberParams): Promise<BungieNetResponse<number>>;

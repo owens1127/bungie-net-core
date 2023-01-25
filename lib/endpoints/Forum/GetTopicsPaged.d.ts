@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ForumTopicsCategoryFiltersEnum } from '../../schemas/index.js';
 import { ForumTopicsQuickDateEnum } from '../../schemas/index.js';
 import { ForumTopicsSortEnum } from '../../schemas/index.js';
@@ -42,4 +42,4 @@ export declare type GetTopicsPagedParams = {
  * Get topics from any forum.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
 */
-export declare function GetTopicsPaged(this: BungieClient, params: GetTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function GetTopicsPaged(this: InstancedImport, params: GetTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupPotentialMemberStatus } from '../../schemas/index.js';
 import { GroupType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
@@ -32,4 +32,4 @@ export declare type GetPotentialGroupsForMemberParams = {
  * invited to.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
 */
-export declare function GetPotentialGroupsForMember(this: BungieClient, params: GetPotentialGroupsForMemberParams): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;
+export declare function GetPotentialGroupsForMember(this: InstancedImport, params: GetPotentialGroupsForMemberParams): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;

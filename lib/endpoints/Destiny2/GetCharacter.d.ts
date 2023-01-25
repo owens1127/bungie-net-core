@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyCharacterResponse } from '../../schemas/index.js';
@@ -34,4 +34,4 @@ export declare type GetCharacterParams = {
  * Returns character information for the supplied character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter}
 */
-export declare function GetCharacter(this: BungieClient, params: GetCharacterParams): Promise<BungieNetResponse<DestinyCharacterResponse>>;
+export declare function GetCharacter(this: InstancedImport, params: GetCharacterParams): Promise<BungieNetResponse<DestinyCharacterResponse>>;

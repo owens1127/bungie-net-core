@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupNameSearchRequest } from '../../schemas/index.js';
 import { GroupResponse } from '../../schemas/index.js';
 /**
@@ -19,4 +19,4 @@ import { GroupResponse } from '../../schemas/index.js';
  * version.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByNameV2}
 */
-export declare function GetGroupByNameV2(this: BungieClient, body: GroupNameSearchRequest): Promise<BungieNetResponse<GroupResponse>>;
+export declare function GetGroupByNameV2(this: InstancedImport, body: GroupNameSearchRequest): Promise<BungieNetResponse<GroupResponse>>;

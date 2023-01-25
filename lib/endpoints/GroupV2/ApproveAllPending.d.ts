@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupApplicationRequest } from '../../schemas/index.js';
 import { EntityActionResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending} */
@@ -23,4 +23,4 @@ export declare type ApproveAllPendingParams = {
  * Approve all of the pending users for the given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending}
 */
-export declare function ApproveAllPending(this: BungieClient, params: ApproveAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+export declare function ApproveAllPending(this: InstancedImport, params: ApproveAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;

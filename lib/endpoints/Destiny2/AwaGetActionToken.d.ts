@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { AwaAuthorizationResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken} */
 export declare type AwaGetActionTokenParams = {
@@ -22,4 +22,4 @@ export declare type AwaGetActionTokenParams = {
  * Returns the action token if user approves the request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
 */
-export declare function AwaGetActionToken(this: BungieClient, params: AwaGetActionTokenParams): Promise<BungieNetResponse<AwaAuthorizationResult>>;
+export declare function AwaGetActionToken(this: InstancedImport, params: AwaGetActionTokenParams): Promise<BungieNetResponse<AwaAuthorizationResult>>;

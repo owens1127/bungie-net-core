@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyItemSetActionRequest } from '../../schemas/index.js';
 import { DestinyEquipItemResults } from '../../schemas/index.js';
 /**
@@ -22,4 +22,4 @@ import { DestinyEquipItemResults } from '../../schemas/index.js';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipItems}
 */
-export declare function EquipItems(this: BungieClient, body: DestinyItemSetActionRequest): Promise<BungieNetResponse<DestinyEquipItemResults>>;
+export declare function EquipItems(this: InstancedImport, body: DestinyItemSetActionRequest): Promise<BungieNetResponse<DestinyEquipItemResults>>;

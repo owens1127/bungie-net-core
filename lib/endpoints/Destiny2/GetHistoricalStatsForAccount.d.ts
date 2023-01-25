@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyStatsGroupType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyHistoricalStatsAccountResult } from '../../schemas/index.js';
@@ -32,4 +32,4 @@ export declare type GetHistoricalStatsForAccountParams = {
  * account.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount}
 */
-export declare function GetHistoricalStatsForAccount(this: BungieClient, params: GetHistoricalStatsForAccountParams): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>>;
+export declare function GetHistoricalStatsForAccount(this: InstancedImport, params: GetHistoricalStatsForAccountParams): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupOptionalConversation } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations} */
 export declare type GetGroupOptionalConversationsParams = {
@@ -22,4 +22,4 @@ export declare type GetGroupOptionalConversationsParams = {
  * Gets a list of available optional conversation channels and their settings.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
 */
-export declare function GetGroupOptionalConversations(this: BungieClient, params: GetGroupOptionalConversationsParams): Promise<BungieNetResponse<GroupOptionalConversation[]>>;
+export declare function GetGroupOptionalConversations(this: InstancedImport, params: GetGroupOptionalConversationsParams): Promise<BungieNetResponse<GroupOptionalConversation[]>>;

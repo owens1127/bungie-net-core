@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupQuery } from '../../schemas/index.js';
 import { GroupSearchResponse } from '../../schemas/index.js';
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}
 */
-export declare function GroupSearch(this: BungieClient, body: GroupQuery): Promise<BungieNetResponse<GroupSearchResponse>>;
+export declare function GroupSearch(this: InstancedImport, body: GroupQuery): Promise<BungieNetResponse<GroupSearchResponse>>;

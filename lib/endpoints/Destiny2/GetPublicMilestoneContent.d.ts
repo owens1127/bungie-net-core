@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyMilestoneContent } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent} */
 export declare type GetPublicMilestoneContentParams = {
@@ -22,4 +22,4 @@ export declare type GetPublicMilestoneContentParams = {
  * Gets custom localized content for the milestone of the given hash, if it exists.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent}
 */
-export declare function GetPublicMilestoneContent(this: BungieClient, params: GetPublicMilestoneContentParams): Promise<BungieNetResponse<DestinyMilestoneContent>>;
+export declare function GetPublicMilestoneContent(this: InstancedImport, params: GetPublicMilestoneContentParams): Promise<BungieNetResponse<DestinyMilestoneContent>>;

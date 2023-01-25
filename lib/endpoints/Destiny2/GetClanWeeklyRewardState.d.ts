@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyMilestone } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState} */
 export declare type GetClanWeeklyRewardStateParams = {
@@ -23,4 +23,4 @@ export declare type GetClanWeeklyRewardStateParams = {
  * or not. Note that this will always report rewards as not redeemed.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState}
 */
-export declare function GetClanWeeklyRewardState(this: BungieClient, params: GetClanWeeklyRewardStateParams): Promise<BungieNetResponse<DestinyMilestone>>;
+export declare function GetClanWeeklyRewardState(this: InstancedImport, params: GetClanWeeklyRewardStateParams): Promise<BungieNetResponse<DestinyMilestone>>;

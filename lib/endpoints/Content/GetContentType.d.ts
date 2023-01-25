@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { ContentTypeDescription } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentType} */
 export declare type GetContentTypeParams = {
@@ -21,4 +21,4 @@ export declare type GetContentTypeParams = {
  * Gets an object describing a particular variant of content.
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
 */
-export declare function GetContentType(this: BungieClient, params: GetContentTypeParams): Promise<BungieNetResponse<ContentTypeDescription>>;
+export declare function GetContentType(this: InstancedImport, params: GetContentTypeParams): Promise<BungieNetResponse<ContentTypeDescription>>;

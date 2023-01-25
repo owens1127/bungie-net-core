@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GlobalAlert } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#.GetGlobalAlerts} */
 export declare type GetGlobalAlertsParams = {
@@ -23,4 +23,4 @@ export declare type GetGlobalAlertsParams = {
  * Usually used for DOC alerts.
  * @see {@link https://bungie-net.github.io/#.GetGlobalAlerts}
 */
-export declare function GetGlobalAlerts(this: BungieClient, params: GetGlobalAlertsParams): Promise<BungieNetResponse<GlobalAlert[]>>;
+export declare function GetGlobalAlerts(this: InstancedImport, params: GetGlobalAlertsParams): Promise<BungieNetResponse<GlobalAlert[]>>;

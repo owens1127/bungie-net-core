@@ -11,12 +11,12 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyHistoricalStatsDefinition } from '../../schemas/index.js';
 /**
  * Gets historical stats definitions.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsDefinition}
 */
-export declare function GetHistoricalStatsDefinition(this: BungieClient): Promise<BungieNetResponse<{
+export declare function GetHistoricalStatsDefinition(this: InstancedImport): Promise<BungieNetResponse<{
     [key: string]: DestinyHistoricalStatsDefinition;
 }>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { UserSearchPrefixRequest } from '../../schemas/index.js';
 import { UserSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
@@ -23,4 +23,4 @@ export declare type SearchByGlobalNamePostParams = {
  * Given the prefix of a global display name, returns all users who share that name.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
 */
-export declare function SearchByGlobalNamePost(this: BungieClient, params: SearchByGlobalNamePostParams, body: UserSearchPrefixRequest): Promise<BungieNetResponse<UserSearchResponse>>;
+export declare function SearchByGlobalNamePost(this: InstancedImport, params: SearchByGlobalNamePostParams, body: UserSearchPrefixRequest): Promise<BungieNetResponse<UserSearchResponse>>;

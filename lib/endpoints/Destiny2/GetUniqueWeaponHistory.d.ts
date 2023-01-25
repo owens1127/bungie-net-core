@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyHistoricalWeaponStatsData } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory} */
@@ -27,4 +27,4 @@ export declare type GetUniqueWeaponHistoryParams = {
  * Gets details about unique weapon usage, including all exotic weapons.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory}
 */
-export declare function GetUniqueWeaponHistory(this: BungieClient, params: GetUniqueWeaponHistoryParams): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>>;
+export declare function GetUniqueWeaponHistory(this: InstancedImport, params: GetUniqueWeaponHistoryParams): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>>;

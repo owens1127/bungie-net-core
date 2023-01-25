@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { GroupBanRequest } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.BanMember} */
@@ -28,4 +28,4 @@ export declare type BanMemberParams = {
  * time.
  * @see {@link https://bungie-net.github.io/#GroupV2.BanMember}
 */
-export declare function BanMember(this: BungieClient, params: BanMemberParams, body: GroupBanRequest): Promise<BungieNetResponse<number>>;
+export declare function BanMember(this: InstancedImport, params: BanMemberParams, body: GroupBanRequest): Promise<BungieNetResponse<number>>;

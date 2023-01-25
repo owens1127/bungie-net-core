@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyDefinition } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition} */
 export declare type GetDestinyEntityDefinitionParams = {
@@ -36,4 +36,4 @@ export declare type GetDestinyEntityDefinitionParams = {
  * accesses this should be handy.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
 */
-export declare function GetDestinyEntityDefinition(this: BungieClient, params: GetDestinyEntityDefinitionParams): Promise<BungieNetResponse<DestinyDefinition>>;
+export declare function GetDestinyEntityDefinition(this: InstancedImport, params: GetDestinyEntityDefinitionParams): Promise<BungieNetResponse<DestinyDefinition>>;

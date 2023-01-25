@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieFriendListResponse } from '../../schemas/index.js';
 /**
  * Returns your Bungie Friend list
  * @see {@link https://bungie-net.github.io/#Social.GetFriendList}
 */
-export declare function GetFriendList(this: BungieClient): Promise<BungieNetResponse<BungieFriendListResponse>>;
+export declare function GetFriendList(this: InstancedImport): Promise<BungieNetResponse<BungieFriendListResponse>>;

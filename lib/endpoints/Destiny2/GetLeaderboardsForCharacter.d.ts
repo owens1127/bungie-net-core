@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyLeaderboard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter} */
@@ -46,7 +46,7 @@ export declare type GetLeaderboardsForCharacterParams = {
  * that prevent desirable operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
 */
-export declare function GetLeaderboardsForCharacter(this: BungieClient, params: GetLeaderboardsForCharacterParams): Promise<BungieNetResponse<{
+export declare function GetLeaderboardsForCharacter(this: InstancedImport, params: GetLeaderboardsForCharacterParams): Promise<BungieNetResponse<{
     [key: string]: {
         [key: string]: DestinyLeaderboard;
     };

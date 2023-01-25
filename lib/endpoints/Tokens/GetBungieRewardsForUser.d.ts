@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieRewardDisplay } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser} */
 export declare type GetBungieRewardsForUserParams = {
@@ -25,6 +25,6 @@ export declare type GetBungieRewardsForUserParams = {
  * Returns the bungie rewards for the targeted user.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
 */
-export declare function GetBungieRewardsForUser(this: BungieClient, params: GetBungieRewardsForUserParams): Promise<BungieNetResponse<{
+export declare function GetBungieRewardsForUser(this: InstancedImport, params: GetBungieRewardsForUserParams): Promise<BungieNetResponse<{
     [key: string]: BungieRewardDisplay;
 }>>;

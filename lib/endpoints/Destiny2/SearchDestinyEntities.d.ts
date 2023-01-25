@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyEntitySearchResult } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities} */
 export declare type SearchDestinyEntitiesParams = {
@@ -30,4 +30,4 @@ export declare type SearchDestinyEntitiesParams = {
  * Gets a page list of Destiny items.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities}
 */
-export declare function SearchDestinyEntities(this: BungieClient, params: SearchDestinyEntitiesParams): Promise<BungieNetResponse<DestinyEntitySearchResult>>;
+export declare function SearchDestinyEntities(this: InstancedImport, params: SearchDestinyEntitiesParams): Promise<BungieNetResponse<DestinyEntitySearchResult>>;

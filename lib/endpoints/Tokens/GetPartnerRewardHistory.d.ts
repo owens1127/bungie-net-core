@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { PartnerRewardHistoryResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory} */
 export declare type GetPartnerRewardHistoryParams = {
@@ -25,4 +25,4 @@ export declare type GetPartnerRewardHistoryParams = {
  * and Twitch drops.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
 */
-export declare function GetPartnerRewardHistory(this: BungieClient, params: GetPartnerRewardHistoryParams): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;
+export declare function GetPartnerRewardHistory(this: InstancedImport, params: GetPartnerRewardHistoryParams): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;

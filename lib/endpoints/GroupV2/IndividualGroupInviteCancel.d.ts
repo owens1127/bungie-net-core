@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { GroupApplicationResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel} */
@@ -27,4 +27,4 @@ export declare type IndividualGroupInviteCancelParams = {
  * Cancels a pending invitation to join a group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
 */
-export declare function IndividualGroupInviteCancel(this: BungieClient, params: IndividualGroupInviteCancelParams): Promise<BungieNetResponse<GroupApplicationResponse>>;
+export declare function IndividualGroupInviteCancel(this: InstancedImport, params: IndividualGroupInviteCancelParams): Promise<BungieNetResponse<GroupApplicationResponse>>;

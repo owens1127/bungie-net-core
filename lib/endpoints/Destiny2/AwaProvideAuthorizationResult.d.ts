@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { AwaUserResponse } from '../../schemas/index.js';
 /**
  * Provide the result of the user interaction. Called by the Bungie Destiny App to
  * approve or reject a request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaProvideAuthorizationResult}
 */
-export declare function AwaProvideAuthorizationResult(this: BungieClient, body: AwaUserResponse): Promise<BungieNetResponse<number>>;
+export declare function AwaProvideAuthorizationResult(this: InstancedImport, body: AwaUserResponse): Promise<BungieNetResponse<number>>;

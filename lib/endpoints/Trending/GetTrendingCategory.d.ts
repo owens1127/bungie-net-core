@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { SearchResultOfTrendingEntry } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory} */
 export declare type GetTrendingCategoryParams = {
@@ -24,4 +24,4 @@ export declare type GetTrendingCategoryParams = {
  * Returns paginated lists of trending items for a category.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory}
 */
-export declare function GetTrendingCategory(this: BungieClient, params: GetTrendingCategoryParams): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;
+export declare function GetTrendingCategory(this: InstancedImport, params: GetTrendingCategoryParams): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;

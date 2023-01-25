@@ -11,12 +11,12 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyPublicMilestone } from '../../schemas/index.js';
 /**
  * Gets public information about currently available Milestones.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
 */
-export declare function GetPublicMilestones(this: BungieClient): Promise<BungieNetResponse<{
+export declare function GetPublicMilestones(this: InstancedImport): Promise<BungieNetResponse<{
     [key: number]: DestinyPublicMilestone;
 }>>;

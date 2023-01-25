@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { PartnerOfferClaimRequest } from '../../schemas/index.js';
 /**
  * Claim a partner offer as the authenticated user.
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}
 */
-export declare function ClaimPartnerOffer(this: BungieClient, body: PartnerOfferClaimRequest): Promise<BungieNetResponse<boolean>>;
+export declare function ClaimPartnerOffer(this: InstancedImport, body: PartnerOfferClaimRequest): Promise<BungieNetResponse<boolean>>;

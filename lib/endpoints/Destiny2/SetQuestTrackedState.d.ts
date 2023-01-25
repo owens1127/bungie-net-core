@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyItemStateRequest } from '../../schemas/index.js';
 /**
  * Set the Tracking State for an instanced item, if that item is a Quest or Bounty.
@@ -20,4 +20,4 @@ import { DestinyItemStateRequest } from '../../schemas/index.js';
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SetQuestTrackedState}
 */
-export declare function SetQuestTrackedState(this: BungieClient, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;
+export declare function SetQuestTrackedState(this: InstancedImport, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;

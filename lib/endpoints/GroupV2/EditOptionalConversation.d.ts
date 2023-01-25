@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { GroupOptionalConversationEditRequest } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation} */
 export declare type EditOptionalConversationParams = {
@@ -25,4 +25,4 @@ export declare type EditOptionalConversationParams = {
  * permissions to the group.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
 */
-export declare function EditOptionalConversation(this: BungieClient, params: EditOptionalConversationParams, body: GroupOptionalConversationEditRequest): Promise<BungieNetResponse<string>>;
+export declare function EditOptionalConversation(this: InstancedImport, params: EditOptionalConversationParams, body: GroupOptionalConversationEditRequest): Promise<BungieNetResponse<string>>;

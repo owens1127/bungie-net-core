@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { PostSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPoll} */
 export declare type GetPollParams = {
@@ -22,4 +22,4 @@ export declare type GetPollParams = {
  * Gets the specified forum poll.
  * @see {@link https://bungie-net.github.io/#Forum.GetPoll}
 */
-export declare function GetPoll(this: BungieClient, params: GetPollParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function GetPoll(this: InstancedImport, params: GetPollParams): Promise<BungieNetResponse<PostSearchResponse>>;

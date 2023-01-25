@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { Application } from '../../schemas/index.js';
 /**
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
 */
-export declare function GetBungieApplications(this: BungieClient): Promise<BungieNetResponse<Application[]>>;
+export declare function GetBungieApplications(this: InstancedImport): Promise<BungieNetResponse<Application[]>>;

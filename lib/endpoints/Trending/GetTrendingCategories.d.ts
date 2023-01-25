@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { TrendingCategories } from '../../schemas/index.js';
 /**
  * Returns trending items for Bungie.net, collapsed into the first page of items
  * per category. For pagination within a category, call GetTrendingCategory.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategories}
 */
-export declare function GetTrendingCategories(this: BungieClient): Promise<BungieNetResponse<TrendingCategories>>;
+export declare function GetTrendingCategories(this: InstancedImport): Promise<BungieNetResponse<TrendingCategories>>;

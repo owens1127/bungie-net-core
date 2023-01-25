@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyItemResponse } from '../../schemas/index.js';
@@ -36,4 +36,4 @@ export declare type GetItemParams = {
  * useful instance-specific details and thus are not queryable here.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetItem}
 */
-export declare function GetItem(this: BungieClient, params: GetItemParams): Promise<BungieNetResponse<DestinyItemResponse>>;
+export declare function GetItem(this: InstancedImport, params: GetItemParams): Promise<BungieNetResponse<DestinyItemResponse>>;

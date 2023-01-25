@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { BungieClient } from '../../util/client.js';
+import { InstancedImport } from '../../util/client.js';
 import { NewsArticleRssResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
 export declare type RssNewsArticlesParams = {
@@ -26,4 +26,4 @@ export declare type RssNewsArticlesParams = {
  * Returns a JSON string response that is the RSS feed for news articles.
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
 */
-export declare function RssNewsArticles(this: BungieClient, params: RssNewsArticlesParams): Promise<BungieNetResponse<NewsArticleRssResponse>>;
+export declare function RssNewsArticles(this: InstancedImport, params: RssNewsArticlesParams): Promise<BungieNetResponse<NewsArticleRssResponse>>;
