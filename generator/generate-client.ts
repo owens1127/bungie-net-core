@@ -7,19 +7,14 @@ export function generateClient(tags: string[]) {
     // });
     const comment = docComment('A client for interacting with the Bungie.net API');
     const imports = tags.map(tag => {return `import * as ${tag}Import from '../endpoints/${tag}/index.js';`});
-    const client = `${imports.join('\n')}\n${comment}\nexport class BungieClient {
-${indent(tags.map(tag => {return `readonly ${tag}: typeof ${tag}Import ;`}).join('\n') + '\npublic access_token?: string', 1)}
+    const client = `${imports.join('\n')}\nexport type InstancedImport = { client: BungieClient }
+${comment}\nexport class BungieClient {
+${indent(tags.map(tag => {return `readonly ${tag}: typeof ${tag}Import & InstancedImport;`}).join('\n') + '\npublic access_token?: string', 1)}
    constructor(access_token?: string) {
 ${indent(`this.access_token = access_token;\n` + 
-        tags.map(tag => {return `this.${tag} = {...${tag}Import};`}).join('\n') + `
-// bind 'this' to all API endpoint functions
-for (const tag in this) {
-    for (const endpoint in this[tag]) {
-        // @ts-ignore
-        if (typeof this[tag][endpoint] === 'function') this[tag][endpoint] = this[tag][endpoint].bind(this);
+        tags.map(tag => {return `this.${tag} = {...${tag}Import, client: this};`}).join('\n'), 3)}
     }
-}`, 3)}
-    }
+    
     /**
      * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
      */

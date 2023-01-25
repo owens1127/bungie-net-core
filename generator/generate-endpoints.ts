@@ -67,7 +67,7 @@ function generatePathDefinition(
         .filter((param) => param.in === 'query')
         .map((param) => param.name);
 
-    const parameterArgs = ['this: BungieClient'];
+    const parameterArgs = ['this: InstancedImport'];
     let paramsTypeDefinition = '';
     if (params.length) {
         paramsTypeDefinition =
@@ -129,7 +129,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
     const rateLimitedFunction = 'rateLimitedRequest'
     const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
         `import { BungieNetResponse } from '../../util/server-response.js';`,
-        `import { BungieClient } from '../../util/client.js';`]
+        `import { BungieClient, InstancedImport } from '../../util/client.js';`]
     const responseType = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
     const headerImports: string[] = [];
@@ -146,7 +146,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
     )}
 export function ${interfaceName}(${parameterArgs.join(
         ', ')}): Promise<BungieNetResponse<${responseType}>> {
-  return ${rateLimitedFunction}<${responseType}>(this.access_token, {
+  return ${rateLimitedFunction}<${responseType}>(this.client.access_token, {
     method: '${method}',
     url: ${templatizedPath}${paramsObject}${requestBodyParam}
   });
