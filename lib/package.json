@@ -1,6 +1,6 @@
 {
   "name": "oodestiny",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "An easy way to interact with the Bungie.net API",
   "keywords": [
     "Destiny 2",
@@ -20,10 +20,8 @@
   },
   "scripts": {},
   "devDependencies": {},
-  "dependencies": {
-    "node-fetch": "^3.2.10"
-  },
   "main": "./index.js",
   "types": "index.d.ts",
-  "module": "./index.js"
+  "module": "./index.js",
+  "dependencies": {}
 }
