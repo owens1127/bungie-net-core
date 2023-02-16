@@ -15,9 +15,7 @@ export function generatePackageJson() {
     module: "./index.js",
     type: 'module',
     scripts: {},
-    dependencies: {
-      "node-fetch": "^3.2.10"
-    },
+    dependencies: {},
     devDependencies: {},
     homepage: "https://github.com/owensimpson/OODestiny/tree/master/lib",
   };
