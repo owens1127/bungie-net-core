@@ -1,6 +1,6 @@
 {
   "name": "oodestiny",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "An easy way to interact with the Bungie.net API",
   "keywords": [
     "Destiny 2",
@@ -32,7 +32,6 @@
     "@babel/preset-typescript": "^7.18.6",
     "@types/mkdirp": "^1.0.0",
     "@types/node": "^16.11.9",
-    "@types/node-fetch": "2.5.12",
     "@types/underscore": "^1.11.3",
     "mkdirp": "^1.0.3",
     "openapi3-ts": "^2.0.2",

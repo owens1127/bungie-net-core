@@ -2,7 +2,6 @@ import { NotConfiguredError } from '../errors/NotConfiguredError.js';
 import { __credentials__ } from './credentials.js'
 import { BungieAPIError } from '../errors/BungieAPIError.js';
 import { BungieNetResponse } from './server-response.js';
-import fetch from 'node-fetch';
 import { PlatformErrorCodes } from '../schemas/index.js';
 
 const timeoutCodes = [

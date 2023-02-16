@@ -1,6 +1,5 @@
 import {DefInfo} from './util';
 import {OpenAPIObject} from 'openapi3-ts';
-import fetch from 'node-fetch';
 import {docComment, indent, writeOutFile} from './generate-common.js';
 
 let attempts = 0;
