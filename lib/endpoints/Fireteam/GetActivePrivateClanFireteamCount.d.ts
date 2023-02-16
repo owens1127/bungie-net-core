@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount} */
 export declare type GetActivePrivateClanFireteamCountParams = {
     /** The group id of the clan. */
@@ -22,4 +22,4 @@ export declare type GetActivePrivateClanFireteamCountParams = {
  * value returned is 25.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount}
 */
-export declare function GetActivePrivateClanFireteamCount(this: InstancedImport, params: GetActivePrivateClanFireteamCountParams): Promise<BungieNetResponse<number>>;
+export declare function getActivePrivateClanFireteamCount(this: InstancedImport | AccessTokenObject | void, params: GetActivePrivateClanFireteamCountParams): Promise<BungieNetResponse<number>>;

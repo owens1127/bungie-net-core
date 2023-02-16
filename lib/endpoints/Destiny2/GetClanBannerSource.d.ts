@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { ClanBannerSource } from '../../schemas/index.js';
 /**
  * Returns the dictionary of values for the Clan Banner
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanBannerSource}
 */
-export declare function GetClanBannerSource(this: InstancedImport): Promise<BungieNetResponse<ClanBannerSource>>;
+export declare function getClanBannerSource(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<ClanBannerSource>>;

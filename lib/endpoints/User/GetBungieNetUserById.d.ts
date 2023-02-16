@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GeneralUser } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById} */
 export declare type GetBungieNetUserByIdParams = {
@@ -22,4 +22,4 @@ export declare type GetBungieNetUserByIdParams = {
  * Loads a bungienet user by membership id.
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
 */
-export declare function GetBungieNetUserById(this: InstancedImport, params: GetBungieNetUserByIdParams): Promise<BungieNetResponse<GeneralUser>>;
+export declare function getBungieNetUserById(this: InstancedImport | AccessTokenObject | void, params: GetBungieNetUserByIdParams): Promise<BungieNetResponse<GeneralUser>>;

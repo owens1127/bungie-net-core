@@ -21,7 +21,30 @@ configure(
 const client = new Client();
 // All endpoints are available as fields of the client
 // See the bungie website for all the possible endpoints you can hit :D
-const manifest = await client.Destiny2.GetDestinyManifest()
+const manifest = await client.Destiny2.getDestinyManifest()
+
+```
+
+If you want to make a simple query without a client, you can do directly import the endpoints as of version 1.7.0
+```javascript
+import { BungieMembershipType, DestinyActivityModeType } from 'oodestiny/schemas'
+import { getActivityHistory } from 'oodestiny/endpoints/Destiny2';
+
+const res = getActivityHistory({
+    characterId: "2305843009468984093",
+    count: 1,
+    destinyMembershipId: "4611686018488107374",
+    membershipType: BungieMembershipType.TigerSteam,
+    mode: DestinyActivityModeType.Raid,
+    page: 0
+})
+    .then(console.log)
+    .catch(console.error)
+
+// you could also bind an acccess_token to the call
+const res = getActivityHistory.bind({ access_token: "nads7yfdafnd" })({ ... })
+    .then(console.log)
+    .catch(console.error)
 
 ```
 Of course, to access the full potential of the API, you will need OAuth access.

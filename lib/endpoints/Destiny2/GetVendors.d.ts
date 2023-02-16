@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { DestinyVendorFilter } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
@@ -40,4 +40,4 @@ export declare type GetVendorsParams = {
  * their definitions as-is for those.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendors}
 */
-export declare function GetVendors(this: InstancedImport, params: GetVendorsParams): Promise<BungieNetResponse<DestinyVendorsResponse>>;
+export declare function getVendors(this: InstancedImport | AccessTokenObject | void, params: GetVendorsParams): Promise<BungieNetResponse<DestinyVendorsResponse>>;

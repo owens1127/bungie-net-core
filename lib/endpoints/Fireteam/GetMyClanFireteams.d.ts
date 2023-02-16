@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { FireteamPlatform } from '../../schemas/index.js';
 import { SearchResultOfFireteamResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
@@ -40,4 +40,4 @@ export declare type GetMyClanFireteamsParams = {
  * alternate of.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
 */
-export declare function GetMyClanFireteams(this: InstancedImport, params: GetMyClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;
+export declare function getMyClanFireteams(this: InstancedImport | AccessTokenObject | void, params: GetMyClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;

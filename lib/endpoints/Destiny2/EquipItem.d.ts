@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyItemActionRequest } from '../../schemas/index.js';
 /**
  * Equip an item. You must have a valid Destiny Account, and either be in a social
@@ -20,4 +20,4 @@ import { DestinyItemActionRequest } from '../../schemas/index.js';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipItem}
 */
-export declare function EquipItem(this: InstancedImport, body: DestinyItemActionRequest): Promise<BungieNetResponse<number>>;
+export declare function equipItem(this: InstancedImport | AccessTokenObject | void, body: DestinyItemActionRequest): Promise<BungieNetResponse<number>>;

@@ -1,7 +1,7 @@
-export { GetContentType } from './GetContentType.js';
-export { GetContentById } from './GetContentById.js';
-export { GetContentByTagAndType } from './GetContentByTagAndType.js';
-export { SearchContentWithText } from './SearchContentWithText.js';
-export { SearchContentByTagAndType } from './SearchContentByTagAndType.js';
-export { SearchHelpArticles } from './SearchHelpArticles.js';
-export { RssNewsArticles } from './RssNewsArticles.js';
+export { getContentType } from './GetContentType.js';
+export { getContentById } from './GetContentById.js';
+export { getContentByTagAndType } from './GetContentByTagAndType.js';
+export { searchContentWithText } from './SearchContentWithText.js';
+export { searchContentByTagAndType } from './SearchContentByTagAndType.js';
+export { searchHelpArticles } from './SearchHelpArticles.js';
+export { rssNewsArticles } from './RssNewsArticles.js';

@@ -13,6 +13,9 @@ import * as CoreImport from '../endpoints/Core/index.js';
 export declare type InstancedImport = {
     client: BungieClient;
 };
+export declare type AccessTokenObject = {
+    access_token: string | null;
+};
 /** A client for interacting with the Bungie.net API */
 export declare class BungieClient {
     readonly App: typeof AppImport & InstancedImport;

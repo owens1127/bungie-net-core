@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyLeaderboard } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboards} */
@@ -41,7 +41,7 @@ export declare type GetLeaderboardsParams = {
  * public comment/suggestion/preparation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboards}
 */
-export declare function GetLeaderboards(this: InstancedImport, params: GetLeaderboardsParams): Promise<BungieNetResponse<{
+export declare function getLeaderboards(this: InstancedImport | AccessTokenObject | void, params: GetLeaderboardsParams): Promise<BungieNetResponse<{
     [key: string]: {
         [key: string]: DestinyLeaderboard;
     };

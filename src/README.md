@@ -21,7 +21,7 @@ configure(
 const client = new Client();
 // All endpoints are available as fields of the client
 // See the bungie website for all the possible endpoints you can hit :D
-const manifest = await client.Destiny2.GetDestinyManifest()
+const manifest = await client.Destiny2.getDestinyManifest()
 
 ```
 

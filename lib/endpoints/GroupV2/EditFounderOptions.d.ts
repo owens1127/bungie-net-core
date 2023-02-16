@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupOptionsEditAction } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions} */
 export declare type EditFounderOptionsParams = {
@@ -23,4 +23,4 @@ export declare type EditFounderOptionsParams = {
  * permissions in the group to perform this operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions}
 */
-export declare function EditFounderOptions(this: InstancedImport, params: EditFounderOptionsParams, body: GroupOptionsEditAction): Promise<BungieNetResponse<number>>;
+export declare function editFounderOptions(this: InstancedImport | AccessTokenObject | void, params: EditFounderOptionsParams, body: GroupOptionsEditAction): Promise<BungieNetResponse<number>>;

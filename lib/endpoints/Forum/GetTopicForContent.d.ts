@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent} */
 export declare type GetTopicForContentParams = {
     contentId: string;
@@ -20,4 +20,4 @@ export declare type GetTopicForContentParams = {
  * Gets the post Id for the given content item's comments, if it exists.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent}
 */
-export declare function GetTopicForContent(this: InstancedImport, params: GetTopicForContentParams): Promise<BungieNetResponse<string>>;
+export declare function getTopicForContent(this: InstancedImport | AccessTokenObject | void, params: GetTopicForContentParams): Promise<BungieNetResponse<string>>;

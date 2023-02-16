@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { GroupApplicationRequest } from '../../schemas/index.js';
 import { GroupApplicationResponse } from '../../schemas/index.js';
@@ -28,4 +28,4 @@ export declare type IndividualGroupInviteParams = {
  * Invite a user to join this group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite}
 */
-export declare function IndividualGroupInvite(this: InstancedImport, params: IndividualGroupInviteParams, body: GroupApplicationRequest): Promise<BungieNetResponse<GroupApplicationResponse>>;
+export declare function individualGroupInvite(this: InstancedImport | AccessTokenObject | void, params: IndividualGroupInviteParams, body: GroupApplicationRequest): Promise<BungieNetResponse<GroupApplicationResponse>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyLinkedProfilesResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles} */
@@ -41,4 +41,4 @@ export declare type GetLinkedProfilesParams = {
  * return linked accounts whose linkages you are allowed to view.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles}
 */
-export declare function GetLinkedProfiles(this: InstancedImport, params: GetLinkedProfilesParams): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>>;
+export declare function getLinkedProfiles(this: InstancedImport | AccessTokenObject | void, params: GetLinkedProfilesParams): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>>;

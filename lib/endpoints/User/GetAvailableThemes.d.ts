@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { UserTheme } from '../../schemas/index.js';
 /**
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
 */
-export declare function GetAvailableThemes(this: InstancedImport): Promise<BungieNetResponse<UserTheme[]>>;
+export declare function getAvailableThemes(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<UserTheme[]>>;

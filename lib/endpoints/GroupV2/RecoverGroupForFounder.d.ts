@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { GroupMembershipSearchResponse } from '../../schemas/index.js';
@@ -29,4 +29,4 @@ export declare type RecoverGroupForFounderParams = {
  * bungie.net
  * @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder}
 */
-export declare function RecoverGroupForFounder(this: InstancedImport, params: RecoverGroupForFounderParams): Promise<BungieNetResponse<GroupMembershipSearchResponse>>;
+export declare function recoverGroupForFounder(this: InstancedImport | AccessTokenObject | void, params: RecoverGroupForFounderParams): Promise<BungieNetResponse<GroupMembershipSearchResponse>>;

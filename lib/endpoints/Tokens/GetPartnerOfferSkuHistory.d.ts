@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { PartnerOfferSkuHistoryResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory} */
 export declare type GetPartnerOfferSkuHistoryParams = {
@@ -28,4 +28,4 @@ export declare type GetPartnerOfferSkuHistoryParams = {
  * permissions are required to see users that are not yourself.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
 */
-export declare function GetPartnerOfferSkuHistory(this: InstancedImport, params: GetPartnerOfferSkuHistoryParams): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;
+export declare function getPartnerOfferSkuHistory(this: InstancedImport | AccessTokenObject | void, params: GetPartnerOfferSkuHistoryParams): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;

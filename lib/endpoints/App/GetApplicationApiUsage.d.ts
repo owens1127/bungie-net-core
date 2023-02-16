@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { ApiUsage } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage} */
 export declare type GetApplicationApiUsageParams = {
@@ -29,4 +29,4 @@ export declare type GetApplicationApiUsageParams = {
  * this endpoint.
  * @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage}
 */
-export declare function GetApplicationApiUsage(this: InstancedImport, params: GetApplicationApiUsageParams): Promise<BungieNetResponse<ApiUsage>>;
+export declare function getApplicationApiUsage(this: InstancedImport | AccessTokenObject | void, params: GetApplicationApiUsageParams): Promise<BungieNetResponse<ApiUsage>>;

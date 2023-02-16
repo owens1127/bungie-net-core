@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyManifest } from '../../schemas/index.js';
 /**
  * Returns the current version of the manifest as a json object.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyManifest}
 */
-export declare function GetDestinyManifest(this: InstancedImport): Promise<BungieNetResponse<DestinyManifest>>;
+export declare function getDestinyManifest(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<DestinyManifest>>;

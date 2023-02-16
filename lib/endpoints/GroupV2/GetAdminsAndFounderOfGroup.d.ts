@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { SearchResultOfGroupMember } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup} */
 export declare type GetAdminsAndFounderOfGroupParams = {
@@ -24,4 +24,4 @@ export declare type GetAdminsAndFounderOfGroupParams = {
  * Get the list of members in a given group who are of admin level or higher.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup}
 */
-export declare function GetAdminsAndFounderOfGroup(this: InstancedImport, params: GetAdminsAndFounderOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;
+export declare function getAdminsAndFounderOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetAdminsAndFounderOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;

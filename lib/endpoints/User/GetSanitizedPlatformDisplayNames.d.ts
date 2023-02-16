@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieCredentialType } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames} */
 export declare type GetSanitizedPlatformDisplayNamesParams = {
@@ -24,6 +24,6 @@ export declare type GetSanitizedPlatformDisplayNamesParams = {
  * cached.
  * @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames}
 */
-export declare function GetSanitizedPlatformDisplayNames(this: InstancedImport, params: GetSanitizedPlatformDisplayNamesParams): Promise<BungieNetResponse<{
+export declare function getSanitizedPlatformDisplayNames(this: InstancedImport | AccessTokenObject | void, params: GetSanitizedPlatformDisplayNamesParams): Promise<BungieNetResponse<{
     [key in BungieCredentialType]: string;
 }>>;

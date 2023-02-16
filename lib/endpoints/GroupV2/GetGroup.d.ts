@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroup} */
 export declare type GetGroupParams = {
@@ -22,4 +22,4 @@ export declare type GetGroupParams = {
  * Get information about a specific group of the given ID.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroup}
 */
-export declare function GetGroup(this: InstancedImport, params: GetGroupParams): Promise<BungieNetResponse<GroupResponse>>;
+export declare function getGroup(this: InstancedImport | AccessTokenObject | void, params: GetGroupParams): Promise<BungieNetResponse<GroupResponse>>;

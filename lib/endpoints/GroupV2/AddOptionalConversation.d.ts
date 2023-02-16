@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupOptionalConversationAddRequest } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation} */
 export declare type AddOptionalConversationParams = {
@@ -23,4 +23,4 @@ export declare type AddOptionalConversationParams = {
  * group.
  * @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation}
 */
-export declare function AddOptionalConversation(this: InstancedImport, params: AddOptionalConversationParams, body: GroupOptionalConversationAddRequest): Promise<BungieNetResponse<string>>;
+export declare function addOptionalConversation(this: InstancedImport | AccessTokenObject | void, params: AddOptionalConversationParams, body: GroupOptionalConversationAddRequest): Promise<BungieNetResponse<string>>;

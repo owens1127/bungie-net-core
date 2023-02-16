@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { UserSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix} */
 export declare type SearchByGlobalNamePrefixParams = {
@@ -24,4 +24,4 @@ export declare type SearchByGlobalNamePrefixParams = {
  * [OBSOLETE] Do not use this to search users, use SearchByGlobalNamePost instead.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix}
 */
-export declare function SearchByGlobalNamePrefix(this: InstancedImport, params: SearchByGlobalNamePrefixParams): Promise<BungieNetResponse<UserSearchResponse>>;
+export declare function searchByGlobalNamePrefix(this: InstancedImport | AccessTokenObject | void, params: SearchByGlobalNamePrefixParams): Promise<BungieNetResponse<UserSearchResponse>>;

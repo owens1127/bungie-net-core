@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { UserMembershipData } from '../../schemas/index.js';
 /**
  * Returns a list of accounts associated with signed in user. This is useful for
  * OAuth implementations that do not give you access to the token response.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataForCurrentUser}
 */
-export declare function GetMembershipDataForCurrentUser(this: InstancedImport): Promise<BungieNetResponse<UserMembershipData>>;
+export declare function getMembershipDataForCurrentUser(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<UserMembershipData>>;

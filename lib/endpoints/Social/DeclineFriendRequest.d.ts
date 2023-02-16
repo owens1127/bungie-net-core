@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /** @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest} */
 export declare type DeclineFriendRequestParams = {
     /** The membership id of the user you wish to decline. */
@@ -22,4 +22,4 @@ export declare type DeclineFriendRequestParams = {
  * incoming friend request list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest}
 */
-export declare function DeclineFriendRequest(this: InstancedImport, params: DeclineFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+export declare function declineFriendRequest(this: InstancedImport | AccessTokenObject | void, params: DeclineFriendRequestParams): Promise<BungieNetResponse<boolean>>;

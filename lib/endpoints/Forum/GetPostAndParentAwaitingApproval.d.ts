@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { PostSearchResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval} */
 export declare type GetPostAndParentAwaitingApprovalParams = {
@@ -24,4 +24,4 @@ export declare type GetPostAndParentAwaitingApprovalParams = {
  * approval.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval}
 */
-export declare function GetPostAndParentAwaitingApproval(this: InstancedImport, params: GetPostAndParentAwaitingApprovalParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getPostAndParentAwaitingApproval(this: InstancedImport | AccessTokenObject | void, params: GetPostAndParentAwaitingApprovalParams): Promise<BungieNetResponse<PostSearchResponse>>;

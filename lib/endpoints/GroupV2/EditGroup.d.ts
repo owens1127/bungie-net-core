@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupEditAction } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroup} */
 export declare type EditGroupParams = {
@@ -24,4 +24,4 @@ export declare type EditGroupParams = {
  * in - pass null for properties you want to leave unaltered.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
 */
-export declare function EditGroup(this: InstancedImport, params: EditGroupParams, body: GroupEditAction): Promise<BungieNetResponse<number>>;
+export declare function editGroup(this: InstancedImport | AccessTokenObject | void, params: EditGroupParams, body: GroupEditAction): Promise<BungieNetResponse<number>>;

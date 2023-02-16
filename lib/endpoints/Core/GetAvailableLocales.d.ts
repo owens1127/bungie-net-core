@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /**
  * List of available localization cultures
  * @see {@link https://bungie-net.github.io/#.GetAvailableLocales}
 */
-export declare function GetAvailableLocales(this: InstancedImport): Promise<BungieNetResponse<{
+export declare function getAvailableLocales(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
     [key: string]: string;
 }>>;

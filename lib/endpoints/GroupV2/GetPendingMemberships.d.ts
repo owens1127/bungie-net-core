@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { SearchResultOfGroupMemberApplication } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships} */
 export declare type GetPendingMembershipsParams = {
@@ -25,4 +25,4 @@ export declare type GetPendingMembershipsParams = {
  * given group. Modified to include application info.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships}
 */
-export declare function GetPendingMemberships(this: InstancedImport, params: GetPendingMembershipsParams): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;
+export declare function getPendingMemberships(this: InstancedImport | AccessTokenObject | void, params: GetPendingMembershipsParams): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { TrendingEntryType } from '../../schemas/index.js';
 import { TrendingDetail } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail} */
@@ -28,4 +28,4 @@ export declare type GetTrendingEntryDetailParams = {
  * unique.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail}
 */
-export declare function GetTrendingEntryDetail(this: InstancedImport, params: GetTrendingEntryDetailParams): Promise<BungieNetResponse<TrendingDetail>>;
+export declare function getTrendingEntryDetail(this: InstancedImport | AccessTokenObject | void, params: GetTrendingEntryDetailParams): Promise<BungieNetResponse<TrendingDetail>>;

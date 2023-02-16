@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyAggregateActivityResults } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats} */
@@ -28,4 +28,4 @@ export declare type GetDestinyAggregateActivityStatsParams = {
  * statistics for those activities.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats}
 */
-export declare function GetDestinyAggregateActivityStats(this: InstancedImport, params: GetDestinyAggregateActivityStatsParams): Promise<BungieNetResponse<DestinyAggregateActivityResults>>;
+export declare function getDestinyAggregateActivityStats(this: InstancedImport | AccessTokenObject | void, params: GetDestinyAggregateActivityStatsParams): Promise<BungieNetResponse<DestinyAggregateActivityResults>>;

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /** @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles} */
 export declare type SearchHelpArticlesParams = {
     searchtext: string;
@@ -21,4 +21,4 @@ export declare type SearchHelpArticlesParams = {
  * Search for Help Articles.
  * @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles}
 */
-export declare function SearchHelpArticles(this: InstancedImport, params: SearchHelpArticlesParams): Promise<BungieNetResponse<object>>;
+export declare function searchHelpArticles(this: InstancedImport | AccessTokenObject | void, params: SearchHelpArticlesParams): Promise<BungieNetResponse<object>>;

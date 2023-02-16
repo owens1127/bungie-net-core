@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { RuntimeGroupMemberType } from '../../schemas/index.js';
 import { SearchResultOfGroupMember } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
@@ -32,4 +32,4 @@ export declare type GetMembersOfGroupParams = {
  * Get the list of members in a given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
 */
-export declare function GetMembersOfGroup(this: InstancedImport, params: GetMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;
+export declare function getMembersOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;

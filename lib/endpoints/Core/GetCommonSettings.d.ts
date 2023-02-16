@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { CoreSettingsConfiguration } from '../../schemas/index.js';
 /**
  * Get the common settings used by the Bungie.Net environment.
  * @see {@link https://bungie-net.github.io/#.GetCommonSettings}
 */
-export declare function GetCommonSettings(this: InstancedImport): Promise<BungieNetResponse<CoreSettingsConfiguration>>;
+export declare function getCommonSettings(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<CoreSettingsConfiguration>>;

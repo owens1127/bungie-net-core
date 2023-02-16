@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyProfileResponse } from '../../schemas/index.js';
@@ -32,4 +32,4 @@ export declare type GetProfileParams = {
  * Returns Destiny Profile information for the supplied membership.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetProfile}
 */
-export declare function GetProfile(this: InstancedImport, params: GetProfileParams): Promise<BungieNetResponse<DestinyProfileResponse>>;
+export declare function getProfile(this: InstancedImport | AccessTokenObject | void, params: GetProfileParams): Promise<BungieNetResponse<DestinyProfileResponse>>;

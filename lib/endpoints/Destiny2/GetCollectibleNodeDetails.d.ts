@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyComponentType } from '../../schemas/index.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { DestinyCollectibleNodeDetailResponse } from '../../schemas/index.js';
@@ -45,4 +45,4 @@ export declare type GetCollectibleNodeDetailsParams = {
  * character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails}
 */
-export declare function GetCollectibleNodeDetails(this: InstancedImport, params: GetCollectibleNodeDetailsParams): Promise<BungieNetResponse<DestinyCollectibleNodeDetailResponse>>;
+export declare function getCollectibleNodeDetails(this: InstancedImport | AccessTokenObject | void, params: GetCollectibleNodeDetailsParams): Promise<BungieNetResponse<DestinyCollectibleNodeDetailResponse>>;

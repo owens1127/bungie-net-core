@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 import { BungieRewardDisplay } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser} */
@@ -29,6 +29,6 @@ export declare type GetBungieRewardsForPlatformUserParams = {
  * and Type are used.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser}
 */
-export declare function GetBungieRewardsForPlatformUser(this: InstancedImport, params: GetBungieRewardsForPlatformUserParams): Promise<BungieNetResponse<{
+export declare function getBungieRewardsForPlatformUser(this: InstancedImport | AccessTokenObject | void, params: GetBungieRewardsForPlatformUserParams): Promise<BungieNetResponse<{
     [key: string]: BungieRewardDisplay;
 }>>;

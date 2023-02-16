@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyItemStateRequest } from '../../schemas/index.js';
 /**
  * Set the Lock State for an instanced item. You must have a valid Destiny Account.
@@ -19,4 +19,4 @@ import { DestinyItemStateRequest } from '../../schemas/index.js';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SetItemLockState}
 */
-export declare function SetItemLockState(this: InstancedImport, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;
+export declare function setItemLockState(this: InstancedImport | AccessTokenObject | void, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;

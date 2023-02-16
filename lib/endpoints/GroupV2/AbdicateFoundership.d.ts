@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { BungieMembershipType } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership} */
 export declare type AbdicateFoundershipParams = {
@@ -27,4 +27,4 @@ export declare type AbdicateFoundershipParams = {
  * their position to another admin permanently.
  * @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership}
 */
-export declare function AbdicateFoundership(this: InstancedImport, params: AbdicateFoundershipParams): Promise<BungieNetResponse<boolean>>;
+export declare function abdicateFoundership(this: InstancedImport | AccessTokenObject | void, params: AbdicateFoundershipParams): Promise<BungieNetResponse<boolean>>;

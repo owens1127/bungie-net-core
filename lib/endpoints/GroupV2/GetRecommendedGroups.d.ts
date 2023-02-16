@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { GroupDateRange } from '../../schemas/index.js';
 import { GroupType } from '../../schemas/index.js';
 import { GroupV2Card } from '../../schemas/index.js';
@@ -27,4 +27,4 @@ export declare type GetRecommendedGroupsParams = {
  * belong.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
 */
-export declare function GetRecommendedGroups(this: InstancedImport, params: GetRecommendedGroupsParams): Promise<BungieNetResponse<GroupV2Card[]>>;
+export declare function getRecommendedGroups(this: InstancedImport | AccessTokenObject | void, params: GetRecommendedGroupsParams): Promise<BungieNetResponse<GroupV2Card[]>>;

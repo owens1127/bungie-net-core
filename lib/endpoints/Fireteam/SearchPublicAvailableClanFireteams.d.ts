@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { FireteamDateRange } from '../../schemas/index.js';
 import { FireteamPlatform } from '../../schemas/index.js';
 import { FireteamSlotSearch } from '../../schemas/index.js';
@@ -36,4 +36,4 @@ export declare type SearchPublicAvailableClanFireteamsParams = {
  * not checked for join criteria so caching is maximized.
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
 */
-export declare function SearchPublicAvailableClanFireteams(this: InstancedImport, params: SearchPublicAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;
+export declare function searchPublicAvailableClanFireteams(this: InstancedImport | AccessTokenObject | void, params: SearchPublicAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;

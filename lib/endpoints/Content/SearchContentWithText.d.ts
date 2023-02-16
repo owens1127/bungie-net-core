@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { SearchResultOfContentItemPublicContract } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentWithText} */
 export declare type SearchContentWithTextParams = {
@@ -34,4 +34,4 @@ export declare type SearchContentWithTextParams = {
  * and text search capabilities.
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
 */
-export declare function SearchContentWithText(this: InstancedImport, params: SearchContentWithTextParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;
+export declare function searchContentWithText(this: InstancedImport | AccessTokenObject | void, params: SearchContentWithTextParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;

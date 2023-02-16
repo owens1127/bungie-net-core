@@ -11,10 +11,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /**
  * Twitch Drops self-repair function - scans twitch for drops not marked as
  * fulfilled and resyncs them.
  * @see {@link https://bungie-net.github.io/#Tokens.ForceDropsRepair}
 */
-export declare function ForceDropsRepair(this: InstancedImport): Promise<BungieNetResponse<boolean>>;
+export declare function forceDropsRepair(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<boolean>>;

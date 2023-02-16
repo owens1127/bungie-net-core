@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { ContentItemPublicContract } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType} */
 export declare type GetContentByTagAndTypeParams = {
@@ -25,4 +25,4 @@ export declare type GetContentByTagAndTypeParams = {
  * Returns the newest item that matches a given tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType}
 */
-export declare function GetContentByTagAndType(this: InstancedImport, params: GetContentByTagAndTypeParams): Promise<BungieNetResponse<ContentItemPublicContract>>;
+export declare function getContentByTagAndType(this: InstancedImport | AccessTokenObject | void, params: GetContentByTagAndTypeParams): Promise<BungieNetResponse<ContentItemPublicContract>>;

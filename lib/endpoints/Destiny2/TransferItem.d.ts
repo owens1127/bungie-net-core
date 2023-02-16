@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { DestinyItemTransferRequest } from '../../schemas/index.js';
 /**
  * Transfer an item to/from your vault. You must have a valid Destiny account. You
@@ -21,4 +21,4 @@ import { DestinyItemTransferRequest } from '../../schemas/index.js';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.TransferItem}
 */
-export declare function TransferItem(this: InstancedImport, body: DestinyItemTransferRequest): Promise<BungieNetResponse<number>>;
+export declare function transferItem(this: InstancedImport | AccessTokenObject | void, body: DestinyItemTransferRequest): Promise<BungieNetResponse<number>>;

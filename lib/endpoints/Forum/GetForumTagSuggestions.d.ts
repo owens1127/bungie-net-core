@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { TagResponse } from '../../schemas/index.js';
 /** @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions} */
 export declare type GetForumTagSuggestionsParams = {
@@ -23,4 +23,4 @@ export declare type GetForumTagSuggestionsParams = {
  * previously used in the forums.
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
 */
-export declare function GetForumTagSuggestions(this: InstancedImport, params: GetForumTagSuggestionsParams): Promise<BungieNetResponse<TagResponse[]>>;
+export declare function getForumTagSuggestions(this: InstancedImport | AccessTokenObject | void, params: GetForumTagSuggestionsParams): Promise<BungieNetResponse<TagResponse[]>>;

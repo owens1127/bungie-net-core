@@ -11,11 +11,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport } from '../../util/client.js';
+import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 import { ForumRecruitmentDetail } from '../../schemas/index.js';
 /**
  * Allows the caller to get a list of to 25 recruitment thread summary information
  * objects.
  * @see {@link https://bungie-net.github.io/#Forum.GetRecruitmentThreadSummaries}
 */
-export declare function GetRecruitmentThreadSummaries(this: InstancedImport, body: string[]): Promise<BungieNetResponse<ForumRecruitmentDetail[]>>;
+export declare function getRecruitmentThreadSummaries(this: InstancedImport | AccessTokenObject | void, body: string[]): Promise<BungieNetResponse<ForumRecruitmentDetail[]>>;
