@@ -7,14 +7,14 @@ npm i oodestiny
 ```
 ## Example Usage
 ```javascript
-import { configure, generateOAuthURL, Tokens, Client } from 'oodestiny';
+import { generateOAuthURL, Tokens, Client } from 'oodestiny';
 
 // 
 // configure the library with your Bungie API credentials
-configure(
-    process.env.BUNGIE_API_KEY, 
-    process.env.BUNGIE_CLIENT_ID, 
-    process.env.BUNGIE_SECRET
+dotenv.config();
+// BUNGIE_API_KEY, 
+// BUNGIE_CLIENT_ID, 
+// BUNGIE_SECRET
 );
 
 // creates a new client, easy-peasy way for accessing basic queries

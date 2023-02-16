@@ -124,7 +124,7 @@ export type FetchConfig = {
 
 export function rateLimitedRequest<T>(access_token: string | undefined,
     config: FetchConfig): Promise<BungieNetResponse<T>> {
-    if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
+    if (!__credentials__().BUNGIE_CLIENT_ID) throw new NotConfiguredError();
 
     const params = equalsParams(config);
     const url = config.url + (params ? '?' + params.join('&') : '')
@@ -133,7 +133,7 @@ export function rateLimitedRequest<T>(access_token: string | undefined,
         body: config.body ? JSON.stringify(config.body) : null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-KEY': __credentials__.BUNGIE_API_KEY
+            'X-API-KEY': __credentials__().BUNGIE_API_KEY
         }
     }
 
@@ -170,7 +170,7 @@ function socketAction(url: string): boolean {
 }
 
 export function manifestRequest(config: FetchConfig): Promise<any> {
-    if (!__credentials__.BUNGIE_CLIENT_ID) throw new NotConfiguredError();
+    if (!__credentials__().BUNGIE_CLIENT_ID) throw new NotConfiguredError();
     const params = equalsParams(config);
     const url = config.url + (params ? '?' + params.join('&') : '')
     let init = {
@@ -178,7 +178,7 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
         body: config.body ? JSON.stringify(config.body) : null,
         headers: {
             'Content-Type': 'application/json',
-            'X-API-KEY': __credentials__.BUNGIE_API_KEY
+            'X-API-KEY': __credentials__().BUNGIE_API_KEY
         }
     }
 

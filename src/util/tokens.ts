@@ -24,8 +24,8 @@ export type TokenResponse = {
 }
 
 export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNetTokens> {
-  const clientId = __credentials__.BUNGIE_CLIENT_ID;
-  const secret = __credentials__.BUNGIE_SECRET;
+  const clientId = __credentials__().BUNGIE_CLIENT_ID;
+  const secret = __credentials__().BUNGIE_SECRET;
   const body = new URLSearchParams({
     grant_type: 'authorization_code',
     code,
@@ -44,8 +44,8 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
 }
 
 export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
-  const clientId = __credentials__.BUNGIE_CLIENT_ID;
-  const secret = __credentials__.BUNGIE_SECRET;
+  const clientId = __credentials__().BUNGIE_CLIENT_ID;
+  const secret = __credentials__().BUNGIE_SECRET;
   const body = new URLSearchParams({
     grant_type: 'refresh_token',
     refresh_token: refreshToken,
