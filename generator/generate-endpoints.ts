@@ -19,7 +19,7 @@ export function generateServiceDefinition(
     const exports: string[] = [];
     paths.forEach(([path, pathDef]) => {
         // @ts-ignore
-        const file = (_.last(pathDef.summary.split('.')));
+        const file = _.last(pathDef.summary.split('.'));
         exports.push(file!);
         const filename = `lib-ts/endpoints/${tag}/${file}.ts`;
         const pathDefinition = generatePathDefinition(path, pathDef, doc, componentByDef);
@@ -29,7 +29,7 @@ export function generateServiceDefinition(
     });
     writeOutFile(`lib-ts/endpoints/${tag}/index.ts`,
         exports.map((endpt) => {
-            return `export { ${endpt} } from './${endpt}.js';`
+            return `export { ${endpt[0].toLowerCase() + endpt.substring(1)} } from './${endpt}.js';`
         }).join('\n'));
 }
 
@@ -67,7 +67,7 @@ function generatePathDefinition(
         .filter((param) => param.in === 'query')
         .map((param) => param.name);
 
-    const parameterArgs = ['this: InstancedImport'];
+    const parameterArgs = ['this: InstancedImport | AccessTokenObject | void'];
     let paramsTypeDefinition = '';
     if (params.length) {
         paramsTypeDefinition =
@@ -129,11 +129,12 @@ ${indent(paramInitializers.join(',\n'), 3)}
     const rateLimitedFunction = 'rateLimitedRequest'
     const staticImports = [`import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
         `import { BungieNetResponse } from '../../util/server-response.js';`,
-        `import { BungieClient, InstancedImport } from '../../util/client.js';`]
+        `import { InstancedImport, AccessTokenObject } from '../../util/client.js';`,
+        `import { BungieAPIError } from '../../errors/BungieAPIError.js';`]
     const responseType = resolveSchemaType(methodDef.responses['200'], doc, importFiles);
 
     const headerImports: string[] = [];
-    for (const [key] of importFiles) {
+    for (const [key] of Array.from(importFiles.entries())) {
         headerImports.push(`import { ${key} } from '../../schemas/index.js'`)
     }
     const rateDoc =
@@ -144,12 +145,19 @@ ${indent(paramInitializers.join(',\n'), 3)}
         '\n')}\n${paramsTypeDefinition}${docComment(
         methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [hyperRef]
     )}
-export function ${interfaceName}(${parameterArgs.join(
-        ', ')}): Promise<BungieNetResponse<${responseType}>> {
-  return ${rateLimitedFunction}<${responseType}>(this.client.access_token, {
-    method: '${method}',
-    url: ${templatizedPath}${paramsObject}${requestBodyParam}
-  });
+export async function ${interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1)}(${parameterArgs.join(
+        ', ')}): Promise<BungieNetResponse<${responseType}>> {` +
+`  const token = (this as InstancedImport)?.client?.access_token as string ?? (this as AccessTokenObject)?.access_token ?? null
+  try {
+    const res = await ${rateLimitedFunction}<${responseType}>(token, {
+      method: '${method}',
+      url: ${templatizedPath}${indent(paramsObject,1)}${indent(requestBodyParam,1)}
+    });
+    return res;
+  } catch (err) {
+    if (err instanceof BungieAPIError) err.stack = new Error().stack
+    throw err
+  }
 }`;
 }
 

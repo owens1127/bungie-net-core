@@ -6,8 +6,9 @@ export function generateClient(tags: string[]) {
     //     return `@property ${tag}`
     // });
     const comment = docComment('A client for interacting with the Bungie.net API');
-    const imports = tags.map(tag => {return `import * as ${tag}Import from '../endpoints/${tag}/index.js';`});
-    const client = `${imports.join('\n')}\nexport type InstancedImport = { client: BungieClient }
+    const imports = tags.map(tag => (`import * as ${tag}Import from '../endpoints/${tag}/index.js';`));
+    const client = `${imports.join('\n')}\nexport type InstancedImport = { client: BungieClient };
+export type AccessTokenObject = { access_token: string | null };
 ${comment}\nexport class BungieClient {
 ${indent(tags.map(tag => {return `readonly ${tag}: typeof ${tag}Import & InstancedImport;`}).join('\n') + '\npublic access_token?: string', 1)}
    constructor(access_token?: string) {

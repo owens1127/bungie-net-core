@@ -22,8 +22,6 @@ import {generateClient} from "./generate-client.js";
 
   // Pairs of [request path, path service description]
   const pathPairs = _.pairs(doc.paths) as [string, PathItemObject][];
-  // console.log(Object.keys(doc.components?.schemas));
-  // console.log(pathPairs[0]);
 
   // Grouped by "tag" which says which service (destiny, groups, forums, etc)
   const pathPairsByTag = _.groupBy(pathPairs, ([path, desc]) => {
@@ -38,7 +36,6 @@ import {generateClient} from "./generate-client.js";
   const { componentsByFile, componentByDef, componentsByTag, manifestComponents }
       = computeTypeMaps(pathPairsByTag, doc);
 
-  // done
   componentsByFile.forEach((component, file) => {
     generateTypeDefinition(file, component, doc, componentByDef);
   });

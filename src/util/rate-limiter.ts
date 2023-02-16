@@ -9,11 +9,18 @@ const timeoutCodes = [
     PlatformErrorCodes.DestinyDirectBabelClientTimeout
 ]
 
-class QueueItem<T> {
-    protected readonly url: string
-    protected readonly init: { body, method, headers }
-    protected readonly resolve: (value: (BungieNetResponse<T>)) => Promise<void>;
-    protected readonly reject: (value: (Error)) => void;
+interface QueueItemType {
+    readonly url: string
+    readonly init: { body, method, headers }
+    readonly reject: (value: (Error)) => void;
+    execute(retry?: boolean): Promise<number>
+}
+
+class QueueItem<T> implements QueueItemType {
+    readonly url: string
+    readonly init: { body, method, headers }
+    readonly reject: (value: Error) => void;
+    readonly resolve: (value: BungieNetResponse<T>) => void;
 
     constructor(url, init, resolve, reject) {
         this.url = url;
@@ -24,41 +31,57 @@ class QueueItem<T> {
 
     async execute(retry?: boolean): Promise<number> {
         const start = Date.now();
-        return fetch(this.url, this.init)
-            .then((response) => response.json() as Promise<BungieNetResponse<T>>)
-            .then((res: BungieNetResponse<T>) => {
-                res.ResponseTime = Date.now() - start;
-                if (res.ErrorCode === PlatformErrorCodes.Success) {
-                    this.resolve(res);
-                } else if (!retry && timeoutCodes.includes(res.ErrorCode)) {
-                    return this.execute(true)
-                } else {
-                    this.reject(new BungieAPIError<T>(res));
-                }
-                return res.ThrottleSeconds * 1000;
-            })
+        let res: BungieNetResponse<T>;
+        try {
+            res = await fetch(this.url, this.init)
+              .then((response) => response.json() as Promise<BungieNetResponse<T>>)
+        } catch (e) {
+            this.reject(e);
+            return 0;
+        }
+        res.ResponseTime = Date.now() - start;
+        if (res.ErrorCode === PlatformErrorCodes.Success) {
+            this.resolve(res);
+        } else if (!retry && timeoutCodes.includes(res.ErrorCode)) {
+            return this.execute(true)
+        } else {
+            this.reject(new BungieAPIError(res));
+        }
+        return res.ThrottleSeconds * 1000;
     }
 
 }
 
-class ManifestQueueItem<T> extends QueueItem<never> {
+class ManifestQueueItem implements QueueItemType {
+    readonly url: string
+    readonly init: { body, method, headers }
+    readonly reject: (value: Error) => void;
+    readonly resolve: (value: {}) => void;
+
     constructor(url, init, resolve, reject) {
-        super(url, init, resolve, reject);
+        this.url = url;
+        this.init = init;
+        this.resolve = resolve;
+        this.reject = reject;
     }
 
     async execute(retry?: boolean): Promise<number> {
-        return fetch(this.url, this.init)
-            .then((response) => response.json()
-                // @ts-ignore
-                .then((res) => this.resolve(res))
-                .catch((e => this.reject(e))))
-            .then(() => 0)
+        let res: {};
+        try {
+            res = await fetch(this.url, this.init)
+              .then((response) => response.json() as {})
+            this.resolve(res);
+        } catch (e) {
+            if (!retry) return this.execute(true);
+            this.reject(e);
+        }
+        return 0;
     }
 
 }
 
 class RateLimitedQueue {
-    private queue: QueueItem<any>[];
+    private queue: QueueItemType[];
     private rateLimit: number;
     private size: number;
     private timeout: number;
@@ -70,13 +93,13 @@ class RateLimitedQueue {
         this.timeout = 0;
     }
 
-    add(item: QueueItem<any>): void {
+    add(item: QueueItemType): void {
         this.queue.push(item);
         this.size++;
         setTimeout(this.process.bind(this), this.rateLimit * this.size + this.timeout);
     }
 
-    private pop(): QueueItem<any> | null {
+    private pop(): QueueItemType | null {
         return this.queue.shift() ?? null;
     }
 
@@ -84,8 +107,7 @@ class RateLimitedQueue {
         this.pop()?.execute().then(timeout => {
             this.timeout = timeout;
             this.size--
-            // TODO: should handle this if it happens
-        }).catch(console.error);
+        })
     }
 }
 
