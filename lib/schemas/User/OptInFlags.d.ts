@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.OptInFlags}
 */
-export declare const enum OptInFlags {
+export declare enum OptInFlags {
     None = 0,
     Newsletter = 1,
     System = 2,

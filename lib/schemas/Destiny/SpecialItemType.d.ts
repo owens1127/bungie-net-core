@@ -19,7 +19,7 @@
  * holdovers from Destiny 1 that may or may not still exist.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.SpecialItemType}
 */
-export declare const enum SpecialItemType {
+export declare enum SpecialItemType {
     None = 0,
     SpecialCurrency = 1,
     Armor = 8,

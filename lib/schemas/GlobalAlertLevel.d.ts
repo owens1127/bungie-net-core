@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlertLevel} */
-export declare const enum GlobalAlertLevel {
+export declare enum GlobalAlertLevel {
     Unknown = 0,
     Blue = 1,
     Yellow = 2,

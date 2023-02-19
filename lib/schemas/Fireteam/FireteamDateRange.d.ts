@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamDateRange} */
-export declare const enum FireteamDateRange {
+export declare enum FireteamDateRange {
     All = 0,
     Now = 1,
     TwentyFourHours = 2,

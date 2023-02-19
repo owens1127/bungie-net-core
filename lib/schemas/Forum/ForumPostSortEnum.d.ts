@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumPostSortEnum} */
-export declare const enum ForumPostSortEnum {
+export declare enum ForumPostSortEnum {
     Default = 0,
     OldestFirst = 1
 }

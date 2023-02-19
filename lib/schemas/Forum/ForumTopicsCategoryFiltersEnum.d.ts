@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumTopicsCategoryFiltersEnum}
 */
-export declare const enum ForumTopicsCategoryFiltersEnum {
+export declare enum ForumTopicsCategoryFiltersEnum {
     None = 0,
     Links = 1,
     Questions = 2,

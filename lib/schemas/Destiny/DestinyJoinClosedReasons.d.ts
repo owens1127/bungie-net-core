@@ -18,7 +18,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyJoinClosedReasons}
 */
-export declare const enum DestinyJoinClosedReasons {
+export declare enum DestinyJoinClosedReasons {
     None = 0,
     /** The user is currently in matchmaking. */
     InMatchmaking = 1,

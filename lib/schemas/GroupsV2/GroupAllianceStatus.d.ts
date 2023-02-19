@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupAllianceStatus} */
-export declare const enum GroupAllianceStatus {
+export declare enum GroupAllianceStatus {
     Unallied = 0,
     Parent = 1,
     Child = 2

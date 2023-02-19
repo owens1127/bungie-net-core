@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyRace} */
-export declare const enum DestinyRace {
+export declare enum DestinyRace {
     Human = 0,
     Awoken = 1,
     Exo = 2,

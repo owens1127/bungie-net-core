@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyTalentNodeState} */
-export declare const enum DestinyTalentNodeState {
+export declare enum DestinyTalentNodeState {
     Invalid = 0,
     CanUpgrade = 1,
     NoPoints = 2,

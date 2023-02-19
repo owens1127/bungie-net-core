@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Ignores.IgnoreStatus}
 */
-export declare const enum IgnoreStatus {
+export declare enum IgnoreStatus {
     NotIgnored = 0,
     IgnoredUser = 1,
     IgnoredGroup = 2,

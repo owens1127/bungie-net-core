@@ -17,7 +17,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPartyMemberStates}
 */
-export declare const enum DestinyPartyMemberStates {
+export declare enum DestinyPartyMemberStates {
     None = 0,
     /** This one's pretty obvious - they're on your Fireteam. */
     FireteamMember = 1,

@@ -20,7 +20,7 @@
  * if it's in the "intrinsic" list.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinySocketArrayType}
 */
-export declare const enum DestinySocketArrayType {
+export declare enum DestinySocketArrayType {
     Default = 0,
     Intrinsic = 1
 }

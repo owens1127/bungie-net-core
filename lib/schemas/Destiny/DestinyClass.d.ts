@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyClass} */
-export declare const enum DestinyClass {
+export declare enum DestinyClass {
     Titan = 0,
     Hunter = 1,
     Warlock = 2,

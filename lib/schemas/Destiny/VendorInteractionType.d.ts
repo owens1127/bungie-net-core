@@ -14,7 +14,7 @@
  * An enumeration of the known UI interactions for Vendors.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.VendorInteractionType}
 */
-export declare const enum VendorInteractionType {
+export declare enum VendorInteractionType {
     Unknown = 0,
     /** An empty interaction. If this ends up in content, it is probably a game bug. */
     Undefined = 1,

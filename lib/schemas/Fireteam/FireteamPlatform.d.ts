@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamPlatform} */
-export declare const enum FireteamPlatform {
+export declare enum FireteamPlatform {
     Any = 0,
     Playstation4 = 1,
     XboxOne = 2,

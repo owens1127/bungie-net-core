@@ -19,7 +19,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ItemState}
 */
-export declare const enum ItemState {
+export declare enum ItemState {
     None = 0,
     /**
      * If this bit is set, the item has been "locked" by the user and cannot be deleted.

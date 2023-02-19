@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.CommunityContentSortMode} */
-export declare const enum CommunityContentSortMode {
+export declare enum CommunityContentSortMode {
     Trending = 0,
     Latest = 1,
     HighestRated = 2

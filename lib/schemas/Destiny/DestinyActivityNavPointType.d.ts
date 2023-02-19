@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivityNavPointType} */
-export declare const enum DestinyActivityNavPointType {
+export declare enum DestinyActivityNavPointType {
     Inactive = 0,
     PrimaryObjective = 1,
     SecondaryObjective = 2,

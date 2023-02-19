@@ -16,7 +16,7 @@
  * MembershipType.
  * @see {@link https://bungie-net.github.io/#/components/schemas/BungieMembershipType}
 */
-export declare const enum BungieMembershipType {
+export declare enum BungieMembershipType {
     None = 0,
     TigerXbox = 1,
     TigerPsn = 2,

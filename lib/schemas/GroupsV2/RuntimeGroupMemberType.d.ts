@@ -18,7 +18,7 @@
  * changed as necessary.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.RuntimeGroupMemberType}
 */
-export declare const enum RuntimeGroupMemberType {
+export declare enum RuntimeGroupMemberType {
     None = 0,
     Beginner = 1,
     Member = 2,

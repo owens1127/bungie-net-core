@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlertType} */
-export declare const enum GlobalAlertType {
+export declare enum GlobalAlertType {
     GlobalAlert = 0,
     StreamingAlert = 1
 }

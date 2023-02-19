@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumRecruitmentIntensityLabel} */
-export declare const enum ForumRecruitmentIntensityLabel {
+export declare enum ForumRecruitmentIntensityLabel {
     None = 0,
     Casual = 1,
     Professional = 2

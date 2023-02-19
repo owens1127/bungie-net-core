@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamPublicSearchOption} */
-export declare const enum FireteamPublicSearchOption {
+export declare enum FireteamPublicSearchOption {
     PublicAndPrivate = 0,
     PublicOnly = 1,
     PrivateOnly = 2

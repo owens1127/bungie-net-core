@@ -18,7 +18,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.EquipFailureReason}
 */
-export declare const enum EquipFailureReason {
+export declare enum EquipFailureReason {
     /** The item is/was able to be equipped. */
     None = 0,
     /**

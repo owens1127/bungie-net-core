@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPotentialMemberStatus} */
-export declare const enum GroupPotentialMemberStatus {
+export declare enum GroupPotentialMemberStatus {
     None = 0,
     Applicant = 1,
     Invitee = 2

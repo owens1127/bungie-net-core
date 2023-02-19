@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.UnitType} */
-export declare const enum UnitType {
+export declare enum UnitType {
     None = 0,
     /** Indicates the statistic is a simple count of something. */
     Count = 1,

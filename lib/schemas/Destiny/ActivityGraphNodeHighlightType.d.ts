@@ -18,7 +18,7 @@
  * still used.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ActivityGraphNodeHighlightType}
 */
-export declare const enum ActivityGraphNodeHighlightType {
+export declare enum ActivityGraphNodeHighlightType {
     None = 0,
     Normal = 1,
     Hyper = 2,

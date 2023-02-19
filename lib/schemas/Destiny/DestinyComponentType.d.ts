@@ -21,7 +21,7 @@
  * CharacterProgressions" You may use either the numerical or string values.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyComponentType}
 */
-export declare const enum DestinyComponentType {
+export declare enum DestinyComponentType {
     None = 0,
     /**
      * Profiles is the most basic component, only relevant when calling GetProfile.

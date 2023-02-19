@@ -16,7 +16,7 @@
  * of them. This needs to be re-evaluated for Destiny 2.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyRewardSourceCategory}
 */
-export declare const enum DestinyRewardSourceCategory {
+export declare enum DestinyRewardSourceCategory {
     /** The source doesn't fit well into any of the other types. */
     None = 0,
     /**

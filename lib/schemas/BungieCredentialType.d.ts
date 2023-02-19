@@ -16,7 +16,7 @@
  * CredentialType.
  * @see {@link https://bungie-net.github.io/#/components/schemas/BungieCredentialType}
 */
-export declare const enum BungieCredentialType {
+export declare enum BungieCredentialType {
     None = 0,
     Xuid = 1,
     Psnid = 2,

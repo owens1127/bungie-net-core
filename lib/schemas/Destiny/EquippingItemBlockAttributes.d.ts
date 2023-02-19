@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.EquippingItemBlockAttributes}
 */
-export declare const enum EquippingItemBlockAttributes {
+export declare enum EquippingItemBlockAttributes {
     None = 0,
     EquipOnAcquire = 1
 }

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.FriendRelationshipState} */
-export declare const enum FriendRelationshipState {
+export declare enum FriendRelationshipState {
     Unknown = 0,
     Friend = 1,
     IncomingRequest = 2,

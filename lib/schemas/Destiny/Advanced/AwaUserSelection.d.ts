@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaUserSelection} */
-export declare const enum AwaUserSelection {
+export declare enum AwaUserSelection {
     None = 0,
     Rejected = 1,
     Approved = 2

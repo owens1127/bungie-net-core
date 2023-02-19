@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyAmmunitionType} */
-export declare const enum DestinyAmmunitionType {
+export declare enum DestinyAmmunitionType {
     None = 0,
     Primary = 1,
     Special = 2,

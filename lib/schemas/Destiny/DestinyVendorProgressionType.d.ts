@@ -14,7 +14,7 @@
  * Describes the type of progression that a vendor has.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyVendorProgressionType}
 */
-export declare const enum DestinyVendorProgressionType {
+export declare enum DestinyVendorProgressionType {
     /** The original rank progression from token redemption. */
     Default = 0,
     /**

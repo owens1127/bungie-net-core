@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumTopicsQuickDateEnum} */
-export declare const enum ForumTopicsQuickDateEnum {
+export declare enum ForumTopicsQuickDateEnum {
     All = 0,
     LastYear = 1,
     LastMonth = 2,

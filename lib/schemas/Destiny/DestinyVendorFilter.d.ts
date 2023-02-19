@@ -14,7 +14,7 @@
  * Indicates the type of filter to apply to Vendor results.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyVendorFilter}
 */
-export declare const enum DestinyVendorFilter {
+export declare enum DestinyVendorFilter {
     None = 0,
     ApiPurchasable = 1
 }

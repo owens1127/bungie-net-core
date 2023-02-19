@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.BucketCategory} */
-export declare const enum BucketCategory {
+export declare enum BucketCategory {
     Invisible = 0,
     Item = 1,
     Currency = 2,

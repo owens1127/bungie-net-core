@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepLightAbilities}
 */
-export declare const enum DestinyTalentNodeStepLightAbilities {
+export declare enum DestinyTalentNodeStepLightAbilities {
     None = 0,
     Grenades = 1,
     Melee = 2,

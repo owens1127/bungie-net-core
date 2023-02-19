@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.MembershipOption} */
-export declare const enum MembershipOption {
+export declare enum MembershipOption {
     Reviewed = 0,
     Open = 1,
     Closed = 2

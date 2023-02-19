@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupDateRange} */
-export declare const enum GroupDateRange {
+export declare enum GroupDateRange {
     All = 0,
     PastDay = 1,
     PastWeek = 2,

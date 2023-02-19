@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupsForMemberFilter} */
-export declare const enum GroupsForMemberFilter {
+export declare enum GroupsForMemberFilter {
     All = 0,
     Founded = 1,
     NonFounded = 2

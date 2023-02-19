@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.PresenceStatus} */
-export declare const enum PresenceStatus {
+export declare enum PresenceStatus {
     OfflineOrUnknown = 0,
     Online = 1
 }

@@ -27,7 +27,7 @@
  * holdovers from Destiny 1 that may or may not still exist.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyItemSubType}
 */
-export declare const enum DestinyItemSubType {
+export declare enum DestinyItemSubType {
     None = 0,
     /** DEPRECATED. Items can be both "Crucible" and something else interesting. */
     Crucible = 1,

@@ -22,7 +22,7 @@
  * directly on the item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyStatAggregationType}
 */
-export declare const enum DestinyStatAggregationType {
+export declare enum DestinyStatAggregationType {
     CharacterAverage = 0,
     Character = 1,
     Item = 2

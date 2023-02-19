@@ -15,7 +15,7 @@
  * let you have all of them. This determines which it will be.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyVendorInteractionRewardSelection}
 */
-export declare const enum DestinyVendorInteractionRewardSelection {
+export declare enum DestinyVendorInteractionRewardSelection {
     None = 0,
     One = 1,
     All = 2

@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApplicationStatus} */
-export declare const enum ApplicationStatus {
+export declare enum ApplicationStatus {
     /** No value assigned */
     None = 0,
     /**

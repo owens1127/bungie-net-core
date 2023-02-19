@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPostPublicity} */
-export declare const enum GroupPostPublicity {
+export declare enum GroupPostPublicity {
     Public = 0,
     Alliance = 1,
     Private = 2

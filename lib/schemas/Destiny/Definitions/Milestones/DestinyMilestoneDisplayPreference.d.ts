@@ -18,7 +18,7 @@
  * MilestoneDefinition.displayProperties.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneDisplayPreference}
 */
-export declare const enum DestinyMilestoneDisplayPreference {
+export declare enum DestinyMilestoneDisplayPreference {
     /**
      * Indicates you should show DestinyMilestoneDefinition.displayProperties for this
      * Milestone.

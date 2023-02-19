@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyStatsCategoryType} */
-export declare const enum DestinyStatsCategoryType {
+export declare enum DestinyStatsCategoryType {
     None = 0,
     Kills = 1,
     Assists = 2,

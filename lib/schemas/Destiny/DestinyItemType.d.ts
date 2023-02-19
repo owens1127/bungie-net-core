@@ -31,7 +31,7 @@
  * fight it.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyItemType}
 */
-export declare const enum DestinyItemType {
+export declare enum DestinyItemType {
     None = 0,
     Currency = 1,
     Armor = 2,

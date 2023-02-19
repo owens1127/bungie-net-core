@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinySocketVisibility} */
-export declare const enum DestinySocketVisibility {
+export declare enum DestinySocketVisibility {
     Visible = 0,
     Hidden = 1,
     HiddenWhenEmpty = 2,

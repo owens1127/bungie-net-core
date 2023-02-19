@@ -16,7 +16,7 @@
  * those of you trying to figure out what they do!)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ItemPerkVisibility}
 */
-export declare const enum ItemPerkVisibility {
+export declare enum ItemPerkVisibility {
     Visible = 0,
     Disabled = 1,
     Hidden = 2

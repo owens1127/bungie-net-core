@@ -11,7 +11,7 @@
  * Do not edit these files manually.
  */
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaResponseReason} */
-export declare const enum AwaResponseReason {
+export declare enum AwaResponseReason {
     None = 0,
     /** User provided an answer */
     Answered = 1,

@@ -16,7 +16,7 @@
  * determine how best to render these options.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyUnlockValueUIStyle}
 */
-export declare const enum DestinyUnlockValueUIStyle {
+export declare enum DestinyUnlockValueUIStyle {
     /** Generally, Automatic means "Just show the number" */
     Automatic = 0,
     /**

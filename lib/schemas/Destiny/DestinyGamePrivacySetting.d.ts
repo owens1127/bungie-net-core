@@ -15,7 +15,7 @@
  * states. These are the possible states a user can choose.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyGamePrivacySetting}
 */
-export declare const enum DestinyGamePrivacySetting {
+export declare enum DestinyGamePrivacySetting {
     Open = 0,
     ClanAndFriendsOnly = 1,
     FriendsOnly = 2,

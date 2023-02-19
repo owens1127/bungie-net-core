@@ -17,7 +17,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionRewardItemState}
 */
-export declare const enum DestinyProgressionRewardItemState {
+export declare enum DestinyProgressionRewardItemState {
     None = 0,
     /** If this is set, the reward should be hidden. */
     Invisible = 1,

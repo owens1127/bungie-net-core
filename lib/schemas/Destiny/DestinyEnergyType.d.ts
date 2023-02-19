@@ -15,7 +15,7 @@
  * subclasses.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEnergyType}
 */
-export declare const enum DestinyEnergyType {
+export declare enum DestinyEnergyType {
     Any = 0,
     Arc = 1,
     Thermal = 2,

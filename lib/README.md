@@ -9,13 +9,15 @@ npm i oodestiny
 ```javascript
 import { generateOAuthURL, Tokens, Client } from 'oodestiny';
 
-// 
-// configure the library with your Bungie API credentials
+// You MUST configure the library with your Bungie API credentials,
+// using the following enviroment variables:
+
+// -> BUNGIE_API_KEY, 
+// -> BUNGIE_CLIENT_ID, 
+// -> BUNGIE_CLIENT_SECRET
+
+// dotenv is a good way to do this
 dotenv.config();
-// BUNGIE_API_KEY, 
-// BUNGIE_CLIENT_ID, 
-// BUNGIE_SECRET
-);
 
 // creates a new client, easy-peasy way for accessing basic queries
 const client = new Client();
