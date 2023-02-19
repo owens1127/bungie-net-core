@@ -89,7 +89,7 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
 
   const docString = hyperRef ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
 
-  return `${docString}export const enum ${defInfo.typeName} {
+  return `${docString}export enum ${defInfo.typeName} {
 ${indent(values, 1)}
 }`;
 }
