@@ -1,5 +1,6 @@
 import { __credentials__ } from './credentials.js';
 import { TokenRequestError } from '../errors/TokenRequestError.js';
+import { NotConfiguredError } from '../errors/NotConfiguredError';
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
 export type Token = {
@@ -24,41 +25,32 @@ export type TokenResponse = {
 }
 
 export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNetTokens> {
-  const clientId = __credentials__().BUNGIE_CLIENT_ID;
-  const secret = __credentials__().BUNGIE_SECRET;
-  const body = new URLSearchParams({
-    grant_type: 'authorization_code',
-    code,
-    client_id: clientId,
-    client_secret: secret
-  });
-  return fetch(TOKEN_URL, {
-    method: 'POST',
-    body,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  })
-    .then((response) => (response.json()))
-    .then(handleTokenResponse);
+  return fetchTokens(code, 'authorization_code', 'code')
 }
 
 export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
+  return fetchTokens(refreshToken, "refresh_token", "refresh_token")
+}
+
+async function fetchTokens(code, type, key) {
   const clientId = __credentials__().BUNGIE_CLIENT_ID;
   const secret = __credentials__().BUNGIE_SECRET;
-  const body = new URLSearchParams({
-    grant_type: 'refresh_token',
-    refresh_token: refreshToken,
-    client_id: clientId,
-    client_secret: secret
-  });
-
+  let body, headers;
+  if (secret && clientId) {
+    body = new URLSearchParams({
+      grant_type: type,
+      [key]: code,
+      client_id: clientId,
+      client_secret: secret
+    });
+    headers = {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  } else throw new NotConfiguredError()
   return fetch(TOKEN_URL, {
     method: 'POST',
     body,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
+    headers
   })
     .then((response) => (response.json()))
     .then(handleTokenResponse);
