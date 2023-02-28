@@ -1,19 +1,19 @@
 import { __credentials__ } from '../util/credentials';
 
 export class NotConfiguredError extends Error {
-    private api_key: string;
-    private client_id: string;
-    private secret: string;
+    private BUNGIE_API_KEY: string;
+    private BUNGIE_CLIENT_ID: string;
+    private BUNGIE_CLIENT_SECRET: string;
     constructor() {
         super();
         const api_key = __credentials__().BUNGIE_API_KEY
         const client_id = __credentials__().BUNGIE_CLIENT_ID
-        const secret = __credentials__().BUNGIE_SECRET
+        const secret = __credentials__().BUNGIE_CLIENT_SECRET
         this.message =
-            `Please configure your API key and Client ID as environment variables: 'BUNGIE_API_KEY, BUNGIE_CLIENT_ID`
-        this.api_key = api_key ? api_key.substring(0, 5) + "..." : ""
-        this.client_id = client_id;
-        this.secret = secret ? secret.substring(0, 5) + "..." : ""
+            `Please configure your API Key, Client ID, and Client Secret as environment variables: 'BUNGIE_API_KEY, BUNGIE_CLIENT_ID, 'BUNGIE_API_KEY, BUNGIE_CLIENT_SECRET`
+        this.BUNGIE_API_KEY = api_key ? api_key.substring(0, 5) + "..." : ""
+        this.BUNGIE_CLIENT_ID = client_id;
+        this.BUNGIE_CLIENT_SECRET = secret ? secret.substring(0, 5) + "..." : ""
     }
 
 }

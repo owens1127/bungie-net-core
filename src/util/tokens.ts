@@ -34,7 +34,7 @@ export async function getAccessTokenFromRefreshToken(refreshToken: string): Prom
 
 async function fetchTokens(code, type, key) {
   const clientId = __credentials__().BUNGIE_CLIENT_ID;
-  const secret = __credentials__().BUNGIE_SECRET;
+  const secret = __credentials__().BUNGIE_CLIENT_SECRET;
   let body, headers;
   if (secret && clientId) {
     body = new URLSearchParams({

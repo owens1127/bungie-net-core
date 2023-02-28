@@ -124,7 +124,7 @@ export type FetchConfig = {
 
 export function rateLimitedRequest<T>(access_token: string | undefined,
     config: FetchConfig): Promise<BungieNetResponse<T>> {
-    if (!__credentials__().BUNGIE_CLIENT_ID || __credentials__().BUNGIE_API_KEY) throw new NotConfiguredError();
+    if (!__credentials__().BUNGIE_CLIENT_ID || !__credentials__().BUNGIE_API_KEY) throw new NotConfiguredError();
 
     const params = equalsParams(config);
     const url = config.url + (params ? '?' + params.join('&') : '')
