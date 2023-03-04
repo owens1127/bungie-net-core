@@ -17,7 +17,7 @@ export interface DestinyProgressionDisplayPropertiesDefinition {
      * When progressions show your "experience" gained, that bar has units (i.e. "
      * Experience", "Bad Dudes Snuffed Out", whatever). This is the localized string
      * for that unit of measurement.
-    */
+     */
     readonly displayUnitsName: string;
     readonly description: string;
     readonly name: string;
@@ -30,13 +30,13 @@ export interface DestinyProgressionDisplayPropertiesDefinition {
      * icon.
      *
      * They are currently represented as 96px x 96px images.
-    */
+     */
     readonly icon: string;
     readonly iconSequences: DestinyIconSequenceDefinition[];
     /**
      * If this item has a high-res icon (at least for now, many things won't), then the
      * path to that icon will be here.
-    */
+     */
     readonly highResIcon: string;
     readonly hasIcon: boolean;
 }

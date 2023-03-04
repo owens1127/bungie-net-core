@@ -24,5 +24,9 @@ export declare type ReportOffensivePostGameCarnageReportPlayerParams = {
  * passed in. Please use this judiciously and only when you have strong suspicions
  * of violation, pretty please.
  * @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer}
-*/
-export declare function reportOffensivePostGameCarnageReportPlayer(this: InstancedImport | AccessTokenObject | void, params: ReportOffensivePostGameCarnageReportPlayerParams, body: DestinyReportOffensePgcrRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function reportOffensivePostGameCarnageReportPlayer(
+    this: InstancedImport | AccessTokenObject | void,
+    params: ReportOffensivePostGameCarnageReportPlayerParams,
+    body: DestinyReportOffensePgcrRequest
+): Promise<BungieNetResponse<number>>;

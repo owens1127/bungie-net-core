@@ -16,7 +16,7 @@ import { DestinyItemComponentSetOfuint32 } from '../../DestinyItemComponentSetOf
  * Returns the detailed information about a Collectible Presentation Node and any
  * Collectibles that are direct descendants.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCollectibleNodeDetailResponse}
-*/
+ */
 export interface DestinyCollectibleNodeDetailResponse {
     /** COMPONENT TYPE: Collectibles */
     readonly collectibles: SingleComponentResponseOfDestinyCollectiblesComponent;
@@ -37,6 +37,6 @@ export interface DestinyCollectibleNodeDetailResponse {
      *
      * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
      * types.]
-    */
+     */
     readonly collectibleItemComponents: DestinyItemComponentSetOfuint32;
 }

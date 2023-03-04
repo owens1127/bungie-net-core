@@ -13,7 +13,7 @@
 /**
  * Indicates the type of actions that can be performed
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.SocketTypeActionType}
-*/
+ */
 export declare enum SocketTypeActionType {
     InsertPlug = 0,
     InfuseItem = 1,

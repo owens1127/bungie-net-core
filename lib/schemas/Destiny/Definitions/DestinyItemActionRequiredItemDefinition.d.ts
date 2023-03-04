@@ -14,7 +14,7 @@
  * The definition of an item and quantity required in a character's inventory in
  * order to perform an action.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemActionRequiredItemDefinition}
-*/
+ */
 export interface DestinyItemActionRequiredItemDefinition {
     /** The minimum quantity of the item you have to have. */
     readonly count: number;
@@ -22,12 +22,12 @@ export interface DestinyItemActionRequiredItemDefinition {
      * The hash identifier of the item you need to have. Use it to look up the
      * DestinyInventoryItemDefinition for more info. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly itemHash: number;
     /**
      * If true, the item/quantity will be deleted from your inventory when the action
      * is performed. Otherwise, you'll retain these required items after the action is
      * complete.
-    */
+     */
     readonly deleteOnAction: boolean;
 }

@@ -18,7 +18,7 @@ import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase';
  * to talk about a tier of a raid as being Completed or having progress, but it
  * doesn't make sense to talk about a Crucible Playlist in those terms.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityCompletionStatus}
-*/
+ */
 export interface DestinyMilestoneActivityCompletionStatus {
     /** If the activity has been "completed", that information will be returned here. */
     readonly completed: boolean;
@@ -27,6 +27,6 @@ export interface DestinyMilestoneActivityCompletionStatus {
      * Otherwise, this value will be NULL. Note that this is a list and not a
      * dictionary: the order implies the ascending order of phases or progression in
      * this activity.
-    */
+     */
     readonly phases?: DestinyMilestoneActivityPhase[];
 }

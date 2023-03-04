@@ -20,7 +20,7 @@ export interface DestinySeasonPassDefinition {
      * after you reach the limit is provided in the "Prestige" progression referred to
      * by prestigeProgressionHash. Mapped to DestinyProgressionDefinition in the
      * manifest.
-    */
+     */
     readonly rewardProgressionHash: number;
     /**
      * I know what you're thinking, but I promise we're not going to duplicate and
@@ -30,7 +30,7 @@ export interface DestinySeasonPassDefinition {
      * pass after you gain max ranks, that will ultimately increase your power/light
      * level over the theoretical limit. Mapped to DestinyProgressionDefinition in the
      * manifest.
-    */
+     */
     readonly prestigeProgressionHash: number;
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -38,13 +38,13 @@ export interface DestinySeasonPassDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

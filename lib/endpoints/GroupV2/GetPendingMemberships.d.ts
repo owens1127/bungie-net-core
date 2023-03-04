@@ -24,5 +24,8 @@ export declare type GetPendingMembershipsParams = {
  * Get the list of users who are awaiting a decision on their application to join a
  * given group. Modified to include application info.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships}
-*/
-export declare function getPendingMemberships(this: InstancedImport | AccessTokenObject | void, params: GetPendingMembershipsParams): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;
+ */
+export declare function getPendingMemberships(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPendingMembershipsParams
+): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;

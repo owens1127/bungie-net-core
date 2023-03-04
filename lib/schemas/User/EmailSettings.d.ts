@@ -16,7 +16,7 @@ import { EmailViewDefinition } from './EmailViewDefinition';
 /**
  * The set of all email subscription/opt-in settings and definitions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailSettings}
-*/
+ */
 export interface EmailSettings {
     /** Keyed by the name identifier of the opt-in definition. */
     readonly optInDefinitions: {

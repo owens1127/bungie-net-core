@@ -15,7 +15,7 @@
  * DestinyInventoryItemDefinition.vendorSackType property of items. If they match,
  * show this sack with this interaction.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInteractionSackEntryDefinition}
-*/
+ */
 export interface DestinyVendorInteractionSackEntryDefinition {
     readonly sackType: number;
 }

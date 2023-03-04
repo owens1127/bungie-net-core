@@ -27,13 +27,13 @@ export interface GroupResponse {
      * A convenience property that indicates if every membership you (the current user)
      * have that is a part of this group are part of an account that is considered
      * inactive - for example, overridden accounts in Cross Save.
-    */
+     */
     readonly currentUserMembershipsInactiveForDestiny: boolean;
     /**
      * This property will be populated if the authenticated user is a member of the
      * group. Note that because of account linking, a user can sometimes be part of a
      * clan more than once. As such, this returns the highest member type available.
-    */
+     */
     readonly currentUserMemberMap: {
         [key in BungieMembershipType]: GroupMember;
     };
@@ -41,7 +41,7 @@ export interface GroupResponse {
      * This property will be populated if the authenticated user is an applicant or has
      * an outstanding invitation to join. Note that because of account linking, a user
      * can sometimes be part of a clan more than once.
-    */
+     */
     readonly currentUserPotentialMemberMap: {
         [key in BungieMembershipType]: GroupPotentialMember;
     };

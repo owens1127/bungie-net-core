@@ -20,12 +20,16 @@ export declare type SearchDestinyPlayerByBungieNameParams = {
     /**
      * A valid non-BungieNet membership type, or All. Indicates which memberships to
      * return. You probably want this set to All.
-    */
+     */
     membershipType: BungieMembershipType;
 };
 /**
  * Returns a list of Destiny memberships given a global Bungie Display Name. This
  * method will hide overridden memberships due to cross save.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName}
-*/
-export declare function searchDestinyPlayerByBungieName(this: InstancedImport | AccessTokenObject | void, params: SearchDestinyPlayerByBungieNameParams, body: ExactSearchRequest): Promise<BungieNetResponse<UserInfoCard[]>>;
+ */
+export declare function searchDestinyPlayerByBungieName(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchDestinyPlayerByBungieNameParams,
+    body: ExactSearchRequest
+): Promise<BungieNetResponse<UserInfoCard[]>>;

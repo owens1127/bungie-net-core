@@ -19,19 +19,19 @@
  * DestinyProgressionDefinition directly. This is apparently so that multiple
  * progressions can be granted progression points/experience at the same time.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardDefinition}
-*/
+ */
 export interface DestinyProgressionRewardDefinition {
     /**
      * The hash identifier of the DestinyProgressionMappingDefinition that contains the
      * progressions for which experience should be applied. Mapped to
      * DestinyProgressionMappingDefinition in the manifest.
-    */
+     */
     readonly progressionMappingHash: number;
     /** The amount of experience to give to each of the mapped progressions. */
     readonly amount: number;
     /**
      * If true, the game's internal mechanisms to throttle progression should be
      * applied.
-    */
+     */
     readonly applyThrottles: boolean;
 }

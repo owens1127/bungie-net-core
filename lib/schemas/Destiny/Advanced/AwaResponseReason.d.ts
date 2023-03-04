@@ -18,7 +18,7 @@ export declare enum AwaResponseReason {
     /**
      * The HTTP request timed out, a new request may be made and an answer may still be
      * provided.
-    */
+     */
     TimedOut = 2,
     /** This request was replaced by another request. */
     Replaced = 3

@@ -16,7 +16,11 @@ import { DestinyPublicMilestone } from '../../schemas/index.js';
 /**
  * Gets public information about currently available Milestones.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
-*/
-export declare function getPublicMilestones(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: number]: DestinyPublicMilestone;
-}>>;
+ */
+export declare function getPublicMilestones(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: number]: DestinyPublicMilestone;
+    }>
+>;

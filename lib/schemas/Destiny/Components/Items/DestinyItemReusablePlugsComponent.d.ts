@@ -34,7 +34,7 @@ export interface DestinyItemReusablePlugsComponent {
      *
      * If a socket doesn't have any reusable plugs defined at the item scope, there
      * will be no entry for that socket.
-    */
+     */
     readonly plugs: {
         [key: number]: DestinyItemPlugBase[];
     };

@@ -25,5 +25,8 @@ export declare type RssNewsArticlesParams = {
 /**
  * Returns a JSON string response that is the RSS feed for news articles.
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
-*/
-export declare function rssNewsArticles(this: InstancedImport | AccessTokenObject | void, params: RssNewsArticlesParams): Promise<BungieNetResponse<NewsArticleRssResponse>>;
+ */
+export declare function rssNewsArticles(
+    this: InstancedImport | AccessTokenObject | void,
+    params: RssNewsArticlesParams
+): Promise<BungieNetResponse<NewsArticleRssResponse>>;

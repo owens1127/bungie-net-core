@@ -22,5 +22,8 @@ export declare type GetClanWeeklyRewardStateParams = {
  * Returns information on the weekly clan rewards and if the clan has earned them
  * or not. Note that this will always report rewards as not redeemed.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState}
-*/
-export declare function getClanWeeklyRewardState(this: InstancedImport | AccessTokenObject | void, params: GetClanWeeklyRewardStateParams): Promise<BungieNetResponse<DestinyMilestone>>;
+ */
+export declare function getClanWeeklyRewardState(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetClanWeeklyRewardStateParams
+): Promise<BungieNetResponse<DestinyMilestone>>;

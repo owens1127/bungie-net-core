@@ -18,14 +18,14 @@ export interface DestinyVendorDisplayPropertiesDefinition {
      * I regret calling this a "large icon". It's more like a medium-sized image with a
      * picture of the vendor's mug on it, trying their best to look cool. Not what one
      * would call an icon.
-    */
+     */
     readonly largeIcon: string;
     readonly subtitle: string;
     /**
      * If we replaced the icon with something more glitzy, this is the original icon
      * that the vendor had according to the game's content. It may be more lame and/or
      * have less razzle-dazzle. But who am I to tell you which icon to use.
-    */
+     */
     readonly originalIcon: string;
     /**
      * Vendors, in addition to expected display property data, may also show some "
@@ -33,7 +33,7 @@ export interface DestinyVendorDisplayPropertiesDefinition {
      * vendor accepts a single type of currency, or when the currency is unique to the
      * vendor and the designers wanted to show that currency when you interact with the
      * vendor.
-    */
+     */
     readonly requirementsDisplay: DestinyVendorRequirementDisplayEntryDefinition[];
     /** This is the icon used in parts of the game UI such as the vendor's waypoint. */
     readonly smallTransparentIcon: string;
@@ -42,7 +42,7 @@ export interface DestinyVendorDisplayPropertiesDefinition {
     /**
      * This is apparently the "Watermark". I am not certain offhand where this is
      * actually used in the Game UI, but some people may find it useful.
-    */
+     */
     readonly largeTransparentIcon: string;
     readonly description: string;
     readonly name: string;
@@ -55,13 +55,13 @@ export interface DestinyVendorDisplayPropertiesDefinition {
      * icon.
      *
      * They are currently represented as 96px x 96px images.
-    */
+     */
     readonly icon: string;
     readonly iconSequences: DestinyIconSequenceDefinition[];
     /**
      * If this item has a high-res icon (at least for now, many things won't), then the
      * path to that icon will be here.
-    */
+     */
     readonly highResIcon: string;
     readonly hasIcon: boolean;
 }

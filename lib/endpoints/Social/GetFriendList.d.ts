@@ -16,5 +16,7 @@ import { BungieFriendListResponse } from '../../schemas/index.js';
 /**
  * Returns your Bungie Friend list
  * @see {@link https://bungie-net.github.io/#Social.GetFriendList}
-*/
-export declare function getFriendList(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<BungieFriendListResponse>>;
+ */
+export declare function getFriendList(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<BungieNetResponse<BungieFriendListResponse>>;

@@ -15,7 +15,7 @@ import { EmailViewDefinitionSetting } from './EmailViewDefinitionSetting';
  * Represents a data-driven view for Email settings. Web/Mobile UI can use this
  * data to show new EMail settings consistently without further manual work.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailViewDefinition}
-*/
+ */
 export interface EmailViewDefinition {
     /** The identifier for this view. */
     readonly name: string;

@@ -13,7 +13,7 @@
 /**
  * An overly complicated wrapper for the item level at which the item should spawn.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemCreationEntryLevelDefinition}
-*/
+ */
 export interface DestinyItemCreationEntryLevelDefinition {
     readonly level: number;
 }

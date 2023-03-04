@@ -14,7 +14,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumTopicsCategoryFiltersEnum}
-*/
+ */
 export declare enum ForumTopicsCategoryFiltersEnum {
     None = 0,
     Links = 1,

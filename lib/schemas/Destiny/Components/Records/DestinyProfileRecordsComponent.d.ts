@@ -24,7 +24,7 @@ export interface DestinyProfileRecordsComponent {
     /**
      * If this profile is tracking a record, this is the hash identifier of the record
      * it is tracking. Mapped to DestinyRecordDefinition in the manifest.
-    */
+     */
     readonly trackedRecordHash?: number;
     readonly records: {
         [key: number]: DestinyRecordComponent;
@@ -32,11 +32,11 @@ export interface DestinyProfileRecordsComponent {
     /**
      * The hash for the root presentation node definition of Triumph categories. Mapped
      * to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly recordCategoriesRootNodeHash: number;
     /**
      * The hash for the root presentation node definition of Triumph Seals. Mapped to
      * DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly recordSealsRootNodeHash: number;
 }

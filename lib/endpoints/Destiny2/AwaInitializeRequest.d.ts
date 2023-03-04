@@ -17,5 +17,8 @@ import { AwaInitializeResponse } from '../../schemas/index.js';
 /**
  * Initialize a request to perform an advanced write action.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaInitializeRequest}
-*/
-export declare function awaInitializeRequest(this: InstancedImport | AccessTokenObject | void, body: AwaPermissionRequested): Promise<BungieNetResponse<AwaInitializeResponse>>;
+ */
+export declare function awaInitializeRequest(
+    this: InstancedImport | AccessTokenObject | void,
+    body: AwaPermissionRequested
+): Promise<BungieNetResponse<AwaInitializeResponse>>;

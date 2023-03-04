@@ -20,13 +20,13 @@ export declare type GetLinkedProfilesParams = {
      * (optional) if set to 'true', all memberships regardless of whether they're
      * obscured by overrides will be returned. Normal privacy restrictions on account
      * linking will still apply no matter what.
-    */
+     */
     getAllMemberships?: boolean;
     /**
      * The ID of the membership whose linked Destiny accounts you want returned. Make
      * sure your membership ID matches its Membership Type: don't pass us a PSN
      * membership ID and the XBox membership type, it's not going to work!
-    */
+     */
     membershipId: string;
     /** The type for the membership whose linked Destiny accounts you want returned. */
     membershipType: BungieMembershipType;
@@ -40,5 +40,8 @@ export declare type GetLinkedProfilesParams = {
  * UserServices for people who just care about Destiny data. Note that it will only
  * return linked accounts whose linkages you are allowed to view.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles}
-*/
-export declare function getLinkedProfiles(this: InstancedImport | AccessTokenObject | void, params: GetLinkedProfilesParams): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>>;
+ */
+export declare function getLinkedProfiles(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetLinkedProfilesParams
+): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>>;

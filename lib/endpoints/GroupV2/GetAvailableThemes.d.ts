@@ -16,5 +16,7 @@ import { GroupTheme } from '../../schemas/index.js';
 /**
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}
-*/
-export declare function getAvailableThemes(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<GroupTheme[]>>;
+ */
+export declare function getAvailableThemes(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<BungieNetResponse<GroupTheme[]>>;

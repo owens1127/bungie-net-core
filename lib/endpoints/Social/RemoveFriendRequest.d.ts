@@ -21,5 +21,8 @@ export declare type RemoveFriendRequestParams = {
  * Remove a friend relationship with the target user. The user must be on your
  * outgoing request friend list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.RemoveFriendRequest}
-*/
-export declare function removeFriendRequest(this: InstancedImport | AccessTokenObject | void, params: RemoveFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function removeFriendRequest(
+    this: InstancedImport | AccessTokenObject | void,
+    params: RemoveFriendRequestParams
+): Promise<BungieNetResponse<boolean>>;

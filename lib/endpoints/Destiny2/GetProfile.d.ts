@@ -21,7 +21,7 @@ export declare type GetProfileParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
     /** Destiny membership ID. */
     destinyMembershipId: string;
@@ -31,5 +31,8 @@ export declare type GetProfileParams = {
 /**
  * Returns Destiny Profile information for the supplied membership.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetProfile}
-*/
-export declare function getProfile(this: InstancedImport | AccessTokenObject | void, params: GetProfileParams): Promise<BungieNetResponse<DestinyProfileResponse>>;
+ */
+export declare function getProfile(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetProfileParams
+): Promise<BungieNetResponse<DestinyProfileResponse>>;

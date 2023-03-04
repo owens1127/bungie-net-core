@@ -19,37 +19,37 @@
  * It's up to you to interpret what it means when various combinations of these
  * entries have values being tracked.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryTrackingEntry}
-*/
+ */
 export interface DestinyProfileTransitoryTrackingEntry {
     /**
      * OPTIONAL - If this is tracking a DestinyLocationDefinition, this is the
      * identifier for that location. Mapped to DestinyLocationDefinition in the
      * manifest.
-    */
+     */
     readonly locationHash?: number;
     /**
      * OPTIONAL - If this is tracking the status of a DestinyInventoryItemDefinition,
      * this is the identifier for that item. Mapped to DestinyInventoryItemDefinition
      * in the manifest.
-    */
+     */
     readonly itemHash?: number;
     /**
      * OPTIONAL - If this is tracking the status of a DestinyObjectiveDefinition, this
      * is the identifier for that objective. Mapped to DestinyObjectiveDefinition in
      * the manifest.
-    */
+     */
     readonly objectiveHash?: number;
     /**
      * OPTIONAL - If this is tracking the status of a DestinyActivityDefinition, this
      * is the identifier for that activity. Mapped to DestinyActivityDefinition in the
      * manifest.
-    */
+     */
     readonly activityHash?: number;
     /**
      * OPTIONAL - If this is tracking the status of a quest, this is the identifier for
      * the DestinyInventoryItemDefinition that containst that questline data. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly questlineItemHash?: number;
     /**
      * OPTIONAL - I've got to level with you, I don't really know what this is. Is it
@@ -58,6 +58,6 @@ export interface DestinyProfileTransitoryTrackingEntry {
      *
      * I don't know, but we can get at it - when I get time to actually test what it is,
      * I'll update this. In the meantime, bask in the mysterious data.
-    */
+     */
     readonly trackedDate?: string;
 }

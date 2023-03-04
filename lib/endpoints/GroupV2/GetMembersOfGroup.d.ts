@@ -25,11 +25,14 @@ export declare type GetMembersOfGroupParams = {
     /**
      * The name fragment upon which a search should be executed for members with
      * matching display or unique names.
-    */
+     */
     nameSearch?: string;
 };
 /**
  * Get the list of members in a given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
-*/
-export declare function getMembersOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;
+ */
+export declare function getMembersOfGroup(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetMembersOfGroupParams
+): Promise<BungieNetResponse<SearchResultOfGroupMember>>;

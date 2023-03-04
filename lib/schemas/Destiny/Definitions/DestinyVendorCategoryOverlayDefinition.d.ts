@@ -14,7 +14,7 @@
  * The details of an overlay prompt to show to a user. They are all fairly self-
  * explanatory localized strings that can be shown.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorCategoryOverlayDefinition}
-*/
+ */
 export interface DestinyVendorCategoryOverlayDefinition {
     readonly choiceDescription: string;
     readonly description: string;
@@ -23,6 +23,6 @@ export interface DestinyVendorCategoryOverlayDefinition {
     /**
      * If this overlay has a currency item that it features, this is said featured item.
      * Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly currencyItemHash?: number;
 }

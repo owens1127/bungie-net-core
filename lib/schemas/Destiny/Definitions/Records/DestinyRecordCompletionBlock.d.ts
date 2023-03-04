@@ -16,7 +16,7 @@ export interface DestinyRecordCompletionBlock {
     /**
      * The number of objectives that must be completed before the objective is
      * considered "complete"
-    */
+     */
     readonly partialCompletionObjectiveCountThreshold: number;
     readonly ScoreValue: number;
     readonly shouldFireToast: boolean;

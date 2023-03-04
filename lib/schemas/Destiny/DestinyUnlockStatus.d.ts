@@ -17,7 +17,7 @@
  * sometimes provide interesting human-readable information in their related
  * DestinyUnlockDefinition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyUnlockStatus}
-*/
+ */
 export interface DestinyUnlockStatus {
     /**
      * The hash identifier for the Unlock Flag. Use to lookup DestinyUnlockDefinition
@@ -25,7 +25,7 @@ export interface DestinyUnlockStatus {
      * But when they do, it can be very useful to show. Even if they don't have human
      * readable data, you might be able to infer the meaning of an unlock flag with a
      * bit of experimentation... Mapped to DestinyUnlockDefinition in the manifest.
-    */
+     */
     readonly unlockHash: number;
     /** Whether the unlock flag is set. */
     readonly isSet: boolean;

@@ -22,12 +22,12 @@ import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerVi
  * Examine the Javascript returned by https://bungie.net/sharedbundle/spasm to see
  * how we use this data, but be warned: the rabbit hole goes pretty deep.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Characters.DestinyCharacterRenderComponent}
-*/
+ */
 export interface DestinyCharacterRenderComponent {
     /**
      * Custom dyes, calculated by iterating over the character's equipped items. Useful
      * for pre-fetching all of the dye data needed from our server.
-    */
+     */
     readonly customDyes: DyeReference[];
     /**
      * This is actually something that Spasm.js *doesn't* do right now, and that we don'
@@ -36,7 +36,7 @@ export interface DestinyCharacterRenderComponent {
      * DestinyCharacterCustomizationOptionDefinition to show some cool info, and
      * hopefully someday to actually render a user's face in 3D. We'll see if we ever
      * end up with time for that.
-    */
+     */
     readonly customization: DestinyCharacterCustomization;
     /**
      * A minimal view of:
@@ -47,6 +47,6 @@ export interface DestinyCharacterRenderComponent {
      *
      * Combined, that should be enough to render all of the items on the equipped
      * character.
-    */
+     */
     readonly peerView: DestinyCharacterPeerView;
 }

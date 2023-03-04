@@ -28,5 +28,8 @@ export declare type KickMemberParams = {
  * join the group. You must have suitable permissions in the group to perform this
  * operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
-*/
-export declare function kickMember(this: InstancedImport | AccessTokenObject | void, params: KickMemberParams): Promise<BungieNetResponse<GroupMemberLeaveResult>>;
+ */
+export declare function kickMember(
+    this: InstancedImport | AccessTokenObject | void,
+    params: KickMemberParams
+): Promise<BungieNetResponse<GroupMemberLeaveResult>>;

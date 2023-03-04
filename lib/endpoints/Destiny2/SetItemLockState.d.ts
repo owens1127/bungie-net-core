@@ -18,5 +18,8 @@ import { DestinyItemStateRequest } from '../../schemas/index.js';
  *
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SetItemLockState}
-*/
-export declare function setItemLockState(this: InstancedImport | AccessTokenObject | void, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function setItemLockState(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyItemStateRequest
+): Promise<BungieNetResponse<number>>;

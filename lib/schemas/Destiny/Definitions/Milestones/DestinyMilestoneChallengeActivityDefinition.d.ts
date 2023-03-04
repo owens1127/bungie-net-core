@@ -18,19 +18,19 @@ export interface DestinyMilestoneChallengeActivityDefinition {
     /**
      * The activity for which this challenge is active. Mapped to
      * DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash: number;
     readonly challenges: DestinyMilestoneChallengeDefinition[];
     /**
      * If the activity and its challenge is visible on any of these nodes, it will be
      * returned.
-    */
+     */
     readonly activityGraphNodes: DestinyMilestoneChallengeActivityGraphNodeEntry[];
     /**
      * Phases related to this activity, if there are any.
      *
      * These will be listed in the order in which they will appear in the actual
      * activity.
-    */
+     */
     readonly phases: DestinyMilestoneChallengeActivityPhase[];
 }

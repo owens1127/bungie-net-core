@@ -24,5 +24,9 @@ export declare type EditOptionalConversationParams = {
  * Edit the settings of an optional conversation/chat channel. Requires admin
  * permissions to the group.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
-*/
-export declare function editOptionalConversation(this: InstancedImport | AccessTokenObject | void, params: EditOptionalConversationParams, body: GroupOptionalConversationEditRequest): Promise<BungieNetResponse<string>>;
+ */
+export declare function editOptionalConversation(
+    this: InstancedImport | AccessTokenObject | void,
+    params: EditOptionalConversationParams,
+    body: GroupOptionalConversationEditRequest
+): Promise<BungieNetResponse<string>>;

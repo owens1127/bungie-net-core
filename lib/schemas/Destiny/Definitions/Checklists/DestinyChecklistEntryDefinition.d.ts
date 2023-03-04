@@ -20,18 +20,18 @@ import { DestinyScope } from '../../DestinyScope';
  * Whatever UI you build, do it with the knowledge that any given entry might not
  * actually be able to be associated with some other Destiny entity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Checklists.DestinyChecklistEntryDefinition}
-*/
+ */
 export interface DestinyChecklistEntryDefinition {
     /**
      * The identifier for this Checklist entry. Guaranteed unique only within this
      * Checklist Definition, and not globally/for all checklists.
-    */
+     */
     readonly hash: number;
     /**
      * Even if no other associations exist, we will give you *something* for display
      * properties. In cases where we have no associated entities, it may be as simple
      * as a numerical identifier.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /** Mapped to DestinyDestinationDefinition in the manifest. */
     readonly destinationHash?: number;
@@ -46,7 +46,7 @@ export interface DestinyChecklistEntryDefinition {
      * You can use this property if it is populated to look up the
      * DestinyLocationDefinition's associated .locationReleases[].activityBubbleName
      * property.
-    */
+     */
     readonly bubbleHash?: number;
     /** Mapped to DestinyActivityDefinition in the manifest. */
     readonly activityHash?: number;

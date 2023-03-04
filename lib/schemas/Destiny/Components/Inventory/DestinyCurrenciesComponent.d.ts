@@ -24,7 +24,7 @@
  * it if you have already created your own lookup from prior GetCharacter/
  * GetProfile calls.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Inventory.DestinyCurrenciesComponent}
-*/
+ */
 export interface DestinyCurrenciesComponent {
     /**
      * A dictionary - keyed by the item's hash identifier (
@@ -34,7 +34,7 @@ export interface DestinyCurrenciesComponent {
      * This allows you to see whether the requesting character can afford any given
      * purchase/action without having to re-create this list itself. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly itemQuantities: {
         [key: number]: number;
     };

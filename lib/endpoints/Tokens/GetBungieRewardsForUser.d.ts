@@ -18,13 +18,18 @@ export declare type GetBungieRewardsForUserParams = {
     /**
      * bungie.net user membershipId for requested user rewards. If not self, elevated
      * permissions are required.
-    */
+     */
     membershipId: string;
 };
 /**
  * Returns the bungie rewards for the targeted user.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
-*/
-export declare function getBungieRewardsForUser(this: InstancedImport | AccessTokenObject | void, params: GetBungieRewardsForUserParams): Promise<BungieNetResponse<{
-    [key: string]: BungieRewardDisplay;
-}>>;
+ */
+export declare function getBungieRewardsForUser(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetBungieRewardsForUserParams
+): Promise<
+    BungieNetResponse<{
+        [key: string]: BungieRewardDisplay;
+    }>
+>;

@@ -13,7 +13,7 @@
 /**
  * When a vendor provides services, this is the localized name of those services.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorServiceDefinition}
-*/
+ */
 export interface DestinyVendorServiceDefinition {
     /** The localized name of a service provided. */
     readonly name: string;

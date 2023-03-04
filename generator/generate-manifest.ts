@@ -1,6 +1,6 @@
-import {DefInfo} from './util';
-import {OpenAPIObject} from 'openapi3-ts';
-import {docComment, indent, writeOutFile} from './generate-common.js';
+import { DefInfo } from './util';
+import { OpenAPIObject } from 'openapi3-ts';
+import { docComment, indent, writeOutFile } from './generate-common.js';
 
 let attempts = 0;
 const manifestMetadataPromise = manifestMetaResponse(0);
@@ -9,9 +9,9 @@ const manifestMetadataPromise = manifestMetaResponse(0);
 async function manifestMetaResponse(retry: number) {
     try {
         // @ts-ignore
-        let manifestMeta: { Response: Object } = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
-            (res) => res.json()
-        );
+        let manifestMeta: { Response: Object } = await fetch(
+            'https://www.bungie.net/Platform/Destiny2/Manifest/'
+        ).then(res => res.json());
         if (!manifestMeta?.Response) {
             if (retry > 5) {
                 console.error(new Error('Failed to download Manifest'));
@@ -25,23 +25,32 @@ async function manifestMetaResponse(retry: number) {
         console.error(e);
         process.exit(1);
     }
-
 }
 
-export async function generateManifestUtils(components: DefInfo[], componentByDef: { [def: string]: DefInfo }, doc: OpenAPIObject) {
+export async function generateManifestUtils(
+    components: DefInfo[],
+    componentByDef: { [def: string]: DefInfo },
+    doc: OpenAPIObject
+) {
     const filename = `lib-ts/manifest/manifest-types.ts`;
     let manifestMetadata = await manifestMetadataPromise;
 
     // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
-    const jsonKeys = Object.keys(manifestMetadata.jsonWorldComponentContentPaths.en)
+    const jsonKeys = Object.keys(
+        manifestMetadata.jsonWorldComponentContentPaths.en
+    );
     // exclude some tables from the definitionmanifest table because we don't have the format for them
-    const defsToInclude = components.filter(
-        (def) => jsonKeys.includes(def.typeName)
+    const defsToInclude = components.filter(def =>
+        jsonKeys.includes(def.typeName)
     );
 
-  const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
+    const languageList = Object.keys(
+        manifestMetadata.jsonWorldComponentContentPaths
+    ).sort();
 
-  const body = `import {${defsToInclude.map((c) => `\n  ${c.typeName},`).join('')}
+    const body = `import {${defsToInclude
+        .map(c => `\n  ${c.typeName},`)
+        .join('')}
 } from '../schemas';
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
@@ -50,20 +59,26 @@ export async function generateManifestUtils(components: DefInfo[], componentByDe
  */
 export interface AllDestinyManifestComponents {
 ${defsToInclude
-      .map((manifestComponent) => `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`)
-      .join('')}}
+    .map(
+        manifestComponent =>
+            `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`
+    )
+    .join('')}}
 
 export const enum ManifestComponents {
 ${defsToInclude
-      .map((manifestComponent) => `  ${manifestComponent.typeName} = '${manifestComponent.typeName}',\n`)
-      .join('')}
+    .map(
+        manifestComponent =>
+            `  ${manifestComponent.typeName} = '${manifestComponent.typeName}',\n`
+    )
+    .join('')}
 }
 
 /**
  * languages the manifest comes in, as their required keys to download them
  */
 export const destinyManifestLanguages = [
-${languageList.map((l) => `  '${l}',`).join('\n')}
+${languageList.map(l => `  '${l}',`).join('\n')}
 ] as const;
 export type DestinyManifestLanguage = typeof destinyManifestLanguages[number];
 export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
@@ -84,7 +99,7 @@ export type DestinyDefinitionFrom<
 > = AllDestinyManifestComponents[K][number];
 `;
 
-  writeOutFile(filename, [generateManifestHeader(doc), body].join('\n\n'));
+    writeOutFile(filename, [generateManifestHeader(doc), body].join('\n\n'));
 }
 
 function generateManifestHeader(doc: OpenAPIObject): string {

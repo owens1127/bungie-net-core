@@ -19,5 +19,8 @@ import { DestinyItemStateRequest } from '../../schemas/index.js';
  *
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SetQuestTrackedState}
-*/
-export declare function setQuestTrackedState(this: InstancedImport | AccessTokenObject | void, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function setQuestTrackedState(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyItemStateRequest
+): Promise<BungieNetResponse<number>>;

@@ -16,13 +16,13 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * Gender is a social construct, and as such we have definitions for Genders. Right
  * now there happens to only be two, but we'll see what the future holds.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyGenderDefinition}
-*/
+ */
 export interface DestinyGenderDefinition {
     /**
      * This is a quick reference enumeration for all of the currently defined Genders.
      * We use the enumeration for quicker lookups in related data, like
      * DestinyClassDefinition.genderedClassNames.
-    */
+     */
     readonly genderType: DestinyGender;
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
@@ -31,13 +31,13 @@ export interface DestinyGenderDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

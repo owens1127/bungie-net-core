@@ -15,11 +15,11 @@
  * rules of those requirements, and the message(s) to be shown if these
  * requirements aren't met.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeRequirementsBlock}
-*/
+ */
 export interface DestinyPresentationNodeRequirementsBlock {
     /**
      * If this node is not accessible due to Entitlements (for instance, you don't own
      * the required game expansion), this is the message to show.
-    */
+     */
     readonly entitlementUnavailableMessage: string;
 }

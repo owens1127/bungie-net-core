@@ -17,7 +17,7 @@ export interface DestinyRecordComponent {
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly state: DestinyRecordState;
     readonly objectives: DestinyObjectiveProgress[];
     readonly intervalObjectives: DestinyObjectiveProgress[];
@@ -25,12 +25,12 @@ export interface DestinyRecordComponent {
     /**
      * If available, this is the number of times this record has been completed. For
      * example, the number of times a seal title has been gilded.
-    */
+     */
     readonly completedCount?: number;
     /**
      * If available, a list that describes which reward rewards should be shown (true)
      * or hidden (false). This property is for regular record rewards, and not for
      * interval objective rewards.
-    */
+     */
     readonly rewardVisibilty: boolean[];
 }

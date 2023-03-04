@@ -18,5 +18,8 @@ import { DestinyLoadoutActionRequest } from '../../schemas/index.js';
  *
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.ClearLoadout}
-*/
-export declare function clearLoadout(this: InstancedImport | AccessTokenObject | void, body: DestinyLoadoutActionRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function clearLoadout(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyLoadoutActionRequest
+): Promise<BungieNetResponse<number>>;

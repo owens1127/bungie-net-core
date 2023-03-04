@@ -22,7 +22,7 @@ export declare type GetHistoricalStatsForAccountParams = {
     /**
      * Groups of stats to include, otherwise only general stats are returned. Comma
      * separated list is allowed. Values: General, Weapons, Medals.
-    */
+     */
     groups?: DestinyStatsGroupType[];
     /** A valid non-BungieNet membership type. */
     membershipType: BungieMembershipType;
@@ -31,5 +31,8 @@ export declare type GetHistoricalStatsForAccountParams = {
  * Gets aggregate historical stats organized around each character for a given
  * account.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount}
-*/
-export declare function getHistoricalStatsForAccount(this: InstancedImport | AccessTokenObject | void, params: GetHistoricalStatsForAccountParams): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>>;
+ */
+export declare function getHistoricalStatsForAccount(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetHistoricalStatsForAccountParams
+): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>>;

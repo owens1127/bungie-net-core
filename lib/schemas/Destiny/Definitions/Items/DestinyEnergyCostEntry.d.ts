@@ -16,7 +16,7 @@ import { DestinyEnergyType } from '../../DestinyEnergyType';
  * other plugs (that, at least in Armor 2.0, have a "masterworks-like" mechanic for
  * upgrading). If a plug has costs, the details of that cost are defined here.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyEnergyCostEntry}
-*/
+ */
 export interface DestinyEnergyCostEntry {
     /** The Energy cost for inserting this plug. */
     readonly energyCost: number;
@@ -24,7 +24,7 @@ export interface DestinyEnergyCostEntry {
      * The type of energy that this plug costs, as a reference to the
      * DestinyEnergyTypeDefinition of the energy type. Mapped to
      * DestinyEnergyTypeDefinition in the manifest.
-    */
+     */
     readonly energyTypeHash: number;
     /** The type of energy that this plug costs, in enum form. */
     readonly energyType: DestinyEnergyType;

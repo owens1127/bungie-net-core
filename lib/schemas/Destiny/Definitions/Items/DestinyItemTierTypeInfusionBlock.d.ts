@@ -16,7 +16,7 @@ export interface DestinyItemTierTypeInfusionBlock {
      * The default portion of quality that will transfer from the infuser to the
      * infusee item. (InfuserQuality - InfuseeQuality) * baseQualityTransferRatio =
      * base quality transferred.
-    */
+     */
     readonly baseQualityTransferRatio: number;
     /**
      * As long as InfuserQuality > InfuseeQuality, the amount of quality bestowed is
@@ -25,6 +25,6 @@ export interface DestinyItemTierTypeInfusionBlock {
      * cannot exceed the Infuser's quality however (for instance, if you infuse a 300
      * item with a 301 item and the minimum quality increment is 10, the infused item
      * will not end up with 310 quality)
-    */
+     */
     readonly minimumQualityIncrement: number;
 }

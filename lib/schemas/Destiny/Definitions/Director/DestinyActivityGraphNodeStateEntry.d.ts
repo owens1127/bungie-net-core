@@ -16,7 +16,7 @@ import { DestinyGraphNodeState } from '../../DestinyGraphNodeState';
  * going on in the game, graph nodes could be shown in different ways or even
  * excluded from view entirely.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeStateEntry}
-*/
+ */
 export interface DestinyActivityGraphNodeStateEntry {
     readonly state: DestinyGraphNodeState;
 }

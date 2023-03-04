@@ -13,18 +13,18 @@
 /**
  * Defines a particular entry in an ItemSet (AKA a particular Quest Step in a Quest)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSetBlockEntryDefinition}
-*/
+ */
 export interface DestinyItemSetBlockEntryDefinition {
     /**
      * Used for tracking which step a user reached. These values will be populated in
      * the user's internal state, which we expose externally as a more usable
      * DestinyQuestStatus object. If this item has been obtained, this value will be
      * set in trackingUnlockValueHash.
-    */
+     */
     readonly trackingValue: number;
     /**
      * This is the hash identifier for a DestinyInventoryItemDefinition representing
      * this quest step. Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly itemHash: number;
 }

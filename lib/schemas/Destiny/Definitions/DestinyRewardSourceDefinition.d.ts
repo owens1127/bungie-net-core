@@ -29,14 +29,14 @@ import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory';
  * that item while playing Nightfall, either during play or as an after-completion
  * reward.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyRewardSourceDefinition}
-*/
+ */
 export interface DestinyRewardSourceDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * Sources are grouped into categories: common ways that items are provided. I hope
      * to see this expand in Destiny 2 once we have time to generate accurate reward
      * source data.
-    */
+     */
     readonly category: DestinyRewardSourceCategory;
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -44,13 +44,13 @@ export interface DestinyRewardSourceDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

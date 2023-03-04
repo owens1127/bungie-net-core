@@ -17,7 +17,7 @@
  * required, and other conditional information that limits whether a talent node
  * can be activated.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyNodeActivationRequirement}
-*/
+ */
 export interface DestinyNodeActivationRequirement {
     /**
      * The Progression level on the Talent Grid required to activate this node.
@@ -25,7 +25,7 @@ export interface DestinyNodeActivationRequirement {
      * See DestinyTalentGridDefinition.progressionHash for the related Progression, and
      * read DestinyProgressionDefinition's documentation to learn more about
      * Progressions.
-    */
+     */
     readonly gridLevel: number;
     /**
      * The list of hash identifiers for material requirement sets: materials that are
@@ -37,6 +37,6 @@ export interface DestinyNodeActivationRequirement {
      * chosen from this list, and we won't know which one will be chosen until an
      * instance of the item is created. Mapped to
      * DestinyMaterialRequirementSetDefinition in the manifest.
-    */
+     */
     readonly materialRequirementHashes: number[];
 }

@@ -24,7 +24,7 @@ export interface DestinySocialCommendationDefinition {
     /**
      * The display properties for the the activities that this commendation is
      * available in.
-    */
+     */
     readonly displayActivities: DestinyDisplayPropertiesDefinition[];
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -32,13 +32,13 @@ export interface DestinySocialCommendationDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

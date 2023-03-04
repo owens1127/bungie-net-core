@@ -18,7 +18,7 @@ import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactPro
  *
  * This will include information such as Checklist info.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileProgressionComponent}
-*/
+ */
 export interface DestinyProfileProgressionComponent {
     /**
      * The set of checklists that can be examined on a profile-wide basis, keyed by the
@@ -27,7 +27,7 @@ export interface DestinyProfileProgressionComponent {
      * For each checklist returned, its value is itself a Dictionary keyed by the
      * checklist's hash identifier with the value being a boolean indicating if it's
      * been discovered yet. Mapped to DestinyChecklistDefinition in the manifest.
-    */
+     */
     readonly checklists: {
         [key: number]: {
             [key: number]: boolean;
@@ -36,6 +36,6 @@ export interface DestinyProfileProgressionComponent {
     /**
      * Data related to your progress on the current season's artifact that is the same
      * across characters.
-    */
+     */
     readonly seasonalArtifact: DestinyArtifactProfileScoped;
 }

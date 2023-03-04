@@ -18,14 +18,14 @@
  * and the one we source this data from should be considered non-authoritative in
  * comparison.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryCurrentActivity}
-*/
+ */
 export interface DestinyProfileTransitoryCurrentActivity {
     /** When the activity started. */
     readonly startTime?: string;
     /**
      * If you're still in it but it "ended" (like when folks are dancing around the
      * loot after they beat a boss), this is when the activity ended.
-    */
+     */
     readonly endTime?: string;
     /** This is what our non-authoritative source thought the score was. */
     readonly score: number;

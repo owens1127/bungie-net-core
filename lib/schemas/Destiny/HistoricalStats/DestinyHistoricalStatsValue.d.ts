@@ -25,6 +25,6 @@ export interface DestinyHistoricalStatsValue {
      * When a stat represents the best, most, longest, fastest or some other personal
      * best, the actual activity ID where that personal best was established is
      * available on this property.
-    */
+     */
     readonly activityId?: string;
 }

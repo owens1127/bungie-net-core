@@ -24,5 +24,8 @@ export declare type UnbanMemberParams = {
 /**
  * Unbans the requested member, allowing them to re-apply for membership.
  * @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember}
-*/
-export declare function unbanMember(this: InstancedImport | AccessTokenObject | void, params: UnbanMemberParams): Promise<BungieNetResponse<number>>;
+ */
+export declare function unbanMember(
+    this: InstancedImport | AccessTokenObject | void,
+    params: UnbanMemberParams
+): Promise<BungieNetResponse<number>>;

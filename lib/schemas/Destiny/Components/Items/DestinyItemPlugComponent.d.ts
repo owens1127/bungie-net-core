@@ -20,7 +20,7 @@ import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
  * and return information about the plug aside from any specific Socket into which
  * it could be inserted.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Items.DestinyItemPlugComponent}
-*/
+ */
 export interface DestinyItemPlugComponent {
     /**
      * Sometimes, Plugs may have objectives: these are often used for flavor and
@@ -32,12 +32,12 @@ export interface DestinyItemPlugComponent {
      * show, and will generally show it using the DestinyObjectiveDefinition's
      * progressDescription property. Refer to the plug's itemHash and objective
      * property for more information if you would like to display even more data.
-    */
+     */
     readonly plugObjectives: DestinyObjectiveProgress[];
     /**
      * The hash identifier of the DestinyInventoryItemDefinition that represents this
      * plug. Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly plugItemHash: number;
     /** If true, this plug has met all of its insertion requirements. Big if true. */
     readonly canInsert: boolean;
@@ -49,7 +49,7 @@ export interface DestinyItemPlugComponent {
      * reasons why it can't be inserted.
      *
      * This list will be empty if the plug can be inserted.
-    */
+     */
     readonly insertFailIndexes: number[];
     /**
      * If a plug is not enabled, this will be populated with indexes into the plug item
@@ -57,6 +57,6 @@ export interface DestinyItemPlugComponent {
      * is not enabled.
      *
      * This list will be empty if the plug is enabled.
-    */
+     */
     readonly enableFailIndexes: number[];
 }

@@ -44,7 +44,7 @@
  * globally" scoped unlock data may be assumed as the worst case unless it has been
  * specifically whitelisted as otherwise. That sucks, but them's the breaks.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyGatingScope}
-*/
+ */
 export declare enum DestinyGatingScope {
     None = 0,
     Global = 1,

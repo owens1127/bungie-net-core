@@ -18,7 +18,7 @@ import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress';
  * A challenge is a bonus objective, generally tacked onto Quests or Activities,
  * that provide additional variations on play.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Challenges.DestinyChallengeStatus}
-*/
+ */
 export interface DestinyChallengeStatus {
     /** The progress - including completion status - of the active challenge. */
     readonly objective: DestinyObjectiveProgress;

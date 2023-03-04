@@ -23,11 +23,11 @@ export interface TrendingEntryDestinyRitual {
     /**
      * A destiny event does not necessarily have a related Milestone, but if it does
      * the details will be returned here.
-    */
+     */
     readonly milestoneDetails: DestinyPublicMilestone;
     /**
      * A destiny event will not necessarily have milestone "custom content", but if it
      * does the details will be here.
-    */
+     */
     readonly eventContent: DestinyMilestoneContent;
 }

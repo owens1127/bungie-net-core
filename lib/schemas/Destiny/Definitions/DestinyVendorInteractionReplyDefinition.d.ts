@@ -19,7 +19,7 @@ import { DestinyVendorReplyType } from '../DestinyVendorReplyType';
  * You can potentially choose one from multiple replies when replying to an
  * interaction: this is how you get either/or rewards from vendors.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInteractionReplyDefinition}
-*/
+ */
 export interface DestinyVendorInteractionReplyDefinition {
     /** The rewards granted upon responding to the vendor. */
     readonly itemRewardsSelection: DestinyVendorInteractionRewardSelection;

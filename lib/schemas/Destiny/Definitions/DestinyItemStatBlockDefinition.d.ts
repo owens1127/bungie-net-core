@@ -29,14 +29,14 @@ import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDe
  * in BNet vs. how they appear in-game. This is a known limitation of our item
  * statistics, without any planned fix.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemStatBlockDefinition}
-*/
+ */
 export interface DestinyItemStatBlockDefinition {
     /**
      * If true, the game won't show the "primary" stat on this item when you inspect it.
      *
      * NOTE: This is being manually mapped, because I happen to want it in a block that
      * isn't going to directly create this derivative block.
-    */
+     */
     readonly disablePrimaryStatDisplay: boolean;
     /**
      * If the item's stats are meant to be modified by a DestinyStatGroupDefinition,
@@ -48,7 +48,7 @@ export interface DestinyItemStatBlockDefinition {
      * provided to you. But if you want to see how the sausage gets made, or perform
      * computations yourself, this is valuable information. Mapped to
      * DestinyStatGroupDefinition in the manifest.
-    */
+     */
     readonly statGroupHash?: number;
     /**
      * If you are looking for precomputed values for the stats on a weapon, this is
@@ -59,7 +59,7 @@ export interface DestinyItemStatBlockDefinition {
      *
      * These stats are keyed by the DestinyStatDefinition's hash identifier for the
      * stat that's found on the item. Mapped to DestinyStatDefinition in the manifest.
-    */
+     */
     readonly stats: {
         [key: number]: DestinyInventoryItemStatDefinition;
     };
@@ -69,7 +69,7 @@ export interface DestinyItemStatBlockDefinition {
      * people find them useful, but they're not part of the "Stat Group" and thus we
      * wouldn't display them in our UI. If this is False, then we're not going to
      * display any of these stats other than the primary one.
-    */
+     */
     readonly hasDisplayableStats: boolean;
     /**
      * This stat is determined to be the "primary" stat, and can be looked up in the
@@ -78,6 +78,6 @@ export interface DestinyItemStatBlockDefinition {
      * Use this hash to look up the stat's value using DestinyInventoryItemDefinition.
      * stats.stats, and the renderable data for the primary stat in the related
      * DestinyStatDefinition. Mapped to DestinyStatDefinition in the manifest.
-    */
+     */
     readonly primaryBaseStatHash: number;
 }

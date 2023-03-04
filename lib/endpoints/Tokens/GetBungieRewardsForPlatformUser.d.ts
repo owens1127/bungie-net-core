@@ -19,7 +19,7 @@ export declare type GetBungieRewardsForPlatformUserParams = {
     /**
      * users platform membershipId for requested user rewards. If not self, elevated
      * permissions are required.
-    */
+     */
     membershipId: string;
     /** The target Destiny 2 membership type. */
     membershipType: BungieMembershipType;
@@ -28,7 +28,12 @@ export declare type GetBungieRewardsForPlatformUserParams = {
  * Returns the bungie rewards for the targeted user when a platform membership Id
  * and Type are used.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser}
-*/
-export declare function getBungieRewardsForPlatformUser(this: InstancedImport | AccessTokenObject | void, params: GetBungieRewardsForPlatformUserParams): Promise<BungieNetResponse<{
-    [key: string]: BungieRewardDisplay;
-}>>;
+ */
+export declare function getBungieRewardsForPlatformUser(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetBungieRewardsForPlatformUserParams
+): Promise<
+    BungieNetResponse<{
+        [key: string]: BungieRewardDisplay;
+    }>
+>;

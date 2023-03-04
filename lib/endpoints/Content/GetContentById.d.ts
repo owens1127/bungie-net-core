@@ -23,5 +23,8 @@ export declare type GetContentByIdParams = {
 /**
  * Returns a content item referenced by id
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
-*/
-export declare function getContentById(this: InstancedImport | AccessTokenObject | void, params: GetContentByIdParams): Promise<BungieNetResponse<ContentItemPublicContract>>;
+ */
+export declare function getContentById(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetContentByIdParams
+): Promise<BungieNetResponse<ContentItemPublicContract>>;

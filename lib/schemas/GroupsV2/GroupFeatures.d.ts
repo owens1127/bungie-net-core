@@ -21,12 +21,12 @@ export interface GroupFeatures {
      * Maximum number of groups of this type a typical membership may join. For example,
      * a user may join about 50 General groups with their Bungie.net account. They may
      * join one clan per Destiny membership.
-    */
+     */
     readonly maximumMembershipsOfGroupType: number;
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly capabilities: Capabilities;
     readonly membershipTypes: BungieMembershipType[];
     /**
@@ -37,7 +37,7 @@ export interface GroupFeatures {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly invitePermissionOverride: boolean;
     /**
      * Minimum Member Level allowed to update group culture
@@ -47,7 +47,7 @@ export interface GroupFeatures {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly updateCulturePermissionOverride: boolean;
     /**
      * Minimum Member Level allowed to host guided games
@@ -58,7 +58,7 @@ export interface GroupFeatures {
      *
      * Default is Member for clans, None for groups, although this means nothing for
      * groups.
-    */
+     */
     readonly hostGuidedGamePermissionOverride: HostGuidedGamesPermissionLevel;
     /**
      * Minimum Member Level allowed to update banner
@@ -68,13 +68,13 @@ export interface GroupFeatures {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly updateBannerPermissionOverride: boolean;
     /**
      * Level to join a member at when accepting an invite, application, or joining an
      * open clan
      *
      * Default is Beginner.
-    */
+     */
     readonly joinLevel: RuntimeGroupMemberType;
 }

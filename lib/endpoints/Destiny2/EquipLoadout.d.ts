@@ -19,5 +19,8 @@ import { DestinyLoadoutActionRequest } from '../../schemas/index.js';
  *
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipLoadout}
-*/
-export declare function equipLoadout(this: InstancedImport | AccessTokenObject | void, body: DestinyLoadoutActionRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function equipLoadout(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyLoadoutActionRequest
+): Promise<BungieNetResponse<number>>;

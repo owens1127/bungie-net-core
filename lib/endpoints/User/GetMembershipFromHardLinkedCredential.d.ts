@@ -25,5 +25,8 @@ export declare type GetMembershipFromHardLinkedCredentialParams = {
  * Gets any hard linked membership given a credential. Only works for credentials
  * that are public (just SteamID64 right now). Cross Save aware.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential}
-*/
-export declare function getMembershipFromHardLinkedCredential(this: InstancedImport | AccessTokenObject | void, params: GetMembershipFromHardLinkedCredentialParams): Promise<BungieNetResponse<HardLinkedUserMembership>>;
+ */
+export declare function getMembershipFromHardLinkedCredential(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetMembershipFromHardLinkedCredentialParams
+): Promise<BungieNetResponse<HardLinkedUserMembership>>;

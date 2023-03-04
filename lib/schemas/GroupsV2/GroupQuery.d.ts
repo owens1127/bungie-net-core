@@ -27,7 +27,7 @@ import { GroupSortBy } from './GroupSortBy';
  *
  * If you pass these, you will get a useless InvalidParameters error.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupQuery}
-*/
+ */
 export interface GroupQuery {
     readonly name: string;
     readonly groupType: GroupType;

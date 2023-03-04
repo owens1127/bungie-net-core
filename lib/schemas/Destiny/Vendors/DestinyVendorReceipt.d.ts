@@ -18,12 +18,12 @@ import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy'
  * of time, but until then can be used to get refunds on items. BNet does not
  * provide the ability to refund a purchase *yet*, but you know.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Vendors.DestinyVendorReceipt}
-*/
+ */
 export interface DestinyVendorReceipt {
     /**
      * The amount paid for the item, in terms of items that were consumed in the
      * purchase and their quantity.
-    */
+     */
     readonly currencyPaid: DestinyItemQuantity[];
     /** The item that was received, and its quantity. */
     readonly itemReceived: DestinyItemQuantity;
@@ -34,7 +34,7 @@ export interface DestinyVendorReceipt {
     /**
      * Whether you can get a refund, and what happens in order for the refund to be
      * received. See the DestinyVendorItemRefundPolicy enum for details.
-    */
+     */
     readonly refundPolicy: DestinyVendorItemRefundPolicy;
     /** The identifier of this receipt. */
     readonly sequenceNumber: number;

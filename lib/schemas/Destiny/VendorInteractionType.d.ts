@@ -13,7 +13,7 @@
 /**
  * An enumeration of the known UI interactions for Vendors.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.VendorInteractionType}
-*/
+ */
 export declare enum VendorInteractionType {
     Unknown = 0,
     /** An empty interaction. If this ends up in content, it is probably a game bug. */
@@ -23,7 +23,7 @@ export declare enum VendorInteractionType {
     /**
      * An interaction shown when you talk to a Vendor as an intermediary step of a
      * quest.
-    */
+     */
     QuestContinue = 3,
     /** An interaction shown when you are previewing the vendor's reputation rewards. */
     ReputationPreview = 4,
@@ -37,7 +37,7 @@ export declare enum VendorInteractionType {
      * Honestly, this doesn't seem consistent to me. It is used to give you choices in
      * the Cryptarch as well as some reward prompts by the Eververse vendor. I'll have
      * to look into that further at some point.
-    */
+     */
     ProgressTab = 8,
     /** These seem even less consistent. I don't know what these are. */
     End = 9,

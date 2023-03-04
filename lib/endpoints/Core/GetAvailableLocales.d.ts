@@ -15,7 +15,11 @@ import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /**
  * List of available localization cultures
  * @see {@link https://bungie-net.github.io/#.GetAvailableLocales}
-*/
-export declare function getAvailableLocales(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: string]: string;
-}>>;
+ */
+export declare function getAvailableLocales(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: string]: string;
+    }>
+>;

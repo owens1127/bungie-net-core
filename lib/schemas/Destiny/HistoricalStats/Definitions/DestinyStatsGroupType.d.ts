@@ -15,7 +15,7 @@
  * directly (special cases apply to when they are returned, and are not relevant in
  * general cases)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyStatsGroupType}
-*/
+ */
 export declare enum DestinyStatsGroupType {
     None = 0,
     General = 1,
@@ -25,7 +25,7 @@ export declare enum DestinyStatsGroupType {
      * This is purely to serve as the dividing line between filterable and un-
      * filterable groups. Below this number is a group you can pass as a filter. Above
      * it are groups used in very specific circumstances and not relevant for filtering.
-    */
+     */
     ReservedGroups = 100,
     /** Only applicable while generating leaderboards. */
     Leaderboard = 101,

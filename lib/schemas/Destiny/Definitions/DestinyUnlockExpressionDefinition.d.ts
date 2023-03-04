@@ -20,11 +20,11 @@ import { DestinyGatingScope } from '../DestinyGatingScope';
  * Use UnlockExpressionParser to evaluate expressions using an IUnlockContext
  * parsed from Babel.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyUnlockExpressionDefinition}
-*/
+ */
 export interface DestinyUnlockExpressionDefinition {
     /**
      * A shortcut for determining the most restrictive gating that this expression
      * performs. See the DestinyGatingScope enum's documentation for more details.
-    */
+     */
     readonly scope: DestinyGatingScope;
 }

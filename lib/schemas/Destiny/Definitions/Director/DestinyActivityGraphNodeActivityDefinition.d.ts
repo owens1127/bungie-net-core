@@ -19,17 +19,17 @@
  * the weekly Crucible Playlist. There are multiple possible playlists, but only
  * one is active for the week.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeActivityDefinition}
-*/
+ */
 export interface DestinyActivityGraphNodeActivityDefinition {
     /**
      * An identifier for this node activity. It is only guaranteed to be unique within
      * the Activity Graph.
-    */
+     */
     readonly nodeActivityId: number;
     /**
      * The activity that will be activated if the user clicks on this node. Controls
      * all activity-related information displayed on the node if it is active (the text
      * shown in the tooltip etc) Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash: number;
 }

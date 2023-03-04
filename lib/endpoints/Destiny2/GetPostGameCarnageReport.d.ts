@@ -21,5 +21,8 @@ export declare type GetPostGameCarnageReportParams = {
 /**
  * Gets the available post game carnage report for the activity ID.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport}
-*/
-export declare function getPostGameCarnageReport(this: InstancedImport | AccessTokenObject | void, params: GetPostGameCarnageReportParams): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>>;
+ */
+export declare function getPostGameCarnageReport(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPostGameCarnageReportParams
+): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>>;

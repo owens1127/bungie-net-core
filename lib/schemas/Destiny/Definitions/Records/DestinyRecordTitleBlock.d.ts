@@ -20,7 +20,7 @@ export interface DestinyRecordTitleBlock {
     /**
      * For those who prefer to use the definitions. Mapped to DestinyGenderDefinition
      * in the manifest.
-    */
+     */
     readonly titlesByGenderHash: {
         [key: number]: string;
     };

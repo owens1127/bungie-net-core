@@ -14,7 +14,7 @@
  * The character-specific data for a milestone's reward entry. See
  * DestinyMilestoneDefinition for more information about Reward Entries.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneRewardEntry}
-*/
+ */
 export interface DestinyMilestoneRewardEntry {
     /**
      * The identifier for the reward entry in question. It is important to look up the
@@ -22,13 +22,13 @@ export interface DestinyMilestoneRewardEntry {
      * the reward, which you can do by looking up the milestone's
      * DestinyMilestoneDefinition and examining the DestinyMilestoneDefinition.rewards[
      * rewardCategoryHash].rewardEntries[rewardEntryHash] data.
-    */
+     */
     readonly rewardEntryHash: number;
     /** If TRUE, the player has earned this reward. */
     readonly earned: boolean;
     /**
      * If TRUE, the player has redeemed/picked up/obtained this reward. Feel free to
      * alias this to "gotTheShinyBauble" in your own codebase.
-    */
+     */
     readonly redeemed: boolean;
 }

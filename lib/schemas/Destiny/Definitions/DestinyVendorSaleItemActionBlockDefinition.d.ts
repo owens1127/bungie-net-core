@@ -13,7 +13,7 @@
 /**
  * Not terribly useful, some basic cooldown interaction info.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorSaleItemActionBlockDefinition}
-*/
+ */
 export interface DestinyVendorSaleItemActionBlockDefinition {
     readonly executeSeconds: number;
     readonly isPositive: boolean;

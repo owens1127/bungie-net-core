@@ -17,5 +17,8 @@ import { GroupSearchResponse } from '../../schemas/index.js';
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}
-*/
-export declare function groupSearch(this: InstancedImport | AccessTokenObject | void, body: GroupQuery): Promise<BungieNetResponse<GroupSearchResponse>>;
+ */
+export declare function groupSearch(
+    this: InstancedImport | AccessTokenObject | void,
+    body: GroupQuery
+): Promise<BungieNetResponse<GroupSearchResponse>>;

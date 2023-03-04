@@ -17,7 +17,7 @@ import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition';
  * overlays, so this info exists as a placeholder for when such a pipeline exists (
  * if it ever will)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphArtElementDefinition}
-*/
+ */
 export interface DestinyActivityGraphArtElementDefinition {
     /** The position on the map of the art element. */
     readonly position: DestinyPositionDefinition;

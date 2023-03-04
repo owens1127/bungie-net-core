@@ -18,7 +18,7 @@ import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentIt
  * responses, both for brevity of response and for caching purposes. If you really
  * need this data, hit the Milestone Content endpoint.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneContent}
-*/
+ */
 export interface DestinyMilestoneContent {
     /** The "About this Milestone" text from the Firehose. */
     readonly about: string;
@@ -29,6 +29,6 @@ export interface DestinyMilestoneContent {
     /**
      * If DPS has defined items related to this Milestone, they can categorize those
      * items in the Firehose. That data will then be returned as item categories here.
-    */
+     */
     readonly itemCategories: DestinyMilestoneContentItemCategory[];
 }

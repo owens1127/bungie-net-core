@@ -14,12 +14,12 @@
  * This component contains essential/summary information about the vendor from the
  * perspective of a character-agnostic view.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyPublicVendorComponent}
-*/
+ */
 export interface DestinyPublicVendorComponent {
     /**
      * The unique identifier for the vendor. Use it to look up their
      * DestinyVendorDefinition. Mapped to DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly vendorHash: number;
     /**
      * The date when this vendor's inventory will next rotate/refresh.
@@ -33,12 +33,12 @@ export interface DestinyPublicVendorComponent {
      * Issue https://github.com/Bungie-net/api/issues/353 is tracking a fix to start
      * providing visibility date ranges where possible in addition to this refresh date,
      * so that all important dates for vendors are available for use.
-    */
+     */
     readonly nextRefreshDate: string;
     /**
      * If True, the Vendor is currently accessible.
      *
      * If False, they may not actually be visible in the world at the moment.
-    */
+     */
     readonly enabled: boolean;
 }

@@ -37,7 +37,7 @@ export interface Application {
     /**
      * List of team members who manage this application on Bungie.net. Will always
      * consist of at least the application owner.
-    */
+     */
     readonly team: ApplicationDeveloper[];
     /** An optional override for the Authorize view name. */
     readonly overrideAuthorizeViewName: string;

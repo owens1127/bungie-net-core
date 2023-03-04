@@ -16,7 +16,7 @@ export interface DestinyHistoricalWeaponStats {
     /**
      * The hash ID of the item definition that describes the weapon. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly referenceId: number;
     /** Collection of stats for the period. */
     readonly values: {

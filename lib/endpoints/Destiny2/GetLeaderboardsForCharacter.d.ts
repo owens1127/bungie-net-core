@@ -19,14 +19,14 @@ export declare type GetLeaderboardsForCharacterParams = {
     /**
      * The specific character to build the leaderboard around for the provided Destiny
      * Membership.
-    */
+     */
     characterId: string;
     /** The Destiny membershipId of the user to retrieve. */
     destinyMembershipId: string;
     /**
      * Maximum number of top players to return. Use a large number to get entire
      * leaderboard.
-    */
+     */
     maxtop?: number;
     /** A valid non-BungieNet membership type. */
     membershipType: BungieMembershipType;
@@ -34,7 +34,7 @@ export declare type GetLeaderboardsForCharacterParams = {
      * List of game modes for which to get leaderboards. See the documentation for
      * DestinyActivityModeType for valid values, and pass in string representation,
      * comma delimited.
-    */
+     */
     modes?: string;
     /** ID of stat to return rather than returning all Leaderboard stats. */
     statid?: string;
@@ -45,9 +45,14 @@ export declare type GetLeaderboardsForCharacterParams = {
  * may experience rough edges. The schema is in final form, but there may be bugs
  * that prevent desirable operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
-*/
-export declare function getLeaderboardsForCharacter(this: InstancedImport | AccessTokenObject | void, params: GetLeaderboardsForCharacterParams): Promise<BungieNetResponse<{
-    [key: string]: {
-        [key: string]: DestinyLeaderboard;
-    };
-}>>;
+ */
+export declare function getLeaderboardsForCharacter(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetLeaderboardsForCharacterParams
+): Promise<
+    BungieNetResponse<{
+        [key: string]: {
+            [key: string]: DestinyLeaderboard;
+        };
+    }>
+>;

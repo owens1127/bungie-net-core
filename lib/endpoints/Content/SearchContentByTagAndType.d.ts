@@ -28,5 +28,8 @@ export declare type SearchContentByTagAndTypeParams = {
 /**
  * Searches for Content Items that match the given Tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType}
-*/
-export declare function searchContentByTagAndType(this: InstancedImport | AccessTokenObject | void, params: SearchContentByTagAndTypeParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;
+ */
+export declare function searchContentByTagAndType(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchContentByTagAndTypeParams
+): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;

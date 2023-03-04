@@ -13,7 +13,7 @@
 /**
  * Represents a potential state of an Activity Graph node.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyGraphNodeState}
-*/
+ */
 export declare enum DestinyGraphNodeState {
     Hidden = 0,
     Visible = 1,

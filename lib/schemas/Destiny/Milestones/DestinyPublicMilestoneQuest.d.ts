@@ -22,17 +22,17 @@ export interface DestinyPublicMilestoneQuest {
      * item's DestinyInventoryItemDefinition.setData property, and themselves are Items
      * with their own renderable data. Mapped to DestinyMilestoneDefinition in the
      * manifest.
-    */
+     */
     readonly questItemHash: number;
     /**
      * A milestone need not have an active activity, but if there is one it will be
      * returned here, along with any variant and additional information.
-    */
+     */
     readonly activity: DestinyPublicMilestoneActivity;
     /**
      * For the given quest there could be 0-to-Many challenges: mini quests that you
      * can perform in the course of doing this quest, that may grant you rewards and
      * benefits.
-    */
+     */
     readonly challenges: DestinyPublicMilestoneChallenge[];
 }

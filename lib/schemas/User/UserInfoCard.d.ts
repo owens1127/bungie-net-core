@@ -19,19 +19,19 @@ import { BungieMembershipType } from '../BungieMembershipType';
  * details here. In cases where UserInfoCard is a subset of the data needed in a
  * contract, use UserInfoCard as a property of other contracts.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.UserInfoCard}
-*/
+ */
 export interface UserInfoCard {
     /**
      * A platform specific additional display name - ex: psn Real Name, bnet Unique
      * Name, etc.
-    */
+     */
     readonly supplementalDisplayName: string;
     /** URL the Icon if available. */
     readonly iconPath: string;
     /**
      * If there is a cross save override in effect, this value will tell you the type
      * that is overridding this one.
-    */
+     */
     readonly crossSaveOverride: BungieMembershipType;
     /**
      * The list of Membership Types indicating the platforms on which this Membership
@@ -40,7 +40,7 @@ export interface UserInfoCard {
      * Not in Cross Save = its original membership type. Cross Save Primary = Any
      * membership types it is overridding, and its original membership type Cross Save
      * Overridden = Empty list
-    */
+     */
     readonly applicableMembershipTypes: BungieMembershipType[];
     /** If True, this is a public user membership. */
     readonly isPublic: boolean;
@@ -51,7 +51,7 @@ export interface UserInfoCard {
     /**
      * Display Name the player has chosen for themselves. The display name is optional
      * when the data type is used as input to a platform API.
-    */
+     */
     readonly displayName: string;
     /** The bungie global display name, if set. */
     readonly bungieGlobalDisplayName: string;

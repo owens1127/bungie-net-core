@@ -1,11 +1,15 @@
 import {
     AllDestinyManifestComponents,
-    DestinyManifestComponentName, DestinyManifestLanguage,
-    DestinyManifestSlice, getDestinyManifestComponent,
-} from "./index.js";
-import { DestinyManifest } from "../schemas/index.js";
+    DestinyManifestComponentName,
+    DestinyManifestLanguage,
+    DestinyManifestSlice,
+    getDestinyManifestComponent
+} from './index.js';
+import { DestinyManifest } from '../schemas/index.js';
 
-export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
+export interface GetDestinyManifestSliceParams<
+    T extends DestinyManifestComponentName[]
+> {
     destinyManifest: DestinyManifest;
     tableNames: T;
     language: DestinyManifestLanguage;
@@ -31,23 +35,23 @@ export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponen
  * `function(['DestinyInventoryItemDefinition'])`
  */
 
-
-export async function getDestinyManifestSlice<T extends DestinyManifestComponentName[]>(
-    params: GetDestinyManifestSliceParams<T>
-): Promise<DestinyManifestSlice<T>> {
+export async function getDestinyManifestSlice<
+    T extends DestinyManifestComponentName[]
+>(params: GetDestinyManifestSliceParams<T>): Promise<DestinyManifestSlice<T>> {
     const downloadedTables = await Promise.all(
-        params.tableNames.map(async (tableName) => {
+        params.tableNames.map(async tableName => {
             const tableContent = await getDestinyManifestComponent({
                 destinyManifest: params.destinyManifest,
                 tableName,
-                language: params.language,
+                language: params.language
             });
             return { tableName, tableContent };
         })
     );
     const manifestSlice = {} as AllDestinyManifestComponents;
     for (const downloadedTable of downloadedTables) {
-        manifestSlice[downloadedTable.tableName] = downloadedTable.tableContent as any;
+        manifestSlice[downloadedTable.tableName] =
+            downloadedTable.tableContent as any;
     }
     return manifestSlice as DestinyManifestSlice<T>;
 }

@@ -16,7 +16,7 @@ export interface DestinyProfileCollectiblesComponent {
     /**
      * The list of collectibles determined by the game as having been "recently"
      * acquired. Mapped to DestinyCollectibleDefinition in the manifest.
-    */
+     */
     readonly recentCollectibleHashes: number[];
     /**
      * The list of collectibles determined by the game as having been "recently"
@@ -26,7 +26,7 @@ export interface DestinyProfileCollectiblesComponent {
      * whether anyone will get much use out of this: because we can't edit this value
      * through the API. But in case anyone finds it useful, here it is. Mapped to
      * DestinyCollectibleDefinition in the manifest.
-    */
+     */
     readonly newnessFlaggedCollectibleHashes: number[];
     /** Mapped to DestinyCollectibleDefinition in the manifest. */
     readonly collectibles: {
@@ -35,11 +35,11 @@ export interface DestinyProfileCollectiblesComponent {
     /**
      * The hash for the root presentation node definition of Collection categories.
      * Mapped to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly collectionCategoriesRootNodeHash: number;
     /**
      * The hash for the root presentation node definition of Collection Badges. Mapped
      * to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly collectionBadgesRootNodeHash: number;
 }

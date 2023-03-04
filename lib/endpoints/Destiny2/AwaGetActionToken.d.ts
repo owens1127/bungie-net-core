@@ -21,5 +21,8 @@ export declare type AwaGetActionTokenParams = {
 /**
  * Returns the action token if user approves the request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
-*/
-export declare function awaGetActionToken(this: InstancedImport | AccessTokenObject | void, params: AwaGetActionTokenParams): Promise<BungieNetResponse<AwaAuthorizationResult>>;
+ */
+export declare function awaGetActionToken(
+    this: InstancedImport | AccessTokenObject | void,
+    params: AwaGetActionTokenParams
+): Promise<BungieNetResponse<AwaAuthorizationResult>>;

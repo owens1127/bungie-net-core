@@ -19,5 +19,8 @@ export declare type GetTopicForContentParams = {
 /**
  * Gets the post Id for the given content item's comments, if it exists.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent}
-*/
-export declare function getTopicForContent(this: InstancedImport | AccessTokenObject | void, params: GetTopicForContentParams): Promise<BungieNetResponse<string>>;
+ */
+export declare function getTopicForContent(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetTopicForContentParams
+): Promise<BungieNetResponse<string>>;

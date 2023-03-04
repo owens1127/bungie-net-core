@@ -14,12 +14,12 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
 /**
  * Represents a reference to a Challenge, which for now is just an Objective.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityChallengeDefinition}
-*/
+ */
 export interface DestinyActivityChallengeDefinition {
     /**
      * The hash for the Objective that matches this challenge. Use it to look up the
      * DestinyObjectiveDefinition. Mapped to DestinyObjectiveDefinition in the manifest.
-    */
+     */
     readonly objectiveHash: number;
     /**
      * The rewards as they're represented in the UI. Note that they generally link to "
@@ -27,6 +27,6 @@ export interface DestinyActivityChallengeDefinition {
      * themselves.
      *
      * If the quantity is 0, don't show the quantity.
-    */
+     */
     readonly dummyRewards: DestinyItemQuantity[];
 }

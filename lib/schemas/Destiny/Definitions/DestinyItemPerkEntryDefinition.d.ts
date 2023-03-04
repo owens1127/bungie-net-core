@@ -14,17 +14,17 @@ import { ItemPerkVisibility } from '../ItemPerkVisibility';
 /**
  * An intrinsic perk on an item, and the requirements for it to be activated.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemPerkEntryDefinition}
-*/
+ */
 export interface DestinyItemPerkEntryDefinition {
     /**
      * If this perk is not active, this is the string to show for why it's not
      * providing its benefits.
-    */
+     */
     readonly requirementDisplayString: string;
     /**
      * A hash identifier for the DestinySandboxPerkDefinition being provided on the
      * item. Mapped to DestinySandboxPerkDefinition in the manifest.
-    */
+     */
     readonly perkHash: number;
     /** Indicates whether this perk should be shown, or if it should be shown disabled. */
     readonly perkVisibility: ItemPerkVisibility;

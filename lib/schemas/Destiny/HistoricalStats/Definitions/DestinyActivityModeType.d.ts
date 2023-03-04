@@ -15,7 +15,7 @@
  * Modes in it. Please don't take this to mean that some D1-only feature is coming
  * back!
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyActivityModeType}
-*/
+ */
 export declare enum DestinyActivityModeType {
     None = 0,
     Story = 2,
@@ -30,7 +30,7 @@ export declare enum DestinyActivityModeType {
     /**
      * Clash -> Destiny's name for Team Deathmatch. 4v4 combat, the team with the
      * highest kills at the end of time wins.
-    */
+     */
     Clash = 12,
     Reserved13 = 13,
     CrimsonDoubles = 15,

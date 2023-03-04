@@ -27,5 +27,9 @@ export declare type IndividualGroupInviteParams = {
 /**
  * Invite a user to join this group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite}
-*/
-export declare function individualGroupInvite(this: InstancedImport | AccessTokenObject | void, params: IndividualGroupInviteParams, body: GroupApplicationRequest): Promise<BungieNetResponse<GroupApplicationResponse>>;
+ */
+export declare function individualGroupInvite(
+    this: InstancedImport | AccessTokenObject | void,
+    params: IndividualGroupInviteParams,
+    body: GroupApplicationRequest
+): Promise<BungieNetResponse<GroupApplicationResponse>>;

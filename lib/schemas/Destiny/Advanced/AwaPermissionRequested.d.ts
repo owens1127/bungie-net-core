@@ -20,7 +20,7 @@ export interface AwaPermissionRequested {
      * Item instance ID the action shall be applied to. This is optional for all but a
      * new AwaType values. Rule of thumb is to provide the item instance ID if one is
      * available.
-    */
+     */
     readonly affectedItemId?: string;
     /** Destiny membership type of the account to modify. */
     readonly membershipType: BungieMembershipType;

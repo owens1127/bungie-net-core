@@ -16,7 +16,7 @@
  * and did something," but for the forseeable future that's all we've got. I'm
  * making it more than just a list of booleans out of that overly-optimistic hope.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityPhase}
-*/
+ */
 export interface DestinyMilestoneActivityPhase {
     /** Indicates if the phase has been completed. */
     readonly complete: boolean;
@@ -24,6 +24,6 @@ export interface DestinyMilestoneActivityPhase {
      * In DestinyActivityDefinition, if the activity has phases, there will be a set of
      * phases defined in the "insertionPoints" property. This is the hash that maps to
      * that phase.
-    */
+     */
     readonly phaseHash: number;
 }

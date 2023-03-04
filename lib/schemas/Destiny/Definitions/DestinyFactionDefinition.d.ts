@@ -23,14 +23,14 @@ import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition
  * DestinyVendorDefinition.factionHash defines to this relationship), but Dead
  * Orbit could theoretically exist without the Vendor that provides rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyFactionDefinition}
-*/
+ */
 export interface DestinyFactionDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * The hash identifier for the DestinyProgressionDefinition that indicates the
      * character's relationship with this faction in terms of experience and levels.
      * Mapped to DestinyProgressionDefinition in the manifest.
-    */
+     */
     readonly progressionHash: number;
     /** The faction token item hashes, and their respective progression values. */
     readonly tokenValues: {
@@ -39,17 +39,17 @@ export interface DestinyFactionDefinition {
     /**
      * The faction reward item hash, usually an engram. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly rewardItemHash: number;
     /**
      * The faction reward vendor hash, used for faction engram previews. Mapped to
      * DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly rewardVendorHash: number;
     /**
      * List of vendors that are associated with this faction. The last vendor that
      * passes the unlock flag checks is the one that should be shown.
-    */
+     */
     readonly vendors: DestinyFactionVendorDefinition[];
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -57,13 +57,13 @@ export interface DestinyFactionDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

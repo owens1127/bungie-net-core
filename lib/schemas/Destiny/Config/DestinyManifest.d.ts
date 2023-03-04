@@ -16,7 +16,7 @@ import { ImagePyramidEntry } from './ImagePyramidEntry';
  * DestinyManifest is the external-facing contract for just the properties needed
  * by those calling the Destiny Platform.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Config.DestinyManifest}
-*/
+ */
 export interface DestinyManifest {
     readonly version: string;
     readonly mobileAssetContentPath: string;
@@ -28,7 +28,7 @@ export interface DestinyManifest {
      * This points to the generated JSON that contains all the Definitions. Each key is
      * a locale. The value is a path to the aggregated world definitions (warning:
      * large file!)
-    */
+     */
     readonly jsonWorldContentPaths: {
         [key: string]: string;
     };
@@ -38,7 +38,7 @@ export interface DestinyManifest {
      * and the value is the path to the file for that definition. WARNING: This is
      * unsafe and subject to change - do not depend on data in these files staying
      * around long-term.
-    */
+     */
     readonly jsonWorldComponentContentPaths: {
         [key: string]: {
             [key: string]: string;
@@ -55,6 +55,6 @@ export interface DestinyManifest {
      * and extension as the original image itself. (this lets us avoid sending largely
      * redundant path info with every entity, at the expense of the smaller versions of
      * the image being less discoverable)
-    */
+     */
     readonly iconImagePyramidInfo: ImagePyramidEntry[];
 }

@@ -18,7 +18,7 @@
  * DestinyInventoryItemDefinition.plug.plugCategoryHash, which indicates the plug
  * item's category.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinyPlugWhitelistEntryDefinition}
-*/
+ */
 export interface DestinyPlugWhitelistEntryDefinition {
     /**
      * The hash identifier of the Plug Category to compare against the plug item's plug.
@@ -26,7 +26,7 @@ export interface DestinyPlugWhitelistEntryDefinition {
      *
      * Note that this does NOT relate to any Definition in itself, it is only used for
      * comparison purposes.
-    */
+     */
     readonly categoryHash: number;
     /** The string identifier for the category, which is here mostly for debug purposes. */
     readonly categoryIdentifier: string;
@@ -47,6 +47,6 @@ export interface DestinyPlugWhitelistEntryDefinition {
      * That whitelist entry will potentially have a new “
      * reinitializationPossiblePlugHashes” property.If it does, that means we know what
      * it will roll if you try to insert this plug into this socket.
-    */
+     */
     readonly reinitializationPossiblePlugHashes: number[];
 }

@@ -21,5 +21,8 @@ export declare type GetCredentialTypesForTargetAccountParams = {
 /**
  * Returns a list of credential types attached to the requested account
  * @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount}
-*/
-export declare function getCredentialTypesForTargetAccount(this: InstancedImport | AccessTokenObject | void, params: GetCredentialTypesForTargetAccountParams): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>>;
+ */
+export declare function getCredentialTypesForTargetAccount(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetCredentialTypesForTargetAccountParams
+): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>>;

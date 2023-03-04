@@ -34,7 +34,7 @@ import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefiniti
  * be the case, so for now assume that the Checklists will still exist even after
  * the release of D2: Forsaken.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Checklists.DestinyChecklistDefinition}
-*/
+ */
 export interface DestinyChecklistDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /** A localized string prompting you to view the checklist. */
@@ -42,7 +42,7 @@ export interface DestinyChecklistDefinition {
     /**
      * Indicates whether you will find this checklist on the Profile or Character
      * components.
-    */
+     */
     readonly scope: DestinyScope;
     /** The individual checklist items. Gotta catch 'em all. */
     readonly entries: DestinyChecklistEntryDefinition[];
@@ -52,13 +52,13 @@ export interface DestinyChecklistDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

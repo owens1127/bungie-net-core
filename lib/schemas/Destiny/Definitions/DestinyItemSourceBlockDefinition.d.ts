@@ -16,23 +16,23 @@ import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceRefer
 /**
  * Data about an item's "sources": ways that the item can be obtained.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSourceBlockDefinition}
-*/
+ */
 export interface DestinyItemSourceBlockDefinition {
     /**
      * The list of hash identifiers for Reward Sources that hint where the item can be
      * found (DestinyRewardSourceDefinition). Mapped to DestinyRewardSourceDefinition
      * in the manifest.
-    */
+     */
     readonly sourceHashes: number[];
     /**
      * A collection of details about the stats that were computed for the ways we found
      * that the item could be spawned.
-    */
+     */
     readonly sources: DestinyItemSourceDefinition[];
     /**
      * If we found that this item is exclusive to a specific platform, this will be set
      * to the BungieMembershipType enumeration that matches that platform.
-    */
+     */
     readonly exclusive: BungieMembershipType;
     /** A denormalized reference back to vendors that potentially sell this item. */
     readonly vendorSources: DestinyItemVendorSourceReference[];

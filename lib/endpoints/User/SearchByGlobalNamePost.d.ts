@@ -22,5 +22,9 @@ export declare type SearchByGlobalNamePostParams = {
 /**
  * Given the prefix of a global display name, returns all users who share that name.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
-*/
-export declare function searchByGlobalNamePost(this: InstancedImport | AccessTokenObject | void, params: SearchByGlobalNamePostParams, body: UserSearchPrefixRequest): Promise<BungieNetResponse<UserSearchResponse>>;
+ */
+export declare function searchByGlobalNamePost(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchByGlobalNamePostParams,
+    body: UserSearchPrefixRequest
+): Promise<BungieNetResponse<UserSearchResponse>>;

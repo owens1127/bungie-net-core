@@ -24,7 +24,7 @@
  * information and the PGCR ID that you pass into the URL of the reporting endpoint
  * itself.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest}
-*/
+ */
 export interface DestinyReportOffensePgcrRequest {
     /**
      * So you've decided to report someone instead of cursing them and their
@@ -32,19 +32,19 @@ export interface DestinyReportOffensePgcrRequest {
      * infractions for which you are reporting the user. These are hash identifiers
      * that map to DestinyReportReasonCategoryDefinition entries. Mapped to
      * DestinyReportReasonCategoryDefinition in the manifest.
-    */
+     */
     readonly reasonCategoryHashes: number[];
     /**
      * If applicable, provide a more specific reason(s) within the general category of
      * problems provided by the reasonHash. This is also an identifier for a reason.
      * All reasonHashes provided must be children of at least one the
      * reasonCategoryHashes provided.
-    */
+     */
     readonly reasonHashes: number[];
     /**
      * Within the PGCR provided when calling the Reporting endpoint, this should be the
      * character ID of the user that you thought was violating terms of use. They must
      * exist in the PGCR provided.
-    */
+     */
     readonly offendingCharacterId: string;
 }

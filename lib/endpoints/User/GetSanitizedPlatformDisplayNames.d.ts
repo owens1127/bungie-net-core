@@ -23,7 +23,12 @@ export declare type GetSanitizedPlatformDisplayNamesParams = {
  * profanity filtered). Obeys all visibility rules of calling user and is heavily
  * cached.
  * @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames}
-*/
-export declare function getSanitizedPlatformDisplayNames(this: InstancedImport | AccessTokenObject | void, params: GetSanitizedPlatformDisplayNamesParams): Promise<BungieNetResponse<{
-    [key in BungieCredentialType]: string;
-}>>;
+ */
+export declare function getSanitizedPlatformDisplayNames(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetSanitizedPlatformDisplayNamesParams
+): Promise<
+    BungieNetResponse<{
+        [key in BungieCredentialType]: string;
+    }>
+>;

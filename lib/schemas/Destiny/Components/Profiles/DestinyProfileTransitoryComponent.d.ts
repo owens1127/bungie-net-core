@@ -26,22 +26,22 @@ import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitor
  * or even wrong entirely if the user disconnected from the game or suddenly
  * changed their status before we can receive refreshed data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryComponent}
-*/
+ */
 export interface DestinyProfileTransitoryComponent {
     /**
      * If you have any members currently in your party, this is some (very) bare-bones
      * information about those members.
-    */
+     */
     readonly partyMembers: DestinyProfileTransitoryPartyMember[];
     /**
      * If you are in an activity, this is some transitory info about the activity
      * currently being played.
-    */
+     */
     readonly currentActivity: DestinyProfileTransitoryCurrentActivity;
     /**
      * Information about whether and what might prevent you from joining this person on
      * a fireteam.
-    */
+     */
     readonly joinability: DestinyProfileTransitoryJoinability;
     /** Information about tracked entities. */
     readonly tracking: DestinyProfileTransitoryTrackingEntry[];
@@ -49,6 +49,6 @@ export interface DestinyProfileTransitoryComponent {
      * The hash identifier for the DestinyDestinationDefinition of the last location
      * you were orbiting when in orbit. Mapped to DestinyDestinationDefinition in the
      * manifest.
-    */
+     */
     readonly lastOrbitedDestinationHash?: number;
 }

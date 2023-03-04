@@ -3,11 +3,11 @@ import _ from 'underscore';
 import path from 'path';
 import fs from 'fs';
 import mkdirp from 'mkdirp';
-import { OpenAPIObject, SchemaObject, ReferenceObject } from 'openapi3-ts';
+import { OpenAPIObject } from 'openapi3-ts';
 
 export function generateHeader(doc: OpenAPIObject): string {
-  const { info } = doc;
-  return `/**
+    const { info } = doc;
+    return `/**
  * ${info.title}
  * ${info.description}
  *
@@ -23,42 +23,45 @@ export function generateHeader(doc: OpenAPIObject): string {
 }
 
 export function docComment(text: string, params?: string[]) {
-  const lines = _.flatten(
-    text
-      .trim()
-      .split('\n')
-      .map((l) => l.replace(/(.{1,80}(?:\W|$))/g, '$1\n').split('\n'))
-  ).map((s: string) => s.trim());
-  lines.pop();
-  if (params) {
-    params.forEach((p) => p.trim().split('\n').filter((s: string) => s.length > 0).forEach((l) => {
-      lines.push(l);
-    }))
-  }
+    const lines = _.flatten(
+        text
+            .trim()
+            .split('\n')
+            .map(l => l.replace(/(.{1,80}(?:\W|$))/g, '$1\n').split('\n'))
+    ).map((s: string) => s.trim());
+    lines.pop();
+    if (params) {
+        params.forEach(p =>
+            p
+                .trim()
+                .split('\n')
+                .filter((s: string) => s.length > 0)
+                .forEach(l => {
+                    lines.push(l);
+                })
+        );
+    }
 
-
-  if (lines.length === 1) {
-    return `/** ${lines} */`;
-  } else {
-    return `/**
-${lines.map((line) => (line.length ? ' * ' + line : ' *')).join('\n')}
+    if (lines.length === 1) {
+        return `/** ${lines} */`;
+    } else {
+        return `/**
+${lines.map(line => (line.length ? ' * ' + line : ' *')).join('\n')}
 */`;
-  }
-
+    }
 }
 
 export function indent(text: string, indentLevel: number) {
-  const lines = text.split('\n');
-  return lines.map((line) => '  '.repeat(indentLevel) + line).join('\n');
+    const lines = text.split('\n');
+    return lines.map(line => '  '.repeat(indentLevel) + line).join('\n');
 }
 
 export async function writeOutFile(filename: string, contents: string) {
-  try {
-    await mkdirp(path.dirname(filename));
+    try {
+        await mkdirp(path.dirname(filename));
 
-    fs.writeFile(filename, contents, null, (error) => {
-    });
-  } catch (e) {
-    console.error(e);
-  }
+        fs.writeFile(filename, contents, () => {});
+    } catch (e) {
+        console.error(e);
+    }
 }

@@ -1,6 +1,11 @@
-import {OpenAPIObject, ReferenceObject, RequestBodyObject, SchemaObject} from 'openapi3-ts';
+import {
+    OpenAPIObject,
+    ReferenceObject,
+    RequestBodyObject,
+    SchemaObject
+} from 'openapi3-ts';
 import _ from 'underscore';
-import path from "path";
+import path from 'path';
 
 export interface DefInfo {
     def: string;
@@ -15,11 +20,10 @@ export function resolveSchemaType(
     importFiles: Map<string, string>,
     componentByDef?: { [def: string]: DefInfo }
 ): string {
-
     if (isReferenceObject(schema)) {
         return typeNameImports(schema.$ref, doc, importFiles);
     } else if ('x-enum-reference' in schema) {
-        const ref = schema['x-enum-reference'].$ref
+        const ref = schema['x-enum-reference'].$ref;
         return typeNameImports(ref, doc, importFiles);
     } else {
         return typeMapping(schema, doc, importFiles!, componentByDef);
@@ -49,10 +53,26 @@ export function typeMapping(
                 schema['x-dictionary-key'] &&
                 typeof schema.additionalProperties !== 'boolean'
             ) {
-                const keySchema: SchemaObject | ReferenceObject = schema['x-dictionary-key'];
-                const key = isReferenceObject(keySchema) ? 'number' : resolveSchemaType(keySchema, doc, importFiles, componentByDef);
-                const val = resolveSchemaType(schema.additionalProperties, doc, importFiles, componentByDef);
-                const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
+                const keySchema: SchemaObject | ReferenceObject =
+                    schema['x-dictionary-key'];
+                const key = isReferenceObject(keySchema)
+                    ? 'number'
+                    : resolveSchemaType(
+                          keySchema,
+                          doc,
+                          importFiles,
+                          componentByDef
+                      );
+                const val = resolveSchemaType(
+                    schema.additionalProperties,
+                    doc,
+                    importFiles,
+                    componentByDef
+                );
+                const keyExp =
+                    key === 'number' || key === 'string'
+                        ? `key: ${key}`
+                        : `key in ${key}`;
                 return `{ [${keyExp}]: ${val} }`;
             }
     }
@@ -60,7 +80,9 @@ export function typeMapping(
     return schema.type!;
 }
 
-export function getReferencedTypes(schema: SchemaObject | ReferenceObject): string | undefined {
+export function getReferencedTypes(
+    schema: SchemaObject | ReferenceObject
+): string | undefined {
     //console.log(schema)
     if (isReferenceObject(schema)) {
         return schema.$ref;
@@ -70,7 +92,10 @@ export function getReferencedTypes(schema: SchemaObject | ReferenceObject): stri
         return getReferencedTypes(schema.items!);
     } else if (schema.allOf) {
         return getReferencedTypes(schema.allOf[0]);
-    } else if (schema.additionalProperties && typeof schema.additionalProperties !== 'boolean') {
+    } else if (
+        schema.additionalProperties &&
+        typeof schema.additionalProperties !== 'boolean'
+    ) {
         return getReferencedTypes(schema.additionalProperties);
     }
 }
@@ -83,7 +108,10 @@ export function lastPart(name: string): string {
     return _.last(name.split(/[\.\/]/))!;
 }
 
-export function getRef(doc: OpenAPIObject, ref: string): SchemaObject | undefined {
+export function getRef(
+    doc: OpenAPIObject,
+    ref: string
+): SchemaObject | undefined {
     const path = ref.replace('#/', '').split('/');
     let result = doc;
     let pathSegment = path.shift();
@@ -108,10 +136,13 @@ export function typeName(componentPath: string, doc: OpenAPIObject) {
         return 'any';
     }
     return name;
-
 }
 
-export function typeNameImports(componentPath: string, doc: OpenAPIObject, importFiles: Map<string, string>) {
+export function typeNameImports(
+    componentPath: string,
+    doc: OpenAPIObject,
+    importFiles: Map<string, string>
+) {
     const name = lastPart(componentPath);
     const component = getRef(doc, componentPath);
 
@@ -130,7 +161,6 @@ export function typeNameImports(componentPath: string, doc: OpenAPIObject, impor
         importFiles.set(name, componentPath);
     }
     return name;
-
 }
 
 export function isRequestBodyObject(
@@ -145,9 +175,7 @@ export function isReferenceObject(
     return (schema as ReferenceObject).$ref !== undefined;
 }
 
-export function importPath(
-    componentPath: string,
-    importInto: string): string {
+export function importPath(componentPath: string, importInto: string): string {
     let absImportFrom = importInto.replace(/\./g, '/');
     let absImportTo = componentPath.replace(/\./g, '/');
     if (absImportTo === absImportFrom) {

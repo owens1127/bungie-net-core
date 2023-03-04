@@ -25,14 +25,14 @@ import { DestinyKioskItem } from './DestinyKioskItem';
  * necessarily content version dependent. Make sure that you have the latest
  * version of the content manifest databases before using this data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Kiosks.DestinyKiosksComponent}
-*/
+ */
 export interface DestinyKiosksComponent {
     /**
      * A dictionary keyed by the Kiosk Vendor's hash identifier (use it to look up the
      * DestinyVendorDefinition for the relevant kiosk vendor), and whose value is a
      * list of all the items that the user can "see" in the Kiosk, and any other
      * interesting metadata. Mapped to DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly kioskItems: {
         [key: number]: DestinyKioskItem[];
     };

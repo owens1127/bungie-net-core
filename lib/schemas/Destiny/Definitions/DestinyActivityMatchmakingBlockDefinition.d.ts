@@ -13,12 +13,12 @@
 /**
  * Information about matchmaking and party size for the activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityMatchmakingBlockDefinition}
-*/
+ */
 export interface DestinyActivityMatchmakingBlockDefinition {
     /**
      * If TRUE, the activity is matchmade. Otherwise, it requires explicit forming of a
      * party.
-    */
+     */
     readonly isMatchmade: boolean;
     /** The minimum # of people in the fireteam for the activity to launch. */
     readonly minParty: number;

@@ -14,7 +14,7 @@
  * Represents the socket energy types for Armor 2.0, Ghosts 2.0, and Stasis
  * subclasses.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEnergyType}
-*/
+ */
 export declare enum DestinyEnergyType {
     Any = 0,
     Arc = 1,

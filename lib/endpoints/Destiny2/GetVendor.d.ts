@@ -23,7 +23,7 @@ export declare type GetVendorParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
     /** Destiny membership ID of another user. You may be denied. */
     destinyMembershipId: string;
@@ -35,5 +35,8 @@ export declare type GetVendorParams = {
 /**
  * Get the details of a specific Vendor.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendor}
-*/
-export declare function getVendor(this: InstancedImport | AccessTokenObject | void, params: GetVendorParams): Promise<BungieNetResponse<DestinyVendorResponse>>;
+ */
+export declare function getVendor(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetVendorParams
+): Promise<BungieNetResponse<DestinyVendorResponse>>;

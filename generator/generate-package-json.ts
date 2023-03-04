@@ -1,5 +1,5 @@
 // @ts-ignore
-import packageJson from '../package.json' assert { type: "json" };
+import packageJson from '../package.json' assert { type: 'json' };
 import { writeOutFile } from './generate-common.js';
 
 /**
@@ -7,21 +7,20 @@ import { writeOutFile } from './generate-common.js';
  * root of the repo.
  */
 export function generatePackageJson() {
+    const newPackageJson = {
+        ...packageJson,
+        main: './index.js',
+        types: 'index.d.ts',
+        module: './index.js',
+        type: 'module',
+        scripts: {},
+        dependencies: {},
+        devDependencies: {},
+        homepage: 'https://github.com/owensimpson/OODestiny/tree/master/lib'
+    };
 
-  const newPackageJson = {
-    ...packageJson,
-    main: "./index.js",
-    types: "index.d.ts",
-    module: "./index.js",
-    type: 'module',
-    scripts: {},
-    dependencies: {},
-    devDependencies: {},
-    homepage: "https://github.com/owensimpson/OODestiny/tree/master/lib",
-  };
-
-  writeOutFile(
-    'lib-ts/package.json',
-    JSON.stringify(newPackageJson, undefined, '  ')
-  );
+    writeOutFile(
+        'lib-ts/package.json',
+        JSON.stringify(newPackageJson, undefined, '  ')
+    );
 }

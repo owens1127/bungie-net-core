@@ -21,5 +21,8 @@ export declare type AcceptFriendRequestParams = {
  * Accepts a friend relationship with the target user. The user must be on your
  * incoming friend request list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest}
-*/
-export declare function acceptFriendRequest(this: InstancedImport | AccessTokenObject | void, params: AcceptFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function acceptFriendRequest(
+    this: InstancedImport | AccessTokenObject | void,
+    params: AcceptFriendRequestParams
+): Promise<BungieNetResponse<boolean>>;

@@ -27,5 +27,8 @@ export declare type GetTrendingEntryDetailParams = {
  * *and* the identifier: the identifier alone is not guaranteed to be globally
  * unique.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail}
-*/
-export declare function getTrendingEntryDetail(this: InstancedImport | AccessTokenObject | void, params: GetTrendingEntryDetailParams): Promise<BungieNetResponse<TrendingDetail>>;
+ */
+export declare function getTrendingEntryDetail(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetTrendingEntryDetailParams
+): Promise<BungieNetResponse<TrendingDetail>>;

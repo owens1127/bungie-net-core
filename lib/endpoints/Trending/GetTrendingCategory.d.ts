@@ -23,5 +23,8 @@ export declare type GetTrendingCategoryParams = {
 /**
  * Returns paginated lists of trending items for a category.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory}
-*/
-export declare function getTrendingCategory(this: InstancedImport | AccessTokenObject | void, params: GetTrendingCategoryParams): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;
+ */
+export declare function getTrendingCategory(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetTrendingCategoryParams
+): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;

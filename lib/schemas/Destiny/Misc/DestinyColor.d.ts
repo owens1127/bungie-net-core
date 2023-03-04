@@ -14,7 +14,7 @@
  * Represents a color whose RGBA values are all represented as values between 0 and
  * 255.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Misc.DestinyColor}
-*/
+ */
 export interface DestinyColor {
     readonly red: number;
     readonly green: number;

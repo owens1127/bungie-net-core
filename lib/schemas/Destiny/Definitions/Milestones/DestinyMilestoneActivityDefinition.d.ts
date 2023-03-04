@@ -20,7 +20,7 @@ import { DestinyMilestoneActivityVariantDefinition } from './DestinyMilestoneAct
  * Tier data to establish a relationship between a conceptual Activity and its
  * difficulty levels and variants.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneActivityDefinition}
-*/
+ */
 export interface DestinyMilestoneActivityDefinition {
     /**
      * The "Conceptual" activity hash. Basically, we picked the lowest level activity
@@ -29,7 +29,7 @@ export interface DestinyMilestoneActivityDefinition {
      *
      * If you care about the specific difficulty modes and variations, use the
      * activities under "Variants". Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly conceptualActivityHash: number;
     /**
      * A milestone-referenced activity can have many variants, such as Tiers or
@@ -45,7 +45,7 @@ export interface DestinyMilestoneActivityDefinition {
      * should all have their own DestinyMilestoneActivityDefinition instead! The
      * potential duplication will be worth it for the obviousness of processing and use.
      * Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly variants: {
         [key: number]: DestinyMilestoneActivityVariantDefinition;
     };

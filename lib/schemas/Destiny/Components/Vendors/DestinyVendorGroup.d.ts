@@ -17,13 +17,13 @@
  * How do we figure out this order? It's a long story, and will likely get more
  * complicated over time.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyVendorGroup}
-*/
+ */
 export interface DestinyVendorGroup {
     /** Mapped to DestinyVendorGroupDefinition in the manifest. */
     readonly vendorGroupHash: number;
     /**
      * The ordered list of vendors within a particular group. Mapped to
      * DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly vendorHashes: number[];
 }

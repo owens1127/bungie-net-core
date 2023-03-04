@@ -22,5 +22,9 @@ export declare type DenyAllPendingParams = {
 /**
  * Deny all of the pending users for the given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyAllPending}
-*/
-export declare function denyAllPending(this: InstancedImport | AccessTokenObject | void, params: DenyAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+ */
+export declare function denyAllPending(
+    this: InstancedImport | AccessTokenObject | void,
+    params: DenyAllPendingParams,
+    body: GroupApplicationRequest
+): Promise<BungieNetResponse<EntityActionResult[]>>;

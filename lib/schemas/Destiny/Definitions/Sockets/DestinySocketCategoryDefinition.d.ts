@@ -34,7 +34,7 @@ import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle';
  * the consistency of plugSources is the best I have time to provide. (See https://
  * github.com/Bungie-net/api/issues/522 for more info)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinySocketCategoryDefinition}
-*/
+ */
 export interface DestinySocketCategoryDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
@@ -43,7 +43,7 @@ export interface DestinySocketCategoryDefinition {
      *
      * BNet doesn't use it: it's up to you to find valid values and make your own
      * special UI if you want to honor this category style.
-    */
+     */
     readonly uiCategoryStyle: number;
     /** Same as uiCategoryStyle, but in a more usable enumeration form. */
     readonly categoryStyle: DestinySocketCategoryStyle;
@@ -53,13 +53,13 @@ export interface DestinySocketCategoryDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

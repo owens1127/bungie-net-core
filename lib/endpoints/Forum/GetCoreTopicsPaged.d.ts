@@ -23,7 +23,7 @@ export declare type GetCoreTopicsPagedParams = {
     /**
      * Comma seperated list of locales posts must match to return in the result list.
      * Default 'en'
-    */
+     */
     locales?: string;
     /** Zero base page */
     page: number;
@@ -35,5 +35,8 @@ export declare type GetCoreTopicsPagedParams = {
 /**
  * Gets a listing of all topics marked as part of the core group.
  * @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged}
-*/
-export declare function getCoreTopicsPaged(this: InstancedImport | AccessTokenObject | void, params: GetCoreTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getCoreTopicsPaged(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetCoreTopicsPagedParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

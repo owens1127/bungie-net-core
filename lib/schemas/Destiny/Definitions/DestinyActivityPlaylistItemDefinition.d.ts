@@ -16,31 +16,31 @@ import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyA
  * the playlist: a single possible combination of Activity and Activity Mode that
  * can be chosen.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityPlaylistItemDefinition}
-*/
+ */
 export interface DestinyActivityPlaylistItemDefinition {
     /**
      * The hash identifier of the Activity that can be played. Use it to look up the
      * DestinyActivityDefinition. Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash: number;
     /**
      * If this playlist entry had an activity mode directly defined on it, this will be
      * the hash of that mode. Mapped to DestinyActivityModeDefinition in the manifest.
-    */
+     */
     readonly directActivityModeHash?: number;
     /**
      * If the playlist entry had an activity mode directly defined on it, this will be
      * the enum value of that mode.
-    */
+     */
     readonly directActivityModeType?: number;
     /**
      * The hash identifiers for Activity Modes relevant to this entry. Mapped to
      * DestinyActivityModeDefinition in the manifest.
-    */
+     */
     readonly activityModeHashes: number[];
     /**
      * The activity modes - if any - in enum form. Because we can't seem to escape the
      * enums.
-    */
+     */
     readonly activityModeTypes: DestinyActivityModeType[];
 }

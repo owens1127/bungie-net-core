@@ -21,5 +21,8 @@ export declare type IssueFriendRequestParams = {
  * Requests a friend relationship with the target user. Any of the target user's
  * linked membership ids are valid inputs.
  * @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest}
-*/
-export declare function issueFriendRequest(this: InstancedImport | AccessTokenObject | void, params: IssueFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function issueFriendRequest(
+    this: InstancedImport | AccessTokenObject | void,
+    params: IssueFriendRequestParams
+): Promise<BungieNetResponse<boolean>>;

@@ -16,7 +16,7 @@
  * Internally we combine this information with server state to determine which
  * strings should be shown.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityUnlockStringDefinition}
-*/
+ */
 export interface DestinyActivityUnlockStringDefinition {
     /** The string to be displayed if the conditions are met. */
     readonly displayString: string;

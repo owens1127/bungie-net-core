@@ -19,7 +19,7 @@ import { DestinyProgression } from '../DestinyProgression';
  * character has available/has chosen, or just these settings can be used for
  * overview information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactProfileScoped}
-*/
+ */
 export interface DestinyArtifactProfileScoped {
     /** Mapped to DestinyArtifactDefinition in the manifest. */
     readonly artifactHash: number;

@@ -23,13 +23,13 @@ import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug';
  * are even more specific will remain on the actual socket component itself, as
  * they cannot be reused)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.PlugSets.DestinyPlugSetsComponent}
-*/
+ */
 export interface DestinyPlugSetsComponent {
     /**
      * The shared list of plugs for each relevant PlugSet, keyed by the hash identifier
      * of the PlugSet (DestinyPlugSetDefinition). Mapped to DestinyPlugSetDefinition in
      * the manifest.
-    */
+     */
     readonly plugs: {
         [key: number]: DestinyItemPlug[];
     };

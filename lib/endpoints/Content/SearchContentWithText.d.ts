@@ -33,5 +33,8 @@ export declare type SearchContentWithTextParams = {
  * Gets content based on querystring information passed in. Provides basic search
  * and text search capabilities.
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
-*/
-export declare function searchContentWithText(this: InstancedImport | AccessTokenObject | void, params: SearchContentWithTextParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;
+ */
+export declare function searchContentWithText(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchContentWithTextParams
+): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;

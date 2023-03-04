@@ -19,7 +19,7 @@ import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardIt
  * Remember this if you come back and ask "why are quest reward items nested
  * inside of their own class?"
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneQuestRewardsDefinition}
-*/
+ */
 export interface DestinyMilestoneQuestRewardsDefinition {
     /**
      * The items that represent your reward for completing the quest.
@@ -31,6 +31,6 @@ export interface DestinyMilestoneQuestRewardsDefinition {
      * experience", with quantity being the amount of experience you got. We don't have
      * a programmatic association between those and whatever Progression is actually
      * getting that experience... yet.
-    */
+     */
     readonly items: DestinyMilestoneQuestRewardItem[];
 }

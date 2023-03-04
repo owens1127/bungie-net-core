@@ -16,5 +16,7 @@ import { CoreSettingsConfiguration } from '../../schemas/index.js';
 /**
  * Get the common settings used by the Bungie.Net environment.
  * @see {@link https://bungie-net.github.io/#.GetCommonSettings}
-*/
-export declare function getCommonSettings(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<CoreSettingsConfiguration>>;
+ */
+export declare function getCommonSettings(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<BungieNetResponse<CoreSettingsConfiguration>>;

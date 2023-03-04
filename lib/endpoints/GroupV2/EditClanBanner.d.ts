@@ -22,5 +22,9 @@ export declare type EditClanBannerParams = {
  * Edit an existing group's clan banner. You must have suitable permissions in the
  * group to perform this operation. All fields are required.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
-*/
-export declare function editClanBanner(this: InstancedImport | AccessTokenObject | void, params: EditClanBannerParams, body: ClanBanner): Promise<BungieNetResponse<number>>;
+ */
+export declare function editClanBanner(
+    this: InstancedImport | AccessTokenObject | void,
+    params: EditClanBannerParams,
+    body: ClanBanner
+): Promise<BungieNetResponse<number>>;

@@ -30,5 +30,8 @@ export declare type GetGroupsForMemberParams = {
 /**
  * Get information about the groups that a given member has joined.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember}
-*/
-export declare function getGroupsForMember(this: InstancedImport | AccessTokenObject | void, params: GetGroupsForMemberParams): Promise<BungieNetResponse<GetGroupsForMemberResponse>>;
+ */
+export declare function getGroupsForMember(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetGroupsForMemberParams
+): Promise<BungieNetResponse<GetGroupsForMemberResponse>>;

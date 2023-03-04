@@ -16,7 +16,7 @@ import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscription
  * subject (generally timeboxed, such as for a specific release of a product or
  * feature).
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailSubscriptionDefinition}
-*/
+ */
 export interface EmailSubscriptionDefinition {
     /** The unique identifier for this subscription. */
     readonly name: string;

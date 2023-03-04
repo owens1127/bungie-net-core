@@ -35,32 +35,32 @@ import { DestinyLinkedGraphDefinition } from './DestinyLinkedGraphDefinition';
  * unmaintainable as the game's content changed. So don't bet the farm on us
  * providing that content in this definition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphDefinition}
-*/
+ */
 export interface DestinyActivityGraphDefinition {
     /**
      * These represent the visual "nodes" on the map's view. These are the activities
      * you can click on in the map.
-    */
+     */
     readonly nodes: DestinyActivityGraphNodeDefinition[];
     /** Represents one-off/special UI elements that appear on the map. */
     readonly artElements: DestinyActivityGraphArtElementDefinition[];
     /**
      * Represents connections between graph nodes. However, it lacks context that we'd
      * need to make good use of it.
-    */
+     */
     readonly connections: DestinyActivityGraphConnectionDefinition[];
     /**
      * Objectives can display on maps, and this is supposedly metadata for that. I have
      * not had the time to analyze the details of what is useful within however: we
      * could be missing important data to make this work. Expect this property to be
      * expanded on later if possible.
-    */
+     */
     readonly displayObjectives: DestinyActivityGraphDisplayObjectiveDefinition[];
     /**
      * Progressions can also display on maps, but similarly to displayObjectives we
      * appear to lack some required information and context right now. We will have to
      * look into it later and add more data if possible.
-    */
+     */
     readonly displayProgressions: DestinyActivityGraphDisplayProgressionDefinition[];
     /** Represents links between this Activity Graph and other ones. */
     readonly linkedGraphs: DestinyLinkedGraphDefinition[];
@@ -70,13 +70,13 @@ export interface DestinyActivityGraphDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

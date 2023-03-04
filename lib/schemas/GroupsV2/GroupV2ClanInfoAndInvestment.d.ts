@@ -15,7 +15,7 @@ import { ClanBanner } from './ClanBanner';
 /**
  * The same as GroupV2ClanInfo, but includes any investment data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2ClanInfoAndInvestment}
-*/
+ */
 export interface GroupV2ClanInfoAndInvestment {
     readonly d2ClanProgressions: {
         [key: number]: DestinyProgression;

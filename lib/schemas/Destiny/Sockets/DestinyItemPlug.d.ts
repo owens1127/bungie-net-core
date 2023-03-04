@@ -23,12 +23,12 @@ export interface DestinyItemPlug {
      * show, and will generally show it using the DestinyObjectiveDefinition's
      * progressDescription property. Refer to the plug's itemHash and objective
      * property for more information if you would like to display even more data.
-    */
+     */
     readonly plugObjectives: DestinyObjectiveProgress[];
     /**
      * The hash identifier of the DestinyInventoryItemDefinition that represents this
      * plug. Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly plugItemHash: number;
     /** If true, this plug has met all of its insertion requirements. Big if true. */
     readonly canInsert: boolean;
@@ -40,7 +40,7 @@ export interface DestinyItemPlug {
      * reasons why it can't be inserted.
      *
      * This list will be empty if the plug can be inserted.
-    */
+     */
     readonly insertFailIndexes: number[];
     /**
      * If a plug is not enabled, this will be populated with indexes into the plug item
@@ -48,6 +48,6 @@ export interface DestinyItemPlug {
      * is not enabled.
      *
      * This list will be empty if the plug is enabled.
-    */
+     */
     readonly enableFailIndexes: number[];
 }

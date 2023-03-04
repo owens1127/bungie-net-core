@@ -1,4 +1,4 @@
-import { __credentials__ } from '../util/credentials';
+import { __credentials__ } from '../util/credentials.js';
 
 export class NotConfiguredError extends Error {
     private BUNGIE_API_KEY: string;
@@ -6,14 +6,14 @@ export class NotConfiguredError extends Error {
     private BUNGIE_CLIENT_SECRET: string;
     constructor() {
         super();
-        const api_key = __credentials__().BUNGIE_API_KEY
-        const client_id = __credentials__().BUNGIE_CLIENT_ID
-        const secret = __credentials__().BUNGIE_CLIENT_SECRET
-        this.message =
-            `Please configure your API Key, Client ID, and Client Secret as environment variables: 'BUNGIE_API_KEY, BUNGIE_CLIENT_ID, 'BUNGIE_API_KEY, BUNGIE_CLIENT_SECRET`
-        this.BUNGIE_API_KEY = api_key ? api_key.substring(0, 5) + "..." : ""
+        const api_key = __credentials__().BUNGIE_API_KEY;
+        const client_id = __credentials__().BUNGIE_CLIENT_ID;
+        const secret = __credentials__().BUNGIE_CLIENT_SECRET;
+        this.message = `Please configure your API Key, Client ID, and Client Secret as environment variables: 'BUNGIE_API_KEY, BUNGIE_CLIENT_ID, 'BUNGIE_API_KEY, BUNGIE_CLIENT_SECRET`;
+        this.BUNGIE_API_KEY = api_key ? api_key.substring(0, 5) + '...' : '';
         this.BUNGIE_CLIENT_ID = client_id;
-        this.BUNGIE_CLIENT_SECRET = secret ? secret.substring(0, 5) + "..." : ""
+        this.BUNGIE_CLIENT_SECRET = secret
+            ? secret.substring(0, 5) + '...'
+            : '';
     }
-
 }

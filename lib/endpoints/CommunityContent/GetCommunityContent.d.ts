@@ -27,5 +27,8 @@ export declare type GetCommunityContentParams = {
 /**
  * Returns community content.
  * @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent}
-*/
-export declare function getCommunityContent(this: InstancedImport | AccessTokenObject | void, params: GetCommunityContentParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getCommunityContent(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetCommunityContentParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

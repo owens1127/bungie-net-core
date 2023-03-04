@@ -26,5 +26,8 @@ export declare type GetRecommendedGroupsParams = {
  * Gets groups recommended for you based on the groups to whom those you follow
  * belong.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
-*/
-export declare function getRecommendedGroups(this: InstancedImport | AccessTokenObject | void, params: GetRecommendedGroupsParams): Promise<BungieNetResponse<GroupV2Card[]>>;
+ */
+export declare function getRecommendedGroups(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetRecommendedGroupsParams
+): Promise<BungieNetResponse<GroupV2Card[]>>;

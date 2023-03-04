@@ -26,5 +26,8 @@ export declare type IndividualGroupInviteCancelParams = {
 /**
  * Cancels a pending invitation to join a group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
-*/
-export declare function individualGroupInviteCancel(this: InstancedImport | AccessTokenObject | void, params: IndividualGroupInviteCancelParams): Promise<BungieNetResponse<GroupApplicationResponse>>;
+ */
+export declare function individualGroupInviteCancel(
+    this: InstancedImport | AccessTokenObject | void,
+    params: IndividualGroupInviteCancelParams
+): Promise<BungieNetResponse<GroupApplicationResponse>>;

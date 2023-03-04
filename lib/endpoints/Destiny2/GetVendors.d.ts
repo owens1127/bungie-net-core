@@ -24,7 +24,7 @@ export declare type GetVendorsParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
     /** Destiny membership ID of another user. You may be denied. */
     destinyMembershipId: string;
@@ -39,5 +39,8 @@ export declare type GetVendorsParams = {
  * and vendors-as-kiosks, neither of whom have rotating/dynamic inventories. Use
  * their definitions as-is for those.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendors}
-*/
-export declare function getVendors(this: InstancedImport | AccessTokenObject | void, params: GetVendorsParams): Promise<BungieNetResponse<DestinyVendorsResponse>>;
+ */
+export declare function getVendors(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetVendorsParams
+): Promise<BungieNetResponse<DestinyVendorsResponse>>;

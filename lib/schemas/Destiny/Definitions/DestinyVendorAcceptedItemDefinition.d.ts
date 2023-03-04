@@ -22,7 +22,7 @@
  * The mechanics for Postmaster works similarly, which is also a vendor. All driven
  * by Accepted Items.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorAcceptedItemDefinition}
-*/
+ */
 export interface DestinyVendorAcceptedItemDefinition {
     /**
      * The "source" bucket for a transfer. When a user wants to transfer an item, the
@@ -31,12 +31,12 @@ export interface DestinyVendorAcceptedItemDefinition {
      * the item being transferred is currently located. If it exists, the item will be
      * transferred into whatever bucket is defined by destinationInventoryBucketHash.
      * Mapped to DestinyInventoryBucketDefinition in the manifest.
-    */
+     */
     readonly acceptedInventoryBucketHash: number;
     /**
      * This is the bucket where the item being transferred will be put, given that it
      * was being transferred *from* the bucket defined in acceptedInventoryBucketHash.
      * Mapped to DestinyInventoryBucketDefinition in the manifest.
-    */
+     */
     readonly destinationInventoryBucketHash: number;
 }

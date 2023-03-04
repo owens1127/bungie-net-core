@@ -21,7 +21,7 @@ export interface GetGroupsForMemberResponse {
      *
      * The key is the Group ID for the group being checked, and the value is true if
      * the users' memberships for that group are all inactive.
-    */
+     */
     readonly areAllMembershipsInactive: {
         [key: string]: boolean;
     };
@@ -41,6 +41,6 @@ export interface GetGroupsForMemberResponse {
      * total results. Those queries toasted our database, and we were left to hastily
      * alter our endpoints and create backward- compatible shims, of which
      * useTotalResults is one.
-    */
+     */
     readonly useTotalResults: boolean;
 }

@@ -25,7 +25,7 @@ export interface BungieFriend {
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly onlineTitle: PresenceOnlineStateFlags;
     readonly relationship: FriendRelationshipState;
     readonly bungieNetUser: GeneralUser;

@@ -18,6 +18,6 @@ export interface ApiUsage {
     /**
      * Instances of blocked requests or requests that crossed the warn threshold during
      * the time range.
-    */
+     */
     readonly throttledRequests: Series[];
 }

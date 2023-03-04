@@ -19,13 +19,13 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPresentationNodeState}
-*/
+ */
 export declare enum DestinyPresentationNodeState {
     None = 0,
     /**
      * If this is set, the game recommends that you not show this node. But you know
      * your life, do what you've got to do.
-    */
+     */
     Invisible = 1,
     /** Turns out Presentation Nodes can also be obscured. If they are, this is set. */
     Obscured = 2

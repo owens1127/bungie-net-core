@@ -25,7 +25,7 @@ export declare type GetTopicsPagedParams = {
     /**
      * Comma seperated list of locales posts must match to return in the result list.
      * Default 'en'
-    */
+     */
     locales?: string;
     /** Zero paged page number */
     page: number;
@@ -41,5 +41,8 @@ export declare type GetTopicsPagedParams = {
 /**
  * Get topics from any forum.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
-*/
-export declare function getTopicsPaged(this: InstancedImport | AccessTokenObject | void, params: GetTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getTopicsPaged(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetTopicsPagedParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

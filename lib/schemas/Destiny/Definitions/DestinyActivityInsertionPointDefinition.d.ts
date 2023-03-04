@@ -21,11 +21,11 @@
  * at phase indexes in stats data, or when they want to know what phases have been
  * completed on a weekly achievement.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityInsertionPointDefinition}
-*/
+ */
 export interface DestinyActivityInsertionPointDefinition {
     /**
      * A unique hash value representing the phase. This can be useful for, for example,
      * comparing how different instances of Raids have phases in different orders!
-    */
+     */
     readonly phaseHash: number;
 }

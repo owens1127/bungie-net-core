@@ -16,16 +16,16 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * DestinyDestinationBubbleSettingDefinition - see DestinyDestinationDefinition.
  * bubbleSettings for more information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyBubbleDefinition}
-*/
+ */
 export interface DestinyBubbleDefinition {
     /**
      * The identifier for the bubble: only guaranteed to be unique within the
      * Destination.
-    */
+     */
     readonly hash: number;
     /**
      * The display properties of this bubble, so you don't have to look them up in a
      * separate list anymore.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
 }

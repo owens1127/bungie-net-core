@@ -23,5 +23,8 @@ export declare type GetAdminsAndFounderOfGroupParams = {
 /**
  * Get the list of members in a given group who are of admin level or higher.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup}
-*/
-export declare function getAdminsAndFounderOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetAdminsAndFounderOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;
+ */
+export declare function getAdminsAndFounderOfGroup(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetAdminsAndFounderOfGroupParams
+): Promise<BungieNetResponse<SearchResultOfGroupMember>>;

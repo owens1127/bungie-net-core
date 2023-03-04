@@ -26,5 +26,8 @@ export declare type GetUniqueWeaponHistoryParams = {
 /**
  * Gets details about unique weapon usage, including all exotic weapons.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory}
-*/
-export declare function getUniqueWeaponHistory(this: InstancedImport | AccessTokenObject | void, params: GetUniqueWeaponHistoryParams): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>>;
+ */
+export declare function getUniqueWeaponHistory(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetUniqueWeaponHistoryParams
+): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>>;

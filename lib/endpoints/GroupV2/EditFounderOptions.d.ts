@@ -22,5 +22,9 @@ export declare type EditFounderOptionsParams = {
  * Edit group options only available to a founder. You must have suitable
  * permissions in the group to perform this operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions}
-*/
-export declare function editFounderOptions(this: InstancedImport | AccessTokenObject | void, params: EditFounderOptionsParams, body: GroupOptionsEditAction): Promise<BungieNetResponse<number>>;
+ */
+export declare function editFounderOptions(
+    this: InstancedImport | AccessTokenObject | void,
+    params: EditFounderOptionsParams,
+    body: GroupOptionsEditAction
+): Promise<BungieNetResponse<number>>;

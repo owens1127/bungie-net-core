@@ -25,5 +25,8 @@ import { DestinyItemChangeResponse } from '../../schemas/index.js';
  *
  * Wait at least 0.5s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.InsertSocketPlug}
-*/
-export declare function insertSocketPlug(this: InstancedImport | AccessTokenObject | void, body: DestinyInsertPlugsActionRequest): Promise<BungieNetResponse<DestinyItemChangeResponse>>;
+ */
+export declare function insertSocketPlug(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyInsertPlugsActionRequest
+): Promise<BungieNetResponse<DestinyItemChangeResponse>>;

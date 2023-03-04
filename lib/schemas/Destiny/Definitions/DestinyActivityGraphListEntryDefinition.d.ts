@@ -17,12 +17,12 @@
  * This contract defines the graph referred to and the gating for when it is
  * relevant.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityGraphListEntryDefinition}
-*/
+ */
 export interface DestinyActivityGraphListEntryDefinition {
     /**
      * The hash identifier of the DestinyActivityGraphDefinition that should be shown
      * when opening the director. Mapped to DestinyActivityGraphDefinition in the
      * manifest.
-    */
+     */
     readonly activityGraphHash: number;
 }

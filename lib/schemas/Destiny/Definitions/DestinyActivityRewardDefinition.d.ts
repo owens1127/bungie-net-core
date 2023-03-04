@@ -15,7 +15,7 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * Activities can refer to one or more sets of tooltip-friendly reward data. These
  * are the definitions for those tooltip friendly rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityRewardDefinition}
-*/
+ */
 export interface DestinyActivityRewardDefinition {
     /** The header for the reward set, if any. */
     readonly rewardText: string;
@@ -33,6 +33,6 @@ export interface DestinyActivityRewardDefinition {
      * dummy" items. You can even see them if you look at the last one you earned in
      * your profile-level inventory through the BNet API! Who said reading
      * documentation is a waste of time?
-    */
+     */
     readonly rewardItems: DestinyItemQuantity[];
 }

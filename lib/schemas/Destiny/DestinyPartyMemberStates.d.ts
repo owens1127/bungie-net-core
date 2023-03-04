@@ -16,7 +16,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPartyMemberStates}
-*/
+ */
 export declare enum DestinyPartyMemberStates {
     None = 0,
     /** This one's pretty obvious - they're on your Fireteam. */
@@ -29,7 +29,7 @@ export declare enum DestinyPartyMemberStates {
      *
      * I'll update these docs once I get more info. If I get more info. If you're
      * reading this, I never got more info. You're on your own, kid.
-    */
+     */
     GroupMember = 4,
     /** This person is the party leader. */
     PartyLeader = 8

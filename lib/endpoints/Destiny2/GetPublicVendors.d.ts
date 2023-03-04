@@ -20,7 +20,7 @@ export declare type GetPublicVendorsParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
 };
 /**
@@ -30,5 +30,8 @@ export declare type GetPublicVendorsParams = {
  * endpoint due to the way that available inventory is computed. As I am often
  * guilty of saying: 'It's a long story...'
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
-*/
-export declare function getPublicVendors(this: InstancedImport | AccessTokenObject | void, params: GetPublicVendorsParams): Promise<BungieNetResponse<DestinyPublicVendorsResponse>>;
+ */
+export declare function getPublicVendors(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPublicVendorsParams
+): Promise<BungieNetResponse<DestinyPublicVendorsResponse>>;

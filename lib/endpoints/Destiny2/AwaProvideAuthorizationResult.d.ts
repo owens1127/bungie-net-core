@@ -17,5 +17,8 @@ import { AwaUserResponse } from '../../schemas/index.js';
  * Provide the result of the user interaction. Called by the Bungie Destiny App to
  * approve or reject a request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaProvideAuthorizationResult}
-*/
-export declare function awaProvideAuthorizationResult(this: InstancedImport | AccessTokenObject | void, body: AwaUserResponse): Promise<BungieNetResponse<number>>;
+ */
+export declare function awaProvideAuthorizationResult(
+    this: InstancedImport | AccessTokenObject | void,
+    body: AwaUserResponse
+): Promise<BungieNetResponse<number>>;

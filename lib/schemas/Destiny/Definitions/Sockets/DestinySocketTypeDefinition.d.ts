@@ -24,13 +24,13 @@ import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocket
  * See DestinyInventoryItemDefinition for more information about Socketed items and
  * Plugs.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinySocketTypeDefinition}
-*/
+ */
 export interface DestinySocketTypeDefinition {
     /**
      * There are fields for this display data, but they appear to be unpopulated as of
      * now. I am not sure where in the UI these would show if they even were populated,
      * but I will continue to return this data in case it becomes useful.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /** Defines what happens when a plug is inserted into sockets of this type. */
     readonly insertAction: DestinyInsertPlugActionDefinition;
@@ -44,7 +44,7 @@ export interface DestinySocketTypeDefinition {
      *
      * If the plug's category matches any whitelisted plug, or if the whitelist is
      * empty, it is allowed to be inserted.
-    */
+     */
     readonly plugWhitelist: DestinyPlugWhitelistEntryDefinition[];
     /** Mapped to DestinySocketCategoryDefinition in the manifest. */
     readonly socketCategoryHash: number;
@@ -53,7 +53,7 @@ export interface DestinySocketTypeDefinition {
      * sockets of this type are not visible. Unfortunately, the truth of visibility is
      * much, much more complex. Best to rely on the live data for whether the socket is
      * visible and enabled.
-    */
+     */
     readonly visibility: DestinySocketVisibility;
     readonly alwaysRandomizeSockets: boolean;
     readonly isPreviewEnabled: boolean;
@@ -61,7 +61,7 @@ export interface DestinySocketTypeDefinition {
     /**
      * This property indicates if the socket type determines whether Emblem icons and
      * nameplates should be overridden by the inserted plug item's icon and nameplate.
-    */
+     */
     readonly overridesUiAppearance: boolean;
     readonly avoidDuplicatesOnInitialization: boolean;
     readonly currencyScalars: DestinySocketTypeScalarMaterialRequirementEntry[];
@@ -71,13 +71,13 @@ export interface DestinySocketTypeDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

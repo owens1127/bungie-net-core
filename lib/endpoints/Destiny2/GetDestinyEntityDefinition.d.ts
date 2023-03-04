@@ -21,7 +21,7 @@ export declare type GetDestinyEntityDefinitionParams = {
      * this property should be 'DestinyInventoryItemDefinition'. PREVIEW: This endpoint
      * is still in beta, and may experience rough edges. The schema is tentatively in
      * final form, but there may be bugs that prevent desirable operation.
-    */
+     */
     entityType: string;
     /** The hash identifier for the specific Entity you want returned. */
     hashIdentifier: number;
@@ -35,5 +35,8 @@ export declare type GetDestinyEntityDefinitionParams = {
  * Manifest database if you require large sets of data, but for simple and one-off
  * accesses this should be handy.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
-*/
-export declare function getDestinyEntityDefinition(this: InstancedImport | AccessTokenObject | void, params: GetDestinyEntityDefinitionParams): Promise<BungieNetResponse<DestinyDefinition>>;
+ */
+export declare function getDestinyEntityDefinition(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetDestinyEntityDefinitionParams
+): Promise<BungieNetResponse<DestinyDefinition>>;

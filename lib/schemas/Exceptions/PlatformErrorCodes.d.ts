@@ -538,7 +538,7 @@ export declare enum PlatformErrorCodes {
      * Note: This is one of those holdovers from Destiny 1. We didn't change the enum
      * because I am lazy, but in Destiny 2 this would read "
      * DestinyCharacterNotInSocialSpace"
-    */
+     */
     DestinyCharacterNotInTower = 1634,
     DestinyCharacterNotLoggedIn = 1635,
     DestinyDefinitionsNotLoaded = 1636,

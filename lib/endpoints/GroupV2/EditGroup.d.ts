@@ -23,5 +23,9 @@ export declare type EditGroupParams = {
  * perform this operation. This latest revision will only edit the fields you pass
  * in - pass null for properties you want to leave unaltered.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
-*/
-export declare function editGroup(this: InstancedImport | AccessTokenObject | void, params: EditGroupParams, body: GroupEditAction): Promise<BungieNetResponse<number>>;
+ */
+export declare function editGroup(
+    this: InstancedImport | AccessTokenObject | void,
+    params: EditGroupParams,
+    body: GroupEditAction
+): Promise<BungieNetResponse<number>>;

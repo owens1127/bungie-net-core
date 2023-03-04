@@ -15,7 +15,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * Modifiers - in Destiny 1, these were referred to as "Skulls" - are changes that
  * can be applied to an Activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.ActivityModifiers.DestinyActivityModifierDefinition}
-*/
+ */
 export interface DestinyActivityModifierDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     readonly displayInNavMode: boolean;
@@ -26,13 +26,13 @@ export interface DestinyActivityModifierDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

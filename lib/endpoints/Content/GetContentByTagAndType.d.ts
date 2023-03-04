@@ -24,5 +24,8 @@ export declare type GetContentByTagAndTypeParams = {
 /**
  * Returns the newest item that matches a given tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType}
-*/
-export declare function getContentByTagAndType(this: InstancedImport | AccessTokenObject | void, params: GetContentByTagAndTypeParams): Promise<BungieNetResponse<ContentItemPublicContract>>;
+ */
+export declare function getContentByTagAndType(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetContentByTagAndTypeParams
+): Promise<BungieNetResponse<ContentItemPublicContract>>;

@@ -21,5 +21,8 @@ export declare type GetBungieNetUserByIdParams = {
 /**
  * Loads a bungienet user by membership id.
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
-*/
-export declare function getBungieNetUserById(this: InstancedImport | AccessTokenObject | void, params: GetBungieNetUserByIdParams): Promise<BungieNetResponse<GeneralUser>>;
+ */
+export declare function getBungieNetUserById(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetBungieNetUserByIdParams
+): Promise<BungieNetResponse<GeneralUser>>;

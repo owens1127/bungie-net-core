@@ -25,13 +25,13 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * It will likely be used in a number of other ways in the future, it appears to be
  * a bucket where they put arbitrary items and quantities into the item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemValueBlockDefinition}
-*/
+ */
 export interface DestinyItemValueBlockDefinition {
     /** References to the items that make up this item's "value", and the quantity. */
     readonly itemValue: DestinyItemQuantity[];
     /**
      * If there's a localized text description of the value provided, this will be said
      * description.
-    */
+     */
     readonly valueDescription: string;
 }

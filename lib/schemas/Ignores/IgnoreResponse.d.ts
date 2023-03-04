@@ -17,6 +17,6 @@ export interface IgnoreResponse {
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly ignoreFlags: IgnoreStatus;
 }

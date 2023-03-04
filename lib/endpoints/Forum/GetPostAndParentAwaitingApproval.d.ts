@@ -23,5 +23,8 @@ export declare type GetPostAndParentAwaitingApprovalParams = {
  * Returns the post specified and its immediate parent of posts that are awaiting
  * approval.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval}
-*/
-export declare function getPostAndParentAwaitingApproval(this: InstancedImport | AccessTokenObject | void, params: GetPostAndParentAwaitingApprovalParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getPostAndParentAwaitingApproval(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPostAndParentAwaitingApprovalParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

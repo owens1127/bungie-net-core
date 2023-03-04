@@ -1,23 +1,21 @@
 import { NotConfiguredError } from '../errors/NotConfiguredError.js';
-import { __credentials__ } from './credentials.js'
+import { __credentials__ } from './credentials.js';
 import { BungieAPIError } from '../errors/BungieAPIError.js';
 import { BungieNetResponse } from './server-response.js';
 import { PlatformErrorCodes } from '../schemas/index.js';
 
-const timeoutCodes = [
-    PlatformErrorCodes.DestinyDirectBabelClientTimeout
-]
+const timeoutCodes = [PlatformErrorCodes.DestinyDirectBabelClientTimeout];
 
 interface QueueItemType {
-    readonly url: string
-    readonly init: { body, method, headers }
-    readonly reject: (value: (Error)) => void;
-    execute(retry?: boolean): Promise<number>
+    readonly url: string;
+    readonly init: { body; method; headers };
+    readonly reject: (value: Error) => void;
+    execute(retry?: boolean): Promise<number>;
 }
 
 class QueueItem<T> implements QueueItemType {
-    readonly url: string
-    readonly init: { body, method, headers }
+    readonly url: string;
+    readonly init: { body; method; headers };
     readonly reject: (value: Error) => void;
     readonly resolve: (value: BungieNetResponse<T>) => void;
 
@@ -32,8 +30,9 @@ class QueueItem<T> implements QueueItemType {
         const start = Date.now();
         let res: BungieNetResponse<T>;
         try {
-            res = await fetch(this.url, this.init)
-              .then((response) => response.json() as Promise<BungieNetResponse<T>>)
+            res = await fetch(this.url, this.init).then(
+                response => response.json() as Promise<BungieNetResponse<T>>
+            );
         } catch (e) {
             this.reject(e);
             return 0;
@@ -42,18 +41,17 @@ class QueueItem<T> implements QueueItemType {
         if (res.ErrorCode === PlatformErrorCodes.Success) {
             this.resolve(res);
         } else if (!retry && timeoutCodes.includes(res.ErrorCode)) {
-            return this.execute(true)
+            return this.execute(true);
         } else {
             this.reject(new BungieAPIError(res));
         }
         return res.ThrottleSeconds * 1000;
     }
-
 }
 
 class ManifestQueueItem implements QueueItemType {
-    readonly url: string
-    readonly init: { body, method, headers }
+    readonly url: string;
+    readonly init: { body; method; headers };
     readonly reject: (value: Error) => void;
     readonly resolve: (value: {}) => void;
 
@@ -67,8 +65,9 @@ class ManifestQueueItem implements QueueItemType {
     async execute(retry?: boolean): Promise<number> {
         let res: {};
         try {
-            res = await fetch(this.url, this.init)
-              .then((response) => response.json() as {})
+            res = await fetch(this.url, this.init).then(
+                response => response.json() as {}
+            );
             this.resolve(res);
         } catch (e) {
             if (!retry) return this.execute(true);
@@ -76,7 +75,6 @@ class ManifestQueueItem implements QueueItemType {
         }
         return 0;
     }
-
 }
 
 class RateLimitedQueue {
@@ -95,7 +93,10 @@ class RateLimitedQueue {
     add(item: QueueItemType): void {
         this.queue.push(item);
         this.size++;
-        setTimeout(this.process.bind(this), this.rateLimit * this.size + this.timeout);
+        setTimeout(
+            this.process.bind(this),
+            this.rateLimit * this.size + this.timeout
+        );
     }
 
     private pop(): QueueItemType | null {
@@ -103,10 +104,12 @@ class RateLimitedQueue {
     }
 
     private process() {
-        this.pop()?.execute().then(timeout => {
-            this.timeout = timeout;
-            this.size--
-        })
+        this.pop()
+            ?.execute()
+            .then(timeout => {
+                this.timeout = timeout;
+                this.size--;
+            });
     }
 }
 
@@ -117,17 +120,23 @@ const manifestQueue = new RateLimitedQueue(100);
 
 export type FetchConfig = {
     url: string;
-    method: string,
-    params?: {},
-    body?: {},
-}
+    method: string;
+    params?: {};
+    body?: {};
+};
 
-export function rateLimitedRequest<T>(access_token: string | undefined,
-    config: FetchConfig): Promise<BungieNetResponse<T>> {
-    if (!__credentials__().BUNGIE_CLIENT_ID || !__credentials__().BUNGIE_API_KEY) throw new NotConfiguredError();
+export function rateLimitedRequest<T>(
+    access_token: string | undefined,
+    config: FetchConfig
+): Promise<BungieNetResponse<T>> {
+    if (
+        !__credentials__().BUNGIE_CLIENT_ID ||
+        !__credentials__().BUNGIE_API_KEY
+    )
+        throw new NotConfiguredError();
 
     const params = equalsParams(config);
-    const url = config.url + (params ? '?' + params.join('&') : '')
+    const url = config.url + (params ? '?' + params.join('&') : '');
     const init = {
         method: config.method,
         body: config.body ? JSON.stringify(config.body) : null,
@@ -135,18 +144,20 @@ export function rateLimitedRequest<T>(access_token: string | undefined,
             'Content-Type': 'application/json',
             'X-API-KEY': __credentials__().BUNGIE_API_KEY
         }
-    }
+    };
 
     if (access_token) init.headers['Authorization'] = `Bearer ${access_token}`;
 
     return new Promise((resolve, reject) => {
         let queue: RateLimitedQueue;
-        if (!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items/)) {
+        if (
+            !url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items/)
+        ) {
             queue = basicQueue;
         } else if (transferAction(url)) {
             queue = transferQueue;
         } else if (socketAction(url)) {
-            queue = socketQueue
+            queue = socketQueue;
         } else {
             queue = basicQueue;
         }
@@ -155,24 +166,41 @@ export function rateLimitedRequest<T>(access_token: string | undefined,
 }
 
 function transferAction(url: string): boolean {
-    return !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/TransferItem/)
-        || !!url.match(
-            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/PullFromPostmaster/)
-        || !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItem/)
-        || !!url.match(/www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItems/)
+    return (
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/TransferItem/
+        ) ||
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/PullFromPostmaster/
+        ) ||
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItem/
+        ) ||
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/EquipItems/
+        )
+    );
 }
 
 function socketAction(url: string): boolean {
-    return !!url.match(
-            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlugFree/)
-        || !!url.match(
-            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlug/)
+    return (
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlugFree/
+        ) ||
+        !!url.match(
+            /www\.bungie\.net\/Platform\/Destiny2\/Actions\/Items\/InsertSocketPlug/
+        )
+    );
 }
 
 export function manifestRequest(config: FetchConfig): Promise<any> {
-    if (!__credentials__().BUNGIE_CLIENT_ID || !__credentials__().BUNGIE_API_KEY) throw new NotConfiguredError();
+    if (
+        !__credentials__().BUNGIE_CLIENT_ID ||
+        !__credentials__().BUNGIE_API_KEY
+    )
+        throw new NotConfiguredError();
     const params = equalsParams(config);
-    const url = config.url + (params ? '?' + params.join('&') : '')
+    const url = config.url + (params ? '?' + params.join('&') : '');
     let init = {
         method: config.method,
         body: config.body ? JSON.stringify(config.body) : null,
@@ -180,7 +208,7 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
             'Content-Type': 'application/json',
             'X-API-KEY': __credentials__().BUNGIE_API_KEY
         }
-    }
+    };
 
     return new Promise((resolve, reject) => {
         manifestQueue.add(new ManifestQueueItem(url, init, resolve, reject));
@@ -188,12 +216,17 @@ export function manifestRequest(config: FetchConfig): Promise<any> {
 }
 
 function equalsParams(config: FetchConfig): string[] | null {
-    return !!config.params ? Object.keys(config.params)
-        .filter(key => {
-            return (key in config.params!)
-                && config.params![key] !== undefined
-                && config.params![key] !== null
-        }).map(key => {
-            return key + '=' + config.params![key];
-        }) : null;
+    return !!config.params
+        ? Object.keys(config.params)
+              .filter(key => {
+                  return (
+                      key in config.params! &&
+                      config.params![key] !== undefined &&
+                      config.params![key] !== null
+                  );
+              })
+              .map(key => {
+                  return key + '=' + config.params![key];
+              })
+        : null;
 }

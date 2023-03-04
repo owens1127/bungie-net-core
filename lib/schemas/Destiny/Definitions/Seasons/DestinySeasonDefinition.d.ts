@@ -17,7 +17,7 @@ import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition
  * highlights certain challenges, provides new loot, has new Clan-related rewards
  * and celebrates various seasonal events.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonDefinition}
-*/
+ */
 export interface DestinySeasonDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     readonly backgroundImagePath: string;
@@ -37,7 +37,7 @@ export interface DestinySeasonDefinition {
     /**
      * Optional - Defines the promotional text, images, and links to preview this
      * season.
-    */
+     */
     readonly preview: DestinySeasonPreviewDefinition;
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -45,13 +45,13 @@ export interface DestinySeasonDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

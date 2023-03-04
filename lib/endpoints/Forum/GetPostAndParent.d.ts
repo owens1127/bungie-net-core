@@ -22,5 +22,8 @@ export declare type GetPostAndParentParams = {
 /**
  * Returns the post specified and its immediate parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent}
-*/
-export declare function getPostAndParent(this: InstancedImport | AccessTokenObject | void, params: GetPostAndParentParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getPostAndParent(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPostAndParentParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

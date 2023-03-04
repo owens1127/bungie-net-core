@@ -14,7 +14,7 @@ import { BungieMembershipType } from '../BungieMembershipType';
 /**
  * Very basic info about a user as returned by the Account server.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.UserMembership}
-*/
+ */
 export interface UserMembership {
     /** Type of the membership. Not necessarily the native type. */
     readonly membershipType: BungieMembershipType;
@@ -23,7 +23,7 @@ export interface UserMembership {
     /**
      * Display Name the player has chosen for themselves. The display name is optional
      * when the data type is used as input to a platform API.
-    */
+     */
     readonly displayName: string;
     /** The bungie global display name, if set. */
     readonly bungieGlobalDisplayName: string;

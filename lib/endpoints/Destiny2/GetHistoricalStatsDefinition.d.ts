@@ -16,7 +16,11 @@ import { DestinyHistoricalStatsDefinition } from '../../schemas/index.js';
 /**
  * Gets historical stats definitions.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsDefinition}
-*/
-export declare function getHistoricalStatsDefinition(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: string]: DestinyHistoricalStatsDefinition;
-}>>;
+ */
+export declare function getHistoricalStatsDefinition(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: string]: DestinyHistoricalStatsDefinition;
+    }>
+>;

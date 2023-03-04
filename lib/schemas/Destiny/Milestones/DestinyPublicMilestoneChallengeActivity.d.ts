@@ -25,18 +25,18 @@ export interface DestinyPublicMilestoneChallengeActivity {
      * than this being referred to: those are all *possible* modifiers for the activity,
      * not the active ones. Use only the active ones to match what's really live.
      * Mapped to DestinyActivityModifierDefinition in the manifest.
-    */
+     */
     readonly modifierHashes: number[];
     /**
      * If returned, this is the index into the DestinyActivityDefinition's "loadouts"
      * property, indicating the currently active loadout requirements.
-    */
+     */
     readonly loadoutRequirementIndex?: number;
     /**
      * The ordered list of phases for this activity, if any. Note that we have no human
      * readable info for phases, nor any entities to relate them to: relating these
      * hashes to something human readable is up to you unfortunately.
-    */
+     */
     readonly phaseHashes: number[];
     /**
      * The set of activity options for this activity, keyed by an identifier that's
@@ -51,7 +51,7 @@ export interface DestinyPublicMilestoneChallengeActivity {
      *
      * We have no human readable information for this data, so it's up to you if you
      * want to associate it with such info to show it.
-    */
+     */
     readonly booleanActivityOptions: {
         [key: number]: boolean;
     };

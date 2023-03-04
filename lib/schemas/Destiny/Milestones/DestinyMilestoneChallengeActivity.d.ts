@@ -27,7 +27,7 @@ export interface DestinyMilestoneChallengeActivity {
      * than this being referred to: those are all *possible* modifiers for the activity,
      * not the active ones. Use only the active ones to match what's really live.
      * Mapped to DestinyActivityModifierDefinition in the manifest.
-    */
+     */
     readonly modifierHashes: number[];
     /**
      * The set of activity options for this activity, keyed by an identifier that's
@@ -47,20 +47,20 @@ export interface DestinyMilestoneChallengeActivity {
      * On our side, we don't necessarily even know what these are used for (the game
      * designers know, but we don't), and we have no human readable data for them. In
      * order to use them, you will have to do some experimentation.
-    */
+     */
     readonly booleanActivityOptions: {
         [key: number]: boolean;
     };
     /**
      * If returned, this is the index into the DestinyActivityDefinition's "loadouts"
      * property, indicating the currently active loadout requirements.
-    */
+     */
     readonly loadoutRequirementIndex?: number;
     /**
      * If the Activity has discrete "phases" that we can track, that info will be here.
      * Otherwise, this value will be NULL. Note that this is a list and not a
      * dictionary: the order implies the ascending order of phases or progression in
      * this activity.
-    */
+     */
     readonly phases?: DestinyMilestoneActivityPhase[];
 }

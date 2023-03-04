@@ -18,7 +18,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * This lets us more flexibly pass up information that's useful to someone, even if
  * it's not necessarily us.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneValueDefinition}
-*/
+ */
 export interface DestinyMilestoneValueDefinition {
     readonly key: string;
     readonly displayProperties: DestinyDisplayPropertiesDefinition;

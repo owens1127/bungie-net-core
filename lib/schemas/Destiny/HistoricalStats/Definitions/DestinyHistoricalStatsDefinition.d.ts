@@ -46,6 +46,6 @@ export interface DestinyHistoricalStatsDefinition {
     /**
      * The tier associated with this medal - be it implicitly or explicitly. Mapped to
      * DestinyMedalTierDefinition in the manifest.
-    */
+     */
     readonly medalTierHash?: number;
 }

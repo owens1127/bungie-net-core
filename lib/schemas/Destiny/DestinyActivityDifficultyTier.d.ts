@@ -14,7 +14,7 @@
  * An enumeration representing the potential difficulty levels of an activity.
  * Their names are... more qualitative than quantitative.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivityDifficultyTier}
-*/
+ */
 export declare enum DestinyActivityDifficultyTier {
     Trivial = 0,
     Easy = 1,

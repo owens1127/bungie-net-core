@@ -19,12 +19,12 @@ export declare type GetMyClanFireteamsParams = {
     /**
      * If true, filter by clan. Otherwise, ignore the clan and show all of the user's
      * fireteams.
-    */
+     */
     groupFilter?: boolean;
     /**
      * The group id of the clan. (This parameter is ignored unless the optional query
      * parameter groupFilter is true).
-    */
+     */
     groupId: string;
     /** If true, return fireteams that have been closed. */
     includeClosed: boolean;
@@ -39,5 +39,8 @@ export declare type GetMyClanFireteamsParams = {
  * Gets a listing of all fireteams that caller is an applicant, a member, or an
  * alternate of.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
-*/
-export declare function getMyClanFireteams(this: InstancedImport | AccessTokenObject | void, params: GetMyClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;
+ */
+export declare function getMyClanFireteams(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetMyClanFireteamsParams
+): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;

@@ -20,12 +20,12 @@ import { DestinyStat } from '../../DestinyStat';
  * instance, Magazine Size - and thus these stats might not be 100% accurate
  * compared to what you see in-game for some stats. I know, it sucks. I hate it too.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemStatsComponent}
-*/
+ */
 export interface DestinyItemStatsComponent {
     /**
      * If the item has stats that it provides (damage, defense, etc...), it will be
      * given here. Mapped to DestinyStatDefinition in the manifest.
-    */
+     */
     readonly stats: {
         [key: number]: DestinyStat;
     };

@@ -29,16 +29,16 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * overriding Stat Group. Other items will still show the default stat's name/
  * description.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyStatOverrideDefinition}
-*/
+ */
 export interface DestinyStatOverrideDefinition {
     /**
      * The hash identifier of the stat whose display properties are being overridden.
      * Mapped to DestinyStatDefinition in the manifest.
-    */
+     */
     readonly statHash: number;
     /**
      * The display properties to show instead of the base DestinyStatDefinition display
      * properties.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
 }

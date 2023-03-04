@@ -15,6 +15,6 @@ export interface DestinyArtifactTierItemDefinition {
     /**
      * The identifier of the Plug Item unlocked by activating this item in the Artifact.
      * Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly itemHash: number;
 }

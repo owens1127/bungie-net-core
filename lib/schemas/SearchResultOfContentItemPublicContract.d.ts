@@ -30,6 +30,6 @@ export interface SearchResultOfContentItemPublicContract {
      * total results. Those queries toasted our database, and we were left to hastily
      * alter our endpoints and create backward- compatible shims, of which
      * useTotalResults is one.
-    */
+     */
     readonly useTotalResults: boolean;
 }

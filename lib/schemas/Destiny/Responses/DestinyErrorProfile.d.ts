@@ -20,16 +20,16 @@ import { UserInfoCard } from '../../User/UserInfoCard';
  * Assume that the most you'll get is the Error Code, the Membership Type and the
  * Membership ID.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyErrorProfile}
-*/
+ */
 export interface DestinyErrorProfile {
     /**
      * The error that we encountered. You should be able to look up localized text to
      * show to the user for these failures.
-    */
+     */
     readonly errorCode: PlatformErrorCodes;
     /**
      * Basic info about the account that failed. Don't expect anything other than
      * membership ID, Membership Type, and displayName to be populated.
-    */
+     */
     readonly infoCard: UserInfoCard;
 }

@@ -21,7 +21,7 @@ export declare type GetItemParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
     /** The membership ID of the destiny profile. */
     destinyMembershipId: string;
@@ -35,5 +35,8 @@ export declare type GetItemParams = {
  * one with an ItemInstanceId. Non-instanced items, such as materials, have no
  * useful instance-specific details and thus are not queryable here.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetItem}
-*/
-export declare function getItem(this: InstancedImport | AccessTokenObject | void, params: GetItemParams): Promise<BungieNetResponse<DestinyItemResponse>>;
+ */
+export declare function getItem(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetItemParams
+): Promise<BungieNetResponse<DestinyItemResponse>>;

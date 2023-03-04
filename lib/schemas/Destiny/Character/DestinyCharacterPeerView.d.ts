@@ -15,7 +15,7 @@ import { DestinyItemPeerView } from './DestinyItemPeerView';
  * A minimal view of a character's equipped items, for the purpose of rendering a
  * summary screen or showing the character in 3D.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Character.DestinyCharacterPeerView}
-*/
+ */
 export interface DestinyCharacterPeerView {
     readonly equipment: DestinyItemPeerView[];
 }

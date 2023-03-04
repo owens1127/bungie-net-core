@@ -26,5 +26,8 @@ export declare type GetMembershipDataByIdParams = {
  * membership type. This will include all linked accounts (even when hidden) if
  * supplied credentials permit it.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataById}
-*/
-export declare function getMembershipDataById(this: InstancedImport | AccessTokenObject | void, params: GetMembershipDataByIdParams): Promise<BungieNetResponse<UserMembershipData>>;
+ */
+export declare function getMembershipDataById(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetMembershipDataByIdParams
+): Promise<BungieNetResponse<UserMembershipData>>;

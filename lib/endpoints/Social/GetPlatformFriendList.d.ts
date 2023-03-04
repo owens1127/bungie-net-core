@@ -25,5 +25,8 @@ export declare type GetPlatformFriendListParams = {
  * Gets the platform friend of the requested type, with additional information if
  * they have Bungie accounts. Must have a recent login session with said platform.
  * @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList}
-*/
-export declare function getPlatformFriendList(this: InstancedImport | AccessTokenObject | void, params: GetPlatformFriendListParams): Promise<BungieNetResponse<PlatformFriendResponse>>;
+ */
+export declare function getPlatformFriendList(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPlatformFriendListParams
+): Promise<BungieNetResponse<PlatformFriendResponse>>;

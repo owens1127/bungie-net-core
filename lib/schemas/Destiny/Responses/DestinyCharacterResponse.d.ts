@@ -28,56 +28,56 @@ import { SingleComponentResponseOfDestinyCurrenciesComponent } from '../../Singl
  * The response contract for GetDestinyCharacter, with components that can be
  * returned for character and item-level data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCharacterResponse}
-*/
+ */
 export interface DestinyCharacterResponse {
     /**
      * The character-level non-equipped inventory items.
      *
      * COMPONENT TYPE: CharacterInventories
-    */
+     */
     readonly inventory: SingleComponentResponseOfDestinyInventoryComponent;
     /**
      * Base information about the character in question.
      *
      * COMPONENT TYPE: Characters
-    */
+     */
     readonly character: SingleComponentResponseOfDestinyCharacterComponent;
     /**
      * Character progression data, including Milestones.
      *
      * COMPONENT TYPE: CharacterProgressions
-    */
+     */
     readonly progressions: SingleComponentResponseOfDestinyCharacterProgressionComponent;
     /**
      * Character rendering data - a minimal set of information about equipment and dyes
      * used for rendering.
      *
      * COMPONENT TYPE: CharacterRenderData
-    */
+     */
     readonly renderData: SingleComponentResponseOfDestinyCharacterRenderComponent;
     /**
      * Activity data - info about current activities available to the player.
      *
      * COMPONENT TYPE: CharacterActivities
-    */
+     */
     readonly activities: SingleComponentResponseOfDestinyCharacterActivitiesComponent;
     /**
      * Equipped items on the character.
      *
      * COMPONENT TYPE: CharacterEquipment
-    */
+     */
     readonly equipment: SingleComponentResponseOfDestinyInventoryComponent;
     /**
      * The loadouts available to the character.
      *
      * COMPONENT TYPE: CharacterLoadouts
-    */
+     */
     readonly loadouts: SingleComponentResponseOfDestinyLoadoutsComponent;
     /**
      * Items available from Kiosks that are available to this specific character.
      *
      * COMPONENT TYPE: Kiosks
-    */
+     */
     readonly kiosks: SingleComponentResponseOfDestinyKiosksComponent;
     /**
      * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
@@ -88,7 +88,7 @@ export interface DestinyCharacterResponse {
      * sockets on requested items.
      *
      * COMPONENT TYPE: ItemSockets
-    */
+     */
     readonly plugSets: SingleComponentResponseOfDestinyPlugSetsComponent;
     /** COMPONENT TYPE: PresentationNodes */
     readonly presentationNodes: SingleComponentResponseOfDestinyPresentationNodesComponent;
@@ -101,7 +101,7 @@ export interface DestinyCharacterResponse {
      *
      * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
      * types.]
-    */
+     */
     readonly itemComponents: DestinyItemComponentSetOfint64;
     /**
      * The set of components belonging to the player's UNinstanced items. Because
@@ -109,13 +109,13 @@ export interface DestinyCharacterResponse {
      *
      * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
      * types.]
-    */
+     */
     readonly uninstancedItemComponents: DestinyBaseItemComponentSetOfuint32;
     /**
      * A "lookup" convenience component that can be used to quickly check if the
      * character has access to items that can be used for purchasing.
      *
      * COMPONENT TYPE: CurrencyLookups
-    */
+     */
     readonly currencyLookups: SingleComponentResponseOfDestinyCurrenciesComponent;
 }

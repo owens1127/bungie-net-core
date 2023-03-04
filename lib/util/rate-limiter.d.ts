@@ -5,5 +5,8 @@ export declare type FetchConfig = {
     params?: {};
     body?: {};
 };
-export declare function rateLimitedRequest<T>(access_token: string | undefined, config: FetchConfig): Promise<BungieNetResponse<T>>;
+export declare function rateLimitedRequest<T>(
+    access_token: string | undefined,
+    config: FetchConfig
+): Promise<BungieNetResponse<T>>;
 export declare function manifestRequest(config: FetchConfig): Promise<any>;

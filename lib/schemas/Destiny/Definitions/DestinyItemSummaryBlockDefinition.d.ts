@@ -14,11 +14,11 @@
  * This appears to be information used when rendering rewards. We don't currently
  * use it on BNet.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSummaryBlockDefinition}
-*/
+ */
 export interface DestinyItemSummaryBlockDefinition {
     /**
      * Apparently when rendering an item in a reward, this should be used as a sort
      * priority. We're not doing it presently.
-    */
+     */
     readonly sortPriority: number;
 }

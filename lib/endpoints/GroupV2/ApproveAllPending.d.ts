@@ -22,5 +22,9 @@ export declare type ApproveAllPendingParams = {
 /**
  * Approve all of the pending users for the given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending}
-*/
-export declare function approveAllPending(this: InstancedImport | AccessTokenObject | void, params: ApproveAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+ */
+export declare function approveAllPending(
+    this: InstancedImport | AccessTokenObject | void,
+    params: ApproveAllPendingParams,
+    body: GroupApplicationRequest
+): Promise<BungieNetResponse<EntityActionResult[]>>;

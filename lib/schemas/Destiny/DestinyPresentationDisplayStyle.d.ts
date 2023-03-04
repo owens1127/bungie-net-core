@@ -14,7 +14,7 @@
  * A hint for how the presentation node should be displayed when shown in a list.
  * How you use this is your UI is up to you.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPresentationDisplayStyle}
-*/
+ */
 export declare enum DestinyPresentationDisplayStyle {
     /** Display the item as a category, through which sub-items are filtered. */
     Category = 0,

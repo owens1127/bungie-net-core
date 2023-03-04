@@ -17,7 +17,7 @@ import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons';
  * etc. Note that this can change quickly, so it may not actually be useful. But
  * perhaps it will be in some use cases?
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryJoinability}
-*/
+ */
 export interface DestinyProfileTransitoryJoinability {
     /** The number of slots still available on this person's fireteam. */
     readonly openSlots: number;
@@ -26,6 +26,6 @@ export interface DestinyProfileTransitoryJoinability {
     /**
      * Reasons why a person can't join this person's fireteam. This enum represents a
      * set of flags - use bitwise operators to check which of these match your value.
-    */
+     */
     readonly closedReasons: DestinyJoinClosedReasons;
 }

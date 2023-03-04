@@ -14,7 +14,7 @@
  * Defines a 'power cap' (limit) for gear items, based on the rarity tier and
  * season of release.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.PowerCaps.DestinyPowerCapDefinition}
-*/
+ */
 export interface DestinyPowerCapDefinition {
     /** The raw value for a power cap. */
     readonly powerCap: number;
@@ -24,13 +24,13 @@ export interface DestinyPowerCapDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

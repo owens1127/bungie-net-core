@@ -15,17 +15,17 @@
  * useful for situations where the weapon needs to have a visual plug/Mod on it,
  * but that plug/Mod should never change.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemIntrinsicSocketEntryDefinition}
-*/
+ */
 export interface DestinyItemIntrinsicSocketEntryDefinition {
     /**
      * Indicates the plug that is intrinsically inserted into this socket. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly plugItemHash: number;
     /**
      * Indicates the type of this intrinsic socket. Mapped to
      * DestinySocketTypeDefinition in the manifest.
-    */
+     */
     readonly socketTypeHash: number;
     /**
      * If true, then this socket is visible in the item's "default" state. If you have
@@ -34,6 +34,6 @@ export interface DestinyItemIntrinsicSocketEntryDefinition {
      * this property can be useful for hiding data such as legacy sockets - which
      * remain defined on items for infrastructure purposes, but can be confusing for
      * users to see.
-    */
+     */
     readonly defaultVisible: boolean;
 }

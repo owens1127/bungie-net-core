@@ -14,7 +14,7 @@
  * Represents the possible and known UI styles used by the game for rendering
  * Socket Categories.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinySocketCategoryStyle}
-*/
+ */
 export declare enum DestinySocketCategoryStyle {
     Unknown = 0,
     Reusable = 1,

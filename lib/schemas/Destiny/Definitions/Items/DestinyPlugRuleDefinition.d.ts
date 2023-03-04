@@ -17,7 +17,7 @@
  * then look up that index in the appropriate property (enabledRules or
  * insertionRules) to get the localized string for the failure message if it failed.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyPlugRuleDefinition}
-*/
+ */
 export interface DestinyPlugRuleDefinition {
     /** The localized string to show if this rule fails. */
     readonly failureMessage: string;

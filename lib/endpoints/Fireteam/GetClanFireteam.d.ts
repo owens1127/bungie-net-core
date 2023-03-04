@@ -23,5 +23,8 @@ export declare type GetClanFireteamParams = {
 /**
  * Gets a specific fireteam.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
-*/
-export declare function getClanFireteam(this: InstancedImport | AccessTokenObject | void, params: GetClanFireteamParams): Promise<BungieNetResponse<FireteamResponse>>;
+ */
+export declare function getClanFireteam(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetClanFireteamParams
+): Promise<BungieNetResponse<FireteamResponse>>;

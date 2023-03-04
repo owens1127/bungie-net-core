@@ -23,5 +23,8 @@ export declare type SearchByGlobalNamePrefixParams = {
 /**
  * [OBSOLETE] Do not use this to search users, use SearchByGlobalNamePost instead.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix}
-*/
-export declare function searchByGlobalNamePrefix(this: InstancedImport | AccessTokenObject | void, params: SearchByGlobalNamePrefixParams): Promise<BungieNetResponse<UserSearchResponse>>;
+ */
+export declare function searchByGlobalNamePrefix(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchByGlobalNamePrefixParams
+): Promise<BungieNetResponse<UserSearchResponse>>;

@@ -19,7 +19,7 @@ import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrde
  * categorized entirely separately from "Display Categories", there need be and
  * often will be no meaningful relationship between the two.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDisplayCategoryDefinition}
-*/
+ */
 export interface DestinyDisplayCategoryDefinition {
     readonly index: number;
     /** A string identifier for the display category. */
@@ -29,7 +29,7 @@ export interface DestinyDisplayCategoryDefinition {
     /**
      * If true, this category should be displayed in the "Banner" section of the vendor'
      * s UI.
-    */
+     */
     readonly displayInBanner: boolean;
     /**
      * If it exists, this is the hash identifier of a DestinyProgressionDefinition that
@@ -37,7 +37,7 @@ export interface DestinyDisplayCategoryDefinition {
      *
      * Specific categories can now have thier own distinct progression, apparently. So
      * that's cool. Mapped to DestinyProgressionDefinition in the manifest.
-    */
+     */
     readonly progressionHash?: number;
     /** If this category sorts items in a nonstandard way, this will be the way we sort. */
     readonly sortOrder: VendorDisplayCategorySortOrder;
@@ -45,12 +45,12 @@ export interface DestinyDisplayCategoryDefinition {
      * An indicator of how the category will be displayed in the UI. It's up to you to
      * do something cool or interesting in response to this, or just to treat it as a
      * normal category.
-    */
+     */
     readonly displayStyleHash?: number;
     /**
      * An indicator of how the category will be displayed in the UI. It's up to you to
      * do something cool or interesting in response to this, or just to treat it as a
      * normal category.
-    */
+     */
     readonly displayStyleIdentifier: string;
 }

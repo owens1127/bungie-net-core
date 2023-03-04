@@ -16,18 +16,18 @@
  * on the item that has a type matching the given socket type, inserting the
  * indicated plug item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyNodeSocketReplaceResponse}
-*/
+ */
 export interface DestinyNodeSocketReplaceResponse {
     /**
      * The hash identifier of the socket type to find amidst the item's sockets (the
      * item to which this talent grid is attached). See DestinyInventoryItemDefinition.
      * sockets.socketEntries to find the socket type of sockets on the item in question.
      * Mapped to DestinySocketTypeDefinition in the manifest.
-    */
+     */
     readonly socketTypeHash: number;
     /**
      * The hash identifier of the plug item that will be inserted into the socket found.
      * Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly plugItemHash: number;
 }

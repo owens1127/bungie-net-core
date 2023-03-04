@@ -24,16 +24,16 @@ import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition';
  * summarize that info here so that you don't have to do that Vendor lookup and
  * aggregation manually.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyDerivedItemCategoryDefinition}
-*/
+ */
 export interface DestinyDerivedItemCategoryDefinition {
     /**
      * The localized string for the category title. This will be something describing
      * the items you can get as a group, or your likelihood/the quantity you'll get.
-    */
+     */
     readonly categoryDescription: string;
     /**
      * This is the list of all of the items for this category and the basic properties
      * we'll know about them.
-    */
+     */
     readonly items: DestinyDerivedItemDefinition[];
 }

@@ -14,7 +14,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepImpactEffects}
-*/
+ */
 export declare enum DestinyTalentNodeStepImpactEffects {
     None = 0,
     ArmorPiercing = 1,

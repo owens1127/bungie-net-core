@@ -14,7 +14,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Ignores.IgnoreStatus}
-*/
+ */
 export declare enum IgnoreStatus {
     NotIgnored = 0,
     IgnoredUser = 1,

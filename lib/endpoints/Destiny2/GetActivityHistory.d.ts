@@ -29,7 +29,7 @@ export declare type GetActivityHistoryParams = {
      * A filter for the activity mode to be returned. None returns all activities. See
      * the documentation for DestinyActivityModeType for valid values, and pass in
      * string representation.
-    */
+     */
     mode?: DestinyActivityModeType;
     /** Page number to return, starting with 0. */
     page?: number;
@@ -37,5 +37,8 @@ export declare type GetActivityHistoryParams = {
 /**
  * Gets activity history stats for indicated character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetActivityHistory}
-*/
-export declare function getActivityHistory(this: InstancedImport | AccessTokenObject | void, params: GetActivityHistoryParams): Promise<BungieNetResponse<DestinyActivityHistoryResults>>;
+ */
+export declare function getActivityHistory(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetActivityHistoryParams
+): Promise<BungieNetResponse<DestinyActivityHistoryResults>>;

@@ -17,7 +17,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyJoinClosedReasons}
-*/
+ */
 export declare enum DestinyJoinClosedReasons {
     None = 0,
     /** The user is currently in matchmaking. */
@@ -30,12 +30,12 @@ export declare enum DestinyJoinClosedReasons {
      * The user can't be joined for one of a variety of internal reasons. Basically,
      * the game can't let you join at this time, but for reasons that aren't under the
      * control of this user.
-    */
+     */
     InternalReasons = 8,
     /**
      * The user's current activity/quest/other transitory game state is preventing
      * joining.
-    */
+     */
     DisallowedByGameState = 16,
     /** The user appears to be offline. */
     Offline = 32768

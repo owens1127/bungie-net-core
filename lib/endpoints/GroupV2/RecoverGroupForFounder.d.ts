@@ -28,5 +28,8 @@ export declare type RecoverGroupForFounderParams = {
  * Allows a founder to manually recover a group they can see in game but not on
  * bungie.net
  * @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder}
-*/
-export declare function recoverGroupForFounder(this: InstancedImport | AccessTokenObject | void, params: RecoverGroupForFounderParams): Promise<BungieNetResponse<GroupMembershipSearchResponse>>;
+ */
+export declare function recoverGroupForFounder(
+    this: InstancedImport | AccessTokenObject | void,
+    params: RecoverGroupForFounderParams
+): Promise<BungieNetResponse<GroupMembershipSearchResponse>>;

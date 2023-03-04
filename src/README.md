@@ -32,7 +32,7 @@ If you want to make a simple query without a client, you can do directly import 
 import { BungieMembershipType, DestinyActivityModeType } from 'oodestiny/schemas'
 import { getActivityHistory } from 'oodestiny/endpoints/Destiny2';
 
-const res = getActivityHistory({
+const res = await getActivityHistory({
     characterId: "2305843009468984093",
     count: 1,
     destinyMembershipId: "4611686018488107374",
@@ -40,13 +40,9 @@ const res = getActivityHistory({
     mode: DestinyActivityModeType.Raid,
     page: 0
 })
-    .then(console.log)
-    .catch(console.error)
 
 // you could also bind an acccess_token to the call
-const res = getActivityHistory.bind({ access_token: "nads7yfdafnd" })({ ... })
-    .then(console.log)
-    .catch(console.error)
+const res = await getActivityHistory.bind({ access_token: "nads7yfdafnd" })({ ... })
 
 ```
 Of course, to access the full potential of the API, you will need OAuth access.

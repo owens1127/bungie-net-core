@@ -22,5 +22,8 @@ export declare type GetGlobalAlertsParams = {
  * Gets any active global alert for display in the forum banners, help pages, etc.
  * Usually used for DOC alerts.
  * @see {@link https://bungie-net.github.io/#.GetGlobalAlerts}
-*/
-export declare function getGlobalAlerts(this: InstancedImport | AccessTokenObject | void, params: GetGlobalAlertsParams): Promise<BungieNetResponse<GlobalAlert[]>>;
+ */
+export declare function getGlobalAlerts(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetGlobalAlertsParams
+): Promise<BungieNetResponse<GlobalAlert[]>>;

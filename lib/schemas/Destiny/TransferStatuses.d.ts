@@ -16,7 +16,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.TransferStatuses}
-*/
+ */
 export declare enum TransferStatuses {
     /** The item can be transferred. */
     CanTransfer = 0,
@@ -25,11 +25,11 @@ export declare enum TransferStatuses {
     /**
      * The item is defined as not transferrable in its DestinyInventoryItemDefinition.
      * nonTransferrable property.
-    */
+     */
     NotTransferrable = 2,
     /**
      * You could transfer the item, but the place you're trying to put it has run out
      * of room! Check your remaining Vault and/or character space.
-    */
+     */
     NoRoomInDestination = 4
 }

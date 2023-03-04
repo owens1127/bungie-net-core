@@ -16,13 +16,13 @@ export interface DestinyCraftablesComponent {
     /**
      * A map of craftable item hashes to craftable item state components. Mapped to
      * DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly craftables: {
         [key: number]: DestinyCraftableComponent;
     };
     /**
      * The hash for the root presentation node definition of craftable item categories.
      * Mapped to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly craftingRootNodeHash: number;
 }

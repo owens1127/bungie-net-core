@@ -14,7 +14,7 @@
  * Represents the different kinds of acquisition behavior for progression reward
  * items.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionRewardItemAcquisitionBehavior}
-*/
+ */
 export declare enum DestinyProgressionRewardItemAcquisitionBehavior {
     Instant = 0,
     PlayerClaimRequired = 1

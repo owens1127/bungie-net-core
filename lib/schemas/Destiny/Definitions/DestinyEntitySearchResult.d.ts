@@ -15,17 +15,17 @@ import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultO
  * The results of a search for Destiny content. This will be improved on over time,
  * I've been doing some experimenting to see what might be useful.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyEntitySearchResult}
-*/
+ */
 export interface DestinyEntitySearchResult {
     /**
      * A list of suggested words that might make for better search results, based on
      * the text searched for.
-    */
+     */
     readonly suggestedWords: string[];
     /**
      * The items found that are matches/near matches for the searched-for term, sorted
      * by something vaguely resembling "relevance". Hopefully this will get better in
      * the future.
-    */
+     */
     readonly results: SearchResultOfDestinyEntitySearchResultItem;
 }

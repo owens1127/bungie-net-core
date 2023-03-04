@@ -13,7 +13,7 @@
 /**
  * Represents a variant of an activity that's relevant to a milestone.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneActivityVariant}
-*/
+ */
 export interface DestinyPublicMilestoneActivityVariant {
     /**
      * The hash identifier of this activity variant. Examine the activity's definition
@@ -21,7 +21,7 @@ export interface DestinyPublicMilestoneActivityVariant {
      * it will be difficulty level or whether or not it is a guided game variant of the
      * activity, but theoretically it could be distinguished in any arbitrary way.
      * Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash: number;
     /**
      * The hash identifier of the most specific Activity Mode under which this activity
@@ -29,11 +29,11 @@ export interface DestinyPublicMilestoneActivityVariant {
      * instance - a PVP map, but it's not clear what mode the PVP map is being played
      * under. If it's a playlist, this will be less specific: but hopefully useful in
      * some way. Mapped to DestinyActivityModeDefinition in the manifest.
-    */
+     */
     readonly activityModeHash?: number;
     /**
      * The enumeration equivalent of the most specific Activity Mode under which this
      * activity is played.
-    */
+     */
     readonly activityModeType?: number;
 }

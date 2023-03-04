@@ -21,7 +21,7 @@ export declare type GetClanAggregateStatsParams = {
      * List of game modes for which to get leaderboards. See the documentation for
      * DestinyActivityModeType for valid values, and pass in string representation,
      * comma delimited.
-    */
+     */
     modes?: string;
 };
 /**
@@ -30,5 +30,8 @@ export declare type GetClanAggregateStatsParams = {
  * edges. The schema is in final form, but there may be bugs that prevent desirable
  * operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
-*/
-export declare function getClanAggregateStats(this: InstancedImport | AccessTokenObject | void, params: GetClanAggregateStatsParams): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;
+ */
+export declare function getClanAggregateStats(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetClanAggregateStatsParams
+): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;

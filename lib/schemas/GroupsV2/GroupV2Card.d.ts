@@ -18,7 +18,7 @@ import { GroupV2ClanInfo } from './GroupV2ClanInfo';
  * A small infocard of group information, usually used for when a list of groups
  * are returned
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2Card}
-*/
+ */
 export interface GroupV2Card {
     readonly groupId: string;
     readonly name: string;
@@ -32,7 +32,7 @@ export interface GroupV2Card {
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly capabilities: Capabilities;
     readonly clanInfo: GroupV2ClanInfo;
     readonly avatarPath: string;

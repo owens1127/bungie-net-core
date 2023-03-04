@@ -21,7 +21,7 @@
  * character. * Item = don't aggregate: the stat should be located and used
  * directly on the item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyStatAggregationType}
-*/
+ */
 export declare enum DestinyStatAggregationType {
     CharacterAverage = 0,
     Character = 1,

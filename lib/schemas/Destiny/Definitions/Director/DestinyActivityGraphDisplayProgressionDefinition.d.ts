@@ -14,7 +14,7 @@
  * When a Graph needs to show active Progressions, this defines those objectives as
  * well as an identifier.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphDisplayProgressionDefinition}
-*/
+ */
 export interface DestinyActivityGraphDisplayProgressionDefinition {
     readonly id: number;
     readonly progressionHash: number;

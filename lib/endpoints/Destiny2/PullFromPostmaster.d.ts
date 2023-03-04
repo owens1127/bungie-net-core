@@ -20,5 +20,8 @@ import { DestinyPostmasterTransferRequest } from '../../schemas/index.js';
  *
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.PullFromPostmaster}
-*/
-export declare function pullFromPostmaster(this: InstancedImport | AccessTokenObject | void, body: DestinyPostmasterTransferRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function pullFromPostmaster(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyPostmasterTransferRequest
+): Promise<BungieNetResponse<number>>;

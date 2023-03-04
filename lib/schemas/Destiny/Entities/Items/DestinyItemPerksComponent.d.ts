@@ -21,11 +21,11 @@ import { DestinyPerkReference } from '../../Perks/DestinyPerkReference';
  * Talent Grids, Sockets, and the item itself can apply Perks, which are then
  * summarized here for your convenience.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemPerksComponent}
-*/
+ */
 export interface DestinyItemPerksComponent {
     /**
      * The list of perks to display in an item tooltip - and whether or not they have
      * been activated.
-    */
+     */
     readonly perks: DestinyPerkReference[];
 }

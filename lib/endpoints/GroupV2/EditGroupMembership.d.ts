@@ -29,5 +29,8 @@ export declare type EditGroupMembershipParams = {
  * Edit the membership type of a given member. You must have suitable permissions
  * in the group to perform this operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership}
-*/
-export declare function editGroupMembership(this: InstancedImport | AccessTokenObject | void, params: EditGroupMembershipParams): Promise<BungieNetResponse<number>>;
+ */
+export declare function editGroupMembership(
+    this: InstancedImport | AccessTokenObject | void,
+    params: EditGroupMembershipParams
+): Promise<BungieNetResponse<number>>;

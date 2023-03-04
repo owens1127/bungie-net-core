@@ -17,7 +17,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  *
  * DEPRECATED - Just use bubbles.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDestinationBubbleSettingDefinition}
-*/
+ */
 export interface DestinyDestinationBubbleSettingDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
 }

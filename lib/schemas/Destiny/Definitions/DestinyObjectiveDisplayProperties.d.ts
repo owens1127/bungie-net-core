@@ -15,7 +15,7 @@ export interface DestinyObjectiveDisplayProperties {
     /**
      * The activity associated with this objective in the context of this item, if any.
      * Mapped to DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash?: number;
     /** If true, the game shows this objective on item preview screens. */
     readonly displayOnItemPreviewScreen: boolean;

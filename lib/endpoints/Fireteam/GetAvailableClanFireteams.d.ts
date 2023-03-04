@@ -26,7 +26,7 @@ export declare type GetAvailableClanFireteamsParams = {
     /**
      * If you wish the result to exclude immediate fireteams, set this to true.
      * Immediate-only can be forced using the dateRange enum.
-    */
+     */
     excludeImmediate?: boolean;
     /** The group id of the clan. */
     groupId: string;
@@ -45,5 +45,8 @@ export declare type GetAvailableClanFireteamsParams = {
  * Gets a listing of all of this clan's fireteams that are have available slots.
  * Caller is not checked for join criteria so caching is maximized.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetAvailableClanFireteams}
-*/
-export declare function getAvailableClanFireteams(this: InstancedImport | AccessTokenObject | void, params: GetAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;
+ */
+export declare function getAvailableClanFireteams(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetAvailableClanFireteamsParams
+): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;

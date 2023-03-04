@@ -19,12 +19,15 @@ export declare type ApplyMissingPartnerOffersWithoutClaimParams = {
     /**
      * The bungie.net user to apply missing offers to. If not self, elevated
      * permissions are required.
-    */
+     */
     targetBnetMembershipId: string;
 };
 /**
  * Apply a partner offer to the targeted user. This endpoint does not claim a new
  * offer, but any already claimed offers will be applied to the game if not already.
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
-*/
-export declare function applyMissingPartnerOffersWithoutClaim(this: InstancedImport | AccessTokenObject | void, params: ApplyMissingPartnerOffersWithoutClaimParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function applyMissingPartnerOffersWithoutClaim(
+    this: InstancedImport | AccessTokenObject | void,
+    params: ApplyMissingPartnerOffersWithoutClaimParams
+): Promise<BungieNetResponse<boolean>>;

@@ -21,5 +21,8 @@ export declare type GetActivePrivateClanFireteamCountParams = {
  * Gets a count of all active non-public fireteams for the specified clan. Maximum
  * value returned is 25.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount}
-*/
-export declare function getActivePrivateClanFireteamCount(this: InstancedImport | AccessTokenObject | void, params: GetActivePrivateClanFireteamCountParams): Promise<BungieNetResponse<number>>;
+ */
+export declare function getActivePrivateClanFireteamCount(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetActivePrivateClanFireteamCountParams
+): Promise<BungieNetResponse<number>>;

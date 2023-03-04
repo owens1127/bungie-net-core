@@ -22,11 +22,11 @@ import { DestinyItemComponent } from '../Items/DestinyItemComponent';
  * the user's inventory slots, etc. See DestinyInventoryBucketDefinition for more
  * info.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Inventory.DestinyInventoryComponent}
-*/
+ */
 export interface DestinyInventoryComponent {
     /**
      * The items in this inventory. If you care to bucket them, use the item's
      * bucketHash property to group them.
-    */
+     */
     readonly items: DestinyItemComponent[];
 }

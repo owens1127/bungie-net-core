@@ -30,7 +30,7 @@ export interface DestinyItemPlugObjectivesComponent {
      * DestinyObjectiveDefinition's progressDescription property. Refer to the plug's
      * itemHash and objective property for more information if you would like to
      * display even more data. Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly objectivesPerPlug: {
         [key: number]: DestinyObjectiveProgress[];
     };

@@ -18,5 +18,8 @@ import { DestinyLoadoutUpdateActionRequest } from '../../schemas/index.js';
  *
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SnapshotLoadout}
-*/
-export declare function snapshotLoadout(this: InstancedImport | AccessTokenObject | void, body: DestinyLoadoutUpdateActionRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function snapshotLoadout(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyLoadoutUpdateActionRequest
+): Promise<BungieNetResponse<number>>;

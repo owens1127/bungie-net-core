@@ -17,7 +17,11 @@ import { CoreSystem } from '../../schemas/index.js';
  * Get the user-specific system overrides that should be respected alongside common
  * systems.
  * @see {@link https://bungie-net.github.io/#.GetUserSystemOverrides}
-*/
-export declare function getUserSystemOverrides(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: string]: CoreSystem;
-}>>;
+ */
+export declare function getUserSystemOverrides(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: string]: CoreSystem;
+    }>
+>;

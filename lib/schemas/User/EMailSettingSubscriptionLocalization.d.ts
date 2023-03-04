@@ -14,7 +14,7 @@
  * Localized text relevant to a given EMail setting in a given localization. Extra
  * settings specifically for subscriptions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EMailSettingSubscriptionLocalization}
-*/
+ */
 export interface EMailSettingSubscriptionLocalization {
     readonly unknownUserDescription: string;
     readonly registeredUserDescription: string;

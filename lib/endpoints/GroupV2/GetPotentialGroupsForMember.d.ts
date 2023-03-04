@@ -31,5 +31,8 @@ export declare type GetPotentialGroupsForMemberParams = {
  * Get information about the groups that a given member has applied to or been
  * invited to.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
-*/
-export declare function getPotentialGroupsForMember(this: InstancedImport | AccessTokenObject | void, params: GetPotentialGroupsForMemberParams): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;
+ */
+export declare function getPotentialGroupsForMember(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPotentialGroupsForMemberParams
+): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;

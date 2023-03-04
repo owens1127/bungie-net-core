@@ -15,7 +15,11 @@ import { InstancedImport, AccessTokenObject } from '../../util/client.js';
 /**
  * Returns a list of all available group avatars for the signed-in user.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableAvatars}
-*/
-export declare function getAvailableAvatars(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: number]: string;
-}>>;
+ */
+export declare function getAvailableAvatars(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: number]: string;
+    }>
+>;

@@ -15,13 +15,13 @@
  * information related to its sack status, mostly UI strings. Engrams are an
  * example of items that are considered to be "Sacks".
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSackBlockDefinition}
-*/
+ */
 export interface DestinyItemSackBlockDefinition {
     /**
      * A description of what will happen when you open the sack. As far as I can tell,
      * this is blank currently. Unknown whether it will eventually be populated with
      * useful info.
-    */
+     */
     readonly detailAction: string;
     /** The localized name of the action being performed when you open the sack. */
     readonly openAction: string;

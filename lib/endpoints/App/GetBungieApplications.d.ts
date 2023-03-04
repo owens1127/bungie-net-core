@@ -16,5 +16,7 @@ import { Application } from '../../schemas/index.js';
 /**
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
-*/
-export declare function getBungieApplications(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<Application[]>>;
+ */
+export declare function getBungieApplications(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<BungieNetResponse<Application[]>>;

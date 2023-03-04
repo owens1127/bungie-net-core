@@ -13,11 +13,11 @@
 /**
  * The definition of a known, reusable plug that can be applied to a socket.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketEntryPlugItemDefinition}
-*/
+ */
 export interface DestinyItemSocketEntryPlugItemDefinition {
     /**
      * The hash identifier of a DestinyInventoryItemDefinition representing the plug
      * that can be inserted. Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly plugItemHash: number;
 }

@@ -19,7 +19,7 @@ export interface DestinyInsertPlugsActionRequest {
     /**
      * The instance ID of the item having a plug inserted. Only instanced items can
      * have sockets.
-    */
+     */
     readonly itemInstanceId: string;
     /** The plugs being inserted. */
     readonly plug: DestinyInsertPlugsRequestEntry;

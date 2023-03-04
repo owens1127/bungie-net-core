@@ -15,14 +15,14 @@ import { DestinyItemSortType } from '../DestinyItemSortType';
  * Information about a single inventory bucket in a vendor flyout UI and how it is
  * shown.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInventoryFlyoutBucketDefinition}
-*/
+ */
 export interface DestinyVendorInventoryFlyoutBucketDefinition {
     /** If true, the inventory bucket should be able to be collapsed visually. */
     readonly collapsible: boolean;
     /**
      * The inventory bucket whose contents should be shown. Mapped to
      * DestinyInventoryBucketDefinition in the manifest.
-    */
+     */
     readonly inventoryBucketHash: number;
     /** The methodology to use for sorting items from the flyout. */
     readonly sortItemsBy: DestinyItemSortType;

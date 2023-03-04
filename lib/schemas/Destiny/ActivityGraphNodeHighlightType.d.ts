@@ -17,7 +17,7 @@
  * have their own special highlight states. Don't ask me, I can't imagine they're
  * still used.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ActivityGraphNodeHighlightType}
-*/
+ */
 export declare enum ActivityGraphNodeHighlightType {
     None = 0,
     Normal = 1,

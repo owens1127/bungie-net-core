@@ -29,29 +29,29 @@ import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy';
  * looking at the DestinyInventoryItemDefinition's definition.inventory.
  * isInstanceItem property.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceComponent}
-*/
+ */
 export interface DestinyItemInstanceComponent {
     /** If the item has a damage type, this is the item's current damage type. */
     readonly damageType: DamageType;
     /**
      * The current damage type's hash, so you can look up localized info and icons for
      * it. Mapped to DestinyDamageTypeDefinition in the manifest.
-    */
+     */
     readonly damageTypeHash?: number;
     /**
      * The item stat that we consider to be "primary" for the item. For instance, this
      * would be "Attack" for Weapons or "Defense" for armor.
-    */
+     */
     readonly primaryStat: DestinyStat;
     /**
      * The Item's "Level" has the most significant bearing on its stats, such as Light
      * and Power.
-    */
+     */
     readonly itemLevel: number;
     /**
      * The "Quality" of the item has a lesser - but still impactful - bearing on stats
      * like Light and Power.
-    */
+     */
     readonly quality: number;
     /** Is the item currently equipped on the given character? */
     readonly isEquipped: boolean;
@@ -59,12 +59,12 @@ export interface DestinyItemInstanceComponent {
      * If this is an equippable item, you can check it here. There are permanent as
      * well as transitory reasons why an item might not be able to be equipped: check
      * cannotEquipReason for details.
-    */
+     */
     readonly canEquip: boolean;
     /**
      * If the item cannot be equipped until you reach a certain level, that level will
      * be reflected here.
-    */
+     */
     readonly equipRequiredLevel: number;
     /**
      * Sometimes, there are limitations to equipping that are represented by character-
@@ -74,7 +74,7 @@ export interface DestinyItemInstanceComponent {
      * character has not met. Use these to look up the descriptions to show in your UI
      * by looking up the relevant DestinyUnlockDefinitions for the hashes. Mapped to
      * DestinyUnlockDefinition in the manifest.
-    */
+     */
     readonly unlockHashesRequiredToEquip: number[];
     /**
      * If you cannot equip the item, this is a flags enum that enumerates all of the
@@ -82,23 +82,23 @@ export interface DestinyItemInstanceComponent {
      * by using unlockHashesRequiredToEquip and equipRequiredLevel. This enum
      * represents a set of flags - use bitwise operators to check which of these match
      * your value.
-    */
+     */
     readonly cannotEquipReason: EquipFailureReason;
     /**
      * If populated, this item has a breaker type corresponding to the given value. See
      * DestinyBreakerTypeDefinition for more details.
-    */
+     */
     readonly breakerType?: number;
     /**
      * If populated, this is the hash identifier for the item's breaker type. See
      * DestinyBreakerTypeDefinition for more details. Mapped to
      * DestinyBreakerTypeDefinition in the manifest.
-    */
+     */
     readonly breakerTypeHash?: number;
     /**
      * IF populated, this item supports Energy mechanics (i.e. Armor 2.0), and these
      * are the current details of its energy type and available capacity to spend
      * energy points.
-    */
+     */
     readonly energy: DestinyItemInstanceEnergy;
 }

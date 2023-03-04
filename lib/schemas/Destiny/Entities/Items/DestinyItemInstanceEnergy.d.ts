@@ -19,14 +19,14 @@ export interface DestinyItemInstanceEnergy {
      * This is a reference to the DestinyEnergyTypeDefinition for the energy type,
      * where you can find extended info about it. Mapped to DestinyEnergyTypeDefinition
      * in the manifest.
-    */
+     */
     readonly energyTypeHash: number;
     /** This is the enum version of the Energy Type value, for convenience. */
     readonly energyType: DestinyEnergyType;
     /**
      * The total capacity of Energy that the item currently has, regardless of if it is
      * currently being used.
-    */
+     */
     readonly energyCapacity: number;
     /** The amount of Energy currently in use by inserted plugs. */
     readonly energyUsed: number;

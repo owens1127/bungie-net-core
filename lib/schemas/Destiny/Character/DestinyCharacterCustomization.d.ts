@@ -21,7 +21,7 @@
  * icons. Others have nothing, and are only meant for 3D rendering purposes (which
  * we sadly do not expose yet)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Character.DestinyCharacterCustomization}
-*/
+ */
 export interface DestinyCharacterCustomization {
     readonly personality: number;
     readonly face: number;

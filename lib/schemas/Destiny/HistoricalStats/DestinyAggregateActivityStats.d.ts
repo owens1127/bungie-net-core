@@ -16,7 +16,7 @@ export interface DestinyAggregateActivityStats {
     /**
      * Hash ID that can be looked up in the DestinyActivityTable. Mapped to
      * DestinyActivityDefinition in the manifest.
-    */
+     */
     readonly activityHash: number;
     /** Collection of stats for the player in this activity. */
     readonly values: {

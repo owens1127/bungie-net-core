@@ -21,5 +21,8 @@ export declare type GetPublicMilestoneContentParams = {
 /**
  * Gets custom localized content for the milestone of the given hash, if it exists.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent}
-*/
-export declare function getPublicMilestoneContent(this: InstancedImport | AccessTokenObject | void, params: GetPublicMilestoneContentParams): Promise<BungieNetResponse<DestinyMilestoneContent>>;
+ */
+export declare function getPublicMilestoneContent(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPublicMilestoneContentParams
+): Promise<BungieNetResponse<DestinyMilestoneContent>>;

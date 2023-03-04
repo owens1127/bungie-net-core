@@ -24,5 +24,8 @@ export declare type GetPartnerRewardHistoryParams = {
  * Returns the partner rewards history of the targeted user, both partner offers
  * and Twitch drops.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
-*/
-export declare function getPartnerRewardHistory(this: InstancedImport | AccessTokenObject | void, params: GetPartnerRewardHistoryParams): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;
+ */
+export declare function getPartnerRewardHistory(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPartnerRewardHistoryParams
+): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;

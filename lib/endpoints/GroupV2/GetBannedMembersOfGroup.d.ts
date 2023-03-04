@@ -24,5 +24,8 @@ export declare type GetBannedMembersOfGroupParams = {
  * Get the list of banned members in a given group. Only accessible to group Admins
  * and above. Not applicable to all groups. Check group features.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
-*/
-export declare function getBannedMembersOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetBannedMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupBan>>;
+ */
+export declare function getBannedMembersOfGroup(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetBannedMembersOfGroupParams
+): Promise<BungieNetResponse<SearchResultOfGroupBan>>;

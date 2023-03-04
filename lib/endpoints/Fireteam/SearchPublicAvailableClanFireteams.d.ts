@@ -25,7 +25,7 @@ export declare type SearchPublicAvailableClanFireteamsParams = {
     /**
      * If you wish the result to exclude immediate fireteams, set this to true.
      * Immediate-only can be forced using the dateRange enum.
-    */
+     */
     excludeImmediate?: boolean;
     /** An optional language filter. */
     langFilter?: string;
@@ -40,5 +40,8 @@ export declare type SearchPublicAvailableClanFireteamsParams = {
  * Gets a listing of all public fireteams starting now with open slots. Caller is
  * not checked for join criteria so caching is maximized.
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
-*/
-export declare function searchPublicAvailableClanFireteams(this: InstancedImport | AccessTokenObject | void, params: SearchPublicAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;
+ */
+export declare function searchPublicAvailableClanFireteams(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchPublicAvailableClanFireteamsParams
+): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;

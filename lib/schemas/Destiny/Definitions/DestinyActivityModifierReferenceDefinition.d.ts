@@ -16,11 +16,11 @@
  *
  * This defines some
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityModifierReferenceDefinition}
-*/
+ */
 export interface DestinyActivityModifierReferenceDefinition {
     /**
      * The hash identifier for the DestinyActivityModifierDefinition referenced by this
      * activity. Mapped to DestinyActivityModifierDefinition in the manifest.
-    */
+     */
     readonly activityModifierHash: number;
 }

@@ -16,7 +16,7 @@ import { DestinyVendorReceipt } from '../../Vendors/DestinyVendorReceipt';
  * purchases that the user has made. In the future, it could be used for providing
  * refunds/buyback via the API. Wouldn't that be fun?
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Profiles.DestinyVendorReceiptsComponent}
-*/
+ */
 export interface DestinyVendorReceiptsComponent {
     /** The receipts for refundable purchases made at a vendor. */
     readonly receipts: DestinyVendorReceipt[];

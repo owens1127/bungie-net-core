@@ -15,7 +15,7 @@
  * about which nodes to link. It appears to lack more detailed information, such as
  * the path for that linking.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphConnectionDefinition}
-*/
+ */
 export interface DestinyActivityGraphConnectionDefinition {
     readonly sourceNodeHash: number;
     readonly destNodeHash: number;

@@ -23,11 +23,14 @@ export declare type SearchDestinyEntitiesParams = {
      * The type of entity for whom you would like results. These correspond to the
      * entity's definition contract name. For instance, if you are looking for items,
      * this property should be 'DestinyInventoryItemDefinition'.
-    */
+     */
     type: string;
 };
 /**
  * Gets a page list of Destiny items.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities}
-*/
-export declare function searchDestinyEntities(this: InstancedImport | AccessTokenObject | void, params: SearchDestinyEntitiesParams): Promise<BungieNetResponse<DestinyEntitySearchResult>>;
+ */
+export declare function searchDestinyEntities(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchDestinyEntitiesParams
+): Promise<BungieNetResponse<DestinyEntitySearchResult>>;

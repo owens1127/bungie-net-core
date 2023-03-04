@@ -16,12 +16,12 @@ import { DestinyStat } from './DestinyStat';
  * it's related to and the character equipping the item. This returns data about
  * those stat bonuses.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyTalentNodeStatBlock}
-*/
+ */
 export interface DestinyTalentNodeStatBlock {
     /**
      * The stat benefits conferred when this talent node is activated for the current
      * Step that is active on the node.
-    */
+     */
     readonly currentStepStats: DestinyStat[];
     /**
      * This is a holdover from the old days of Destiny 1, when a node could be
@@ -31,6 +31,6 @@ export interface DestinyTalentNodeStatBlock {
      * being used this way, the underlying system for this functionality still exists.
      * I hesitate to remove this property while the ability for designers to make such
      * a talent grid still exists. Whether you want to show it is up to you.
-    */
+     */
     readonly nextStepStats: DestinyStat[];
 }

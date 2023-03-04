@@ -24,7 +24,7 @@
  * For category matching, use the plug's "plugCategoryIdentifier" property,
  * comparing it to
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.PlugAvailabilityMode}
-*/
+ */
 export declare enum PlugAvailabilityMode {
     Normal = 0,
     UnavailableIfSocketContainsMatchingPlugCategory = 1,

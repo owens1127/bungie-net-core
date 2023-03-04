@@ -21,11 +21,11 @@ export interface DestinyCharacterRecordsComponent {
     /**
      * The hash for the root presentation node definition of Triumph categories. Mapped
      * to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly recordCategoriesRootNodeHash: number;
     /**
      * The hash for the root presentation node definition of Triumph Seals. Mapped to
      * DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly recordSealsRootNodeHash: number;
 }

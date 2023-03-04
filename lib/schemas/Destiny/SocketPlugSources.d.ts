@@ -25,7 +25,7 @@
  * This enum represents a set of flags - use bitwise operators to check which of
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.SocketPlugSources}
-*/
+ */
 export declare enum SocketPlugSources {
     /** If there's no way we can detect to insert new plugs. */
     None = 0,
@@ -35,7 +35,7 @@ export declare enum SocketPlugSources {
      *
      * Note that a socket - like Shaders - can have *both* reusable plugs and inventory
      * items inserted theoretically.
-    */
+     */
     InventorySourced = 1,
     /**
      * Use the DestinyItemSocketsComponent.sockets.reusablePlugs property to determine
@@ -46,16 +46,16 @@ export declare enum SocketPlugSources {
      * the "reusablePlugItems" in the socket's Definition data. They can sometimes be "
      * randomized" in which case the only source of truth at the moment is still the
      * runtime DestinyItemSocketsComponent.sockets.reusablePlugs property.
-    */
+     */
     ReusablePlugItems = 2,
     /**
      * Use the ProfilePlugSets (DestinyProfileResponse.profilePlugSets) component data
      * to determine which plugs are valid for this socket.
-    */
+     */
     ProfilePlugSet = 4,
     /**
      * Use the CharacterPlugSets (DestinyProfileResponse.characterPlugSets) component
      * data to determine which plugs are valid for this socket.
-    */
+     */
     CharacterPlugSet = 8
 }

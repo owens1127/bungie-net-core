@@ -15,6 +15,6 @@ export interface DestinyVendorGroupReference {
     /**
      * The DestinyVendorGroupDefinition to which this Vendor can belong. Mapped to
      * DestinyVendorGroupDefinition in the manifest.
-    */
+     */
     readonly vendorGroupHash: number;
 }

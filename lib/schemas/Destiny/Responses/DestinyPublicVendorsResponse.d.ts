@@ -24,7 +24,7 @@ import { SingleComponentResponseOfDestinyStringVariablesComponent } from '../../
  * If you want any of the other data - item details, whether or not you can buy it,
  * etc... you'll have to call in the context of a character. I know, sad but true.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyPublicVendorsResponse}
-*/
+ */
 export interface DestinyPublicVendorsResponse {
     /**
      * For Vendors being returned, this will give you the information you need to group
@@ -32,14 +32,14 @@ export interface DestinyPublicVendorsResponse {
      * grouping. It will automatically be returned if you request the Vendors component.
      *
      * COMPONENT TYPE: Vendors
-    */
+     */
     readonly vendorGroups: SingleComponentResponseOfDestinyVendorGroupComponent;
     /**
      * The base properties of the vendor. These are keyed by the Vendor Hash, so you
      * will get one Vendor Component per vendor returned.
      *
      * COMPONENT TYPE: Vendors
-    */
+     */
     readonly vendors: DictionaryComponentResponseOfuint32AndDestinyPublicVendorComponent;
     /**
      * Categories that the vendor has available, and references to the sales therein.
@@ -47,7 +47,7 @@ export interface DestinyPublicVendorsResponse {
      * vendor returned.
      *
      * COMPONENT TYPE: VendorCategories
-    */
+     */
     readonly categories: DictionaryComponentResponseOfuint32AndDestinyVendorCategoriesComponent;
     /**
      * Sales, keyed by the vendorItemIndex of the item being sold. These are keyed by
@@ -58,12 +58,12 @@ export interface DestinyPublicVendorsResponse {
      * within the Vendor's definition.
      *
      * COMPONENT TYPE: VendorSales
-    */
+     */
     readonly sales: DictionaryComponentResponseOfuint32AndPublicDestinyVendorSaleItemSetComponent;
     /**
      * A set of string variable values by hash for a public vendors context.
      *
      * COMPONENT TYPE: StringVariables
-    */
+     */
     readonly stringVariables: SingleComponentResponseOfDestinyStringVariablesComponent;
 }

@@ -18,7 +18,7 @@ export interface EmailViewDefinitionSetting {
     /**
      * The identifier for this UI Setting, which can be used to relate it to custom
      * strings or other data as desired.
-    */
+     */
     readonly name: string;
     /** A dictionary of localized text for the EMail setting, keyed by the locale. */
     readonly localization: {
@@ -27,14 +27,14 @@ export interface EmailViewDefinitionSetting {
     /**
      * If true, this setting should be set by default if the user hasn't chosen whether
      * it's set or cleared yet.
-    */
+     */
     readonly setByDefault: boolean;
     /**
      * The OptInFlags value to set or clear if this setting is set or cleared in the UI.
      * It is the aggregate of all underlying opt-in flags related to this setting.
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly optInAggregateValue: OptInFlags;
     /** The subscriptions to show as children of this setting, if any. */
     readonly subscriptions: EmailSubscriptionDefinition[];

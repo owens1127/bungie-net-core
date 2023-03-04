@@ -29,5 +29,8 @@ export declare type GetPostsThreadedPagedFromChildParams = {
  * Returns a thread of posts starting at the topicId of the input childPostId,
  * optionally returning replies to those posts as well as the original parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPagedFromChild}
-*/
-export declare function getPostsThreadedPagedFromChild(this: InstancedImport | AccessTokenObject | void, params: GetPostsThreadedPagedFromChildParams): Promise<BungieNetResponse<PostSearchResponse>>;
+ */
+export declare function getPostsThreadedPagedFromChild(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPostsThreadedPagedFromChildParams
+): Promise<BungieNetResponse<PostSearchResponse>>;

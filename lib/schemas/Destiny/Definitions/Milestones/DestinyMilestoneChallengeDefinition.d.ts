@@ -15,6 +15,6 @@ export interface DestinyMilestoneChallengeDefinition {
     /**
      * The challenge related to this milestone. Mapped to DestinyObjectiveDefinition in
      * the manifest.
-    */
+     */
     readonly challengeObjectiveHash: number;
 }

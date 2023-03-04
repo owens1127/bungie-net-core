@@ -18,7 +18,7 @@ import { DestinyMaterialRequirement } from './DestinyMaterialRequirement';
  * A variety of other entities refer to these as gatekeepers and payments for
  * actions that can be performed in game.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyMaterialRequirementSetDefinition}
-*/
+ */
 export interface DestinyMaterialRequirementSetDefinition {
     /** The list of all materials that are required. */
     readonly materials: DestinyMaterialRequirement[];
@@ -28,13 +28,13 @@ export interface DestinyMaterialRequirementSetDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

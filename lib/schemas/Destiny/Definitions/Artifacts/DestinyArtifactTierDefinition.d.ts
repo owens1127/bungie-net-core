@@ -20,13 +20,13 @@ export interface DestinyArtifactTierDefinition {
     /**
      * A string representing the localized minimum requirement text for this Tier, if
      * any.
-    */
+     */
     readonly progressRequirementMessage: string;
     /** The items that can be earned within this tier. */
     readonly items: DestinyArtifactTierItemDefinition[];
     /**
      * The minimum number of "unlock points" that you must have used before you can
      * unlock items from this tier.
-    */
+     */
     readonly minimumUnlockPointsUsedRequirement: number;
 }

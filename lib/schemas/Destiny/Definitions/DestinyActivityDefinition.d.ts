@@ -48,34 +48,34 @@ import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironme
  * as time goes on, but for now we're going to have to deal with the limitations.
  * See DestinyActivityTypeDefinition for more information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityDefinition}
-*/
+ */
 export interface DestinyActivityDefinition {
     /**
      * The title, subtitle, and icon for the activity. We do a little post-processing
      * on this to try and account for Activities where the designers have left this
      * data too minimal to determine what activity is actually being played.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * The unadulterated form of the display properties, as they ought to be shown in
      * the Director (if the activity appears in the director).
-    */
+     */
     readonly originalDisplayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * The title, subtitle, and icon for the activity as determined by Selection Screen
      * data, if there is any for this activity. There won't be data in this field if
      * the activity is never shown in a selection/options screen.
-    */
+     */
     readonly selectionScreenDisplayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * If the activity has an icon associated with a specific release (such as a DLC),
      * this is the path to that release's icon.
-    */
+     */
     readonly releaseIcon: string;
     /**
      * If the activity will not be visible until a specific and known time, this will
      * be the seconds since the Epoch when it will become visible.
-    */
+     */
     readonly releaseTime: number;
     /** The recommended light level for this activity. */
     readonly activityLightLevel: number;
@@ -86,7 +86,7 @@ export interface DestinyActivityDefinition {
      * Place". For instance, if the "Place" is Earth, the "Destination" would be a
      * specific city or region on Earth. Mapped to DestinyDestinationDefinition in the
      * manifest.
-    */
+     */
     readonly destinationHash: number;
     /**
      * The hash identifier for the "Place" on which this Activity is played. Use it to
@@ -94,7 +94,7 @@ export interface DestinyActivityDefinition {
      * Place is the largest-scoped concept for location information. For instance, if
      * the "Place" is Earth, the "Destination" would be a specific city or region on
      * Earth. Mapped to DestinyPlaceDefinition in the manifest.
-    */
+     */
     readonly placeHash: number;
     /**
      * The hash identifier for the Activity Type of this Activity. You may use it to
@@ -103,7 +103,7 @@ export interface DestinyActivityDefinition {
      * Types. You'll have to use your knowledge of the Activity Mode being played to
      * get more specific information about what the user is playing. Mapped to
      * DestinyActivityTypeDefinition in the manifest.
-    */
+     */
     readonly activityTypeHash: number;
     /** The difficulty tier of the activity. */
     readonly tier: number;
@@ -112,7 +112,7 @@ export interface DestinyActivityDefinition {
      * with details about what happened in that activity (how many kills someone got,
      * which team won, etc...) We use this image as the background when displaying PGCR
      * information, and often use it when we refer to the Activity in general.
-    */
+     */
     readonly pgcrImage: string;
     /**
      * The expected possible rewards for the activity. These rewards may or may not be
@@ -124,14 +124,14 @@ export interface DestinyActivityDefinition {
      * vague terms rather than what you'll specifically be earning (partly because the
      * game doesn't even know what you'll earn specifically until you roll for it at
      * the end)
-    */
+     */
     readonly rewards: DestinyActivityRewardDefinition[];
     /**
      * Activities can have Modifiers, as defined in DestinyActivityModifierDefinition.
      * These are references to the modifiers that *can* be applied to that activity,
      * along with data that we use to determine if that modifier is actually active at
      * any given point in time.
-    */
+     */
     readonly modifiers: DestinyActivityModifierReferenceDefinition[];
     /**
      * If True, this Activity is actually a Playlist that refers to multiple possible
@@ -139,7 +139,7 @@ export interface DestinyActivityDefinition {
      * have references to multiple Activities (Maps) with multiple Activity Modes (
      * specific PvP gameplay modes). If this is true, refer to the playlistItems
      * property for the specific entries in the playlist.
-    */
+     */
     readonly isPlaylist: boolean;
     /**
      * An activity can have many Challenges, of which any subset of them may be active
@@ -150,77 +150,77 @@ export interface DestinyActivityDefinition {
      * individual activities and there can be many duplicates/near duplicates across
      * the Destiny 2 ecosystem. I have it in mind to centralize these in a future
      * revision of the API, but we are out of time.
-    */
+     */
     readonly challenges: DestinyActivityChallengeDefinition[];
     /**
      * If there are status strings related to the activity and based on internal state
      * of the game, account, or character, then this will be the definition of those
      * strings and the states needed in order for the strings to be shown.
-    */
+     */
     readonly optionalUnlockStrings: DestinyActivityUnlockStringDefinition[];
     /**
      * Represents all of the possible activities that could be played in the Playlist,
      * along with information that we can use to determine if they are active at the
      * present time.
-    */
+     */
     readonly playlistItems: DestinyActivityPlaylistItemDefinition[];
     /**
      * Unfortunately, in practice this is almost never populated. In theory, this is
      * supposed to tell which Activity Graph to show if you bring up the director while
      * in this activity.
-    */
+     */
     readonly activityGraphList: DestinyActivityGraphListEntryDefinition[];
     /**
      * This block of data provides information about the Activity's matchmaking
      * attributes: how many people can join and such.
-    */
+     */
     readonly matchmaking: DestinyActivityMatchmakingBlockDefinition;
     /**
      * This block of data, if it exists, provides information about the guided game
      * experience and restrictions for this activity. If it doesn't exist, the game is
      * not able to be played as a guided game.
-    */
+     */
     readonly guidedGame: DestinyActivityGuidedBlockDefinition;
     /**
      * If this activity had an activity mode directly defined on it, this will be the
      * hash of that mode. Mapped to DestinyActivityModeDefinition in the manifest.
-    */
+     */
     readonly directActivityModeHash?: number;
     /**
      * If the activity had an activity mode directly defined on it, this will be the
      * enum value of that mode.
-    */
+     */
     readonly directActivityModeType?: number;
     /**
      * The set of all possible loadout requirements that could be active for this
      * activity. Only one will be active at any given time, and you can discover which
      * one through activity-associated data such as Milestones that have activity info
      * on them.
-    */
+     */
     readonly loadouts: DestinyActivityLoadoutRequirementSet[];
     /**
      * The hash identifiers for Activity Modes relevant to this activity.  Note that if
      * this is a playlist, the specific playlist entry chosen will determine the actual
      * activity modes that end up being relevant. Mapped to
      * DestinyActivityModeDefinition in the manifest.
-    */
+     */
     readonly activityModeHashes: number[];
     /**
      * The activity modes - if any - in enum form. Because we can't seem to escape the
      * enums.
-    */
+     */
     readonly activityModeTypes: DestinyActivityModeType[];
     /** If true, this activity is a PVP activity or playlist. */
     readonly isPvP: boolean;
     /**
      * The list of phases or points of entry into an activity, along with information
      * we can use to determine their gating and availability.
-    */
+     */
     readonly insertionPoints: DestinyActivityInsertionPointDefinition[];
     /**
      * A list of location mappings that are affected by this activity. Pulled out of
      * DestinyLocationDefinitions for our/your lookup convenience.
-    */
+     */
     readonly activityLocationMappings: DestinyEnvironmentLocationMapping[];
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -228,13 +228,13 @@ export interface DestinyActivityDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

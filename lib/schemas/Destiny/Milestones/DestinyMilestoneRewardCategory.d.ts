@@ -15,12 +15,12 @@ import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry';
  * Represents a category of "summary" rewards that can be earned for the Milestone
  * regardless of specific quest rewards that can be earned.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneRewardCategory}
-*/
+ */
 export interface DestinyMilestoneRewardCategory {
     /**
      * Look up the relevant DestinyMilestoneDefinition, and then use rewardCategoryHash
      * to look up the category info in DestinyMilestoneDefinition.rewards.
-    */
+     */
     readonly rewardCategoryHash: number;
     /** The individual reward entries for this category, and their status. */
     readonly entries: DestinyMilestoneRewardEntry[];

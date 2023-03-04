@@ -15,7 +15,7 @@
  * facing enum used in place of the internal-only Bungie.SharedDefinitions.
  * CredentialType.
  * @see {@link https://bungie-net.github.io/#/components/schemas/BungieCredentialType}
-*/
+ */
 export declare enum BungieCredentialType {
     None = 0,
     Xuid = 1,

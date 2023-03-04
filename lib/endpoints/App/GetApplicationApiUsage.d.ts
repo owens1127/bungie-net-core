@@ -28,5 +28,8 @@ export declare type GetApplicationApiUsageParams = {
  * You must be authenticated with at least the ReadUserData permission to access
  * this endpoint.
  * @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage}
-*/
-export declare function getApplicationApiUsage(this: InstancedImport | AccessTokenObject | void, params: GetApplicationApiUsageParams): Promise<BungieNetResponse<ApiUsage>>;
+ */
+export declare function getApplicationApiUsage(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetApplicationApiUsageParams
+): Promise<BungieNetResponse<ApiUsage>>;

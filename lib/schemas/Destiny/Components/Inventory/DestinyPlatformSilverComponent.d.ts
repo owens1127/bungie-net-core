@@ -17,7 +17,7 @@ export interface DestinyPlatformSilverComponent {
     /**
      * If a Profile is played on multiple platforms, this is the silver they have for
      * each platform, keyed by Membership Type.
-    */
+     */
     readonly platformSilver: {
         [key in BungieMembershipType]: DestinyItemComponent;
     };

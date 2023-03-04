@@ -16,5 +16,7 @@ import { UserTheme } from '../../schemas/index.js';
 /**
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
-*/
-export declare function getAvailableThemes(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<UserTheme[]>>;
+ */
+export declare function getAvailableThemes(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<BungieNetResponse<UserTheme[]>>;

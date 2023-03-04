@@ -27,5 +27,8 @@ export declare type GetDestinyAggregateActivityStatsParams = {
  * Gets all activities the character has participated in together with aggregate
  * statistics for those activities.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats}
-*/
-export declare function getDestinyAggregateActivityStats(this: InstancedImport | AccessTokenObject | void, params: GetDestinyAggregateActivityStatsParams): Promise<BungieNetResponse<DestinyAggregateActivityResults>>;
+ */
+export declare function getDestinyAggregateActivityStats(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetDestinyAggregateActivityStatsParams
+): Promise<BungieNetResponse<DestinyAggregateActivityResults>>;

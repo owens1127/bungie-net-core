@@ -17,7 +17,7 @@
  * These will often have more specific details, such as an associated Guided Game,
  * progression steps, tier-specific rewards, and custom values.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneActivityVariantDefinition}
-*/
+ */
 export interface DestinyMilestoneActivityVariantDefinition {
     /**
      * The hash to use for looking up the variant Activity's definition (
@@ -27,13 +27,13 @@ export interface DestinyMilestoneActivityVariantDefinition {
      * Frequently, that will be the only distinguishing characteristics in practice,
      * which is somewhat of a bummer. Mapped to DestinyActivityDefinition in the
      * manifest.
-    */
+     */
     readonly activityHash: number;
     /**
      * If you care to do so, render the variants in the order prescribed by this value.
      *
      * When you combine live Milestone data with the definition, the order becomes more
      * useful because you'll be cross-referencing between the definition and live data.
-    */
+     */
     readonly order: number;
 }

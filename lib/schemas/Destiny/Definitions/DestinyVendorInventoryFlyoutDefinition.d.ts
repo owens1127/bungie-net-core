@@ -16,7 +16,7 @@ import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInv
  * The definition for an "inventory flyout": a UI screen where we show you part of
  * an otherwise hidden vendor inventory: like the Vault inventory buckets.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInventoryFlyoutDefinition}
-*/
+ */
 export interface DestinyVendorInventoryFlyoutDefinition {
     /** If the flyout is locked, this is the reason why. */
     readonly lockedDescription: string;
@@ -29,11 +29,11 @@ export interface DestinyVendorInventoryFlyoutDefinition {
     /**
      * If this is true, don't show any of the glistening "this is a new item" UI
      * elements, like we show on the inventory items themselves in in-game UI.
-    */
+     */
     readonly suppressNewness: boolean;
     /**
      * If this flyout is meant to show you the contents of the player's equipment slot,
      * this is the slot to show.
-    */
+     */
     readonly equipmentSlotHash?: number;
 }

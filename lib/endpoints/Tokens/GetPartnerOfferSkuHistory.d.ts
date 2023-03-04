@@ -20,12 +20,15 @@ export declare type GetPartnerOfferSkuHistoryParams = {
     /**
      * The bungie.net user to apply missing offers to. If not self, elevated
      * permissions are required.
-    */
+     */
     targetBnetMembershipId: string;
 };
 /**
  * Returns the partner sku and offer history of the targeted user. Elevated
  * permissions are required to see users that are not yourself.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
-*/
-export declare function getPartnerOfferSkuHistory(this: InstancedImport | AccessTokenObject | void, params: GetPartnerOfferSkuHistoryParams): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;
+ */
+export declare function getPartnerOfferSkuHistory(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetPartnerOfferSkuHistoryParams
+): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;

@@ -21,5 +21,8 @@ import { DestinyEquipItemResults } from '../../schemas/index.js';
  *
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipItems}
-*/
-export declare function equipItems(this: InstancedImport | AccessTokenObject | void, body: DestinyItemSetActionRequest): Promise<BungieNetResponse<DestinyEquipItemResults>>;
+ */
+export declare function equipItems(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyItemSetActionRequest
+): Promise<BungieNetResponse<DestinyEquipItemResults>>;

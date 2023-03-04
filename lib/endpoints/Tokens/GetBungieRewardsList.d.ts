@@ -16,7 +16,11 @@ import { BungieRewardDisplay } from '../../schemas/index.js';
 /**
  * Returns a list of the current bungie rewards
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsList}
-*/
-export declare function getBungieRewardsList(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
-    [key: string]: BungieRewardDisplay;
-}>>;
+ */
+export declare function getBungieRewardsList(
+    this: InstancedImport | AccessTokenObject | void
+): Promise<
+    BungieNetResponse<{
+        [key: string]: BungieRewardDisplay;
+    }>
+>;

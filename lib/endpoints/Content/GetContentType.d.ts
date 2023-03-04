@@ -20,5 +20,8 @@ export declare type GetContentTypeParams = {
 /**
  * Gets an object describing a particular variant of content.
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
-*/
-export declare function getContentType(this: InstancedImport | AccessTokenObject | void, params: GetContentTypeParams): Promise<BungieNetResponse<ContentTypeDescription>>;
+ */
+export declare function getContentType(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetContentTypeParams
+): Promise<BungieNetResponse<ContentTypeDescription>>;

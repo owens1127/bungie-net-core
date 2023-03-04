@@ -17,7 +17,7 @@
  * api. These runtime values should NEVER be stored anywhere, so the values can be
  * changed as necessary.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.RuntimeGroupMemberType}
-*/
+ */
 export declare enum RuntimeGroupMemberType {
     None = 0,
     Beginner = 1,

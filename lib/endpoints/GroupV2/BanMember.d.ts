@@ -27,5 +27,9 @@ export declare type BanMemberParams = {
  * Bans the requested member from the requested group for the specified period of
  * time.
  * @see {@link https://bungie-net.github.io/#GroupV2.BanMember}
-*/
-export declare function banMember(this: InstancedImport | AccessTokenObject | void, params: BanMemberParams, body: GroupBanRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function banMember(
+    this: InstancedImport | AccessTokenObject | void,
+    params: BanMemberParams,
+    body: GroupBanRequest
+): Promise<BungieNetResponse<number>>;

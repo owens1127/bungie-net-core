@@ -21,12 +21,12 @@
  * Note also that a vendor may sell the same item in multiple "ways", which means
  * there may be multiple vendorItemIndexes for a single Vendor hash.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemVendorSourceReference}
-*/
+ */
 export interface DestinyItemVendorSourceReference {
     /**
      * The identifier for the vendor that may sell this item. Mapped to
      * DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly vendorHash: number;
     /**
      * The Vendor sale item indexes that represent the sale information for this item.
@@ -34,6 +34,6 @@ export interface DestinyItemVendorSourceReference {
      * for instance, a weapon may be "sold" as a reward in a quest, for Glimmer, and
      * for Masterwork Cores: each of those ways would be represented by a different
      * vendor sale item with a different index)
-    */
+     */
     readonly vendorItemIndexes: number[];
 }

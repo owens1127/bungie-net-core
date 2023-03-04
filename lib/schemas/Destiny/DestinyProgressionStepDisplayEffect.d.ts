@@ -14,7 +14,7 @@
  * If progression is earned, this determines whether the progression shows visual
  * effects on the character or its item - or neither.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionStepDisplayEffect}
-*/
+ */
 export declare enum DestinyProgressionStepDisplayEffect {
     None = 0,
     Character = 1,

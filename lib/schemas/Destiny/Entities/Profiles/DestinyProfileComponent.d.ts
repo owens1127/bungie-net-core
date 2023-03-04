@@ -16,12 +16,12 @@ import { DestinyGameVersions } from '../../DestinyGameVersions';
  * The most essential summary information about a Profile (in Destiny 1, we called
  * these "Accounts").
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Profiles.DestinyProfileComponent}
-*/
+ */
 export interface DestinyProfileComponent {
     /**
      * If you need to render the Profile (their platform name, icon, etc...) somewhere,
      * this property contains that information.
-    */
+     */
     readonly userInfo: UserInfoCard;
     /** The last time the user played with any character on this Profile. */
     readonly dateLastPlayed: string;
@@ -39,7 +39,7 @@ export interface DestinyProfileComponent {
      * alternative to provide at this time with platform specific ownership data for
      * DLC. This enum represents a set of flags - use bitwise operators to check which
      * of these match your value.
-    */
+     */
     readonly versionsOwned: DestinyGameVersions;
     /** A list of the character IDs, for further querying on your part. */
     readonly characterIds: string[];
@@ -52,34 +52,34 @@ export interface DestinyProfileComponent {
      * who have Stadia Pro but choose to play on some other platform) won't see these
      * as available: it will be whatever seasons are available for the platform on
      * which they last played. Mapped to DestinySeasonDefinition in the manifest.
-    */
+     */
     readonly seasonHashes: number[];
     /**
      * A list of hashes for event cards that a profile owns. Unlike most values in
      * versionsOwned, these stay with the profile across all platforms. Mapped to
      * DestinyEventCardDefinition in the manifest.
-    */
+     */
     readonly eventCardHashesOwned: number[];
     /**
      * If populated, this is a reference to the season that is currently active. Mapped
      * to DestinySeasonDefinition in the manifest.
-    */
+     */
     readonly currentSeasonHash?: number;
     /** If populated, this is the reward power cap for the current season. */
     readonly currentSeasonRewardPowerCap?: number;
     /**
      * If populated, this is a reference to the event card that is currently active.
      * Mapped to DestinyEventCardDefinition in the manifest.
-    */
+     */
     readonly activeEventCardHash?: number;
     /**
      * The 'current' Guardian Rank value, which starts at rank 1. Mapped to
      * DestinyGuardianRankDefinition in the manifest.
-    */
+     */
     readonly currentGuardianRank: number;
     /**
      * The 'lifetime highest' Guardian Rank value, which starts at rank 1. Mapped to
      * DestinyGuardianRankDefinition in the manifest.
-    */
+     */
     readonly lifetimeHighestGuardianRank: number;
 }

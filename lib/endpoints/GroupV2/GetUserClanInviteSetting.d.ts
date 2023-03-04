@@ -22,5 +22,8 @@ export declare type GetUserClanInviteSettingParams = {
  * Gets the state of the user's clan invite preferences for a particular membership
  * type - true if they wish to be invited to clans, false otherwise.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting}
-*/
-export declare function getUserClanInviteSetting(this: InstancedImport | AccessTokenObject | void, params: GetUserClanInviteSettingParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function getUserClanInviteSetting(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetUserClanInviteSettingParams
+): Promise<BungieNetResponse<boolean>>;

@@ -20,5 +20,8 @@ export declare type SearchHelpArticlesParams = {
 /**
  * Search for Help Articles.
  * @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles}
-*/
-export declare function searchHelpArticles(this: InstancedImport | AccessTokenObject | void, params: SearchHelpArticlesParams): Promise<BungieNetResponse<object>>;
+ */
+export declare function searchHelpArticles(
+    this: InstancedImport | AccessTokenObject | void,
+    params: SearchHelpArticlesParams
+): Promise<BungieNetResponse<object>>;

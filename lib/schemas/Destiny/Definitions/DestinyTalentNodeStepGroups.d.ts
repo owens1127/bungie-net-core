@@ -20,31 +20,31 @@ import { DestinyTalentNodeStepDamageTypes } from './DestinyTalentNodeStepDamageT
  * common properties. See the related enumerations for the type of properties being
  * categorized.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepGroups}
-*/
+ */
 export interface DestinyTalentNodeStepGroups {
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly weaponPerformance: DestinyTalentNodeStepWeaponPerformances;
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly impactEffects: DestinyTalentNodeStepImpactEffects;
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly guardianAttributes: DestinyTalentNodeStepGuardianAttributes;
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly lightAbilities: DestinyTalentNodeStepLightAbilities;
     /**
      * This enum represents a set of flags - use bitwise operators to check which of
      * these match your value.
-    */
+     */
     readonly damageTypes: DestinyTalentNodeStepDamageTypes;
 }

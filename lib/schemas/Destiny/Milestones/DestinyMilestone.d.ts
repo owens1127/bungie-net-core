@@ -21,14 +21,14 @@ import { DestinyMilestoneRewardCategory } from './DestinyMilestoneRewardCategory
  * regards to said "things to do." Consider it a big, wonky to-do list, or Advisors
  * 3.0 for those who remember the Destiny 1 API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestone}
-*/
+ */
 export interface DestinyMilestone {
     /**
      * The unique identifier for the Milestone. Use it to look up the
      * DestinyMilestoneDefinition, so you can combine the other data in this contract
      * with static definition data. Mapped to DestinyMilestoneDefinition in the
      * manifest.
-    */
+     */
     readonly milestoneHash: number;
     /**
      * Indicates what quests are available for this Milestone. Usually this will be
@@ -37,7 +37,7 @@ export interface DestinyMilestone {
      * DestinyMilestoneDefinition, but they must be combined with this Live data to
      * determine which one(s) are actually active right now. It is possible for
      * Milestones to not have any quests.
-    */
+     */
     readonly availableQuests: DestinyMilestoneQuest[];
     /**
      * The currently active Activities in this milestone, when the Milestone is driven
@@ -45,7 +45,7 @@ export interface DestinyMilestone {
      *
      * Not all Milestones have Challenges, but when they do this will indicate the
      * Activities and Challenges under those Activities related to this Milestone.
-    */
+     */
     readonly activities: DestinyMilestoneChallengeActivity[];
     /**
      * Milestones may have arbitrary key/value pairs associated with them, for data
@@ -57,7 +57,7 @@ export interface DestinyMilestone {
      * localized string content for displaying the value. The value in the dictionary
      * is the floating point number. The definition will tell you how to format this
      * number.
-    */
+     */
     readonly values: {
         [key: string]: number;
     };
@@ -73,7 +73,7 @@ export interface DestinyMilestone {
      *
      * Before we even use it, it's already deprecated! How much of a bummer is that? We
      * need more data. Mapped to DestinyVendorDefinition in the manifest.
-    */
+     */
     readonly vendorHashes: number[];
     /**
      * Replaces vendorHashes, which I knew was going to be trouble the day it walked in
@@ -81,7 +81,7 @@ export interface DestinyMilestone {
      * activity (in an implied order that you can choose to ignore), but also other
      * data - for example, if the Vendor is featuring a specific item relevant to this
      * event that you should show with them.
-    */
+     */
     readonly vendors: DestinyMilestoneVendor[];
     /**
      * If the entity to which this component is attached has known active Rewards for
@@ -91,21 +91,21 @@ export interface DestinyMilestone {
      * Milestone. Think of these as "overview/checklist" rewards that may be provided
      * for Milestones that may provide rewards for performing a variety of tasks that
      * aren't under a specific Quest.
-    */
+     */
     readonly rewards: DestinyMilestoneRewardCategory[];
     /**
      * If known, this is the date when the event last began or refreshed. It will only
      * be populated for events with fixed and repeating start and end dates.
-    */
+     */
     readonly startDate?: string;
     /**
      * If known, this is the date when the event will next end or repeat. It will only
      * be populated for events with fixed and repeating start and end dates.
-    */
+     */
     readonly endDate?: string;
     /**
      * Used for ordering milestones in a display to match how we order them in BNet.
      * May pull from static data, or possibly in the future from dynamic information.
-    */
+     */
     readonly order: number;
 }

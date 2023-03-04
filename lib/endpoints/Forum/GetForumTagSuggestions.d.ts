@@ -22,5 +22,8 @@ export declare type GetForumTagSuggestionsParams = {
  * Gets tag suggestions based on partial text entry, matching them with other tags
  * previously used in the forums.
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
-*/
-export declare function getForumTagSuggestions(this: InstancedImport | AccessTokenObject | void, params: GetForumTagSuggestionsParams): Promise<BungieNetResponse<TagResponse[]>>;
+ */
+export declare function getForumTagSuggestions(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetForumTagSuggestionsParams
+): Promise<BungieNetResponse<TagResponse[]>>;

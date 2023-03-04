@@ -16,19 +16,19 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * currently active in the Activity, regardless of an individual character's
  * progress in it.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Activities.DestinyPublicActivityStatus}
-*/
+ */
 export interface DestinyPublicActivityStatus {
     /**
      * Active Challenges for the activity, if any - represented as hashes for
      * DestinyObjectiveDefinitions. Mapped to DestinyObjectiveDefinition in the
      * manifest.
-    */
+     */
     readonly challengeObjectiveHashes: number[];
     /**
      * The active modifiers on this activity, if any - represented as hashes for
      * DestinyActivityModifierDefinitions. Mapped to DestinyActivityModifierDefinition
      * in the manifest.
-    */
+     */
     readonly modifierHashes: number[];
     /**
      * If the activity itself provides any specific "mock" rewards, this will be the
@@ -40,6 +40,6 @@ export interface DestinyPublicActivityStatus {
      * These are often pointers to fake items that look good in a tooltip, but
      * represent an abstract concept of what you will get for a reward rather than the
      * specific items you may obtain.
-    */
+     */
     readonly rewardTooltipItems: DestinyItemQuantity[];
 }

@@ -16,7 +16,7 @@ import { DestinyLinkedGraphEntryDefinition } from './DestinyLinkedGraphEntryDefi
  * This describes links between the current graph and others, as well as when that
  * link is relevant.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyLinkedGraphDefinition}
-*/
+ */
 export interface DestinyLinkedGraphDefinition {
     readonly description: string;
     readonly name: string;

@@ -18,5 +18,8 @@ import { GroupResponse } from '../../schemas/index.js';
  * Get information about a specific group with the given name and type. The POST
  * version.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByNameV2}
-*/
-export declare function getGroupByNameV2(this: InstancedImport | AccessTokenObject | void, body: GroupNameSearchRequest): Promise<BungieNetResponse<GroupResponse>>;
+ */
+export declare function getGroupByNameV2(
+    this: InstancedImport | AccessTokenObject | void,
+    body: GroupNameSearchRequest
+): Promise<BungieNetResponse<GroupResponse>>;

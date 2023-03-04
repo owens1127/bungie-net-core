@@ -44,14 +44,14 @@ import { DictionaryComponentResponseOfint64AndDestinyCurrenciesComponent } from 
  * The response for GetDestinyProfile, with components for character and item-level
  * data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileResponse}
-*/
+ */
 export interface DestinyProfileResponse {
     /**
      * Records the timestamp of when most components were last generated from the world
      * server source. Unless the component type is specified in the documentation for
      * secondaryComponentsMintedTimestamp, this value is sufficient to do data
      * freshness.
-    */
+     */
     readonly responseMintedTimestamp: string;
     /**
      * Some secondary components are not tracked in the primary response timestamp and
@@ -62,38 +62,38 @@ export interface DestinyProfileResponse {
      * Transitory
      *
      * All other component types may use the primary timestamp property.
-    */
+     */
     readonly secondaryComponentsMintedTimestamp: string;
     /**
      * Recent, refundable purchases you have made from vendors. When will you use it?
      * Couldn't say...
      *
      * COMPONENT TYPE: VendorReceipts
-    */
+     */
     readonly vendorReceipts: SingleComponentResponseOfDestinyVendorReceiptsComponent;
     /**
      * The profile-level inventory of the Destiny Profile.
      *
      * COMPONENT TYPE: ProfileInventories
-    */
+     */
     readonly profileInventory: SingleComponentResponseOfDestinyInventoryComponent;
     /**
      * The profile-level currencies owned by the Destiny Profile.
      *
      * COMPONENT TYPE: ProfileCurrencies
-    */
+     */
     readonly profileCurrencies: SingleComponentResponseOfDestinyInventoryComponent;
     /**
      * The basic information about the Destiny Profile (formerly "Account").
      *
      * COMPONENT TYPE: Profiles
-    */
+     */
     readonly profile: SingleComponentResponseOfDestinyProfileComponent;
     /**
      * Silver quantities for any platform on which this Profile plays destiny.
      *
      * COMPONENT TYPE: PlatformSilver
-    */
+     */
     readonly platformSilver: SingleComponentResponseOfDestinyPlatformSilverComponent;
     /**
      * Items available from Kiosks that are available Profile-wide (i.e. across all
@@ -105,7 +105,7 @@ export interface DestinyProfileResponse {
      * on the characterKiosks property.
      *
      * COMPONENT TYPE: Kiosks
-    */
+     */
     readonly profileKiosks: SingleComponentResponseOfDestinyKiosksComponent;
     /**
      * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
@@ -115,7 +115,7 @@ export interface DestinyProfileResponse {
      * sockets on requested items.
      *
      * COMPONENT TYPE: ItemSockets
-    */
+     */
     readonly profilePlugSets: SingleComponentResponseOfDestinyPlugSetsComponent;
     /**
      * When we have progression information - such as Checklists - that may apply
@@ -123,7 +123,7 @@ export interface DestinyProfileResponse {
      * progression data.
      *
      * COMPONENT TYPE: ProfileProgression
-    */
+     */
     readonly profileProgression: SingleComponentResponseOfDestinyProfileProgressionComponent;
     /** COMPONENT TYPE: PresentationNodes */
     readonly profilePresentationNodes: SingleComponentResponseOfDestinyPresentationNodesComponent;
@@ -143,45 +143,45 @@ export interface DestinyProfileResponse {
      * Basic information about each character, keyed by the CharacterId.
      *
      * COMPONENT TYPE: Characters
-    */
+     */
     readonly characters: DictionaryComponentResponseOfint64AndDestinyCharacterComponent;
     /**
      * The character-level non-equipped inventory items, keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterInventories
-    */
+     */
     readonly characterInventories: DictionaryComponentResponseOfint64AndDestinyInventoryComponent;
     /**
      * The character loadouts, keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterLoadouts
-    */
+     */
     readonly characterLoadouts: DictionaryComponentResponseOfint64AndDestinyLoadoutsComponent;
     /**
      * Character-level progression data, keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterProgressions
-    */
+     */
     readonly characterProgressions: DictionaryComponentResponseOfint64AndDestinyCharacterProgressionComponent;
     /**
      * Character rendering data - a minimal set of info needed to render a character in
      * 3D - keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterRenderData
-    */
+     */
     readonly characterRenderData: DictionaryComponentResponseOfint64AndDestinyCharacterRenderComponent;
     /**
      * Character activity data - the activities available to this character and its
      * status, keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterActivities
-    */
+     */
     readonly characterActivities: DictionaryComponentResponseOfint64AndDestinyCharacterActivitiesComponent;
     /**
      * The character's equipped items, keyed by the Character's Id.
      *
      * COMPONENT TYPE: CharacterEquipment
-    */
+     */
     readonly characterEquipment: DictionaryComponentResponseOfint64AndDestinyInventoryComponent;
     /**
      * Items available from Kiosks that are available to a specific character as
@@ -195,7 +195,7 @@ export interface DestinyProfileResponse {
      * property.
      *
      * COMPONENT TYPE: Kiosks
-    */
+     */
     readonly characterKiosks: DictionaryComponentResponseOfint64AndDestinyKiosksComponent;
     /**
      * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
@@ -206,7 +206,7 @@ export interface DestinyProfileResponse {
      * sockets on requested items.
      *
      * COMPONENT TYPE: ItemSockets
-    */
+     */
     readonly characterPlugSets: DictionaryComponentResponseOfint64AndDestinyPlugSetsComponent;
     /**
      * Do you ever get the feeling that a system was designed *too* flexibly? That it
@@ -239,7 +239,7 @@ export interface DestinyProfileResponse {
      *
      * I'm not crying, you're crying Okay we're both crying but it's going to be okay I
      * promise Actually I shouldn't promise that, I don't know if it's going to be okay
-    */
+     */
     readonly characterUninstancedItemComponents: {
         [key: string]: DestinyBaseItemComponentSetOfuint32;
     };
@@ -259,13 +259,13 @@ export interface DestinyProfileResponse {
      *
      * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
      * types.]
-    */
+     */
     readonly itemComponents: DestinyItemComponentSetOfint64;
     /**
      * A "lookup" convenience component that can be used to quickly check if the
      * character has access to items that can be used for purchasing.
      *
      * COMPONENT TYPE: CurrencyLookups
-    */
+     */
     readonly characterCurrencyLookups: DictionaryComponentResponseOfint64AndDestinyCurrenciesComponent;
 }

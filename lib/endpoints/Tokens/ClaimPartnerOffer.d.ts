@@ -16,5 +16,8 @@ import { PartnerOfferClaimRequest } from '../../schemas/index.js';
 /**
  * Claim a partner offer as the authenticated user.
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}
-*/
-export declare function claimPartnerOffer(this: InstancedImport | AccessTokenObject | void, body: PartnerOfferClaimRequest): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function claimPartnerOffer(
+    this: InstancedImport | AccessTokenObject | void,
+    body: PartnerOfferClaimRequest
+): Promise<BungieNetResponse<boolean>>;

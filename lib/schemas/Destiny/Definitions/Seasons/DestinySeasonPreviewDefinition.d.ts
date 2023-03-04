@@ -14,7 +14,7 @@ import { DestinySeasonPreviewImageDefinition } from './DestinySeasonPreviewImage
 /**
  * Defines the promotional text, images, and links to preview this season.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonPreviewDefinition}
-*/
+ */
 export interface DestinySeasonPreviewDefinition {
     /** A localized description of the season. */
     readonly description: string;
@@ -23,13 +23,13 @@ export interface DestinySeasonPreviewDefinition {
      * automatically redirected to the user's Bungie.net locale. For example: "/
      * SeasonOfTheChosen" will redirect to "/7/en/Seasons/SeasonOfTheChosen" for
      * English users.
-    */
+     */
     readonly linkPath: string;
     /** An optional link to a localized video, probably YouTube. */
     readonly videoLink: string;
     /**
      * A list of images to preview the seasonal content. Should have at least three to
      * show.
-    */
+     */
     readonly images: DestinySeasonPreviewImageDefinition[];
 }

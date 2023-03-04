@@ -13,13 +13,13 @@
 /**
  * The metrics available for display and selection on an item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemMetricBlockDefinition}
-*/
+ */
 export interface DestinyItemMetricBlockDefinition {
     /**
      * Hash identifiers for any DestinyPresentationNodeDefinition entry that can be
      * used to list available metrics. Any metric listed directly below these nodes, or
      * in any of these nodes' children will be made available for selection. Mapped to
      * DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly availableMetricCategoryNodeHashes: number[];
 }

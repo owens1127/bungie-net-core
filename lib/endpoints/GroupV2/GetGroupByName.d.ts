@@ -24,5 +24,8 @@ export declare type GetGroupByNameParams = {
 /**
  * Get information about a specific group with the given name and type.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName}
-*/
-export declare function getGroupByName(this: InstancedImport | AccessTokenObject | void, params: GetGroupByNameParams): Promise<BungieNetResponse<GroupResponse>>;
+ */
+export declare function getGroupByName(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetGroupByNameParams
+): Promise<BungieNetResponse<GroupResponse>>;

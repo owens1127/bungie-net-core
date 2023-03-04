@@ -15,7 +15,7 @@
  * or character level. For everything else, there's this more generic sense of
  * scope.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyScope}
-*/
+ */
 export declare enum DestinyScope {
     Profile = 0,
     Character = 1

@@ -22,5 +22,9 @@ export declare type AddOptionalConversationParams = {
  * Add a new optional conversation/chat channel. Requires admin permissions to the
  * group.
  * @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation}
-*/
-export declare function addOptionalConversation(this: InstancedImport | AccessTokenObject | void, params: AddOptionalConversationParams, body: GroupOptionalConversationAddRequest): Promise<BungieNetResponse<string>>;
+ */
+export declare function addOptionalConversation(
+    this: InstancedImport | AccessTokenObject | void,
+    params: AddOptionalConversationParams,
+    body: GroupOptionalConversationAddRequest
+): Promise<BungieNetResponse<string>>;

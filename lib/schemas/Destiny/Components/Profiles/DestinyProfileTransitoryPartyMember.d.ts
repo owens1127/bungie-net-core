@@ -23,14 +23,14 @@ import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates';
  * queries if you absolutely must know the character ID of the currently playing
  * character. Pretty please with sugar on top.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryPartyMember}
-*/
+ */
 export interface DestinyProfileTransitoryPartyMember {
     /** The Membership ID that matches the party member. */
     readonly membershipId: string;
     /**
      * The identifier for the DestinyInventoryItemDefinition of the player's emblem.
      * Mapped to DestinyInventoryItemDefinition in the manifest.
-    */
+     */
     readonly emblemHash: number;
     /** The player's last known display name. */
     readonly displayName: string;
@@ -38,6 +38,6 @@ export interface DestinyProfileTransitoryPartyMember {
      * A Flags Enumeration value indicating the states that the player is in relevant
      * to being on a fireteam. This enum represents a set of flags - use bitwise
      * operators to check which of these match your value.
-    */
+     */
     readonly status: DestinyPartyMemberStates;
 }

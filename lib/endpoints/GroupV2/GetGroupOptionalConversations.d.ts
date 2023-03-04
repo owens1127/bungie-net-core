@@ -21,5 +21,8 @@ export declare type GetGroupOptionalConversationsParams = {
 /**
  * Gets a list of available optional conversation channels and their settings.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
-*/
-export declare function getGroupOptionalConversations(this: InstancedImport | AccessTokenObject | void, params: GetGroupOptionalConversationsParams): Promise<BungieNetResponse<GroupOptionalConversation[]>>;
+ */
+export declare function getGroupOptionalConversations(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetGroupOptionalConversationsParams
+): Promise<BungieNetResponse<GroupOptionalConversation[]>>;

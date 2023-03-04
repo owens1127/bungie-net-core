@@ -13,7 +13,7 @@
 /**
  * If the objective has a known UI label, this enumeration will represent it.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyObjectiveUiStyle}
-*/
+ */
 export declare enum DestinyObjectiveUiStyle {
     None = 0,
     Highlighted = 1,

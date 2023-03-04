@@ -23,7 +23,7 @@ export declare type GetCharacterParams = {
      * A comma separated list of components to return (as strings or numeric values).
      * See the DestinyComponentType enum for valid components to request. You must
      * request at least one component to receive results.
-    */
+     */
     components: DestinyComponentType[];
     /** Destiny membership ID. */
     destinyMembershipId: string;
@@ -33,5 +33,8 @@ export declare type GetCharacterParams = {
 /**
  * Returns character information for the supplied character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter}
-*/
-export declare function getCharacter(this: InstancedImport | AccessTokenObject | void, params: GetCharacterParams): Promise<BungieNetResponse<DestinyCharacterResponse>>;
+ */
+export declare function getCharacter(
+    this: InstancedImport | AccessTokenObject | void,
+    params: GetCharacterParams
+): Promise<BungieNetResponse<DestinyCharacterResponse>>;

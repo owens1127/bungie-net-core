@@ -1,6 +1,12 @@
-import { DestinyManifestComponentName, DestinyManifestLanguage, DestinyManifestSlice } from "./index.js";
-import { DestinyManifest } from "../schemas/index.js";
-export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
+import {
+    DestinyManifestComponentName,
+    DestinyManifestLanguage,
+    DestinyManifestSlice
+} from './index.js';
+import { DestinyManifest } from '../schemas/index.js';
+export interface GetDestinyManifestSliceParams<
+    T extends DestinyManifestComponentName[]
+> {
     destinyManifest: DestinyManifest;
     tableNames: T;
     language: DestinyManifestLanguage;
@@ -25,4 +31,6 @@ export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponen
  *
  * `function(['DestinyInventoryItemDefinition'])`
  */
-export declare function getDestinyManifestSlice<T extends DestinyManifestComponentName[]>(params: GetDestinyManifestSliceParams<T>): Promise<DestinyManifestSlice<T>>;
+export declare function getDestinyManifestSlice<
+    T extends DestinyManifestComponentName[]
+>(params: GetDestinyManifestSliceParams<T>): Promise<DestinyManifestSlice<T>>;

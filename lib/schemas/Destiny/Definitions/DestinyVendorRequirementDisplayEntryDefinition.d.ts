@@ -14,7 +14,7 @@
  * The localized properties of the requirementsDisplay, allowing information about
  * the requirement or item being featured to be seen.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorRequirementDisplayEntryDefinition}
-*/
+ */
 export interface DestinyVendorRequirementDisplayEntryDefinition {
     readonly icon: string;
     readonly name: string;

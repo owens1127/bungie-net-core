@@ -22,5 +22,9 @@ export declare type DenyPendingForListParams = {
 /**
  * Deny all of the pending users for the given group that match the passed-in .
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyPendingForList}
-*/
-export declare function denyPendingForList(this: InstancedImport | AccessTokenObject | void, params: DenyPendingForListParams, body: GroupApplicationListRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+ */
+export declare function denyPendingForList(
+    this: InstancedImport | AccessTokenObject | void,
+    params: DenyPendingForListParams,
+    body: GroupApplicationListRequest
+): Promise<BungieNetResponse<EntityActionResult[]>>;

@@ -20,11 +20,11 @@ export interface DestinyCollectiblesComponent {
     /**
      * The hash for the root presentation node definition of Collection categories.
      * Mapped to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly collectionCategoriesRootNodeHash: number;
     /**
      * The hash for the root presentation node definition of Collection Badges. Mapped
      * to DestinyPresentationNodeDefinition in the manifest.
-    */
+     */
     readonly collectionBadgesRootNodeHash: number;
 }

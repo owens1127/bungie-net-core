@@ -23,7 +23,7 @@
  * Using this will let you group your vendors in your UI in a similar manner to how
  * we will do grouping in the Companion.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorGroupDefinition}
-*/
+ */
 export interface DestinyVendorGroupDefinition {
     /** The recommended order in which to render the groups, Ascending order. */
     readonly order: number;
@@ -35,13 +35,13 @@ export interface DestinyVendorGroupDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

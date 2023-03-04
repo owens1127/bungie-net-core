@@ -18,12 +18,12 @@
  * Not guaranteed to match real-world instances of the item, but should hopefully
  * at least be close. If it's not close, let us know on the Bungie API forums.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyInventoryItemStatDefinition}
-*/
+ */
 export interface DestinyInventoryItemStatDefinition {
     /**
      * The hash for the DestinyStatDefinition representing this stat. Mapped to
      * DestinyStatDefinition in the manifest.
-    */
+     */
     readonly statHash: number;
     /**
      * This value represents the stat value assuming the minimum possible roll but
@@ -37,7 +37,7 @@ export interface DestinyInventoryItemStatDefinition {
      * In Destiny 2, this is not possible unless Talent Grids begin to be used again
      * for these purposes or some other system change occurs... thus in practice, value
      * and minimum should be the same in Destiny 2. Good riddance.
-    */
+     */
     readonly value: number;
     /** The minimum possible value for this stat that we think the item can roll. */
     readonly minimum: number;
@@ -49,7 +49,7 @@ export interface DestinyInventoryItemStatDefinition {
      * grids and instead have sockets: but the calculation of this field was never
      * altered to adapt to this change. As such, this field should be considered
      * deprecated until we can address this oversight.
-    */
+     */
     readonly maximum: number;
     /**
      * The maximum possible value for the stat as shown in the UI, if it is being shown
@@ -60,6 +60,6 @@ export interface DestinyInventoryItemStatDefinition {
      *
      * If not returned, there is no maximum to use (and thus the stat should not be
      * shown in a way that assumes there is a limit to the stat)
-    */
+     */
     readonly displayMaximum?: number;
 }

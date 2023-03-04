@@ -16,7 +16,7 @@ import { DestinyEnergyType } from '../../DestinyEnergyType';
  * piece of Armor in Armor 2.0. This is how much "Energy" can be spent on
  * activating plugs for this item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyEnergyCapacityEntry}
-*/
+ */
 export interface DestinyEnergyCapacityEntry {
     /** How much energy capacity this plug provides. */
     readonly capacityValue: number;
@@ -24,7 +24,7 @@ export interface DestinyEnergyCapacityEntry {
      * Energy provided by a plug is always of a specific type - this is the hash
      * identifier for the energy type for which it provides Capacity. Mapped to
      * DestinyEnergyTypeDefinition in the manifest.
-    */
+     */
     readonly energyTypeHash: number;
     /** The Energy Type for this energy capacity, in enum form for easy use. */
     readonly energyType: DestinyEnergyType;

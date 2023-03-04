@@ -26,5 +26,8 @@ export declare type AbdicateFoundershipParams = {
  * An administrative method to allow the founder of a group or clan to give up
  * their position to another admin permanently.
  * @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership}
-*/
-export declare function abdicateFoundership(this: InstancedImport | AccessTokenObject | void, params: AbdicateFoundershipParams): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function abdicateFoundership(
+    this: InstancedImport | AccessTokenObject | void,
+    params: AbdicateFoundershipParams
+): Promise<BungieNetResponse<boolean>>;

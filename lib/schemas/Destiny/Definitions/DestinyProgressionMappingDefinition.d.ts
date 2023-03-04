@@ -17,18 +17,18 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * These are used to apply rewards to multiple progressions at once. They can
  * sometimes have human readable data as well, but only extremely sporadically.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionMappingDefinition}
-*/
+ */
 export interface DestinyProgressionMappingDefinition {
     /**
      * Infrequently defined in practice. Defer to the individual progressions' display
      * properties.
-    */
+     */
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
     /**
      * The localized unit of measurement for progression across the progressions
      * defined in this mapping. Unfortunately, this is very infrequently defined. Defer
      * to the individual progressions' display units.
-    */
+     */
     readonly displayUnits: string;
     /**
      * The unique identifier for this entity. Guaranteed to be unique for the type of
@@ -36,13 +36,13 @@ export interface DestinyProgressionMappingDefinition {
      *
      * When entities refer to each other in Destiny content, it is this hash that they
      * are referring to.
-    */
+     */
     readonly hash: number;
     /** The index of the entity as it was found in the investment tables. */
     readonly index: number;
     /**
      * If this is true, then there is an entity with this identifier/type combination,
      * but BNet is not yet allowed to show it. Sorry!
-    */
+     */
     readonly redacted: boolean;
 }

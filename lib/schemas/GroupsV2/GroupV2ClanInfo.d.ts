@@ -15,7 +15,7 @@ import { ClanBanner } from './ClanBanner';
  * This contract contains clan-specific group information. It does not include any
  * investment data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2ClanInfo}
-*/
+ */
 export interface GroupV2ClanInfo {
     readonly clanCallsign: string;
     readonly clanBannerData: ClanBanner;

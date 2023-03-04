@@ -20,7 +20,7 @@ export interface GroupOptionsEditAction {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly InvitePermissionOverride?: boolean;
     /**
      * Minimum Member Level allowed to update group culture
@@ -30,7 +30,7 @@ export interface GroupOptionsEditAction {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly UpdateCulturePermissionOverride?: boolean;
     /**
      * Minimum Member Level allowed to host guided games
@@ -41,7 +41,7 @@ export interface GroupOptionsEditAction {
      *
      * Default is Member for clans, None for groups, although this means nothing for
      * groups.
-    */
+     */
     readonly HostGuidedGamePermissionOverride?: number;
     /**
      * Minimum Member Level allowed to update banner
@@ -51,13 +51,13 @@ export interface GroupOptionsEditAction {
      * True means admins have this power, false means they don't
      *
      * Default is false for clans, true for groups.
-    */
+     */
     readonly UpdateBannerPermissionOverride?: boolean;
     /**
      * Level to join a member at when accepting an invite, application, or joining an
      * open clan
      *
      * Default is Beginner.
-    */
+     */
     readonly JoinLevel?: number;
 }

@@ -16,7 +16,7 @@ import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition';
  * have their own tables in the Manifest Database - also have displayable
  * information. This is the base class for that display information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition}
-*/
+ */
 export interface DestinyDisplayPropertiesDefinition {
     readonly description: string;
     readonly name: string;
@@ -29,13 +29,13 @@ export interface DestinyDisplayPropertiesDefinition {
      * icon.
      *
      * They are currently represented as 96px x 96px images.
-    */
+     */
     readonly icon: string;
     readonly iconSequences: DestinyIconSequenceDefinition[];
     /**
      * If this item has a high-res icon (at least for now, many things won't), then the
      * path to that icon will be here.
-    */
+     */
     readonly highResIcon: string;
     readonly hasIcon: boolean;
 }

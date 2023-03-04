@@ -20,5 +20,8 @@ import { DestinyItemTransferRequest } from '../../schemas/index.js';
  *
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.TransferItem}
-*/
-export declare function transferItem(this: InstancedImport | AccessTokenObject | void, body: DestinyItemTransferRequest): Promise<BungieNetResponse<number>>;
+ */
+export declare function transferItem(
+    this: InstancedImport | AccessTokenObject | void,
+    body: DestinyItemTransferRequest
+): Promise<BungieNetResponse<number>>;

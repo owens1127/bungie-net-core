@@ -27,5 +27,9 @@ export declare type ApprovePendingParams = {
  * Approve the given membershipId to join the group/clan as long as they have
  * applied.
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending}
-*/
-export declare function approvePending(this: InstancedImport | AccessTokenObject | void, params: ApprovePendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<boolean>>;
+ */
+export declare function approvePending(
+    this: InstancedImport | AccessTokenObject | void,
+    params: ApprovePendingParams,
+    body: GroupApplicationRequest
+): Promise<BungieNetResponse<boolean>>;
