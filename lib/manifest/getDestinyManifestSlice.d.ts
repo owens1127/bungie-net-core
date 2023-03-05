@@ -3,7 +3,7 @@ import {
     DestinyManifestLanguage,
     DestinyManifestSlice
 } from './index.js';
-import { DestinyManifest } from '../schemas/index.js';
+import { DestinyManifest } from '../schemas';
 export interface GetDestinyManifestSliceParams<
     T extends DestinyManifestComponentName[]
 > {

@@ -24,7 +24,7 @@ function generateSchemaIndex(
                 defInfo.typeName
             } } from '${component
                 .replace('schemas/', './')
-                .replace('.ts', '.js')}';`
+                .replace('.ts', '')}';`
         );
     }
 

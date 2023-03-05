@@ -6,7 +6,6 @@
 import fs from 'fs';
 import _ from 'underscore';
 import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
-import { DefInfo } from './util.js';
 
 import { generateIndices } from './generate-indices.js';
 import { generateTypeDefinition } from './generate-classes.js';

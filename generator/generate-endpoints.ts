@@ -14,6 +14,7 @@ import {
 } from './generate-common.js';
 import _ from 'underscore';
 import { seeDefHyperLink } from './type-index.js';
+import { generateTestStub } from './generate-tests.js';
 
 export function generateServiceDefinition(
     tag: string,
@@ -31,7 +32,8 @@ export function generateServiceDefinition(
             path,
             pathDef,
             doc,
-            componentByDef
+            componentByDef,
+            tag
         );
         const definition =
             [generateHeader(doc), pathDefinition].join('\n\n') + '\n';
@@ -44,7 +46,7 @@ export function generateServiceDefinition(
             .map(endpt => {
                 return `export { ${
                     endpt[0].toLowerCase() + endpt.substring(1)
-                } } from './${endpt}.js';`;
+                } } from './${endpt}';`;
             })
             .join('\n')
     );
@@ -54,7 +56,8 @@ function generatePathDefinition(
     path: string,
     pathDef: PathItemObject,
     doc: OpenAPIObject,
-    componentByDef: { [def: string]: DefInfo }
+    componentByDef: { [def: string]: DefInfo },
+    tag: string
 ): string {
     const hyperRef = seeDefHyperLink('#' + pathDef.summary);
     const importFiles = new Map<string, string>();
@@ -79,11 +82,11 @@ function generatePathDefinition(
         // see https://github.com/Bungie-net/api/pull/1718/commits/2d4225f5a93a814daba9f9443986da77bdd0e7bf
         if (param.name === 'currentpage') param.in = 'query';
     });
-    // console.log(params)
     const queryParameterNames = params
         .filter(param => param.in === 'query')
         .map(param => param.name);
 
+    const argumentsList: string[] = []
     const parameterArgs = ['this: InstancedImport | AccessTokenObject | void'];
     let paramsTypeDefinition = '';
     if (params.length) {
@@ -96,6 +99,7 @@ function generatePathDefinition(
                 hyperRef,
                 importFiles
             ) + '\n\n';
+        argumentsList.push("params")
         parameterArgs.push(`params: ${interfaceName}Params`);
     }
 
@@ -108,6 +112,7 @@ function generatePathDefinition(
             const docString = methodDef.requestBody.description
                 ? docComment(methodDef.requestBody.description) + '\n'
                 : '';
+            argumentsList.push('body')
             parameterArgs.push(
                 `${docString}body${
                     methodDef.requestBody.required ? '' : '?'
@@ -157,10 +162,10 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
     const rateLimitedFunction = 'rateLimitedRequest';
     const staticImports = [
-        `import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
-        `import { BungieNetResponse } from '../../util/server-response.js';`,
-        `import { InstancedImport, AccessTokenObject } from '../../util/client.js';`,
-        `import { BungieAPIError } from '../../errors/BungieAPIError.js';`
+        `import { ${rateLimitedFunction} } from '../../util/rate-limiter';`,
+        `import { BungieNetResponse } from '../../util/server-response';`,
+        `import { InstancedImport, AccessTokenObject } from '../../util/client';`,
+        `import { BungieAPIError } from '../../errors/BungieAPIError';`
     ];
     const responseType = resolveSchemaType(
         methodDef.responses['200'],
@@ -170,12 +175,17 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
     const headerImports: string[] = [];
     for (const [key] of Array.from(importFiles.entries())) {
-        headerImports.push(`import { ${key} } from '../../schemas/index.js'`);
+        headerImports.push(`import { ${key} } from '../../schemas'`);
     }
     const rateDoc =
         methodDef['x-documentation-attributes']
             ?.ThrottleSecondsBetweenActionPerUser &&
         `Wait at least ${methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser}s between actions.`;
+
+    const snakeInterface =
+        interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1);
+
+    generateTestStub(tag, snakeInterface, doc, argumentsList);
 
     return (
         `${staticImports.join('\n')}\n${headerImports.join(
@@ -184,9 +194,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
             methodDef.description! + (rateDoc ? '\n' + rateDoc : ''),
             [hyperRef]
         )}
-export async function ${
-            interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1)
-        }(${parameterArgs.join(
+export async function ${snakeInterface}(${parameterArgs.join(
             ', '
         )}): Promise<BungieNetResponse<${responseType}>> {` +
         `  const token = (this as InstancedImport)?.client?.access_token as string ?? (this as AccessTokenObject)?.access_token ?? null
