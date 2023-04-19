@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import { getAccessTokenFromRefreshToken } from '../src/util/tokens.js';
-import { client } from './index.js';
+import { getAccessTokenFromRefreshToken } from '../src/util/tokens';
+import { client } from './index';
 
 const setUp = async () => {
   dotenv.config();

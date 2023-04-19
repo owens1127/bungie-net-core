@@ -80,9 +80,6 @@ export const getDestinyEntityDefinitionTests: TestCase<typeof getDestinyEntityDe
         expect(res.Response).toHaveProperty('hash');
         expect(res.Response).toHaveProperty('index');
         expect(res.Response).toHaveProperty('redacted');
-      },
-      failure: e => {
-        expect(e).toBe(null);
       }
     }
   }
@@ -96,9 +93,6 @@ export const getDestinyManifestTests: TestCase<typeof getDestinyManifest>[] = [
         expect(res.ErrorCode).toEqual(1);
         expect(res.Response).toHaveProperty('version');
         expect(res.Response).toHaveProperty('jsonWorldContentPaths');
-      },
-      failure: e => {
-        expect(e).toBe(null);
       }
     }
   }
@@ -124,10 +118,7 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
       }
     ],
     promise: {
-      success: res => expect(res.ErrorCode).toEqual(1),
-      failure: e => {
-        expect(e).toBe(null);
-      }
+      success: res => expect(res.ErrorCode).toEqual(1)
     }
   },
   {
@@ -140,7 +131,6 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
       }
     ],
     promise: {
-      success: res => expect(res.Response).toBe(null),
       failure: e => {
         expect(e.message).toBe(
           'Unable to parse your parameters.  Please correct them, and try again.'
@@ -181,9 +171,6 @@ export const searchDestinyPlayerByBungieNameTests: TestCase<
         expect(res.ErrorCode).toEqual(1);
         expect(res.Response[0].bungieGlobalDisplayName).toBe('Newo');
         expect(res.Response[0].bungieGlobalDisplayNameCode).toBe(9010);
-      },
-      failure: e => {
-        expect(e).toBe(null);
       }
     }
   },
@@ -202,9 +189,6 @@ export const searchDestinyPlayerByBungieNameTests: TestCase<
       success: res => {
         expect(res.ErrorCode).toEqual(1);
         expect(res.Response).toHaveLength(0);
-      },
-      failure: e => {
-        expect(e).toBe(null);
       }
     }
   }

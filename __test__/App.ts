@@ -12,7 +12,6 @@ export const getApplicationApiUsageTests: TestCase<typeof getApplicationApiUsage
       }
     ],
     promise: {
-      success: res => expect(res).toBe(null),
       failure: e => {
         expect(e.message).toEqual('Please sign-in to continue.');
       }
