@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
 
 /**
  * These are definitions for in-game "Lore," meant to be narrative enhancements of

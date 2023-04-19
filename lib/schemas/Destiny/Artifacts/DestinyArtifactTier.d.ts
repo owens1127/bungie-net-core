@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyArtifactTierItem } from './DestinyArtifactTierItem.js';
+import { DestinyArtifactTierItem } from './DestinyArtifactTierItem';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactTier} */
 export interface DestinyArtifactTier {
     readonly tierHash: number;

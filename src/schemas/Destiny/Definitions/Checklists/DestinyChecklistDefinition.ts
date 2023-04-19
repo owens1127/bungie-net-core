@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyScope } from '../../DestinyScope.js'
-import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyScope } from '../../DestinyScope'
+import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefinition'
 
 /**
  * By public demand, Checklists are loose sets of "things to do/things you have

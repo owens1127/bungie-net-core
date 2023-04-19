@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyTalentNodeState } from './DestinyTalentNodeState.js';
-import { DestinyMaterialRequirement } from './Definitions/DestinyMaterialRequirement.js';
-import { DestinyTalentNodeStatBlock } from './DestinyTalentNodeStatBlock.js';
+import { DestinyTalentNodeState } from './DestinyTalentNodeState';
+import { DestinyMaterialRequirement } from './Definitions/DestinyMaterialRequirement';
+import { DestinyTalentNodeStatBlock } from './DestinyTalentNodeStatBlock';
 /**
  * I see you've come to find out more about Talent Nodes. I'm so sorry. Talent
  * Nodes are the conceptual, visual nodes that appear on Talent Grids. Talent Grids,

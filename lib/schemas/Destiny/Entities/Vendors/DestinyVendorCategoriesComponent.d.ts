@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyVendorCategory } from './DestinyVendorCategory.js';
+import { DestinyVendorCategory } from './DestinyVendorCategory';
 /**
  * A vendor can have many categories of items that they sell. This component will
  * return the category information for available items, as well as the index into

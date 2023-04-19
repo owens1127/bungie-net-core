@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { BungieMembershipType } from '../../schemas/index.js'
-import { DestinyAggregateActivityResults } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieMembershipType } from '../../schemas'
+import { DestinyAggregateActivityResults } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats} */
 export type GetDestinyAggregateActivityStatsParams = {
   /** The specific character whose activities should be returned. */

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInventoryFlyoutBucketDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInventoryFlyoutBucketDefinition';
 /**
  * The definition for an "inventory flyout": a UI screen where we show you part of
  * an otherwise hidden vendor inventory: like the Vault inventory buckets.

@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { GroupQuery } from '../../schemas/index.js'
-import { GroupSearchResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { GroupQuery } from '../../schemas'
+import { GroupSearchResponse } from '../../schemas'
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}

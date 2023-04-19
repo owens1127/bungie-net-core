@@ -13,7 +13,7 @@
  */
 //
 
-import { PartnerOfferHistoryResponse } from './PartnerOfferHistoryResponse.js'
+import { PartnerOfferHistoryResponse } from './PartnerOfferHistoryResponse'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerOfferSkuHistoryResponse} */
 export interface PartnerOfferSkuHistoryResponse {

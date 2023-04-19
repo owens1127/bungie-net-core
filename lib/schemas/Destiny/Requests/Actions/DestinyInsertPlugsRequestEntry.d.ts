@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinySocketArrayType } from './DestinySocketArrayType.js';
+import { DestinySocketArrayType } from './DestinySocketArrayType';
 /**
  * Represents all of the data related to a single plug to be inserted.
  *

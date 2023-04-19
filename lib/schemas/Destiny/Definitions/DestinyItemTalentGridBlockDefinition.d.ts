@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DamageType } from '../DamageType.js';
+import { DamageType } from '../DamageType';
 /**
  * This defines information that can only come from a talent grid on an item. Items
  * mostly have negligible talent grid data these days, but instanced items still

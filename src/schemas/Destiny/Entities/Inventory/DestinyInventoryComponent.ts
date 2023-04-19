@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemComponent } from '../Items/DestinyItemComponent.js'
+import { DestinyItemComponent } from '../Items/DestinyItemComponent'
 
 /**
  * A list of minimal information for items in an inventory: be it a character's

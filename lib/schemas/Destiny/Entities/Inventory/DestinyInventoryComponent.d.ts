@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemComponent } from '../Items/DestinyItemComponent.js';
+import { DestinyItemComponent } from '../Items/DestinyItemComponent';
 /**
  * A list of minimal information for items in an inventory: be it a character's
  * inventory, or a Profile's inventory. (Note that the Vault is a collection of

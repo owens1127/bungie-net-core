@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 /**
  * Unlock Flags are small bits (literally, a bit, as in a boolean value) that the
  * game server uses for an extremely wide range of state checks, progress storage,

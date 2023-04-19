@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgressionDisplayPropertiesDefinition } from './DestinyProgressionDisplayPropertiesDefinition.js';
-import { DestinyProgressionScope } from '../DestinyProgressionScope.js';
-import { DestinyProgressionStepDefinition } from './DestinyProgressionStepDefinition.js';
-import { DestinyColor } from '../Misc/DestinyColor.js';
-import { DestinyProgressionRewardItemQuantity } from './DestinyProgressionRewardItemQuantity.js';
+import { DestinyProgressionDisplayPropertiesDefinition } from './DestinyProgressionDisplayPropertiesDefinition';
+import { DestinyProgressionScope } from '../DestinyProgressionScope';
+import { DestinyProgressionStepDefinition } from './DestinyProgressionStepDefinition';
+import { DestinyColor } from '../Misc/DestinyColor';
+import { DestinyProgressionRewardItemQuantity } from './DestinyProgressionRewardItemQuantity';
 /**
  * A "Progression" in Destiny is best explained by an example.
  *

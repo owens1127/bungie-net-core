@@ -13,9 +13,9 @@
  */
 //
 
-import { GroupType } from './GroupType.js'
-import { GroupDateRange } from './GroupDateRange.js'
-import { GroupSortBy } from './GroupSortBy.js'
+import { GroupType } from './GroupType'
+import { GroupDateRange } from './GroupDateRange'
+import { GroupSortBy } from './GroupSortBy'
 
 /**
  * NOTE: GroupQuery, as of Destiny 2, has essentially two totally different and

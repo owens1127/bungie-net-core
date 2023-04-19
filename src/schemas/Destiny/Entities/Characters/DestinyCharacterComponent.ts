@@ -13,12 +13,12 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType.js'
-import { DestinyRace } from '../../DestinyRace.js'
-import { DestinyClass } from '../../DestinyClass.js'
-import { DestinyGender } from '../../DestinyGender.js'
-import { DestinyColor } from '../../Misc/DestinyColor.js'
-import { DestinyProgression } from '../../DestinyProgression.js'
+import { BungieMembershipType } from '../../../BungieMembershipType'
+import { DestinyRace } from '../../DestinyRace'
+import { DestinyClass } from '../../DestinyClass'
+import { DestinyGender } from '../../DestinyGender'
+import { DestinyColor } from '../../Misc/DestinyColor'
+import { DestinyProgression } from '../../DestinyProgression'
 
 /**
  * This component contains base properties of the character. You'll probably want

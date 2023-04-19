@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemSetBlockEntryDefinition } from './DestinyItemSetBlockEntryDefinition.js'
+import { DestinyItemSetBlockEntryDefinition } from './DestinyItemSetBlockEntryDefinition'
 
 /**
  * Primarily for Quests, this is the definition of properties related to the item

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType.js';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
 /**
  * If the activity is a playlist, this is the definition for a specific entry in
  * the playlist: a single possible combination of Activity and Activity Mode that

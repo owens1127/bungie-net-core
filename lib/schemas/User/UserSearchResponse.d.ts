@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserSearchResponseDetail } from './UserSearchResponseDetail.js';
+import { UserSearchResponseDetail } from './UserSearchResponseDetail';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchResponse} */
 export interface UserSearchResponse {
     readonly searchResults: UserSearchResponseDetail[];

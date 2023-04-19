@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../DestinyItemQuantity'
 
 /**
  * Represents the public-facing status of an activity: any data about what is

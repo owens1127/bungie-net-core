@@ -13,8 +13,8 @@
  */
 //
 
-import { DeveloperRole } from './DeveloperRole.js'
-import { UserInfoCard } from '../User/UserInfoCard.js'
+import { DeveloperRole } from './DeveloperRole'
+import { UserInfoCard } from '../User/UserInfoCard'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApplicationDeveloper} */
 export interface ApplicationDeveloper {

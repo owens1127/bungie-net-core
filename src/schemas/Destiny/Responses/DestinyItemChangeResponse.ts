@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemResponse } from './DestinyItemResponse.js'
-import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent.js'
+import { DestinyItemResponse } from './DestinyItemResponse'
+import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemChangeResponse} */
 export interface DestinyItemChangeResponse {

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyCollectibleState } from '../../DestinyCollectibleState.js';
+import { DestinyCollectibleState } from '../../DestinyCollectibleState';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Collectibles.DestinyCollectibleComponent} */
 export interface DestinyCollectibleComponent {
     /**

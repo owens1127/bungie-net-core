@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyCraftableComponent } from './DestinyCraftableComponent.js'
+import { DestinyCraftableComponent } from './DestinyCraftableComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Craftables.DestinyCraftablesComponent} */
 export interface DestinyCraftablesComponent {

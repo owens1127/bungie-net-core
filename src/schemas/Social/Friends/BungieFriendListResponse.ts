@@ -13,7 +13,7 @@
  */
 //
 
-import { BungieFriend } from './BungieFriend.js'
+import { BungieFriend } from './BungieFriend'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.BungieFriendListResponse} */
 export interface BungieFriendListResponse {

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { NewsArticleRssItem } from './NewsArticleRssItem.js';
+import { NewsArticleRssItem } from './NewsArticleRssItem';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.NewsArticleRssResponse} */
 export interface NewsArticleRssResponse {
     readonly NewsArticles: NewsArticleRssItem[];

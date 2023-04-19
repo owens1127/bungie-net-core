@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPublicActivityStatus } from '../Destiny/Activities/DestinyPublicActivityStatus.js'
+import { DestinyPublicActivityStatus } from '../Destiny/Activities/DestinyPublicActivityStatus'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryDestinyActivity} */
 export interface TrendingEntryDestinyActivity {

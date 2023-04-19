@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyMilestoneRewardEntryDefinition } from './DestinyMilestoneRewardEntryDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyMilestoneRewardEntryDefinition } from './DestinyMilestoneRewardEntryDefinition';
 /**
  * The definition of a category of rewards, that contains many individual rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneRewardCategoryDefinition}

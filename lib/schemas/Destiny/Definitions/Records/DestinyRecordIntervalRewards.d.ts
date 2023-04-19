@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js';
+import { DestinyItemQuantity } from '../../DestinyItemQuantity';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordIntervalRewards} */
 export interface DestinyRecordIntervalRewards {
     readonly intervalRewardItems: DestinyItemQuantity[];

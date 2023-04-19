@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DyeReference } from '../DyeReference.js';
-import { DestinyGearArtArrangementReference } from './DestinyGearArtArrangementReference.js';
+import { DyeReference } from '../DyeReference';
+import { DestinyGearArtArrangementReference } from './DestinyGearArtArrangementReference';
 /**
  * This Block defines the rendering data associated with the item, if any.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemTranslationBlockDefinition}

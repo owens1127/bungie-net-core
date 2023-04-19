@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
 /** @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest} */
 export declare type DeclineFriendRequestParams = {
     /** The membership id of the user you wish to decline. */

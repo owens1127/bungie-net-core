@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting.js';
-import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons.js';
+import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting';
+import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons';
 /**
  * Some basic information about whether you can be joined, how many slots are left
  * etc. Note that this can change quickly, so it may not actually be useful. But

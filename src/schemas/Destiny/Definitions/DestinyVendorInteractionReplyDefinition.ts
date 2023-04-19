@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyVendorInteractionRewardSelection } from '../DestinyVendorInteractionRewardSelection.js'
-import { DestinyVendorReplyType } from '../DestinyVendorReplyType.js'
+import { DestinyVendorInteractionRewardSelection } from '../DestinyVendorInteractionRewardSelection'
+import { DestinyVendorReplyType } from '../DestinyVendorReplyType'
 
 /**
  * When the interaction is replied to, Reward sites will fire and items potentially

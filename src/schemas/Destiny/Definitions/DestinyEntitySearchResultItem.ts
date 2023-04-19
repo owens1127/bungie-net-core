@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
 
 /**
  * An individual Destiny Entity returned from the entity search.

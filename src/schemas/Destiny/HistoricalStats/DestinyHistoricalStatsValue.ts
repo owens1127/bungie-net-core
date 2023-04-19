@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyHistoricalStatsValuePair } from './DestinyHistoricalStatsValuePair.js'
+import { DestinyHistoricalStatsValuePair } from './DestinyHistoricalStatsValuePair'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsValue} */
 export interface DestinyHistoricalStatsValue {

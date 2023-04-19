@@ -13,13 +13,13 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { GroupDateRange } from '../../schemas/index.js'
-import { GroupType } from '../../schemas/index.js'
-import { GroupV2Card } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { GroupDateRange } from '../../schemas'
+import { GroupType } from '../../schemas'
+import { GroupV2Card } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups} */
 export type GetRecommendedGroupsParams = {
   /** Requested range in which to pull recommended groups */

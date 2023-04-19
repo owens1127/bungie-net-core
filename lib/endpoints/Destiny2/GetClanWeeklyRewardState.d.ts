@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyMilestone } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyMilestone } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState} */
 export declare type GetClanWeeklyRewardStateParams = {
     /** A valid group id of clan. */

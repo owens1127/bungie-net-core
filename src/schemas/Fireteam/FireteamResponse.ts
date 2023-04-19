@@ -13,8 +13,8 @@
  */
 //
 
-import { FireteamSummary } from './FireteamSummary.js'
-import { FireteamMember } from './FireteamMember.js'
+import { FireteamSummary } from './FireteamSummary'
+import { FireteamMember } from './FireteamMember'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamResponse} */
 export interface FireteamResponse {

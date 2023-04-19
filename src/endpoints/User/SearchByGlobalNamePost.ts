@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { UserSearchPrefixRequest } from '../../schemas/index.js'
-import { UserSearchResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { UserSearchPrefixRequest } from '../../schemas'
+import { UserSearchResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
 export type SearchByGlobalNamePostParams = {
   /** The zero-based page of results you desire. */

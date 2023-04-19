@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition.js';
+import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition';
 /**
  * These Art Elements are meant to represent one-off visual effects overlaid on the
  * map. Currently, we do not have a pipeline to import the assets for these

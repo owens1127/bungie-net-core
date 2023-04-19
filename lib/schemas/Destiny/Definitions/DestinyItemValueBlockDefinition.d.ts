@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js';
+import { DestinyItemQuantity } from '../DestinyItemQuantity';
 /**
  * This defines an item's "Value". Unfortunately, this appears to be used in
  * different ways depending on the way that the item itself is used.

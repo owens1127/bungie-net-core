@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyLocationReleaseDefinition } from './DestinyLocationReleaseDefinition.js'
+import { DestinyLocationReleaseDefinition } from './DestinyLocationReleaseDefinition'
 
 /**
  * A "Location" is a sort of shortcut for referring to a specific combination of

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes.js';
+import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes';
 /**
  * The results of an Equipping operation performed through the Destiny API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEquipItemResult}

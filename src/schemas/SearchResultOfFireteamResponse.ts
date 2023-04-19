@@ -13,8 +13,8 @@
  */
 //
 
-import { FireteamResponse } from './Fireteam/FireteamResponse.js'
-import { PagedQuery } from './Queries/PagedQuery.js'
+import { FireteamResponse } from './Fireteam/FireteamResponse'
+import { PagedQuery } from './Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfFireteamResponse} */
 export interface SearchResultOfFireteamResponse {

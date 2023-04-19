@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyReportReasonDefinition } from './DestinyReportReasonDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyReportReasonDefinition } from './DestinyReportReasonDefinition';
 /**
  * If you're going to report someone for a Terms of Service violation, you need to
  * choose a category and reason for the report. This definition holds both the

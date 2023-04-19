@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 /**
  * The definition for an Activity Type.
  *

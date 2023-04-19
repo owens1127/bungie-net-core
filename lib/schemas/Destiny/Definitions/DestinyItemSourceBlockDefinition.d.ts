@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition.js';
-import { BungieMembershipType } from '../../BungieMembershipType.js';
-import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference.js';
+import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition';
+import { BungieMembershipType } from '../../BungieMembershipType';
+import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference';
 /**
  * Data about an item's "sources": ways that the item can be obtained.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSourceBlockDefinition}

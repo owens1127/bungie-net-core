@@ -11,20 +11,20 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ComponentData } from '../../../generic/ComponentTypes.js';
-import { DestinyComponentType } from '../DestinyComponentType.js';
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js';
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js';
-import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent.js';
-import { DestinyItemInstanceComponent } from '../Entities/Items/DestinyItemInstanceComponent.js';
-import { DestinyItemObjectivesComponent } from '../Entities/Items/DestinyItemObjectivesComponent.js';
-import { DestinyItemPerksComponent } from '../Entities/Items/DestinyItemPerksComponent.js';
-import { DestinyItemRenderComponent } from '../Entities/Items/DestinyItemRenderComponent.js';
-import { DestinyItemStatsComponent } from '../Entities/Items/DestinyItemStatsComponent.js';
-import { DestinyItemTalentGridComponent } from '../Entities/Items/DestinyItemTalentGridComponent.js';
-import { DestinyItemSocketsComponent } from '../Entities/Items/DestinyItemSocketsComponent.js';
-import { DestinyItemReusablePlugsComponent } from '../Components/Items/DestinyItemReusablePlugsComponent.js';
-import { DestinyItemPlugObjectivesComponent } from '../Components/Items/DestinyItemPlugObjectivesComponent.js';
+import { ComponentData } from '../../../generic/ComponentTypes';
+import { DestinyComponentType } from '../DestinyComponentType';
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse';
+import { ConditionalComponent } from '../../../generic/ComponentTypes';
+import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent';
+import { DestinyItemInstanceComponent } from '../Entities/Items/DestinyItemInstanceComponent';
+import { DestinyItemObjectivesComponent } from '../Entities/Items/DestinyItemObjectivesComponent';
+import { DestinyItemPerksComponent } from '../Entities/Items/DestinyItemPerksComponent';
+import { DestinyItemRenderComponent } from '../Entities/Items/DestinyItemRenderComponent';
+import { DestinyItemStatsComponent } from '../Entities/Items/DestinyItemStatsComponent';
+import { DestinyItemTalentGridComponent } from '../Entities/Items/DestinyItemTalentGridComponent';
+import { DestinyItemSocketsComponent } from '../Entities/Items/DestinyItemSocketsComponent';
+import { DestinyItemReusablePlugsComponent } from '../Components/Items/DestinyItemReusablePlugsComponent';
+import { DestinyItemPlugObjectivesComponent } from '../Components/Items/DestinyItemPlugObjectivesComponent';
 /**
  * The response object for retrieving an individual instanced item. None of these
  * components are relevant for an item that doesn't have an "itemInstanceId": for

@@ -13,11 +13,11 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { GlobalAlert } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { GlobalAlert } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#.GetGlobalAlerts} */
 export type GetGlobalAlertsParams = {
   /** Determines whether Streaming Alerts are included in results */

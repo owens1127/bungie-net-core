@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType.js'
-import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType'
+import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory'
 
 /**
  * This definition represents an "Activity Mode" as it exists in the Historical

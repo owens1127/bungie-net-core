@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { TrendingEntryType } from '../../schemas/index.js'
-import { TrendingDetail } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { TrendingEntryType } from '../../schemas'
+import { TrendingDetail } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail} */
 export type GetTrendingEntryDetailParams = {
   /** The identifier for the entity to be returned. */

@@ -13,13 +13,13 @@
  */
 //
 
-import { TrendingEntryType } from './TrendingEntryType.js'
-import { TrendingEntryNews } from './TrendingEntryNews.js'
-import { TrendingEntrySupportArticle } from './TrendingEntrySupportArticle.js'
-import { TrendingEntryDestinyItem } from './TrendingEntryDestinyItem.js'
-import { TrendingEntryDestinyActivity } from './TrendingEntryDestinyActivity.js'
-import { TrendingEntryDestinyRitual } from './TrendingEntryDestinyRitual.js'
-import { TrendingEntryCommunityCreation } from './TrendingEntryCommunityCreation.js'
+import { TrendingEntryType } from './TrendingEntryType'
+import { TrendingEntryNews } from './TrendingEntryNews'
+import { TrendingEntrySupportArticle } from './TrendingEntrySupportArticle'
+import { TrendingEntryDestinyItem } from './TrendingEntryDestinyItem'
+import { TrendingEntryDestinyActivity } from './TrendingEntryDestinyActivity'
+import { TrendingEntryDestinyRitual } from './TrendingEntryDestinyRitual'
+import { TrendingEntryCommunityCreation } from './TrendingEntryCommunityCreation'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingDetail} */
 export interface TrendingDetail {

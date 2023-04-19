@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyUnlockExpressionDefinition } from '../DestinyUnlockExpressionDefinition.js';
-import { DestinyLinkedGraphEntryDefinition } from './DestinyLinkedGraphEntryDefinition.js';
+import { DestinyUnlockExpressionDefinition } from '../DestinyUnlockExpressionDefinition';
+import { DestinyLinkedGraphEntryDefinition } from './DestinyLinkedGraphEntryDefinition';
 /**
  * This describes links between the current graph and others, as well as when that
  * link is relevant.

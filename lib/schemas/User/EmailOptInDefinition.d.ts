@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { OptInFlags } from './OptInFlags.js';
-import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition.js';
+import { OptInFlags } from './OptInFlags';
+import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 /**
  * Defines a single opt-in category: a wide-scoped permission to send emails for
  * the subject related to the opt-in.

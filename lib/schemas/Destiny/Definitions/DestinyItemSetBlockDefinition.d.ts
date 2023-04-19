@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemSetBlockEntryDefinition } from './DestinyItemSetBlockEntryDefinition.js';
+import { DestinyItemSetBlockEntryDefinition } from './DestinyItemSetBlockEntryDefinition';
 /**
  * Primarily for Quests, this is the definition of properties related to the item
  * if it is a quest and its various quest steps.

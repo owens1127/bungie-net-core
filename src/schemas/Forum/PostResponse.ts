@@ -13,9 +13,9 @@
  */
 //
 
-import { ForumMediaType } from './ForumMediaType.js'
-import { ForumPostPopularity } from './ForumPostPopularity.js'
-import { IgnoreResponse } from '../Ignores/IgnoreResponse.js'
+import { ForumMediaType } from './ForumMediaType'
+import { ForumPostPopularity } from './ForumPostPopularity'
+import { IgnoreResponse } from '../Ignores/IgnoreResponse'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PostResponse} */
 export interface PostResponse {

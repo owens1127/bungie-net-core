@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyActivity } from '../../DestinyActivity.js'
-import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/DestinyActivityModeType.js'
+import { DestinyActivity } from '../../DestinyActivity'
+import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/DestinyActivityModeType'
 
 /**
  * This component holds activity data for a character. It will tell you about the

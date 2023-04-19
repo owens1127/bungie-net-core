@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneActivityCompletionStatus } from './DestinyMilestoneActivityCompletionStatus.js'
+import { DestinyMilestoneActivityCompletionStatus } from './DestinyMilestoneActivityCompletionStatus'
 
 /**
  * Represents custom data that we know about an individual variant of an activity.

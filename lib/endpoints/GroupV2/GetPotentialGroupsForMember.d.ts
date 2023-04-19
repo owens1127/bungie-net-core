@@ -11,12 +11,12 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupPotentialMemberStatus } from '../../schemas/index.js';
-import { GroupType } from '../../schemas/index.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { GroupPotentialMembershipSearchResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupPotentialMemberStatus } from '../../schemas';
+import { GroupType } from '../../schemas';
+import { BungieMembershipType } from '../../schemas';
+import { GroupPotentialMembershipSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember} */
 export declare type GetPotentialGroupsForMemberParams = {
     /** Filter apply to list of potential joined groups. */

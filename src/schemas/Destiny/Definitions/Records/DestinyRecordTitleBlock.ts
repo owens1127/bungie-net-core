@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyGender } from '../../DestinyGender.js'
+import { DestinyGender } from '../../DestinyGender'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordTitleBlock} */
 export interface DestinyRecordTitleBlock {

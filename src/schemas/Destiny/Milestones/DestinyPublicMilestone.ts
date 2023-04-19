@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyPublicMilestoneQuest } from './DestinyPublicMilestoneQuest.js'
-import { DestinyPublicMilestoneChallengeActivity } from './DestinyPublicMilestoneChallengeActivity.js'
-import { DestinyPublicMilestoneVendor } from './DestinyPublicMilestoneVendor.js'
+import { DestinyPublicMilestoneQuest } from './DestinyPublicMilestoneQuest'
+import { DestinyPublicMilestoneChallengeActivity } from './DestinyPublicMilestoneChallengeActivity'
+import { DestinyPublicMilestoneVendor } from './DestinyPublicMilestoneVendor'
 
 /**
  * Information about milestones, presented in a character state-agnostic manner.

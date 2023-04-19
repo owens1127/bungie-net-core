@@ -13,10 +13,10 @@
  */
 //
 
-import { DestinyMilestoneQuest } from './DestinyMilestoneQuest.js'
-import { DestinyMilestoneChallengeActivity } from './DestinyMilestoneChallengeActivity.js'
-import { DestinyMilestoneVendor } from './DestinyMilestoneVendor.js'
-import { DestinyMilestoneRewardCategory } from './DestinyMilestoneRewardCategory.js'
+import { DestinyMilestoneQuest } from './DestinyMilestoneQuest'
+import { DestinyMilestoneChallengeActivity } from './DestinyMilestoneChallengeActivity'
+import { DestinyMilestoneVendor } from './DestinyMilestoneVendor'
+import { DestinyMilestoneRewardCategory } from './DestinyMilestoneRewardCategory'
 
 /**
  * Represents a runtime instance of a user's milestone status. Live Milestone data

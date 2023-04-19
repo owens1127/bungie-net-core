@@ -13,7 +13,7 @@
  */
 //
 
-import { InterpolationPoint } from '../../Interpolation/InterpolationPoint.js'
+import { InterpolationPoint } from '../../Interpolation/InterpolationPoint'
 
 /**
  * Describes the way that an Item Stat (see DestinyStatDefinition) is transformed

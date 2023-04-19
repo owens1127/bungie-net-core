@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { DestinyAggregateActivityResults } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieMembershipType } from '../../schemas';
+import { DestinyAggregateActivityResults } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats} */
 export declare type GetDestinyAggregateActivityStatsParams = {
     /** The specific character whose activities should be returned. */

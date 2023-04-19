@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { RuntimeGroupMemberType } from './RuntimeGroupMemberType.js';
-import { GroupUserInfoCard } from './GroupUserInfoCard.js';
-import { UserInfoCard } from '../User/UserInfoCard.js';
+import { RuntimeGroupMemberType } from './RuntimeGroupMemberType';
+import { GroupUserInfoCard } from './GroupUserInfoCard';
+import { UserInfoCard } from '../User/UserInfoCard';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupMember} */
 export interface GroupMember {
     readonly memberType: RuntimeGroupMemberType;

@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyTalentNode } from '../../DestinyTalentNode.js'
-import { DestinyProgression } from '../../DestinyProgression.js'
+import { DestinyTalentNode } from '../../DestinyTalentNode'
+import { DestinyProgression } from '../../DestinyProgression'
 
 /**
  * Well, we're here in Destiny 2, and Talent Grids are unfortunately still around.

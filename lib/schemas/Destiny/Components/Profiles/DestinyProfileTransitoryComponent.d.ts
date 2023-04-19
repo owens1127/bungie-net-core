@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProfileTransitoryPartyMember } from './DestinyProfileTransitoryPartyMember.js';
-import { DestinyProfileTransitoryCurrentActivity } from './DestinyProfileTransitoryCurrentActivity.js';
-import { DestinyProfileTransitoryJoinability } from './DestinyProfileTransitoryJoinability.js';
-import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitoryTrackingEntry.js';
+import { DestinyProfileTransitoryPartyMember } from './DestinyProfileTransitoryPartyMember';
+import { DestinyProfileTransitoryCurrentActivity } from './DestinyProfileTransitoryCurrentActivity';
+import { DestinyProfileTransitoryJoinability } from './DestinyProfileTransitoryJoinability';
+import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitoryTrackingEntry';
 /**
  * This is an experimental set of data that Bungie considers to be "transitory" -
  * information that may be useful for API users, but that is coming from a non-

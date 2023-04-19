@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js'
-import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy.js'
+import { DestinyItemQuantity } from '../DestinyItemQuantity'
+import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy'
 
 /**
  * If a character purchased an item that is refundable, a Vendor Receipt will be

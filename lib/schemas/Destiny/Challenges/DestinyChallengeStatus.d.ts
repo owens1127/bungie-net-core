@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress.js';
+import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress';
 /**
  * Represents the status and other related information for a challenge that is - or
  * was - available to a player.

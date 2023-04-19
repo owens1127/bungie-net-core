@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalStatsByPeriod } from './DestinyHistoricalStatsByPeriod.js';
+import { DestinyHistoricalStatsByPeriod } from './DestinyHistoricalStatsByPeriod';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsPerCharacter} */
 export interface DestinyHistoricalStatsPerCharacter {
     readonly characterId: string;

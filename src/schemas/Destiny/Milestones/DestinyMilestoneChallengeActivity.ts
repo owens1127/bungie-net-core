@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus.js'
-import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase.js'
+import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus'
+import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneChallengeActivity} */
 export interface DestinyMilestoneChallengeActivity {

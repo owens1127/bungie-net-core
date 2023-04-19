@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType.js';
-import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle.js';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
+import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationChildBlock} */
 export interface DestinyPresentationChildBlock {
     readonly presentationNodeType: DestinyPresentationNodeType;

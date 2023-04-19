@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry.js'
+import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry'
 
 /**
  * Represents a category of "summary" rewards that can be earned for the Milestone

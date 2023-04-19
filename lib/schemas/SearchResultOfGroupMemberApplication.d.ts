@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupMemberApplication } from './GroupsV2/GroupMemberApplication.js';
-import { PagedQuery } from './Queries/PagedQuery.js';
+import { GroupMemberApplication } from './GroupsV2/GroupMemberApplication';
+import { PagedQuery } from './Queries/PagedQuery';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfGroupMemberApplication} */
 export interface SearchResultOfGroupMemberApplication {
     readonly results: GroupMemberApplication[];

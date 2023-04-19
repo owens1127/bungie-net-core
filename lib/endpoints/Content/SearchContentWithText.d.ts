@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { SearchResultOfContentItemPublicContract } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { SearchResultOfContentItemPublicContract } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentWithText} */
 export declare type SearchContentWithTextParams = {
     /** Content type tag: Help, News, etc. Supply multiple ctypes separated by space. */

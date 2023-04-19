@@ -32,7 +32,7 @@ export function generateServiceDefinition(
     `src/endpoints/${tag}/index.ts`,
     exports
       .map(endpt => {
-        return `export { ${endpt[0].toLowerCase() + endpt.substring(1)} } from './${endpt}.js';`;
+        return `export { ${endpt[0].toLowerCase() + endpt.substring(1)} } from './${endpt}';`;
       })
       .join('\n')
   );
@@ -140,10 +140,10 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
   const rateLimitedFunction = 'rateLimitedRequest';
   const staticImports = [
-    `import { ${rateLimitedFunction} } from '../../util/rate-limiter.js';`,
-    `import { BungieNetResponse } from '../../util/server-response.js';`,
-    `import { InstancedImport, AccessTokenObject } from '../../util/client.js';`,
-    `import { BungieAPIError } from '../../errors/BungieAPIError.js';`
+    `import { ${rateLimitedFunction} } from '../../util/rate-limiter';`,
+    `import { BungieNetResponse } from '../../util/server-response';`,
+    `import { InstancedImport, AccessTokenObject } from '../../util/client';`,
+    `import { BungieAPIError } from '../../errors/BungieAPIError';`
   ];
   const responseType = resolveSchemaType(
     methodDef.responses['200'],
@@ -155,7 +155,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
   const headerImports: string[] = [];
   for (const [key] of Array.from(importFiles.entries())) {
-    headerImports.push(`import { ${key} } from '../../schemas/index.js'`);
+    headerImports.push(`import { ${key} } from '../../schemas'`);
   }
   const rateDoc =
     methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&

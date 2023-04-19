@@ -13,7 +13,7 @@
  */
 //
 
-import { ClanBanner } from './ClanBanner.js'
+import { ClanBanner } from './ClanBanner'
 
 /**
  * This contract contains clan-specific group information. It does not include any

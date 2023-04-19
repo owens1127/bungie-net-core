@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry.js';
+import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry';
 /**
  * Represents a category of "summary" rewards that can be earned for the Milestone
  * regardless of specific quest rewards that can be earned.

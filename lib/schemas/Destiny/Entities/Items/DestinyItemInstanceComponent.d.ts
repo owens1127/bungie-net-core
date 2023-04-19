@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DamageType } from '../../DamageType.js';
-import { DestinyStat } from '../../DestinyStat.js';
-import { EquipFailureReason } from '../../EquipFailureReason.js';
-import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy.js';
+import { DamageType } from '../../DamageType';
+import { DestinyStat } from '../../DestinyStat';
+import { EquipFailureReason } from '../../EquipFailureReason';
+import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy';
 /**
  * If an item is "instanced", this will contain information about the item's
  * instance that doesn't fit easily into other components. One might say this is

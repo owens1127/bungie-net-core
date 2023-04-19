@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType.js'
+import { DestinyEnergyType } from '../../DestinyEnergyType'
 
 /**
  * Some plugs cost Energy, which is a stat on the item that can be increased by

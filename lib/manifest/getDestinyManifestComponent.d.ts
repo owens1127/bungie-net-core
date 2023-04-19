@@ -1,5 +1,5 @@
 import { AllDestinyManifestComponents, DestinyManifestComponentName, DestinyManifestLanguage } from './index.js';
-import { DestinyManifest } from '../schemas/index.js';
+import { DestinyManifest } from '../schemas';
 export interface GetDestinyManifestComponentParams<T extends DestinyManifestComponentName> {
     destinyManifest: DestinyManifest;
     tableName: T;

@@ -13,10 +13,10 @@
  */
 //
 
-import { DamageType } from '../../DamageType.js'
-import { DestinyStat } from '../../DestinyStat.js'
-import { EquipFailureReason } from '../../EquipFailureReason.js'
-import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy.js'
+import { DamageType } from '../../DamageType'
+import { DestinyStat } from '../../DestinyStat'
+import { EquipFailureReason } from '../../EquipFailureReason'
+import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy'
 
 /**
  * If an item is "instanced", this will contain information about the item's

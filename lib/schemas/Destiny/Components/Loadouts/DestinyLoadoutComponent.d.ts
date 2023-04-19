@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyLoadoutItemComponent } from './DestinyLoadoutItemComponent.js';
+import { DestinyLoadoutItemComponent } from './DestinyLoadoutItemComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Loadouts.DestinyLoadoutComponent} */
 export interface DestinyLoadoutComponent {
     /** Mapped to DestinyLoadoutColorDefinition in the manifest. */

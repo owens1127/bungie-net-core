@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyStat } from './DestinyStat.js'
+import { DestinyStat } from './DestinyStat'
 
 /**
  * This property has some history. A talent grid can provide stats on both the item

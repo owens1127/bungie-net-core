@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyPostmasterTransferRequest } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyPostmasterTransferRequest } from '../../schemas';
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
  * You must have a valid Destiny account. You must also pass BOTH a reference AND

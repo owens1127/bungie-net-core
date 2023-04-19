@@ -13,10 +13,10 @@
  */
 //
 
-import { CoreSystem } from './CoreSystem.js'
-import { CoreSetting } from './CoreSetting.js'
-import { Destiny2CoreSettings } from './Destiny2CoreSettings.js'
-import { EmailSettings } from '../../User/EmailSettings.js'
+import { CoreSystem } from './CoreSystem'
+import { CoreSetting } from './CoreSetting'
+import { Destiny2CoreSettings } from './Destiny2CoreSettings'
+import { EmailSettings } from '../../User/EmailSettings'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Common.Models.CoreSettingsConfiguration} */
 export interface CoreSettingsConfiguration {

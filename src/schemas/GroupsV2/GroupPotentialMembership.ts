@@ -13,8 +13,8 @@
  */
 //
 
-import { GroupPotentialMember } from './GroupPotentialMember.js'
-import { GroupV2 } from './GroupV2.js'
+import { GroupPotentialMember } from './GroupPotentialMember'
+import { GroupV2 } from './GroupV2'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPotentialMembership} */
 export interface GroupPotentialMembership {

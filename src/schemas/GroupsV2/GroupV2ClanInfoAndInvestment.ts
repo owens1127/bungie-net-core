@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyProgression } from '../Destiny/DestinyProgression.js'
-import { ClanBanner } from './ClanBanner.js'
+import { DestinyProgression } from '../Destiny/DestinyProgression'
+import { ClanBanner } from './ClanBanner'
 
 /**
  * The same as GroupV2ClanInfo, but includes any investment data.

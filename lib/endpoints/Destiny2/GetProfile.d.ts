@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyComponentType } from '../../schemas/index.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { DestinyProfileResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyComponentType } from '../../schemas';
+import { BungieMembershipType } from '../../schemas';
+import { DestinyProfileResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetProfile} */
 export declare type GetProfileParams<T extends DestinyComponentType[]> = {
     /**

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType.js'
+import { DestinyEnergyType } from '../../DestinyEnergyType'
 
 /**
  * Items can have Energy Capacity, and plugs can provide that capacity such as on a

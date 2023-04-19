@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemVersionDefinition } from './DestinyItemVersionDefinition.js';
+import { DestinyItemVersionDefinition } from './DestinyItemVersionDefinition';
 /**
  * An item's "Quality" determines its calculated stats. The Level at which the item
  * spawns is combined with its "qualityLevel" along with some additional

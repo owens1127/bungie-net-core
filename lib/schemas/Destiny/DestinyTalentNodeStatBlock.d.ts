@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyStat } from './DestinyStat.js';
+import { DestinyStat } from './DestinyStat';
 /**
  * This property has some history. A talent grid can provide stats on both the item
  * it's related to and the character equipping the item. This returns data about

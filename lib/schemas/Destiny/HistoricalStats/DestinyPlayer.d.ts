@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserInfoCard } from '../../User/UserInfoCard.js';
+import { UserInfoCard } from '../../User/UserInfoCard';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPlayer} */
 export interface DestinyPlayer {
     /**

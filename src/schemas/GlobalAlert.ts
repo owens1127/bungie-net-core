@@ -13,9 +13,9 @@
  */
 //
 
-import { GlobalAlertLevel } from './GlobalAlertLevel.js'
-import { GlobalAlertType } from './GlobalAlertType.js'
-import { StreamInfo } from './StreamInfo.js'
+import { GlobalAlertLevel } from './GlobalAlertLevel'
+import { GlobalAlertType } from './GlobalAlertType'
+import { StreamInfo } from './StreamInfo'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlert} */
 export interface GlobalAlert {

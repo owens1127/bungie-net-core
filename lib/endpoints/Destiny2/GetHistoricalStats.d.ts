@@ -11,13 +11,13 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyStatsGroupType } from '../../schemas/index.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { DestinyActivityModeType } from '../../schemas/index.js';
-import { PeriodType } from '../../schemas/index.js';
-import { DestinyHistoricalStatsByPeriod } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyStatsGroupType } from '../../schemas';
+import { BungieMembershipType } from '../../schemas';
+import { DestinyActivityModeType } from '../../schemas';
+import { PeriodType } from '../../schemas';
+import { DestinyHistoricalStatsByPeriod } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStats} */
 export declare type GetHistoricalStatsParams = {
     /**

@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType.js';
-import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory';
 /**
  * This definition represents an "Activity Mode" as it exists in the Historical
  * Stats endpoints. An individual Activity Mode represents a collection of

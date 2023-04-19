@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { GroupType } from '../../schemas/index.js'
-import { GroupResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { GroupType } from '../../schemas'
+import { GroupResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName} */
 export type GetGroupByNameParams = {
   /** Exact name of the group to find. */

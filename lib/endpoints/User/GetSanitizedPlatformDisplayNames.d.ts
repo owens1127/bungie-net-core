@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieCredentialType } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieCredentialType } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames} */
 export declare type GetSanitizedPlatformDisplayNamesParams = {
     /** The requested membership id to load. */

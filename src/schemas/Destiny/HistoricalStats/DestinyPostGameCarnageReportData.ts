@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyHistoricalStatsActivity } from './DestinyHistoricalStatsActivity.js'
-import { DestinyPostGameCarnageReportEntry } from './DestinyPostGameCarnageReportEntry.js'
-import { DestinyPostGameCarnageReportTeamEntry } from './DestinyPostGameCarnageReportTeamEntry.js'
+import { DestinyHistoricalStatsActivity } from './DestinyHistoricalStatsActivity'
+import { DestinyPostGameCarnageReportEntry } from './DestinyPostGameCarnageReportEntry'
+import { DestinyPostGameCarnageReportTeamEntry } from './DestinyPostGameCarnageReportTeamEntry'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportData} */
 export interface DestinyPostGameCarnageReportData {

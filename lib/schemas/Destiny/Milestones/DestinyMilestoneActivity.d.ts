@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneActivityVariant } from './DestinyMilestoneActivityVariant.js';
+import { DestinyMilestoneActivityVariant } from './DestinyMilestoneActivityVariant';
 /**
  * Sometimes, we know the specific activity that the Milestone wants you to play.
  * This entity provides additional information about that Activity and all of its

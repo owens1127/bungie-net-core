@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { TrendingCategory } from './TrendingCategory.js';
+import { TrendingCategory } from './TrendingCategory';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingCategories} */
 export interface TrendingCategories {
     readonly categories: TrendingCategory[];

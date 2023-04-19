@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/DestinyPresentationNodeRequirementsBlock.js'
+import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/DestinyPresentationNodeRequirementsBlock'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Collectibles.DestinyCollectibleStateBlock} */
 export interface DestinyCollectibleStateBlock {

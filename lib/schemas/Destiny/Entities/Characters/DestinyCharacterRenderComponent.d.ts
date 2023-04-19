@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DyeReference } from '../../DyeReference.js';
-import { DestinyCharacterCustomization } from '../../Character/DestinyCharacterCustomization.js';
-import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerView.js';
+import { DyeReference } from '../../DyeReference';
+import { DestinyCharacterCustomization } from '../../Character/DestinyCharacterCustomization';
+import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerView';
 /**
  * Only really useful if you're attempting to render the character's current
  * appearance in 3D, this returns a bare minimum of information, pre-aggregated,

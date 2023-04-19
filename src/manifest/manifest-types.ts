@@ -63,7 +63,7 @@ import {
   DestinyMedalTierDefinition,
   DestinyLoadoutConstantsDefinition,
   DestinyGuardianRankConstantsDefinition,
-} from '../schemas/index.js';
+} from '../schemas';
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,

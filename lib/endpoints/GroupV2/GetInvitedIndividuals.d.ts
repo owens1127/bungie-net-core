@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { SearchResultOfGroupMemberApplication } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { SearchResultOfGroupMemberApplication } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals} */
 export declare type GetInvitedIndividualsParams = {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */

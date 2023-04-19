@@ -13,7 +13,7 @@
  */
 //
 
-import { InterpolationPointFloat } from '../../../Interpolation/InterpolationPointFloat.js'
+import { InterpolationPointFloat } from '../../../Interpolation/InterpolationPointFloat'
 
 /**
  * These are pre-constructed collections of data that can be used to determine the

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior.js'
+import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardItemQuantity} */
 export interface DestinyProgressionRewardItemQuantity {

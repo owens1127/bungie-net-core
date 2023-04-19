@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyItemTierTypeInfusionBlock } from './DestinyItemTierTypeInfusionBlock.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyItemTierTypeInfusionBlock } from './DestinyItemTierTypeInfusionBlock';
 /**
  * Defines the tier type of an item. Mostly this provides human readable properties
  * for types like Common, Rare, etc...

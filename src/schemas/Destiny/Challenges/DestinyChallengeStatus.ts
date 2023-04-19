@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress.js'
+import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress'
 
 /**
  * Represents the status and other related information for a challenge that is - or

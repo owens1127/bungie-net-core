@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStatDefinition.js'
-import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle.js'
+import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStatDefinition'
+import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle'
 
 /**
  * Defines the conditions under which stat modifications will be applied to a

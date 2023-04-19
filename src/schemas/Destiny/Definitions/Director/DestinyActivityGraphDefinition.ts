@@ -13,12 +13,12 @@
  */
 //
 
-import { DestinyActivityGraphNodeDefinition } from './DestinyActivityGraphNodeDefinition.js'
-import { DestinyActivityGraphArtElementDefinition } from './DestinyActivityGraphArtElementDefinition.js'
-import { DestinyActivityGraphConnectionDefinition } from './DestinyActivityGraphConnectionDefinition.js'
-import { DestinyActivityGraphDisplayObjectiveDefinition } from './DestinyActivityGraphDisplayObjectiveDefinition.js'
-import { DestinyActivityGraphDisplayProgressionDefinition } from './DestinyActivityGraphDisplayProgressionDefinition.js'
-import { DestinyLinkedGraphDefinition } from './DestinyLinkedGraphDefinition.js'
+import { DestinyActivityGraphNodeDefinition } from './DestinyActivityGraphNodeDefinition'
+import { DestinyActivityGraphArtElementDefinition } from './DestinyActivityGraphArtElementDefinition'
+import { DestinyActivityGraphConnectionDefinition } from './DestinyActivityGraphConnectionDefinition'
+import { DestinyActivityGraphDisplayObjectiveDefinition } from './DestinyActivityGraphDisplayObjectiveDefinition'
+import { DestinyActivityGraphDisplayProgressionDefinition } from './DestinyActivityGraphDisplayProgressionDefinition'
+import { DestinyLinkedGraphDefinition } from './DestinyLinkedGraphDefinition'
 
 /**
  * Represents a Map View in the director: be them overview views, destination views,

@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupType } from '../../schemas/index.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { GroupMembershipSearchResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupType } from '../../schemas';
+import { BungieMembershipType } from '../../schemas';
+import { GroupMembershipSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder} */
 export declare type RecoverGroupForFounderParams = {
     /** Type of group the supplied member founded. */

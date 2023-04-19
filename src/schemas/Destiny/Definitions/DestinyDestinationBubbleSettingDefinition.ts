@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
 
 /**
  * Human readable data about the bubble. Combine with DestinyBubbleDefinition - see

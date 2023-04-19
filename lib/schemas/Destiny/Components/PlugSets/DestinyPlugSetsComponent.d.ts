@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug.js';
+import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug';
 /**
  * Sockets may refer to a "Plug Set": a set of reusable plugs that may be shared
  * across multiple sockets (or even, in theory, multiple sockets over multiple

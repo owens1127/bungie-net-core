@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyInsertPlugsFreeActionRequest } from '../../schemas/index.js';
-import { DestinyItemChangeResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyInsertPlugsFreeActionRequest } from '../../schemas';
+import { DestinyItemChangeResponse } from '../../schemas';
 /**
  * Insert a 'free' plug into an item's socket. This does not require 'Advanced
  * Write Action' authorization and is available to 3rd-party apps, but will only

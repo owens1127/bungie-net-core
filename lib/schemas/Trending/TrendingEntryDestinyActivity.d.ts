@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPublicActivityStatus } from '../Destiny/Activities/DestinyPublicActivityStatus.js';
+import { DestinyPublicActivityStatus } from '../Destiny/Activities/DestinyPublicActivityStatus';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryDestinyActivity} */
 export interface TrendingEntryDestinyActivity {
     readonly activityHash: number;

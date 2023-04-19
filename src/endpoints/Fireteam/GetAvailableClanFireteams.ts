@@ -13,15 +13,15 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { FireteamDateRange } from '../../schemas/index.js'
-import { FireteamPlatform } from '../../schemas/index.js'
-import { FireteamPublicSearchOption } from '../../schemas/index.js'
-import { FireteamSlotSearch } from '../../schemas/index.js'
-import { SearchResultOfFireteamSummary } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { FireteamDateRange } from '../../schemas'
+import { FireteamPlatform } from '../../schemas'
+import { FireteamPublicSearchOption } from '../../schemas'
+import { FireteamSlotSearch } from '../../schemas'
+import { SearchResultOfFireteamSummary } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetAvailableClanFireteams} */
 export type GetAvailableClanFireteamsParams = {
   /** The activity type to filter by. */

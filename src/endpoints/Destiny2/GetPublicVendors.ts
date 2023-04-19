@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyComponentType } from '../../schemas/index.js'
-import { DestinyPublicVendorsResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyComponentType } from '../../schemas'
+import { DestinyPublicVendorsResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors} */
 export type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
   /**

@@ -13,11 +13,11 @@
  */
 //
 
-import { DestinyComponentType } from './Destiny/DestinyComponentType.js'
-import { DictionaryComponentResponse } from '../generic/DictionaryComponentResponse.js'
-import { ConditionalComponent } from '../generic/ComponentTypes.js'
-import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/DestinyItemObjectivesComponent.js'
-import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent.js'
+import { DestinyComponentType } from './Destiny/DestinyComponentType'
+import { DictionaryComponentResponse } from '../generic/DictionaryComponentResponse'
+import { ConditionalComponent } from '../generic/ComponentTypes'
+import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/DestinyItemObjectivesComponent'
+import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyBaseItemComponentSetOfuint32} */
 export interface DestinyBaseItemComponentSetOfuint32<T extends DestinyComponentType[]>  {

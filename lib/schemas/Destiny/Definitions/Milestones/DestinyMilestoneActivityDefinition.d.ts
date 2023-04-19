@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneActivityVariantDefinition } from './DestinyMilestoneActivityVariantDefinition.js';
+import { DestinyMilestoneActivityVariantDefinition } from './DestinyMilestoneActivityVariantDefinition';
 /**
  * Milestones can have associated activities which provide additional information
  * about the context, challenges, modifiers, state etc... related to this Milestone.

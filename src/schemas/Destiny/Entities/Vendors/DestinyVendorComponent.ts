@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyProgression } from '../../DestinyProgression.js'
+import { DestinyProgression } from '../../DestinyProgression'
 
 /**
  * This component contains essential/summary information about the vendor.

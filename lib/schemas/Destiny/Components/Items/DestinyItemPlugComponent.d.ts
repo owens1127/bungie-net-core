@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js';
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 /**
  * Plugs are non-instanced items that can provide Stat and Perk benefits when
  * socketed into an instanced item. Items have Sockets, and Plugs are inserted into

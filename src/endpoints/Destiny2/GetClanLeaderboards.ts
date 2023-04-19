@@ -13,11 +13,11 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyLeaderboard } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyLeaderboard } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards} */
 export type GetClanLeaderboardsParams = {
   /** Group ID of the clan whose leaderboards you wish to fetch. */

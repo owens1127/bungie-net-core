@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyCollectibleState } from '../../DestinyCollectibleState.js'
+import { DestinyCollectibleState } from '../../DestinyCollectibleState'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Collectibles.DestinyCollectibleComponent} */
 export interface DestinyCollectibleComponent {

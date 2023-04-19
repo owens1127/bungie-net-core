@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyInsertPlugsFreeActionRequest } from '../../schemas/index.js'
-import { DestinyItemChangeResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyInsertPlugsFreeActionRequest } from '../../schemas'
+import { DestinyItemChangeResponse } from '../../schemas'
 /**
  * Insert a 'free' plug into an item's socket. This does not require 'Advanced
  * Write Action' authorization and is available to 3rd-party apps, but will only

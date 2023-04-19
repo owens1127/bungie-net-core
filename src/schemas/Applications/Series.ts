@@ -13,7 +13,7 @@
  */
 //
 
-import { Datapoint } from './Datapoint.js'
+import { Datapoint } from './Datapoint'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Series} */
 export interface Series {

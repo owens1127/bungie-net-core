@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js';
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 /**
  * Items can have objectives and progression. When you request this block, you will
  * obtain information about any Objectives and progression tied to this item.

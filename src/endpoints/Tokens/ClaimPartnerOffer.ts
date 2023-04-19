@@ -13,11 +13,11 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { PartnerOfferClaimRequest } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { PartnerOfferClaimRequest } from '../../schemas'
 /**
  * Claim a partner offer as the authenticated user.
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}

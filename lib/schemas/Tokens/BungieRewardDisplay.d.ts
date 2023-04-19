@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserRewardAvailabilityModel } from './UserRewardAvailabilityModel.js';
-import { RewardDisplayProperties } from './RewardDisplayProperties.js';
+import { UserRewardAvailabilityModel } from './UserRewardAvailabilityModel';
+import { RewardDisplayProperties } from './RewardDisplayProperties';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.BungieRewardDisplay} */
 export interface BungieRewardDisplay {
     readonly UserRewardAvailabilityModel: UserRewardAvailabilityModel;

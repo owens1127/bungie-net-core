@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyStatDisplayDefinition } from './DestinyStatDisplayDefinition.js';
-import { DestinyStatOverrideDefinition } from './DestinyStatOverrideDefinition.js';
+import { DestinyStatDisplayDefinition } from './DestinyStatDisplayDefinition';
+import { DestinyStatOverrideDefinition } from './DestinyStatOverrideDefinition';
 /**
  * When an inventory item (DestinyInventoryItemDefinition) has Stats (such as
  * Attack Power), the item will refer to a Stat Group. This definition enumerates

@@ -13,8 +13,8 @@
  */
 //
 
-import { GearAssetDataBaseDefinition } from './GearAssetDataBaseDefinition.js'
-import { ImagePyramidEntry } from './ImagePyramidEntry.js'
+import { GearAssetDataBaseDefinition } from './GearAssetDataBaseDefinition'
+import { ImagePyramidEntry } from './ImagePyramidEntry'
 
 /**
  * DestinyManifest is the external-facing contract for just the properties needed

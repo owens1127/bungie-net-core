@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { EmailOptInDefinition } from './EmailOptInDefinition.js';
-import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition.js';
-import { EmailViewDefinition } from './EmailViewDefinition.js';
+import { EmailOptInDefinition } from './EmailOptInDefinition';
+import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
+import { EmailViewDefinition } from './EmailViewDefinition';
 /**
  * The set of all email subscription/opt-in settings and definitions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailSettings}

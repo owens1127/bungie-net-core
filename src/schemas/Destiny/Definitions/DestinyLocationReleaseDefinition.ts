@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType'
 
 /**
  * A specific "spot" referred to by a location. Only one of these can be active at

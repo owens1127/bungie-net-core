@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPresentationNodeComponent } from './DestinyPresentationNodeComponent.js'
+import { DestinyPresentationNodeComponent } from './DestinyPresentationNodeComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodesComponent} */
 export interface DestinyPresentationNodesComponent {

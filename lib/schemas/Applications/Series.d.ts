@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { Datapoint } from './Datapoint.js';
+import { Datapoint } from './Datapoint';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Series} */
 export interface Series {
     /** Collection of samples with time and value. */

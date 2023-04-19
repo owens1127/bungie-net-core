@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyColor } from '../../Misc/DestinyColor.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyColor } from '../../Misc/DestinyColor'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Social.DestinySocialCommendationDefinition} */
 export interface DestinySocialCommendationDefinition {

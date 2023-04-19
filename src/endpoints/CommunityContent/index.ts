@@ -1,1 +1,1 @@
-export { getCommunityContent } from './GetCommunityContent.js';
+export { getCommunityContent } from './GetCommunityContent';

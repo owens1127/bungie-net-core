@@ -1,8 +1,8 @@
-import { NotConfiguredError } from '../errors/NotConfiguredError.js';
-import { _credentials } from './credentials.js';
-import { BungieAPIError } from '../errors/BungieAPIError.js';
-import { BungieNetResponse } from './server-response.js';
-import { PlatformErrorCodes } from '../schemas/index.js';
+import { NotConfiguredError } from '../errors/NotConfiguredError';
+import { _credentials } from './credentials';
+import { BungieAPIError } from '../errors/BungieAPIError';
+import { BungieNetResponse } from './server-response';
+import { PlatformErrorCodes } from '../schemas';
 
 const timeoutCodes = [PlatformErrorCodes.DestinyDirectBabelClientTimeout];
 

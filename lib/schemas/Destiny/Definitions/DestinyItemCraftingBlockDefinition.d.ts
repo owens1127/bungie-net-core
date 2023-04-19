@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemCraftingBlockBonusPlugDefinition } from './DestinyItemCraftingBlockBonusPlugDefinition.js';
+import { DestinyItemCraftingBlockBonusPlugDefinition } from './DestinyItemCraftingBlockBonusPlugDefinition';
 /**
  * If an item can have an action performed on it (like "Dismantle"), it will be
  * defined here if you care.

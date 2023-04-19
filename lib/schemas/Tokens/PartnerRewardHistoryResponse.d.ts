@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { PartnerOfferSkuHistoryResponse } from './PartnerOfferSkuHistoryResponse.js';
-import { TwitchDropHistoryResponse } from './TwitchDropHistoryResponse.js';
+import { PartnerOfferSkuHistoryResponse } from './PartnerOfferSkuHistoryResponse';
+import { TwitchDropHistoryResponse } from './TwitchDropHistoryResponse';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerRewardHistoryResponse} */
 export interface PartnerRewardHistoryResponse {
     readonly PartnerOffers: PartnerOfferSkuHistoryResponse[];

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ContentItemPublicContract } from '../Content/ContentItemPublicContract.js';
+import { ContentItemPublicContract } from '../Content/ContentItemPublicContract';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryNews} */
 export interface TrendingEntryNews {
     readonly article: ContentItemPublicContract;

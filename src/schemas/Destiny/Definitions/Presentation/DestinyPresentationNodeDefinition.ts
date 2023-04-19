@@ -13,13 +13,13 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType.js'
-import { DestinyScope } from '../../DestinyScope.js'
-import { DestinyPresentationNodeChildrenBlock } from './DestinyPresentationNodeChildrenBlock.js'
-import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle.js'
-import { DestinyPresentationScreenStyle } from '../../DestinyPresentationScreenStyle.js'
-import { DestinyPresentationNodeRequirementsBlock } from './DestinyPresentationNodeRequirementsBlock.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType'
+import { DestinyScope } from '../../DestinyScope'
+import { DestinyPresentationNodeChildrenBlock } from './DestinyPresentationNodeChildrenBlock'
+import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle'
+import { DestinyPresentationScreenStyle } from '../../DestinyPresentationScreenStyle'
+import { DestinyPresentationNodeRequirementsBlock } from './DestinyPresentationNodeRequirementsBlock'
 
 /**
  * A PresentationNode is an entity that represents a logical grouping of other

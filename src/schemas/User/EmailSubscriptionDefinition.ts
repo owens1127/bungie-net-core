@@ -13,7 +13,7 @@
  */
 //
 
-import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscriptionLocalization.js'
+import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscriptionLocalization'
 
 /**
  * Defines a single subscription: permission to send emails for a specific, focused

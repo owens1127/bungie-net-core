@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrder.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrder'
 
 /**
  * Display Categories are different from "categories" in that these are

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemSubType } from '../DestinyItemSubType.js'
+import { DestinyItemSubType } from '../DestinyItemSubType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirement} */
 export interface DestinyActivityLoadoutRequirement {

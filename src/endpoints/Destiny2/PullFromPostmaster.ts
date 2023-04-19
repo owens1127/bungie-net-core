@@ -13,11 +13,11 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyPostmasterTransferRequest } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyPostmasterTransferRequest } from '../../schemas'
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
  * You must have a valid Destiny account. You must also pass BOTH a reference AND

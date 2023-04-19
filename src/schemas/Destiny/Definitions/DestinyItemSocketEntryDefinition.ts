@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemSocketEntryPlugItemDefinition } from './DestinyItemSocketEntryPlugItemDefinition.js'
-import { SocketPlugSources } from '../SocketPlugSources.js'
+import { DestinyItemSocketEntryPlugItemDefinition } from './DestinyItemSocketEntryPlugItemDefinition'
+import { SocketPlugSources } from '../SocketPlugSources'
 
 /**
  * The definition information for a specific socket on an item. This will determine

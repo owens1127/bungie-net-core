@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.GuardianRanks.DestinyGuardianRankDefinition} */
 export interface DestinyGuardianRankDefinition {

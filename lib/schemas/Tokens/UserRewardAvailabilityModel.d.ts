@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { RewardAvailabilityModel } from './RewardAvailabilityModel.js';
+import { RewardAvailabilityModel } from './RewardAvailabilityModel';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.UserRewardAvailabilityModel} */
 export interface UserRewardAvailabilityModel {
     readonly AvailabilityModel: RewardAvailabilityModel;

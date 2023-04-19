@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveDisplayProperties } from './DestinyObjectiveDisplayProperties.js'
+import { DestinyObjectiveDisplayProperties } from './DestinyObjectiveDisplayProperties'
 
 /**
  * An item can have objectives on it. In practice, these are the exclusive purview

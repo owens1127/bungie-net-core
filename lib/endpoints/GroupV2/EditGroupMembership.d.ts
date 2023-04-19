@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { RuntimeGroupMemberType } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieMembershipType } from '../../schemas';
+import { RuntimeGroupMemberType } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership} */
 export declare type EditGroupMembershipParams = {
     /** ID of the group to which the member belongs. */

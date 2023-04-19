@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactProfileScoped.js';
+import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactProfileScoped';
 /**
  * The set of progression-related information that applies at a Profile-wide level
  * for your Destiny experience. This differs from the Jimi Hendrix Experience

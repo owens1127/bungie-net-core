@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent.js';
-import { BungieMembershipType } from '../../BungieMembershipType.js';
+import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent';
+import { BungieMembershipType } from '../../BungieMembershipType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileUserInfoCard} */
 export interface DestinyProfileUserInfoCard {
     readonly dateLastPlayed: string;

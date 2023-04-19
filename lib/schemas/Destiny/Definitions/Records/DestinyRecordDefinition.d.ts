@@ -11,18 +11,18 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyScope } from '../../DestinyScope.js';
-import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock.js';
-import { DestinyRecordValueStyle } from '../../DestinyRecordValueStyle.js';
-import { DestinyRecordTitleBlock } from './DestinyRecordTitleBlock.js';
-import { DestinyRecordCompletionBlock } from './DestinyRecordCompletionBlock.js';
-import { SchemaRecordStateBlock } from './SchemaRecordStateBlock.js';
-import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/DestinyPresentationNodeRequirementsBlock.js';
-import { DestinyRecordExpirationBlock } from './DestinyRecordExpirationBlock.js';
-import { DestinyRecordIntervalBlock } from './DestinyRecordIntervalBlock.js';
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js';
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyScope } from '../../DestinyScope';
+import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock';
+import { DestinyRecordValueStyle } from '../../DestinyRecordValueStyle';
+import { DestinyRecordTitleBlock } from './DestinyRecordTitleBlock';
+import { DestinyRecordCompletionBlock } from './DestinyRecordCompletionBlock';
+import { SchemaRecordStateBlock } from './SchemaRecordStateBlock';
+import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/DestinyPresentationNodeRequirementsBlock';
+import { DestinyRecordExpirationBlock } from './DestinyRecordExpirationBlock';
+import { DestinyRecordIntervalBlock } from './DestinyRecordIntervalBlock';
+import { DestinyItemQuantity } from '../../DestinyItemQuantity';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordDefinition} */
 export interface DestinyRecordDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;

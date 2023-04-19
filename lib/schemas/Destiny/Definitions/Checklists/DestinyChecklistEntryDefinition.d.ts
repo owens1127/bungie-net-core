@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyScope } from '../../DestinyScope.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyScope } from '../../DestinyScope';
 /**
  * The properties of an individual checklist item. Note that almost everything is
  * optional: it is *highly* variable what kind of data we'll actually be able to

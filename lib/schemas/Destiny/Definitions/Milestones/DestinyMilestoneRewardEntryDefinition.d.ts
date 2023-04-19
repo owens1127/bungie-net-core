@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js';
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
+import { DestinyItemQuantity } from '../../DestinyItemQuantity';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 /**
  * The definition of a specific reward, which may be contained in a category of
  * rewards and that has optional information about how it is obtained.

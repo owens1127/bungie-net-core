@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle';
 /**
  * Sockets on an item are organized into Categories visually.
  *

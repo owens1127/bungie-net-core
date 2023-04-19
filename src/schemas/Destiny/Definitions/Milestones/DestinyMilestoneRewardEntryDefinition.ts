@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js'
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyItemQuantity } from '../../DestinyItemQuantity'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
 
 /**
  * The definition of a specific reward, which may be contained in a category of

@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyGender } from '../DestinyGender.js'
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
+import { DestinyGender } from '../DestinyGender'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
 
 /**
  * Gender is a social construct, and as such we have definitions for Genders. Right

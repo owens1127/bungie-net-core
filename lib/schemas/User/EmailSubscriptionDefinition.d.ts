@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscriptionLocalization.js';
+import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscriptionLocalization';
 /**
  * Defines a single subscription: permission to send emails for a specific, focused
  * subject (generally timeboxed, such as for a specific release of a product or

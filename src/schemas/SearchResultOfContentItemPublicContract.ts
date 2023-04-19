@@ -13,8 +13,8 @@
  */
 //
 
-import { ContentItemPublicContract } from './Content/ContentItemPublicContract.js'
-import { PagedQuery } from './Queries/PagedQuery.js'
+import { ContentItemPublicContract } from './Content/ContentItemPublicContract'
+import { PagedQuery } from './Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfContentItemPublicContract} */
 export interface SearchResultOfContentItemPublicContract {

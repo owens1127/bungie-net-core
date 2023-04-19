@@ -13,7 +13,7 @@
  */
 //
 
-import { UserInfoCard } from '../../User/UserInfoCard.js'
+import { UserInfoCard } from '../../User/UserInfoCard'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPlayer} */
 export interface DestinyPlayer {

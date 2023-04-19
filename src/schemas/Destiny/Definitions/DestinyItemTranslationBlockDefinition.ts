@@ -13,8 +13,8 @@
  */
 //
 
-import { DyeReference } from '../DyeReference.js'
-import { DestinyGearArtArrangementReference } from './DestinyGearArtArrangementReference.js'
+import { DyeReference } from '../DyeReference'
+import { DestinyGearArtArrangementReference } from './DestinyGearArtArrangementReference'
 
 /**
  * This Block defines the rendering data associated with the item, if any.

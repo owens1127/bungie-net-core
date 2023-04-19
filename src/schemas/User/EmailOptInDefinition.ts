@@ -13,8 +13,8 @@
  */
 //
 
-import { OptInFlags } from './OptInFlags.js'
-import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition.js'
+import { OptInFlags } from './OptInFlags'
+import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition'
 
 /**
  * Defines a single opt-in category: a wide-scoped permission to send emails for

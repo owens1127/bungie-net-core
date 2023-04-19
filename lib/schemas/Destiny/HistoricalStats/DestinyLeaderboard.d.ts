@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyLeaderboardEntry } from './DestinyLeaderboardEntry.js';
+import { DestinyLeaderboardEntry } from './DestinyLeaderboardEntry';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyLeaderboard} */
 export interface DestinyLeaderboard {
     readonly statId: string;

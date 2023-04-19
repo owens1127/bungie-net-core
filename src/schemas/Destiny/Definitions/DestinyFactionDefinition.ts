@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition'
 
 /**
  * These definitions represent Factions in the game. Factions have ended up

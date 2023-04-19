@@ -13,7 +13,7 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType.js'
+import { BungieMembershipType } from '../BungieMembershipType'
 
 /**
  * Very basic info about a user as returned by the Account server.

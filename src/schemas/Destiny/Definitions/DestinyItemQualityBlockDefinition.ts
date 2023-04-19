@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemVersionDefinition } from './DestinyItemVersionDefinition.js'
+import { DestinyItemVersionDefinition } from './DestinyItemVersionDefinition'
 
 /**
  * An item's "Quality" determines its calculated stats. The Level at which the item

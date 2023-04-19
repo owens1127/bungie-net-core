@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../../DestinyItemQuantity'
 
 /**
  * Has character-agnostic information about an item being sold by a vendor.

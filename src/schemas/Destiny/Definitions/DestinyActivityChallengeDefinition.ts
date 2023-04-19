@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../DestinyItemQuantity'
 
 /**
  * Represents a reference to a Challenge, which for now is just an Objective.

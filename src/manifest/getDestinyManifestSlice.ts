@@ -4,8 +4,8 @@ import {
   DestinyManifestLanguage,
   DestinyManifestSlice,
   getDestinyManifestComponent
-} from './index.js';
-import { DestinyManifest } from '../schemas/index.js';
+} from './';
+import { DestinyManifest } from '../schemas';
 
 export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
   destinyManifest: DestinyManifest;

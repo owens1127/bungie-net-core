@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDerivedItemCategoryDefinition } from './Items/DestinyDerivedItemCategoryDefinition.js'
+import { DestinyDerivedItemCategoryDefinition } from './Items/DestinyDerivedItemCategoryDefinition'
 
 /**
  * Items like Sacks or Boxes can have items that it shows in-game when you view

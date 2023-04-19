@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrder.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrder';
 /**
  * Display Categories are different from "categories" in that these are
  * specifically for visual grouping and display of categories in Vendor UI. The "

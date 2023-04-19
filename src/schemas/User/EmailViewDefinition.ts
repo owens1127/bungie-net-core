@@ -13,7 +13,7 @@
  */
 //
 
-import { EmailViewDefinitionSetting } from './EmailViewDefinitionSetting.js'
+import { EmailViewDefinitionSetting } from './EmailViewDefinitionSetting'
 
 /**
  * Represents a data-driven view for Email settings. Web/Mobile UI can use this

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemActionRequiredItemDefinition } from './DestinyItemActionRequiredItemDefinition.js';
-import { DestinyProgressionRewardDefinition } from './DestinyProgressionRewardDefinition.js';
+import { DestinyItemActionRequiredItemDefinition } from './DestinyItemActionRequiredItemDefinition';
+import { DestinyProgressionRewardDefinition } from './DestinyProgressionRewardDefinition';
 /**
  * If an item can have an action performed on it (like "Dismantle"), it will be
  * defined here if you care.

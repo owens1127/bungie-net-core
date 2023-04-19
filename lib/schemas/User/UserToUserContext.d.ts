@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { IgnoreResponse } from '../Ignores/IgnoreResponse.js';
+import { IgnoreResponse } from '../Ignores/IgnoreResponse';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserToUserContext} */
 export interface UserToUserContext {
     readonly isFollowing: boolean;

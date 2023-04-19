@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory'
 
 /**
  * Represents a heuristically-determined "item source" according to Bungie.net.

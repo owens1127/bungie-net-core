@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase.js'
+import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase'
 
 /**
  * Represents this player's personal completion status for the Activity under a

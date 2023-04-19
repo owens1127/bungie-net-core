@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyVendorGroup } from './DestinyVendorGroup.js';
+import { DestinyVendorGroup } from './DestinyVendorGroup';
 /**
  * This component returns references to all of the Vendors in the response, grouped
  * by categorizations that Bungie has deemed to be interesting, in the order in

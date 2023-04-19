@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug.js'
+import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug'
 
 /**
  * Sockets may refer to a "Plug Set": a set of reusable plugs that may be shared

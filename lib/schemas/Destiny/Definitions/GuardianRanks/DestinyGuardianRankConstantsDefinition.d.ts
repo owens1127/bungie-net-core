@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyGuardianRankIconBackgroundsDefinition } from './DestinyGuardianRankIconBackgroundsDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyGuardianRankIconBackgroundsDefinition } from './DestinyGuardianRankIconBackgroundsDefinition';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.GuardianRanks.DestinyGuardianRankConstantsDefinition} */
 export interface DestinyGuardianRankConstantsDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;

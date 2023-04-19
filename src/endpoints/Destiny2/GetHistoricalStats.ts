@@ -13,15 +13,15 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyStatsGroupType } from '../../schemas/index.js'
-import { BungieMembershipType } from '../../schemas/index.js'
-import { DestinyActivityModeType } from '../../schemas/index.js'
-import { PeriodType } from '../../schemas/index.js'
-import { DestinyHistoricalStatsByPeriod } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyStatsGroupType } from '../../schemas'
+import { BungieMembershipType } from '../../schemas'
+import { DestinyActivityModeType } from '../../schemas'
+import { PeriodType } from '../../schemas'
+import { DestinyHistoricalStatsByPeriod } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStats} */
 export type GetHistoricalStatsParams = {
   /**

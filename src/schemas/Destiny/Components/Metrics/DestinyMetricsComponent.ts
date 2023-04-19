@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMetricComponent } from './DestinyMetricComponent.js'
+import { DestinyMetricComponent } from './DestinyMetricComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Metrics.DestinyMetricsComponent} */
 export interface DestinyMetricsComponent {

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupUserInfoCard } from '../GroupsV2/GroupUserInfoCard.js';
-import { GeneralUser } from './GeneralUser.js';
+import { GroupUserInfoCard } from '../GroupsV2/GroupUserInfoCard';
+import { GeneralUser } from './GeneralUser';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserMembershipData} */
 export interface UserMembershipData {
     /**

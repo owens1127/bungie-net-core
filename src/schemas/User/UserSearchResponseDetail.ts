@@ -13,7 +13,7 @@
  */
 //
 
-import { UserInfoCard } from './UserInfoCard.js'
+import { UserInfoCard } from './UserInfoCard'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchResponseDetail} */
 export interface UserSearchResponseDetail {

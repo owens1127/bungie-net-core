@@ -13,11 +13,11 @@
  */
 //
 
-import { ContentTypeProperty } from './ContentTypeProperty.js'
-import { TagMetadataDefinition } from './TagMetadataDefinition.js'
-import { TagMetadataItem } from './TagMetadataItem.js'
-import { ContentPreview } from './ContentPreview.js'
-import { ContentTypePropertySection } from './ContentTypePropertySection.js'
+import { ContentTypeProperty } from './ContentTypeProperty'
+import { TagMetadataDefinition } from './TagMetadataDefinition'
+import { TagMetadataItem } from './TagMetadataItem'
+import { ContentPreview } from './ContentPreview'
+import { ContentTypePropertySection } from './ContentTypePropertySection'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeDescription} */
 export interface ContentTypeDescription {

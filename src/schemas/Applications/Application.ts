@@ -13,8 +13,8 @@
  */
 //
 
-import { ApplicationStatus } from './ApplicationStatus.js'
-import { ApplicationDeveloper } from './ApplicationDeveloper.js'
+import { ApplicationStatus } from './ApplicationStatus'
+import { ApplicationDeveloper } from './ApplicationDeveloper'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Application} */
 export interface Application {

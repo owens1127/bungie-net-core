@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType.js';
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js';
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyClanAggregateStat} */
 export interface DestinyClanAggregateStat {
     /** The id of the mode of stats (allPvp, allPvE, etc) */

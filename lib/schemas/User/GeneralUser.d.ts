@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserToUserContext } from './UserToUserContext.js';
+import { UserToUserContext } from './UserToUserContext';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.GeneralUser} */
 export interface GeneralUser {
     readonly membershipId: string;

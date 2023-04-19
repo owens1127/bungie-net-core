@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyCraftableSocketPlugComponent } from './DestinyCraftableSocketPlugComponent.js';
+import { DestinyCraftableSocketPlugComponent } from './DestinyCraftableSocketPlugComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Craftables.DestinyCraftableSocketComponent} */
 export interface DestinyCraftableSocketComponent {
     /** Mapped to DestinyPlugSetDefinition in the manifest. */

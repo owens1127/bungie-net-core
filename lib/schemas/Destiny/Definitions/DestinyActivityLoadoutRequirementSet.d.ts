@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyActivityLoadoutRequirement } from './DestinyActivityLoadoutRequirement.js';
+import { DestinyActivityLoadoutRequirement } from './DestinyActivityLoadoutRequirement';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirementSet} */
 export interface DestinyActivityLoadoutRequirementSet {
     /**

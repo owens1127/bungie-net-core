@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { FireteamUserInfoCard } from './FireteamUserInfoCard.js';
-import { UserInfoCard } from '../User/UserInfoCard.js';
-import { FireteamPlatformInviteResult } from './FireteamPlatformInviteResult.js';
+import { FireteamUserInfoCard } from './FireteamUserInfoCard';
+import { UserInfoCard } from '../User/UserInfoCard';
+import { FireteamPlatformInviteResult } from './FireteamPlatformInviteResult';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamMember} */
 export interface FireteamMember {
     readonly destinyUserInfo: FireteamUserInfoCard;

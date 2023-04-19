@@ -13,7 +13,7 @@
  */
 //
 
-import { TierType } from '../TierType.js'
+import { TierType } from '../TierType'
 
 /**
  * If the item can exist in an inventory - the overwhelming majority of them can

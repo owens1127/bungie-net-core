@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Loadouts.DestinyLoadoutConstantsDefinition} */
 export interface DestinyLoadoutConstantsDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;

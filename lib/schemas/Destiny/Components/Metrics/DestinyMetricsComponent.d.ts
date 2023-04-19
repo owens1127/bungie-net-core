@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMetricComponent } from './DestinyMetricComponent.js';
+import { DestinyMetricComponent } from './DestinyMetricComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Metrics.DestinyMetricsComponent} */
 export interface DestinyMetricsComponent {
     readonly metrics: {

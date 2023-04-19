@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemActionRequiredItemDefinition } from './DestinyItemActionRequiredItemDefinition.js'
-import { DestinyProgressionRewardDefinition } from './DestinyProgressionRewardDefinition.js'
+import { DestinyItemActionRequiredItemDefinition } from './DestinyItemActionRequiredItemDefinition'
+import { DestinyProgressionRewardDefinition } from './DestinyProgressionRewardDefinition'
 
 /**
  * If an item can have an action performed on it (like "Dismantle"), it will be

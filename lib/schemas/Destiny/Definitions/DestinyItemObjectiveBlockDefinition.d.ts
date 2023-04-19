@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveDisplayProperties } from './DestinyObjectiveDisplayProperties.js';
+import { DestinyObjectiveDisplayProperties } from './DestinyObjectiveDisplayProperties';
 /**
  * An item can have objectives on it. In practice, these are the exclusive purview
  * of "Quest Step" items: DestinyInventoryItemDefinitions that represent a specific

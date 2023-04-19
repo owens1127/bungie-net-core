@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPerkReference } from '../../Perks/DestinyPerkReference.js';
+import { DestinyPerkReference } from '../../Perks/DestinyPerkReference';
 /**
  * Instanced items can have perks: benefits that the item bestows.
  *

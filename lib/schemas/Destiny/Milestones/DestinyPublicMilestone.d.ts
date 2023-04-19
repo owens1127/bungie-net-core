@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPublicMilestoneQuest } from './DestinyPublicMilestoneQuest.js';
-import { DestinyPublicMilestoneChallengeActivity } from './DestinyPublicMilestoneChallengeActivity.js';
-import { DestinyPublicMilestoneVendor } from './DestinyPublicMilestoneVendor.js';
+import { DestinyPublicMilestoneQuest } from './DestinyPublicMilestoneQuest';
+import { DestinyPublicMilestoneChallengeActivity } from './DestinyPublicMilestoneChallengeActivity';
+import { DestinyPublicMilestoneVendor } from './DestinyPublicMilestoneVendor';
 /**
  * Information about milestones, presented in a character state-agnostic manner.
  * Combine this data with DestinyMilestoneDefinition to get a full picture of the

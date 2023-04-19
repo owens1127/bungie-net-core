@@ -11,19 +11,19 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyComponentType } from './Destiny/DestinyComponentType.js';
-import { DictionaryComponentResponse } from '../generic/DictionaryComponentResponse.js';
-import { ConditionalComponent } from '../generic/ComponentTypes.js';
-import { DestinyItemInstanceComponent } from './Destiny/Entities/Items/DestinyItemInstanceComponent.js';
-import { DestinyItemRenderComponent } from './Destiny/Entities/Items/DestinyItemRenderComponent.js';
-import { DestinyItemStatsComponent } from './Destiny/Entities/Items/DestinyItemStatsComponent.js';
-import { DestinyItemSocketsComponent } from './Destiny/Entities/Items/DestinyItemSocketsComponent.js';
-import { DestinyItemReusablePlugsComponent } from './Destiny/Components/Items/DestinyItemReusablePlugsComponent.js';
-import { DestinyItemPlugObjectivesComponent } from './Destiny/Components/Items/DestinyItemPlugObjectivesComponent.js';
-import { DestinyItemTalentGridComponent } from './Destiny/Entities/Items/DestinyItemTalentGridComponent.js';
-import { DestinyItemPlugComponent } from './Destiny/Components/Items/DestinyItemPlugComponent.js';
-import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/DestinyItemObjectivesComponent.js';
-import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent.js';
+import { DestinyComponentType } from './Destiny/DestinyComponentType';
+import { DictionaryComponentResponse } from '../generic/DictionaryComponentResponse';
+import { ConditionalComponent } from '../generic/ComponentTypes';
+import { DestinyItemInstanceComponent } from './Destiny/Entities/Items/DestinyItemInstanceComponent';
+import { DestinyItemRenderComponent } from './Destiny/Entities/Items/DestinyItemRenderComponent';
+import { DestinyItemStatsComponent } from './Destiny/Entities/Items/DestinyItemStatsComponent';
+import { DestinyItemSocketsComponent } from './Destiny/Entities/Items/DestinyItemSocketsComponent';
+import { DestinyItemReusablePlugsComponent } from './Destiny/Components/Items/DestinyItemReusablePlugsComponent';
+import { DestinyItemPlugObjectivesComponent } from './Destiny/Components/Items/DestinyItemPlugObjectivesComponent';
+import { DestinyItemTalentGridComponent } from './Destiny/Entities/Items/DestinyItemTalentGridComponent';
+import { DestinyItemPlugComponent } from './Destiny/Components/Items/DestinyItemPlugComponent';
+import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/DestinyItemObjectivesComponent';
+import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyItemComponentSetOfuint32} */
 export interface DestinyItemComponentSetOfuint32<T extends DestinyComponentType[]> {
     readonly instances: ConditionalComponent<T, DestinyComponentType.ItemInstances, DictionaryComponentResponse<string, DestinyItemInstanceComponent>>;

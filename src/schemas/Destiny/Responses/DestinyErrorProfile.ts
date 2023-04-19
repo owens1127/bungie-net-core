@@ -13,8 +13,8 @@
  */
 //
 
-import { PlatformErrorCodes } from '../../Exceptions/PlatformErrorCodes.js'
-import { UserInfoCard } from '../../User/UserInfoCard.js'
+import { PlatformErrorCodes } from '../../Exceptions/PlatformErrorCodes'
+import { UserInfoCard } from '../../User/UserInfoCard'
 
 /**
  * If a Destiny Profile can't be returned, but we're pretty certain it's a valid

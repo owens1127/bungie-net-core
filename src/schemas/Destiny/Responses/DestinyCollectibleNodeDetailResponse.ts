@@ -13,12 +13,12 @@
  */
 //
 
-import { ComponentData } from '../../../generic/ComponentTypes.js'
-import { DestinyComponentType } from '../DestinyComponentType.js'
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js'
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js'
-import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent.js'
-import { DestinyItemComponentSetOfuint32 } from '../../DestinyItemComponentSetOfuint32.js'
+import { ComponentData } from '../../../generic/ComponentTypes'
+import { DestinyComponentType } from '../DestinyComponentType'
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse'
+import { ConditionalComponent } from '../../../generic/ComponentTypes'
+import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent'
+import { DestinyItemComponentSetOfuint32 } from '../../DestinyItemComponentSetOfuint32'
 
 /**
  * Returns the detailed information about a Collectible Presentation Node and any

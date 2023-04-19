@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition';
 /**
  * These definitions represent Factions in the game. Factions have ended up
  * unilaterally being related to Vendors that represent them, but that need not

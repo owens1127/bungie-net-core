@@ -13,7 +13,7 @@
  */
 //
 
-import { PollResult } from './PollResult.js'
+import { PollResult } from './PollResult'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PollResponse} */
 export interface PollResponse {

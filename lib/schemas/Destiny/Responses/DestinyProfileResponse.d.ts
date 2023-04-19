@@ -11,36 +11,36 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ComponentData } from '../../../generic/ComponentTypes.js';
-import { DestinyComponentType } from '../DestinyComponentType.js';
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js';
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js';
-import { DestinyVendorReceiptsComponent } from '../Entities/Profiles/DestinyVendorReceiptsComponent.js';
-import { DestinyInventoryComponent } from '../Entities/Inventory/DestinyInventoryComponent.js';
-import { DestinyProfileComponent } from '../Entities/Profiles/DestinyProfileComponent.js';
-import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent.js';
-import { DestinyKiosksComponent } from '../Components/Kiosks/DestinyKiosksComponent.js';
-import { DestinyPlugSetsComponent } from '../Components/PlugSets/DestinyPlugSetsComponent.js';
-import { DestinyProfileProgressionComponent } from '../Components/Profiles/DestinyProfileProgressionComponent.js';
-import { DestinyPresentationNodesComponent } from '../Components/Presentation/DestinyPresentationNodesComponent.js';
-import { DestinyProfileRecordsComponent } from '../Components/Records/DestinyProfileRecordsComponent.js';
-import { DestinyProfileCollectiblesComponent } from '../Components/Collectibles/DestinyProfileCollectiblesComponent.js';
-import { DestinyProfileTransitoryComponent } from '../Components/Profiles/DestinyProfileTransitoryComponent.js';
-import { DestinyMetricsComponent } from '../Components/Metrics/DestinyMetricsComponent.js';
-import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent.js';
-import { DestinySocialCommendationsComponent } from '../Components/Social/DestinySocialCommendationsComponent.js';
-import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse.js';
-import { DestinyCharacterComponent } from '../Entities/Characters/DestinyCharacterComponent.js';
-import { DestinyLoadoutsComponent } from '../Components/Loadouts/DestinyLoadoutsComponent.js';
-import { DestinyCharacterProgressionComponent } from '../Entities/Characters/DestinyCharacterProgressionComponent.js';
-import { DestinyCharacterRenderComponent } from '../Entities/Characters/DestinyCharacterRenderComponent.js';
-import { DestinyCharacterActivitiesComponent } from '../Entities/Characters/DestinyCharacterActivitiesComponent.js';
-import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32.js';
-import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent.js';
-import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent.js';
-import { DestinyCraftablesComponent } from '../Components/Craftables/DestinyCraftablesComponent.js';
-import { DestinyItemComponentSetOfint64 } from '../../DestinyItemComponentSetOfint64.js';
-import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent.js';
+import { ComponentData } from '../../../generic/ComponentTypes';
+import { DestinyComponentType } from '../DestinyComponentType';
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse';
+import { ConditionalComponent } from '../../../generic/ComponentTypes';
+import { DestinyVendorReceiptsComponent } from '../Entities/Profiles/DestinyVendorReceiptsComponent';
+import { DestinyInventoryComponent } from '../Entities/Inventory/DestinyInventoryComponent';
+import { DestinyProfileComponent } from '../Entities/Profiles/DestinyProfileComponent';
+import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent';
+import { DestinyKiosksComponent } from '../Components/Kiosks/DestinyKiosksComponent';
+import { DestinyPlugSetsComponent } from '../Components/PlugSets/DestinyPlugSetsComponent';
+import { DestinyProfileProgressionComponent } from '../Components/Profiles/DestinyProfileProgressionComponent';
+import { DestinyPresentationNodesComponent } from '../Components/Presentation/DestinyPresentationNodesComponent';
+import { DestinyProfileRecordsComponent } from '../Components/Records/DestinyProfileRecordsComponent';
+import { DestinyProfileCollectiblesComponent } from '../Components/Collectibles/DestinyProfileCollectiblesComponent';
+import { DestinyProfileTransitoryComponent } from '../Components/Profiles/DestinyProfileTransitoryComponent';
+import { DestinyMetricsComponent } from '../Components/Metrics/DestinyMetricsComponent';
+import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent';
+import { DestinySocialCommendationsComponent } from '../Components/Social/DestinySocialCommendationsComponent';
+import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse';
+import { DestinyCharacterComponent } from '../Entities/Characters/DestinyCharacterComponent';
+import { DestinyLoadoutsComponent } from '../Components/Loadouts/DestinyLoadoutsComponent';
+import { DestinyCharacterProgressionComponent } from '../Entities/Characters/DestinyCharacterProgressionComponent';
+import { DestinyCharacterRenderComponent } from '../Entities/Characters/DestinyCharacterRenderComponent';
+import { DestinyCharacterActivitiesComponent } from '../Entities/Characters/DestinyCharacterActivitiesComponent';
+import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32';
+import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent';
+import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
+import { DestinyCraftablesComponent } from '../Components/Craftables/DestinyCraftablesComponent';
+import { DestinyItemComponentSetOfint64 } from '../../DestinyItemComponentSetOfint64';
+import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 /**
  * The response for GetDestinyProfile, with components for character and item-level
  * data.

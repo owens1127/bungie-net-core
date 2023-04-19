@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalStatsValuePair } from './DestinyHistoricalStatsValuePair.js';
+import { DestinyHistoricalStatsValuePair } from './DestinyHistoricalStatsValuePair';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsValue} */
 export interface DestinyHistoricalStatsValue {
     /** Unique ID for this stat */

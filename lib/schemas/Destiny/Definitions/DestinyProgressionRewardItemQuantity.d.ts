@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior.js';
+import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardItemQuantity} */
 export interface DestinyProgressionRewardItemQuantity {
     readonly rewardedAtProgressionLevel: number;

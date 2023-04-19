@@ -13,8 +13,8 @@
  */
 //
 
-import { ContentPropertyDataTypeEnum } from './ContentPropertyDataTypeEnum.js'
-import { ContentTypeDefaultValue } from './ContentTypeDefaultValue.js'
+import { ContentPropertyDataTypeEnum } from './ContentPropertyDataTypeEnum'
+import { ContentTypeDefaultValue } from './ContentTypeDefaultValue'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeProperty} */
 export interface ContentTypeProperty {

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../DestinyItemQuantity'
 
 /**
  * This defines an item's "Value". Unfortunately, this appears to be used in

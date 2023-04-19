@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultOfDestinyEntitySearchResultItem.js';
+import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultOfDestinyEntitySearchResultItem';
 /**
  * The results of a search for Destiny content. This will be improved on over time,
  * I've been doing some experimenting to see what might be useful.

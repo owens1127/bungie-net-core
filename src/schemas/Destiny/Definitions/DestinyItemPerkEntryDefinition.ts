@@ -13,7 +13,7 @@
  */
 //
 
-import { ItemPerkVisibility } from '../ItemPerkVisibility.js'
+import { ItemPerkVisibility } from '../ItemPerkVisibility'
 
 /**
  * An intrinsic perk on an item, and the requirements for it to be activated.

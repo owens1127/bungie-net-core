@@ -13,7 +13,7 @@
  */
 //
 
-import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultOfDestinyEntitySearchResultItem.js'
+import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultOfDestinyEntitySearchResultItem'
 
 /**
  * The results of a search for Destiny content. This will be improved on over time,

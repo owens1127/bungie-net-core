@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { PartnerOfferHistoryResponse } from './PartnerOfferHistoryResponse.js';
+import { PartnerOfferHistoryResponse } from './PartnerOfferHistoryResponse';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerOfferSkuHistoryResponse} */
 export interface PartnerOfferSkuHistoryResponse {
     readonly SkuIdentifier: string;

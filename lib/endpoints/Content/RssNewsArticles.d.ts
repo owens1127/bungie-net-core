@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { NewsArticleRssResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { NewsArticleRssResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
 export declare type RssNewsArticlesParams = {
     /** Optionally filter response to only include news items in a certain category. */

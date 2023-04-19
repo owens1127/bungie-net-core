@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupPotentialMembership } from './GroupPotentialMembership.js';
-import { PagedQuery } from '../Queries/PagedQuery.js';
+import { GroupPotentialMembership } from './GroupPotentialMembership';
+import { PagedQuery } from '../Queries/PagedQuery';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPotentialMembershipSearchResponse} */
 export interface GroupPotentialMembershipSearchResponse {
     readonly results: GroupPotentialMembership[];

@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupApplicationResolveState } from './GroupApplicationResolveState.js';
-import { GroupUserInfoCard } from './GroupUserInfoCard.js';
-import { UserInfoCard } from '../User/UserInfoCard.js';
+import { GroupApplicationResolveState } from './GroupApplicationResolveState';
+import { GroupUserInfoCard } from './GroupUserInfoCard';
+import { UserInfoCard } from '../User/UserInfoCard';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupMemberApplication} */
 export interface GroupMemberApplication {
     readonly groupId: string;

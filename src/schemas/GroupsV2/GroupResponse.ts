@@ -13,11 +13,11 @@
  */
 //
 
-import { GroupV2 } from './GroupV2.js'
-import { GroupMember } from './GroupMember.js'
-import { GroupAllianceStatus } from './GroupAllianceStatus.js'
-import { BungieMembershipType } from '../BungieMembershipType.js'
-import { GroupPotentialMember } from './GroupPotentialMember.js'
+import { GroupV2 } from './GroupV2'
+import { GroupMember } from './GroupMember'
+import { GroupAllianceStatus } from './GroupAllianceStatus'
+import { BungieMembershipType } from '../BungieMembershipType'
+import { GroupPotentialMember } from './GroupPotentialMember'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupResponse} */
 export interface GroupResponse {

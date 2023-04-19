@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType';
 /**
  * A specific "spot" referred to by a location. Only one of these can be active at
  * a time for a given Location.

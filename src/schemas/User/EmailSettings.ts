@@ -13,9 +13,9 @@
  */
 //
 
-import { EmailOptInDefinition } from './EmailOptInDefinition.js'
-import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition.js'
-import { EmailViewDefinition } from './EmailViewDefinition.js'
+import { EmailOptInDefinition } from './EmailOptInDefinition'
+import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition'
+import { EmailViewDefinition } from './EmailViewDefinition'
 
 /**
  * The set of all email subscription/opt-in settings and definitions.

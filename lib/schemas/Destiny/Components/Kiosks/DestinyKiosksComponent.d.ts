@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyKioskItem } from './DestinyKioskItem.js';
+import { DestinyKioskItem } from './DestinyKioskItem';
 /**
  * A Kiosk is a Vendor (DestinyVendorDefinition) that sells items based on whether
  * you have already acquired that item before.

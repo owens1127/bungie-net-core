@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyRecordComponent } from './DestinyRecordComponent.js'
+import { DestinyRecordComponent } from './DestinyRecordComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyProfileRecordsComponent} */
 export interface DestinyProfileRecordsComponent {

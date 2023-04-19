@@ -13,16 +13,16 @@
  */
 //
 
-import { ComponentData } from '../../../generic/ComponentTypes.js'
-import { DestinyComponentType } from '../DestinyComponentType.js'
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js'
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js'
-import { DestinyVendorGroupComponent } from '../Components/Vendors/DestinyVendorGroupComponent.js'
-import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse.js'
-import { DestinyPublicVendorComponent } from '../Components/Vendors/DestinyPublicVendorComponent.js'
-import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent.js'
-import { PublicDestinyVendorSaleItemSetComponent } from './PublicDestinyVendorSaleItemSetComponent.js'
-import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent.js'
+import { ComponentData } from '../../../generic/ComponentTypes'
+import { DestinyComponentType } from '../DestinyComponentType'
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse'
+import { ConditionalComponent } from '../../../generic/ComponentTypes'
+import { DestinyVendorGroupComponent } from '../Components/Vendors/DestinyVendorGroupComponent'
+import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse'
+import { DestinyPublicVendorComponent } from '../Components/Vendors/DestinyPublicVendorComponent'
+import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent'
+import { PublicDestinyVendorSaleItemSetComponent } from './PublicDestinyVendorSaleItemSetComponent'
+import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent'
 
 /**
  * A response containing all valid components for the public Vendors endpoint.

@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { GroupApplicationRequest } from '../../schemas/index.js';
-import { GroupApplicationResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieMembershipType } from '../../schemas';
+import { GroupApplicationRequest } from '../../schemas';
+import { GroupApplicationResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite} */
 export declare type IndividualGroupInviteParams = {
     /** ID of the group you would like to join. */

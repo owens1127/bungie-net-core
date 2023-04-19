@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DamageType } from '../DamageType.js'
-import { DestinyColor } from '../Misc/DestinyColor.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DamageType } from '../DamageType'
+import { DestinyColor } from '../Misc/DestinyColor'
 
 /**
  * All damage types that are possible in the game are defined here, along with

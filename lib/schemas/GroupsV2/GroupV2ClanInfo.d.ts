@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ClanBanner } from './ClanBanner.js';
+import { ClanBanner } from './ClanBanner';
 /**
  * This contract contains clan-specific group information. It does not include any
  * investment data.

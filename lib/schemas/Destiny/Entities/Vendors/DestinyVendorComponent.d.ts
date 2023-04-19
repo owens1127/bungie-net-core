@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgression } from '../../DestinyProgression.js';
+import { DestinyProgression } from '../../DestinyProgression';
 /**
  * This component contains essential/summary information about the vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Vendors.DestinyVendorComponent}

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemCraftingBlockBonusPlugDefinition } from './DestinyItemCraftingBlockBonusPlugDefinition.js'
+import { DestinyItemCraftingBlockBonusPlugDefinition } from './DestinyItemCraftingBlockBonusPlugDefinition'
 
 /**
  * If an item can have an action performed on it (like "Dismantle"), it will be

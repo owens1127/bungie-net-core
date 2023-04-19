@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardItem.js'
+import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardItem'
 
 /**
  * If rewards are given in a quest - as opposed to overall in the entire Milestone -

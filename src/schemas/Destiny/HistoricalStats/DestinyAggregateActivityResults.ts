@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyAggregateActivityStats } from './DestinyAggregateActivityStats.js'
+import { DestinyAggregateActivityStats } from './DestinyAggregateActivityStats'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyAggregateActivityResults} */
 export interface DestinyAggregateActivityResults {

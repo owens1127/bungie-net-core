@@ -13,7 +13,7 @@
  */
 //
 
-import { SocketTypeActionType } from '../../SocketTypeActionType.js'
+import { SocketTypeActionType } from '../../SocketTypeActionType'
 
 /**
  * Data related to what happens while a plug is being inserted, mostly for UI

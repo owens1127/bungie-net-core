@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieMembershipType } from '../../../BungieMembershipType.js';
+import { BungieMembershipType } from '../../../BungieMembershipType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyLoadoutActionRequest} */
 export interface DestinyLoadoutActionRequest {
     /** The index of the loadout for this action request. */

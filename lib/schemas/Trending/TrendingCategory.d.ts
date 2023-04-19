@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { SearchResultOfTrendingEntry } from '../SearchResultOfTrendingEntry.js';
+import { SearchResultOfTrendingEntry } from '../SearchResultOfTrendingEntry';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingCategory} */
 export interface TrendingCategory {
     readonly categoryName: string;

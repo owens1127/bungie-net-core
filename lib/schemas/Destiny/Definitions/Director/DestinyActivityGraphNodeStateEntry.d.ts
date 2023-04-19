@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyGraphNodeState } from '../../DestinyGraphNodeState.js';
+import { DestinyGraphNodeState } from '../../DestinyGraphNodeState';
 /**
  * Represents a single state that a graph node might end up in. Depending on what's
  * going on in the game, graph nodes could be shown in different ways or even

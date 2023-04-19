@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType.js'
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js'
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType'
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyClanAggregateStat} */
 export interface DestinyClanAggregateStat {

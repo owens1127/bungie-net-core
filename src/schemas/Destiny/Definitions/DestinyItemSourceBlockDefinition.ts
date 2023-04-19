@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition.js'
-import { BungieMembershipType } from '../../BungieMembershipType.js'
-import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference.js'
+import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition'
+import { BungieMembershipType } from '../../BungieMembershipType'
+import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference'
 
 /**
  * Data about an item's "sources": ways that the item can be obtained.

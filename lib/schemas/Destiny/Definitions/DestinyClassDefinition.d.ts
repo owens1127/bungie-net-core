@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyClass } from '../DestinyClass.js';
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyGender } from '../DestinyGender.js';
+import { DestinyClass } from '../DestinyClass';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyGender } from '../DestinyGender';
 /**
  * Defines a Character Class in Destiny 2. These are types of characters you can
  * play, like Titan, Warlock, and Hunter.

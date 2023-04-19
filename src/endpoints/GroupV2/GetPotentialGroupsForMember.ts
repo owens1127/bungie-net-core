@@ -13,14 +13,14 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { GroupPotentialMemberStatus } from '../../schemas/index.js'
-import { GroupType } from '../../schemas/index.js'
-import { BungieMembershipType } from '../../schemas/index.js'
-import { GroupPotentialMembershipSearchResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { GroupPotentialMemberStatus } from '../../schemas'
+import { GroupType } from '../../schemas'
+import { BungieMembershipType } from '../../schemas'
+import { GroupPotentialMembershipSearchResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember} */
 export type GetPotentialGroupsForMemberParams = {
   /** Filter apply to list of potential joined groups. */

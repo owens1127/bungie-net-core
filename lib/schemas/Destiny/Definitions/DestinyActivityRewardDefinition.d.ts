@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js';
+import { DestinyItemQuantity } from '../DestinyItemQuantity';
 /**
  * Activities can refer to one or more sets of tooltip-friendly reward data. These
  * are the definitions for those tooltip friendly rewards.

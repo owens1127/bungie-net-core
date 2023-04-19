@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPublicMilestoneActivityVariant } from './DestinyPublicMilestoneActivityVariant.js';
+import { DestinyPublicMilestoneActivityVariant } from './DestinyPublicMilestoneActivityVariant';
 /**
  * A milestone may have one or more conceptual Activities associated with it, and
  * each of those conceptual activities could have a variety of variants, modes,

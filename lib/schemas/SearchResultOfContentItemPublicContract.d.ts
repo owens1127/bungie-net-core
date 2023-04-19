@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ContentItemPublicContract } from './Content/ContentItemPublicContract.js';
-import { PagedQuery } from './Queries/PagedQuery.js';
+import { ContentItemPublicContract } from './Content/ContentItemPublicContract';
+import { PagedQuery } from './Queries/PagedQuery';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfContentItemPublicContract} */
 export interface SearchResultOfContentItemPublicContract {
     readonly results: ContentItemPublicContract[];

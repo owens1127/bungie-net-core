@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyArtifactTierItem } from './DestinyArtifactTierItem.js'
+import { DestinyArtifactTierItem } from './DestinyArtifactTierItem'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactTier} */
 export interface DestinyArtifactTier {

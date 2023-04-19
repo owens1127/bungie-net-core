@@ -13,7 +13,7 @@
  */
 //
 
-import { FireteamPlatform } from './FireteamPlatform.js'
+import { FireteamPlatform } from './FireteamPlatform'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamSummary} */
 export interface FireteamSummary {

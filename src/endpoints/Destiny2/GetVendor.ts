@@ -13,13 +13,13 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyComponentType } from '../../schemas/index.js'
-import { BungieMembershipType } from '../../schemas/index.js'
-import { DestinyVendorResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyComponentType } from '../../schemas'
+import { BungieMembershipType } from '../../schemas'
+import { DestinyVendorResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetVendor} */
 export type GetVendorParams<T extends DestinyComponentType[]> = {
   /** The Destiny Character ID of the character for whom we're getting vendor info. */

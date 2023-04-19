@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition.js'
+import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition'
 
 /**
  * A shortcut for the fact that some items have a "Preview Vendor" - See

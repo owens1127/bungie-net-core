@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ItemBindStatus } from '../../ItemBindStatus.js';
-import { ItemLocation } from '../../ItemLocation.js';
-import { TransferStatuses } from '../../TransferStatuses.js';
-import { ItemState } from '../../ItemState.js';
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js';
+import { ItemBindStatus } from '../../ItemBindStatus';
+import { ItemLocation } from '../../ItemLocation';
+import { TransferStatuses } from '../../TransferStatuses';
+import { ItemState } from '../../ItemState';
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 /**
  * The base item component, filled with properties that are generally useful to
  * know in any item request or that don't feel worthwhile to put in their own

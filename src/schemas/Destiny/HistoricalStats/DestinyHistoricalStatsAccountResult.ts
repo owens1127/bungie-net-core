@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyHistoricalStatsWithMerged } from './DestinyHistoricalStatsWithMerged.js'
-import { DestinyHistoricalStatsPerCharacter } from './DestinyHistoricalStatsPerCharacter.js'
+import { DestinyHistoricalStatsWithMerged } from './DestinyHistoricalStatsWithMerged'
+import { DestinyHistoricalStatsPerCharacter } from './DestinyHistoricalStatsPerCharacter'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult} */
 export interface DestinyHistoricalStatsAccountResult {

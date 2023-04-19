@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType.js'
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType'
 
 /**
  * If the activity is a playlist, this is the definition for a specific entry in

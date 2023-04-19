@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemPeerView } from './DestinyItemPeerView.js'
+import { DestinyItemPeerView } from './DestinyItemPeerView'
 
 /**
  * A minimal view of a character's equipped items, for the purpose of rendering a

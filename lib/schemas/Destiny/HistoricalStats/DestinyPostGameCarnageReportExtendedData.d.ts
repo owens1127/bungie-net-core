@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalWeaponStats } from './DestinyHistoricalWeaponStats.js';
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js';
+import { DestinyHistoricalWeaponStats } from './DestinyHistoricalWeaponStats';
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportExtendedData} */
 export interface DestinyPostGameCarnageReportExtendedData {
     /** List of weapons and their perspective values. */

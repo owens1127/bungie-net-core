@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyInventoryItemStatDefinition } from '../DestinyInventoryItemStatDefinition.js';
+import { DestinyInventoryItemStatDefinition } from '../DestinyInventoryItemStatDefinition';
 /**
  * Properties of a DestinyInventoryItemDefinition that store all of the information
  * we were able to discern about how the item spawns, and where you can find the

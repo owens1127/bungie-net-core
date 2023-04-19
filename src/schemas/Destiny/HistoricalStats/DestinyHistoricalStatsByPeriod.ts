@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js'
-import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup.js'
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue'
+import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsByPeriod} */
 export interface DestinyHistoricalStatsByPeriod {

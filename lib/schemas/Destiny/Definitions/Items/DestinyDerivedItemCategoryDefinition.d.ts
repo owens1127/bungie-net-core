@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition.js';
+import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition';
 /**
  * A shortcut for the fact that some items have a "Preview Vendor" - See
  * DestinyInventoryItemDefinition.preview.previewVendorHash - that is intended to

@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyItemSubType } from '../DestinyItemSubType.js'
-import { DestinyArrangementRegionFilterDefinition } from './DestinyArrangementRegionFilterDefinition.js'
+import { DestinyItemSubType } from '../DestinyItemSubType'
+import { DestinyArrangementRegionFilterDefinition } from './DestinyArrangementRegionFilterDefinition'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinySandboxPatternDefinition} */
 export interface DestinySandboxPatternDefinition {

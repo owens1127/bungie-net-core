@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ActivityGraphNodeHighlightType } from '../../ActivityGraphNodeHighlightType.js';
+import { ActivityGraphNodeHighlightType } from '../../ActivityGraphNodeHighlightType';
 /**
  * Nodes can have different visual states. This object represents a single visual
  * state ("highlight type") that a node can be in, and the unlock expression

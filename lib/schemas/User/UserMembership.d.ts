@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieMembershipType } from '../BungieMembershipType.js';
+import { BungieMembershipType } from '../BungieMembershipType';
 /**
  * Very basic info about a user as returned by the Account server.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.UserMembership}

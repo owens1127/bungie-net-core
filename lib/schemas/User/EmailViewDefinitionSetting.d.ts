@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { EMailSettingLocalization } from './EMailSettingLocalization.js';
-import { OptInFlags } from './OptInFlags.js';
-import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition.js';
+import { EMailSettingLocalization } from './EMailSettingLocalization';
+import { OptInFlags } from './OptInFlags';
+import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailViewDefinitionSetting} */
 export interface EmailViewDefinitionSetting {
     /**

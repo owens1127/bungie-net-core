@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinySeasonPreviewImageDefinition } from './DestinySeasonPreviewImageDefinition.js'
+import { DestinySeasonPreviewImageDefinition } from './DestinySeasonPreviewImageDefinition'
 
 /**
  * Defines the promotional text, images, and links to preview this season.

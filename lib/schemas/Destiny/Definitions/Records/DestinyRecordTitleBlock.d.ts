@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyGender } from '../../DestinyGender.js';
+import { DestinyGender } from '../../DestinyGender';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordTitleBlock} */
 export interface DestinyRecordTitleBlock {
     readonly hasTitle: boolean;

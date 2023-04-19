@@ -5,7 +5,7 @@ export function generateClient(tags: string[]) {
   //     return `@property ${tag}`
   // });
   const comment = docComment('A client for interacting with the Bungie.net API');
-  const imports = tags.map(tag => `import * as ${tag}Import from '../endpoints/${tag}/index.js';`);
+  const imports = tags.map(tag => `import * as ${tag}Import from '../endpoints/${tag}';`);
   const client = `${imports.join('\n')}\nexport type InstancedImport = { client: BungieClient };
 export type AccessTokenObject = { access_token: string | null };
 ${comment}\nexport class BungieClient {

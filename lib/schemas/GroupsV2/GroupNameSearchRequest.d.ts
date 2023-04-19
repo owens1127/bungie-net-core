@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupType } from './GroupType.js';
+import { GroupType } from './GroupType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupNameSearchRequest} */
 export interface GroupNameSearchRequest {
     readonly groupName: string;

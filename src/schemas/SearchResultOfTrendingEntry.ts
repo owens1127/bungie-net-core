@@ -13,8 +13,8 @@
  */
 //
 
-import { TrendingEntry } from './Trending/TrendingEntry.js'
-import { PagedQuery } from './Queries/PagedQuery.js'
+import { TrendingEntry } from './Trending/TrendingEntry'
+import { PagedQuery } from './Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfTrendingEntry} */
 export interface SearchResultOfTrendingEntry {

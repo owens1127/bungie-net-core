@@ -1,5 +1,5 @@
-export { getActivePrivateClanFireteamCount } from './GetActivePrivateClanFireteamCount.js';
-export { getAvailableClanFireteams } from './GetAvailableClanFireteams.js';
-export { searchPublicAvailableClanFireteams } from './SearchPublicAvailableClanFireteams.js';
-export { getMyClanFireteams } from './GetMyClanFireteams.js';
-export { getClanFireteam } from './GetClanFireteam.js';
+export { getActivePrivateClanFireteamCount } from './GetActivePrivateClanFireteamCount';
+export { getAvailableClanFireteams } from './GetAvailableClanFireteams';
+export { searchPublicAvailableClanFireteams } from './SearchPublicAvailableClanFireteams';
+export { getMyClanFireteams } from './GetMyClanFireteams';
+export { getClanFireteam } from './GetClanFireteam';

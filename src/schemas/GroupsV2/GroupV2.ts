@@ -13,13 +13,13 @@
  */
 //
 
-import { GroupType } from './GroupType.js'
-import { ChatSecuritySetting } from './ChatSecuritySetting.js'
-import { GroupHomepage } from './GroupHomepage.js'
-import { MembershipOption } from './MembershipOption.js'
-import { GroupPostPublicity } from './GroupPostPublicity.js'
-import { GroupFeatures } from './GroupFeatures.js'
-import { GroupV2ClanInfoAndInvestment } from './GroupV2ClanInfoAndInvestment.js'
+import { GroupType } from './GroupType'
+import { ChatSecuritySetting } from './ChatSecuritySetting'
+import { GroupHomepage } from './GroupHomepage'
+import { MembershipOption } from './MembershipOption'
+import { GroupPostPublicity } from './GroupPostPublicity'
+import { GroupFeatures } from './GroupFeatures'
+import { GroupV2ClanInfoAndInvestment } from './GroupV2ClanInfoAndInvestment'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2} */
 export interface GroupV2 {

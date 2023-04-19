@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { InterpolationPointFloat } from '../../../Interpolation/InterpolationPointFloat.js';
+import { InterpolationPointFloat } from '../../../Interpolation/InterpolationPointFloat';
 /**
  * These are pre-constructed collections of data that can be used to determine the
  * Level Requirement for an item given a Progression to be tested (such as the

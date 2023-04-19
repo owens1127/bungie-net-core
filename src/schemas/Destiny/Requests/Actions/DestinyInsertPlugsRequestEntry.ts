@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinySocketArrayType } from './DestinySocketArrayType.js'
+import { DestinySocketArrayType } from './DestinySocketArrayType'
 
 /**
  * Represents all of the data related to a single plug to be inserted.

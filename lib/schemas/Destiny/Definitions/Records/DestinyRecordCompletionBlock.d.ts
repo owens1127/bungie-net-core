@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyRecordToastStyle } from '../../DestinyRecordToastStyle.js';
+import { DestinyRecordToastStyle } from '../../DestinyRecordToastStyle';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordCompletionBlock} */
 export interface DestinyRecordCompletionBlock {
     /**

@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphListEntryDefinition.js';
-import { DestinyDestinationBubbleSettingDefinition } from './DestinyDestinationBubbleSettingDefinition.js';
-import { DestinyBubbleDefinition } from './DestinyBubbleDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphListEntryDefinition';
+import { DestinyDestinationBubbleSettingDefinition } from './DestinyDestinationBubbleSettingDefinition';
+import { DestinyBubbleDefinition } from './DestinyBubbleDefinition';
 /**
  * On to one of the more confusing subjects of the API. What is a Destination, and
  * what is the relationship between it, Activities, Locations, and Places?

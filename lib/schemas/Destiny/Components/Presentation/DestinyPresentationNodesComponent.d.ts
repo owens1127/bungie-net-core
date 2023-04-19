@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPresentationNodeComponent } from './DestinyPresentationNodeComponent.js';
+import { DestinyPresentationNodeComponent } from './DestinyPresentationNodeComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodesComponent} */
 export interface DestinyPresentationNodesComponent {
     /** Mapped to DestinyPresentationNodeDefinition in the manifest. */

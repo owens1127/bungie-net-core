@@ -13,7 +13,7 @@
  */
 //
 
-import { SearchResultOfTrendingEntry } from '../SearchResultOfTrendingEntry.js'
+import { SearchResultOfTrendingEntry } from '../SearchResultOfTrendingEntry'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingCategory} */
 export interface TrendingCategory {

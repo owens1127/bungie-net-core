@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgression } from '../Destiny/DestinyProgression.js';
-import { ClanBanner } from './ClanBanner.js';
+import { DestinyProgression } from '../Destiny/DestinyProgression';
+import { ClanBanner } from './ClanBanner';
 /**
  * The same as GroupV2ClanInfo, but includes any investment data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2ClanInfoAndInvestment}

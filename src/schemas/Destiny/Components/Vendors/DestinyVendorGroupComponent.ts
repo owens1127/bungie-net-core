@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyVendorGroup } from './DestinyVendorGroup.js'
+import { DestinyVendorGroup } from './DestinyVendorGroup'
 
 /**
  * This component returns references to all of the Vendors in the response, grouped

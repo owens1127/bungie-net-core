@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyEnergyType } from '../../DestinyEnergyType.js';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 /**
  * Items can have Energy Capacity, and plugs can provide that capacity such as on a
  * piece of Armor in Armor 2.0. This is how much "Energy" can be spent on

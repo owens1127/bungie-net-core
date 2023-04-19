@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes.js';
-import { DestinyAmmunitionType } from '../DestinyAmmunitionType.js';
+import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes';
+import { DestinyAmmunitionType } from '../DestinyAmmunitionType';
 /**
  * Items that can be equipped define this block. It contains information we need to
  * understand how and when the item can be equipped.

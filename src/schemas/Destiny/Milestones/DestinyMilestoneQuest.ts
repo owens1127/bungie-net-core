@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyQuestStatus } from '../Quests/DestinyQuestStatus.js'
-import { DestinyMilestoneActivity } from './DestinyMilestoneActivity.js'
-import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus.js'
+import { DestinyQuestStatus } from '../Quests/DestinyQuestStatus'
+import { DestinyMilestoneActivity } from './DestinyMilestoneActivity'
+import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus'
 
 /**
  * If a Milestone has one or more Quests, this will contain the live information

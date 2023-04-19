@@ -13,11 +13,11 @@
  */
 //
 
-import { DestinyTalentNodeStepWeaponPerformances } from './DestinyTalentNodeStepWeaponPerformances.js'
-import { DestinyTalentNodeStepImpactEffects } from './DestinyTalentNodeStepImpactEffects.js'
-import { DestinyTalentNodeStepGuardianAttributes } from './DestinyTalentNodeStepGuardianAttributes.js'
-import { DestinyTalentNodeStepLightAbilities } from './DestinyTalentNodeStepLightAbilities.js'
-import { DestinyTalentNodeStepDamageTypes } from './DestinyTalentNodeStepDamageTypes.js'
+import { DestinyTalentNodeStepWeaponPerformances } from './DestinyTalentNodeStepWeaponPerformances'
+import { DestinyTalentNodeStepImpactEffects } from './DestinyTalentNodeStepImpactEffects'
+import { DestinyTalentNodeStepGuardianAttributes } from './DestinyTalentNodeStepGuardianAttributes'
+import { DestinyTalentNodeStepLightAbilities } from './DestinyTalentNodeStepLightAbilities'
+import { DestinyTalentNodeStepDamageTypes } from './DestinyTalentNodeStepDamageTypes'
 
 /**
  * These properties are an attempt to categorize talent node steps by certain

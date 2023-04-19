@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyRecordState } from '../../DestinyRecordState.js';
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js';
+import { DestinyRecordState } from '../../DestinyRecordState';
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyRecordComponent} */
 export interface DestinyRecordComponent {
     /**

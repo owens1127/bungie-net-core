@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinySeasonPreviewImageDefinition } from './DestinySeasonPreviewImageDefinition.js';
+import { DestinySeasonPreviewImageDefinition } from './DestinySeasonPreviewImageDefinition';
 /**
  * Defines the promotional text, images, and links to preview this season.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonPreviewDefinition}

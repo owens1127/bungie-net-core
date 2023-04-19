@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DamageType } from '../DamageType.js';
-import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DamageType } from '../DamageType';
+import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups';
 /**
  * Perks are modifiers to a character or item that can be applied situationally.
  *

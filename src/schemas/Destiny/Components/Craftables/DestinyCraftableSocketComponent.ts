@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyCraftableSocketPlugComponent } from './DestinyCraftableSocketPlugComponent.js'
+import { DestinyCraftableSocketPlugComponent } from './DestinyCraftableSocketPlugComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Craftables.DestinyCraftableSocketComponent} */
 export interface DestinyCraftableSocketComponent {

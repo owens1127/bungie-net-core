@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupOptionalConversationAddRequest } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupOptionalConversationAddRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation} */
 export declare type AddOptionalConversationParams = {
     /** Group ID of the group to edit. */

@@ -1,8 +1,8 @@
-export { forceDropsRepair } from './ForceDropsRepair.js';
-export { claimPartnerOffer } from './ClaimPartnerOffer.js';
-export { applyMissingPartnerOffersWithoutClaim } from './ApplyMissingPartnerOffersWithoutClaim.js';
-export { getPartnerOfferSkuHistory } from './GetPartnerOfferSkuHistory.js';
-export { getPartnerRewardHistory } from './GetPartnerRewardHistory.js';
-export { getBungieRewardsForUser } from './GetBungieRewardsForUser.js';
-export { getBungieRewardsForPlatformUser } from './GetBungieRewardsForPlatformUser.js';
-export { getBungieRewardsList } from './GetBungieRewardsList.js';
+export { forceDropsRepair } from './ForceDropsRepair';
+export { claimPartnerOffer } from './ClaimPartnerOffer';
+export { applyMissingPartnerOffersWithoutClaim } from './ApplyMissingPartnerOffersWithoutClaim';
+export { getPartnerOfferSkuHistory } from './GetPartnerOfferSkuHistory';
+export { getPartnerRewardHistory } from './GetPartnerRewardHistory';
+export { getBungieRewardsForUser } from './GetBungieRewardsForUser';
+export { getBungieRewardsForPlatformUser } from './GetBungieRewardsForPlatformUser';
+export { getBungieRewardsList } from './GetBungieRewardsList';

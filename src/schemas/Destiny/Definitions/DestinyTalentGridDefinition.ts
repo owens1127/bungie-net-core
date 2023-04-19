@@ -13,10 +13,10 @@
  */
 //
 
-import { DestinyTalentNodeDefinition } from './DestinyTalentNodeDefinition.js'
-import { DestinyTalentNodeExclusiveSetDefinition } from './DestinyTalentNodeExclusiveSetDefinition.js'
-import { DestinyTalentExclusiveGroup } from './DestinyTalentExclusiveGroup.js'
-import { DestinyTalentNodeCategory } from './DestinyTalentNodeCategory.js'
+import { DestinyTalentNodeDefinition } from './DestinyTalentNodeDefinition'
+import { DestinyTalentNodeExclusiveSetDefinition } from './DestinyTalentNodeExclusiveSetDefinition'
+import { DestinyTalentExclusiveGroup } from './DestinyTalentExclusiveGroup'
+import { DestinyTalentNodeCategory } from './DestinyTalentNodeCategory'
 
 /**
  * The time has unfortunately come to talk about Talent Grids.

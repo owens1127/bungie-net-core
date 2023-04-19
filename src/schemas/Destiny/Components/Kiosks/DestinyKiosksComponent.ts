@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyKioskItem } from './DestinyKioskItem.js'
+import { DestinyKioskItem } from './DestinyKioskItem'
 
 /**
  * A Kiosk is a Vendor (DestinyVendorDefinition) that sells items based on whether

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ItemPerkVisibility } from '../ItemPerkVisibility.js';
+import { ItemPerkVisibility } from '../ItemPerkVisibility';
 /**
  * An intrinsic perk on an item, and the requirements for it to be activated.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemPerkEntryDefinition}

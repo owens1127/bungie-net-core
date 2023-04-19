@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveProgress } from './DestinyObjectiveProgress.js';
+import { DestinyObjectiveProgress } from './DestinyObjectiveProgress';
 /**
  * Data regarding the progress of a Quest for a specific character. Quests are
  * composed of multiple steps, each with potentially multiple objectives: this

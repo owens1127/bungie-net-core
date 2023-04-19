@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js'
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Kiosks.DestinyKioskItem} */
 export interface DestinyKioskItem {

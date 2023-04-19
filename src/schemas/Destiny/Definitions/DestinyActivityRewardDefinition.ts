@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../DestinyItemQuantity'
 
 /**
  * Activities can refer to one or more sets of tooltip-friendly reward data. These

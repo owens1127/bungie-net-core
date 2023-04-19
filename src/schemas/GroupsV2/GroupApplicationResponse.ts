@@ -13,7 +13,7 @@
  */
 //
 
-import { GroupApplicationResolveState } from './GroupApplicationResolveState.js'
+import { GroupApplicationResolveState } from './GroupApplicationResolveState'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationResponse} */
 export interface GroupApplicationResponse {

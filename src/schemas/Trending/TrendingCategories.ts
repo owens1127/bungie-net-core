@@ -13,7 +13,7 @@
  */
 //
 
-import { TrendingCategory } from './TrendingCategory.js'
+import { TrendingCategory } from './TrendingCategory'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingCategories} */
 export interface TrendingCategories {

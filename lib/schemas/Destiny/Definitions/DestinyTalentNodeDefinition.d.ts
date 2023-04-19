@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement.js';
-import { DestinyNodeStepDefinition } from './DestinyNodeStepDefinition.js';
+import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement';
+import { DestinyNodeStepDefinition } from './DestinyNodeStepDefinition';
 /**
  * Talent Grids on items have Nodes. These nodes have positions in the talent grid'
  * s UI, and contain "Steps" (DestinyTalentNodeStepDefinition), one of whom will be

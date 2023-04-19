@@ -13,7 +13,7 @@
  */
 //
 
-import { DamageType } from '../DamageType.js'
+import { DamageType } from '../DamageType'
 
 /**
  * This defines information that can only come from a talent grid on an item. Items

@@ -13,10 +13,10 @@
  */
 //
 
-import { VendorItemStatus } from '../../VendorItemStatus.js'
-import { DestinyUnlockStatus } from '../../DestinyUnlockStatus.js'
-import { DestinyVendorItemState } from '../../DestinyVendorItemState.js'
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js'
+import { VendorItemStatus } from '../../VendorItemStatus'
+import { DestinyUnlockStatus } from '../../DestinyUnlockStatus'
+import { DestinyVendorItemState } from '../../DestinyVendorItemState'
+import { DestinyItemQuantity } from '../../DestinyItemQuantity'
 
 /**
  * Request this component if you want the details about an item being sold in

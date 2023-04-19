@@ -13,11 +13,11 @@
  */
 //
 
-import { BungieMembershipType } from '../../BungieMembershipType.js'
-import { PresenceStatus } from './PresenceStatus.js'
-import { PresenceOnlineStateFlags } from './PresenceOnlineStateFlags.js'
-import { FriendRelationshipState } from './FriendRelationshipState.js'
-import { GeneralUser } from '../../User/GeneralUser.js'
+import { BungieMembershipType } from '../../BungieMembershipType'
+import { PresenceStatus } from './PresenceStatus'
+import { PresenceOnlineStateFlags } from './PresenceOnlineStateFlags'
+import { FriendRelationshipState } from './FriendRelationshipState'
+import { GeneralUser } from '../../User/GeneralUser'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.BungieFriend} */
 export interface BungieFriend {

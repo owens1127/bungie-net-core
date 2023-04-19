@@ -19,7 +19,7 @@ function generateSchemaIndex(doc: OpenAPIObject, componentsByFile: Map<string, D
     exports.push(
       `export ${getRef(doc, defInfo.def)?.enum ? '' : 'type '}{ ${
         defInfo.typeName
-      } } from '${component.replace('schemas/', './').replace('.ts', '.js')}';`
+      } } from '${component.replace('schemas/', './').replace('.ts', '')}';`
     );
   }
 

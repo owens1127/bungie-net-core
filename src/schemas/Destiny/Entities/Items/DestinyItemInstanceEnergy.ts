@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType.js'
+import { DestinyEnergyType } from '../../DestinyEnergyType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceEnergy} */
 export interface DestinyItemInstanceEnergy {

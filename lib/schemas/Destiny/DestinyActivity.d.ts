@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyActivityDifficultyTier } from './DestinyActivityDifficultyTier.js';
-import { DestinyChallengeStatus } from './Challenges/DestinyChallengeStatus.js';
+import { DestinyActivityDifficultyTier } from './DestinyActivityDifficultyTier';
+import { DestinyChallengeStatus } from './Challenges/DestinyChallengeStatus';
 /**
  * Represents the "Live" data that we can obtain about a Character's status with a
  * specific Activity. This will tell you whether the character can participate in

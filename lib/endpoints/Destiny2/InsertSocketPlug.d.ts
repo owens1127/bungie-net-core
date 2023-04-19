@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyInsertPlugsActionRequest } from '../../schemas/index.js';
-import { DestinyItemChangeResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyInsertPlugsActionRequest } from '../../schemas';
+import { DestinyItemChangeResponse } from '../../schemas';
 /**
  * Insert a plug into a socketed item. I know how it sounds, but I assure you it's
  * much more G-rated than you might be guessing. We haven't decided yet whether

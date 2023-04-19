@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPlugItemCraftingUnlockRequirement } from './DestinyPlugItemCraftingUnlockRequirement.js';
+import { DestinyPlugItemCraftingUnlockRequirement } from './DestinyPlugItemCraftingUnlockRequirement';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyPlugItemCraftingRequirements} */
 export interface DestinyPlugItemCraftingRequirements {
     readonly unlockRequirements: DestinyPlugItemCraftingUnlockRequirement[];

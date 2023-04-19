@@ -13,7 +13,7 @@
  */
 //
 
-import { ChatSecuritySetting } from './ChatSecuritySetting.js'
+import { ChatSecuritySetting } from './ChatSecuritySetting'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupOptionalConversationAddRequest} */
 export interface GroupOptionalConversationAddRequest {

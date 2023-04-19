@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyRace } from '../DestinyRace.js'
-import { DestinyGender } from '../DestinyGender.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyRace } from '../DestinyRace'
+import { DestinyGender } from '../DestinyGender'
 
 /**
  * In Destiny, "Races" are really more like "Species". Sort of. I mean, are the

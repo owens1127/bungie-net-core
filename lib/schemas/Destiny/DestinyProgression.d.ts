@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgressionResetEntry } from './DestinyProgressionResetEntry.js';
-import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardItemState.js';
+import { DestinyProgressionResetEntry } from './DestinyProgressionResetEntry';
+import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardItemState';
 /**
  * Information about a current character's status with a Progression. A progression
  * is a value that can increase with activity and has levels. Think Character Level

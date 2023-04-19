@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyVendorInteractionReplyDefinition } from './DestinyVendorInteractionReplyDefinition.js';
-import { DestinyVendorInteractionSackEntryDefinition } from './DestinyVendorInteractionSackEntryDefinition.js';
-import { VendorInteractionType } from '../VendorInteractionType.js';
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
+import { DestinyVendorInteractionReplyDefinition } from './DestinyVendorInteractionReplyDefinition';
+import { DestinyVendorInteractionSackEntryDefinition } from './DestinyVendorInteractionSackEntryDefinition';
+import { VendorInteractionType } from '../VendorInteractionType';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 /**
  * A Vendor Interaction is a dialog shown by the vendor other than sale items or
  * transfer screens. The vendor is showing you something, and asking you to reply

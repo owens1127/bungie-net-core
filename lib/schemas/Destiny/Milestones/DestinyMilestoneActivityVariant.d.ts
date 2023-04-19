@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneActivityCompletionStatus } from './DestinyMilestoneActivityCompletionStatus.js';
+import { DestinyMilestoneActivityCompletionStatus } from './DestinyMilestoneActivityCompletionStatus';
 /**
  * Represents custom data that we know about an individual variant of an activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityVariant}

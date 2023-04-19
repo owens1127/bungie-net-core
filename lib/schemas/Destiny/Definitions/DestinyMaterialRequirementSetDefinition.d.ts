@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMaterialRequirement } from './DestinyMaterialRequirement.js';
+import { DestinyMaterialRequirement } from './DestinyMaterialRequirement';
 /**
  * Represent a set of material requirements: Items that either need to be owned or
  * need to be consumed in order to perform an action.

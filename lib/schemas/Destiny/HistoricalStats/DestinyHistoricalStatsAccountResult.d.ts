@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalStatsWithMerged } from './DestinyHistoricalStatsWithMerged.js';
-import { DestinyHistoricalStatsPerCharacter } from './DestinyHistoricalStatsPerCharacter.js';
+import { DestinyHistoricalStatsWithMerged } from './DestinyHistoricalStatsWithMerged';
+import { DestinyHistoricalStatsPerCharacter } from './DestinyHistoricalStatsPerCharacter';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult} */
 export interface DestinyHistoricalStatsAccountResult {
     readonly mergedDeletedCharacters: DestinyHistoricalStatsWithMerged;

@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyStatAggregationType } from '../DestinyStatAggregationType.js'
-import { DestinyStatCategory } from '../DestinyStatCategory.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyStatAggregationType } from '../DestinyStatAggregationType'
+import { DestinyStatCategory } from '../DestinyStatCategory'
 
 /**
  * This represents a stat that's applied to a character or an item (such as a

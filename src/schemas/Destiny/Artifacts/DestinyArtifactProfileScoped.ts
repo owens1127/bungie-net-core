@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyProgression } from '../DestinyProgression.js'
+import { DestinyProgression } from '../DestinyProgression'
 
 /**
  * Represents a Seasonal Artifact and all data related to it for the requested

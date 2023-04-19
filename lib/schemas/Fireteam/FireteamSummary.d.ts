@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { FireteamPlatform } from './FireteamPlatform.js';
+import { FireteamPlatform } from './FireteamPlatform';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamSummary} */
 export interface FireteamSummary {
     readonly fireteamId: string;

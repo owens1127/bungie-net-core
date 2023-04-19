@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPlugItemCraftingRequirements } from './DestinyPlugItemCraftingRequirements.js';
+import { DestinyPlugItemCraftingRequirements } from './DestinyPlugItemCraftingRequirements';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketEntryPlugItemRandomizedDefinition} */
 export interface DestinyItemSocketEntryPlugItemRandomizedDefinition {
     readonly craftingRequirements: DestinyPlugItemCraftingRequirements;

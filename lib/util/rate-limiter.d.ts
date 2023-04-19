@@ -1,4 +1,4 @@
-import { BungieNetResponse } from './server-response.js';
+import { BungieNetResponse } from './server-response';
 export declare type FetchConfig = {
     url: string;
     method: string;

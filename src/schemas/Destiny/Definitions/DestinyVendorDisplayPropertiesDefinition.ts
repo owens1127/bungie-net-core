@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyVendorRequirementDisplayEntryDefinition } from './DestinyVendorRequirementDisplayEntryDefinition.js'
-import { DestinyIconSequenceDefinition } from './Common/DestinyIconSequenceDefinition.js'
+import { DestinyVendorRequirementDisplayEntryDefinition } from './DestinyVendorRequirementDisplayEntryDefinition'
+import { DestinyIconSequenceDefinition } from './Common/DestinyIconSequenceDefinition'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorDisplayPropertiesDefinition} */
 export interface DestinyVendorDisplayPropertiesDefinition {

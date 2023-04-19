@@ -1,6 +1,6 @@
-import { _credentials } from './credentials.js';
-import { TokenRequestError } from '../errors/TokenRequestError.js';
-import { NotConfiguredError } from '../errors/NotConfiguredError.js';
+import { _credentials } from './credentials';
+import { TokenRequestError } from '../errors/TokenRequestError';
+import { NotConfiguredError } from '../errors/NotConfiguredError';
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
 export type Token = {

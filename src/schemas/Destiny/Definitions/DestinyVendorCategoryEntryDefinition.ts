@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyVendorCategoryOverlayDefinition } from './DestinyVendorCategoryOverlayDefinition.js'
+import { DestinyVendorCategoryOverlayDefinition } from './DestinyVendorCategoryOverlayDefinition'
 
 /**
  * This is the definition for a single Vendor Category, into which Sale Items are

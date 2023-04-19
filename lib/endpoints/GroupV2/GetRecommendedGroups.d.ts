@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupDateRange } from '../../schemas/index.js';
-import { GroupType } from '../../schemas/index.js';
-import { GroupV2Card } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupDateRange } from '../../schemas';
+import { GroupType } from '../../schemas';
+import { GroupV2Card } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups} */
 export declare type GetRecommendedGroupsParams = {
     /** Requested range in which to pull recommended groups */

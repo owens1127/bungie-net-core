@@ -13,17 +13,17 @@
  */
 //
 
-import { ComponentData } from '../../../generic/ComponentTypes.js'
-import { DestinyComponentType } from '../DestinyComponentType.js'
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js'
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js'
-import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorComponent.js'
-import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent.js'
-import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse.js'
-import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent.js'
-import { DestinyItemComponentSetOfint32 } from '../../DestinyItemComponentSetOfint32.js'
-import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent.js'
-import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent.js'
+import { ComponentData } from '../../../generic/ComponentTypes'
+import { DestinyComponentType } from '../DestinyComponentType'
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse'
+import { ConditionalComponent } from '../../../generic/ComponentTypes'
+import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorComponent'
+import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent'
+import { DictionaryComponentResponse } from '../../../generic/DictionaryComponentResponse'
+import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent'
+import { DestinyItemComponentSetOfint32 } from '../../DestinyItemComponentSetOfint32'
+import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent'
+import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent'
 
 /**
  * A response containing all of the components for a vendor.

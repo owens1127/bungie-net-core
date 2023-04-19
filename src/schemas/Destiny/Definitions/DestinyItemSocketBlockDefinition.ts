@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyItemSocketEntryDefinition } from './DestinyItemSocketEntryDefinition.js'
-import { DestinyItemIntrinsicSocketEntryDefinition } from './DestinyItemIntrinsicSocketEntryDefinition.js'
-import { DestinyItemSocketCategoryDefinition } from './DestinyItemSocketCategoryDefinition.js'
+import { DestinyItemSocketEntryDefinition } from './DestinyItemSocketEntryDefinition'
+import { DestinyItemIntrinsicSocketEntryDefinition } from './DestinyItemIntrinsicSocketEntryDefinition'
+import { DestinyItemSocketCategoryDefinition } from './DestinyItemSocketCategoryDefinition'
 
 /**
  * If defined, the item has at least one socket.

@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupEditAction } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupEditAction } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroup} */
 export declare type EditGroupParams = {
     /** Group ID of the group to edit. */

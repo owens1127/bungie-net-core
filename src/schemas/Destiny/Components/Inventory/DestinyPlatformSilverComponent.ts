@@ -13,8 +13,8 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType.js'
-import { DestinyItemComponent } from '../../Entities/Items/DestinyItemComponent.js'
+import { BungieMembershipType } from '../../../BungieMembershipType'
+import { DestinyItemComponent } from '../../Entities/Items/DestinyItemComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Inventory.DestinyPlatformSilverComponent} */
 export interface DestinyPlatformSilverComponent {

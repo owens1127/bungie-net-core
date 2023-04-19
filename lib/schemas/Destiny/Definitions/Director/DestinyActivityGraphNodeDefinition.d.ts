@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition.js';
-import { DestinyActivityGraphNodeFeaturingStateDefinition } from './DestinyActivityGraphNodeFeaturingStateDefinition.js';
-import { DestinyActivityGraphNodeActivityDefinition } from './DestinyActivityGraphNodeActivityDefinition.js';
-import { DestinyActivityGraphNodeStateEntry } from './DestinyActivityGraphNodeStateEntry.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition';
+import { DestinyActivityGraphNodeFeaturingStateDefinition } from './DestinyActivityGraphNodeFeaturingStateDefinition';
+import { DestinyActivityGraphNodeActivityDefinition } from './DestinyActivityGraphNodeActivityDefinition';
+import { DestinyActivityGraphNodeStateEntry } from './DestinyActivityGraphNodeStateEntry';
 /**
  * This is the position and other data related to nodes in the activity graph that
  * you can click to launch activities. An Activity Graph node will only have one

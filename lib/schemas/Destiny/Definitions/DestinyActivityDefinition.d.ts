@@ -11,19 +11,19 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyActivityRewardDefinition } from './DestinyActivityRewardDefinition.js';
-import { DestinyActivityModifierReferenceDefinition } from './DestinyActivityModifierReferenceDefinition.js';
-import { DestinyActivityChallengeDefinition } from './DestinyActivityChallengeDefinition.js';
-import { DestinyActivityUnlockStringDefinition } from './DestinyActivityUnlockStringDefinition.js';
-import { DestinyActivityPlaylistItemDefinition } from './DestinyActivityPlaylistItemDefinition.js';
-import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphListEntryDefinition.js';
-import { DestinyActivityMatchmakingBlockDefinition } from './DestinyActivityMatchmakingBlockDefinition.js';
-import { DestinyActivityGuidedBlockDefinition } from './DestinyActivityGuidedBlockDefinition.js';
-import { DestinyActivityLoadoutRequirementSet } from './DestinyActivityLoadoutRequirementSet.js';
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType.js';
-import { DestinyActivityInsertionPointDefinition } from './DestinyActivityInsertionPointDefinition.js';
-import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironmentLocationMapping.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyActivityRewardDefinition } from './DestinyActivityRewardDefinition';
+import { DestinyActivityModifierReferenceDefinition } from './DestinyActivityModifierReferenceDefinition';
+import { DestinyActivityChallengeDefinition } from './DestinyActivityChallengeDefinition';
+import { DestinyActivityUnlockStringDefinition } from './DestinyActivityUnlockStringDefinition';
+import { DestinyActivityPlaylistItemDefinition } from './DestinyActivityPlaylistItemDefinition';
+import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphListEntryDefinition';
+import { DestinyActivityMatchmakingBlockDefinition } from './DestinyActivityMatchmakingBlockDefinition';
+import { DestinyActivityGuidedBlockDefinition } from './DestinyActivityGuidedBlockDefinition';
+import { DestinyActivityLoadoutRequirementSet } from './DestinyActivityLoadoutRequirementSet';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityInsertionPointDefinition } from './DestinyActivityInsertionPointDefinition';
+import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironmentLocationMapping';
 /**
  * The static data about Activities in Destiny 2.
  *

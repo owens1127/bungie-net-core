@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition.js'
+import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition'
 
 /**
  * Many Destiny*Definition contracts - the "first order" entities of Destiny that

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyRecordComponent } from './DestinyRecordComponent.js';
+import { DestinyRecordComponent } from './DestinyRecordComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyCharacterRecordsComponent} */
 export interface DestinyCharacterRecordsComponent {
     /** Mapped to DestinyRecordDefinition in the manifest. */

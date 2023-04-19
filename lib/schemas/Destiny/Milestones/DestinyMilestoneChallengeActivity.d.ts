@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus.js';
-import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase.js';
+import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus';
+import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneChallengeActivity} */
 export interface DestinyMilestoneChallengeActivity {
     /** Mapped to DestinyActivityDefinition in the manifest. */

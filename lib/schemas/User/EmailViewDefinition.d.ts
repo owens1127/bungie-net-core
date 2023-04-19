@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { EmailViewDefinitionSetting } from './EmailViewDefinitionSetting.js';
+import { EmailViewDefinitionSetting } from './EmailViewDefinitionSetting';
 /**
  * Represents a data-driven view for Email settings. Web/Mobile UI can use this
  * data to show new EMail settings consistently without further manual work.

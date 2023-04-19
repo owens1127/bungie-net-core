@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDefinition.js'
+import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDefinition'
 
 /**
  * Information about the item's calculated stats, with as much data as we can find

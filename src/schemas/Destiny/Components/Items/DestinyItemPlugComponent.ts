@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js'
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
 
 /**
  * Plugs are non-instanced items that can provide Stat and Perk benefits when

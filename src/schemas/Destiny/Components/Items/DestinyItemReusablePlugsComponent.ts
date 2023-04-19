@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemPlugBase } from '../../Sockets/DestinyItemPlugBase.js'
+import { DestinyItemPlugBase } from '../../Sockets/DestinyItemPlugBase'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Items.DestinyItemReusablePlugsComponent} */
 export interface DestinyItemReusablePlugsComponent {

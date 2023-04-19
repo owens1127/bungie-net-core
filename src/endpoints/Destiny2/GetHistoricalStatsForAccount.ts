@@ -13,13 +13,13 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { DestinyStatsGroupType } from '../../schemas/index.js'
-import { BungieMembershipType } from '../../schemas/index.js'
-import { DestinyHistoricalStatsAccountResult } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { DestinyStatsGroupType } from '../../schemas'
+import { BungieMembershipType } from '../../schemas'
+import { DestinyHistoricalStatsAccountResult } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount} */
 export type GetHistoricalStatsForAccountParams = {
   /** The Destiny membershipId of the user to retrieve. */

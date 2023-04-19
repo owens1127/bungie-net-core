@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { BucketScope } from '../BucketScope.js';
-import { BucketCategory } from '../BucketCategory.js';
-import { ItemLocation } from '../ItemLocation.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { BucketScope } from '../BucketScope';
+import { BucketCategory } from '../BucketCategory';
+import { ItemLocation } from '../ItemLocation';
 /**
  * An Inventory (be it Character or Profile level) is comprised of many Buckets. An
  * example of a bucket is "Primary Weapons", where all of the primary weapons on a

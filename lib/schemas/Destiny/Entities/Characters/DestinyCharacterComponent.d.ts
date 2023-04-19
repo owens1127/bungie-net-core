@@ -11,12 +11,12 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieMembershipType } from '../../../BungieMembershipType.js';
-import { DestinyRace } from '../../DestinyRace.js';
-import { DestinyClass } from '../../DestinyClass.js';
-import { DestinyGender } from '../../DestinyGender.js';
-import { DestinyColor } from '../../Misc/DestinyColor.js';
-import { DestinyProgression } from '../../DestinyProgression.js';
+import { BungieMembershipType } from '../../../BungieMembershipType';
+import { DestinyRace } from '../../DestinyRace';
+import { DestinyClass } from '../../DestinyClass';
+import { DestinyGender } from '../../DestinyGender';
+import { DestinyColor } from '../../Misc/DestinyColor';
+import { DestinyProgression } from '../../DestinyProgression';
 /**
  * This component contains base properties of the character. You'll probably want
  * to always request this component, but hey you do you.

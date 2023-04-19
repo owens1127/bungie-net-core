@@ -13,11 +13,11 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DamageType } from '../DamageType.js'
-import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement.js'
-import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups.js'
-import { DestinyNodeSocketReplaceResponse } from './DestinyNodeSocketReplaceResponse.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DamageType } from '../DamageType'
+import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement'
+import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups'
+import { DestinyNodeSocketReplaceResponse } from './DestinyNodeSocketReplaceResponse'
 
 /**
  * This defines the properties of a "Talent Node Step". When you see a talent node

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyRecordDefinition } from '../Destiny/Definitions/Records/DestinyRecordDefinition.js';
-import { CollectibleDefinitions } from './CollectibleDefinitions.js';
+import { DestinyRecordDefinition } from '../Destiny/Definitions/Records/DestinyRecordDefinition';
+import { CollectibleDefinitions } from './CollectibleDefinitions';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.RewardAvailabilityModel} */
 export interface RewardAvailabilityModel {
     readonly HasExistingCode: boolean;

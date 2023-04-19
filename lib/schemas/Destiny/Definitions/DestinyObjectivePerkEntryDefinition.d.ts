@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle.js';
+import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
 /**
  * Defines the conditions under which an intrinsic perk is applied while
  * participating in an Objective.

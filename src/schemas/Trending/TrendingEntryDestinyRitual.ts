@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyPublicMilestone } from '../Destiny/Milestones/DestinyPublicMilestone.js'
-import { DestinyMilestoneContent } from '../Destiny/Milestones/DestinyMilestoneContent.js'
+import { DestinyPublicMilestone } from '../Destiny/Milestones/DestinyPublicMilestone'
+import { DestinyMilestoneContent } from '../Destiny/Milestones/DestinyMilestoneContent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryDestinyRitual} */
 export interface TrendingEntryDestinyRitual {

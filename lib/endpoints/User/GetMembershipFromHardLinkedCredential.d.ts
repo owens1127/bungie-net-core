@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieCredentialType } from '../../schemas/index.js';
-import { HardLinkedUserMembership } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieCredentialType } from '../../schemas';
+import { HardLinkedUserMembership } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential} */
 export declare type GetMembershipFromHardLinkedCredentialParams = {
     /** The credential to look up. Must be a valid SteamID64. */

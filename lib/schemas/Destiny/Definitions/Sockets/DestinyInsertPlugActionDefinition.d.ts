@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { SocketTypeActionType } from '../../SocketTypeActionType.js';
+import { SocketTypeActionType } from '../../SocketTypeActionType';
 /**
  * Data related to what happens while a plug is being inserted, mostly for UI
  * purposes.

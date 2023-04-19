@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserInfoCard } from './UserInfoCard.js';
+import { UserInfoCard } from './UserInfoCard';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchResponseDetail} */
 export interface UserSearchResponseDetail {
     readonly bungieGlobalDisplayName: string;

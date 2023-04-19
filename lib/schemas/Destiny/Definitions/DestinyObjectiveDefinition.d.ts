@@ -11,12 +11,12 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyGatingScope } from '../DestinyGatingScope.js';
-import { DestinyUnlockValueUIStyle } from '../DestinyUnlockValueUIStyle.js';
-import { DestinyObjectivePerkEntryDefinition } from './DestinyObjectivePerkEntryDefinition.js';
-import { DestinyObjectiveStatEntryDefinition } from './DestinyObjectiveStatEntryDefinition.js';
-import { DestinyObjectiveUiStyle } from '../DestinyObjectiveUiStyle.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyGatingScope } from '../DestinyGatingScope';
+import { DestinyUnlockValueUIStyle } from '../DestinyUnlockValueUIStyle';
+import { DestinyObjectivePerkEntryDefinition } from './DestinyObjectivePerkEntryDefinition';
+import { DestinyObjectiveStatEntryDefinition } from './DestinyObjectiveStatEntryDefinition';
+import { DestinyObjectiveUiStyle } from '../DestinyObjectiveUiStyle';
 /**
  * Defines an "Objective".
  *

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyVendorReceipt } from '../../Vendors/DestinyVendorReceipt.js'
+import { DestinyVendorReceipt } from '../../Vendors/DestinyVendorReceipt'
 
 /**
  * For now, this isn't used for much: it's a record of the recent refundable

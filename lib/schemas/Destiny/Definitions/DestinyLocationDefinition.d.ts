@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyLocationReleaseDefinition } from './DestinyLocationReleaseDefinition.js';
+import { DestinyLocationReleaseDefinition } from './DestinyLocationReleaseDefinition';
 /**
  * A "Location" is a sort of shortcut for referring to a specific combination of
  * Activity, Destination, Place, and even Bubble or NavPoint within a space.

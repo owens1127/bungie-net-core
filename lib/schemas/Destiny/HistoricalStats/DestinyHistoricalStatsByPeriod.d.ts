@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js';
-import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup.js';
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
+import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsByPeriod} */
 export interface DestinyHistoricalStatsByPeriod {
     readonly allTime: {

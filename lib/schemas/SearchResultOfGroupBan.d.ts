@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupBan } from './GroupsV2/GroupBan.js';
-import { PagedQuery } from './Queries/PagedQuery.js';
+import { GroupBan } from './GroupsV2/GroupBan';
+import { PagedQuery } from './Queries/PagedQuery';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfGroupBan} */
 export interface SearchResultOfGroupBan {
     readonly results: GroupBan[];

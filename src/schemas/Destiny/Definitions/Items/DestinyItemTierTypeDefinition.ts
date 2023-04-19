@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyItemTierTypeInfusionBlock } from './DestinyItemTierTypeInfusionBlock.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyItemTierTypeInfusionBlock } from './DestinyItemTierTypeInfusionBlock'
 
 /**
  * Defines the tier type of an item. Mostly this provides human readable properties

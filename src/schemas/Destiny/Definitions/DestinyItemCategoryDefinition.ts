@@ -13,11 +13,11 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyBreakerType } from '../DestinyBreakerType.js'
-import { DestinyItemType } from '../DestinyItemType.js'
-import { DestinyItemSubType } from '../DestinyItemSubType.js'
-import { DestinyClass } from '../DestinyClass.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyBreakerType } from '../DestinyBreakerType'
+import { DestinyItemType } from '../DestinyItemType'
+import { DestinyItemSubType } from '../DestinyItemSubType'
+import { DestinyClass } from '../DestinyClass'
 
 /**
  * In an attempt to categorize items by type, usage, and other interesting

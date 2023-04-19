@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyReportReasonDefinition } from './DestinyReportReasonDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyReportReasonDefinition } from './DestinyReportReasonDefinition'
 
 /**
  * If you're going to report someone for a Terms of Service violation, you need to

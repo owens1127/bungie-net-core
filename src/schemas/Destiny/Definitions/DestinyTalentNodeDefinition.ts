@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement.js'
-import { DestinyNodeStepDefinition } from './DestinyNodeStepDefinition.js'
+import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement'
+import { DestinyNodeStepDefinition } from './DestinyNodeStepDefinition'
 
 /**
  * Talent Grids on items have Nodes. These nodes have positions in the talent grid'

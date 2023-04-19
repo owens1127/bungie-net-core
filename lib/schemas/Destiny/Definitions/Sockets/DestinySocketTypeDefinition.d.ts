@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyInsertPlugActionDefinition } from './DestinyInsertPlugActionDefinition.js';
-import { DestinyPlugWhitelistEntryDefinition } from './DestinyPlugWhitelistEntryDefinition.js';
-import { DestinySocketVisibility } from '../../DestinySocketVisibility.js';
-import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocketTypeScalarMaterialRequirementEntry.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyInsertPlugActionDefinition } from './DestinyInsertPlugActionDefinition';
+import { DestinyPlugWhitelistEntryDefinition } from './DestinyPlugWhitelistEntryDefinition';
+import { DestinySocketVisibility } from '../../DestinySocketVisibility';
+import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocketTypeScalarMaterialRequirementEntry';
 /**
  * All Sockets have a "Type": a set of common properties that determine when the
  * socket allows Plugs to be inserted, what Categories of Plugs can be inserted,

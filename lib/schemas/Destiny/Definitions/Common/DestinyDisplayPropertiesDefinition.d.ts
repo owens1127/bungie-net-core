@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition.js';
+import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition';
 /**
  * Many Destiny*Definition contracts - the "first order" entities of Destiny that
  * have their own tables in the Manifest Database - also have displayable

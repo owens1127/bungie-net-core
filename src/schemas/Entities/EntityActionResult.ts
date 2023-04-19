@@ -13,7 +13,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes.js'
+import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Entities.EntityActionResult} */
 export interface EntityActionResult {

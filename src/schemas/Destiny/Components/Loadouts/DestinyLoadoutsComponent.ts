@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyLoadoutComponent } from './DestinyLoadoutComponent.js'
+import { DestinyLoadoutComponent } from './DestinyLoadoutComponent'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Loadouts.DestinyLoadoutsComponent} */
 export interface DestinyLoadoutsComponent {

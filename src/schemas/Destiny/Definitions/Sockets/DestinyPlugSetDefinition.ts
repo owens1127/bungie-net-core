@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyItemSocketEntryPlugItemRandomizedDefinition } from '../DestinyItemSocketEntryPlugItemRandomizedDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyItemSocketEntryPlugItemRandomizedDefinition } from '../DestinyItemSocketEntryPlugItemRandomizedDefinition'
 
 /**
  * Sometimes, we have large sets of reusable plugs that are defined identically and

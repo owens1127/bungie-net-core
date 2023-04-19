@@ -13,8 +13,8 @@
  */
 //
 
-import { UserInfoCard } from '../User/UserInfoCard.js'
-import { GroupUserInfoCard } from './GroupUserInfoCard.js'
+import { UserInfoCard } from '../User/UserInfoCard'
+import { GroupUserInfoCard } from './GroupUserInfoCard'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupBan} */
 export interface GroupBan {

@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates.js';
+import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates';
 /**
  * This is some bare minimum information about a party member in a Fireteam.
  * Unfortunately, without great computational expense on our side we can only get

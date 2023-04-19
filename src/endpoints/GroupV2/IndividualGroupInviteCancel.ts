@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { BungieMembershipType } from '../../schemas/index.js'
-import { GroupApplicationResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieMembershipType } from '../../schemas'
+import { GroupApplicationResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel} */
 export type IndividualGroupInviteCancelParams = {
   /** ID of the group you would like to join. */

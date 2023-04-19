@@ -13,8 +13,8 @@
  */
 //
 
-import { AwaType } from './AwaType.js'
-import { BungieMembershipType } from '../../BungieMembershipType.js'
+import { AwaType } from './AwaType'
+import { BungieMembershipType } from '../../BungieMembershipType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaPermissionRequested} */
 export interface AwaPermissionRequested {

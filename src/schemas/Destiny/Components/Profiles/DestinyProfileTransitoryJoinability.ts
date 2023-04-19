@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting.js'
-import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons.js'
+import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting'
+import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons'
 
 /**
  * Some basic information about whether you can be joined, how many slots are left

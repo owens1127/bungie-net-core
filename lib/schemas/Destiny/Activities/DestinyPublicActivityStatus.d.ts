@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemQuantity } from '../DestinyItemQuantity.js';
+import { DestinyItemQuantity } from '../DestinyItemQuantity';
 /**
  * Represents the public-facing status of an activity: any data about what is
  * currently active in the Activity, regardless of an individual character's

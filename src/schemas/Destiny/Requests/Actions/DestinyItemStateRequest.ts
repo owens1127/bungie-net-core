@@ -13,7 +13,7 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType.js'
+import { BungieMembershipType } from '../../../BungieMembershipType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyItemStateRequest} */
 export interface DestinyItemStateRequest {

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory';
 /**
  * Represents a heuristically-determined "item source" according to Bungie.net.
  * These item sources are non-canonical: we apply a combination of special

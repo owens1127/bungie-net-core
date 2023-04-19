@@ -13,8 +13,8 @@
  */
 //
 
-import { GroupMember } from './GroupsV2/GroupMember.js'
-import { PagedQuery } from './Queries/PagedQuery.js'
+import { GroupMember } from './GroupsV2/GroupMember'
+import { PagedQuery } from './Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfGroupMember} */
 export interface SearchResultOfGroupMember {

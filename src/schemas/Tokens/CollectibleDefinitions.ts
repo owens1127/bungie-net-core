@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyCollectibleDefinition } from '../Destiny/Definitions/Collectibles/DestinyCollectibleDefinition.js'
-import { DestinyInventoryItemDefinition } from '../Destiny/Definitions/DestinyInventoryItemDefinition.js'
+import { DestinyCollectibleDefinition } from '../Destiny/Definitions/Collectibles/DestinyCollectibleDefinition'
+import { DestinyInventoryItemDefinition } from '../Destiny/Definitions/DestinyInventoryItemDefinition'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.CollectibleDefinitions} */
 export interface CollectibleDefinitions {

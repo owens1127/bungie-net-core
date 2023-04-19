@@ -1,8 +1,8 @@
 /**
  * Represents an error sending a request to the Bungie API
  */
-import { PlatformErrorCodes } from '../schemas/index.js';
-import { BungieNetResponse } from '../util/server-response.js';
+import { PlatformErrorCodes } from '../schemas';
+import { BungieNetResponse } from '../util/server-response';
 
 export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
   readonly DetailedErrorTrace: string;

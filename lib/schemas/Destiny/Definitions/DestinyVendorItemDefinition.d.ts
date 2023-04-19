@@ -11,13 +11,13 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyVendorItemQuantity } from './DestinyVendorItemQuantity.js';
-import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy.js';
-import { DestinyItemCreationEntryLevelDefinition } from './DestinyItemCreationEntryLevelDefinition.js';
-import { DestinyVendorSaleItemActionBlockDefinition } from './DestinyVendorSaleItemActionBlockDefinition.js';
-import { DestinyGatingScope } from '../DestinyGatingScope.js';
-import { BungieMembershipType } from '../../BungieMembershipType.js';
-import { DestinyVendorItemSocketOverride } from './DestinyVendorItemSocketOverride.js';
+import { DestinyVendorItemQuantity } from './DestinyVendorItemQuantity';
+import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy';
+import { DestinyItemCreationEntryLevelDefinition } from './DestinyItemCreationEntryLevelDefinition';
+import { DestinyVendorSaleItemActionBlockDefinition } from './DestinyVendorSaleItemActionBlockDefinition';
+import { DestinyGatingScope } from '../DestinyGatingScope';
+import { BungieMembershipType } from '../../BungieMembershipType';
+import { DestinyVendorItemSocketOverride } from './DestinyVendorItemSocketOverride';
 /**
  * This represents an item being sold by the vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorItemDefinition}

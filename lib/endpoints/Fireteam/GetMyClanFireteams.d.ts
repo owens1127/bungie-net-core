@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { FireteamPlatform } from '../../schemas/index.js';
-import { SearchResultOfFireteamResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { FireteamPlatform } from '../../schemas';
+import { SearchResultOfFireteamResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
 export declare type GetMyClanFireteamsParams = {
     /**

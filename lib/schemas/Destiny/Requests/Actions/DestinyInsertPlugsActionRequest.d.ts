@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyInsertPlugsRequestEntry } from './DestinyInsertPlugsRequestEntry.js';
-import { BungieMembershipType } from '../../../BungieMembershipType.js';
+import { DestinyInsertPlugsRequestEntry } from './DestinyInsertPlugsRequestEntry';
+import { BungieMembershipType } from '../../../BungieMembershipType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyInsertPlugsActionRequest} */
 export interface DestinyInsertPlugsActionRequest {
     /** Action token provided by the AwaGetActionToken API call. */

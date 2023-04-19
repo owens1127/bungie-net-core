@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyRecordIntervalObjective } from './DestinyRecordIntervalObjective.js';
-import { DestinyRecordIntervalRewards } from './DestinyRecordIntervalRewards.js';
+import { DestinyRecordIntervalObjective } from './DestinyRecordIntervalObjective';
+import { DestinyRecordIntervalRewards } from './DestinyRecordIntervalRewards';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordIntervalBlock} */
 export interface DestinyRecordIntervalBlock {
     readonly intervalObjectives: DestinyRecordIntervalObjective[];

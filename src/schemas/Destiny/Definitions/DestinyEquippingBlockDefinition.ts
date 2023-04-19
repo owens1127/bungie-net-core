@@ -13,8 +13,8 @@
  */
 //
 
-import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes.js'
-import { DestinyAmmunitionType } from '../DestinyAmmunitionType.js'
+import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes'
+import { DestinyAmmunitionType } from '../DestinyAmmunitionType'
 
 /**
  * Items that can be equipped define this block. It contains information we need to

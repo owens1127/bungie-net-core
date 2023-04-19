@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPublicMilestoneActivity } from './DestinyPublicMilestoneActivity.js';
-import { DestinyPublicMilestoneChallenge } from './DestinyPublicMilestoneChallenge.js';
+import { DestinyPublicMilestoneActivity } from './DestinyPublicMilestoneActivity';
+import { DestinyPublicMilestoneChallenge } from './DestinyPublicMilestoneChallenge';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneQuest} */
 export interface DestinyPublicMilestoneQuest {
     /**

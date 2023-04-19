@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentItemCategory.js';
+import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentItemCategory';
 /**
  * Represents localized, extended content related to Milestones. This is
  * intentionally returned by a separate endpoint and not with Character-level

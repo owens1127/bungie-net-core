@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase.js';
+import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase';
 /**
  * Represents this player's personal completion status for the Activity under a
  * Milestone, if the activity has trackable completion and progress information. (

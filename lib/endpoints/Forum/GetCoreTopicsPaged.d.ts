@@ -11,12 +11,12 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { ForumTopicsCategoryFiltersEnum } from '../../schemas/index.js';
-import { ForumTopicsQuickDateEnum } from '../../schemas/index.js';
-import { ForumTopicsSortEnum } from '../../schemas/index.js';
-import { PostSearchResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { ForumTopicsCategoryFiltersEnum } from '../../schemas';
+import { ForumTopicsQuickDateEnum } from '../../schemas';
+import { ForumTopicsSortEnum } from '../../schemas';
+import { PostSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged} */
 export declare type GetCoreTopicsPagedParams = {
     /** The category filter. */

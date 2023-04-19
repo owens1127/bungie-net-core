@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition.js'
+import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition'
 
 /**
  * These Art Elements are meant to represent one-off visual effects overlaid on the

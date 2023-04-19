@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyEquipItemResult } from './DestinyEquipItemResult.js';
+import { DestinyEquipItemResult } from './DestinyEquipItemResult';
 /**
  * The results of a bulk Equipping operation performed through the Destiny API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEquipItemResults}

@@ -1,8 +1,8 @@
-import { NotConfiguredError } from './errors/NotConfiguredError.js';
-import { _credentials } from './util/credentials.js';
-import * as TokensImport from './util/tokens.js';
-import * as ManifestImport from './manifest/index.js';
-import * as SchemaImport from './schemas/index.js';
+import { NotConfiguredError } from './errors/NotConfiguredError';
+import { _credentials } from './util/credentials';
+import * as TokensImport from './util/tokens';
+import * as ManifestImport from './manifest/index';
+import * as SchemaImport from './schemas/index';
 
 /**
  * @see {@link https://auth0.com/docs/protocols/state-parameters}
@@ -29,7 +29,7 @@ export function generateOAuthURL(options: CreateAuthURLOptions): string {
   );
 }
 
-export { BungieClient } from './util/client.js';
+export { BungieClient } from './util/client';
 export const Tokens = TokensImport;
 export const Manifest = ManifestImport;
 export const Schema = SchemaImport;

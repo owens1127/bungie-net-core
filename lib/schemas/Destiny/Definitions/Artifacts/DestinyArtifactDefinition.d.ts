@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyItemTranslationBlockDefinition } from '../DestinyItemTranslationBlockDefinition.js';
-import { DestinyArtifactTierDefinition } from './DestinyArtifactTierDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyItemTranslationBlockDefinition } from '../DestinyItemTranslationBlockDefinition';
+import { DestinyArtifactTierDefinition } from './DestinyArtifactTierDefinition';
 /**
  * Represents known info about a Destiny Artifact.
  *

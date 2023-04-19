@@ -13,9 +13,9 @@
  */
 //
 
-import { DyeReference } from '../../DyeReference.js'
-import { DestinyCharacterCustomization } from '../../Character/DestinyCharacterCustomization.js'
-import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerView.js'
+import { DyeReference } from '../../DyeReference'
+import { DestinyCharacterCustomization } from '../../Character/DestinyCharacterCustomization'
+import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerView'
 
 /**
  * Only really useful if you're attempting to render the character's current

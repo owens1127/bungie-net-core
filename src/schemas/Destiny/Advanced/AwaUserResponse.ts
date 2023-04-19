@@ -13,7 +13,7 @@
  */
 //
 
-import { AwaUserSelection } from './AwaUserSelection.js'
+import { AwaUserSelection } from './AwaUserSelection'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaUserResponse} */
 export interface AwaUserResponse {

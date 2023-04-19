@@ -13,7 +13,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes.js'
+import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes'
 
 /**
  * The results of an Equipping operation performed through the Destiny API.

@@ -11,24 +11,24 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ComponentData } from '../../../generic/ComponentTypes.js';
-import { DestinyComponentType } from '../DestinyComponentType.js';
-import { SingleComponentResponse } from '../../../generic/SingleComponentResponse.js';
-import { ConditionalComponent } from '../../../generic/ComponentTypes.js';
-import { DestinyInventoryComponent } from '../Entities/Inventory/DestinyInventoryComponent.js';
-import { DestinyCharacterComponent } from '../Entities/Characters/DestinyCharacterComponent.js';
-import { DestinyCharacterProgressionComponent } from '../Entities/Characters/DestinyCharacterProgressionComponent.js';
-import { DestinyCharacterRenderComponent } from '../Entities/Characters/DestinyCharacterRenderComponent.js';
-import { DestinyCharacterActivitiesComponent } from '../Entities/Characters/DestinyCharacterActivitiesComponent.js';
-import { DestinyLoadoutsComponent } from '../Components/Loadouts/DestinyLoadoutsComponent.js';
-import { DestinyKiosksComponent } from '../Components/Kiosks/DestinyKiosksComponent.js';
-import { DestinyPlugSetsComponent } from '../Components/PlugSets/DestinyPlugSetsComponent.js';
-import { DestinyPresentationNodesComponent } from '../Components/Presentation/DestinyPresentationNodesComponent.js';
-import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent.js';
-import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent.js';
-import { DestinyItemComponentSetOfint64 } from '../../DestinyItemComponentSetOfint64.js';
-import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32.js';
-import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent.js';
+import { ComponentData } from '../../../generic/ComponentTypes';
+import { DestinyComponentType } from '../DestinyComponentType';
+import { SingleComponentResponse } from '../../../generic/SingleComponentResponse';
+import { ConditionalComponent } from '../../../generic/ComponentTypes';
+import { DestinyInventoryComponent } from '../Entities/Inventory/DestinyInventoryComponent';
+import { DestinyCharacterComponent } from '../Entities/Characters/DestinyCharacterComponent';
+import { DestinyCharacterProgressionComponent } from '../Entities/Characters/DestinyCharacterProgressionComponent';
+import { DestinyCharacterRenderComponent } from '../Entities/Characters/DestinyCharacterRenderComponent';
+import { DestinyCharacterActivitiesComponent } from '../Entities/Characters/DestinyCharacterActivitiesComponent';
+import { DestinyLoadoutsComponent } from '../Components/Loadouts/DestinyLoadoutsComponent';
+import { DestinyKiosksComponent } from '../Components/Kiosks/DestinyKiosksComponent';
+import { DestinyPlugSetsComponent } from '../Components/PlugSets/DestinyPlugSetsComponent';
+import { DestinyPresentationNodesComponent } from '../Components/Presentation/DestinyPresentationNodesComponent';
+import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent';
+import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
+import { DestinyItemComponentSetOfint64 } from '../../DestinyItemComponentSetOfint64';
+import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32';
+import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 /**
  * The response contract for GetDestinyCharacter, with components that can be
  * returned for character and item-level data.

@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyClanAggregateStat } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyClanAggregateStat } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
 export declare type GetClanAggregateStatsParams = {
     /** Group ID of the clan whose leaderboards you wish to fetch. */

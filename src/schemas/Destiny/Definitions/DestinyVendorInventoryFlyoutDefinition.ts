@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInventoryFlyoutBucketDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition'
+import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInventoryFlyoutBucketDefinition'
 
 /**
  * The definition for an "inventory flyout": a UI screen where we show you part of

@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupType } from './GroupType.js';
-import { MembershipOption } from './MembershipOption.js';
-import { Capabilities } from './Capabilities.js';
-import { GroupV2ClanInfo } from './GroupV2ClanInfo.js';
+import { GroupType } from './GroupType';
+import { MembershipOption } from './MembershipOption';
+import { Capabilities } from './Capabilities';
+import { GroupV2ClanInfo } from './GroupV2ClanInfo';
 /**
  * A small infocard of group information, usually used for when a list of groups
  * are returned

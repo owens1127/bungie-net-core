@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyEquipItemResult } from './DestinyEquipItemResult.js'
+import { DestinyEquipItemResult } from './DestinyEquipItemResult'
 
 /**
  * The results of a bulk Equipping operation performed through the Destiny API.

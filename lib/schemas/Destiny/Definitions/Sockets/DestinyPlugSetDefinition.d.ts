@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyItemSocketEntryPlugItemRandomizedDefinition } from '../DestinyItemSocketEntryPlugItemRandomizedDefinition.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyItemSocketEntryPlugItemRandomizedDefinition } from '../DestinyItemSocketEntryPlugItemRandomizedDefinition';
 /**
  * Sometimes, we have large sets of reusable plugs that are defined identically and
  * thus can (and in some cases, are so large that they *must*) be shared across the

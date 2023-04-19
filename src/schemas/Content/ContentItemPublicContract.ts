@@ -13,9 +13,9 @@
  */
 //
 
-import { GeneralUser } from '../User/GeneralUser.js'
-import { ContentRepresentation } from './ContentRepresentation.js'
-import { CommentSummary } from './CommentSummary.js'
+import { GeneralUser } from '../User/GeneralUser'
+import { ContentRepresentation } from './ContentRepresentation'
+import { CommentSummary } from './CommentSummary'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.ContentItemPublicContract} */
 export interface ContentItemPublicContract {

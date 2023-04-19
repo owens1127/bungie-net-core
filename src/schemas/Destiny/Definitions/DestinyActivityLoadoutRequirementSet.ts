@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyActivityLoadoutRequirement } from './DestinyActivityLoadoutRequirement.js'
+import { DestinyActivityLoadoutRequirement } from './DestinyActivityLoadoutRequirement'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirementSet} */
 export interface DestinyActivityLoadoutRequirementSet {

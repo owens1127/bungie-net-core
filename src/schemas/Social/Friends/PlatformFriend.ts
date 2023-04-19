@@ -13,7 +13,7 @@
  */
 //
 
-import { PlatformFriendType } from './PlatformFriendType.js'
+import { PlatformFriendType } from './PlatformFriendType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.PlatformFriend} */
 export interface PlatformFriend {

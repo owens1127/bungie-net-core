@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStatDefinition.js';
-import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle.js';
+import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStatDefinition';
+import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
 /**
  * Defines the conditions under which stat modifications will be applied to a
  * Character while participating in an objective.

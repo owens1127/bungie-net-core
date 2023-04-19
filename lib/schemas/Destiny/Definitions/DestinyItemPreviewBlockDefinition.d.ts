@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDerivedItemCategoryDefinition } from './Items/DestinyDerivedItemCategoryDefinition.js';
+import { DestinyDerivedItemCategoryDefinition } from './Items/DestinyDerivedItemCategoryDefinition';
 /**
  * Items like Sacks or Boxes can have items that it shows in-game when you view
  * details that represent the items you can obtain if you use or acquire the item.

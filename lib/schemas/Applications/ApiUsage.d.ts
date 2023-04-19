@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { Series } from './Series.js';
+import { Series } from './Series';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApiUsage} */
 export interface ApiUsage {
     /** Counts for on API calls made for the time range. */

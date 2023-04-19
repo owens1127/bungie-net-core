@@ -13,7 +13,7 @@
  */
 //
 
-import { Series } from './Series.js'
+import { Series } from './Series'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApiUsage} */
 export interface ApiUsage {

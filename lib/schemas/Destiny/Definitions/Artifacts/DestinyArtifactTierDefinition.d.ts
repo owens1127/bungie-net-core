@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyArtifactTierItemDefinition } from './DestinyArtifactTierItemDefinition.js';
+import { DestinyArtifactTierItemDefinition } from './DestinyArtifactTierItemDefinition';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Artifacts.DestinyArtifactTierDefinition} */
 export interface DestinyArtifactTierDefinition {
     /** An identifier, unique within the Artifact, for this specific tier. */

@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DamageType } from '../DamageType.js';
-import { DestinyColor } from '../Misc/DestinyColor.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DamageType } from '../DamageType';
+import { DestinyColor } from '../Misc/DestinyColor';
 /**
  * All damage types that are possible in the game are defined here, along with
  * localized info and icons as needed.

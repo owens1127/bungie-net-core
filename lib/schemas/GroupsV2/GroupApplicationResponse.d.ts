@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GroupApplicationResolveState } from './GroupApplicationResolveState.js';
+import { GroupApplicationResolveState } from './GroupApplicationResolveState';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationResponse} */
 export interface GroupApplicationResponse {
     readonly resolution: GroupApplicationResolveState;

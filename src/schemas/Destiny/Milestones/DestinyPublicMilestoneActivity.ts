@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPublicMilestoneActivityVariant } from './DestinyPublicMilestoneActivityVariant.js'
+import { DestinyPublicMilestoneActivityVariant } from './DestinyPublicMilestoneActivityVariant'
 
 /**
  * A milestone may have one or more conceptual Activities associated with it, and

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyEnergyType } from '../../DestinyEnergyType.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 /**
  * Represents types of Energy that can be used for costs and payments related to
  * Armor 2.0 mods.

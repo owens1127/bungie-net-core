@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { GroupQuery } from '../../schemas/index.js';
-import { GroupSearchResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { GroupQuery } from '../../schemas';
+import { GroupSearchResponse } from '../../schemas';
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}

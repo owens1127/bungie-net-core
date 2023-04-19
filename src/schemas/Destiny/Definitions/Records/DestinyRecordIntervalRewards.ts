@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemQuantity } from '../../DestinyItemQuantity.js'
+import { DestinyItemQuantity } from '../../DestinyItemQuantity'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordIntervalRewards} */
 export interface DestinyRecordIntervalRewards {

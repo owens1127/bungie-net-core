@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates.js'
+import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates'
 
 /**
  * This is some bare minimum information about a party member in a Fireteam.

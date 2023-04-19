@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { AwaUserSelection } from './AwaUserSelection.js';
-import { AwaResponseReason } from './AwaResponseReason.js';
-import { AwaType } from './AwaType.js';
-import { BungieMembershipType } from '../../BungieMembershipType.js';
+import { AwaUserSelection } from './AwaUserSelection';
+import { AwaResponseReason } from './AwaResponseReason';
+import { AwaType } from './AwaType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaAuthorizationResult} */
 export interface AwaAuthorizationResult {
     /**

@@ -11,11 +11,11 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyStatsGroupType } from './DestinyStatsGroupType.js';
-import { PeriodType } from './PeriodType.js';
-import { DestinyActivityModeType } from './DestinyActivityModeType.js';
-import { DestinyStatsCategoryType } from './DestinyStatsCategoryType.js';
-import { UnitType } from './UnitType.js';
+import { DestinyStatsGroupType } from './DestinyStatsGroupType';
+import { PeriodType } from './PeriodType';
+import { DestinyActivityModeType } from './DestinyActivityModeType';
+import { DestinyStatsCategoryType } from './DestinyStatsCategoryType';
+import { UnitType } from './UnitType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyHistoricalStatsDefinition} */
 export interface DestinyHistoricalStatsDefinition {
     /** Unique programmer friendly ID for this stat */

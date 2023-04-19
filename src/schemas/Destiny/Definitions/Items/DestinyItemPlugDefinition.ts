@@ -13,12 +13,12 @@
  */
 //
 
-import { DestinyPlugRuleDefinition } from './DestinyPlugRuleDefinition.js'
-import { PlugUiStyles } from '../../PlugUiStyles.js'
-import { PlugAvailabilityMode } from '../../PlugAvailabilityMode.js'
-import { DestinyParentItemOverride } from './DestinyParentItemOverride.js'
-import { DestinyEnergyCapacityEntry } from './DestinyEnergyCapacityEntry.js'
-import { DestinyEnergyCostEntry } from './DestinyEnergyCostEntry.js'
+import { DestinyPlugRuleDefinition } from './DestinyPlugRuleDefinition'
+import { PlugUiStyles } from '../../PlugUiStyles'
+import { PlugAvailabilityMode } from '../../PlugAvailabilityMode'
+import { DestinyParentItemOverride } from './DestinyParentItemOverride'
+import { DestinyEnergyCapacityEntry } from './DestinyEnergyCapacityEntry'
+import { DestinyEnergyCostEntry } from './DestinyEnergyCostEntry'
 
 /**
  * If an item is a Plug, its DestinyInventoryItemDefinition.plug property will be

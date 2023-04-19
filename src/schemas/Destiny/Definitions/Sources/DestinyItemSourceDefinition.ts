@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyInventoryItemStatDefinition } from '../DestinyInventoryItemStatDefinition.js'
+import { DestinyInventoryItemStatDefinition } from '../DestinyInventoryItemStatDefinition'
 
 /**
  * Properties of a DestinyInventoryItemDefinition that store all of the information

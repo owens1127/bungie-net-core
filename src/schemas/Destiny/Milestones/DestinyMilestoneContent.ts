@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentItemCategory.js'
+import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentItemCategory'
 
 /**
  * Represents localized, extended content related to Milestones. This is

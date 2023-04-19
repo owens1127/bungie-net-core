@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyColor } from '../../Misc/DestinyColor.js'
-import { DestinyEventCardImages } from './DestinyEventCardImages.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyColor } from '../../Misc/DestinyColor'
+import { DestinyEventCardImages } from './DestinyEventCardImages'
 
 /**
  * Defines the properties of an 'Event Card' in Destiny 2, to coincide with a

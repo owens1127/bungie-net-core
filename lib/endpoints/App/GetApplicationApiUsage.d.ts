@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { ApiUsage } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { ApiUsage } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage} */
 export declare type GetApplicationApiUsageParams = {
     /** ID of the application to get usage statistics. */

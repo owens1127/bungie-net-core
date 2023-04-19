@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Metrics.DestinyMetricDefinition} */
 export interface DestinyMetricDefinition {

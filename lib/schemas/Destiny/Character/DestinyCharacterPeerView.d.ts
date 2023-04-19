@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyItemPeerView } from './DestinyItemPeerView.js';
+import { DestinyItemPeerView } from './DestinyItemPeerView';
 /**
  * A minimal view of a character's equipped items, for the purpose of rendering a
  * summary screen or showing the character in 3D.

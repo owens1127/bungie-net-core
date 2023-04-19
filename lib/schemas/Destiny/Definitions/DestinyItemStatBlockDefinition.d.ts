@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDefinition.js';
+import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDefinition';
 /**
  * Information about the item's calculated stats, with as much data as we can find
  * for the stats without having an actual instance of the item.

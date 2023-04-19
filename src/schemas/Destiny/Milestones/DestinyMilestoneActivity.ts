@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMilestoneActivityVariant } from './DestinyMilestoneActivityVariant.js'
+import { DestinyMilestoneActivityVariant } from './DestinyMilestoneActivityVariant'
 
 /**
  * Sometimes, we know the specific activity that the Milestone wants you to play.

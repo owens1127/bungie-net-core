@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry.js'
-import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState.js'
+import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry'
+import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState'
 
 /**
  * Mostly for historical purposes, we segregate Faction progressions from other

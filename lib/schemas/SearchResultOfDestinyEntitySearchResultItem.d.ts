@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyEntitySearchResultItem } from './Destiny/Definitions/DestinyEntitySearchResultItem.js';
-import { PagedQuery } from './Queries/PagedQuery.js';
+import { DestinyEntitySearchResultItem } from './Destiny/Definitions/DestinyEntitySearchResultItem';
+import { PagedQuery } from './Queries/PagedQuery';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfDestinyEntitySearchResultItem} */
 export interface SearchResultOfDestinyEntitySearchResultItem {
     readonly results: DestinyEntitySearchResultItem[];

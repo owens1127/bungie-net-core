@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { AwaUserSelection } from './AwaUserSelection.js';
+import { AwaUserSelection } from './AwaUserSelection';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaUserResponse} */
 export interface AwaUserResponse {
     /** Indication of the selection the user has made (Approving or rejecting the action) */

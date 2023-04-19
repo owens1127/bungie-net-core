@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyHistoricalStatsActivity } from './DestinyHistoricalStatsActivity.js';
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js';
+import { DestinyHistoricalStatsActivity } from './DestinyHistoricalStatsActivity';
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsPeriodGroup} */
 export interface DestinyHistoricalStatsPeriodGroup {
     /**

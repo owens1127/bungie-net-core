@@ -13,10 +13,10 @@
  */
 //
 
-import { DestinyProfileTransitoryPartyMember } from './DestinyProfileTransitoryPartyMember.js'
-import { DestinyProfileTransitoryCurrentActivity } from './DestinyProfileTransitoryCurrentActivity.js'
-import { DestinyProfileTransitoryJoinability } from './DestinyProfileTransitoryJoinability.js'
-import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitoryTrackingEntry.js'
+import { DestinyProfileTransitoryPartyMember } from './DestinyProfileTransitoryPartyMember'
+import { DestinyProfileTransitoryCurrentActivity } from './DestinyProfileTransitoryCurrentActivity'
+import { DestinyProfileTransitoryJoinability } from './DestinyProfileTransitoryJoinability'
+import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitoryTrackingEntry'
 
 /**
  * This is an experimental set of data that Bungie considers to be "transitory" -

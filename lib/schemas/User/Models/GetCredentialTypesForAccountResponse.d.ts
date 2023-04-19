@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieCredentialType } from '../../BungieCredentialType.js';
+import { BungieCredentialType } from '../../BungieCredentialType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.Models.GetCredentialTypesForAccountResponse} */
 export interface GetCredentialTypesForAccountResponse {
     readonly credentialType: BungieCredentialType;

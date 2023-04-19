@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPresentationNodeState } from '../../DestinyPresentationNodeState.js';
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js';
+import { DestinyPresentationNodeState } from '../../DestinyPresentationNodeState';
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodeComponent} */
 export interface DestinyPresentationNodeComponent {
     /**

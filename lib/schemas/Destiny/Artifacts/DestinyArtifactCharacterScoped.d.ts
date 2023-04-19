@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyArtifactTier } from './DestinyArtifactTier.js';
+import { DestinyArtifactTier } from './DestinyArtifactTier';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactCharacterScoped} */
 export interface DestinyArtifactCharacterScoped {
     /** Mapped to DestinyArtifactDefinition in the manifest. */

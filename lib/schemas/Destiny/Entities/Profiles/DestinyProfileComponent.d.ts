@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { UserInfoCard } from '../../../User/UserInfoCard.js';
-import { DestinyGameVersions } from '../../DestinyGameVersions.js';
+import { UserInfoCard } from '../../../User/UserInfoCard';
+import { DestinyGameVersions } from '../../DestinyGameVersions';
 /**
  * The most essential summary information about a Profile (in Destiny 1, we called
  * these "Accounts").

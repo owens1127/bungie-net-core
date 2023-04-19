@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { Capabilities } from './Capabilities.js';
-import { BungieMembershipType } from '../BungieMembershipType.js';
-import { HostGuidedGamesPermissionLevel } from './HostGuidedGamesPermissionLevel.js';
-import { RuntimeGroupMemberType } from './RuntimeGroupMemberType.js';
+import { Capabilities } from './Capabilities';
+import { BungieMembershipType } from '../BungieMembershipType';
+import { HostGuidedGamesPermissionLevel } from './HostGuidedGamesPermissionLevel';
+import { RuntimeGroupMemberType } from './RuntimeGroupMemberType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupFeatures} */
 export interface GroupFeatures {
     readonly maximumMembers: number;

@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry.js';
-import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState.js';
+import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry';
+import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState';
 /**
  * Mostly for historical purposes, we segregate Faction progressions from other
  * progressions. This is just a DestinyProgression with a shortcut for finding the

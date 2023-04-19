@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyEnergyType } from '../../DestinyEnergyType.js';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 /**
  * Some plugs cost Energy, which is a stat on the item that can be increased by
  * other plugs (that, at least in Armor 2.0, have a "masterworks-like" mechanic for

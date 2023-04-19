@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyPlayer } from './DestinyPlayer.js';
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js';
+import { DestinyPlayer } from './DestinyPlayer';
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyLeaderboardEntry} */
 export interface DestinyLeaderboardEntry {
     /** Where this player ranks on the leaderboard. A value of 1 is the top rank. */

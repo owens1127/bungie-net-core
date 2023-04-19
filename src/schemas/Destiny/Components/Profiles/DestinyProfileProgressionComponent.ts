@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactProfileScoped.js'
+import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactProfileScoped'
 
 /**
  * The set of progression-related information that applies at a Profile-wide level

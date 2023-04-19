@@ -13,13 +13,13 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { BungieMembershipType } from '../../schemas/index.js'
-import { DestinyActivityModeType } from '../../schemas/index.js'
-import { DestinyActivityHistoryResults } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieMembershipType } from '../../schemas'
+import { DestinyActivityModeType } from '../../schemas'
+import { DestinyActivityHistoryResults } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetActivityHistory} */
 export type GetActivityHistoryParams = {
   /** The id of the character to retrieve. */

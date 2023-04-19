@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { TierType } from '../TierType.js';
+import { TierType } from '../TierType';
 /**
  * If the item can exist in an inventory - the overwhelming majority of them can
  * and do - then this is the basic properties regarding the item's relationship

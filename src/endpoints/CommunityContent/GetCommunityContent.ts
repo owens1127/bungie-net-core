@@ -13,13 +13,13 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { ForumTopicsCategoryFiltersEnum } from '../../schemas/index.js'
-import { CommunityContentSortMode } from '../../schemas/index.js'
-import { PostSearchResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { ForumTopicsCategoryFiltersEnum } from '../../schemas'
+import { CommunityContentSortMode } from '../../schemas'
+import { PostSearchResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent} */
 export type GetCommunityContentParams = {
   /** The type of media to get */

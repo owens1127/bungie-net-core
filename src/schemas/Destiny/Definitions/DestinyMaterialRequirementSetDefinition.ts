@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyMaterialRequirement } from './DestinyMaterialRequirement.js'
+import { DestinyMaterialRequirement } from './DestinyMaterialRequirement'
 
 /**
  * Represent a set of material requirements: Items that either need to be owned or

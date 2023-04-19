@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyArtDyeReference } from './DestinyArtDyeReference.js';
+import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
+import { DestinyArtDyeReference } from './DestinyArtDyeReference';
 /**
  * Characters can not only have Inventory buckets (containers of items that are
  * generally matched by their type or functionality), they can also have Equipment

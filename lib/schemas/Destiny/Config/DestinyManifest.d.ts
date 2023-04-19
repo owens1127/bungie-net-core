@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GearAssetDataBaseDefinition } from './GearAssetDataBaseDefinition.js';
-import { ImagePyramidEntry } from './ImagePyramidEntry.js';
+import { GearAssetDataBaseDefinition } from './GearAssetDataBaseDefinition';
+import { ImagePyramidEntry } from './ImagePyramidEntry';
 /**
  * DestinyManifest is the external-facing contract for just the properties needed
  * by those calling the Destiny Platform.

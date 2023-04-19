@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js'
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
 
 /**
  * Items can have objectives and progression. When you request this block, you will

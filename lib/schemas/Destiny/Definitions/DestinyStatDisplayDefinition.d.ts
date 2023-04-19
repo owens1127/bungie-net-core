@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { InterpolationPoint } from '../../Interpolation/InterpolationPoint.js';
+import { InterpolationPoint } from '../../Interpolation/InterpolationPoint';
 /**
  * Describes the way that an Item Stat (see DestinyStatDefinition) is transformed
  * using the DestinyStatGroupDefinition related to that item. See both of the

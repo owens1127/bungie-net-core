@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyMilestoneRewardEntryDefinition } from './DestinyMilestoneRewardEntryDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyMilestoneRewardEntryDefinition } from './DestinyMilestoneRewardEntryDefinition'
 
 /**
  * The definition of a category of rewards, that contains many individual rewards.

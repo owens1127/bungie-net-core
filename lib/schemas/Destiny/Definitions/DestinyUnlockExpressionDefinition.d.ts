@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyGatingScope } from '../DestinyGatingScope.js';
+import { DestinyGatingScope } from '../DestinyGatingScope';
 /**
  * Where the sausage gets made. Unlock Expressions are the foundation of the game's
  * gating mechanics and investment-related restrictions. They can test Unlock Flags

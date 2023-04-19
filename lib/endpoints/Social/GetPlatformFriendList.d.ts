@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { PlatformFriendType } from '../../schemas/index.js';
-import { PlatformFriendResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { PlatformFriendType } from '../../schemas';
+import { PlatformFriendResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList} */
 export declare type GetPlatformFriendListParams = {
     /** The platform friend type. */

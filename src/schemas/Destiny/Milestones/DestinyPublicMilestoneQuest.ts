@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyPublicMilestoneActivity } from './DestinyPublicMilestoneActivity.js'
-import { DestinyPublicMilestoneChallenge } from './DestinyPublicMilestoneChallenge.js'
+import { DestinyPublicMilestoneActivity } from './DestinyPublicMilestoneActivity'
+import { DestinyPublicMilestoneChallenge } from './DestinyPublicMilestoneChallenge'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneQuest} */
 export interface DestinyPublicMilestoneQuest {

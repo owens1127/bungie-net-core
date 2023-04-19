@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition'
 
 /**
  * Defines a canonical "Season" of Destiny: a range of a few months where the game

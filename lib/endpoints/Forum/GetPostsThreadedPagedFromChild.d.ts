@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { ForumPostSortEnum } from '../../schemas/index.js';
-import { PostSearchResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { ForumPostSortEnum } from '../../schemas';
+import { PostSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPagedFromChild} */
 export declare type GetPostsThreadedPagedFromChildParams = {
     childPostId: string;

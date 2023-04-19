@@ -1,6 +1,6 @@
-import { manifestRequest as http } from '../util/rate-limiter.js';
-import { AllDestinyManifestComponents, DestinyManifestLanguage } from './index.js';
-import { DestinyManifest } from '../schemas/index.js';
+import { manifestRequest as http } from '../util/rate-limiter';
+import { AllDestinyManifestComponents, DestinyManifestLanguage } from './index';
+import { DestinyManifest } from '../schemas/index';
 
 export interface GetAllDestinyManifestComponentsParams {
   destinyManifest: DestinyManifest;

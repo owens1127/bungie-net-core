@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { FireteamPlatform } from '../../schemas/index.js'
-import { SearchResultOfFireteamResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { FireteamPlatform } from '../../schemas'
+import { SearchResultOfFireteamResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
 export type GetMyClanFireteamsParams = {
   /**

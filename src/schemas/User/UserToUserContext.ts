@@ -13,7 +13,7 @@
  */
 //
 
-import { IgnoreResponse } from '../Ignores/IgnoreResponse.js'
+import { IgnoreResponse } from '../Ignores/IgnoreResponse'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserToUserContext} */
 export interface UserToUserContext {

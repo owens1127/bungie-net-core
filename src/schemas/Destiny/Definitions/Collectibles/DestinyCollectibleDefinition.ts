@@ -13,12 +13,12 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyScope } from '../../DestinyScope.js'
-import { DestinyCollectibleAcquisitionBlock } from './DestinyCollectibleAcquisitionBlock.js'
-import { DestinyCollectibleStateBlock } from './DestinyCollectibleStateBlock.js'
-import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock.js'
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyScope } from '../../DestinyScope'
+import { DestinyCollectibleAcquisitionBlock } from './DestinyCollectibleAcquisitionBlock'
+import { DestinyCollectibleStateBlock } from './DestinyCollectibleStateBlock'
+import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock'
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType'
 
 /**
  * Defines a

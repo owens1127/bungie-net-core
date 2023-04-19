@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { RuntimeGroupMemberType } from '../../schemas/index.js'
-import { SearchResultOfGroupMember } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { RuntimeGroupMemberType } from '../../schemas'
+import { SearchResultOfGroupMember } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
 export type GetMembersOfGroupParams = {
   /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyGraphNodeState } from '../../DestinyGraphNodeState.js'
+import { DestinyGraphNodeState } from '../../DestinyGraphNodeState'
 
 /**
  * Represents a single state that a graph node might end up in. Depending on what's

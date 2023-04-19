@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyMilestoneQuestRewardsDefinition } from './DestinyMilestoneQuestRewardsDefinition.js'
-import { DestinyMilestoneActivityDefinition } from './DestinyMilestoneActivityDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyMilestoneQuestRewardsDefinition } from './DestinyMilestoneQuestRewardsDefinition'
+import { DestinyMilestoneActivityDefinition } from './DestinyMilestoneActivityDefinition'
 
 /**
  * Any data we need to figure out whether this Quest Item is the currently active

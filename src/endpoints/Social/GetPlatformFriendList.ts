@@ -13,12 +13,12 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter.js';
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { BungieAPIError } from '../../errors/BungieAPIError.js';
-import { PlatformFriendType } from '../../schemas/index.js'
-import { PlatformFriendResponse } from '../../schemas/index.js'
+import { rateLimitedRequest } from '../../util/rate-limiter';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { BungieAPIError } from '../../errors/BungieAPIError';
+import { PlatformFriendType } from '../../schemas'
+import { PlatformFriendResponse } from '../../schemas'
 /** @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList} */
 export type GetPlatformFriendListParams = {
   /** The platform friend type. */

@@ -11,10 +11,10 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyItemSetActionRequest } from '../../schemas/index.js';
-import { DestinyEquipItemResults } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyItemSetActionRequest } from '../../schemas';
+import { DestinyEquipItemResults } from '../../schemas';
 /**
  * Equip a list of items by itemInstanceIds. You must have a valid Destiny Account,
  * and either be in a social space, in orbit, or offline. Any items not found on

@@ -1,15 +1,15 @@
-import * as AppImport from '../endpoints/App/index.js';
-import * as UserImport from '../endpoints/User/index.js';
-import * as ContentImport from '../endpoints/Content/index.js';
-import * as ForumImport from '../endpoints/Forum/index.js';
-import * as GroupV2Import from '../endpoints/GroupV2/index.js';
-import * as TokensImport from '../endpoints/Tokens/index.js';
-import * as Destiny2Import from '../endpoints/Destiny2/index.js';
-import * as CommunityContentImport from '../endpoints/CommunityContent/index.js';
-import * as TrendingImport from '../endpoints/Trending/index.js';
-import * as FireteamImport from '../endpoints/Fireteam/index.js';
-import * as SocialImport from '../endpoints/Social/index.js';
-import * as CoreImport from '../endpoints/Core/index.js';
+import * as AppImport from '../endpoints/App';
+import * as UserImport from '../endpoints/User';
+import * as ContentImport from '../endpoints/Content';
+import * as ForumImport from '../endpoints/Forum';
+import * as GroupV2Import from '../endpoints/GroupV2';
+import * as TokensImport from '../endpoints/Tokens';
+import * as Destiny2Import from '../endpoints/Destiny2';
+import * as CommunityContentImport from '../endpoints/CommunityContent';
+import * as TrendingImport from '../endpoints/Trending';
+import * as FireteamImport from '../endpoints/Fireteam';
+import * as SocialImport from '../endpoints/Social';
+import * as CoreImport from '../endpoints/Core';
 export declare type InstancedImport = {
     client: BungieClient;
 };

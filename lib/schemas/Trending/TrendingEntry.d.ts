@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { TrendingEntryType } from './TrendingEntryType.js';
+import { TrendingEntryType } from './TrendingEntryType';
 /**
  * The list entry view for trending items. Returns just enough to show the item on
  * the trending page.

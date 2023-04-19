@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { GlobalAlertLevel } from './GlobalAlertLevel.js';
-import { GlobalAlertType } from './GlobalAlertType.js';
-import { StreamInfo } from './StreamInfo.js';
+import { GlobalAlertLevel } from './GlobalAlertLevel';
+import { GlobalAlertType } from './GlobalAlertType';
+import { StreamInfo } from './StreamInfo';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlert} */
 export interface GlobalAlert {
     readonly AlertKey: string;

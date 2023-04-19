@@ -1,4 +1,4 @@
-import { _credentials } from '../util/credentials.js';
+import { _credentials } from '../util/credentials';
 
 export class NotConfiguredError extends Error {
   private BUNGIE_API_KEY: string;

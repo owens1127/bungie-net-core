@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyStat } from '../../DestinyStat.js'
+import { DestinyStat } from '../../DestinyStat'
 
 /**
  * If you want the stats on an item's instanced data, get this component.

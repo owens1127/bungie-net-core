@@ -13,7 +13,7 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType.js'
+import { BungieMembershipType } from '../BungieMembershipType'
 
 /**
  * This contract supplies basic information commonly used to display a minimal

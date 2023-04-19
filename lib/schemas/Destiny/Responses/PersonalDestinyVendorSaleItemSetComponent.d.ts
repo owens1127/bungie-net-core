@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent.js';
+import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.PersonalDestinyVendorSaleItemSetComponent} */
 export interface PersonalDestinyVendorSaleItemSetComponent {
     readonly saleItems: {

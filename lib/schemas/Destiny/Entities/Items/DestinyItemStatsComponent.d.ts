@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyStat } from '../../DestinyStat.js';
+import { DestinyStat } from '../../DestinyStat';
 /**
  * If you want the stats on an item's instanced data, get this component.
  *

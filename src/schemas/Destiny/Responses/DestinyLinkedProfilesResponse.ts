@@ -13,9 +13,9 @@
  */
 //
 
-import { DestinyProfileUserInfoCard } from './DestinyProfileUserInfoCard.js'
-import { UserInfoCard } from '../../User/UserInfoCard.js'
-import { DestinyErrorProfile } from './DestinyErrorProfile.js'
+import { DestinyProfileUserInfoCard } from './DestinyProfileUserInfoCard'
+import { UserInfoCard } from '../../User/UserInfoCard'
+import { DestinyErrorProfile } from './DestinyErrorProfile'
 
 /**
  * I know what you seek. You seek linked accounts. Found them, you have.

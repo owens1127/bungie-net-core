@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { TagMetadataItem } from './TagMetadataItem.js';
+import { TagMetadataItem } from './TagMetadataItem';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.TagMetadataDefinition} */
 export interface TagMetadataDefinition {
     readonly description: string;

@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyObjectiveProgress } from './DestinyObjectiveProgress.js'
+import { DestinyObjectiveProgress } from './DestinyObjectiveProgress'
 
 /**
  * Data regarding the progress of a Quest for a specific character. Quests are

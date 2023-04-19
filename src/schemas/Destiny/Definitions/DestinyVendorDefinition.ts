@@ -13,19 +13,19 @@
  */
 //
 
-import { DestinyVendorDisplayPropertiesDefinition } from './DestinyVendorDisplayPropertiesDefinition.js'
-import { DestinyVendorProgressionType } from '../DestinyVendorProgressionType.js'
-import { DateRange } from '../../Dates/DateRange.js'
-import { DestinyVendorActionDefinition } from './DestinyVendorActionDefinition.js'
-import { DestinyVendorCategoryEntryDefinition } from './DestinyVendorCategoryEntryDefinition.js'
-import { DestinyDisplayCategoryDefinition } from './DestinyDisplayCategoryDefinition.js'
-import { DestinyVendorInteractionDefinition } from './DestinyVendorInteractionDefinition.js'
-import { DestinyVendorInventoryFlyoutDefinition } from './DestinyVendorInventoryFlyoutDefinition.js'
-import { DestinyVendorItemDefinition } from './DestinyVendorItemDefinition.js'
-import { DestinyVendorServiceDefinition } from './DestinyVendorServiceDefinition.js'
-import { DestinyVendorAcceptedItemDefinition } from './DestinyVendorAcceptedItemDefinition.js'
-import { DestinyVendorLocationDefinition } from './Vendors/DestinyVendorLocationDefinition.js'
-import { DestinyVendorGroupReference } from './DestinyVendorGroupReference.js'
+import { DestinyVendorDisplayPropertiesDefinition } from './DestinyVendorDisplayPropertiesDefinition'
+import { DestinyVendorProgressionType } from '../DestinyVendorProgressionType'
+import { DateRange } from '../../Dates/DateRange'
+import { DestinyVendorActionDefinition } from './DestinyVendorActionDefinition'
+import { DestinyVendorCategoryEntryDefinition } from './DestinyVendorCategoryEntryDefinition'
+import { DestinyDisplayCategoryDefinition } from './DestinyDisplayCategoryDefinition'
+import { DestinyVendorInteractionDefinition } from './DestinyVendorInteractionDefinition'
+import { DestinyVendorInventoryFlyoutDefinition } from './DestinyVendorInventoryFlyoutDefinition'
+import { DestinyVendorItemDefinition } from './DestinyVendorItemDefinition'
+import { DestinyVendorServiceDefinition } from './DestinyVendorServiceDefinition'
+import { DestinyVendorAcceptedItemDefinition } from './DestinyVendorAcceptedItemDefinition'
+import { DestinyVendorLocationDefinition } from './Vendors/DestinyVendorLocationDefinition'
+import { DestinyVendorGroupReference } from './DestinyVendorGroupReference'
 
 /**
  * These are the definitions for Vendors.

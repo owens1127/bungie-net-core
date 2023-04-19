@@ -13,13 +13,13 @@
  */
 //
 
-import { PostResponse } from './PostResponse.js'
-import { GeneralUser } from '../User/GeneralUser.js'
-import { GroupResponse } from '../GroupsV2/GroupResponse.js'
-import { TagResponse } from '../Tags/Models/Contracts/TagResponse.js'
-import { PollResponse } from './PollResponse.js'
-import { ForumRecruitmentDetail } from './ForumRecruitmentDetail.js'
-import { PagedQuery } from '../Queries/PagedQuery.js'
+import { PostResponse } from './PostResponse'
+import { GeneralUser } from '../User/GeneralUser'
+import { GroupResponse } from '../GroupsV2/GroupResponse'
+import { TagResponse } from '../Tags/Models/Contracts/TagResponse'
+import { PollResponse } from './PollResponse'
+import { ForumRecruitmentDetail } from './ForumRecruitmentDetail'
+import { PagedQuery } from '../Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PostSearchResponse} */
 export interface PostSearchResponse {

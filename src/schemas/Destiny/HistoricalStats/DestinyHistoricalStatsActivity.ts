@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType.js'
-import { BungieMembershipType } from '../../BungieMembershipType.js'
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType'
+import { BungieMembershipType } from '../../BungieMembershipType'
 
 /**
  * Summary information about the activity that was played.

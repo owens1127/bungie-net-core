@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyUnlockExpressionDefinition } from '../DestinyUnlockExpressionDefinition.js'
-import { DestinyLinkedGraphEntryDefinition } from './DestinyLinkedGraphEntryDefinition.js'
+import { DestinyUnlockExpressionDefinition } from '../DestinyUnlockExpressionDefinition'
+import { DestinyLinkedGraphEntryDefinition } from './DestinyLinkedGraphEntryDefinition'
 
 /**
  * This describes links between the current graph and others, as well as when that

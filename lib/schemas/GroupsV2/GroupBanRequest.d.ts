@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { IgnoreLength } from '../Ignores/IgnoreLength.js';
+import { IgnoreLength } from '../Ignores/IgnoreLength';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupBanRequest} */
 export interface GroupBanRequest {
     readonly comment: string;

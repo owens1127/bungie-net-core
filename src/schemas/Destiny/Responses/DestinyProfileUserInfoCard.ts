@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent.js'
-import { BungieMembershipType } from '../../BungieMembershipType.js'
+import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent'
+import { BungieMembershipType } from '../../BungieMembershipType'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileUserInfoCard} */
 export interface DestinyProfileUserInfoCard {

@@ -44,7 +44,7 @@ export function generateTypeDefinition(
       '/' + file.replace('.ts', '')
     );
     if (importPathStr !== name) {
-      imports.push(`import { ${name} } from '${importPathStr}.js'`);
+      imports.push(`import { ${name} } from '${importPathStr}'`);
     }
   }
 

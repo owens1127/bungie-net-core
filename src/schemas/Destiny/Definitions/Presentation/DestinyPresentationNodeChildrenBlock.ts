@@ -13,11 +13,11 @@
  */
 //
 
-import { DestinyPresentationNodeChildEntry } from './DestinyPresentationNodeChildEntry.js'
-import { DestinyPresentationNodeCollectibleChildEntry } from './DestinyPresentationNodeCollectibleChildEntry.js'
-import { DestinyPresentationNodeRecordChildEntry } from './DestinyPresentationNodeRecordChildEntry.js'
-import { DestinyPresentationNodeMetricChildEntry } from './DestinyPresentationNodeMetricChildEntry.js'
-import { DestinyPresentationNodeCraftableChildEntry } from './DestinyPresentationNodeCraftableChildEntry.js'
+import { DestinyPresentationNodeChildEntry } from './DestinyPresentationNodeChildEntry'
+import { DestinyPresentationNodeCollectibleChildEntry } from './DestinyPresentationNodeCollectibleChildEntry'
+import { DestinyPresentationNodeRecordChildEntry } from './DestinyPresentationNodeRecordChildEntry'
+import { DestinyPresentationNodeMetricChildEntry } from './DestinyPresentationNodeMetricChildEntry'
+import { DestinyPresentationNodeCraftableChildEntry } from './DestinyPresentationNodeCraftableChildEntry'
 
 /**
  * As/if presentation nodes begin to host more entities as children, these lists

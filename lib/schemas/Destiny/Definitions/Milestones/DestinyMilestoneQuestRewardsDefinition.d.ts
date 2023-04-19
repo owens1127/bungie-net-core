@@ -11,7 +11,7 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardItem.js';
+import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardItem';
 /**
  * If rewards are given in a quest - as opposed to overall in the entire Milestone -
  * there's way less to track. We're going to simplify this contract as a result.

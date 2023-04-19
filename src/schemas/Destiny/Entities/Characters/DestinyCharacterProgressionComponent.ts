@@ -13,13 +13,13 @@
  */
 //
 
-import { DestinyProgression } from '../../DestinyProgression.js'
-import { DestinyFactionProgression } from '../../Progression/DestinyFactionProgression.js'
-import { DestinyMilestone } from '../../Milestones/DestinyMilestone.js'
-import { DestinyQuestStatus } from '../../Quests/DestinyQuestStatus.js'
-import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress.js'
-import { DestinyItemPerksComponent } from '../Items/DestinyItemPerksComponent.js'
-import { DestinyArtifactCharacterScoped } from '../../Artifacts/DestinyArtifactCharacterScoped.js'
+import { DestinyProgression } from '../../DestinyProgression'
+import { DestinyFactionProgression } from '../../Progression/DestinyFactionProgression'
+import { DestinyMilestone } from '../../Milestones/DestinyMilestone'
+import { DestinyQuestStatus } from '../../Quests/DestinyQuestStatus'
+import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
+import { DestinyItemPerksComponent } from '../Items/DestinyItemPerksComponent'
+import { DestinyArtifactCharacterScoped } from '../../Artifacts/DestinyArtifactCharacterScoped'
 
 /**
  * This component returns anything that could be considered "Progression" on a user:

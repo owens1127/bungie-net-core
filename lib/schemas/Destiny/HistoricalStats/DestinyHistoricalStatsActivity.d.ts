@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType.js';
-import { BungieMembershipType } from '../../BungieMembershipType.js';
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 /**
  * Summary information about the activity that was played.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsActivity}

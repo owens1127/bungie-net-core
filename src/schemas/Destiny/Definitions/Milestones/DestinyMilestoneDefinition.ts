@@ -13,14 +13,14 @@
  */
 //
 
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js'
-import { DestinyMilestoneDisplayPreference } from './DestinyMilestoneDisplayPreference.js'
-import { DestinyMilestoneType } from './DestinyMilestoneType.js'
-import { DestinyMilestoneQuestDefinition } from './DestinyMilestoneQuestDefinition.js'
-import { DestinyMilestoneRewardCategoryDefinition } from './DestinyMilestoneRewardCategoryDefinition.js'
-import { DestinyMilestoneVendorDefinition } from './DestinyMilestoneVendorDefinition.js'
-import { DestinyMilestoneValueDefinition } from './DestinyMilestoneValueDefinition.js'
-import { DestinyMilestoneChallengeActivityDefinition } from './DestinyMilestoneChallengeActivityDefinition.js'
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition'
+import { DestinyMilestoneDisplayPreference } from './DestinyMilestoneDisplayPreference'
+import { DestinyMilestoneType } from './DestinyMilestoneType'
+import { DestinyMilestoneQuestDefinition } from './DestinyMilestoneQuestDefinition'
+import { DestinyMilestoneRewardCategoryDefinition } from './DestinyMilestoneRewardCategoryDefinition'
+import { DestinyMilestoneVendorDefinition } from './DestinyMilestoneVendorDefinition'
+import { DestinyMilestoneValueDefinition } from './DestinyMilestoneValueDefinition'
+import { DestinyMilestoneChallengeActivityDefinition } from './DestinyMilestoneChallengeActivityDefinition'
 
 /**
  * Milestones are an in-game concept where they're attempting to tell you what you

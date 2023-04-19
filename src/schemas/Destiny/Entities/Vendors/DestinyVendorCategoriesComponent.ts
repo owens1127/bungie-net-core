@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyVendorCategory } from './DestinyVendorCategory.js'
+import { DestinyVendorCategory } from './DestinyVendorCategory'
 
 /**
  * A vendor can have many categories of items that they sell. This component will

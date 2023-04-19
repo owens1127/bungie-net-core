@@ -13,7 +13,7 @@
  */
 //
 
-import { DestinyItemSocketState } from './DestinyItemSocketState.js'
+import { DestinyItemSocketState } from './DestinyItemSocketState'
 
 /**
  * Instanced items can have sockets, which are slots on the item where plugs can be

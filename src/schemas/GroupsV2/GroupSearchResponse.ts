@@ -13,8 +13,8 @@
  */
 //
 
-import { GroupV2Card } from './GroupV2Card.js'
-import { PagedQuery } from '../Queries/PagedQuery.js'
+import { GroupV2Card } from './GroupV2Card'
+import { PagedQuery } from '../Queries/PagedQuery'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupSearchResponse} */
 export interface GroupSearchResponse {

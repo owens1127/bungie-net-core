@@ -11,9 +11,9 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { ForumRecruitmentIntensityLabel } from './ForumRecruitmentIntensityLabel.js';
-import { ForumRecruitmentToneLabel } from './ForumRecruitmentToneLabel.js';
-import { GeneralUser } from '../User/GeneralUser.js';
+import { ForumRecruitmentIntensityLabel } from './ForumRecruitmentIntensityLabel';
+import { ForumRecruitmentToneLabel } from './ForumRecruitmentToneLabel';
+import { GeneralUser } from '../User/GeneralUser';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumRecruitmentDetail} */
 export interface ForumRecruitmentDetail {
     readonly topicId: string;

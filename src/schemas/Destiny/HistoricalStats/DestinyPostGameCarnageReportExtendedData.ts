@@ -13,8 +13,8 @@
  */
 //
 
-import { DestinyHistoricalWeaponStats } from './DestinyHistoricalWeaponStats.js'
-import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue.js'
+import { DestinyHistoricalWeaponStats } from './DestinyHistoricalWeaponStats'
+import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue'
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportExtendedData} */
 export interface DestinyPostGameCarnageReportExtendedData {

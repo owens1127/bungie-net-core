@@ -11,12 +11,12 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { BungieNetResponse } from '../../util/server-response.js';
-import { InstancedImport, AccessTokenObject } from '../../util/client.js';
-import { DestinyComponentType } from '../../schemas/index.js';
-import { DestinyVendorFilter } from '../../schemas/index.js';
-import { BungieMembershipType } from '../../schemas/index.js';
-import { DestinyVendorsResponse } from '../../schemas/index.js';
+import { BungieNetResponse } from '../../util/server-response';
+import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { DestinyComponentType } from '../../schemas';
+import { DestinyVendorFilter } from '../../schemas';
+import { BungieMembershipType } from '../../schemas';
+import { DestinyVendorsResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetVendors} */
 export declare type GetVendorsParams<T extends DestinyComponentType[]> = {
     /** The Destiny Character ID of the character for whom we're getting vendor info. */

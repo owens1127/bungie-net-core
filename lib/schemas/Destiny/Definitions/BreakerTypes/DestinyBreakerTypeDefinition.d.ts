@@ -11,8 +11,8 @@
  * Adapted from {@link https://github.com/DestinyItemManager/bungie-api-ts}
  * Do not edit these files manually.
  */
-import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition.js';
-import { DestinyBreakerType } from '../../DestinyBreakerType.js';
+import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyBreakerType } from '../../DestinyBreakerType';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.BreakerTypes.DestinyBreakerTypeDefinition} */
 export interface DestinyBreakerTypeDefinition {
     readonly displayProperties: DestinyDisplayPropertiesDefinition;
