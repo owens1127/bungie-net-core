@@ -16,9 +16,5 @@ export declare type TokenResponse = {
     refresh_token: string;
     refresh_expires_in: number;
 };
-export declare function getAccessTokenFromAuthCode(
-    code: string
-): Promise<BungieNetTokens>;
-export declare function getAccessTokenFromRefreshToken(
-    refreshToken: string
-): Promise<BungieNetTokens>;
+export declare function getAccessTokenFromAuthCode(code: string): Promise<BungieNetTokens>;
+export declare function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens>;

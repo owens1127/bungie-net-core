@@ -1,6 +1,6 @@
-import * as TokensImport from './util/tokens';
-import * as ManifestImport from './manifest/index';
-import * as SchemaImport from './schemas/index';
+import * as TokensImport from './util/tokens.js';
+import * as ManifestImport from './manifest/index.js';
+import * as SchemaImport from './schemas/index.js';
 /**
  * @see {@link https://auth0.com/docs/protocols/state-parameters}
  */

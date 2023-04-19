@@ -2,36 +2,31 @@
 
 # Prepare the library folder(s)
 rm -rf ./build && mkdir -p build
-rm -rf ./lib-ts && mkdir -p lib-ts
 rm -rf ./lib && mkdir -p lib
-rm -rf ./test && mkdir -p test
+rm -rf ./__test__/endpoints && mkdir -p __test__/endpoints
+
+# clean the src folder from files that are not generated
+rm -rf ./src/endpoints
+rm -rf ./src/schemas
+rm ./src/manifest/manifest-types.ts
+rm ./src/util/client.ts
 
 # Compile the generator into ./build
-tsc -p tsconfig-generator.json ; echo Generator compiled to JavaScript with tsc
+tsc -p tsconfig.generator.json ; echo Generator compiled to JavaScript with tsc
 
-# Run the generator to produce typescript library in ./lib-ts
-node --experimental-json-modules ./build/generate.js ; echo Library TypeScript generated
+# Run the generator to produce typescript library in ./src
+node --experimental-json-modules ./build/generate.js ; echo Generation complete, Library TypeScript generated
 
-# Copy files from ./src into ./lib-ts
-cp -a lib-src/. lib-ts/
+# fix one small error
+perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src/schemas/Destiny/Responses/DestinyItemChangeResponse.ts
 
-# compile typescript into js using babel
-babel lib-ts --out-dir lib --extensions ".ts" --config-file './.babelrc'
+# Transpile the library from TypeScript to js + .d.ts files
+tsc -p tsconfig.lib.json ; echo Library transpiled
 
-# compile the typings to .d.ts files using tsc
-tsc -p tsconfig-lib.json ; echo TypeScript typings transpiled to .d.ts files with tsc
-
-mv ./lib-ts/bungie-api-LICENSE ./lib/bungie-api-LICENSE
-mv ./lib-ts/package.json ./lib/package.json
-mv ./lib-ts/README.md ./lib/README.md
+cp ./src/bungie-api-LICENSE ./lib/bungie-api-LICENSE
+cp ./src/package.json ./lib/package.json
+cp ./src/README.md ./lib/README.md
 
 # beautify
-prettier --loglevel silent --config .prettierrc --write '{lib,lib-ts}/**/*.{ts,js}'; echo Library prettier-ified
-prettier --loglevel silent --config .prettierrc --write '{test}/**/*.{ts,js}'; echo Tests prettier-ified
-
-# test
-jest
-
-
-
+prettier --loglevel silent --config .prettierrc --write '{lib}/**/*.{ts,js}'; echo Library formatted
 

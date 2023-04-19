@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib/",
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "incremental": true
+  },
+  "include": ["./src/**/*"]
+}

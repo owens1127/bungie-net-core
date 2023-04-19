@@ -1,10 +1,15 @@
-# Default ignored files
-/*.env
-.gitmodules
 node_modules
-build
-lib-ts
-.idea
+
+.gitmodules
 api-src
-.DS_Store
+
+build
+*.tsbuildinfo
+
 test.js
+
+*.env
+
+.idea
+.vscode
+.DS_Store

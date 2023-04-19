@@ -17,40 +17,36 @@ import { generateClient } from './generate-client.js';
 
 // allow some async operations
 (async () => {
-    const doc = JSON.parse(
-        fs.readFileSync('./api-src/openapi.json').toString()
-    ) as OpenAPIObject;
+  const doc = JSON.parse(fs.readFileSync('./api-src/openapi.json').toString()) as OpenAPIObject;
 
-    // Pairs of [request path, path service description]
-    const pathPairs = _.pairs(doc.paths) as [string, PathItemObject][];
+  // Pairs of [request path, path service description]
+  const pathPairs = _.pairs(doc.paths) as [string, PathItemObject][];
 
-    // Grouped by "tag" which says which service (destiny, groups, forums, etc)
-    const pathPairsByTag = _.groupBy(pathPairs, ([path, desc]) => {
-        return (desc.get || desc.post)!.tags![0];
-    });
-    pathPairsByTag['Core'] = pathPairsByTag[''];
-    delete pathPairsByTag[''];
+  // Grouped by "tag" which says which service (destiny, groups, forums, etc)
+  const pathPairsByTag = _.groupBy(pathPairs, ([path, desc]) => {
+    return (desc.get || desc.post)!.tags![0];
+  });
+  pathPairsByTag['Core'] = pathPairsByTag[''];
+  delete pathPairsByTag[''];
 
-    generateClient(Object.keys(pathPairsByTag));
+  generateClient(Object.keys(pathPairsByTag));
 
-    const {
-        componentsByFile,
-        componentByDef,
-        componentsByTag,
-        manifestComponents
-    } = computeTypeMaps(pathPairsByTag, doc);
+  const { componentsByFile, componentByDef, componentsByTag, manifestComponents } = computeTypeMaps(
+    pathPairsByTag,
+    doc
+  );
 
-    componentsByFile.forEach((component, file) => {
-        generateTypeDefinition(file, component, doc, componentByDef);
-    });
+  componentsByFile.forEach((component, file) => {
+    generateTypeDefinition(file, component, doc, componentByDef);
+  });
 
-    await generateManifestUtils(manifestComponents, componentByDef, doc);
+  await generateManifestUtils(manifestComponents, componentByDef, doc);
 
-    _.each(pathPairsByTag, (paths, tag) => {
-        generateServiceDefinition(tag, paths, doc, componentByDef);
-    });
+  _.each(pathPairsByTag, (paths, tag) => {
+    generateServiceDefinition(tag, paths, doc, componentByDef);
+  });
 
-    generateIndices(componentsByTag, doc, componentsByFile);
+  generateIndices(componentsByTag, doc, componentsByFile);
 
-    generatePackageJson();
+  generatePackageJson();
 })();

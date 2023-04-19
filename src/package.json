@@ -1,0 +1,42 @@
+{
+  "name": "oodestiny",
+  "version": "2.0.0",
+  "description": "An easy way to interact with the Bungie.net API",
+  "keywords": [
+    "Destiny 2",
+    "Bungie",
+    "TypeScript",
+    "REST API"
+  ],
+  "homepage": "https://github.com/owensimpson/OODestiny/tree/master/lib",
+  "type": "module",
+  "bugs": "https://github.com/owensimpson/oodestiny/issues",
+  "license": "MIT",
+  "author": "Owen Simpson",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owensimpson/oodestiny"
+  },
+  "scripts": {},
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(ts|tsx)$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.test.json"
+        }
+      ]
+    },
+    "testMatch": [
+      "**/**.test.ts"
+    ],
+    "globalSetup": "<rootDir>/__test__/setup.ts"
+  },
+  "devDependencies": {},
+  "main": "./index.js",
+  "types": "index.d.ts",
+  "module": "./index.js",
+  "dependencies": {}
+}

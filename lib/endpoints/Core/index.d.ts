@@ -1,4 +1,4 @@
-export { getAvailableLocales } from './GetAvailableLocales';
-export { getCommonSettings } from './GetCommonSettings';
-export { getUserSystemOverrides } from './GetUserSystemOverrides';
-export { getGlobalAlerts } from './GetGlobalAlerts';
+export { getAvailableLocales } from './GetAvailableLocales.js';
+export { getCommonSettings } from './GetCommonSettings.js';
+export { getUserSystemOverrides } from './GetUserSystemOverrides.js';
+export { getGlobalAlerts } from './GetGlobalAlerts.js';
