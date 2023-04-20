@@ -11,7 +11,7 @@ npm i oodestiny
 ## Example Usage
 
 ```javascript
-import { generateOAuthURL, Tokens, Client } from 'oodestiny';
+import { generateOAuthURL, Tokens, Client } from 'oodestiny/lib';
 
 // You MUST configure the library with your Bungie API credentials,
 // using the following enviroment variables:
@@ -33,8 +33,8 @@ const manifest = await client.Destiny2.getDestinyManifest();
 If you want to make a simple query without a client, you can do directly import the endpoints as of version 1.7.0
 
 ```javascript
-import { BungieMembershipType, DestinyActivityModeType } from 'oodestiny/schemas'
-import { getActivityHistory } from 'oodestiny/endpoints/Destiny2';
+import { BungieMembershipType, DestinyActivityModeType } from 'oodestiny/lib/schemas'
+import { getActivityHistory } from 'oodestiny/lib/endpoints/Destiny2';
 
 const res = await getActivityHistory({
     characterId: "2305843009468984093",
