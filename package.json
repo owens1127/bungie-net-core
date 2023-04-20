@@ -20,17 +20,17 @@
     "url": "https://github.com/owensimpson/oodestiny"
   },
   "scripts": {
-    "create-submodule": "git submodule add https://github.com/Bungie-net/api api-src && git submodule init",
-    "update-spec": "git submodule update --remote --merge",
+    "create": "git submodule add https://github.com/Bungie-net/api api-src && git submodule init",
+    "sync": "git submodule update --remote --merge",
     "format": "prettier --config .prettierrc '{generator,src,test}/**/*.ts' --write",
     "lint": "tslint -p tsconfig.lib.json",
     "test": "jest",
-    "prepare": "npm run update-spec && npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A .",
-    "postversion": "git push && git push --tags",
-    "build": "sh ./build.sh"
+    "build": "sh ./build.sh",
+    "rebuild": "npm run sync && npm run build",
+    "push": "git push && git push --tags",
+    "preversion": "npm run rebuild && npm run format && npm run lint && npm test",
+    "version": "git add -A .",
+    "postversion": "npm run push"
   },
   "files": [
     "lib/**/*"

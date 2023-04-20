@@ -62,7 +62,7 @@ import {
   DestinyReportReasonCategoryDefinition,
   DestinyMedalTierDefinition,
   DestinyLoadoutConstantsDefinition,
-  DestinyGuardianRankConstantsDefinition
+  DestinyGuardianRankConstantsDefinition,
 } from '../schemas';
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
@@ -73,9 +73,7 @@ export interface AllDestinyManifestComponents {
   DestinyProgressionDefinition: { [key: number]: DestinyProgressionDefinition };
   DestinyInventoryItemDefinition: { [key: number]: DestinyInventoryItemDefinition };
   DestinyCollectibleDefinition: { [key: number]: DestinyCollectibleDefinition };
-  DestinyMaterialRequirementSetDefinition: {
-    [key: number]: DestinyMaterialRequirementSetDefinition;
-  };
+  DestinyMaterialRequirementSetDefinition: { [key: number]: DestinyMaterialRequirementSetDefinition };
   DestinyPresentationNodeDefinition: { [key: number]: DestinyPresentationNodeDefinition };
   DestinyObjectiveDefinition: { [key: number]: DestinyObjectiveDefinition };
   DestinyLocationDefinition: { [key: number]: DestinyLocationDefinition };
@@ -106,9 +104,7 @@ export interface AllDestinyManifestComponents {
   DestinySandboxPatternDefinition: { [key: number]: DestinySandboxPatternDefinition };
   DestinyClassDefinition: { [key: number]: DestinyClassDefinition };
   DestinyArtifactDefinition: { [key: number]: DestinyArtifactDefinition };
-  DestinyProgressionLevelRequirementDefinition: {
-    [key: number]: DestinyProgressionLevelRequirementDefinition;
-  };
+  DestinyProgressionLevelRequirementDefinition: { [key: number]: DestinyProgressionLevelRequirementDefinition };
   DestinyPowerCapDefinition: { [key: number]: DestinyPowerCapDefinition };
   DestinyRewardSourceDefinition: { [key: number]: DestinyRewardSourceDefinition };
   DestinyEnergyTypeDefinition: { [key: number]: DestinyEnergyTypeDefinition };
@@ -121,9 +117,7 @@ export interface AllDestinyManifestComponents {
   DestinyEventCardDefinition: { [key: number]: DestinyEventCardDefinition };
   DestinyGuardianRankDefinition: { [key: number]: DestinyGuardianRankDefinition };
   DestinyChecklistDefinition: { [key: number]: DestinyChecklistDefinition };
-  DestinySocialCommendationNodeDefinition: {
-    [key: number]: DestinySocialCommendationNodeDefinition;
-  };
+  DestinySocialCommendationNodeDefinition: { [key: number]: DestinySocialCommendationNodeDefinition };
   DestinySocialCommendationDefinition: { [key: number]: DestinySocialCommendationDefinition };
   DestinyRaceDefinition: { [key: number]: DestinyRaceDefinition };
   DestinyLoadoutColorDefinition: { [key: number]: DestinyLoadoutColorDefinition };
@@ -196,7 +190,8 @@ export const enum ManifestComponents {
   DestinyReportReasonCategoryDefinition = 'DestinyReportReasonCategoryDefinition',
   DestinyMedalTierDefinition = 'DestinyMedalTierDefinition',
   DestinyLoadoutConstantsDefinition = 'DestinyLoadoutConstantsDefinition',
-  DestinyGuardianRankConstantsDefinition = 'DestinyGuardianRankConstantsDefinition'
+  DestinyGuardianRankConstantsDefinition = 'DestinyGuardianRankConstantsDefinition',
+
 }
 
 /**
@@ -215,9 +210,9 @@ export const destinyManifestLanguages = [
   'pt-br',
   'ru',
   'zh-chs',
-  'zh-cht'
+  'zh-cht',
 ] as const;
-export type DestinyManifestLanguage = (typeof destinyManifestLanguages)[number];
+export type DestinyManifestLanguage = typeof destinyManifestLanguages[number];
 export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
 
 export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName[]>> = Pick<
@@ -231,5 +226,6 @@ export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName
  * i.e.
  * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
  */
-export type DestinyDefinitionFrom<K extends DestinyManifestComponentName> =
-  AllDestinyManifestComponents[K][number];
+export type DestinyDefinitionFrom<
+  K extends DestinyManifestComponentName
+> = AllDestinyManifestComponents[K][number];
