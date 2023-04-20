@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyInsertPlugsActionRequest } from '../../schemas';
 import { DestinyItemChangeResponse } from '../../schemas';
 /**
@@ -27,4 +27,4 @@ import { DestinyItemChangeResponse } from '../../schemas';
  * Wait at least 0.5s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.InsertSocketPlug}
 */
-export declare function insertSocketPlug(this: InstancedImport | AccessTokenObject | void, body: DestinyInsertPlugsActionRequest): Promise<BungieNetResponse<DestinyItemChangeResponse>>;
+export declare function insertSocketPlug(this: AccessTokenObject | void, body: DestinyInsertPlugsActionRequest): Promise<BungieNetResponse<DestinyItemChangeResponse>>;

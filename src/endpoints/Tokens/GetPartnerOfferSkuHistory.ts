@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { PartnerOfferSkuHistoryResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory} */
@@ -35,11 +35,10 @@ export type GetPartnerOfferSkuHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
  */
 export async function getPartnerOfferSkuHistory(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetPartnerOfferSkuHistoryParams
 ): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<PartnerOfferSkuHistoryResponse[]>(token, {
       method: 'GET',

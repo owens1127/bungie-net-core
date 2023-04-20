@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { BungieRewardDisplay } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser} */
@@ -32,11 +32,10 @@ export type GetBungieRewardsForUserParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
  */
 export async function getBungieRewardsForUser(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetBungieRewardsForUserParams
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<{ [key: string]: BungieRewardDisplay }>(token, {
       method: 'GET',

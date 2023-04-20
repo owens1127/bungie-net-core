@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyItemStateRequest } from '../../schemas';
 /**
  * Set the Tracking State for an instanced item, if that item is a Quest or Bounty.
@@ -21,4 +21,4 @@ import { DestinyItemStateRequest } from '../../schemas';
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.SetQuestTrackedState}
 */
-export declare function setQuestTrackedState(this: InstancedImport | AccessTokenObject | void, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;
+export declare function setQuestTrackedState(this: AccessTokenObject | void, body: DestinyItemStateRequest): Promise<BungieNetResponse<number>>;

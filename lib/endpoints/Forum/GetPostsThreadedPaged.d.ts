@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ForumPostSortEnum } from '../../schemas';
 import { PostSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged} */
@@ -32,4 +32,4 @@ export declare type GetPostsThreadedPagedParams = {
  * those posts as well as the original parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged}
 */
-export declare function getPostsThreadedPaged(this: InstancedImport | AccessTokenObject | void, params: GetPostsThreadedPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getPostsThreadedPaged(this: AccessTokenObject | void, params: GetPostsThreadedPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;

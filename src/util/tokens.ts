@@ -28,14 +28,17 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
   return fetchTokens(code, 'authorization_code', 'code');
 }
 
-export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
+export async function getAccessTokenFromRefreshToken(
+  refreshToken: string
+): Promise<BungieNetTokens> {
   return fetchTokens(refreshToken, 'refresh_token', 'refresh_token');
 }
 
 async function fetchTokens(code: string, type: string, key: string) {
   const clientId = _credentials().BUNGIE_CLIENT_ID;
   const secret = _credentials().BUNGIE_CLIENT_SECRET;
-  let body, headers;
+  let body: URLSearchParams | undefined;
+  let headers: { ['Content-Type']: string } | undefined;
   if (secret && clientId) {
     body = new URLSearchParams({
       grant_type: type,
@@ -59,7 +62,6 @@ async function fetchTokens(code: string, type: string, key: string) {
 function handleTokenResponse(response: TokenResponse): BungieNetTokens {
   const time = Date.now();
   if (response?.access_token) {
-    /** @type Token */
     const access: Token = {
       value: response.access_token,
       type: 'access',

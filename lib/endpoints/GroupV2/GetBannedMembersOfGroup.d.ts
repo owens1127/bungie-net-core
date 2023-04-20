@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { SearchResultOfGroupBan } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
 export declare type GetBannedMembersOfGroupParams = {
@@ -26,4 +26,4 @@ export declare type GetBannedMembersOfGroupParams = {
  * and above. Not applicable to all groups. Check group features.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
 */
-export declare function getBannedMembersOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetBannedMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupBan>>;
+export declare function getBannedMembersOfGroup(this: AccessTokenObject | void, params: GetBannedMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupBan>>;

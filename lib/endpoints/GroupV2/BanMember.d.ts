@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { GroupBanRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.BanMember} */
@@ -29,4 +29,4 @@ export declare type BanMemberParams = {
  * time.
  * @see {@link https://bungie-net.github.io/#GroupV2.BanMember}
 */
-export declare function banMember(this: InstancedImport | AccessTokenObject | void, params: BanMemberParams, body: GroupBanRequest): Promise<BungieNetResponse<number>>;
+export declare function banMember(this: AccessTokenObject | void, params: BanMemberParams, body: GroupBanRequest): Promise<BungieNetResponse<number>>;

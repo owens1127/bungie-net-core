@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { BungieRewardDisplay } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser} */
@@ -30,6 +30,6 @@ export declare type GetBungieRewardsForPlatformUserParams = {
  * and Type are used.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser}
 */
-export declare function getBungieRewardsForPlatformUser(this: InstancedImport | AccessTokenObject | void, params: GetBungieRewardsForPlatformUserParams): Promise<BungieNetResponse<{
+export declare function getBungieRewardsForPlatformUser(this: AccessTokenObject | void, params: GetBungieRewardsForPlatformUserParams): Promise<BungieNetResponse<{
     [key: string]: BungieRewardDisplay;
 }>>;

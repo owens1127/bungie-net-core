@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { UserMembershipData } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipDataById} */
@@ -28,4 +28,4 @@ export declare type GetMembershipDataByIdParams = {
  * supplied credentials permit it.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataById}
 */
-export declare function getMembershipDataById(this: InstancedImport | AccessTokenObject | void, params: GetMembershipDataByIdParams): Promise<BungieNetResponse<UserMembershipData>>;
+export declare function getMembershipDataById(this: AccessTokenObject | void, params: GetMembershipDataByIdParams): Promise<BungieNetResponse<UserMembershipData>>;

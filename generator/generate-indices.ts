@@ -17,9 +17,9 @@ function generateSchemaIndex(doc: OpenAPIObject, componentsByFile: Map<string, D
   const exports: string[] = [];
   for (const [component, defInfo] of componentsByFile) {
     exports.push(
-      `export ${getRef(doc, defInfo.def)?.enum ? '' : 'type '}{ ${defInfo.typeName} } from '${component
-        .replace('schemas/', './')
-        .replace('.ts', '')}';`
+      `export ${getRef(doc, defInfo.def)?.enum ? '' : 'type '}{ ${
+        defInfo.typeName
+      } } from '${component.replace('schemas/', './').replace('.ts', '')}';`
     );
   }
 
@@ -28,7 +28,10 @@ function generateSchemaIndex(doc: OpenAPIObject, componentsByFile: Map<string, D
   writeOutFile(filename, definition);
 }
 
-function generateEndpointsSuperIndex(componentsByTag: { [p: string]: DefInfo[] }, doc: OpenAPIObject) {
+function generateEndpointsSuperIndex(
+  componentsByTag: { [p: string]: DefInfo[] },
+  doc: OpenAPIObject
+) {
   const filename = 'src/endpoints/index.ts';
   const exportLines: string[] = [];
 

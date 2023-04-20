@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { PostSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval} */
 export declare type GetPostAndParentAwaitingApprovalParams = {
@@ -25,4 +25,4 @@ export declare type GetPostAndParentAwaitingApprovalParams = {
  * approval.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval}
 */
-export declare function getPostAndParentAwaitingApproval(this: InstancedImport | AccessTokenObject | void, params: GetPostAndParentAwaitingApprovalParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getPostAndParentAwaitingApproval(this: AccessTokenObject | void, params: GetPostAndParentAwaitingApprovalParams): Promise<BungieNetResponse<PostSearchResponse>>;

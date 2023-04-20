@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 /** @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest} */
 export declare type IssueFriendRequestParams = {
     /** The membership id of the user you wish to add. */
@@ -23,4 +23,4 @@ export declare type IssueFriendRequestParams = {
  * linked membership ids are valid inputs.
  * @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest}
 */
-export declare function issueFriendRequest(this: InstancedImport | AccessTokenObject | void, params: IssueFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+export declare function issueFriendRequest(this: AccessTokenObject | void, params: IssueFriendRequestParams): Promise<BungieNetResponse<boolean>>;

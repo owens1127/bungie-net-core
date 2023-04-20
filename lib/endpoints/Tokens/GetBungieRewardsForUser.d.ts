@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieRewardDisplay } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser} */
 export declare type GetBungieRewardsForUserParams = {
@@ -26,6 +26,6 @@ export declare type GetBungieRewardsForUserParams = {
  * Returns the bungie rewards for the targeted user.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
 */
-export declare function getBungieRewardsForUser(this: InstancedImport | AccessTokenObject | void, params: GetBungieRewardsForUserParams): Promise<BungieNetResponse<{
+export declare function getBungieRewardsForUser(this: AccessTokenObject | void, params: GetBungieRewardsForUserParams): Promise<BungieNetResponse<{
     [key: string]: BungieRewardDisplay;
 }>>;

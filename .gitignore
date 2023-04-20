@@ -1,12 +1,12 @@
 node_modules
 
 .gitmodules
-api-src
+/api-src
 
-build
+/build
 *.tsbuildinfo
 
-test.js
+/test.js
 
 *.env
 

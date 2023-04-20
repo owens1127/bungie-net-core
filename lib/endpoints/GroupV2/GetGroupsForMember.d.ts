@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupsForMemberFilter } from '../../schemas';
 import { GroupType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
@@ -32,4 +32,4 @@ export declare type GetGroupsForMemberParams = {
  * Get information about the groups that a given member has joined.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember}
 */
-export declare function getGroupsForMember(this: InstancedImport | AccessTokenObject | void, params: GetGroupsForMemberParams): Promise<BungieNetResponse<GetGroupsForMemberResponse>>;
+export declare function getGroupsForMember(this: AccessTokenObject | void, params: GetGroupsForMemberParams): Promise<BungieNetResponse<GetGroupsForMemberResponse>>;

@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { TrendingCategories } from '../../schemas';
 /**
@@ -24,10 +24,9 @@ import { TrendingCategories } from '../../schemas';
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategories}
  */
 export async function getTrendingCategories(
-  this: InstancedImport | AccessTokenObject | void
+  this: AccessTokenObject | void
 ): Promise<BungieNetResponse<TrendingCategories>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<TrendingCategories>(token, {
       method: 'GET',

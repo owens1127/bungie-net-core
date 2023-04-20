@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyComponentType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyVendorResponse } from '../../schemas';
@@ -37,4 +37,4 @@ export declare type GetVendorParams<T extends DestinyComponentType[]> = {
  * Get the details of a specific Vendor.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendor}
 */
-export declare function getVendor<T extends DestinyComponentType[]>(this: InstancedImport | AccessTokenObject | void, params: GetVendorParams<T>): Promise<BungieNetResponse<DestinyVendorResponse<T>>>;
+export declare function getVendor<T extends DestinyComponentType[]>(this: AccessTokenObject | void, params: GetVendorParams<T>): Promise<BungieNetResponse<DestinyVendorResponse<T>>>;

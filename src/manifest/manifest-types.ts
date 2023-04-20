@@ -231,4 +231,5 @@ export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName
  * i.e.
  * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
  */
-export type DestinyDefinitionFrom<K extends DestinyManifestComponentName> = AllDestinyManifestComponents[K][number];
+export type DestinyDefinitionFrom<K extends DestinyManifestComponentName> =
+  AllDestinyManifestComponents[K][number];

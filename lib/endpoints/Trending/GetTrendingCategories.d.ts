@@ -12,11 +12,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { TrendingCategories } from '../../schemas';
 /**
  * Returns trending items for Bungie.net, collapsed into the first page of items
  * per category. For pagination within a category, call GetTrendingCategory.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategories}
 */
-export declare function getTrendingCategories(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<TrendingCategories>>;
+export declare function getTrendingCategories(this: AccessTokenObject | void): Promise<BungieNetResponse<TrendingCategories>>;

@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { GroupType } from '../../schemas';
 import { GroupResponse } from '../../schemas';
@@ -32,11 +32,10 @@ export type GetGroupByNameParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName}
  */
 export async function getGroupByName(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetGroupByNameParams
 ): Promise<BungieNetResponse<GroupResponse>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<GroupResponse>(token, {
       method: 'GET',

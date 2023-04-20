@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyLoadoutActionRequest } from '../../schemas';
 /**
  * Equip a loadout. You must have a valid Destiny Account, and either be in a
@@ -21,4 +21,4 @@ import { DestinyLoadoutActionRequest } from '../../schemas';
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipLoadout}
 */
-export declare function equipLoadout(this: InstancedImport | AccessTokenObject | void, body: DestinyLoadoutActionRequest): Promise<BungieNetResponse<number>>;
+export declare function equipLoadout(this: AccessTokenObject | void, body: DestinyLoadoutActionRequest): Promise<BungieNetResponse<number>>;

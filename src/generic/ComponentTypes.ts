@@ -3,10 +3,10 @@ import { ComponentPrivacySetting } from '../schemas/Components/ComponentPrivacyS
 export interface ComponentData {}
 
 export type ConditionalComponent<
-  Input extends Array<any>,
+  Input extends any[],
   Required extends Input[number],
   Property
-> = Input extends Array<infer T> ? (Required extends T ? Property : undefined) : never;
+> = Input extends (infer T)[] ? (Required extends T ? Property : undefined) : never;
 
 export interface ComponentResponse<T> {
   readonly data: T;

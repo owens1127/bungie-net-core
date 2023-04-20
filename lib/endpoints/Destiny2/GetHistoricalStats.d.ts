@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyStatsGroupType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyActivityModeType } from '../../schemas';
@@ -61,6 +61,6 @@ export declare type GetHistoricalStatsParams = {
  * Gets historical stats for indicated character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStats}
 */
-export declare function getHistoricalStats(this: InstancedImport | AccessTokenObject | void, params: GetHistoricalStatsParams): Promise<BungieNetResponse<{
+export declare function getHistoricalStats(this: AccessTokenObject | void, params: GetHistoricalStatsParams): Promise<BungieNetResponse<{
     [key: string]: DestinyHistoricalStatsByPeriod;
 }>>;

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyReportOffensePgcrRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer} */
 export declare type ReportOffensivePostGameCarnageReportPlayerParams = {
@@ -26,4 +26,4 @@ export declare type ReportOffensivePostGameCarnageReportPlayerParams = {
  * of violation, pretty please.
  * @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer}
 */
-export declare function reportOffensivePostGameCarnageReportPlayer(this: InstancedImport | AccessTokenObject | void, params: ReportOffensivePostGameCarnageReportPlayerParams, body: DestinyReportOffensePgcrRequest): Promise<BungieNetResponse<number>>;
+export declare function reportOffensivePostGameCarnageReportPlayer(this: AccessTokenObject | void, params: ReportOffensivePostGameCarnageReportPlayerParams, body: DestinyReportOffensePgcrRequest): Promise<BungieNetResponse<number>>;

@@ -12,11 +12,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupQuery } from '../../schemas';
 import { GroupSearchResponse } from '../../schemas';
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}
 */
-export declare function groupSearch(this: InstancedImport | AccessTokenObject | void, body: GroupQuery): Promise<BungieNetResponse<GroupSearchResponse>>;
+export declare function groupSearch(this: AccessTokenObject | void, body: GroupQuery): Promise<BungieNetResponse<GroupSearchResponse>>;

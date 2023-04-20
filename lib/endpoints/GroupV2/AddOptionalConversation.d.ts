@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupOptionalConversationAddRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation} */
 export declare type AddOptionalConversationParams = {
@@ -24,4 +24,4 @@ export declare type AddOptionalConversationParams = {
  * group.
  * @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation}
 */
-export declare function addOptionalConversation(this: InstancedImport | AccessTokenObject | void, params: AddOptionalConversationParams, body: GroupOptionalConversationAddRequest): Promise<BungieNetResponse<string>>;
+export declare function addOptionalConversation(this: AccessTokenObject | void, params: AddOptionalConversationParams, body: GroupOptionalConversationAddRequest): Promise<BungieNetResponse<string>>;

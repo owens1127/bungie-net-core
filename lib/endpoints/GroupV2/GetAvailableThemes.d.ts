@@ -12,10 +12,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupTheme } from '../../schemas';
 /**
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}
 */
-export declare function getAvailableThemes(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<GroupTheme[]>>;
+export declare function getAvailableThemes(this: AccessTokenObject | void): Promise<BungieNetResponse<GroupTheme[]>>;

@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { BungieMembershipType } from '../../schemas';
 import { GroupMemberLeaveResult } from '../../schemas';
@@ -36,11 +36,10 @@ export type KickMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
  */
 export async function kickMember(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: KickMemberParams
 ): Promise<BungieNetResponse<GroupMemberLeaveResult>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<GroupMemberLeaveResult>(token, {
       method: 'POST',

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GetCredentialTypesForAccountResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount} */
 export declare type GetCredentialTypesForTargetAccountParams = {
@@ -23,4 +23,4 @@ export declare type GetCredentialTypesForTargetAccountParams = {
  * Returns a list of credential types attached to the requested account
  * @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount}
 */
-export declare function getCredentialTypesForTargetAccount(this: InstancedImport | AccessTokenObject | void, params: GetCredentialTypesForTargetAccountParams): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>>;
+export declare function getCredentialTypesForTargetAccount(this: AccessTokenObject | void, params: GetCredentialTypesForTargetAccountParams): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>>;

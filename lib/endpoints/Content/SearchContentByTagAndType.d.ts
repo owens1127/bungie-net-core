@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { SearchResultOfContentItemPublicContract } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType} */
 export declare type SearchContentByTagAndTypeParams = {
@@ -30,4 +30,4 @@ export declare type SearchContentByTagAndTypeParams = {
  * Searches for Content Items that match the given Tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType}
 */
-export declare function searchContentByTagAndType(this: InstancedImport | AccessTokenObject | void, params: SearchContentByTagAndTypeParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;
+export declare function searchContentByTagAndType(this: AccessTokenObject | void, params: SearchContentByTagAndTypeParams): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>>;

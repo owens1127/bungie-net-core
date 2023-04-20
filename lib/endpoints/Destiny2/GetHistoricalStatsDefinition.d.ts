@@ -12,12 +12,12 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyHistoricalStatsDefinition } from '../../schemas';
 /**
  * Gets historical stats definitions.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsDefinition}
 */
-export declare function getHistoricalStatsDefinition(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
+export declare function getHistoricalStatsDefinition(this: AccessTokenObject | void): Promise<BungieNetResponse<{
     [key: string]: DestinyHistoricalStatsDefinition;
 }>>;

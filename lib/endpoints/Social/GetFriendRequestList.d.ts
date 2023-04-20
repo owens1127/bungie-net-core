@@ -12,10 +12,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieFriendRequestListResponse } from '../../schemas';
 /**
  * Returns your friend request queue.
  * @see {@link https://bungie-net.github.io/#Social.GetFriendRequestList}
 */
-export declare function getFriendRequestList(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<BungieFriendRequestListResponse>>;
+export declare function getFriendRequestList(this: AccessTokenObject | void): Promise<BungieNetResponse<BungieFriendRequestListResponse>>;

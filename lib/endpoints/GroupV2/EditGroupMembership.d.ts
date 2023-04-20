@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { RuntimeGroupMemberType } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership} */
@@ -31,4 +31,4 @@ export declare type EditGroupMembershipParams = {
  * in the group to perform this operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership}
 */
-export declare function editGroupMembership(this: InstancedImport | AccessTokenObject | void, params: EditGroupMembershipParams): Promise<BungieNetResponse<number>>;
+export declare function editGroupMembership(this: AccessTokenObject | void, params: EditGroupMembershipParams): Promise<BungieNetResponse<number>>;

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ClanBanner } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner} */
 export declare type EditClanBannerParams = {
@@ -24,4 +24,4 @@ export declare type EditClanBannerParams = {
  * group to perform this operation. All fields are required.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
 */
-export declare function editClanBanner(this: InstancedImport | AccessTokenObject | void, params: EditClanBannerParams, body: ClanBanner): Promise<BungieNetResponse<number>>;
+export declare function editClanBanner(this: AccessTokenObject | void, params: EditClanBannerParams, body: ClanBanner): Promise<BungieNetResponse<number>>;

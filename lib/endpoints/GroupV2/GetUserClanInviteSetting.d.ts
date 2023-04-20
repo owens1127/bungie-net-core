@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting} */
 export declare type GetUserClanInviteSettingParams = {
@@ -24,4 +24,4 @@ export declare type GetUserClanInviteSettingParams = {
  * type - true if they wish to be invited to clans, false otherwise.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting}
 */
-export declare function getUserClanInviteSetting(this: InstancedImport | AccessTokenObject | void, params: GetUserClanInviteSettingParams): Promise<BungieNetResponse<boolean>>;
+export declare function getUserClanInviteSetting(this: AccessTokenObject | void, params: GetUserClanInviteSettingParams): Promise<BungieNetResponse<boolean>>;

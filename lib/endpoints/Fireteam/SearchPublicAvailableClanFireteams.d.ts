@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { FireteamDateRange } from '../../schemas';
 import { FireteamPlatform } from '../../schemas';
 import { FireteamSlotSearch } from '../../schemas';
@@ -42,4 +42,4 @@ export declare type SearchPublicAvailableClanFireteamsParams = {
  * not checked for join criteria so caching is maximized.
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
 */
-export declare function searchPublicAvailableClanFireteams(this: InstancedImport | AccessTokenObject | void, params: SearchPublicAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;
+export declare function searchPublicAvailableClanFireteams(this: AccessTokenObject | void, params: SearchPublicAvailableClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamSummary>>;

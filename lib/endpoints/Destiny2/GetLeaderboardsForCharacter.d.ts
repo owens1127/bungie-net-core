@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyLeaderboard } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter} */
@@ -47,7 +47,7 @@ export declare type GetLeaderboardsForCharacterParams = {
  * that prevent desirable operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
 */
-export declare function getLeaderboardsForCharacter(this: InstancedImport | AccessTokenObject | void, params: GetLeaderboardsForCharacterParams): Promise<BungieNetResponse<{
+export declare function getLeaderboardsForCharacter(this: AccessTokenObject | void, params: GetLeaderboardsForCharacterParams): Promise<BungieNetResponse<{
     [key: string]: {
         [key: string]: DestinyLeaderboard;
     };

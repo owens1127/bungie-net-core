@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupOptionsEditAction } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions} */
 export declare type EditFounderOptionsParams = {
@@ -24,4 +24,4 @@ export declare type EditFounderOptionsParams = {
  * permissions in the group to perform this operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions}
 */
-export declare function editFounderOptions(this: InstancedImport | AccessTokenObject | void, params: EditFounderOptionsParams, body: GroupOptionsEditAction): Promise<BungieNetResponse<number>>;
+export declare function editFounderOptions(this: AccessTokenObject | void, params: EditFounderOptionsParams, body: GroupOptionsEditAction): Promise<BungieNetResponse<number>>;

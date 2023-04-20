@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { BungieMembershipType } from '../../schemas';
 import { GroupApplicationResponse } from '../../schemas';
@@ -34,11 +34,10 @@ export type IndividualGroupInviteCancelParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
  */
 export async function individualGroupInviteCancel(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: IndividualGroupInviteCancelParams
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<GroupApplicationResponse>(token, {
       method: 'POST',

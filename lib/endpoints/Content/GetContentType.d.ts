@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ContentTypeDescription } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentType} */
 export declare type GetContentTypeParams = {
@@ -22,4 +22,4 @@ export declare type GetContentTypeParams = {
  * Gets an object describing a particular variant of content.
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
 */
-export declare function getContentType(this: InstancedImport | AccessTokenObject | void, params: GetContentTypeParams): Promise<BungieNetResponse<ContentTypeDescription>>;
+export declare function getContentType(this: AccessTokenObject | void, params: GetContentTypeParams): Promise<BungieNetResponse<ContentTypeDescription>>;

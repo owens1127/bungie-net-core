@@ -11,7 +11,6 @@ import { generateIndices } from './generate-indices.js';
 import { generateTypeDefinition } from './generate-classes.js';
 import { generateManifestUtils } from './generate-manifest.js';
 import { generateServiceDefinition } from './generate-endpoints.js';
-import { generatePackageJson } from './generate-package-json.js';
 import { computeTypeMaps } from './type-index.js';
 import { generateClient } from './generate-client.js';
 
@@ -46,6 +45,4 @@ import { generateClient } from './generate-client.js';
   });
 
   generateIndices(componentsByTag, doc, componentsByFile);
-
-  await generatePackageJson();
 })();

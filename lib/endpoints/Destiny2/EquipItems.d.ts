@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyItemSetActionRequest } from '../../schemas';
 import { DestinyEquipItemResults } from '../../schemas';
 /**
@@ -23,4 +23,4 @@ import { DestinyEquipItemResults } from '../../schemas';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipItems}
 */
-export declare function equipItems(this: InstancedImport | AccessTokenObject | void, body: DestinyItemSetActionRequest): Promise<BungieNetResponse<DestinyEquipItemResults>>;
+export declare function equipItems(this: AccessTokenObject | void, body: DestinyItemSetActionRequest): Promise<BungieNetResponse<DestinyEquipItemResults>>;

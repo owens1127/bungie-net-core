@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ForumTopicsCategoryFiltersEnum } from '../../schemas';
 import { ForumTopicsQuickDateEnum } from '../../schemas';
 import { ForumTopicsSortEnum } from '../../schemas';
@@ -37,4 +37,4 @@ export declare type GetCoreTopicsPagedParams = {
  * Gets a listing of all topics marked as part of the core group.
  * @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged}
 */
-export declare function getCoreTopicsPaged(this: InstancedImport | AccessTokenObject | void, params: GetCoreTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getCoreTopicsPaged(this: AccessTokenObject | void, params: GetCoreTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;

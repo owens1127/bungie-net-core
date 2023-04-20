@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { UserSearchPrefixRequest } from '../../schemas';
 import { UserSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
@@ -24,4 +24,4 @@ export declare type SearchByGlobalNamePostParams = {
  * Given the prefix of a global display name, returns all users who share that name.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
 */
-export declare function searchByGlobalNamePost(this: InstancedImport | AccessTokenObject | void, params: SearchByGlobalNamePostParams, body: UserSearchPrefixRequest): Promise<BungieNetResponse<UserSearchResponse>>;
+export declare function searchByGlobalNamePost(this: AccessTokenObject | void, params: SearchByGlobalNamePostParams, body: UserSearchPrefixRequest): Promise<BungieNetResponse<UserSearchResponse>>;

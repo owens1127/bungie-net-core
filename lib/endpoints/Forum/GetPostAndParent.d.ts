@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { PostSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent} */
 export declare type GetPostAndParentParams = {
@@ -24,4 +24,4 @@ export declare type GetPostAndParentParams = {
  * Returns the post specified and its immediate parent.
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent}
 */
-export declare function getPostAndParent(this: InstancedImport | AccessTokenObject | void, params: GetPostAndParentParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getPostAndParent(this: AccessTokenObject | void, params: GetPostAndParentParams): Promise<BungieNetResponse<PostSearchResponse>>;

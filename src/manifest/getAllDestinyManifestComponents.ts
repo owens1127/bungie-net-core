@@ -1,4 +1,4 @@
-import { manifestRequest as http } from '../util/rate-limiter';
+import { manifestRequest as http } from '../util/http/rate-limiter';
 import { AllDestinyManifestComponents, DestinyManifestLanguage } from './index';
 import { DestinyManifest } from '../schemas/index';
 

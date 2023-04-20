@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyClanAggregateStat } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
 export declare type GetClanAggregateStatsParams = {
@@ -32,4 +32,4 @@ export declare type GetClanAggregateStatsParams = {
  * operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
 */
-export declare function getClanAggregateStats(this: InstancedImport | AccessTokenObject | void, params: GetClanAggregateStatsParams): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;
+export declare function getClanAggregateStats(this: AccessTokenObject | void, params: GetClanAggregateStatsParams): Promise<BungieNetResponse<DestinyClanAggregateStat[]>>;

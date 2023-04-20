@@ -10,44 +10,45 @@ import * as TrendingImport from '../endpoints/Trending';
 import * as FireteamImport from '../endpoints/Fireteam';
 import * as SocialImport from '../endpoints/Social';
 import * as CoreImport from '../endpoints/Core';
-export type InstancedImport = { client: BungieClient };
-export type AccessTokenObject = { access_token: string | null };
+export type AccessTokenObject = { access_token?: string };
 /** A client for interacting with the Bungie.net API */
 export class BungieClient {
-  readonly App: typeof AppImport & InstancedImport;
-  readonly User: typeof UserImport & InstancedImport;
-  readonly Content: typeof ContentImport & InstancedImport;
-  readonly Forum: typeof ForumImport & InstancedImport;
-  readonly GroupV2: typeof GroupV2Import & InstancedImport;
-  readonly Tokens: typeof TokensImport & InstancedImport;
-  readonly Destiny2: typeof Destiny2Import & InstancedImport;
-  readonly CommunityContent: typeof CommunityContentImport & InstancedImport;
-  readonly Trending: typeof TrendingImport & InstancedImport;
-  readonly Fireteam: typeof FireteamImport & InstancedImport;
-  readonly Social: typeof SocialImport & InstancedImport;
-  readonly Core: typeof CoreImport & InstancedImport;
+  readonly App: typeof AppImport & AccessTokenObject;
+  readonly User: typeof UserImport & AccessTokenObject;
+  readonly Content: typeof ContentImport & AccessTokenObject;
+  readonly Forum: typeof ForumImport & AccessTokenObject;
+  readonly GroupV2: typeof GroupV2Import & AccessTokenObject;
+  readonly Tokens: typeof TokensImport & AccessTokenObject;
+  readonly Destiny2: typeof Destiny2Import & AccessTokenObject;
+  readonly CommunityContent: typeof CommunityContentImport & AccessTokenObject;
+  readonly Trending: typeof TrendingImport & AccessTokenObject;
+  readonly Fireteam: typeof FireteamImport & AccessTokenObject;
+  readonly Social: typeof SocialImport & AccessTokenObject;
+  readonly Core: typeof CoreImport & AccessTokenObject;
+  // tslint:disable-next-line
   public access_token?: string;
+  // tslint:disable-next-line
   constructor(access_token?: string) {
     this.access_token = access_token;
-    this.App = { ...AppImport, client: this };
-    this.User = { ...UserImport, client: this };
-    this.Content = { ...ContentImport, client: this };
-    this.Forum = { ...ForumImport, client: this };
-    this.GroupV2 = { ...GroupV2Import, client: this };
-    this.Tokens = { ...TokensImport, client: this };
-    this.Destiny2 = { ...Destiny2Import, client: this };
-    this.CommunityContent = { ...CommunityContentImport, client: this };
-    this.Trending = { ...TrendingImport, client: this };
-    this.Fireteam = { ...FireteamImport, client: this };
-    this.Social = { ...SocialImport, client: this };
-    this.Core = { ...CoreImport, client: this };
+    this.App = { ...AppImport, access_token };
+    this.User = { ...UserImport, access_token };
+    this.Content = { ...ContentImport, access_token };
+    this.Forum = { ...ForumImport, access_token };
+    this.GroupV2 = { ...GroupV2Import, access_token };
+    this.Tokens = { ...TokensImport, access_token };
+    this.Destiny2 = { ...Destiny2Import, access_token };
+    this.CommunityContent = { ...CommunityContentImport, access_token };
+    this.Trending = { ...TrendingImport, access_token };
+    this.Fireteam = { ...FireteamImport, access_token };
+    this.Social = { ...SocialImport, access_token };
+    this.Core = { ...CoreImport, access_token };
   }
 
   /**
    * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
    */
-  login(access_token: string) {
-    this.access_token = access_token;
+  login(token: string) {
+    this.access_token = token;
   }
 
   /**

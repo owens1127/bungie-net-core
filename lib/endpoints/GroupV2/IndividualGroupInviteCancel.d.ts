@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { GroupApplicationResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel} */
@@ -28,4 +28,4 @@ export declare type IndividualGroupInviteCancelParams = {
  * Cancels a pending invitation to join a group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
 */
-export declare function individualGroupInviteCancel(this: InstancedImport | AccessTokenObject | void, params: IndividualGroupInviteCancelParams): Promise<BungieNetResponse<GroupApplicationResponse>>;
+export declare function individualGroupInviteCancel(this: AccessTokenObject | void, params: IndividualGroupInviteCancelParams): Promise<BungieNetResponse<GroupApplicationResponse>>;

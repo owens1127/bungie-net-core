@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GlobalAlert } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#.GetGlobalAlerts} */
 export declare type GetGlobalAlertsParams = {
@@ -24,4 +24,4 @@ export declare type GetGlobalAlertsParams = {
  * Usually used for DOC alerts.
  * @see {@link https://bungie-net.github.io/#.GetGlobalAlerts}
 */
-export declare function getGlobalAlerts(this: InstancedImport | AccessTokenObject | void, params: GetGlobalAlertsParams): Promise<BungieNetResponse<GlobalAlert[]>>;
+export declare function getGlobalAlerts(this: AccessTokenObject | void, params: GetGlobalAlertsParams): Promise<BungieNetResponse<GlobalAlert[]>>;

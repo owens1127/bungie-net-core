@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyComponentType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyProfileResponse } from '../../schemas';
@@ -33,4 +33,4 @@ export declare type GetProfileParams<T extends DestinyComponentType[]> = {
  * Returns Destiny Profile information for the supplied membership.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetProfile}
 */
-export declare function getProfile<T extends DestinyComponentType[]>(this: InstancedImport | AccessTokenObject | void, params: GetProfileParams<T>): Promise<BungieNetResponse<DestinyProfileResponse<T>>>;
+export declare function getProfile<T extends DestinyComponentType[]>(this: AccessTokenObject | void, params: GetProfileParams<T>): Promise<BungieNetResponse<DestinyProfileResponse<T>>>;

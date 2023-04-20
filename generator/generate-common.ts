@@ -3,9 +3,10 @@ import path from 'path';
 import fs from 'fs';
 import mkdirp from 'mkdirp';
 import { OpenAPIObject } from 'openapi3-ts';
-import { oodestinyVersion } from './generate-package-json.js';
+// @ts-ignore
+import packageJson from '../package.json' assert { type: 'json' };
 
-const version = oodestinyVersion();
+const version = packageJson.version;
 export function generateHeader(doc: OpenAPIObject): string {
   const { info } = doc;
   return `/**

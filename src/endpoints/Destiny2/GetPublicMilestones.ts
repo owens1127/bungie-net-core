@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { DestinyPublicMilestone } from '../../schemas';
 /**
@@ -23,10 +23,9 @@ import { DestinyPublicMilestone } from '../../schemas';
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
  */
 export async function getPublicMilestones(
-  this: InstancedImport | AccessTokenObject | void
+  this: AccessTokenObject | void
 ): Promise<BungieNetResponse<{ [key: number]: DestinyPublicMilestone }>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<{ [key: number]: DestinyPublicMilestone }>(token, {
       method: 'GET',

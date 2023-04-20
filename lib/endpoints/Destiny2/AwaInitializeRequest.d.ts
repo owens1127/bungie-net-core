@@ -12,11 +12,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { AwaPermissionRequested } from '../../schemas';
 import { AwaInitializeResponse } from '../../schemas';
 /**
  * Initialize a request to perform an advanced write action.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaInitializeRequest}
 */
-export declare function awaInitializeRequest(this: InstancedImport | AccessTokenObject | void, body: AwaPermissionRequested): Promise<BungieNetResponse<AwaInitializeResponse>>;
+export declare function awaInitializeRequest(this: AccessTokenObject | void, body: AwaPermissionRequested): Promise<BungieNetResponse<AwaInitializeResponse>>;

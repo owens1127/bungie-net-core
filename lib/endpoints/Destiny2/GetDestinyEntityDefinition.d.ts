@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyDefinition } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition} */
 export declare type GetDestinyEntityDefinitionParams = {
@@ -37,4 +37,4 @@ export declare type GetDestinyEntityDefinitionParams = {
  * accesses this should be handy.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
 */
-export declare function getDestinyEntityDefinition(this: InstancedImport | AccessTokenObject | void, params: GetDestinyEntityDefinitionParams): Promise<BungieNetResponse<DestinyDefinition>>;
+export declare function getDestinyEntityDefinition(this: AccessTokenObject | void, params: GetDestinyEntityDefinitionParams): Promise<BungieNetResponse<DestinyDefinition>>;

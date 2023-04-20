@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { GroupOptionalConversation } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations} */
@@ -29,11 +29,10 @@ export type GetGroupOptionalConversationsParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
  */
 export async function getGroupOptionalConversations(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetGroupOptionalConversationsParams
 ): Promise<BungieNetResponse<GroupOptionalConversation[]>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<GroupOptionalConversation[]>(token, {
       method: 'GET',

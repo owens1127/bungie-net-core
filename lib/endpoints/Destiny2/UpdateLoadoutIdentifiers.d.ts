@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyLoadoutUpdateActionRequest } from '../../schemas';
 /**
  * Update the color, icon, and name of a loadout.
@@ -20,4 +20,4 @@ import { DestinyLoadoutUpdateActionRequest } from '../../schemas';
  * Wait at least 1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.UpdateLoadoutIdentifiers}
 */
-export declare function updateLoadoutIdentifiers(this: InstancedImport | AccessTokenObject | void, body: DestinyLoadoutUpdateActionRequest): Promise<BungieNetResponse<number>>;
+export declare function updateLoadoutIdentifiers(this: AccessTokenObject | void, body: DestinyLoadoutUpdateActionRequest): Promise<BungieNetResponse<number>>;

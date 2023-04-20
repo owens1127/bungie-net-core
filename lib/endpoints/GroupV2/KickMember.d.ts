@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { GroupMemberLeaveResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.KickMember} */
@@ -30,4 +30,4 @@ export declare type KickMemberParams = {
  * operation.
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
 */
-export declare function kickMember(this: InstancedImport | AccessTokenObject | void, params: KickMemberParams): Promise<BungieNetResponse<GroupMemberLeaveResult>>;
+export declare function kickMember(this: AccessTokenObject | void, params: KickMemberParams): Promise<BungieNetResponse<GroupMemberLeaveResult>>;

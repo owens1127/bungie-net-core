@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { SearchResultOfContentItemPublicContract } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentWithText} */
@@ -41,11 +41,10 @@ export type SearchContentWithTextParams = {
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
  */
 export async function searchContentWithText(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: SearchContentWithTextParams
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<SearchResultOfContentItemPublicContract>(token, {
       method: 'GET',

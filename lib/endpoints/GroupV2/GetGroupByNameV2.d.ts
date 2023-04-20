@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupNameSearchRequest } from '../../schemas';
 import { GroupResponse } from '../../schemas';
 /**
@@ -20,4 +20,4 @@ import { GroupResponse } from '../../schemas';
  * version.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByNameV2}
 */
-export declare function getGroupByNameV2(this: InstancedImport | AccessTokenObject | void, body: GroupNameSearchRequest): Promise<BungieNetResponse<GroupResponse>>;
+export declare function getGroupByNameV2(this: AccessTokenObject | void, body: GroupNameSearchRequest): Promise<BungieNetResponse<GroupResponse>>;

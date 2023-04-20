@@ -12,11 +12,11 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 /**
  * Returns a list of all available group avatars for the signed-in user.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableAvatars}
 */
-export declare function getAvailableAvatars(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
+export declare function getAvailableAvatars(this: AccessTokenObject | void): Promise<BungieNetResponse<{
     [key: number]: string;
 }>>;

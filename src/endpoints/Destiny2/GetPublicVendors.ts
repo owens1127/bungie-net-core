@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { DestinyComponentType } from '../../schemas';
 import { DestinyPublicVendorsResponse } from '../../schemas';
@@ -38,11 +38,10 @@ export type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
  */
 export async function getPublicVendors<T extends DestinyComponentType[]>(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetPublicVendorsParams<T>
 ): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<DestinyPublicVendorsResponse<T>>(token, {
       method: 'GET',

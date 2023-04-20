@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { DestinyClanAggregateStat } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
@@ -38,11 +38,10 @@ export type GetClanAggregateStatsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
  */
 export async function getClanAggregateStats(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetClanAggregateStatsParams
 ): Promise<BungieNetResponse<DestinyClanAggregateStat[]>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<DestinyClanAggregateStat[]>(token, {
       method: 'GET',

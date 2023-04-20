@@ -9,9 +9,9 @@ const manifestMetadataPromise = manifestMetaResponse(0);
 async function manifestMetaResponse(retry: number) {
   try {
     // @ts-ignore
-    let manifestMeta: { Response: Object } = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(
-      res => res.json()
-    );
+    let manifestMeta: { Response: Object } = await fetch(
+      'https://www.bungie.net/Platform/Destiny2/Manifest/'
+    ).then(res => res.json());
     if (!manifestMeta?.Response) {
       if (retry > 5) {
         console.error(new Error('Failed to download Manifest'));
@@ -51,7 +51,10 @@ export async function generateManifestUtils(
  */
 export interface AllDestinyManifestComponents {
 ${defsToInclude
-  .map(manifestComponent => `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`)
+  .map(
+    manifestComponent =>
+      `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`
+  )
   .join('')}}
 
 export const enum ManifestComponents {

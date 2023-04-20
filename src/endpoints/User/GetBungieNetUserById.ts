@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { GeneralUser } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById} */
@@ -29,11 +29,10 @@ export type GetBungieNetUserByIdParams = {
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
  */
 export async function getBungieNetUserById(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetBungieNetUserByIdParams
 ): Promise<BungieNetResponse<GeneralUser>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<GeneralUser>(token, {
       method: 'GET',

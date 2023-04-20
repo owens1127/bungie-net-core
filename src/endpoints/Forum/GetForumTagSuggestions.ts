@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { TagResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions} */
@@ -30,11 +30,10 @@ export type GetForumTagSuggestionsParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
  */
 export async function getForumTagSuggestions(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetForumTagSuggestionsParams
 ): Promise<BungieNetResponse<TagResponse[]>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<TagResponse[]>(token, {
       method: 'GET',

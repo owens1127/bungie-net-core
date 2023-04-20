@@ -34,7 +34,8 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * etc... you'll have to call in the context of a character. I know, sad but true.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyPublicVendorsResponse}
  */
-export interface DestinyPublicVendorsResponse<T extends DestinyComponentType[]> extends ComponentData {
+export interface DestinyPublicVendorsResponse<T extends DestinyComponentType[]>
+  extends ComponentData {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs

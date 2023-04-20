@@ -12,12 +12,12 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyPublicMilestone } from '../../schemas';
 /**
  * Gets public information about currently available Milestones.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
 */
-export declare function getPublicMilestones(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<{
+export declare function getPublicMilestones(this: AccessTokenObject | void): Promise<BungieNetResponse<{
     [key: number]: DestinyPublicMilestone;
 }>>;

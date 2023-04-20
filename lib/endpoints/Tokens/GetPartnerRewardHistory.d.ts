@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { PartnerRewardHistoryResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory} */
 export declare type GetPartnerRewardHistoryParams = {
@@ -26,4 +26,4 @@ export declare type GetPartnerRewardHistoryParams = {
  * and Twitch drops.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
 */
-export declare function getPartnerRewardHistory(this: InstancedImport | AccessTokenObject | void, params: GetPartnerRewardHistoryParams): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;
+export declare function getPartnerRewardHistory(this: AccessTokenObject | void, params: GetPartnerRewardHistoryParams): Promise<BungieNetResponse<PartnerRewardHistoryResponse>>;

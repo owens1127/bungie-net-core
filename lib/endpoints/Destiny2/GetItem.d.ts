@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyComponentType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyItemResponse } from '../../schemas';
@@ -37,4 +37,4 @@ export declare type GetItemParams<T extends DestinyComponentType[]> = {
  * useful instance-specific details and thus are not queryable here.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetItem}
 */
-export declare function getItem<T extends DestinyComponentType[]>(this: InstancedImport | AccessTokenObject | void, params: GetItemParams<T>): Promise<BungieNetResponse<DestinyItemResponse<T>>>;
+export declare function getItem<T extends DestinyComponentType[]>(this: AccessTokenObject | void, params: GetItemParams<T>): Promise<BungieNetResponse<DestinyItemResponse<T>>>;

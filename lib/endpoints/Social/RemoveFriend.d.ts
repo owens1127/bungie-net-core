@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 /** @see {@link https://bungie-net.github.io/#Social.RemoveFriend} */
 export declare type RemoveFriendParams = {
     /** The membership id of the user you wish to remove. */
@@ -23,4 +23,4 @@ export declare type RemoveFriendParams = {
  * friend list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.RemoveFriend}
 */
-export declare function removeFriend(this: InstancedImport | AccessTokenObject | void, params: RemoveFriendParams): Promise<BungieNetResponse<boolean>>;
+export declare function removeFriend(this: AccessTokenObject | void, params: RemoveFriendParams): Promise<BungieNetResponse<boolean>>;

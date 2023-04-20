@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { AwaAuthorizationResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken} */
@@ -29,11 +29,10 @@ export type AwaGetActionTokenParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
  */
 export async function awaGetActionToken(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: AwaGetActionTokenParams
 ): Promise<BungieNetResponse<AwaAuthorizationResult>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<AwaAuthorizationResult>(token, {
       method: 'GET',

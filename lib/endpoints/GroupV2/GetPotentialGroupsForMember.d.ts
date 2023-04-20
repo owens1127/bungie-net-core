@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupPotentialMemberStatus } from '../../schemas';
 import { GroupType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
@@ -33,4 +33,4 @@ export declare type GetPotentialGroupsForMemberParams = {
  * invited to.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
 */
-export declare function getPotentialGroupsForMember(this: InstancedImport | AccessTokenObject | void, params: GetPotentialGroupsForMemberParams): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;
+export declare function getPotentialGroupsForMember(this: AccessTokenObject | void, params: GetPotentialGroupsForMemberParams): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>>;

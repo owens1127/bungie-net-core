@@ -21,7 +21,9 @@ export function generateOAuthURL(options: CreateAuthURLOptions): string {
   const stateString = options?.state ? `&state=${options.state}` : '';
   const redirectString = options?.redirectURL ? `&redirect_uri=${options.redirectURL}` : '';
   return (
-    `https://www.bungie.net/en/OAuth/Authorize?client_id=${_credentials().BUNGIE_CLIENT_ID}&response_type=code` +
+    `https://www.bungie.net/en/OAuth/Authorize?client_id=${
+      _credentials().BUNGIE_CLIENT_ID
+    }&response_type=code` +
     redirectString +
     stateString
   );

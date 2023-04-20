@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyComponentType } from '../../schemas';
 import { DestinyPublicVendorsResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors} */
@@ -32,4 +32,4 @@ export declare type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
  * guilty of saying: 'It's a long story...'
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
 */
-export declare function getPublicVendors<T extends DestinyComponentType[]>(this: InstancedImport | AccessTokenObject | void, params: GetPublicVendorsParams<T>): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>>;
+export declare function getPublicVendors<T extends DestinyComponentType[]>(this: AccessTokenObject | void, params: GetPublicVendorsParams<T>): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>>;

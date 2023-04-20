@@ -1,14 +1,23 @@
 import { OpenAPIObject } from 'openapi3-ts';
 import { generateHeader, writeOutFile } from './generate-common.js';
 
-export function generateTestStub(tag: string, endpointName: string, doc: OpenAPIObject, argumentsList: string[]): void {
+export function generateTestStub(
+  tag: string,
+  endpointName: string,
+  doc: OpenAPIObject,
+  argumentsList: string[]
+): void {
   const filename = `__test__/api/${tag}/${endpointName}.test.ts`;
   const tests = generateTestsDefinition(tag, endpointName, argumentsList);
   const definition = [generateHeader(doc), tests].join('\n\n') + '\n';
   writeOutFile(filename, definition);
 }
 
-function generateTestsDefinition(tag: string, endpointName: string, argumentsList: string[]): string {
+function generateTestsDefinition(
+  tag: string,
+  endpointName: string,
+  argumentsList: string[]
+): string {
   const imports = `import { client, UnwrapPromise } from '../../index';
 import { ${endpointName}Tests } from '../../${tag}';
 import { describe, test, it, expect } from '@jest/globals';`;
@@ -29,7 +38,9 @@ function testCase(endpoint: string, tag: string, argumentsList: string[]): strin
   return `test(name, async () => {
         let res: ResponseType;
         try {
-            res = await client.${tag}.${endpoint}(${argumentsList.map((_, idx) => `data[${idx}]`).join(', ')})
+            res = await client.${tag}.${endpoint}(${argumentsList
+    .map((_, idx) => `data[${idx}]`)
+    .join(', ')})
             expect(res).toMatchObject({
               Response: expect.any(Object)
             });

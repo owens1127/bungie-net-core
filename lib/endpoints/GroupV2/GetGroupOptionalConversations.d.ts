@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupOptionalConversation } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations} */
 export declare type GetGroupOptionalConversationsParams = {
@@ -23,4 +23,4 @@ export declare type GetGroupOptionalConversationsParams = {
  * Gets a list of available optional conversation channels and their settings.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
 */
-export declare function getGroupOptionalConversations(this: InstancedImport | AccessTokenObject | void, params: GetGroupOptionalConversationsParams): Promise<BungieNetResponse<GroupOptionalConversation[]>>;
+export declare function getGroupOptionalConversations(this: AccessTokenObject | void, params: GetGroupOptionalConversationsParams): Promise<BungieNetResponse<GroupOptionalConversation[]>>;

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { RuntimeGroupMemberType } from '../../schemas';
 import { SearchResultOfGroupMember } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
@@ -33,4 +33,4 @@ export declare type GetMembersOfGroupParams = {
  * Get the list of members in a given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
 */
-export declare function getMembersOfGroup(this: InstancedImport | AccessTokenObject | void, params: GetMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;
+export declare function getMembersOfGroup(this: AccessTokenObject | void, params: GetMembersOfGroupParams): Promise<BungieNetResponse<SearchResultOfGroupMember>>;

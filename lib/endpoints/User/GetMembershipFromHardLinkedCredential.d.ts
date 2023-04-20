@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieCredentialType } from '../../schemas';
 import { HardLinkedUserMembership } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential} */
@@ -27,4 +27,4 @@ export declare type GetMembershipFromHardLinkedCredentialParams = {
  * that are public (just SteamID64 right now). Cross Save aware.
  * @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential}
 */
-export declare function getMembershipFromHardLinkedCredential(this: InstancedImport | AccessTokenObject | void, params: GetMembershipFromHardLinkedCredentialParams): Promise<BungieNetResponse<HardLinkedUserMembership>>;
+export declare function getMembershipFromHardLinkedCredential(this: AccessTokenObject | void, params: GetMembershipFromHardLinkedCredentialParams): Promise<BungieNetResponse<HardLinkedUserMembership>>;

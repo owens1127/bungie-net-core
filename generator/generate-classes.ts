@@ -30,11 +30,19 @@ export function generateTypeDefinition(
 ) {
   const importFiles = new Map<string, string>();
 
-  const componentDefiniton = generateComponentDefinition(component, doc, componentByDef, importFiles);
+  const componentDefiniton = generateComponentDefinition(
+    component,
+    doc,
+    componentByDef,
+    importFiles
+  );
 
   const imports: string[] = [];
   for (const [name, path] of importFiles) {
-    const importPathStr = importPath(path.replace('#/components', ''), '/' + file.replace('.ts', ''));
+    const importPathStr = importPath(
+      path.replace('#/components', ''),
+      '/' + file.replace('.ts', '')
+    );
     if (importPathStr !== name) {
       imports.push(`import { ${name} } from '${importPathStr}'`);
     }
@@ -42,7 +50,8 @@ export function generateTypeDefinition(
 
   const filename = `src/${file}`;
 
-  const definition = _.compact([generateHeader(doc), imports.join('\n'), componentDefiniton]).join('\n\n') + '\n';
+  const definition =
+    _.compact([generateHeader(doc), imports.join('\n'), componentDefiniton]).join('\n\n') + '\n';
 
   writeOutFile(filename, definition);
 }
@@ -76,7 +85,9 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
 
   const docs = component.description ? [component.description] : [];
   if (component['x-enum-is-bitmask']) {
-    docs.push(`This enum represents a set of flags - use bitwise operators to check which of these match your value.`);
+    docs.push(
+      `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
+    );
   }
 
   const docString = hyperRef ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
@@ -157,7 +168,9 @@ function generateTypeSchema(
     const docs = schema.description ? [schema.description] : [];
 
     if (schema['x-mapped-definition']) {
-      docs.push(`Mapped to ${componentByDef[schema['x-mapped-definition'].$ref].typeName} in the manifest.`);
+      docs.push(
+        `Mapped to ${componentByDef[schema['x-mapped-definition'].$ref].typeName} in the manifest.`
+      );
     }
     if (schema['x-enum-is-bitmask']) {
       docs.push(
@@ -166,7 +179,9 @@ function generateTypeSchema(
     }
     const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
     return `${comment}readonly ${param}${
-      schema.nullable || frequentlyNullProperties.includes(param) || schema.description?.toLowerCase().includes('null')
+      schema.nullable ||
+      frequentlyNullProperties.includes(param) ||
+      schema.description?.toLowerCase().includes('null')
         ? '?'
         : ''
     }: ${paramDef};`;
@@ -174,7 +189,9 @@ function generateTypeSchema(
 
   const hyperRef = seeDefHyperLink(defInfo.def);
 
-  const docString = component.description ? docComment(component.description, [hyperRef]) : docComment('', [hyperRef]);
+  const docString = component.description
+    ? docComment(component.description, [hyperRef])
+    : docComment('', [hyperRef]);
   return `${docString}\nexport interface ${defInfo.typeName}${
     defInfo.isComponentResponse || defInfo.typeName.includes('ItemComponentSetOf')
       ? '<T extends DestinyComponentType[]> '

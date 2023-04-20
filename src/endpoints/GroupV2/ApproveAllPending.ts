@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { GroupApplicationRequest } from '../../schemas';
 import { EntityActionResult } from '../../schemas';
@@ -30,12 +30,11 @@ export type ApproveAllPendingParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending}
  */
 export async function approveAllPending(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: ApproveAllPendingParams,
   body: GroupApplicationRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<EntityActionResult[]>(token, {
       method: 'POST',

@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { DestinyPostmasterTransferRequest } from '../../schemas';
 /**
@@ -27,11 +27,10 @@ import { DestinyPostmasterTransferRequest } from '../../schemas';
  * @see {@link https://bungie-net.github.io/#Destiny2.PullFromPostmaster}
  */
 export async function pullFromPostmaster(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   body: DestinyPostmasterTransferRequest
 ): Promise<BungieNetResponse<number>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<number>(token, {
       method: 'POST',

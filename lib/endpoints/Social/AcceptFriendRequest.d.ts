@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 /** @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest} */
 export declare type AcceptFriendRequestParams = {
     /** The membership id of the user you wish to accept. */
@@ -23,4 +23,4 @@ export declare type AcceptFriendRequestParams = {
  * incoming friend request list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest}
 */
-export declare function acceptFriendRequest(this: InstancedImport | AccessTokenObject | void, params: AcceptFriendRequestParams): Promise<BungieNetResponse<boolean>>;
+export declare function acceptFriendRequest(this: AccessTokenObject | void, params: AcceptFriendRequestParams): Promise<BungieNetResponse<boolean>>;

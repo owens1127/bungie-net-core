@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { FireteamPlatform } from '../../schemas';
 import { SearchResultOfFireteamResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
@@ -41,4 +41,4 @@ export declare type GetMyClanFireteamsParams = {
  * alternate of.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
 */
-export declare function getMyClanFireteams(this: InstancedImport | AccessTokenObject | void, params: GetMyClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;
+export declare function getMyClanFireteams(this: AccessTokenObject | void, params: GetMyClanFireteamsParams): Promise<BungieNetResponse<SearchResultOfFireteamResponse>>;

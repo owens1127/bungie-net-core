@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 /** @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim} */
 export declare type ApplyMissingPartnerOffersWithoutClaimParams = {
     /** The partner application identifier. */
@@ -28,4 +28,4 @@ export declare type ApplyMissingPartnerOffersWithoutClaimParams = {
  * offer, but any already claimed offers will be applied to the game if not already.
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
 */
-export declare function applyMissingPartnerOffersWithoutClaim(this: InstancedImport | AccessTokenObject | void, params: ApplyMissingPartnerOffersWithoutClaimParams): Promise<BungieNetResponse<boolean>>;
+export declare function applyMissingPartnerOffersWithoutClaim(this: AccessTokenObject | void, params: ApplyMissingPartnerOffersWithoutClaimParams): Promise<BungieNetResponse<boolean>>;

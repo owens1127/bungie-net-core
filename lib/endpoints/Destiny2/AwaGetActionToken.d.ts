@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { AwaAuthorizationResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken} */
 export declare type AwaGetActionTokenParams = {
@@ -23,4 +23,4 @@ export declare type AwaGetActionTokenParams = {
  * Returns the action token if user approves the request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
 */
-export declare function awaGetActionToken(this: InstancedImport | AccessTokenObject | void, params: AwaGetActionTokenParams): Promise<BungieNetResponse<AwaAuthorizationResult>>;
+export declare function awaGetActionToken(this: AccessTokenObject | void, params: AwaGetActionTokenParams): Promise<BungieNetResponse<AwaAuthorizationResult>>;

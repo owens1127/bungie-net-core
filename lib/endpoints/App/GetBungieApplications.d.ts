@@ -12,10 +12,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { Application } from '../../schemas';
 /**
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
 */
-export declare function getBungieApplications(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<Application[]>>;
+export declare function getBungieApplications(this: AccessTokenObject | void): Promise<BungieNetResponse<Application[]>>;

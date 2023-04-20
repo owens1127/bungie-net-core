@@ -23,10 +23,5 @@ perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src
 # Transpile the library from TypeScript to js + .d.ts files
 tsc -p tsconfig.lib.json ; echo Library transpiled
 
-# copy header files
-cp ./src/bungie-api-LICENSE ./lib/bungie-api-LICENSE
-cp ./src/package.json ./lib/package.json
-cp ./src/README.md ./lib/README.md
-
-# beautify
-prettier --loglevel silent --config .prettierrc --write '{lib,src}/**/*.{ts,js}'; echo Library formatted
+# copy license
+cp ./bungie-api-LICENSE ./lib/bungie-api-LICENSE

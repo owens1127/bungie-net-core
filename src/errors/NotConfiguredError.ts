@@ -6,12 +6,12 @@ export class NotConfiguredError extends Error {
   private BUNGIE_CLIENT_SECRET: string;
   constructor() {
     super();
-    const api_key = _credentials().BUNGIE_API_KEY;
-    const client_id = _credentials().BUNGIE_CLIENT_ID;
+    const apiKey = _credentials().BUNGIE_API_KEY;
+    const clientId = _credentials().BUNGIE_CLIENT_ID;
     const secret = _credentials().BUNGIE_CLIENT_SECRET;
     this.message = `Please configure your API Key, Client ID, and Client Secret as environment variables: 'BUNGIE_API_KEY, BUNGIE_CLIENT_ID, 'BUNGIE_API_KEY, BUNGIE_CLIENT_SECRET`;
-    this.BUNGIE_API_KEY = api_key ? api_key.substring(0, 5) + '...' : '';
-    this.BUNGIE_CLIENT_ID = client_id;
+    this.BUNGIE_API_KEY = apiKey ? apiKey.substring(0, 5) + '...' : '';
+    this.BUNGIE_CLIENT_ID = clientId;
     this.BUNGIE_CLIENT_SECRET = secret ? secret.substring(0, 5) + '...' : '';
   }
 }

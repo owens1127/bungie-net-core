@@ -12,10 +12,10 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieFriendListResponse } from '../../schemas';
 /**
  * Returns your Bungie Friend list
  * @see {@link https://bungie-net.github.io/#Social.GetFriendList}
 */
-export declare function getFriendList(this: InstancedImport | AccessTokenObject | void): Promise<BungieNetResponse<BungieFriendListResponse>>;
+export declare function getFriendList(this: AccessTokenObject | void): Promise<BungieNetResponse<BungieFriendListResponse>>;

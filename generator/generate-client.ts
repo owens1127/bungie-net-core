@@ -6,23 +6,23 @@ export function generateClient(tags: string[]) {
   // });
   const comment = docComment('A client for interacting with the Bungie.net API');
   const imports = tags.map(tag => `import * as ${tag}Import from '../endpoints/${tag}';`);
-  const client = `${imports.join('\n')}\nexport type InstancedImport = { client: BungieClient };
-export type AccessTokenObject = { access_token: string | null };
+  const client = `${imports.join('\n')}\nexport type AccessTokenObject = { access_token?: string };
 ${comment}\nexport class BungieClient {
 ${indent(
   tags
     .map(tag => {
-      return `readonly ${tag}: typeof ${tag}Import & InstancedImport;`;
+      return `readonly ${tag}: typeof ${tag}Import & AccessTokenObject;`;
     })
-    .join('\n') + '\npublic access_token?: string',
+    .join('\n') + '\n// tslint:disable-next-line\npublic access_token?: string',
   1
 )}
-   constructor(access_token?: string) {
+  // tslint:disable-next-line
+  constructor(access_token?: string) {
 ${indent(
   `this.access_token = access_token;\n` +
     tags
       .map(tag => {
-        return `this.${tag} = {...${tag}Import, client: this};`;
+        return `this.${tag} = {...${tag}Import, access_token };`;
       })
       .join('\n'),
   3
@@ -32,8 +32,8 @@ ${indent(
     /**
      * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
      */
-    login(access_token: string) {
-        this.access_token = access_token;
+    login(token: string) {
+        this.access_token = token;
     }
     
     /**

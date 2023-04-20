@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { GroupApplicationRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending} */
@@ -29,4 +29,4 @@ export declare type ApprovePendingParams = {
  * applied.
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending}
 */
-export declare function approvePending(this: InstancedImport | AccessTokenObject | void, params: ApprovePendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<boolean>>;
+export declare function approvePending(this: AccessTokenObject | void, params: ApprovePendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<boolean>>;

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ContentItemPublicContract } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentById} */
 export declare type GetContentByIdParams = {
@@ -25,4 +25,4 @@ export declare type GetContentByIdParams = {
  * Returns a content item referenced by id
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
 */
-export declare function getContentById(this: InstancedImport | AccessTokenObject | void, params: GetContentByIdParams): Promise<BungieNetResponse<ContentItemPublicContract>>;
+export declare function getContentById(this: AccessTokenObject | void, params: GetContentByIdParams): Promise<BungieNetResponse<ContentItemPublicContract>>;

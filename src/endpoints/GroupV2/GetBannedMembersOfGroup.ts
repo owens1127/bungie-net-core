@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { SearchResultOfGroupBan } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
@@ -32,11 +32,10 @@ export type GetBannedMembersOfGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
  */
 export async function getBannedMembersOfGroup(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetBannedMembersOfGroupParams
 ): Promise<BungieNetResponse<SearchResultOfGroupBan>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<SearchResultOfGroupBan>(token, {
       method: 'GET',

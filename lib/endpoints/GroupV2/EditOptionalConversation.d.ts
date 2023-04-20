@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupOptionalConversationEditRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation} */
 export declare type EditOptionalConversationParams = {
@@ -26,4 +26,4 @@ export declare type EditOptionalConversationParams = {
  * permissions to the group.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
 */
-export declare function editOptionalConversation(this: InstancedImport | AccessTokenObject | void, params: EditOptionalConversationParams, body: GroupOptionalConversationEditRequest): Promise<BungieNetResponse<string>>;
+export declare function editOptionalConversation(this: AccessTokenObject | void, params: EditOptionalConversationParams, body: GroupOptionalConversationEditRequest): Promise<BungieNetResponse<string>>;

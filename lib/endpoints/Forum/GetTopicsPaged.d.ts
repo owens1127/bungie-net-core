@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { ForumTopicsCategoryFiltersEnum } from '../../schemas';
 import { ForumTopicsQuickDateEnum } from '../../schemas';
 import { ForumTopicsSortEnum } from '../../schemas';
@@ -43,4 +43,4 @@ export declare type GetTopicsPagedParams = {
  * Get topics from any forum.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
 */
-export declare function getTopicsPaged(this: InstancedImport | AccessTokenObject | void, params: GetTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;
+export declare function getTopicsPaged(this: AccessTokenObject | void, params: GetTopicsPagedParams): Promise<BungieNetResponse<PostSearchResponse>>;

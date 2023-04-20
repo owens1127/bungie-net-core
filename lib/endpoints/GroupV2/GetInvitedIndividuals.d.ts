@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { SearchResultOfGroupMemberApplication } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals} */
 export declare type GetInvitedIndividualsParams = {
@@ -25,4 +25,4 @@ export declare type GetInvitedIndividualsParams = {
  * Get the list of users who have been invited into the group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals}
 */
-export declare function getInvitedIndividuals(this: InstancedImport | AccessTokenObject | void, params: GetInvitedIndividualsParams): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;
+export declare function getInvitedIndividuals(this: AccessTokenObject | void, params: GetInvitedIndividualsParams): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>>;

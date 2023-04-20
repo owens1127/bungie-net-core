@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { SearchResultOfTrendingEntry } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory} */
 export declare type GetTrendingCategoryParams = {
@@ -25,4 +25,4 @@ export declare type GetTrendingCategoryParams = {
  * Returns paginated lists of trending items for a category.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory}
 */
-export declare function getTrendingCategory(this: InstancedImport | AccessTokenObject | void, params: GetTrendingCategoryParams): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;
+export declare function getTrendingCategory(this: AccessTokenObject | void, params: GetTrendingCategoryParams): Promise<BungieNetResponse<SearchResultOfTrendingEntry>>;

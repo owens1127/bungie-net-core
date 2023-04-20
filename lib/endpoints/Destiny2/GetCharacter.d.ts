@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyComponentType } from '../../schemas';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyCharacterResponse } from '../../schemas';
@@ -35,4 +35,4 @@ export declare type GetCharacterParams<T extends DestinyComponentType[]> = {
  * Returns character information for the supplied character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter}
 */
-export declare function getCharacter<T extends DestinyComponentType[]>(this: InstancedImport | AccessTokenObject | void, params: GetCharacterParams<T>): Promise<BungieNetResponse<DestinyCharacterResponse<T>>>;
+export declare function getCharacter<T extends DestinyComponentType[]>(this: AccessTokenObject | void, params: GetCharacterParams<T>): Promise<BungieNetResponse<DestinyCharacterResponse<T>>>;

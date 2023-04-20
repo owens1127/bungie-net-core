@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { PartnerOfferSkuHistoryResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory} */
 export declare type GetPartnerOfferSkuHistoryParams = {
@@ -29,4 +29,4 @@ export declare type GetPartnerOfferSkuHistoryParams = {
  * permissions are required to see users that are not yourself.
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
 */
-export declare function getPartnerOfferSkuHistory(this: InstancedImport | AccessTokenObject | void, params: GetPartnerOfferSkuHistoryParams): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;
+export declare function getPartnerOfferSkuHistory(this: AccessTokenObject | void, params: GetPartnerOfferSkuHistoryParams): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>>;

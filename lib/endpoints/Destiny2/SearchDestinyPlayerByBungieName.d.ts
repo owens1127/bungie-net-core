@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieMembershipType } from '../../schemas';
 import { ExactSearchRequest } from '../../schemas';
 import { UserInfoCard } from '../../schemas';
@@ -29,4 +29,4 @@ export declare type SearchDestinyPlayerByBungieNameParams = {
  * method will hide overridden memberships due to cross save.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName}
 */
-export declare function searchDestinyPlayerByBungieName(this: InstancedImport | AccessTokenObject | void, params: SearchDestinyPlayerByBungieNameParams, body: ExactSearchRequest): Promise<BungieNetResponse<UserInfoCard[]>>;
+export declare function searchDestinyPlayerByBungieName(this: AccessTokenObject | void, params: SearchDestinyPlayerByBungieNameParams, body: ExactSearchRequest): Promise<BungieNetResponse<UserInfoCard[]>>;

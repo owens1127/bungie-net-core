@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { PlatformFriendType } from '../../schemas';
 import { PlatformFriendResponse } from '../../schemas';
@@ -33,11 +33,10 @@ export type GetPlatformFriendListParams = {
  * @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList}
  */
 export async function getPlatformFriendList(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetPlatformFriendListParams
 ): Promise<BungieNetResponse<PlatformFriendResponse>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<PlatformFriendResponse>(token, {
       method: 'GET',

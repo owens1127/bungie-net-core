@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { UserSearchResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix} */
@@ -31,11 +31,10 @@ export type SearchByGlobalNamePrefixParams = {
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix}
  */
 export async function searchByGlobalNamePrefix(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: SearchByGlobalNamePrefixParams
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<UserSearchResponse>(token, {
       method: 'GET',

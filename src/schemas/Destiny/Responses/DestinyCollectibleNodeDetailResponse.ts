@@ -25,7 +25,8 @@ import { DestinyItemComponentSetOfuint32 } from '../../DestinyItemComponentSetOf
  * Collectibles that are direct descendants.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCollectibleNodeDetailResponse}
  */
-export interface DestinyCollectibleNodeDetailResponse<T extends DestinyComponentType[]> extends ComponentData {
+export interface DestinyCollectibleNodeDetailResponse<T extends DestinyComponentType[]>
+  extends ComponentData {
   /** COMPONENT TYPE: Collectibles */
   readonly collectibles: ConditionalComponent<
     T,

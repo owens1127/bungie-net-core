@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupApplicationListRequest } from '../../schemas';
 import { EntityActionResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.DenyPendingForList} */
@@ -24,4 +24,4 @@ export declare type DenyPendingForListParams = {
  * Deny all of the pending users for the given group that match the passed-in .
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyPendingForList}
 */
-export declare function denyPendingForList(this: InstancedImport | AccessTokenObject | void, params: DenyPendingForListParams, body: GroupApplicationListRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+export declare function denyPendingForList(this: AccessTokenObject | void, params: DenyPendingForListParams, body: GroupApplicationListRequest): Promise<BungieNetResponse<EntityActionResult[]>>;

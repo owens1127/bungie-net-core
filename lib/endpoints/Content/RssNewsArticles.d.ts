@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { NewsArticleRssResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
 export declare type RssNewsArticlesParams = {
@@ -27,4 +27,4 @@ export declare type RssNewsArticlesParams = {
  * Returns a JSON string response that is the RSS feed for news articles.
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
 */
-export declare function rssNewsArticles(this: InstancedImport | AccessTokenObject | void, params: RssNewsArticlesParams): Promise<BungieNetResponse<NewsArticleRssResponse>>;
+export declare function rssNewsArticles(this: AccessTokenObject | void, params: RssNewsArticlesParams): Promise<BungieNetResponse<NewsArticleRssResponse>>;

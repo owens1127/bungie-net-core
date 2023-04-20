@@ -10,32 +10,29 @@ import * as TrendingImport from '../endpoints/Trending';
 import * as FireteamImport from '../endpoints/Fireteam';
 import * as SocialImport from '../endpoints/Social';
 import * as CoreImport from '../endpoints/Core';
-export declare type InstancedImport = {
-    client: BungieClient;
-};
 export declare type AccessTokenObject = {
-    access_token: string | null;
+    access_token?: string;
 };
 /** A client for interacting with the Bungie.net API */
 export declare class BungieClient {
-    readonly App: typeof AppImport & InstancedImport;
-    readonly User: typeof UserImport & InstancedImport;
-    readonly Content: typeof ContentImport & InstancedImport;
-    readonly Forum: typeof ForumImport & InstancedImport;
-    readonly GroupV2: typeof GroupV2Import & InstancedImport;
-    readonly Tokens: typeof TokensImport & InstancedImport;
-    readonly Destiny2: typeof Destiny2Import & InstancedImport;
-    readonly CommunityContent: typeof CommunityContentImport & InstancedImport;
-    readonly Trending: typeof TrendingImport & InstancedImport;
-    readonly Fireteam: typeof FireteamImport & InstancedImport;
-    readonly Social: typeof SocialImport & InstancedImport;
-    readonly Core: typeof CoreImport & InstancedImport;
+    readonly App: typeof AppImport & AccessTokenObject;
+    readonly User: typeof UserImport & AccessTokenObject;
+    readonly Content: typeof ContentImport & AccessTokenObject;
+    readonly Forum: typeof ForumImport & AccessTokenObject;
+    readonly GroupV2: typeof GroupV2Import & AccessTokenObject;
+    readonly Tokens: typeof TokensImport & AccessTokenObject;
+    readonly Destiny2: typeof Destiny2Import & AccessTokenObject;
+    readonly CommunityContent: typeof CommunityContentImport & AccessTokenObject;
+    readonly Trending: typeof TrendingImport & AccessTokenObject;
+    readonly Fireteam: typeof FireteamImport & AccessTokenObject;
+    readonly Social: typeof SocialImport & AccessTokenObject;
+    readonly Core: typeof CoreImport & AccessTokenObject;
     access_token?: string;
     constructor(access_token?: string);
     /**
      * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
      */
-    login(access_token: string): void;
+    login(token: string): void;
     /**
      * Log the Client out.
      */

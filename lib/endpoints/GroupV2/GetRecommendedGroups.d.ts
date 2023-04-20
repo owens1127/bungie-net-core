@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupDateRange } from '../../schemas';
 import { GroupType } from '../../schemas';
 import { GroupV2Card } from '../../schemas';
@@ -28,4 +28,4 @@ export declare type GetRecommendedGroupsParams = {
  * belong.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
 */
-export declare function getRecommendedGroups(this: InstancedImport | AccessTokenObject | void, params: GetRecommendedGroupsParams): Promise<BungieNetResponse<GroupV2Card[]>>;
+export declare function getRecommendedGroups(this: AccessTokenObject | void, params: GetRecommendedGroupsParams): Promise<BungieNetResponse<GroupV2Card[]>>;

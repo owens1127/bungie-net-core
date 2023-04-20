@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { ForumPostSortEnum } from '../../schemas';
 import { PostSearchResponse } from '../../schemas';
@@ -38,11 +38,10 @@ export type GetPostsThreadedPagedParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged}
  */
 export async function getPostsThreadedPaged(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetPostsThreadedPagedParams
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<PostSearchResponse>(token, {
       method: 'GET',

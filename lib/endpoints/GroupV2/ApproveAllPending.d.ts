@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupApplicationRequest } from '../../schemas';
 import { EntityActionResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending} */
@@ -24,4 +24,4 @@ export declare type ApproveAllPendingParams = {
  * Approve all of the pending users for the given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending}
 */
-export declare function approveAllPending(this: InstancedImport | AccessTokenObject | void, params: ApproveAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;
+export declare function approveAllPending(this: AccessTokenObject | void, params: ApproveAllPendingParams, body: GroupApplicationRequest): Promise<BungieNetResponse<EntityActionResult[]>>;

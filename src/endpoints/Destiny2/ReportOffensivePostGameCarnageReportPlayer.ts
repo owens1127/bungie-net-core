@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { DestinyReportOffensePgcrRequest } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer} */
@@ -32,12 +32,11 @@ export type ReportOffensivePostGameCarnageReportPlayerParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer}
  */
 export async function reportOffensivePostGameCarnageReportPlayer(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: ReportOffensivePostGameCarnageReportPlayerParams,
   body: DestinyReportOffensePgcrRequest
 ): Promise<BungieNetResponse<number>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
     return await rateLimitedRequest<number>(token, {
       method: 'POST',

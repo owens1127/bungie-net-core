@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { GroupEditAction } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroup} */
 export declare type EditGroupParams = {
@@ -25,4 +25,4 @@ export declare type EditGroupParams = {
  * in - pass null for properties you want to leave unaltered.
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
 */
-export declare function editGroup(this: InstancedImport | AccessTokenObject | void, params: EditGroupParams, body: GroupEditAction): Promise<BungieNetResponse<number>>;
+export declare function editGroup(this: AccessTokenObject | void, params: EditGroupParams, body: GroupEditAction): Promise<BungieNetResponse<number>>;

@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { FireteamResponse } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam} */
 export declare type GetClanFireteamParams = {
@@ -25,4 +25,4 @@ export declare type GetClanFireteamParams = {
  * Gets a specific fireteam.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
 */
-export declare function getClanFireteam(this: InstancedImport | AccessTokenObject | void, params: GetClanFireteamParams): Promise<BungieNetResponse<FireteamResponse>>;
+export declare function getClanFireteam(this: AccessTokenObject | void, params: GetClanFireteamParams): Promise<BungieNetResponse<FireteamResponse>>;

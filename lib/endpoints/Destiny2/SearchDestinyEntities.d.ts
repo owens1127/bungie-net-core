@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyEntitySearchResult } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities} */
 export declare type SearchDestinyEntitiesParams = {
@@ -31,4 +31,4 @@ export declare type SearchDestinyEntitiesParams = {
  * Gets a page list of Destiny items.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities}
 */
-export declare function searchDestinyEntities(this: InstancedImport | AccessTokenObject | void, params: SearchDestinyEntitiesParams): Promise<BungieNetResponse<DestinyEntitySearchResult>>;
+export declare function searchDestinyEntities(this: AccessTokenObject | void, params: SearchDestinyEntitiesParams): Promise<BungieNetResponse<DestinyEntitySearchResult>>;

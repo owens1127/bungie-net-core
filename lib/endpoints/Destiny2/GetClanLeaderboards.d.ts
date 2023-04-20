@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyLeaderboard } from '../../schemas';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards} */
 export declare type GetClanLeaderboardsParams = {
@@ -39,7 +39,7 @@ export declare type GetClanLeaderboardsParams = {
  * that prevent desirable operation.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanLeaderboards}
 */
-export declare function getClanLeaderboards(this: InstancedImport | AccessTokenObject | void, params: GetClanLeaderboardsParams): Promise<BungieNetResponse<{
+export declare function getClanLeaderboards(this: AccessTokenObject | void, params: GetClanLeaderboardsParams): Promise<BungieNetResponse<{
     [key: string]: {
         [key: string]: DestinyLeaderboard;
     };

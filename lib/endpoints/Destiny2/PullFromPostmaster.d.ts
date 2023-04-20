@@ -12,7 +12,7 @@
  * Do not edit these files manually.
  */
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { DestinyPostmasterTransferRequest } from '../../schemas';
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
@@ -22,4 +22,4 @@ import { DestinyPostmasterTransferRequest } from '../../schemas';
  * Wait at least 0.1s between actions.
  * @see {@link https://bungie-net.github.io/#Destiny2.PullFromPostmaster}
 */
-export declare function pullFromPostmaster(this: InstancedImport | AccessTokenObject | void, body: DestinyPostmasterTransferRequest): Promise<BungieNetResponse<number>>;
+export declare function pullFromPostmaster(this: AccessTokenObject | void, body: DestinyPostmasterTransferRequest): Promise<BungieNetResponse<number>>;

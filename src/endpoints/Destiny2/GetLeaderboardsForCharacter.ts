@@ -13,9 +13,9 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/rate-limiter';
+import { rateLimitedRequest } from '../../util/http/rate-limiter';
 import { BungieNetResponse } from '../../util/server-response';
-import { InstancedImport, AccessTokenObject } from '../../util/client';
+import { AccessTokenObject } from '../../util/client';
 import { BungieAPIError } from '../../errors/BungieAPIError';
 import { BungieMembershipType } from '../../schemas';
 import { DestinyLeaderboard } from '../../schemas';
@@ -53,21 +53,23 @@ export type GetLeaderboardsForCharacterParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
  */
 export async function getLeaderboardsForCharacter(
-  this: InstancedImport | AccessTokenObject | void,
+  this: AccessTokenObject | void,
   params: GetLeaderboardsForCharacterParams
 ): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
-  const token =
-    ((this as InstancedImport)?.client?.access_token as string) ?? (this as AccessTokenObject)?.access_token ?? null;
+  const token = (this as AccessTokenObject)?.access_token ?? undefined;
   try {
-    return await rateLimitedRequest<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`,
-      params: {
-        maxtop: params.maxtop,
-        modes: params.modes,
-        statid: params.statid
+    return await rateLimitedRequest<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
+      token,
+      {
+        method: 'GET',
+        url: `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`,
+        params: {
+          maxtop: params.maxtop,
+          modes: params.modes,
+          statid: params.statid
+        }
       }
-    });
+    );
   } catch (err) {
     if (err instanceof BungieAPIError) err.stack = new Error().stack;
     throw err;
