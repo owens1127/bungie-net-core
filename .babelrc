@@ -1,12 +1,7 @@
 {
   "comments": false,
   "presets": [
-    [
-      "@babel/preset-typescript",
-      {
-        "optimizeConstEnums": true
-      }
-    ],
+    "@babel/preset-typescript",
     [
       "@babel/preset-env",
       {

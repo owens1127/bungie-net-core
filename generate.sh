@@ -17,7 +17,7 @@ rm -rf ./lib && mkdir -p lib
 tsc -p tsconfig.lib.json ; echo Typings transpiled
 
 # Transpile the library from TypeScript to JS
-babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
+# babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
 
 # remove "empty" files
 find ./lib -type f -exec sh -c 'test $(wc -l < "{}") -lt 2 && rm -f "{}"' \; ; echo Empty files removed
