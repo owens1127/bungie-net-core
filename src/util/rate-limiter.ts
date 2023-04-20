@@ -37,9 +37,7 @@ class StandardQueueItem<T> extends AQueueItem {
     const start = Date.now();
     let res: BungieNetResponse<T>;
     try {
-      res = await fetch(this.url, this.init).then(
-        response => response.json() as Promise<BungieNetResponse<T>>
-      );
+      res = await fetch(this.url, this.init).then(response => response.json() as Promise<BungieNetResponse<T>>);
     } catch (e) {
       this.reject(e as Error);
       return 0;
@@ -60,12 +58,7 @@ class ManifestQueueItem extends AQueueItem {
   readonly resolve: (value: {}) => void;
   readonly reject: (value: Error) => void;
 
-  constructor(
-    url: string,
-    init: RequestInit,
-    resolve: (value: {}) => void,
-    reject: (value: Error) => void
-  ) {
+  constructor(url: string, init: RequestInit, resolve: (value: {}) => void, reject: (value: Error) => void) {
     super(url, init);
     this.resolve = resolve;
     this.reject = reject;
@@ -133,8 +126,7 @@ export function rateLimitedRequest<T>(
   access_token: string | undefined,
   config: FetchConfig
 ): Promise<BungieNetResponse<T>> {
-  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY)
-    throw new NotConfiguredError();
+  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY) throw new NotConfiguredError();
 
   const params = queryString(config);
   const url = config.url + (params ? '?' + params.join('&') : '');
@@ -181,8 +173,7 @@ function socketAction(url: string): boolean {
 }
 
 export function manifestRequest(config: FetchConfig): Promise<any> {
-  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY)
-    throw new NotConfiguredError();
+  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY) throw new NotConfiguredError();
   const params = queryString(config);
   const url = config.url + (params ? '?' + params.join('&') : '');
   let init = {

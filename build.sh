@@ -3,7 +3,7 @@
 # Prepare the library folder(s)
 rm -rf ./build && mkdir -p build
 rm -rf ./lib && mkdir -p lib
-rm -rf ./__test__/endpoints && mkdir -p __test__/endpoints
+rm -rf ./__test__/api && mkdir -p __test__/api
 
 # clean the src folder from files that are not generated
 rm -rf ./src/endpoints
@@ -27,6 +27,7 @@ cp ./src/bungie-api-LICENSE ./lib/bungie-api-LICENSE
 cp ./src/package.json ./lib/package.json
 cp ./src/README.md ./lib/README.md
 
+typedoc --tsconfig ./tsconfig.lib.json ./src/**/* --exclude */index.ts --json __test__/schema.json
+
 # beautify
 prettier --loglevel silent --config .prettierrc --write '{lib}/**/*.{ts,js}'; echo Library formatted
-

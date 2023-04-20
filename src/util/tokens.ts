@@ -28,9 +28,7 @@ export async function getAccessTokenFromAuthCode(code: string): Promise<BungieNe
   return fetchTokens(code, 'authorization_code', 'code');
 }
 
-export async function getAccessTokenFromRefreshToken(
-  refreshToken: string
-): Promise<BungieNetTokens> {
+export async function getAccessTokenFromRefreshToken(refreshToken: string): Promise<BungieNetTokens> {
   return fetchTokens(refreshToken, 'refresh_token', 'refresh_token');
 }
 

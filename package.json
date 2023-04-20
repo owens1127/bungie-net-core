@@ -29,9 +29,12 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "transform": {
-      "^.+\\.(ts|tsx)$": ["ts-jest", {
+      "^.+\\.(ts|tsx)$": [
+        "ts-jest",
+        {
           "tsconfig": "tsconfig.test.json"
-      }]
+        }
+      ]
     },
     "testMatch": [
       "**/**.test.ts"
@@ -55,7 +58,9 @@
     "mkdirp": "^1.0.3",
     "openapi3-ts": "^2.0.2",
     "prettier": "^2.8.4",
+    "shelljs": "^0.8.5",
     "ts-jest": "^29.0.5",
+    "ts-json-schema-generator": "^1.2.0",
     "typescript": "4.5.2",
     "underscore": "1.13.6"
   }

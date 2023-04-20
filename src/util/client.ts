@@ -26,34 +26,34 @@ export class BungieClient {
   readonly Fireteam: typeof FireteamImport & InstancedImport;
   readonly Social: typeof SocialImport & InstancedImport;
   readonly Core: typeof CoreImport & InstancedImport;
-  public access_token?: string
-   constructor(access_token?: string) {
-      this.access_token = access_token;
-      this.App = {...AppImport, client: this};
-      this.User = {...UserImport, client: this};
-      this.Content = {...ContentImport, client: this};
-      this.Forum = {...ForumImport, client: this};
-      this.GroupV2 = {...GroupV2Import, client: this};
-      this.Tokens = {...TokensImport, client: this};
-      this.Destiny2 = {...Destiny2Import, client: this};
-      this.CommunityContent = {...CommunityContentImport, client: this};
-      this.Trending = {...TrendingImport, client: this};
-      this.Fireteam = {...FireteamImport, client: this};
-      this.Social = {...SocialImport, client: this};
-      this.Core = {...CoreImport, client: this};
-    }
-    
-    /**
-     * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
-     */
-    login(access_token: string) {
-        this.access_token = access_token;
-    }
-    
-    /**
-     * Log the Client out.
-     */
-    logout() {
-        this.access_token = undefined;
-    }
+  public access_token?: string;
+  constructor(access_token?: string) {
+    this.access_token = access_token;
+    this.App = { ...AppImport, client: this };
+    this.User = { ...UserImport, client: this };
+    this.Content = { ...ContentImport, client: this };
+    this.Forum = { ...ForumImport, client: this };
+    this.GroupV2 = { ...GroupV2Import, client: this };
+    this.Tokens = { ...TokensImport, client: this };
+    this.Destiny2 = { ...Destiny2Import, client: this };
+    this.CommunityContent = { ...CommunityContentImport, client: this };
+    this.Trending = { ...TrendingImport, client: this };
+    this.Fireteam = { ...FireteamImport, client: this };
+    this.Social = { ...SocialImport, client: this };
+    this.Core = { ...CoreImport, client: this };
+  }
+
+  /**
+   * Log a Client in. Remember, access codes need to be re-issued every 60 minutes.
+   */
+  login(access_token: string) {
+    this.access_token = access_token;
+  }
+
+  /**
+   * Log the Client out.
+   */
+  logout() {
+    this.access_token = undefined;
+  }
 }

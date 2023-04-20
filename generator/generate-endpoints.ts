@@ -51,10 +51,7 @@ function generatePathDefinition(
   let server = doc.servers![0].url;
   // per https://github.com/Bungie-net/api/issues/853
   // strict condition, so no surprises if doc.servers changes
-  if (
-    server === 'https://www.bungie.net/Platform' &&
-    path.includes('/Stats/PostGameCarnageReport/')
-  ) {
+  if (server === 'https://www.bungie.net/Platform' && path.includes('/Stats/PostGameCarnageReport/')) {
     server = 'https://stats.bungie.net/Platform';
   }
   const interfaceName = lastPart(pathDef.summary!);
@@ -93,22 +90,16 @@ function generatePathDefinition(
       const schema = methodDef.requestBody.content['application/json'].schema!;
 
       const paramType = resolveSchemaType(schema, doc, importFiles, componentByDef, null);
-      const docString = methodDef.requestBody.description
-        ? docComment(methodDef.requestBody.description) + '\n'
-        : '';
+      const docString = methodDef.requestBody.description ? docComment(methodDef.requestBody.description) + '\n' : '';
       argumentsList.push('body');
-      parameterArgs.push(
-        `${docString}body${methodDef.requestBody.required ? '' : '?'}: ${paramType}`
-      );
+      parameterArgs.push(`${docString}body${methodDef.requestBody.required ? '' : '?'}: ${paramType}`);
     } else if (isReferenceObject(methodDef.requestBody)) {
       throw new Error("didn't expect this");
     }
   }
 
   // tslint:disable-next-line:no-invalid-template-strings
-  const templatizedPath = path.includes('{')
-    ? `\`${server}${path.replace(/{/g, '${params.')}\``
-    : `'${server}${path}'`;
+  const templatizedPath = path.includes('{') ? `\`${server}${path.replace(/{/g, '${params.')}\`` : `'${server}${path}'`;
 
   let paramsObject = '';
   if (queryParameterNames.length) {
@@ -145,13 +136,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
     `import { InstancedImport, AccessTokenObject } from '../../util/client';`,
     `import { BungieAPIError } from '../../errors/BungieAPIError';`
   ];
-  const responseType = resolveSchemaType(
-    methodDef.responses['200'],
-    doc,
-    importFiles,
-    componentByDef,
-    null
-  );
+  const responseType = resolveSchemaType(methodDef.responses['200'], doc, importFiles, componentByDef, null);
 
   const headerImports: string[] = [];
   for (const [key] of Array.from(importFiles.entries())) {
@@ -177,9 +162,7 @@ export async function ${snakeInterface}${
     }>> {` +
     `\nconst token = (this as InstancedImport)?.client?.access_token as string ?? (this as AccessTokenObject)?.access_token ?? null
   try {
-    return await ${rateLimitedFunction}<${responseType}${
-      componentResponse.value ? '<T>' : ''
-    }>(token, {
+    return await ${rateLimitedFunction}<${responseType}${componentResponse.value ? '<T>' : ''}>(token, {
       method: '${method}',
       url: ${templatizedPath}${indent(paramsObject, 1)}${indent(requestBodyParam, 1)}
     });

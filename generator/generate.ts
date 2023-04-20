@@ -15,7 +15,6 @@ import { generatePackageJson } from './generate-package-json.js';
 import { computeTypeMaps } from './type-index.js';
 import { generateClient } from './generate-client.js';
 
-// allow some async operations
 (async () => {
   const doc = JSON.parse(fs.readFileSync('./api-src/openapi.json').toString()) as OpenAPIObject;
 
@@ -48,5 +47,5 @@ import { generateClient } from './generate-client.js';
 
   generateIndices(componentsByTag, doc, componentsByFile);
 
-  generatePackageJson();
+  await generatePackageJson();
 })();

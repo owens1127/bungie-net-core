@@ -50,19 +50,10 @@ export function typeMapping(
       return schema.format === 'int64' ? 'string' : 'number';
 
     case 'array':
-      return (
-        resolveSchemaType(schema.items!, doc, importFiles, componentByDef, mappedComponentName) +
-        '[]'
-      );
+      return resolveSchemaType(schema.items!, doc, importFiles, componentByDef, mappedComponentName) + '[]';
     case 'object':
       if (schema.allOf) {
-        return resolveSchemaType(
-          schema.allOf[0],
-          doc,
-          importFiles,
-          componentByDef,
-          mappedComponentName
-        );
+        return resolveSchemaType(schema.allOf[0], doc, importFiles, componentByDef, mappedComponentName);
       } else if (
         schema.additionalProperties &&
         schema['x-dictionary-key'] &&
@@ -147,9 +138,7 @@ export function isRequestBodyObject(
   return (requestBody as RequestBodyObject).content !== undefined;
 }
 
-export function isReferenceObject(
-  schema: SchemaObject | ReferenceObject
-): schema is ReferenceObject {
+export function isReferenceObject(schema: SchemaObject | ReferenceObject): schema is ReferenceObject {
   return (schema as ReferenceObject).$ref !== undefined;
 }
 
