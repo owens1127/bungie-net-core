@@ -22,7 +22,7 @@
   "scripts": {
     "create": "git submodule add https://github.com/Bungie-net/api api-src && git submodule init",
     "sync": "git submodule update --remote --merge",
-    "clean": "git checkout HEAD -- ./lib ./src",
+    "clean": "git checkout HEAD -- ./lib ./src ./__test__/api",
     "build": "sh ./build.sh",
     "generate": "sh ./generate.sh",
     "rebuild": "npm run sync && npm run build",
