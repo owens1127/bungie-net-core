@@ -13,7 +13,7 @@ declare type CreateAuthURLOptions = {
  * @see {@link https://github.com/Bungie-net/api/wiki/OAuth-Documentation}
  */
 export declare function generateOAuthURL(options: CreateAuthURLOptions): string;
-export { BungieClient } from './util/client.js';
+export { BungieClient } from './util/client';
 export declare const Tokens: typeof TokensImport;
 export declare const Manifest: typeof ManifestImport;
 export declare const Schema: typeof SchemaImport;

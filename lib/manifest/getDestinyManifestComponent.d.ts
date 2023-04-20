@@ -1,12 +1,6 @@
-import {
-    AllDestinyManifestComponents,
-    DestinyManifestComponentName,
-    DestinyManifestLanguage
-} from './index.js';
-import { DestinyManifest } from '../schemas/index.js';
-export interface GetDestinyManifestComponentParams<
-    T extends DestinyManifestComponentName
-> {
+import { AllDestinyManifestComponents, DestinyManifestComponentName, DestinyManifestLanguage } from './index.js';
+import { DestinyManifest } from '../schemas';
+export interface GetDestinyManifestComponentParams<T extends DestinyManifestComponentName> {
     destinyManifest: DestinyManifest;
     tableName: T;
     language: DestinyManifestLanguage;
@@ -26,8 +20,4 @@ export interface GetDestinyManifestComponentParams<
  *
  * but make sure it's not a `let x =` or a dynamically set string.
  */
-export declare function getDestinyManifestComponent<
-    T extends DestinyManifestComponentName
->(
-    params: GetDestinyManifestComponentParams<T>
-): Promise<AllDestinyManifestComponents[T]>;
+export declare function getDestinyManifestComponent<T extends DestinyManifestComponentName>(params: GetDestinyManifestComponentParams<T>): Promise<AllDestinyManifestComponents[T]>;
