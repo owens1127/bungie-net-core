@@ -11,8 +11,15 @@
     "TypeScript",
     "REST API"
   ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    "./types": "./lib/schemas/",
+    "./manifest": "./lib/manifest/",
+    "./api": "./lib/endpoints/",
+    "./util": "./lib/util/",
+    "./client": "./lib/util/client.js"
+  },
   "bugs": "https://github.com/owensimpson/oodestiny/issues",
   "license": "MIT",
   "repository": {
@@ -30,6 +37,7 @@
     "lint": "tslint -p tsconfig.lib.json",
     "test": "jest",
     "checks": "npm run lint && npm test",
+    "try": "rm -rf ./node_modules/oodestiny/lib && mkdir -p node_modules/oodestiny/lib && cp -R ./lib/* ./node_modules/oodestiny/lib",
     "push": "git push && git push --tags",
     "version": "npm run rebuild && npm run generate && npm run checks && git add -A .",
     "postversion": "npm run push"
@@ -47,11 +55,13 @@
     "@babel/runtime": "^7.21.0",
     "@jest/globals": "^29.4.3",
     "@types/jest": "^29.4.0",
+    "@types/mkdirp": "^2.0.0",
     "@types/node": "^16.11.9",
     "@types/underscore": "^1.11.3",
     "dotenv": "^16.0.3",
     "jest": "^29.4.3",
-    "mkdirp": "^1.0.3",
+    "mkdirp": "^1.0.4",
+    "oodestiny": "^2.0.4",
     "openapi3-ts": "^2.0.2",
     "prettier": "^2.8.7",
     "ts-jest": "^29.0.5",
