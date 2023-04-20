@@ -1,1 +1,0 @@
-export { getCommunityContent } from './GetCommunityContent';
