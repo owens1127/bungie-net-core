@@ -1,1 +1,1 @@
-This is a work in progress Node wrapper for the Bungie API, specifically the in-game Destiny 2 functionality. It is currently a work in progress and not ready for release.
+This is a Typescript wrapper for the Bungie API. It is mostly for personal use, but if you find any bugs please report them.
