@@ -1,8 +1,20 @@
 {
   "comments": false,
-  "presets": [["@babel/preset-typescript", { "optimizeConstEnums": true }], "@babel/preset-env"],
-  "plugins": [
-    "@babel/proposal-class-properties",
-    "@babel/proposal-object-rest-spread"
-  ]
+  "presets": [
+    [
+      "@babel/preset-typescript",
+      {
+        "optimizeConstEnums": true
+      }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "6.10"
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"]
 }
