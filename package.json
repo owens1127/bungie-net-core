@@ -26,10 +26,10 @@
     "lint": "tslint -p tsconfig.lib.json",
     "test": "jest",
     "build": "sh ./build.sh",
-    "rebuild": "npm run sync && npm run build",
+    "rebuild": "npm run sync && npm run build && npm run format",
+    "checks": "npm run lint && npm test",
     "push": "git push && git push --tags",
-    "preversion": "npm run rebuild && npm run format && npm run lint && npm test",
-    "version": "git add -A .",
+    "version": "npm run rebuild && npm run checks && git add -A .",
     "postversion": "npm run push"
   },
   "files": [
