@@ -1,7 +1,7 @@
 import { BungieNetResponse } from '../src/util/server-response';
 import { BungieClient } from '../src';
 
-type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
+export type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
 
 export interface TestCase<Endpoint extends (...args: any[]) => Promise<BungieNetResponse<any>>> {
   name: string;
