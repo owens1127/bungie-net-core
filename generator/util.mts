@@ -1,7 +1,7 @@
 import { OpenAPIObject, ReferenceObject, RequestBodyObject, SchemaObject } from 'openapi3-ts';
 import _ from 'underscore';
 import path from 'path';
-import { typeNameImports } from './generate-classes.js';
+import { typeNameImports } from './generate-classes.mjs';
 
 export const DictionaryComponentImport = './generic/DictionaryComponentResponse';
 export const DictionaryComponentPattern = /DictionaryComponentResponseOf(\w+)And(\w+)$/;

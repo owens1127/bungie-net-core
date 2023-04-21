@@ -5,11 +5,11 @@ import {
   lastPart,
   resolveSchemaType,
   seeDefHyperLink
-} from './util.js';
+} from './util.mjs';
 import { OpenAPIObject, ParameterObject, PathItemObject } from 'openapi3-ts';
-import { docComment, generateHeader, indent, writeOutFile } from './generate-common.js';
+import { docComment, generateHeader, indent, writeOutFile } from './generate-common.mjs';
 import _ from 'underscore';
-import { generateTestStub } from './generate-tests.js';
+import { generateTestStub } from './generate-tests.mjs';
 
 export function generateServiceDefinition(
   tag: string,

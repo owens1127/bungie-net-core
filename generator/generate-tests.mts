@@ -1,5 +1,5 @@
 import { OpenAPIObject } from 'openapi3-ts';
-import { generateHeader, writeOutFile } from './generate-common.js';
+import { generateHeader, writeOutFile } from './generate-common.mjs';
 
 export function generateTestStub(
   tag: string,

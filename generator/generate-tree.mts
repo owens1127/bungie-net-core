@@ -16,7 +16,7 @@ import {
   componentName,
   lastPart,
   isComponentResponse
-} from './util.js';
+} from './util.mjs';
 
 export function computeTypeMaps(
   pathPairsByTag: { [tag: string]: [string, PathItemObject][] },

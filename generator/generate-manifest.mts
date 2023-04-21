@@ -1,6 +1,6 @@
-import { DefInfo } from './util';
+import { DefInfo } from './util.mjs';
 import { OpenAPIObject } from 'openapi3-ts';
-import { writeOutFile } from './generate-common.js';
+import { writeOutFile } from './generate-common.mjs';
 
 let attempts = 0;
 const manifestMetadataPromise = manifestMetaResponse(0);

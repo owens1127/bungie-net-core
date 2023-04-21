@@ -1,4 +1,4 @@
-import { docComment, indent, writeOutFile } from './generate-common.js';
+import { docComment, indent, writeOutFile } from './generate-common.mjs';
 
 export function generateClient(tags: string[]) {
   // const properties = tags.map((tag) => {

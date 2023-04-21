@@ -11,9 +11,9 @@ import {
   resolveHashType,
   resolveSchemaType,
   seeDefHyperLink
-} from './util.js';
+} from './util.mjs';
 import { OpenAPIObject, ReferenceObject, SchemaObject } from 'openapi3-ts';
-import { generateHeader, docComment, indent, writeOutFile } from './generate-common.js';
+import { generateHeader, docComment, indent, writeOutFile } from './generate-common.mjs';
 
 /**
  * Some properties aren't marked as nullable in the openapi docs, but they are

@@ -1,6 +1,6 @@
 import { OpenAPIObject } from 'openapi3-ts';
-import { docComment, generateHeader, writeOutFile } from './generate-common.js';
-import { DefInfo, getRef } from './util.js';
+import { docComment, generateHeader, writeOutFile } from './generate-common.mjs';
+import { DefInfo, getRef } from './util.mjs';
 
 export function generateIndices(
   componentsByTag: { [p: string]: DefInfo[] },

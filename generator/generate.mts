@@ -7,12 +7,12 @@ import fs from 'fs';
 import _ from 'underscore';
 import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
 
-import { generateIndices } from './generate-indices.js';
-import { generateTypeDefinition } from './generate-classes.js';
-import { generateManifestUtils } from './generate-manifest.js';
-import { generateServiceDefinition } from './generate-endpoints.js';
-import { computeTypeMaps } from './type-index.js';
-import { generateClient } from './generate-client.js';
+import { generateIndices } from './generate-indices.mjs';
+import { generateTypeDefinition } from './generate-classes.mjs';
+import { generateManifestUtils } from './generate-manifest.mjs';
+import { generateServiceDefinition } from './generate-endpoints.mjs';
+import { computeTypeMaps } from './generate-tree.mjs';
+import { generateClient } from './generate-client.mjs';
 
 (async () => {
   const doc = JSON.parse(fs.readFileSync('./api-src/openapi.json').toString()) as OpenAPIObject;
