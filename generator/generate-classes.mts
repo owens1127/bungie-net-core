@@ -102,7 +102,8 @@ export function typeNameImports(
   doc: OpenAPIObject,
   importFiles: Map<string, string>,
   componentByDef: { [def: string]: DefInfo },
-  mappedComponentName: string | null
+  mappedComponentName: string | null,
+  isEnum: boolean
 ) {
   const name = lastPart(componentPath);
   const component = getRef(doc, componentPath);
@@ -142,7 +143,7 @@ export function typeNameImports(
   } else if (name.includes('ItemComponentSetOf')) {
     importFiles.set(name, componentPath);
     return `${name}<T>`;
-  } else if (name !== 'int64' && name !== 'int32' && name !== 'boolean') {
+  } else if (isEnum || (name !== 'int64' && name !== 'int32' && name !== 'boolean')) {
     importFiles.set(name, componentPath);
   }
   return name;

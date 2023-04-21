@@ -56,7 +56,7 @@ async function fetchTokens(code: string, type: string, key: string) {
     method: 'POST',
     data,
     headers
-  }).then(({ data }) => handleTokenResponse(data as TokenResponse));
+  }).then(({ data: res }) => handleTokenResponse(res as TokenResponse));
 }
 
 function handleTokenResponse(response: TokenResponse): BungieNetTokens {

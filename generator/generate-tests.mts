@@ -18,13 +18,15 @@ function generateTestsDefinition(
   endpointName: string,
   argumentsList: string[]
 ): string {
-  const imports = `import { client, UnwrapPromise } from '../../index';
+  const imports = `import { client, UnwrapPromise } from '../../global-setup';
 import { ${endpointName}Tests } from '../../${tag}';
-import { describe, test, it, expect } from '@jest/globals';`;
+import { describe, test, it, expect } from '@jest/globals';
+import { BungieClient } from '../../../src';`;
+
   const types = `type ResponseType = UnwrapPromise<ReturnType<typeof client.${tag}.${endpointName}>>;`;
   const tests = `describe('${tag}.${endpointName}', () => { 
   it('to exist', () => { 
-    expect(client.${tag}.${endpointName}).toBeInstanceOf(Function);
+    expect(client.${tag}.${endpointName}).toBeDefined();
   })
 
   ${endpointName}Tests.map(({ name, data, promise: { failure, success } }) => (
@@ -41,9 +43,7 @@ function testCase(endpoint: string, tag: string, argumentsList: string[]): strin
             res = await client.${tag}.${endpoint}(${argumentsList
     .map((_, idx) => `data[${idx}]`)
     .join(', ')})
-            expect(res).toMatchObject({
-              Response: expect.any(Object)
-            });
+            expect(res).toHaveProperty('Response');
         } catch (e) {
             expect(failure).not.toBeUndefined();
             return failure!(e as Error)

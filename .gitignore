@@ -6,8 +6,7 @@ node_modules
 /build
 *.tsbuildinfo
 
-/test.js
-/test.ts
+test.*
 
 *.env
 

@@ -1,3 +1,4 @@
+import { constants, TestCase } from './global-setup';
 import {
   acceptFriendRequest,
   declineFriendRequest,
@@ -8,7 +9,6 @@ import {
   removeFriend,
   removeFriendRequest
 } from '../src/endpoints/Social';
-import { TestCase } from './index';
 
 export const acceptFriendRequestTests: TestCase<typeof acceptFriendRequest>[] = [];
 export const declineFriendRequestTests: TestCase<typeof declineFriendRequest>[] = [];

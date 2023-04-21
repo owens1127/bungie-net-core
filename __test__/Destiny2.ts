@@ -1,4 +1,4 @@
-import { constants, TestCase } from './index';
+import { constants, TestCase } from './global-setup';
 import { BungieMembershipType, DestinyComponentType } from '../src/schemas';
 import {
   awaGetActionToken,
@@ -46,6 +46,8 @@ import {
   updateLoadoutIdentifiers
 } from '../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
+import { BungieAPIError } from '../src/errors/BungieAPIError';
+import { PlatformErrorCodes } from '../lib/schemas';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
 export const awaInitializeRequestTests: TestCase<typeof awaInitializeRequest>[] = [];
@@ -193,7 +195,27 @@ export const searchDestinyPlayerByBungieNameTests: TestCase<
     }
   }
 ];
-export const setItemLockStateTests: TestCase<typeof setItemLockState>[] = [];
+export const setItemLockStateTests: TestCase<typeof setItemLockState>[] = [
+  {
+    name: 'unlock my prized gjnkr',
+    data: [
+      {
+        state: false,
+        itemId: constants.gjallarhornHash.toString(),
+        characterId: constants.characterIdHunter,
+        membershipType: BungieMembershipType.TigerSteam
+      }
+    ],
+    promise: {
+      success(res) {
+        expect(res.Response).toEqual(1);
+      },
+      failure(e) {
+        expect((e as BungieAPIError<number>).ErrorCode).toEqual(PlatformErrorCodes.WebAuthRequired);
+      }
+    }
+  }
+];
 export const setQuestTrackedStateTests: TestCase<typeof setQuestTrackedState>[] = [];
 export const snapshotLoadoutTests: TestCase<typeof snapshotLoadout>[] = [];
 export const transferItemTests: TestCase<typeof transferItem>[] = [];

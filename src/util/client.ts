@@ -49,6 +49,18 @@ export class BungieClient {
    */
   login(token: string) {
     this.access_token = token;
+    this.App.access_token = token;
+    this.User.access_token = token;
+    this.Content.access_token = token;
+    this.Forum.access_token = token;
+    this.GroupV2.access_token = token;
+    this.Tokens.access_token = token;
+    this.Destiny2.access_token = token;
+    this.CommunityContent.access_token = token;
+    this.Trending.access_token = token;
+    this.Fireteam.access_token = token;
+    this.Social.access_token = token;
+    this.Core.access_token = token;
   }
 
   /**
@@ -56,5 +68,17 @@ export class BungieClient {
    */
   logout() {
     this.access_token = undefined;
+    this.App.access_token = undefined;
+    this.User.access_token = undefined;
+    this.Content.access_token = undefined;
+    this.Forum.access_token = undefined;
+    this.GroupV2.access_token = undefined;
+    this.Tokens.access_token = undefined;
+    this.Destiny2.access_token = undefined;
+    this.CommunityContent.access_token = undefined;
+    this.Trending.access_token = undefined;
+    this.Fireteam.access_token = undefined;
+    this.Social.access_token = undefined;
+    this.Core.access_token = undefined;
   }
 }

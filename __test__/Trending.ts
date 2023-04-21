@@ -1,9 +1,9 @@
+import { constants, TestCase } from './global-setup';
 import {
   getTrendingCategories,
   getTrendingCategory,
   getTrendingEntryDetail
 } from '../src/endpoints/Trending';
-import { TestCase } from './index';
 
 export const getTrendingCategoryTests: TestCase<typeof getTrendingCategory>[] = [];
 export const getTrendingCategoriesTests: TestCase<typeof getTrendingCategories>[] = [];

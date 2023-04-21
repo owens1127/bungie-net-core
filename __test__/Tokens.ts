@@ -1,3 +1,4 @@
+import { constants, TestCase } from './global-setup';
 import {
   applyMissingPartnerOffersWithoutClaim,
   claimPartnerOffer,
@@ -8,7 +9,6 @@ import {
   getPartnerOfferSkuHistory,
   getPartnerRewardHistory
 } from '../src/endpoints/Tokens';
-import { TestCase } from './index';
 
 export const applyMissingPartnerOffersWithoutClaimTests: TestCase<
   typeof applyMissingPartnerOffersWithoutClaim

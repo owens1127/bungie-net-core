@@ -2,7 +2,7 @@ import { BungieAPIError } from '../../errors/BungieAPIError';
 import { PlatformErrorCodes } from '../../schemas';
 import { BungieNetResponse } from '../server-response';
 import { AQueueItem } from './AQueueItem';
-import request, { AxiosRequestConfig } from 'axios';
+import request, { AxiosError, AxiosRequestConfig } from 'axios';
 
 const timeoutCodes = [PlatformErrorCodes.DestinyDirectBabelClientTimeout];
 
@@ -27,8 +27,14 @@ export class StandardQueueItem<T> extends AQueueItem {
     try {
       res = (await request(this.url, this.config)).data;
     } catch (e) {
-      this.reject(e as Error);
-      return 0;
+      // @ts-ignore
+      if (e.response?.data?.Message) {
+        // @ts-ignore
+        res = e.response?.data;
+      } else {
+        this.reject(e as Error);
+        return 0;
+      }
     }
     res.ResponseTime = Date.now() - start;
     if (res.ErrorCode === PlatformErrorCodes.Success) {

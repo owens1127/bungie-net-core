@@ -22,7 +22,8 @@ export class ManifestQueueItem extends AQueueItem {
       this.resolve(res.data);
     } catch (e) {
       if (!retry) return this.execute(true);
-      this.reject(e as Error);
+      // @ts-ignore
+      this.reject(e.response?.data);
     }
   }
 }

@@ -9,7 +9,7 @@ import {
   searchByGlobalNamePost,
   searchByGlobalNamePrefix
 } from '../src/endpoints/User';
-import { TestCase } from './index';
+import { TestCase } from './global-setup';
 
 export const getAvailableThemesTests: TestCase<typeof getAvailableThemes>[] = [];
 export const getBungieNetUserByIdTests: TestCase<typeof getBungieNetUserById>[] = [];

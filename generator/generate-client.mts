@@ -34,6 +34,11 @@ ${indent(
      */
     login(token: string) {
         this.access_token = token;
+        ${tags
+          .map(tag => {
+            return `this.${tag}.access_token = token;`;
+          })
+          .join('\n')}
     }
     
     /**
@@ -41,6 +46,11 @@ ${indent(
      */
     logout() {
         this.access_token = undefined;
+        ${tags
+          .map(tag => {
+            return `this.${tag}.access_token = undefined;`;
+          })
+          .join('\n')}
     }
 }`;
 

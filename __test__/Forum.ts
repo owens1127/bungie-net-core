@@ -1,4 +1,4 @@
-import { TestCase } from './index';
+import { constants, TestCase } from './global-setup';
 import {
   getCoreTopicsPaged,
   getForumTagSuggestions,

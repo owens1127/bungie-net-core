@@ -27,7 +27,7 @@
     "generate": "sh ./generate.sh",
     "rebuild": "npm run sync && npm run build",
     "format": "prettier --config .prettierrc '{generator,src,test}/**/*.ts' --write",
-    "lint": "tslint -p tsconfig.lib.json",
+    "lint": "tslint -p tsconfig.json",
     "test": "jest",
     "checks": "npm run lint && npm test",
     "try": "rm -rf ./node_modules/oodestiny/lib && mkdir -p node_modules/oodestiny/lib && cp -R ./lib/* ./node_modules/oodestiny/lib",
@@ -77,7 +77,7 @@
     "testMatch": [
       "**/**.test.ts"
     ],
-    "globalSetup": "<rootDir>/__test__/setup.ts"
+    "globalSetup": "<rootDir>/__test__/global-setup.ts"
   },
   "dependencies": {
     "axios": "^1.3.6"

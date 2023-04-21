@@ -1,4 +1,4 @@
-import { constants, TestCase } from './index';
+import { constants, TestCase } from './global-setup';
 import { expect } from '@jest/globals';
 import { getApplicationApiUsage, getBungieApplications } from '../src/endpoints/App';
 

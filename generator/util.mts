@@ -25,10 +25,17 @@ export function resolveSchemaType(
   mappedComponentName: string | null
 ): string {
   if (isReferenceObject(schema)) {
-    return typeNameImports(schema.$ref, doc, importFiles, componentByDef, mappedComponentName);
+    return typeNameImports(
+      schema.$ref,
+      doc,
+      importFiles,
+      componentByDef,
+      mappedComponentName,
+      false
+    );
   } else if ('x-enum-reference' in schema) {
     const ref = schema['x-enum-reference'].$ref;
-    return typeNameImports(ref, doc, importFiles, componentByDef, null);
+    return typeNameImports(ref, doc, importFiles, componentByDef, null, true);
   } else {
     const mappedComponentName = schema.description?.match(/COMPONENT TYPE: (\w+)/)?.[1] ?? null;
     return typeMapping(schema, doc, importFiles!, componentByDef, mappedComponentName);
