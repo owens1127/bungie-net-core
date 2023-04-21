@@ -1,6 +1,8 @@
 import { _credentials } from './credentials';
 import { TokenRequestError } from '../errors/TokenRequestError';
 import { NotConfiguredError } from '../errors/NotConfiguredError';
+import request from 'axios';
+
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
 export type Token = {
@@ -37,10 +39,10 @@ export async function getAccessTokenFromRefreshToken(
 async function fetchTokens(code: string, type: string, key: string) {
   const clientId = _credentials().BUNGIE_CLIENT_ID;
   const secret = _credentials().BUNGIE_CLIENT_SECRET;
-  let body: URLSearchParams | undefined;
+  let data: URLSearchParams | undefined;
   let headers: { ['Content-Type']: string } | undefined;
   if (secret && clientId) {
-    body = new URLSearchParams({
+    data = new URLSearchParams({
       grant_type: type,
       [key]: code,
       client_id: clientId,
@@ -50,13 +52,11 @@ async function fetchTokens(code: string, type: string, key: string) {
       'Content-Type': 'application/x-www-form-urlencoded'
     };
   } else throw new NotConfiguredError();
-  return fetch(TOKEN_URL, {
+  return request(TOKEN_URL, {
     method: 'POST',
-    body,
+    data,
     headers
-  })
-    .then(response => response.json())
-    .then(handleTokenResponse);
+  }).then(({ data }) => handleTokenResponse(data as TokenResponse));
 }
 
 function handleTokenResponse(response: TokenResponse): BungieNetTokens {

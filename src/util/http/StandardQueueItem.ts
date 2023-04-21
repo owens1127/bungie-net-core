@@ -2,6 +2,7 @@ import { BungieAPIError } from '../../errors/BungieAPIError';
 import { PlatformErrorCodes } from '../../schemas';
 import { BungieNetResponse } from '../server-response';
 import { AQueueItem } from './AQueueItem';
+import request, { AxiosRequestConfig } from 'axios';
 
 const timeoutCodes = [PlatformErrorCodes.DestinyDirectBabelClientTimeout];
 
@@ -11,11 +12,11 @@ export class StandardQueueItem<T> extends AQueueItem {
 
   constructor(
     url: string,
-    init: RequestInit,
+    config: AxiosRequestConfig,
     resolve: (value: BungieNetResponse<T>) => void,
     reject: (value: Error) => void
   ) {
-    super(url, init);
+    super(url, config);
     this.resolve = resolve;
     this.reject = reject;
   }
@@ -24,9 +25,7 @@ export class StandardQueueItem<T> extends AQueueItem {
     const start = Date.now();
     let res: BungieNetResponse<T>;
     try {
-      res = await fetch(this.url, this.init).then(
-        response => response.json() as Promise<BungieNetResponse<T>>
-      );
+      res = (await request(this.url, this.config)).data;
     } catch (e) {
       this.reject(e as Error);
       return 0;

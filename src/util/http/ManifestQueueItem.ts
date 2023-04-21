@@ -1,4 +1,5 @@
 import { AQueueItem } from './AQueueItem';
+import request, { AxiosRequestConfig } from 'axios';
 
 export class ManifestQueueItem extends AQueueItem {
   readonly resolve: (value: {}) => void;
@@ -6,20 +7,19 @@ export class ManifestQueueItem extends AQueueItem {
 
   constructor(
     url: string,
-    init: RequestInit,
+    config: AxiosRequestConfig,
     resolve: (value: {}) => void,
     reject: (value: Error) => void
   ) {
-    super(url, init);
+    super(url, config);
     this.resolve = resolve;
     this.reject = reject;
   }
 
   async execute(retry?: boolean): Promise<void> {
-    let res: {};
     try {
-      res = await fetch(this.url, this.init).then(response => response.json() as {});
-      this.resolve(res);
+      const res = await request(this.url, this.config);
+      this.resolve(res.data);
     } catch (e) {
       if (!retry) return this.execute(true);
       this.reject(e as Error);

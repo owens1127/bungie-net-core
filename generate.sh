@@ -5,7 +5,7 @@ rm ./src/manifest/manifest-types.ts
 rm ./src/util/client.ts
 
 # Run the generator to produce typescript library in ./src
-node --experimental-json-modules ./build/generate.js ; echo Generation complete, Library TypeScript generated
+node --experimental-json-modules ./build/generate.mjs ; echo Generation complete, Library TypeScript generated
 
 # fix one small error
 perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src/schemas/Destiny/Responses/DestinyItemChangeResponse.ts
@@ -14,10 +14,10 @@ perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src
 rm -rf ./lib && mkdir -p lib
 
 # Transpile the library from TypeScript to .d.ts typings
-tsc -p tsconfig.lib.json ; echo Typings transpiled
+tsc -p tsconfig.json ; echo Typings transpiled
 
 # Transpile the library from TypeScript to JS
-# babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
+babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
 
 # remove "empty" files
 find ./lib -type f -exec sh -c 'test $(wc -l < "{}") -lt 2 && rm -f "{}"' \; ; echo Empty files removed

@@ -1,11 +1,11 @@
-import { NotConfiguredError } from '../../errors/NotConfiguredError';
 import { _credentials } from '../credentials';
+import { NotConfiguredError } from '../../errors/NotConfiguredError';
 import { BungieNetResponse } from '../server-response';
 import { RateLimitedQueue } from './RateLimitedQueue';
 import { StandardQueueItem } from './StandardQueueItem';
 import { ManifestQueueItem } from './ManifestQueueItem';
 
-const basicQueue = new RateLimitedQueue<StandardQueueItem<any>>(50);
+const basicQueue = new RateLimitedQueue<StandardQueueItem<any>>(30);
 const transferQueue = new RateLimitedQueue<StandardQueueItem<any>>(100);
 const socketQueue = new RateLimitedQueue<StandardQueueItem<any>>(100);
 const manifestQueue = new RateLimitedQueue<ManifestQueueItem>(100);
