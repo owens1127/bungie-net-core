@@ -1,6 +1,7 @@
+import { AxiosRequestConfig } from 'axios';
 export declare abstract class AQueueItem {
     readonly url: string;
-    readonly init: RequestInit;
-    constructor(url: string, init: RequestInit);
+    readonly config: AxiosRequestConfig;
+    constructor(url: string, config: AxiosRequestConfig);
     abstract execute(retry?: boolean): Promise<number | void>;
 }
