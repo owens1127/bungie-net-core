@@ -1,6 +1,6 @@
 {
   "name": "bungie-net-core",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Owen Simpson",
   "homepage": "https://github.com/owensimpson/bungie-net-core",
   "description": "An easy way to interact with the Bungie.net API",

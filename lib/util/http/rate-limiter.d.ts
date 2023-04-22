@@ -1,5 +1,5 @@
-import { BungieNetResponse } from '../server-response';
-export declare type FetchConfig = {
+import { BungieNetResponse } from '../../interfaces/server-response';
+export type FetchConfig = {
     url: string;
     method: string;
     params?: {

@@ -1,4 +1,4 @@
-import { BungieNetResponse } from '../server-response';
+import { BungieNetResponse } from '../../interfaces/server-response';
 import { AQueueItem } from './AQueueItem';
 import { AxiosRequestConfig } from 'axios';
 export declare class StandardQueueItem<T> extends AQueueItem {

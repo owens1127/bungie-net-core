@@ -10,7 +10,7 @@ import * as TrendingImport from '../endpoints/Trending';
 import * as FireteamImport from '../endpoints/Fireteam';
 import * as SocialImport from '../endpoints/Social';
 import * as CoreImport from '../endpoints/Core';
-export declare type AccessTokenObject = {
+export type AccessTokenObject = {
     access_token?: string;
 };
 /** A client for interacting with the Bungie.net API */
