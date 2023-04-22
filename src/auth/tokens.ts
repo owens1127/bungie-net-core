@@ -1,4 +1,4 @@
-import { _credentials } from './credentials';
+import { _credentials } from '../util/credentials';
 import { TokenRequestError } from '../errors/TokenRequestError';
 import { NotConfiguredError } from '../errors/NotConfiguredError';
 import request from 'axios';

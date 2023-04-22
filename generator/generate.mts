@@ -27,7 +27,7 @@ import { generateClient } from './generate-client.mjs';
   pathPairsByTag['Core'] = pathPairsByTag[''];
   delete pathPairsByTag[''];
 
-  generateClient(Object.keys(pathPairsByTag));
+  generateClient(Object.keys(pathPairsByTag), doc);
 
   const { componentsByFile, componentByDef, componentsByTag, manifestComponents } = computeTypeMaps(
     pathPairsByTag,

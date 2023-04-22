@@ -1,6 +1,6 @@
 import { BungieAPIError } from '../../errors/BungieAPIError';
-import { PlatformErrorCodes } from '../../schemas';
-import { BungieNetResponse } from '../server-response';
+import { PlatformErrorCodes } from '../../models';
+import { BungieNetResponse } from '../../interfaces/server-response';
 import { AQueueItem } from './AQueueItem';
 import request, { AxiosError, AxiosRequestConfig } from 'axios';
 

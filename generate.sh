@@ -1,14 +1,14 @@
 # clean the src folder from files that will be generated
 rm -rf ./src/endpoints
-rm -rf ./src/schemas
+rm -rf ./src/models
 rm ./src/manifest/manifest-types.ts
-rm ./src/util/client.ts
+rm ./src/client.ts
 
 # Run the generator to produce typescript library in ./src
 node --experimental-json-modules ./build/generate.mjs ; echo Generation complete, Library TypeScript generated
 
 # fix one small error
-perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src/schemas/Destiny/Responses/DestinyItemChangeResponse.ts
+perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src/models/Destiny/Responses/DestinyItemChangeResponse.ts
 
 # prepare the library folder
 rm -rf ./lib && mkdir -p lib

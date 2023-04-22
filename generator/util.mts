@@ -3,9 +3,9 @@ import _ from 'underscore';
 import path from 'path';
 import { typeNameImports } from './generate-classes.mjs';
 
-export const DictionaryComponentImport = './generic/DictionaryComponentResponse';
+export const DictionaryComponentImport = './interfaces/DictionaryComponentResponse';
 export const DictionaryComponentPattern = /DictionaryComponentResponseOf(\w+)And(\w+)$/;
-export const SingleComponentImport = './generic/SingleComponentResponse';
+export const SingleComponentImport = './interfaces/SingleComponentResponse';
 export const SingleComponentPattern = /SingleComponentResponseOf(\w+)/;
 
 export interface DefInfo {

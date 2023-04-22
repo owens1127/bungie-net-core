@@ -40,7 +40,7 @@ export function generateTypeDefinition(
   const imports: string[] = [];
   for (const [name, path] of importFiles) {
     const importPathStr = importPath(
-      path.replace('#/components', ''),
+      path.replace('#/components', '').replace('schemas', 'models'),
       '/' + file.replace('.ts', '')
     );
     if (importPathStr !== name) {
@@ -121,7 +121,7 @@ export function typeNameImports(
 
   if (name.includes('DictionaryComponentResponseOf')) {
     importFiles.set('DictionaryComponentResponse', DictionaryComponentImport);
-    importFiles.set('ConditionalComponent', './generic/ComponentTypes');
+    importFiles.set('ConditionalComponent', './interfaces/ComponentTypes');
     resolveSchemaType(component.properties?.data!, doc, importFiles, componentByDef, null);
     const data = component.properties!.data! as SchemaObject;
     const addProps = data.additionalProperties as ReferenceObject;
@@ -133,7 +133,7 @@ export function typeNameImports(
     )}, ${structure}>>`;
   } else if (name.includes('SingleComponentResponseOf')) {
     importFiles.set('SingleComponentResponse', SingleComponentImport);
-    importFiles.set('ConditionalComponent', './generic/ComponentTypes');
+    importFiles.set('ConditionalComponent', './interfaces/ComponentTypes');
     resolveSchemaType(component.properties?.['data']!, doc, importFiles, componentByDef, null);
     const data = component.properties!.data as ReferenceObject;
     const requiredComponent = componentByDef[data.$ref].componentName ?? mappedComponentName;
@@ -158,11 +158,11 @@ function generateTypeSchema(
   importFiles: Map<string, string>
 ) {
   if (defInfo.isComponentResponse) {
-    importFiles.set('ComponentData', './generic/ComponentTypes');
-    importFiles.set('DestinyComponentType', './schemas/Destiny/DestinyComponentType');
+    importFiles.set('ComponentData', './interfaces/ComponentTypes');
+    importFiles.set('DestinyComponentType', './models/Destiny/DestinyComponentType');
   }
   if (defInfo.typeName.includes('ItemComponentSetOf')) {
-    importFiles.set('DestinyComponentType', './schemas/Destiny/DestinyComponentType');
+    importFiles.set('DestinyComponentType', './models/Destiny/DestinyComponentType');
   }
   const classFields = _.map(component.properties!, (schema: SchemaObject, param) => {
     const paramDef = resolveSchemaType(schema, doc, importFiles, componentByDef, null);

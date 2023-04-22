@@ -1,6 +1,6 @@
 import { _credentials } from '../credentials';
 import { NotConfiguredError } from '../../errors/NotConfiguredError';
-import { BungieNetResponse } from '../server-response';
+import { BungieNetResponse } from '../../interfaces/server-response';
 import { RateLimitedQueue } from './RateLimitedQueue';
 import { StandardQueueItem } from './StandardQueueItem';
 import { ManifestQueueItem } from './ManifestQueueItem';

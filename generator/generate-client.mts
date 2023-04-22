@@ -1,12 +1,15 @@
-import { docComment, indent, writeOutFile } from './generate-common.mjs';
+import { OpenAPIObject } from 'openapi3-ts';
+import { docComment, generateHeader, indent, writeOutFile } from './generate-common.mjs';
 
-export function generateClient(tags: string[]) {
+export function generateClient(tags: string[], doc: OpenAPIObject) {
   // const properties = tags.map((tag) => {
   //     return `@property ${tag}`
   // });
   const comment = docComment('A client for interacting with the Bungie.net API');
-  const imports = tags.map(tag => `import * as ${tag}Import from '../endpoints/${tag}';`);
-  const client = `${imports.join('\n')}\nexport type AccessTokenObject = { access_token?: string };
+  const imports = tags.map(tag => `import * as ${tag}Import from './endpoints/${tag}';`);
+  const client = `${generateHeader(doc)}\n\n${imports.join(
+    '\n'
+  )}\nexport type AccessTokenObject = { access_token?: string };
 ${comment}\nexport class BungieClient {
 ${indent(
   tags
@@ -54,5 +57,5 @@ ${indent(
     }
 }`;
 
-  writeOutFile('src/util/client.ts', client);
+  writeOutFile('src/client.ts', client);
 }

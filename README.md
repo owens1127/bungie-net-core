@@ -1,17 +1,18 @@
-# oodestiny
+# bungie-net-core
 
 This is a Typescript wrapper for the Bungie API. It is mostly for personal use, but if you find any bugs please report them.
 
 ## Installation
 
 ```shell
-npm i oodestiny
+npm i bungie-net-core
 ```
 
 ## Example Usage
 
-```javascript
-import { generateOAuthURL, Tokens, Client } from 'oodestiny/lib';
+```typescript
+import { BungieClient } from 'bungie-net-core';
+import { generateOAuthURL, Tokens } from 'bungie-net-core/auth';
 
 // You MUST configure the library with your Bungie API credentials,
 // using the following enviroment variables:
@@ -24,17 +25,17 @@ import { generateOAuthURL, Tokens, Client } from 'oodestiny/lib';
 dotenv.config();
 
 // creates a new client, easy-peasy way for accessing basic queries
-const client = new Client();
+const client = new BungieClient();
 // All endpoints are available as fields of the client
 // See the bungie website for all the possible endpoints you can hit :D
 const manifest = await client.Destiny2.getDestinyManifest();
 ```
 
-If you want to make a simple query without a client, you can do directly import the endpoints as of version 1.7.0
+If you want to make a simple query without a client, you can directly import instead
 
-```javascript
-import { BungieMembershipType, DestinyActivityModeType } from 'oodestiny/lib/schemas'
-import { getActivityHistory } from 'oodestiny/lib/endpoints/Destiny2';
+```typescript
+import { BungieMembershipType, DestinyActivityModeType } from 'bungie-net-core/models'
+import { getActivityHistory } from 'bungie-net-core/endpoints/Destiny2';
 
 const res = await getActivityHistory({
     characterId: "2305843009468984093",

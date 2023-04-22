@@ -141,8 +141,8 @@ ${indent(paramInitializers.join(',\n'), 3)}
   const rateLimitedFunction = 'rateLimitedRequest';
   const staticImports = [
     `import { ${rateLimitedFunction} } from '../../util/http/rate-limiter';`,
-    `import { BungieNetResponse } from '../../util/server-response';`,
-    `import { AccessTokenObject } from '../../util/client';`,
+    `import { BungieNetResponse } from '../../interfaces/server-response';`,
+    `import { AccessTokenObject } from '../../client';`,
     `import { BungieAPIError } from '../../errors/BungieAPIError';`
   ];
   const responseType = resolveSchemaType(
@@ -155,7 +155,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
 
   const headerImports: string[] = [];
   for (const [key] of Array.from(importFiles.entries())) {
-    headerImports.push(`import { ${key} } from '../../schemas'`);
+    headerImports.push(`import { ${key} } from '../../models'`);
   }
   const rateDoc =
     methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&

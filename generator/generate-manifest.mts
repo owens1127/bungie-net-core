@@ -43,7 +43,7 @@ export async function generateManifestUtils(
   const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
 
   const body = `import {${defsToInclude.map(c => `\n  ${c.typeName},`).join('')}
-} from '../schemas';
+} from '../models';
 /**
  * this describes a big object holding several tables of hash-keyed DestinyDefinitions.
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,

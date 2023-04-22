@@ -102,7 +102,7 @@ function addFile(def: string): string {
     pathToDefinition === 'int64'
   )
     return '';
-  return root + '/' + pathToDefinition + `.ts`;
+  return root.replace('schemas', 'models') + '/' + pathToDefinition + `.ts`;
 }
 
 function findReachableComponents(

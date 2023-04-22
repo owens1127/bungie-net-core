@@ -1,4 +1,4 @@
-import { PlatformErrorCodes } from '../schemas/index';
+import { PlatformErrorCodes } from '../models';
 
 interface ServerResponse {
   ResponseTime: number;

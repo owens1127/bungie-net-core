@@ -12,14 +12,14 @@ export function generateIndices(
 }
 
 function generateSchemaIndex(doc: OpenAPIObject, componentsByFile: Map<string, DefInfo>) {
-  const filename = 'src/schemas/index.ts';
+  const filename = 'src/models/index.ts';
 
   const exports: string[] = [];
   for (const [component, defInfo] of componentsByFile) {
     exports.push(
       `export ${getRef(doc, defInfo.def)?.enum ? '' : 'type '}{ ${
         defInfo.typeName
-      } } from '${component.replace('schemas/', './').replace('.ts', '')}';`
+      } } from '${component.replace('models/', './').replace('.ts', '')}';`
     );
   }
 

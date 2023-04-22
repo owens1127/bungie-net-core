@@ -4,6 +4,7 @@ node_modules
 /api-src
 
 /build
+/lib
 *.tsbuildinfo
 
 test.*

@@ -1,17 +1,18 @@
 {
   "compilerOptions": {
+    "incremental": true,
+    "strictNullChecks": true,
+    "strict": true,
+
     "target": "es6",
     "module": "ES6",
-    "outDir": "./lib",
-    "sourceMap": false,
-    "strictNullChecks": true,
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+
     "declaration": true,
     "emitDeclarationOnly": false,
-
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "incremental": true
+    "sourceMap": false,
+    "outDir": "./lib"
   },
   "include": ["./src/*"],
   "exclude": ["node_modules", "**/__tests__/*", "generator", "build"]
