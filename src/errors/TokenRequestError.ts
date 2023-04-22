@@ -1,7 +1,7 @@
 /**
  * Represents an error requesting access and refresh tokens from the bungie API
  */
-import { TokenResponse } from '../util/tokens';
+import { TokenResponse } from '../auth/tokens';
 
 export class TokenRequestError extends Error {
   private response: TokenResponse;

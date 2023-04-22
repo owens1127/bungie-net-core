@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv';
 import { getAccessTokenFromAuthCode, getAccessTokenFromRefreshToken } from '../src/auth/tokens';
-import { BungieClient, generateOAuthURL } from '../src';
+import { generateOAuthURL } from '../src/auth/oauth-url';
 import { BungieNetResponse } from '../src/interfaces/server-response';
+import { BungieClient } from '../src/';
 
 export const client = new BungieClient();
 
