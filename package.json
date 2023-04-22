@@ -11,28 +11,6 @@
     "REST API"
   ],
   "types": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "require": "./lib/index.js"
-    },
-    "models": {
-      "types": "./lib/models/index.d.ts",
-      "require": "./lib/models/index.js"
-    },
-    "endpoints/*": {
-      "types": "./lib/endpoints/*/index.d.ts",
-      "require": "./lib/endpoints/*/index.js"
-    },
-    "manifest": {
-      "types": "./lib/manifest/index.d.ts",
-      "require": "./lib/manifest/index.js"
-    },
-    "auth": {
-      "types": "./lib/auth/index.d.ts",
-      "require": "./lib/auth/index.js"
-    }
-  },
   "bugs": "https://github.com/owensimpson/bungie-net-core/issues",
   "license": "MIT",
   "repository": {
