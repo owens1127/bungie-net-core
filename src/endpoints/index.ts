@@ -12,7 +12,7 @@
  */
 //
 
-export * as App from './App/index.js';
+export * as App from './App/index';
 export * as User from './User/index.js';
 export * as Content from './Content/index.js';
 export * as Forum from './Forum/index.js';

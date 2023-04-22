@@ -3,7 +3,7 @@ import {
   AllDestinyManifestComponents,
   DestinyManifestComponentName,
   DestinyManifestLanguage
-} from './index.js';
+} from './';
 import { DestinyManifest } from '../models';
 
 export interface GetDestinyManifestComponentParams<T extends DestinyManifestComponentName> {
