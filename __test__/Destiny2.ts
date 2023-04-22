@@ -47,7 +47,7 @@ import {
 } from '../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
 import { BungieAPIError } from '../src/errors/BungieAPIError';
-import { PlatformErrorCodes } from '../lib/schemas';
+import { PlatformErrorCodes } from '../lib/models';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
 export const awaInitializeRequestTests: TestCase<typeof awaInitializeRequest>[] = [];
