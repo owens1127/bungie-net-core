@@ -5,7 +5,7 @@ import {
   DestinyManifestSlice,
   getDestinyManifestComponent
 } from './';
-import { DestinyManifest } from '../schemas';
+import { DestinyManifest } from '../models';
 
 export interface GetDestinyManifestSliceParams<T extends DestinyManifestComponentName[]> {
   destinyManifest: DestinyManifest;

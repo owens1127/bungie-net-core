@@ -1,4 +1,4 @@
-import { ComponentPrivacySetting } from '../schemas/Components/ComponentPrivacySetting';
+import { ComponentPrivacySetting } from '../models/Components/ComponentPrivacySetting';
 
 export interface ComponentData {}
 

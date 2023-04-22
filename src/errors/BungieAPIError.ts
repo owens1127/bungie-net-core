@@ -2,7 +2,7 @@
  * Represents an error sending a request to the Bungie API
  */
 import { BungieNetResponse } from '../interfaces/server-response';
-import { PlatformErrorCodes } from '../schemas';
+import { PlatformErrorCodes } from '../models';
 
 export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
   readonly DetailedErrorTrace: string;

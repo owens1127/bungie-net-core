@@ -1,5 +1,5 @@
 import { constants, TestCase } from './global-setup';
-import { BungieMembershipType, DestinyComponentType } from '../src/schemas';
+import { BungieMembershipType, DestinyComponentType } from '../src/models';
 import {
   awaGetActionToken,
   awaInitializeRequest,
