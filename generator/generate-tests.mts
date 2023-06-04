@@ -20,8 +20,7 @@ function generateTestsDefinition(
 ): string {
   const imports = `import { client, UnwrapPromise } from '../../global-setup';
 import { ${endpointName}Tests } from '../../${tag}';
-import { describe, test, it, expect } from '@jest/globals';
-import { BungieClient } from '../../../src';`;
+import { describe, test, it, expect } from '@jest/globals';`;
 
   const types = `type ResponseType = UnwrapPromise<ReturnType<typeof client.${tag}.${endpointName}>>;`;
   const tests = `describe('${tag}.${endpointName}', () => { 
