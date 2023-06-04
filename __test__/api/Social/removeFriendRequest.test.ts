@@ -15,7 +15,6 @@
 import { client, UnwrapPromise } from '../../global-setup';
 import { removeFriendRequestTests } from '../../Social';
 import { describe, test, it, expect } from '@jest/globals';
-import { BungieClient } from '../../../src';
 
 type ResponseType = UnwrapPromise<ReturnType<typeof client.Social.removeFriendRequest>>;
 

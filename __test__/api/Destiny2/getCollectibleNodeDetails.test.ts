@@ -15,7 +15,6 @@
 import { client, UnwrapPromise } from '../../global-setup';
 import { getCollectibleNodeDetailsTests } from '../../Destiny2';
 import { describe, test, it, expect } from '@jest/globals';
-import { BungieClient } from '../../../src';
 
 type ResponseType = UnwrapPromise<ReturnType<typeof client.Destiny2.getCollectibleNodeDetails>>;
 

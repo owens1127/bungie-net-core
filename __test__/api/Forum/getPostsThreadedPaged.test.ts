@@ -15,7 +15,6 @@
 import { client, UnwrapPromise } from '../../global-setup';
 import { getPostsThreadedPagedTests } from '../../Forum';
 import { describe, test, it, expect } from '@jest/globals';
-import { BungieClient } from '../../../src';
 
 type ResponseType = UnwrapPromise<ReturnType<typeof client.Forum.getPostsThreadedPaged>>;
 
