@@ -2,7 +2,7 @@ import { BungieAPIError } from '../../errors/BungieAPIError';
 import { PlatformErrorCodes } from '../../models';
 import { BungieNetResponse } from '../../interfaces/server-response';
 import { AQueueItem } from './AQueueItem';
-import request, { AxiosError, AxiosRequestConfig } from 'axios';
+import fetch from 'isomorphic-fetch';
 
 const timeoutCodes = [PlatformErrorCodes.DestinyDirectBabelClientTimeout];
 
@@ -12,7 +12,7 @@ export class StandardQueueItem<T> extends AQueueItem {
 
   constructor(
     url: string,
-    config: AxiosRequestConfig,
+    config: RequestInit,
     resolve: (value: BungieNetResponse<T>) => void,
     reject: (value: Error) => void
   ) {
@@ -21,11 +21,12 @@ export class StandardQueueItem<T> extends AQueueItem {
     this.reject = reject;
   }
 
-  async execute(retry?: boolean): Promise<number> {
+  async execute(retrying?: boolean): Promise<number> {
     const start = Date.now();
     let res: BungieNetResponse<T>;
     try {
-      res = (await request(this.url, this.config)).data;
+      const response = await fetch(this.url, this.config);
+      res = (await response.json()) as BungieNetResponse<T>;
     } catch (e) {
       // @ts-ignore
       if (e.response?.data?.Message) {
@@ -39,7 +40,7 @@ export class StandardQueueItem<T> extends AQueueItem {
     res.ResponseTime = Date.now() - start;
     if (res.ErrorCode === PlatformErrorCodes.Success) {
       this.resolve(res);
-    } else if (!retry && timeoutCodes.includes(res.ErrorCode)) {
+    } else if (!retrying && timeoutCodes.includes(res.ErrorCode)) {
       return this.execute(true);
     } else {
       this.reject(new BungieAPIError(res));

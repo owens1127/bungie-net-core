@@ -28,7 +28,7 @@ export function rateLimitedRequest<T>(
   const url = config.url + (params ? '?' + params.join('&') : '');
   const init = {
     method: config.method,
-    data: config.body ? JSON.stringify(config.body) : null,
+    body: config.body ? JSON.stringify(config.body) : null,
     headers: {
       'Content-Type': 'application/json',
       'X-API-KEY': _credentials().BUNGIE_API_KEY

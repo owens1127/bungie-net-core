@@ -1,13 +1,11 @@
-import { AxiosRequestConfig } from 'axios';
-
 export abstract class AQueueItem {
   readonly url: string;
-  readonly config: AxiosRequestConfig;
+  readonly config: RequestInit;
 
-  constructor(url: string, config: AxiosRequestConfig) {
+  constructor(url: string, config: RequestInit) {
     this.url = url;
     this.config = config;
   }
 
-  abstract execute(retry?: boolean): Promise<number | void>;
+  abstract execute(retrying?: boolean): Promise<number | void>;
 }
