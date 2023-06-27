@@ -1,7 +1,6 @@
 import { _credentials } from '../util/credentials';
 import { TokenRequestError } from '../errors/TokenRequestError';
 import { NotConfiguredError } from '../errors/NotConfiguredError';
-import request from 'axios';
 
 const TOKEN_URL = 'https://www.bungie.net/platform/app/oauth/token/';
 
@@ -52,11 +51,11 @@ async function fetchTokens(code: string, type: string, key: string) {
       'Content-Type': 'application/x-www-form-urlencoded'
     };
   } else throw new NotConfiguredError();
-  return request(TOKEN_URL, {
+  return fetch(TOKEN_URL, {
     method: 'POST',
-    data,
+    body: data,
     headers
-  }).then(({ data: res }) => handleTokenResponse(res as TokenResponse));
+  }).then(async res => handleTokenResponse((await res.json()) as TokenResponse));
 }
 
 function handleTokenResponse(response: TokenResponse): BungieNetTokens {
