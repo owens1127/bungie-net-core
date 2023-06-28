@@ -32,7 +32,7 @@
     "push": "git push && git push --tags",
     "version": "npm run rebuild && npm run generate && npm run checks && git add -A .",
     "postversion": "npm run push",
-    "postpublish": "npm run push && npm i -D bungie-net-core"
+    "postpublish": "npm run push"
   },
   "files": [
     "lib/**/*"
