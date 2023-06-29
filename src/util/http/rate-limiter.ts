@@ -21,8 +21,7 @@ export function rateLimitedRequest<T>(
   accessToken: string | undefined,
   config: FetchConfig
 ): Promise<BungieNetResponse<T>> {
-  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY)
-    throw new NotConfiguredError();
+  if (!_credentials().BUNGIE_API_KEY) throw new NotConfiguredError();
 
   const params = queryString(config);
   const url = config.url + (params ? '?' + params.join('&') : '');
@@ -68,8 +67,7 @@ function socketAction(url: string): boolean {
 }
 
 export function manifestRequest(config: FetchConfig): Promise<any> {
-  if (!_credentials().BUNGIE_CLIENT_ID || !_credentials().BUNGIE_API_KEY)
-    throw new NotConfiguredError();
+  if (!_credentials().BUNGIE_API_KEY) throw new NotConfiguredError();
   const params = queryString(config);
   const url = config.url + (params ? '?' + params.join('&') : '');
   const init = {
