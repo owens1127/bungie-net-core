@@ -1,4 +1,4 @@
-export { BungieClient } from './util/client';
+export { BungieClient } from './client';
 
 export * as Auth from './auth';
 export * as Manifest from './manifest';
