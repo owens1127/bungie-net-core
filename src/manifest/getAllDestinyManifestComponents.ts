@@ -12,6 +12,8 @@ export function getAllDestinyManifestComponents(
 ): Promise<AllDestinyManifestComponents> {
   return http({
     method: 'GET',
-    url: 'https://www.bungie.net' + params.destinyManifest.jsonWorldContentPaths[params.language]
+    url:
+      'https://www.bungie.net' +
+      params.destinyManifest.jsonWorldContentPaths[params.language]
   });
 }

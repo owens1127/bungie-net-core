@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ContentItemPublicContract } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentById} */
 export type GetContentByIdParams = {
@@ -30,20 +28,14 @@ export type GetContentByIdParams = {
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
  */
 export async function getContentById(
-  this: AccessTokenObject | void,
-  params: GetContentByIdParams
+  params: GetContentByIdParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ContentItemPublicContract>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`,
-      params: {
-        head: params.head
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ContentItemPublicContract>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`,
+    params: {
+      head: params.head
+    }
+  });
 }

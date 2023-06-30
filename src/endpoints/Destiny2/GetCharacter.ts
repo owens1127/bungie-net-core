@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyCharacterResponse } from '../../models';
@@ -40,20 +38,14 @@ export type GetCharacterParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter}
  */
 export async function getCharacter<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetCharacterParams<T>
+  params: GetCharacterParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyCharacterResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyCharacterResponse<T>>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/`,
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyCharacterResponse<T>>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/`,
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

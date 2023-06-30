@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyLoadoutUpdateActionRequest } from '../../models';
 /**
  * Update the color, icon, and name of a loadout.
@@ -24,18 +22,12 @@ import { DestinyLoadoutUpdateActionRequest } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.UpdateLoadoutIdentifiers}
  */
 export async function updateLoadoutIdentifiers(
-  this: AccessTokenObject | void,
-  body: DestinyLoadoutUpdateActionRequest
+  body: DestinyLoadoutUpdateActionRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/UpdateLoadoutIdentifiers/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/UpdateLoadoutIdentifiers/',
+    body
+  });
 }

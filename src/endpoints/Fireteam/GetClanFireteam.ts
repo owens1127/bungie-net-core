@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { FireteamResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam} */
 export type GetClanFireteamParams = {
@@ -30,17 +28,11 @@ export type GetClanFireteamParams = {
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
  */
 export async function getClanFireteam(
-  this: AccessTokenObject | void,
-  params: GetClanFireteamParams
+  params: GetClanFireteamParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<FireteamResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<FireteamResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<FireteamResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
+  });
 }

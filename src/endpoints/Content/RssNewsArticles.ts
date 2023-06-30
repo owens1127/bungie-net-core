@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { NewsArticleRssResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
 export type RssNewsArticlesParams = {
@@ -32,21 +30,15 @@ export type RssNewsArticlesParams = {
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
  */
 export async function rssNewsArticles(
-  this: AccessTokenObject | void,
-  params: RssNewsArticlesParams
+  params: RssNewsArticlesParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<NewsArticleRssResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<NewsArticleRssResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`,
-      params: {
-        categoryfilter: params.categoryfilter,
-        includebody: params.includebody
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<NewsArticleRssResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`,
+    params: {
+      categoryfilter: params.categoryfilter,
+      includebody: params.includebody
+    }
+  });
 }

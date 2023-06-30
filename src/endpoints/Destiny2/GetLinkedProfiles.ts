@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { DestinyLinkedProfilesResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles} */
@@ -47,20 +45,14 @@ export type GetLinkedProfilesParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles}
  */
 export async function getLinkedProfiles(
-  this: AccessTokenObject | void,
-  params: GetLinkedProfilesParams
+  params: GetLinkedProfilesParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyLinkedProfilesResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.membershipId}/LinkedProfiles/`,
-      params: {
-        getAllMemberships: params.getAllMemberships
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyLinkedProfilesResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.membershipId}/LinkedProfiles/`,
+    params: {
+      getAllMemberships: params.getAllMemberships
+    }
+  });
 }

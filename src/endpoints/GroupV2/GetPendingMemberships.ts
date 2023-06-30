@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { SearchResultOfGroupMemberApplication } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships} */
 export type GetPendingMembershipsParams = {
@@ -31,20 +29,14 @@ export type GetPendingMembershipsParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships}
  */
 export async function getPendingMemberships(
-  this: AccessTokenObject | void,
-  params: GetPendingMembershipsParams
+  params: GetPendingMembershipsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfGroupMemberApplication>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Pending/`,
-      params: {
-        currentpage: params.currentpage
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfGroupMemberApplication>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Pending/`,
+    params: {
+      currentpage: params.currentpage
+    }
+  });
 }

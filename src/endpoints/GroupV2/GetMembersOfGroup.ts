@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { RuntimeGroupMemberType } from '../../models';
 import { SearchResultOfGroupMember } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
@@ -38,22 +36,16 @@ export type GetMembersOfGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
  */
 export async function getMembersOfGroup(
-  this: AccessTokenObject | void,
-  params: GetMembersOfGroupParams
+  params: GetMembersOfGroupParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfGroupMember>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/`,
-      params: {
-        currentpage: params.currentpage,
-        memberType: params.memberType,
-        nameSearch: params.nameSearch
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfGroupMember>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/`,
+    params: {
+      currentpage: params.currentpage,
+      memberType: params.memberType,
+      nameSearch: params.nameSearch
+    }
+  });
 }

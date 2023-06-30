@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyPostGameCarnageReportData } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport} */
 export type GetPostGameCarnageReportParams = {
@@ -28,17 +26,11 @@ export type GetPostGameCarnageReportParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport}
  */
 export async function getPostGameCarnageReport(
-  this: AccessTokenObject | void,
-  params: GetPostGameCarnageReportParams
+  params: GetPostGameCarnageReportParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyPostGameCarnageReportData>(token, {
-      method: 'GET',
-      url: `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyPostGameCarnageReportData>({
+    method: 'GET',
+    url: `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`
+  });
 }

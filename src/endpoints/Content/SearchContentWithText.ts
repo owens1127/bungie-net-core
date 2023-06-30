@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { SearchResultOfContentItemPublicContract } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Content.SearchContentWithText} */
 export type SearchContentWithTextParams = {
@@ -40,25 +38,19 @@ export type SearchContentWithTextParams = {
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
  */
 export async function searchContentWithText(
-  this: AccessTokenObject | void,
-  params: SearchContentWithTextParams
+  params: SearchContentWithTextParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfContentItemPublicContract>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/Search/${params.locale}/`,
-      params: {
-        ctype: params.ctype,
-        currentpage: params.currentpage,
-        head: params.head,
-        searchtext: params.searchtext,
-        source: params.source,
-        tag: params.tag
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfContentItemPublicContract>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/Search/${params.locale}/`,
+    params: {
+      ctype: params.ctype,
+      currentpage: params.currentpage,
+      head: params.head,
+      searchtext: params.searchtext,
+      source: params.source,
+      tag: params.tag
+    }
+  });
 }

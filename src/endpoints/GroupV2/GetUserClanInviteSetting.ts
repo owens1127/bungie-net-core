@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting} */
 export type GetUserClanInviteSettingParams = {
@@ -29,17 +27,11 @@ export type GetUserClanInviteSettingParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting}
  */
 export async function getUserClanInviteSetting(
-  this: AccessTokenObject | void,
-  params: GetUserClanInviteSettingParams
+  params: GetUserClanInviteSettingParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<boolean>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<boolean>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
+  });
 }

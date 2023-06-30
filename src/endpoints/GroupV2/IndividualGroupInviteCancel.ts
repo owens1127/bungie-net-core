@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { GroupApplicationResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel} */
@@ -33,17 +31,11 @@ export type IndividualGroupInviteCancelParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
  */
 export async function individualGroupInviteCancel(
-  this: AccessTokenObject | void,
-  params: IndividualGroupInviteCancelParams
+  params: IndividualGroupInviteCancelParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupApplicationResponse>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInviteCancel/${params.membershipType}/${params.membershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupApplicationResponse>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInviteCancel/${params.membershipType}/${params.membershipId}/`
+  });
 }

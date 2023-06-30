@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupNameSearchRequest } from '../../models';
 import { GroupResponse } from '../../models';
 /**
@@ -24,18 +22,12 @@ import { GroupResponse } from '../../models';
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByNameV2}
  */
 export async function getGroupByNameV2(
-  this: AccessTokenObject | void,
-  body: GroupNameSearchRequest
+  body: GroupNameSearchRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupResponse>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/GroupV2/NameV2/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupResponse>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/GroupV2/NameV2/',
+    body
+  });
 }

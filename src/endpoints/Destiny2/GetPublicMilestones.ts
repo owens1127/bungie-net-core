@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyPublicMilestone } from '../../models';
 /**
  * Gets public information about currently available Milestones.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
  */
 export async function getPublicMilestones(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: number]: DestinyPublicMilestone }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: number]: DestinyPublicMilestone }>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Destiny2/Milestones/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<{ [key: number]: DestinyPublicMilestone }>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Destiny2/Milestones/'
+  });
 }

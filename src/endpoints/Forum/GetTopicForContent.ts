@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
 /** @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent} */
 export type GetTopicForContentParams = {
@@ -27,17 +25,11 @@ export type GetTopicForContentParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent}
  */
 export async function getTopicForContent(
-  this: AccessTokenObject | void,
-  params: GetTopicForContentParams
+  params: GetTopicForContentParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<string>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<string>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<string>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyEntitySearchResult } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities} */
 export type SearchDestinyEntitiesParams = {
@@ -36,20 +34,14 @@ export type SearchDestinyEntitiesParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities}
  */
 export async function searchDestinyEntities(
-  this: AccessTokenObject | void,
-  params: SearchDestinyEntitiesParams
+  params: SearchDestinyEntitiesParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyEntitySearchResult>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyEntitySearchResult>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`,
-      params: {
-        page: params.page
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyEntitySearchResult>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`,
+    params: {
+      page: params.page
+    }
+  });
 }

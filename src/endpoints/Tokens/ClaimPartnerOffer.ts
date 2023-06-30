@@ -12,28 +12,20 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { PartnerOfferClaimRequest } from '../../models';
 /**
  * Claim a partner offer as the authenticated user.
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}
  */
 export async function claimPartnerOffer(
-  this: AccessTokenObject | void,
-  body: PartnerOfferClaimRequest
+  body: PartnerOfferClaimRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<boolean>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Tokens/Partner/ClaimOffer/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<boolean>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Tokens/Partner/ClaimOffer/',
+    body
+  });
 }

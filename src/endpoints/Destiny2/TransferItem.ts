@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyItemTransferRequest } from '../../models';
 /**
  * Transfer an item to/from your vault. You must have a valid Destiny account. You
@@ -26,18 +24,12 @@ import { DestinyItemTransferRequest } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.TransferItem}
  */
 export async function transferItem(
-  this: AccessTokenObject | void,
-  body: DestinyItemTransferRequest
+  body: DestinyItemTransferRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/',
+    body
+  });
 }

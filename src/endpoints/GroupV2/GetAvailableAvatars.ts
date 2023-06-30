@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
 /**
  * Returns a list of all available group avatars for the signed-in user.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableAvatars}
  */
 export async function getAvailableAvatars(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: number]: string }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: number]: string }>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/GroupV2/GetAvailableAvatars/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<{ [key: number]: string }>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/GroupV2/GetAvailableAvatars/'
+  });
 }

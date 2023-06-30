@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyClanAggregateStat } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
 export type GetClanAggregateStatsParams = {
@@ -37,20 +35,14 @@ export type GetClanAggregateStatsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
  */
 export async function getClanAggregateStats(
-  this: AccessTokenObject | void,
-  params: GetClanAggregateStatsParams
+  params: GetClanAggregateStatsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyClanAggregateStat[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyClanAggregateStat[]>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`,
-      params: {
-        modes: params.modes
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyClanAggregateStat[]>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`,
+    params: {
+      modes: params.modes
+    }
+  });
 }

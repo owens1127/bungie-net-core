@@ -33,7 +33,8 @@ import { DestinyItemPlugObjectivesComponent } from '../Components/Items/DestinyI
  * those, get your information from the DestinyInventoryDefinition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemResponse}
  */
-export interface DestinyItemResponse<T extends DestinyComponentType[]> extends ComponentData {
+export interface DestinyItemResponse<T extends DestinyComponentType[]>
+  extends ComponentData {
   /**
    * If the item is on a character, this will return the ID of the character that is
    * holding the item.

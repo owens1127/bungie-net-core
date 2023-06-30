@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { DestinyHistoricalWeaponStatsData } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory} */
@@ -33,17 +31,11 @@ export type GetUniqueWeaponHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory}
  */
 export async function getUniqueWeaponHistory(
-  this: AccessTokenObject | void,
-  params: GetUniqueWeaponHistoryParams
+  params: GetUniqueWeaponHistoryParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyHistoricalWeaponStatsData>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/UniqueWeapons/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyHistoricalWeaponStatsData>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/UniqueWeapons/`
+  });
 }

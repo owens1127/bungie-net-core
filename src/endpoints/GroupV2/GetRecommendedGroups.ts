@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupDateRange } from '../../models';
 import { GroupType } from '../../models';
 import { GroupV2Card } from '../../models';
@@ -33,17 +31,11 @@ export type GetRecommendedGroupsParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
  */
 export async function getRecommendedGroups(
-  this: AccessTokenObject | void,
-  params: GetRecommendedGroupsParams
+  params: GetRecommendedGroupsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupV2Card[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupV2Card[]>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/Recommended/${params.groupType}/${params.createDateRange}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupV2Card[]>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/Recommended/${params.groupType}/${params.createDateRange}/`
+  });
 }

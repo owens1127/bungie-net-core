@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { Application } from '../../models';
 /**
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
  */
 export async function getBungieApplications(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<Application[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<Application[]>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/App/FirstParty/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<Application[]>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/App/FirstParty/'
+  });
 }

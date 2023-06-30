@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { PartnerRewardHistoryResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory} */
 export type GetPartnerRewardHistoryParams = {
@@ -31,17 +29,11 @@ export type GetPartnerRewardHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
  */
 export async function getPartnerRewardHistory(
-  this: AccessTokenObject | void,
-  params: GetPartnerRewardHistoryParams
+  params: GetPartnerRewardHistoryParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PartnerRewardHistoryResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PartnerRewardHistoryResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.targetBnetMembershipId}/Application/${params.partnerApplicationId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PartnerRewardHistoryResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.targetBnetMembershipId}/Application/${params.partnerApplicationId}/`
+  });
 }

@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { CoreSettingsConfiguration } from '../../models';
 /**
  * Get the common settings used by the Bungie.Net environment.
  * @see {@link https://bungie-net.github.io/#.GetCommonSettings}
  */
 export async function getCommonSettings(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<CoreSettingsConfiguration>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<CoreSettingsConfiguration>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Settings/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<CoreSettingsConfiguration>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Settings/'
+  });
 }

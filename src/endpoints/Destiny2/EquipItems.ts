@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyItemSetActionRequest } from '../../models';
 import { DestinyEquipItemResults } from '../../models';
 /**
@@ -27,18 +25,12 @@ import { DestinyEquipItemResults } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.EquipItems}
  */
 export async function equipItems(
-  this: AccessTokenObject | void,
-  body: DestinyItemSetActionRequest
+  body: DestinyItemSetActionRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyEquipItemResults>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyEquipItemResults>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyEquipItemResults>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/',
+    body
+  });
 }

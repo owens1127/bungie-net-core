@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
 /** @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles} */
 export type SearchHelpArticlesParams = {
@@ -28,17 +26,11 @@ export type SearchHelpArticlesParams = {
  * @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles}
  */
 export async function searchHelpArticles(
-  this: AccessTokenObject | void,
-  params: SearchHelpArticlesParams
+  params: SearchHelpArticlesParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<object>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<object>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/SearchHelpArticles/${params.searchtext}/${params.size}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<object>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/SearchHelpArticles/${params.searchtext}/${params.size}/`
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyItemResponse } from '../../models';
@@ -42,20 +40,14 @@ export type GetItemParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetItem}
  */
 export async function getItem<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetItemParams<T>
+  params: GetItemParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyItemResponse<T>>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Item/${params.itemInstanceId}/`,
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyItemResponse<T>>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Item/${params.itemInstanceId}/`,
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

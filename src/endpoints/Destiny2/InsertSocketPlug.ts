@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyInsertPlugsActionRequest } from '../../models';
 import { DestinyItemChangeResponse } from '../../models';
 /**
@@ -31,18 +29,12 @@ import { DestinyItemChangeResponse } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.InsertSocketPlug}
  */
 export async function insertSocketPlug(
-  this: AccessTokenObject | void,
-  body: DestinyInsertPlugsActionRequest
+  body: DestinyInsertPlugsActionRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyItemChangeResponse>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyItemChangeResponse>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/',
+    body
+  });
 }

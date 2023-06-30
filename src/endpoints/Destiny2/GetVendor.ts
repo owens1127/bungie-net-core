@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyVendorResponse } from '../../models';
@@ -42,20 +40,14 @@ export type GetVendorParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendor}
  */
 export async function getVendor<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetVendorParams<T>
+  params: GetVendorParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyVendorResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyVendorResponse<T>>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/${params.vendorHash}/`,
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyVendorResponse<T>>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/${params.vendorHash}/`,
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

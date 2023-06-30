@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { TrendingEntryType } from '../../models';
 import { TrendingDetail } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail} */
@@ -34,17 +32,11 @@ export type GetTrendingEntryDetailParams = {
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail}
  */
 export async function getTrendingEntryDetail(
-  this: AccessTokenObject | void,
-  params: GetTrendingEntryDetailParams
+  params: GetTrendingEntryDetailParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<TrendingDetail>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<TrendingDetail>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Trending/Details/${params.trendingEntryType}/${params.identifier}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<TrendingDetail>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Trending/Details/${params.trendingEntryType}/${params.identifier}/`
+  });
 }

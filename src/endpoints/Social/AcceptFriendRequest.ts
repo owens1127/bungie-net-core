@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
 /** @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest} */
 export type AcceptFriendRequestParams = {
@@ -29,17 +27,11 @@ export type AcceptFriendRequestParams = {
  * @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest}
  */
 export async function acceptFriendRequest(
-  this: AccessTokenObject | void,
-  params: AcceptFriendRequestParams
+  params: AcceptFriendRequestParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<boolean>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/Social/Friends/Requests/Accept/${params.membershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<boolean>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/Social/Friends/Requests/Accept/${params.membershipId}/`
+  });
 }

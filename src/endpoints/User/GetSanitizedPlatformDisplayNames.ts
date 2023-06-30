@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieCredentialType } from '../../models';
 /** @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames} */
 export type GetSanitizedPlatformDisplayNamesParams = {
@@ -30,17 +28,11 @@ export type GetSanitizedPlatformDisplayNamesParams = {
  * @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames}
  */
 export async function getSanitizedPlatformDisplayNames(
-  this: AccessTokenObject | void,
-  params: GetSanitizedPlatformDisplayNamesParams
+  params: GetSanitizedPlatformDisplayNamesParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key in BungieCredentialType]: string }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key in BungieCredentialType]: string }>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<{ [key in BungieCredentialType]: string }>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
+  });
 }

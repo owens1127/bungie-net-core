@@ -38,7 +38,9 @@ export interface DestinyManifest {
    * unsafe and subject to change - do not depend on data in these files staying
    * around long-term.
    */
-  readonly jsonWorldComponentContentPaths: { [key: string]: { [key: string]: string } };
+  readonly jsonWorldComponentContentPaths: {
+    [key: string]: { [key: string]: string };
+  };
   readonly mobileClanBannerDatabasePath: string;
   readonly mobileGearCDN: { [key: string]: string };
   /**

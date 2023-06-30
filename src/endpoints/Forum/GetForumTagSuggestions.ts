@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { TagResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions} */
 export type GetForumTagSuggestionsParams = {
@@ -29,20 +27,14 @@ export type GetForumTagSuggestionsParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
  */
 export async function getForumTagSuggestions(
-  this: AccessTokenObject | void,
-  params: GetForumTagSuggestionsParams
+  params: GetForumTagSuggestionsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<TagResponse[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<TagResponse[]>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/',
-      params: {
-        partialtag: params.partialtag
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<TagResponse[]>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/',
+    params: {
+      partialtag: params.partialtag
+    }
+  });
 }

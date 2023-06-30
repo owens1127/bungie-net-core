@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyMilestone } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState} */
 export type GetClanWeeklyRewardStateParams = {
@@ -29,17 +27,11 @@ export type GetClanWeeklyRewardStateParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState}
  */
 export async function getClanWeeklyRewardState(
-  this: AccessTokenObject | void,
-  params: GetClanWeeklyRewardStateParams
+  params: GetClanWeeklyRewardStateParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyMilestone>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyMilestone>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyMilestone>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`
+  });
 }

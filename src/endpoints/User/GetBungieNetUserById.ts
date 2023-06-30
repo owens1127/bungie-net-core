@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GeneralUser } from '../../models';
 /** @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById} */
 export type GetBungieNetUserByIdParams = {
@@ -28,17 +26,11 @@ export type GetBungieNetUserByIdParams = {
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
  */
 export async function getBungieNetUserById(
-  this: AccessTokenObject | void,
-  params: GetBungieNetUserByIdParams
+  params: GetBungieNetUserByIdParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GeneralUser>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GeneralUser>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GeneralUser>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
+  });
 }

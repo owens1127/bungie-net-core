@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { UserSearchPrefixRequest } from '../../models';
 import { UserSearchResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
@@ -29,19 +27,13 @@ export type SearchByGlobalNamePostParams = {
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
  */
 export async function searchByGlobalNamePost(
-  this: AccessTokenObject | void,
   params: SearchByGlobalNamePostParams,
-  body: UserSearchPrefixRequest
+  body: UserSearchPrefixRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<UserSearchResponse>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<UserSearchResponse>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`,
+    body
+  });
 }

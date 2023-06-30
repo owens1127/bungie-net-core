@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { DestinyLeaderboard } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboards} */
@@ -47,25 +45,20 @@ export type GetLeaderboardsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboards}
  */
 export async function getLeaderboards(
-  this: AccessTokenObject | void,
-  params: GetLeaderboardsParams
-): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
-      token,
-      {
-        method: 'GET',
-        url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/Leaderboards/`,
-        params: {
-          maxtop: params.maxtop,
-          modes: params.modes,
-          statid: params.statid
-        }
+  params: GetLeaderboardsParams,
+  client: BungieClientProtocol
+): Promise<
+  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
+> {
+  return client.fetch<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
+    {
+      method: 'GET',
+      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/Leaderboards/`,
+      params: {
+        maxtop: params.maxtop,
+        modes: params.modes,
+        statid: params.statid
       }
-    );
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+    }
+  );
 }

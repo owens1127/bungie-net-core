@@ -43,5 +43,7 @@ export interface GroupResponse {
    * an outstanding invitation to join. Note that because of account linking, a user
    * can sometimes be part of a clan more than once.
    */
-  readonly currentUserPotentialMemberMap: { [key in BungieMembershipType]: GroupPotentialMember };
+  readonly currentUserPotentialMemberMap: {
+    [key in BungieMembershipType]: GroupPotentialMember;
+  };
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ClanBanner } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner} */
 export type EditClanBannerParams = {
@@ -29,19 +27,13 @@ export type EditClanBannerParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
  */
 export async function editClanBanner(
-  this: AccessTokenObject | void,
   params: EditClanBannerParams,
-  body: ClanBanner
+  body: ClanBanner,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditClanBanner/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditClanBanner/`,
+    body
+  });
 }

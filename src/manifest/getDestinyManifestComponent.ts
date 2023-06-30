@@ -6,7 +6,9 @@ import {
 } from './';
 import { DestinyManifest } from '../models';
 
-export interface GetDestinyManifestComponentParams<T extends DestinyManifestComponentName> {
+export interface GetDestinyManifestComponentParams<
+  T extends DestinyManifestComponentName
+> {
   destinyManifest: DestinyManifest;
   tableName: T;
   language: DestinyManifestLanguage;
@@ -26,14 +28,18 @@ export interface GetDestinyManifestComponentParams<T extends DestinyManifestComp
  *
  * but make sure it's not a `let x =` or a dynamically set string.
  */
-export async function getDestinyManifestComponent<T extends DestinyManifestComponentName>(
+export async function getDestinyManifestComponent<
+  T extends DestinyManifestComponentName
+>(
   params: GetDestinyManifestComponentParams<T>
 ): Promise<AllDestinyManifestComponents[T]> {
   const r = {
     method: 'GET' as const,
     url:
       'https://www.bungie.net' +
-      params.destinyManifest.jsonWorldComponentContentPaths[params.language][params.tableName]
+      params.destinyManifest.jsonWorldComponentContentPaths[params.language][
+        params.tableName
+      ]
   };
   try {
     return await http(r);

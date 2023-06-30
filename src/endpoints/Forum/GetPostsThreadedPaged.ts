@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ForumPostSortEnum } from '../../models';
 import { PostSearchResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged} */
@@ -37,20 +35,14 @@ export type GetPostsThreadedPagedParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged}
  */
 export async function getPostsThreadedPaged(
-  this: AccessTokenObject | void,
-  params: GetPostsThreadedPagedParams
+  params: GetPostsThreadedPagedParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PostSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Forum/GetPostsThreadedPaged/${params.parentPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.getParentPost}/${params.rootThreadMode}/${params.sortMode}/`,
-      params: {
-        showbanned: params.showbanned
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PostSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Forum/GetPostsThreadedPaged/${params.parentPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.getParentPost}/${params.rootThreadMode}/${params.sortMode}/`,
+    params: {
+      showbanned: params.showbanned
+    }
+  });
 }

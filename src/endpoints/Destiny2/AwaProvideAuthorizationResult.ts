@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { AwaUserResponse } from '../../models';
 /**
  * Provide the result of the user interaction. Called by the Bungie Destiny App to
@@ -23,18 +21,12 @@ import { AwaUserResponse } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaProvideAuthorizationResult}
  */
 export async function awaProvideAuthorizationResult(
-  this: AccessTokenObject | void,
-  body: AwaUserResponse
+  body: AwaUserResponse,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/',
+    body
+  });
 }

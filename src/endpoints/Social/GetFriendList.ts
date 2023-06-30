@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieFriendListResponse } from '../../models';
 /**
  * Returns your Bungie Friend list
  * @see {@link https://bungie-net.github.io/#Social.GetFriendList}
  */
 export async function getFriendList(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<BungieFriendListResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<BungieFriendListResponse>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Social/Friends/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<BungieFriendListResponse>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Social/Friends/'
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { AwaAuthorizationResult } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken} */
 export type AwaGetActionTokenParams = {
@@ -28,17 +26,11 @@ export type AwaGetActionTokenParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
  */
 export async function awaGetActionToken(
-  this: AccessTokenObject | void,
-  params: AwaGetActionTokenParams
+  params: AwaGetActionTokenParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<AwaAuthorizationResult>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<AwaAuthorizationResult>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<AwaAuthorizationResult>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`
+  });
 }

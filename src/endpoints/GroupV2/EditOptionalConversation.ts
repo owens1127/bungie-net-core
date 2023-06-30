@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupOptionalConversationEditRequest } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation} */
 export type EditOptionalConversationParams = {
@@ -31,19 +29,13 @@ export type EditOptionalConversationParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
  */
 export async function editOptionalConversation(
-  this: AccessTokenObject | void,
   params: EditOptionalConversationParams,
-  body: GroupOptionalConversationEditRequest
+  body: GroupOptionalConversationEditRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<string>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<string>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Edit/${params.conversationId}/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<string>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Edit/${params.conversationId}/`,
+    body
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieCredentialType } from '../../models';
 import { HardLinkedUserMembership } from '../../models';
 /** @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential} */
@@ -32,17 +30,11 @@ export type GetMembershipFromHardLinkedCredentialParams = {
  * @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential}
  */
 export async function getMembershipFromHardLinkedCredential(
-  this: AccessTokenObject | void,
-  params: GetMembershipFromHardLinkedCredentialParams
+  params: GetMembershipFromHardLinkedCredentialParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<HardLinkedUserMembership>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<HardLinkedUserMembership>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/User/GetMembershipFromHardLinkedCredential/${params.crType}/${params.credential}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<HardLinkedUserMembership>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/User/GetMembershipFromHardLinkedCredential/${params.crType}/${params.credential}/`
+  });
 }

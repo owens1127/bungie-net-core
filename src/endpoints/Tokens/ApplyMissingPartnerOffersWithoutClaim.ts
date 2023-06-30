@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
 /** @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim} */
 export type ApplyMissingPartnerOffersWithoutClaimParams = {
@@ -34,17 +32,11 @@ export type ApplyMissingPartnerOffersWithoutClaimParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
  */
 export async function applyMissingPartnerOffersWithoutClaim(
-  this: AccessTokenObject | void,
-  params: ApplyMissingPartnerOffersWithoutClaimParams
+  params: ApplyMissingPartnerOffersWithoutClaimParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<boolean>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/Tokens/Partner/ApplyMissingOffers/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<boolean>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/Tokens/Partner/ApplyMissingOffers/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
+  });
 }

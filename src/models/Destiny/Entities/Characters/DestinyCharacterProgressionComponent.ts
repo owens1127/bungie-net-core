@@ -67,7 +67,9 @@ export interface DestinyCharacterProgressionComponent {
    * is the list of objectives for this item, and their statuses. Mapped to
    * DestinyInventoryItemDefinition in the manifest.
    */
-  readonly uninstancedItemObjectives: { [key: number]: DestinyObjectiveProgress[] };
+  readonly uninstancedItemObjectives: {
+    [key: number]: DestinyObjectiveProgress[];
+  };
   /**
    * Sometimes, you have items in your inventory that don't have instances, but still
    * have perks (for example: Trials passage cards). This gives you the perk

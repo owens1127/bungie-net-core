@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { GroupApplicationRequest } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending} */
@@ -34,19 +32,13 @@ export type ApprovePendingParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending}
  */
 export async function approvePending(
-  this: AccessTokenObject | void,
   params: ApprovePendingParams,
-  body: GroupApplicationRequest
+  body: GroupApplicationRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<boolean>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Approve/${params.membershipType}/${params.membershipId}/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<boolean>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Approve/${params.membershipType}/${params.membershipId}/`,
+    body
+  });
 }

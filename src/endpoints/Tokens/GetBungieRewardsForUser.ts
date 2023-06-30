@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieRewardDisplay } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser} */
 export type GetBungieRewardsForUserParams = {
@@ -31,17 +29,11 @@ export type GetBungieRewardsForUserParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
  */
 export async function getBungieRewardsForUser(
-  this: AccessTokenObject | void,
-  params: GetBungieRewardsForUserParams
+  params: GetBungieRewardsForUserParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: string]: BungieRewardDisplay }>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<{ [key: string]: BungieRewardDisplay }>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
+  });
 }

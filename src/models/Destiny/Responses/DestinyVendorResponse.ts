@@ -28,7 +28,8 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * A response containing all of the components for a vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorResponse}
  */
-export interface DestinyVendorResponse<T extends DestinyComponentType[]> extends ComponentData {
+export interface DestinyVendorResponse<T extends DestinyComponentType[]>
+  extends ComponentData {
   /**
    * The base properties of the vendor.
    *

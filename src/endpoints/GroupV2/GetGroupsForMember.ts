@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupsForMemberFilter } from '../../models';
 import { GroupType } from '../../models';
 import { BungieMembershipType } from '../../models';
@@ -37,17 +35,11 @@ export type GetGroupsForMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember}
  */
 export async function getGroupsForMember(
-  this: AccessTokenObject | void,
-  params: GetGroupsForMemberParams
+  params: GetGroupsForMemberParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GetGroupsForMemberResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GetGroupsForMemberResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/User/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GetGroupsForMemberResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/User/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
+  });
 }

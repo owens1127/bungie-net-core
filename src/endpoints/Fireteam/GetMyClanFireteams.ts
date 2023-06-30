@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { FireteamPlatform } from '../../models';
 import { SearchResultOfFireteamResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
@@ -46,21 +44,15 @@ export type GetMyClanFireteamsParams = {
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
  */
 export async function getMyClanFireteams(
-  this: AccessTokenObject | void,
-  params: GetMyClanFireteamsParams
+  params: GetMyClanFireteamsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfFireteamResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfFireteamResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`,
-      params: {
-        groupFilter: params.groupFilter,
-        langFilter: params.langFilter
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfFireteamResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`,
+    params: {
+      groupFilter: params.groupFilter,
+      langFilter: params.langFilter
+    }
+  });
 }

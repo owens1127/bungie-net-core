@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupPotentialMemberStatus } from '../../models';
 import { GroupType } from '../../models';
 import { BungieMembershipType } from '../../models';
@@ -38,17 +36,11 @@ export type GetPotentialGroupsForMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
  */
 export async function getPotentialGroupsForMember(
-  this: AccessTokenObject | void,
-  params: GetPotentialGroupsForMemberParams
+  params: GetPotentialGroupsForMemberParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupPotentialMembershipSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/User/Potential/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupPotentialMembershipSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/User/Potential/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
+  });
 }

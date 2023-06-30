@@ -19,7 +19,9 @@ import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/Destiny
 import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyBaseItemComponentSetOfuint32} */
-export interface DestinyBaseItemComponentSetOfuint32<T extends DestinyComponentType[]> {
+export interface DestinyBaseItemComponentSetOfuint32<
+  T extends DestinyComponentType[]
+> {
   readonly objectives: ConditionalComponent<
     T,
     DestinyComponentType.ItemObjectives,

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyStatsGroupType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyHistoricalStatsAccountResult } from '../../models';
@@ -38,20 +36,14 @@ export type GetHistoricalStatsForAccountParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount}
  */
 export async function getHistoricalStatsForAccount(
-  this: AccessTokenObject | void,
-  params: GetHistoricalStatsForAccountParams
+  params: GetHistoricalStatsForAccountParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyHistoricalStatsAccountResult>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/`,
-      params: {
-        groups: params.groups ? params.groups.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyHistoricalStatsAccountResult>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/`,
+    params: {
+      groups: params.groups ? params.groups.join(',') : undefined
+    }
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { PartnerOfferSkuHistoryResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory} */
 export type GetPartnerOfferSkuHistoryParams = {
@@ -34,17 +32,11 @@ export type GetPartnerOfferSkuHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
  */
 export async function getPartnerOfferSkuHistory(
-  this: AccessTokenObject | void,
-  params: GetPartnerOfferSkuHistoryParams
+  params: GetPartnerOfferSkuHistoryParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PartnerOfferSkuHistoryResponse[]>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PartnerOfferSkuHistoryResponse[]>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
+  });
 }

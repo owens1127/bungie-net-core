@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupEditAction } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.EditGroup} */
 export type EditGroupParams = {
@@ -30,19 +28,13 @@ export type EditGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
  */
 export async function editGroup(
-  this: AccessTokenObject | void,
   params: EditGroupParams,
-  body: GroupEditAction
+  body: GroupEditAction,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Edit/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Edit/`,
+    body
+  });
 }

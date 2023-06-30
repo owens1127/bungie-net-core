@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { PlatformFriendType } from '../../models';
 import { PlatformFriendResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList} */
@@ -32,17 +30,11 @@ export type GetPlatformFriendListParams = {
  * @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList}
  */
 export async function getPlatformFriendList(
-  this: AccessTokenObject | void,
-  params: GetPlatformFriendListParams
+  params: GetPlatformFriendListParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PlatformFriendResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PlatformFriendResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Social/PlatformFriends/${params.friendPlatform}/${params.page}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PlatformFriendResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Social/PlatformFriends/${params.friendPlatform}/${params.page}/`
+  });
 }

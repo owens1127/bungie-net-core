@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyStatsGroupType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyActivityModeType } from '../../models';
@@ -66,24 +64,20 @@ export type GetHistoricalStatsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStats}
  */
 export async function getHistoricalStats(
-  this: AccessTokenObject | void,
-  params: GetHistoricalStatsParams
-): Promise<BungieNetResponse<{ [key: string]: DestinyHistoricalStatsByPeriod }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: string]: DestinyHistoricalStatsByPeriod }>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/`,
-      params: {
-        dayend: params.dayend,
-        daystart: params.daystart,
-        groups: params.groups ? params.groups.join(',') : undefined,
-        modes: params.modes ? params.modes.join(',') : undefined,
-        periodType: params.periodType
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  params: GetHistoricalStatsParams,
+  client: BungieClientProtocol
+): Promise<
+  BungieNetResponse<{ [key: string]: DestinyHistoricalStatsByPeriod }>
+> {
+  return client.fetch<{ [key: string]: DestinyHistoricalStatsByPeriod }>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/`,
+    params: {
+      dayend: params.dayend,
+      daystart: params.daystart,
+      groups: params.groups ? params.groups.join(',') : undefined,
+      modes: params.modes ? params.modes.join(',') : undefined,
+      periodType: params.periodType
+    }
+  });
 }

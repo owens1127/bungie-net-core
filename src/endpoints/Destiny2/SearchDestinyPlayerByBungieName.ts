@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { ExactSearchRequest } from '../../models';
 import { UserInfoCard } from '../../models';
@@ -34,19 +32,13 @@ export type SearchDestinyPlayerByBungieNameParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName}
  */
 export async function searchDestinyPlayerByBungieName(
-  this: AccessTokenObject | void,
   params: SearchDestinyPlayerByBungieNameParams,
-  body: ExactSearchRequest
+  body: ExactSearchRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserInfoCard[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<UserInfoCard[]>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayerByBungieName/${params.membershipType}/`,
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<UserInfoCard[]>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayerByBungieName/${params.membershipType}/`,
+    body
+  });
 }

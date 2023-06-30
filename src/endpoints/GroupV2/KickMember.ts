@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { GroupMemberLeaveResult } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.KickMember} */
@@ -35,17 +33,11 @@ export type KickMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
  */
 export async function kickMember(
-  this: AccessTokenObject | void,
-  params: KickMemberParams
+  params: KickMemberParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupMemberLeaveResult>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupMemberLeaveResult>(token, {
-      method: 'POST',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Kick/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupMemberLeaveResult>({
+    method: 'POST',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Kick/`
+  });
 }

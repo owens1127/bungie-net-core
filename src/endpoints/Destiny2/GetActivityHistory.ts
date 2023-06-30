@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { DestinyActivityModeType } from '../../models';
 import { DestinyActivityHistoryResults } from '../../models';
@@ -44,22 +42,16 @@ export type GetActivityHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetActivityHistory}
  */
 export async function getActivityHistory(
-  this: AccessTokenObject | void,
-  params: GetActivityHistoryParams
+  params: GetActivityHistoryParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyActivityHistoryResults>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyActivityHistoryResults>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/Activities/`,
-      params: {
-        count: params.count,
-        mode: params.mode,
-        page: params.page
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyActivityHistoryResults>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/Activities/`,
+    params: {
+      count: params.count,
+      mode: params.mode,
+      page: params.page
+    }
+  });
 }

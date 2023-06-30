@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupTheme } from '../../models';
 /**
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}
  */
 export async function getAvailableThemes(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupTheme[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupTheme[]>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/GroupV2/GetAvailableThemes/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupTheme[]>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/GroupV2/GetAvailableThemes/'
+  });
 }

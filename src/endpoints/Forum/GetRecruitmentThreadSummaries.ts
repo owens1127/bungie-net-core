@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ForumRecruitmentDetail } from '../../models';
 /**
  * Allows the caller to get a list of to 25 recruitment thread summary information
@@ -23,18 +21,12 @@ import { ForumRecruitmentDetail } from '../../models';
  * @see {@link https://bungie-net.github.io/#Forum.GetRecruitmentThreadSummaries}
  */
 export async function getRecruitmentThreadSummaries(
-  this: AccessTokenObject | void,
-  body: string[]
+  body: string[],
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ForumRecruitmentDetail[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ForumRecruitmentDetail[]>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Forum/Recruit/Summaries/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ForumRecruitmentDetail[]>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Forum/Recruit/Summaries/',
+    body
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyPostmasterTransferRequest } from '../../models';
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
@@ -26,18 +24,12 @@ import { DestinyPostmasterTransferRequest } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.PullFromPostmaster}
  */
 export async function pullFromPostmaster(
-  this: AccessTokenObject | void,
-  body: DestinyPostmasterTransferRequest
+  body: DestinyPostmasterTransferRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/',
+    body
+  });
 }

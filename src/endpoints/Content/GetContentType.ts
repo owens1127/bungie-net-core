@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ContentTypeDescription } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentType} */
 export type GetContentTypeParams = {
@@ -27,17 +25,11 @@ export type GetContentTypeParams = {
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
  */
 export async function getContentType(
-  this: AccessTokenObject | void,
-  params: GetContentTypeParams
+  params: GetContentTypeParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentTypeDescription>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ContentTypeDescription>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ContentTypeDescription>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
+  });
 }

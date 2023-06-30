@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { DestinyPublicVendorsResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors} */
@@ -37,20 +35,14 @@ export type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
  */
 export async function getPublicVendors<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetPublicVendorsParams<T>
+  params: GetPublicVendorsParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyPublicVendorsResponse<T>>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Destiny2/Vendors/',
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyPublicVendorsResponse<T>>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Destiny2/Vendors/',
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

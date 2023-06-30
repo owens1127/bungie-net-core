@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ContentItemPublicContract } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType} */
 export type GetContentByTagAndTypeParams = {
@@ -31,20 +29,14 @@ export type GetContentByTagAndTypeParams = {
  * @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType}
  */
 export async function getContentByTagAndType(
-  this: AccessTokenObject | void,
-  params: GetContentByTagAndTypeParams
+  params: GetContentByTagAndTypeParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ContentItemPublicContract>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`,
-      params: {
-        head: params.head
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ContentItemPublicContract>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`,
+    params: {
+      head: params.head
+    }
+  });
 }

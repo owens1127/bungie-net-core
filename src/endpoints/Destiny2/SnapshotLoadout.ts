@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyLoadoutUpdateActionRequest } from '../../models';
 /**
  * Snapshot a loadout with the currently equipped items.
@@ -24,18 +22,12 @@ import { DestinyLoadoutUpdateActionRequest } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.SnapshotLoadout}
  */
 export async function snapshotLoadout(
-  this: AccessTokenObject | void,
-  body: DestinyLoadoutUpdateActionRequest
+  body: DestinyLoadoutUpdateActionRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/',
+    body
+  });
 }

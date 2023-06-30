@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyItemStateRequest } from '../../models';
 /**
  * Set the Lock State for an instanced item. You must have a valid Destiny Account.
@@ -24,18 +22,12 @@ import { DestinyItemStateRequest } from '../../models';
  * @see {@link https://bungie-net.github.io/#Destiny2.SetItemLockState}
  */
 export async function setItemLockState(
-  this: AccessTokenObject | void,
-  body: DestinyItemStateRequest
+  body: DestinyItemStateRequest,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<number>(token, {
-      method: 'POST',
-      url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/',
-      body
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<number>({
+    method: 'POST',
+    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/',
+    body
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GroupType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { GroupMembershipSearchResponse } from '../../models';
@@ -35,17 +33,11 @@ export type RecoverGroupForFounderParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder}
  */
 export async function recoverGroupForFounder(
-  this: AccessTokenObject | void,
-  params: RecoverGroupForFounderParams
+  params: RecoverGroupForFounderParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupMembershipSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GroupMembershipSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/Recover/${params.membershipType}/${params.membershipId}/${params.groupType}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GroupMembershipSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/Recover/${params.membershipType}/${params.membershipId}/${params.groupType}/`
+  });
 }

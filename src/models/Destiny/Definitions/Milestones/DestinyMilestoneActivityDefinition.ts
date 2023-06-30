@@ -49,5 +49,7 @@ export interface DestinyMilestoneActivityDefinition {
    * potential duplication will be worth it for the obviousness of processing and use.
    * Mapped to DestinyActivityDefinition in the manifest.
    */
-  readonly variants: { [key: number]: DestinyMilestoneActivityVariantDefinition };
+  readonly variants: {
+    [key: number]: DestinyMilestoneActivityVariantDefinition;
+  };
 }

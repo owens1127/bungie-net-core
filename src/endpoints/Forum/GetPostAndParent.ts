@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { PostSearchResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent} */
 export type GetPostAndParentParams = {
@@ -29,20 +27,14 @@ export type GetPostAndParentParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent}
  */
 export async function getPostAndParent(
-  this: AccessTokenObject | void,
-  params: GetPostAndParentParams
+  params: GetPostAndParentParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PostSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`,
-      params: {
-        showbanned: params.showbanned
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PostSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`,
+    params: {
+      showbanned: params.showbanned
+    }
+  });
 }

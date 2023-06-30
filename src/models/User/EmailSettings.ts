@@ -24,7 +24,9 @@ export interface EmailSettings {
   /** Keyed by the name identifier of the opt-in definition. */
   readonly optInDefinitions: { [key: string]: EmailOptInDefinition };
   /** Keyed by the name identifier of the Subscription definition. */
-  readonly subscriptionDefinitions: { [key: string]: EmailSubscriptionDefinition };
+  readonly subscriptionDefinitions: {
+    [key: string]: EmailSubscriptionDefinition;
+  };
   /** Keyed by the name identifier of the View definition. */
   readonly views: { [key: string]: EmailViewDefinition };
 }

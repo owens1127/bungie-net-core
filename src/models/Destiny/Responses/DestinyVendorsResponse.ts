@@ -29,7 +29,8 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * A response containing all of the components for all requested vendors.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorsResponse}
  */
-export interface DestinyVendorsResponse<T extends DestinyComponentType[]> extends ComponentData {
+export interface DestinyVendorsResponse<T extends DestinyComponentType[]>
+  extends ComponentData {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs
@@ -78,7 +79,10 @@ export interface DestinyVendorsResponse<T extends DestinyComponentType[]> extend
   readonly sales: ConditionalComponent<
     T,
     DestinyComponentType.VendorSales,
-    DictionaryComponentResponse<string, PersonalDestinyVendorSaleItemSetComponent>
+    DictionaryComponentResponse<
+      string,
+      PersonalDestinyVendorSaleItemSetComponent
+    >
   >;
   /**
    * The set of item detail components, one set of item components per Vendor. These

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ForumTopicsCategoryFiltersEnum } from '../../models';
 import { CommunityContentSortMode } from '../../models';
 import { PostSearchResponse } from '../../models';
@@ -34,17 +32,11 @@ export type GetCommunityContentParams = {
  * @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent}
  */
 export async function getCommunityContent(
-  this: AccessTokenObject | void,
-  params: GetCommunityContentParams
+  params: GetCommunityContentParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PostSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/CommunityContent/Get/${params.sort}/${params.mediaFilter}/${params.page}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PostSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/CommunityContent/Get/${params.sort}/${params.mediaFilter}/${params.page}/`
+  });
 }

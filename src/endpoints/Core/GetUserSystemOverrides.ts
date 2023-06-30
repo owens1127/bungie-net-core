@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { CoreSystem } from '../../models';
 /**
  * Get the user-specific system overrides that should be respected alongside common
@@ -23,16 +21,10 @@ import { CoreSystem } from '../../models';
  * @see {@link https://bungie-net.github.io/#.GetUserSystemOverrides}
  */
 export async function getUserSystemOverrides(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: string]: CoreSystem }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: string]: CoreSystem }>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/UserSystemOverrides/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<{ [key: string]: CoreSystem }>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/UserSystemOverrides/'
+  });
 }

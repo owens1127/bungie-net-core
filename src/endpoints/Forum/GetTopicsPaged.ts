@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ForumTopicsCategoryFiltersEnum } from '../../models';
 import { ForumTopicsQuickDateEnum } from '../../models';
 import { ForumTopicsSortEnum } from '../../models';
@@ -48,21 +46,15 @@ export type GetTopicsPagedParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
  */
 export async function getTopicsPaged(
-  this: AccessTokenObject | void,
-  params: GetTopicsPagedParams
+  params: GetTopicsPagedParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<PostSearchResponse>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`,
-      params: {
-        locales: params.locales,
-        tagstring: params.tagstring
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<PostSearchResponse>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`,
+    params: {
+      locales: params.locales,
+      tagstring: params.tagstring
+    }
+  });
 }

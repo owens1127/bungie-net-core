@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyProfileResponse } from '../../models';
@@ -38,20 +36,14 @@ export type GetProfileParams<T extends DestinyComponentType[]> = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetProfile}
  */
 export async function getProfile<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetProfileParams<T>
+  params: GetProfileParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyProfileResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyProfileResponse<T>>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/`,
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyProfileResponse<T>>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/`,
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

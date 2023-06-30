@@ -12,37 +12,36 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { DestinyComponentType } from '../../models';
 import { BungieMembershipType } from '../../models';
 import { DestinyCollectibleNodeDetailResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails} */
-export type GetCollectibleNodeDetailsParams<T extends DestinyComponentType[]> = {
-  /**
-   * The Destiny Character ID of the character for whom we're getting collectible
-   * detail info.
-   */
-  characterId: string;
-  /**
-   * The hash identifier of the Presentation Node for whom we should return
-   * collectible details. Details will only be returned for collectibles that are
-   * direct descendants of this node.
-   */
-  collectiblePresentationNodeHash: number;
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-  /** Destiny membership ID of another user. You may be denied. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+export type GetCollectibleNodeDetailsParams<T extends DestinyComponentType[]> =
+  {
+    /**
+     * The Destiny Character ID of the character for whom we're getting collectible
+     * detail info.
+     */
+    characterId: string;
+    /**
+     * The hash identifier of the Presentation Node for whom we should return
+     * collectible details. Details will only be returned for collectibles that are
+     * direct descendants of this node.
+     */
+    collectiblePresentationNodeHash: number;
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+    /** Destiny membership ID of another user. You may be denied. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  };
 
 /**
  * Given a Presentation Node that has Collectibles as direct descendants, this will
@@ -50,21 +49,17 @@ export type GetCollectibleNodeDetailsParams<T extends DestinyComponentType[]> = 
  * character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails}
  */
-export async function getCollectibleNodeDetails<T extends DestinyComponentType[]>(
-  this: AccessTokenObject | void,
-  params: GetCollectibleNodeDetailsParams<T>
+export async function getCollectibleNodeDetails<
+  T extends DestinyComponentType[]
+>(
+  params: GetCollectibleNodeDetailsParams<T>,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyCollectibleNodeDetailResponse<T>>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<DestinyCollectibleNodeDetailResponse<T>>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Collectibles/${params.collectiblePresentationNodeHash}/`,
-      params: {
-        components: params.components ? params.components.join(',') : undefined
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<DestinyCollectibleNodeDetailResponse<T>>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Collectibles/${params.collectiblePresentationNodeHash}/`,
+    params: {
+      components: params.components ? params.components.join(',') : undefined
+    }
+  });
 }

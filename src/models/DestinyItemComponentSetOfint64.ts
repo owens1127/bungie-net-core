@@ -27,7 +27,9 @@ import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/Destiny
 import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyItemComponentSetOfint64} */
-export interface DestinyItemComponentSetOfint64<T extends DestinyComponentType[]> {
+export interface DestinyItemComponentSetOfint64<
+  T extends DestinyComponentType[]
+> {
   readonly instances: ConditionalComponent<
     T,
     DestinyComponentType.ItemInstances,

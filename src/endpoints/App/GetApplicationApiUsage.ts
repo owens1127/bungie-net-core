@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ApiUsage } from '../../models';
 /** @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage} */
 export type GetApplicationApiUsageParams = {
@@ -35,21 +33,15 @@ export type GetApplicationApiUsageParams = {
  * @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage}
  */
 export async function getApplicationApiUsage(
-  this: AccessTokenObject | void,
-  params: GetApplicationApiUsageParams
+  params: GetApplicationApiUsageParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ApiUsage>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ApiUsage>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`,
-      params: {
-        end: params.end,
-        start: params.start
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ApiUsage>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`,
+    params: {
+      end: params.end,
+      start: params.start
+    }
+  });
 }

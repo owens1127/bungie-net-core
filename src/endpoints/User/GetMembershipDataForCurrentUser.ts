@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { UserMembershipData } from '../../models';
 /**
  * Returns a list of accounts associated with signed in user. This is useful for
@@ -23,16 +21,10 @@ import { UserMembershipData } from '../../models';
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataForCurrentUser}
  */
 export async function getMembershipDataForCurrentUser(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserMembershipData>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<UserMembershipData>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<UserMembershipData>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/'
+  });
 }

@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GetCredentialTypesForAccountResponse } from '../../models';
 /** @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount} */
 export type GetCredentialTypesForTargetAccountParams = {
@@ -28,17 +26,11 @@ export type GetCredentialTypesForTargetAccountParams = {
  * @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount}
  */
 export async function getCredentialTypesForTargetAccount(
-  this: AccessTokenObject | void,
-  params: GetCredentialTypesForTargetAccountParams
+  params: GetCredentialTypesForTargetAccountParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GetCredentialTypesForAccountResponse[]>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/User/GetCredentialTypesForTargetAccount/${params.membershipId}/`
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GetCredentialTypesForAccountResponse[]>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/User/GetCredentialTypesForTargetAccount/${params.membershipId}/`
+  });
 }

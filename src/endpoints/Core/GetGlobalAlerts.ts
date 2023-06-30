@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { GlobalAlert } from '../../models';
 /** @see {@link https://bungie-net.github.io/#.GetGlobalAlerts} */
 export type GetGlobalAlertsParams = {
@@ -29,20 +27,14 @@ export type GetGlobalAlertsParams = {
  * @see {@link https://bungie-net.github.io/#.GetGlobalAlerts}
  */
 export async function getGlobalAlerts(
-  this: AccessTokenObject | void,
-  params: GetGlobalAlertsParams
+  params: GetGlobalAlertsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<GlobalAlert[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<GlobalAlert[]>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/GlobalAlerts/',
-      params: {
-        includestreaming: params.includestreaming
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<GlobalAlert[]>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/GlobalAlerts/',
+    params: {
+      includestreaming: params.includestreaming
+    }
+  });
 }

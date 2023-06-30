@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { UserTheme } from '../../models';
 /**
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
  */
 export async function getAvailableThemes(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserTheme[]>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<UserTheme[]>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/User/GetAvailableThemes/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<UserTheme[]>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/User/GetAvailableThemes/'
+  });
 }

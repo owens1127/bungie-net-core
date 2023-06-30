@@ -12,26 +12,18 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { ClanBannerSource } from '../../models';
 /**
  * Returns the dictionary of values for the Clan Banner
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanBannerSource}
  */
 export async function getClanBannerSource(
-  this: AccessTokenObject | void
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<ClanBannerSource>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<ClanBannerSource>(token, {
-      method: 'GET',
-      url: 'https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/'
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<ClanBannerSource>({
+    method: 'GET',
+    url: 'https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/'
+  });
 }

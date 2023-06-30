@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { SearchResultOfGroupBan } from '../../models';
 /** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
 export type GetBannedMembersOfGroupParams = {
@@ -31,20 +29,14 @@ export type GetBannedMembersOfGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
  */
 export async function getBannedMembersOfGroup(
-  this: AccessTokenObject | void,
-  params: GetBannedMembersOfGroupParams
+  params: GetBannedMembersOfGroupParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupBan>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfGroupBan>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`,
-      params: {
-        currentpage: params.currentpage
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfGroupBan>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`,
+    params: {
+      currentpage: params.currentpage
+    }
+  });
 }

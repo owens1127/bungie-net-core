@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { FireteamDateRange } from '../../models';
 import { FireteamPlatform } from '../../models';
 import { FireteamSlotSearch } from '../../models';
@@ -47,21 +45,15 @@ export type SearchPublicAvailableClanFireteamsParams = {
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
  */
 export async function searchPublicAvailableClanFireteams(
-  this: AccessTokenObject | void,
-  params: SearchPublicAvailableClanFireteamsParams
+  params: SearchPublicAvailableClanFireteamsParams,
+  client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfFireteamSummary>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<SearchResultOfFireteamSummary>(token, {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`,
-      params: {
-        excludeImmediate: params.excludeImmediate,
-        langFilter: params.langFilter
-      }
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+  return client.fetch<SearchResultOfFireteamSummary>({
+    method: 'GET',
+    url: `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`,
+    params: {
+      excludeImmediate: params.excludeImmediate,
+      langFilter: params.langFilter
+    }
+  });
 }

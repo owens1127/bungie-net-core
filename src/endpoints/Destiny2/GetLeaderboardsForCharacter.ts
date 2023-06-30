@@ -12,10 +12,8 @@
  */
 //
 
-import { rateLimitedRequest } from '../../util/http/rate-limiter';
-import { BungieNetResponse } from '../../interfaces/server-response';
-import { AccessTokenObject } from '../../client';
-import { BungieAPIError } from '../../errors/BungieAPIError';
+import { BungieClientProtocol } from '../../client';
+import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 import { BungieMembershipType } from '../../models';
 import { DestinyLeaderboard } from '../../models';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter} */
@@ -52,25 +50,20 @@ export type GetLeaderboardsForCharacterParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
  */
 export async function getLeaderboardsForCharacter(
-  this: AccessTokenObject | void,
-  params: GetLeaderboardsForCharacterParams
-): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
-  const token = (this as AccessTokenObject)?.access_token ?? undefined;
-  try {
-    return await rateLimitedRequest<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
-      token,
-      {
-        method: 'GET',
-        url: `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`,
-        params: {
-          maxtop: params.maxtop,
-          modes: params.modes,
-          statid: params.statid
-        }
+  params: GetLeaderboardsForCharacterParams,
+  client: BungieClientProtocol
+): Promise<
+  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
+> {
+  return client.fetch<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
+    {
+      method: 'GET',
+      url: `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`,
+      params: {
+        maxtop: params.maxtop,
+        modes: params.modes,
+        statid: params.statid
       }
-    );
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack;
-    throw err;
-  }
+    }
+  );
 }
