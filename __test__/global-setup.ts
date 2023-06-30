@@ -28,9 +28,9 @@ class BungieTestClient implements BungieClientProtocol {
 
     const url = new URL(config.url);
     if (config.params)
-      Object.entries(config.params).forEach(([key, value]) =>
-        url.searchParams.set(key, value)
-      );
+      Object.entries(config.params)
+        .filter(([_, value]) => !!value)
+        .forEach(([key, value]) => url.searchParams.set(key, value));
 
     const payload = {
       method: config.method,

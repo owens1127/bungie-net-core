@@ -10,7 +10,35 @@
     "TypeScript",
     "REST API"
   ],
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./models": {
+      "types": "./lib/models/index.js",
+      "default": "./lib/models/index.js"
+    },
+    "./endpoints/*": {
+      "types": "./lib/endpoints/*/index.d.ts",
+      "default": "./lib/endpoints/*/index.js"
+    },
+    "./manifest": {
+      "types": "./lib/manifest/index.d.ts",
+      "default": "./lib/manifest/index.js"
+    },
+    "./auth": {
+      "types": "./lib/auth/index.d.ts",
+      "default": "./lib/auth/index.js"
+    },
+    "./api": {
+      "types": "./lib/api.d.ts",
+      "default": "./lib/api.js"
+    }
+  },
   "bugs": "https://github.com/owensimpson/bungie-net-core/issues",
   "license": "MIT",
   "repository": {
@@ -35,7 +63,8 @@
     "postpublish": "npm run push"
   },
   "files": [
-    "lib/**/*"
+    "lib/**/*",
+    "bungie-api-LICENSE"
   ],
   "devDependencies": {
     "@babel/cli": "^7.21.0",

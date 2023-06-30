@@ -12,3 +12,4 @@ export type {
   DestinyDefinitionFrom,
   DestinyManifestSlice
 } from './manifest-types';
+export { ManifestRequestError } from '../errors/ManifestRequestError';

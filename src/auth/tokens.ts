@@ -33,7 +33,7 @@ export async function getAccessTokenFromAuthCode(
   credentials?: OAuthBungieCredentials
 ): Promise<BungieTokens> {
   return fetchTokens({
-    code: code,
+    code,
     key: 'authorization_code',
     grantType: 'code',
     credentials
@@ -69,8 +69,8 @@ async function fetchTokens({
   const secret = credentials?.BUNGIE_CLIENT_SECRET ?? env.BUNGIE_CLIENT_SECRET;
   if (!clientId || !secret) {
     const vars = new Array<keyof BungieCredentials>();
-    !clientId ? vars.push('BUNGIE_CLIENT_ID') : undefined;
-    !secret ? vars.push('BUNGIE_CLIENT_SECRET') : undefined;
+    if (!clientId) vars.push('BUNGIE_CLIENT_ID');
+    if (!secret) vars.push('BUNGIE_CLIENT_SECRET');
     throw new NotConfiguredError(vars);
   }
 

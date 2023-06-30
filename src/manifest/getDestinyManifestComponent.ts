@@ -1,10 +1,10 @@
-import { manifestRequest as http } from '../util/http/rate-limiter';
 import {
   AllDestinyManifestComponents,
   DestinyManifestComponentName,
   DestinyManifestLanguage
 } from './';
 import { DestinyManifest } from '../models';
+import { ManifestRequestError } from '../errors/ManifestRequestError';
 
 export interface GetDestinyManifestComponentParams<
   T extends DestinyManifestComponentName
@@ -33,22 +33,33 @@ export async function getDestinyManifestComponent<
 >(
   params: GetDestinyManifestComponentParams<T>
 ): Promise<AllDestinyManifestComponents[T]> {
-  const r = {
-    method: 'GET' as const,
-    url:
-      'https://www.bungie.net' +
-      params.destinyManifest.jsonWorldComponentContentPaths[params.language][
-        params.tableName
-      ]
+  let url =
+    'https://www.bungie.net' +
+    params.destinyManifest.jsonWorldComponentContentPaths[params.language][
+      params.tableName
+    ];
+
+  const request = async (): Promise<AllDestinyManifestComponents[T]> => {
+    const data = await fetch(url);
+    if (data.ok) {
+      return data.json();
+    } else {
+      throw data;
+    }
   };
+
   try {
-    return await http(r);
+    return request();
   } catch (e) {
-    r.url += '?retry';
+    url += '?retry';
     try {
-      return await http(r);
-    } catch {
-      throw e;
+      return request();
+    } catch (e) {
+      throw new ManifestRequestError(
+        `Failed to get the ${params.tableName} manifest component`,
+        params,
+        e
+      );
     }
   }
 }

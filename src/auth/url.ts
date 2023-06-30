@@ -1,7 +1,7 @@
 import { getBungieEnv } from '../env';
 import { NotConfiguredError } from '../errors/NotConfiguredError';
 
-type CreateAuthURLOptions = {
+export type CreateAuthURLOptions = {
   state?: string;
   redirect_uri?: string;
   reauth?: boolean;

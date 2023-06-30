@@ -20,11 +20,7 @@ tsc -p tsconfig.json ; echo Typings transpiled
 babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
 
 # remove "empty" files
-find ./lib -type f -exec sh -c 'test $(wc -l < "{}") -lt 2 && rm -f "{}"' \; ; echo Empty files removed
+find ./lib -type f --exclude="index.js" -exec sh -c 'test $(wc -l < "{}") -lt 2 && rm -f "{}"' \; ; echo Empty files removed
 
 # beautify
 prettier --config .prettierrc './{src/**/*,__test__/*}.ts' --write
-
-# copy license
-cp ./bungie-api-LICENSE ./lib/bungie-api-LICENSE
-cp ./README.md ./lib/README.md
