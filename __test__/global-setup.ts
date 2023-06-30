@@ -45,7 +45,7 @@ class BungieTestClient implements BungieClientProtocol {
       try {
         const res = await fetch(url, payload);
         const data: BungieNetResponse<T> = await res.json();
-        if (data.ErrorCode != PlatformErrorCodes.Success || !res.ok) {
+        if (data.ErrorCode !== PlatformErrorCodes.Success || !res.ok) {
           throw new BungieAPIError(data);
         }
         return data;

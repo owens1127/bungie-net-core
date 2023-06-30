@@ -27,3 +27,4 @@ prettier --config .prettierrc './{src/**/*,__test__/*}.ts' --write
 
 # copy license
 cp ./bungie-api-LICENSE ./lib/bungie-api-LICENSE
+cp ./README.md ./lib/README.md
