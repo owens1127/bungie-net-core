@@ -4,6 +4,7 @@ import {
   getApplicationApiUsage,
   getBungieApplications
 } from '../src/endpoints/App';
+import { PlatformErrorCodes } from '../src/models';
 
 export const getApplicationApiUsageTests: TestCase<
   typeof getApplicationApiUsage
@@ -17,7 +18,8 @@ export const getApplicationApiUsageTests: TestCase<
     ],
     promise: {
       failure: e => {
-        expect(e.message).toEqual('Please sign-in to continue.');
+        expect(e.ErrorCode).toEqual(PlatformErrorCodes.WebAuthRequired);
+        expect(e.Message).toEqual('Please sign-in to continue.');
       }
     }
   }

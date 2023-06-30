@@ -7,7 +7,7 @@ export function generateTestStub(
   doc: OpenAPIObject,
   argumentsList: string[]
 ): void {
-  const filename = `__test__/api/${tag}/${endpointName}.test.ts`;
+  const filename = `__test__/__api__/${tag}/${endpointName}.test.ts`;
   const tests = generateTestsDefinition(tag, endpointName, argumentsList);
   const definition = [generateHeader(doc), tests].join('\n\n') + '\n';
   writeOutFile(filename, definition);
@@ -19,42 +19,61 @@ function generateTestsDefinition(
   argumentsList: string[]
 ): string {
   const imports = [
-    `import { UnwrapPromise, sharedTestClient } from '../../global-setup'`,
+    `import { sharedTestClient, ResponseType } from '../../global-setup'`,
     `import { ${endpointName}Tests } from '../../${tag}'`,
     `import { describe, test, it, expect } from '@jest/globals';`,
-    `import { ${endpointName} } from '../../../src/endpoints/${tag}';`
+    `import { ${endpointName} } from '../../../src/endpoints/${tag}';`,
+    `import { BungieAPIError } from '../../../src/errors/BungieAPIError';`
   ].join('\n');
 
-  const types = `type ResponseType = UnwrapPromise<ReturnType<typeof ${endpointName}>>;`;
   const tests = `describe('${tag}.${endpointName}', () => { 
-  it('to exist', () => { 
+  test('the endpoint exists', () => { 
     expect(${endpointName}).toBeDefined();
   })
 
   ${endpointName}Tests.map(({ name, data, promise: { failure, success } }) => (
-    ${testCase(endpointName, tag, argumentsList)}
+    ${testCase(endpointName, argumentsList)}
   ));
 })`;
-  return [imports, types, tests].join('\n\n');
+  return [imports, tests].join('\n\n');
 }
 
-function testCase(
-  endpoint: string,
-  tag: string,
-  argumentsList: string[]
-): string {
-  return `test(name, async () => {
-        let res: ResponseType;
-        try {
-            res = await ${endpoint}(${argumentsList
-    .map((_, idx) => `data[${idx}]`)
-    .join(', ')}, sharedTestClient)
+function testCase(endpoint: string, argumentsList: string[]): string {
+  return `describe(name, () => {
+        let res: ResponseType<typeof ${endpoint}> | null = null;
+        let err: unknown | null = null;
+        
+        beforeAll(async () => {
+          try {
+            res = await ${endpoint}(${[
+    ...argumentsList.map((_, idx) => `data[${idx}]`),
+    'sharedTestClient'
+  ].join(', ')})
+          } catch (e) {
+            err = e
+          }
+        });
+
+        if (success) {
+          it("is expected to succeed", () => {
+            expect(res).not.toBeNull();
+          })
+          it("is a valid response", () => {
+            expect(res).toHaveProperty('ErrorCode');
+            expect(res!.ErrorCode).toEqual(1);
             expect(res).toHaveProperty('Response');
-        } catch (e) {
-            expect(failure).not.toBeUndefined();
-            return failure!(e as Error)
+          })
+          test("it returns the correct data", () => success!(res!))
         }
-        expect(success).not.toBeUndefined();
-        return success!(res) 
+
+        if (failure) {
+          it("is expected to error", () => {
+            expect(err).not.toBeNull();
+          })
+          it("is a Bungie error", () => {
+            expect(err).toBeInstanceOf(BungieAPIError);
+          })
+          test("it throws the correct error", () => failure!(err as BungieAPIError<ReturnType<typeof ${endpoint}>>))
+        }
     })`;
 }

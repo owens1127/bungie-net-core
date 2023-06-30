@@ -1,13 +1,8 @@
 import { PlatformErrorCodes } from '../models';
-
-interface ServerResponse {
-  ResponseTime: number;
-}
-
 /**
  * A general interface for a Bungie API response
  */
-export interface BungieNetResponse<R> extends ServerResponse {
+export interface BungieNetResponse<R> {
   readonly Response: R;
   readonly ErrorCode: PlatformErrorCodes;
   readonly ThrottleSeconds: number;

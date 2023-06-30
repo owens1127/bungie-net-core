@@ -1,6 +1,7 @@
 # clean the src folder from files that will be generated
 rm -rf ./src/endpoints
 rm -rf ./src/models
+rm -rf ./__test__/__api__
 rm ./src/manifest/manifest-types.ts
 
 # Run the generator to produce typescript library in ./src
@@ -22,7 +23,7 @@ babel src --out-dir lib --extensions .ts ; echo Javascript transpiled
 find ./lib -type f -exec sh -c 'test $(wc -l < "{}") -lt 2 && rm -f "{}"' \; ; echo Empty files removed
 
 # beautify
-prettier --config .prettierrc './src/**/*.ts' --write
+prettier --config .prettierrc './{src/**/*,__test__/*}.ts' --write
 
 # copy license
 cp ./bungie-api-LICENSE ./lib/bungie-api-LICENSE

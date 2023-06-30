@@ -46,7 +46,6 @@ import {
   updateLoadoutIdentifiers
 } from '../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
-import { BungieAPIError } from '../src/errors/BungieAPIError';
 import { PlatformErrorCodes } from '../lib/models';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
@@ -91,11 +90,10 @@ export const getDestinyEntityDefinitionTests: TestCase<
       }
     ],
     promise: {
-      success: res => {
-        expect(res.ErrorCode).toEqual(1);
-        expect(res.Response).toHaveProperty('hash');
-        expect(res.Response).toHaveProperty('index');
-        expect(res.Response).toHaveProperty('redacted');
+      success: ({ Response }) => {
+        expect(Response).toHaveProperty('hash');
+        expect(Response).toHaveProperty('index');
+        expect(Response).toHaveProperty('redacted');
       }
     }
   }
@@ -141,7 +139,29 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
       }
     ],
     promise: {
-      success: res => expect(res.ErrorCode).toEqual(1)
+      success: ({ Response }) => {
+        expect(Response).toHaveProperty('profile');
+        expect(Response.profile).toHaveProperty('data');
+        expect(Response.profile.data).toMatchObject({
+          characterIds: [
+            '2305843009468984093',
+            '2305843009478184284',
+            '2305843009524164531'
+          ],
+          userInfo: {
+            applicableMembershipTypes: [5, 6, 3],
+            bungieGlobalDisplayName: 'Newo',
+            bungieGlobalDisplayNameCode: 9010,
+            crossSaveOverride: 3,
+            displayName: 'Newo',
+            isPublic: true,
+            membershipId: '4611686018488107374',
+            membershipType: 3
+          }
+        });
+        expect(Response).toHaveProperty('responseMintedTimestamp');
+        expect(Response).toHaveProperty('secondaryComponentsMintedTimestamp');
+      }
     }
   },
   {
@@ -238,13 +258,8 @@ export const setItemLockStateTests: TestCase<typeof setItemLockState>[] = [
       }
     ],
     promise: {
-      success(res) {
-        expect(res.Response).toEqual(1);
-      },
       failure(e) {
-        expect((e as BungieAPIError<number>).ErrorCode).toEqual(
-          PlatformErrorCodes.WebAuthRequired
-        );
+        expect(e.ErrorCode).toEqual(PlatformErrorCodes.WebAuthRequired);
       }
     }
   }

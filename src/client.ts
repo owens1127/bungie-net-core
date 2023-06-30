@@ -1,6 +1,8 @@
 import { getBungieEnv } from './env';
 import { BungieNetResponse } from './interfaces/BungieNetResponse';
 import { NotConfiguredError } from './errors/NotConfiguredError';
+import { PlatformErrorCodes } from './models';
+import { BungieAPIError } from './errors/BungieAPIError';
 
 export type BungieFetchConfig = {
   url: string;
@@ -28,7 +30,9 @@ export const BasicBungieClient: BungieClientProtocol = {
       'X-API-KEY': apiKey
     };
     if (this.access_token)
-      headers['Authorization'] = `Bearer ${this.access_token}`;
+      Object.defineProperty(headers, 'Authorization', {
+        value: `Bearer ${this.access_token}`
+      });
 
     const body = config.body ? JSON.stringify(config.body) : null;
 
@@ -46,6 +50,9 @@ export const BasicBungieClient: BungieClientProtocol = {
 
     const res = await fetch(url, payload);
     const data: BungieNetResponse<T> = await res.json();
+    if (data.ErrorCode != PlatformErrorCodes.Success || !res.ok) {
+      throw new BungieAPIError(data);
+    }
     return data;
   }
 };

@@ -12,7 +12,6 @@ export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
   readonly MessageData: { [p: string]: string };
   readonly Response: T;
   readonly ThrottleSeconds: number;
-  readonly ResponseTime: number;
 
   constructor(response: BungieNetResponse<T>) {
     super();
@@ -25,6 +24,9 @@ export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
     this.MessageData = response.MessageData;
     this.Response = response.Response;
     this.ThrottleSeconds = response.ThrottleSeconds;
-    this.ResponseTime = response.ResponseTime;
+  }
+
+  get message(): string {
+    return this.Message;
   }
 }
