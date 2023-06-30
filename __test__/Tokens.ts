@@ -18,7 +18,15 @@ export const forceDropsRepairTests: TestCase<typeof forceDropsRepair>[] = [];
 export const getBungieRewardsForPlatformUserTests: TestCase<
   typeof getBungieRewardsForPlatformUser
 >[] = [];
-export const getBungieRewardsForUserTests: TestCase<typeof getBungieRewardsForUser>[] = [];
-export const getBungieRewardsListTests: TestCase<typeof getBungieRewardsList>[] = [];
-export const getPartnerOfferSkuHistoryTests: TestCase<typeof getPartnerOfferSkuHistory>[] = [];
-export const getPartnerRewardHistoryTests: TestCase<typeof getPartnerRewardHistory>[] = [];
+export const getBungieRewardsForUserTests: TestCase<
+  typeof getBungieRewardsForUser
+>[] = [];
+export const getBungieRewardsListTests: TestCase<
+  typeof getBungieRewardsList
+>[] = [];
+export const getPartnerOfferSkuHistoryTests: TestCase<
+  typeof getPartnerOfferSkuHistory
+>[] = [];
+export const getPartnerRewardHistoryTests: TestCase<
+  typeof getPartnerRewardHistory
+>[] = [];

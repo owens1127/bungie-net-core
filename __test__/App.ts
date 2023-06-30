@@ -1,8 +1,13 @@
 import { constants, TestCase } from './global-setup';
 import { expect } from '@jest/globals';
-import { getApplicationApiUsage, getBungieApplications } from '../src/endpoints/App';
+import {
+  getApplicationApiUsage,
+  getBungieApplications
+} from '../src/endpoints/App';
 
-export const getApplicationApiUsageTests: TestCase<typeof getApplicationApiUsage>[] = [
+export const getApplicationApiUsageTests: TestCase<
+  typeof getApplicationApiUsage
+>[] = [
   {
     name: 'test get application api usage fails',
     data: [
@@ -18,4 +23,6 @@ export const getApplicationApiUsageTests: TestCase<typeof getApplicationApiUsage
   }
 ];
 
-export const getBungieApplicationsTests: TestCase<typeof getBungieApplications>[] = [];
+export const getBungieApplicationsTests: TestCase<
+  typeof getBungieApplications
+>[] = [];

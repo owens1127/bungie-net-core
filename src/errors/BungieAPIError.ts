@@ -1,7 +1,7 @@
 /**
  * Represents an error sending a request to the Bungie API
  */
-import { BungieNetResponse } from '../interfaces/server-response';
+import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { PlatformErrorCodes } from '../models';
 
 export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
@@ -15,7 +15,8 @@ export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
   readonly ResponseTime: number;
 
   constructor(response: BungieNetResponse<T>) {
-    super(response.Message);
+    super();
+    this.name = 'BungieAPIError';
     this.DetailedErrorTrace = response.DetailedErrorTrace;
     this.ErrorCode = response.ErrorCode;
     this.ErrorStatus = response.ErrorStatus;

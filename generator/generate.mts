@@ -12,7 +12,6 @@ import { generateTypeDefinition } from './generate-classes.mjs';
 import { generateManifestUtils } from './generate-manifest.mjs';
 import { generateServiceDefinition } from './generate-endpoints.mjs';
 import { computeTypeMaps } from './generate-tree.mjs';
-import { generateClient } from './generate-client.mjs';
 
 (async () => {
   const doc = JSON.parse(fs.readFileSync('./api-src/openapi.json').toString()) as OpenAPIObject;
@@ -26,8 +25,6 @@ import { generateClient } from './generate-client.mjs';
   });
   pathPairsByTag['Core'] = pathPairsByTag[''];
   delete pathPairsByTag[''];
-
-  generateClient(Object.keys(pathPairsByTag), doc);
 
   const { componentsByFile, componentByDef, componentsByTag, manifestComponents } = computeTypeMaps(
     pathPairsByTag,

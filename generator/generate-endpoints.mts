@@ -7,7 +7,12 @@ import {
   seeDefHyperLink
 } from './util.mjs';
 import { OpenAPIObject, ParameterObject, PathItemObject } from 'openapi3-ts';
-import { docComment, generateHeader, indent, writeOutFile } from './generate-common.mjs';
+import {
+  docComment,
+  generateHeader,
+  indent,
+  writeOutFile
+} from './generate-common.mjs';
 import _ from 'underscore';
 import { generateTestStub } from './generate-tests.mjs';
 
@@ -23,8 +28,15 @@ export function generateServiceDefinition(
     const file = _.last(pathDef.summary.split('.'));
     exports.push(file!);
     const filename = `src/endpoints/${tag}/${file}.ts`;
-    const pathDefinition = generatePathDefinition(path, pathDef, doc, tag, componentByDef);
-    const definition = [generateHeader(doc), pathDefinition].join('\n\n') + '\n';
+    const pathDefinition = generatePathDefinition(
+      path,
+      pathDef,
+      doc,
+      tag,
+      componentByDef
+    );
+    const definition =
+      [generateHeader(doc), pathDefinition].join('\n\n') + '\n';
 
     writeOutFile(filename, definition);
   });
@@ -32,7 +44,9 @@ export function generateServiceDefinition(
     `src/endpoints/${tag}/index.ts`,
     exports
       .map(endpt => {
-        return `export { ${endpt[0].toLowerCase() + endpt.substring(1)} } from './${endpt}';`;
+        return `export { ${
+          endpt[0].toLowerCase() + endpt.substring(1)
+        } } from './${endpt}';`;
       })
       .join('\n')
   );
@@ -67,10 +81,12 @@ function generatePathDefinition(
     // see https://github.com/Bungie-net/api/pull/1718/commits/2d4225f5a93a814daba9f9443986da77bdd0e7bf
     if (param.name === 'currentpage') param.in = 'query';
   });
-  const queryParameterNames = params.filter(param => param.in === 'query').map(param => param.name);
+  const queryParameterNames = params
+    .filter(param => param.in === 'query')
+    .map(param => param.name);
 
   const argumentsList: string[] = [];
-  const parameterArgs = ['this:  AccessTokenObject | void'];
+  const parameterArgs: string[] = [];
   let componentResponse = { value: false };
   let paramsTypeDefinition = '';
   if (params.length) {
@@ -85,25 +101,37 @@ function generatePathDefinition(
         componentByDef
       ) + '\n\n';
     argumentsList.push('params');
-    parameterArgs.push(`params: ${interfaceName}Params${componentResponse.value ? '<T>' : ''}`);
+    parameterArgs.push(
+      `params: ${interfaceName}Params${componentResponse.value ? '<T>' : ''}`
+    );
   }
 
   if (methodDef.requestBody) {
     if (isRequestBodyObject(methodDef.requestBody)) {
       const schema = methodDef.requestBody.content['application/json'].schema!;
 
-      const paramType = resolveSchemaType(schema, doc, importFiles, componentByDef, null);
+      const paramType = resolveSchemaType(
+        schema,
+        doc,
+        importFiles,
+        componentByDef,
+        null
+      );
       const docString = methodDef.requestBody.description
         ? docComment(methodDef.requestBody.description) + '\n'
         : '';
       argumentsList.push('body');
       parameterArgs.push(
-        `${docString}body${methodDef.requestBody.required ? '' : '?'}: ${paramType}`
+        `${docString}body${
+          methodDef.requestBody.required ? '' : '?'
+        }: ${paramType}`
       );
     } else if (isReferenceObject(methodDef.requestBody)) {
       throw new Error("didn't expect this");
     }
   }
+
+  parameterArgs.push('client: BungieClientProtocol');
 
   // tslint:disable-next-line:no-invalid-template-strings
   const templatizedPath = path.includes('{')
@@ -114,7 +142,13 @@ function generatePathDefinition(
   if (queryParameterNames.length) {
     const paramInitializers = queryParameterNames.map(p => {
       const param = params.find(pa => pa.name === p)!;
-      const paramType = resolveSchemaType(param.schema!, doc, importFiles, componentByDef, null);
+      const paramType = resolveSchemaType(
+        param.schema!,
+        doc,
+        importFiles,
+        componentByDef,
+        null
+      );
 
       if (paramType.endsWith('[]')) {
         if (!param.required) {
@@ -138,12 +172,9 @@ ${indent(paramInitializers.join(',\n'), 3)}
     body`;
   }
 
-  const rateLimitedFunction = 'rateLimitedRequest';
   const staticImports = [
-    `import { ${rateLimitedFunction} } from '../../util/http/rate-limiter';`,
-    `import { BungieNetResponse } from '../../interfaces/server-response';`,
-    `import { AccessTokenObject } from '../../client';`,
-    `import { BungieAPIError } from '../../errors/BungieAPIError';`
+    `import { BungieClientProtocol } from '../../client';`,
+    `import { BungieNetResponse } from '../../interfaces/BungieNetResponse';`
   ];
   const responseType = resolveSchemaType(
     methodDef.responses['200'],
@@ -158,15 +189,19 @@ ${indent(paramInitializers.join(',\n'), 3)}
     headerImports.push(`import { ${key} } from '../../models'`);
   }
   const rateDoc =
-    methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser &&
+    methodDef['x-documentation-attributes']
+      ?.ThrottleSecondsBetweenActionPerUser &&
     `Wait at least ${methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser}s between actions.`;
 
-  const snakeInterface = interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1);
+  const snakeInterface =
+    interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1);
 
   generateTestStub(tag, snakeInterface, doc, argumentsList);
 
   return (
-    `${staticImports.join('\n')}\n${headerImports.join('\n')}\n${paramsTypeDefinition}${docComment(
+    `${staticImports.join('\n')}\n${headerImports.join(
+      '\n'
+    )}\n${paramsTypeDefinition}${docComment(
       methodDef.description! + (rateDoc ? '\n' + rateDoc : ''),
       [hyperRef]
     )}
@@ -175,18 +210,15 @@ export async function ${snakeInterface}${
     }(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${responseType}${
       componentResponse.value ? '<T>' : ''
     }>> {` +
-    `\nconst token = (this as AccessTokenObject)?.access_token ?? undefined
-  try {
-    return await ${rateLimitedFunction}<${responseType}${
+    `\nreturn client.fetch<${responseType}${
       componentResponse.value ? '<T>' : ''
-    }>(token, {
-      method: '${method}',
-      url: ${templatizedPath}${indent(paramsObject, 1)}${indent(requestBodyParam, 1)}
-    });
-  } catch (err) {
-    if (err instanceof BungieAPIError) err.stack = new Error().stack
-    throw err
-  }
+    }>({
+    method: '${method}',
+    url: ${templatizedPath}${indent(paramsObject, 1)}${indent(
+      requestBodyParam,
+      1
+    )}
+  });
 }`
   );
 }
@@ -201,14 +233,25 @@ function generateParamsType(
   componentByDef: { [def: string]: DefInfo }
 ) {
   const parameterArgs = params.map(param => {
-    let paramType = resolveSchemaType(param.schema!, doc, importFiles, componentByDef, null);
-    const docString = param.description ? docComment(param.description) + '\n' : '';
-    const isComponent = param.name === 'components' && paramType === 'DestinyComponentType[]';
+    let paramType = resolveSchemaType(
+      param.schema!,
+      doc,
+      importFiles,
+      componentByDef,
+      null
+    );
+    const docString = param.description
+      ? docComment(param.description) + '\n'
+      : '';
+    const isComponent =
+      param.name === 'components' && paramType === 'DestinyComponentType[]';
     if (isComponent) {
       componentResponse.value = true;
       paramType = '[...T]';
     }
-    return `${docString}${param.name}${param.required || isComponent ? '' : '?'}: ${paramType};`;
+    return `${docString}${param.name}${
+      param.required || isComponent ? '' : '?'
+    }: ${paramType};`;
   });
 
   return `${docComment('', [reference])}\nexport type ${typeName}${

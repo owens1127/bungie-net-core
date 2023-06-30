@@ -11,12 +11,17 @@ import {
 } from '../src/endpoints/User';
 import { TestCase } from './global-setup';
 
-export const getAvailableThemesTests: TestCase<typeof getAvailableThemes>[] = [];
-export const getBungieNetUserByIdTests: TestCase<typeof getBungieNetUserById>[] = [];
+export const getAvailableThemesTests: TestCase<typeof getAvailableThemes>[] =
+  [];
+export const getBungieNetUserByIdTests: TestCase<
+  typeof getBungieNetUserById
+>[] = [];
 export const getCredentialTypesForTargetAccountTests: TestCase<
   typeof getCredentialTypesForTargetAccount
 >[] = [];
-export const getMembershipDataByIdTests: TestCase<typeof getMembershipDataById>[] = [];
+export const getMembershipDataByIdTests: TestCase<
+  typeof getMembershipDataById
+>[] = [];
 export const getMembershipDataForCurrentUserTests: TestCase<
   typeof getMembershipDataForCurrentUser
 >[] = [];
@@ -26,5 +31,9 @@ export const getMembershipFromHardLinkedCredentialTests: TestCase<
 export const getSanitizedPlatformDisplayNamesTests: TestCase<
   typeof getSanitizedPlatformDisplayNames
 >[] = [];
-export const searchByGlobalNamePostTests: TestCase<typeof searchByGlobalNamePost>[] = [];
-export const searchByGlobalNamePrefixTests: TestCase<typeof searchByGlobalNamePrefix>[] = [];
+export const searchByGlobalNamePostTests: TestCase<
+  typeof searchByGlobalNamePost
+>[] = [];
+export const searchByGlobalNamePrefixTests: TestCase<
+  typeof searchByGlobalNamePrefix
+>[] = [];

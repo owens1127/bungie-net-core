@@ -2,7 +2,6 @@
 rm -rf ./src/endpoints
 rm -rf ./src/models
 rm ./src/manifest/manifest-types.ts
-rm ./src/client.ts
 
 # Run the generator to produce typescript library in ./src
 node --experimental-json-modules ./build/generate.mjs ; echo Generation complete, Library TypeScript generated

@@ -50,24 +50,38 @@ import { BungieAPIError } from '../src/errors/BungieAPIError';
 import { PlatformErrorCodes } from '../lib/models';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
-export const awaInitializeRequestTests: TestCase<typeof awaInitializeRequest>[] = [];
-export const awaProvideAuthorizationResultTests: TestCase<typeof awaProvideAuthorizationResult>[] =
-  [];
+export const awaInitializeRequestTests: TestCase<
+  typeof awaInitializeRequest
+>[] = [];
+export const awaProvideAuthorizationResultTests: TestCase<
+  typeof awaProvideAuthorizationResult
+>[] = [];
 export const clearLoadoutTests: TestCase<typeof clearLoadout>[] = [];
 export const equipItemTests: TestCase<typeof equipItem>[] = [];
 export const equipItemsTests: TestCase<typeof equipItems>[] = [];
 export const equipLoadoutTests: TestCase<typeof equipLoadout>[] = [];
-export const getActivityHistoryTests: TestCase<typeof getActivityHistory>[] = [];
+export const getActivityHistoryTests: TestCase<typeof getActivityHistory>[] =
+  [];
 export const getCharacterTests: TestCase<typeof getCharacter>[] = [];
-export const getClanAggregateStatsTests: TestCase<typeof getClanAggregateStats>[] = [];
-export const getClanBannerSourceTests: TestCase<typeof getClanBannerSource>[] = [];
-export const getClanLeaderboardsTests: TestCase<typeof getClanLeaderboards>[] = [];
-export const getClanWeeklyRewardStateTests: TestCase<typeof getClanWeeklyRewardState>[] = [];
-export const getCollectibleNodeDetailsTests: TestCase<typeof getCollectibleNodeDetails>[] = [];
+export const getClanAggregateStatsTests: TestCase<
+  typeof getClanAggregateStats
+>[] = [];
+export const getClanBannerSourceTests: TestCase<typeof getClanBannerSource>[] =
+  [];
+export const getClanLeaderboardsTests: TestCase<typeof getClanLeaderboards>[] =
+  [];
+export const getClanWeeklyRewardStateTests: TestCase<
+  typeof getClanWeeklyRewardState
+>[] = [];
+export const getCollectibleNodeDetailsTests: TestCase<
+  typeof getCollectibleNodeDetails
+>[] = [];
 export const getDestinyAggregateActivityStatsTests: TestCase<
   typeof getDestinyAggregateActivityStats
 >[] = [];
-export const getDestinyEntityDefinitionTests: TestCase<typeof getDestinyEntityDefinition>[] = [
+export const getDestinyEntityDefinitionTests: TestCase<
+  typeof getDestinyEntityDefinition
+>[] = [
   {
     name: 'get destiny entity definition',
     data: [
@@ -99,16 +113,23 @@ export const getDestinyManifestTests: TestCase<typeof getDestinyManifest>[] = [
     }
   }
 ];
-export const getHistoricalStatsTests: TestCase<typeof getHistoricalStats>[] = [];
-export const getHistoricalStatsDefinitionTests: TestCase<typeof getHistoricalStatsDefinition>[] =
+export const getHistoricalStatsTests: TestCase<typeof getHistoricalStats>[] =
   [];
-export const getHistoricalStatsForAccountTests: TestCase<typeof getHistoricalStatsForAccount>[] =
-  [];
+export const getHistoricalStatsDefinitionTests: TestCase<
+  typeof getHistoricalStatsDefinition
+>[] = [];
+export const getHistoricalStatsForAccountTests: TestCase<
+  typeof getHistoricalStatsForAccount
+>[] = [];
 export const getItemTests: TestCase<typeof getItem>[] = [];
 export const getLeaderboardsTests: TestCase<typeof getLeaderboards>[] = [];
-export const getLeaderboardsForCharacterTests: TestCase<typeof getLeaderboardsForCharacter>[] = [];
+export const getLeaderboardsForCharacterTests: TestCase<
+  typeof getLeaderboardsForCharacter
+>[] = [];
 export const getLinkedProfilesTests: TestCase<typeof getLinkedProfiles>[] = [];
-export const getPostGameCarnageReportTests: TestCase<typeof getPostGameCarnageReport>[] = [];
+export const getPostGameCarnageReportTests: TestCase<
+  typeof getPostGameCarnageReport
+>[] = [];
 export const getProfileTests: TestCase<typeof getProfile>[] = [
   {
     name: 'test get profile',
@@ -141,19 +162,29 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
     }
   }
 ];
-export const getPublicMilestoneContentTests: TestCase<typeof getPublicMilestoneContent>[] = [];
-export const getPublicMilestonesTests: TestCase<typeof getPublicMilestones>[] = [];
+export const getPublicMilestoneContentTests: TestCase<
+  typeof getPublicMilestoneContent
+>[] = [];
+export const getPublicMilestonesTests: TestCase<typeof getPublicMilestones>[] =
+  [];
 export const getPublicVendorsTests: TestCase<typeof getPublicVendors>[] = [];
-export const getUniqueWeaponHistoryTests: TestCase<typeof getUniqueWeaponHistory>[] = [];
+export const getUniqueWeaponHistoryTests: TestCase<
+  typeof getUniqueWeaponHistory
+>[] = [];
 export const getVendorTests: TestCase<typeof getVendor>[] = [];
 export const getVendorsTests: TestCase<typeof getVendors>[] = [];
 export const insertSocketPlugTests: TestCase<typeof insertSocketPlug>[] = [];
-export const insertSocketPlugFreeTests: TestCase<typeof insertSocketPlugFree>[] = [];
-export const pullFromPostmasterTests: TestCase<typeof pullFromPostmaster>[] = [];
+export const insertSocketPlugFreeTests: TestCase<
+  typeof insertSocketPlugFree
+>[] = [];
+export const pullFromPostmasterTests: TestCase<typeof pullFromPostmaster>[] =
+  [];
 export const reportOffensivePostGameCarnageReportPlayerTests: TestCase<
   typeof reportOffensivePostGameCarnageReportPlayer
 >[] = [];
-export const searchDestinyEntitiesTests: TestCase<typeof searchDestinyEntities>[] = [];
+export const searchDestinyEntitiesTests: TestCase<
+  typeof searchDestinyEntities
+>[] = [];
 export const searchDestinyPlayerByBungieNameTests: TestCase<
   typeof searchDestinyPlayerByBungieName
 >[] = [
@@ -211,12 +242,18 @@ export const setItemLockStateTests: TestCase<typeof setItemLockState>[] = [
         expect(res.Response).toEqual(1);
       },
       failure(e) {
-        expect((e as BungieAPIError<number>).ErrorCode).toEqual(PlatformErrorCodes.WebAuthRequired);
+        expect((e as BungieAPIError<number>).ErrorCode).toEqual(
+          PlatformErrorCodes.WebAuthRequired
+        );
       }
     }
   }
 ];
-export const setQuestTrackedStateTests: TestCase<typeof setQuestTrackedState>[] = [];
+export const setQuestTrackedStateTests: TestCase<
+  typeof setQuestTrackedState
+>[] = [];
 export const snapshotLoadoutTests: TestCase<typeof snapshotLoadout>[] = [];
 export const transferItemTests: TestCase<typeof transferItem>[] = [];
-export const updateLoadoutIdentifiersTests: TestCase<typeof updateLoadoutIdentifiers>[] = [];
+export const updateLoadoutIdentifiersTests: TestCase<
+  typeof updateLoadoutIdentifiers
+>[] = [];

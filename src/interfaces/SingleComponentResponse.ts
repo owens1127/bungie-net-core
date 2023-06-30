@@ -1,3 +1,4 @@
 import { ComponentData, ComponentResponse } from './ComponentTypes';
 
-export interface SingleComponentResponse<C extends ComponentData> extends ComponentResponse<C> {}
+export interface SingleComponentResponse<C extends ComponentData>
+  extends ComponentResponse<C> {}

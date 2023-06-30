@@ -18,14 +18,17 @@ function generateTestsDefinition(
   endpointName: string,
   argumentsList: string[]
 ): string {
-  const imports = `import { client, UnwrapPromise } from '../../global-setup';
-import { ${endpointName}Tests } from '../../${tag}';
-import { describe, test, it, expect } from '@jest/globals';`;
+  const imports = [
+    `import { UnwrapPromise, sharedTestClient } from '../../global-setup'`,
+    `import { ${endpointName}Tests } from '../../${tag}'`,
+    `import { describe, test, it, expect } from '@jest/globals';`,
+    `import { ${endpointName} } from '../../../src/endpoints/${tag}';`
+  ].join('\n');
 
-  const types = `type ResponseType = UnwrapPromise<ReturnType<typeof client.${tag}.${endpointName}>>;`;
+  const types = `type ResponseType = UnwrapPromise<ReturnType<typeof ${endpointName}>>;`;
   const tests = `describe('${tag}.${endpointName}', () => { 
   it('to exist', () => { 
-    expect(client.${tag}.${endpointName}).toBeDefined();
+    expect(${endpointName}).toBeDefined();
   })
 
   ${endpointName}Tests.map(({ name, data, promise: { failure, success } }) => (
@@ -35,13 +38,17 @@ import { describe, test, it, expect } from '@jest/globals';`;
   return [imports, types, tests].join('\n\n');
 }
 
-function testCase(endpoint: string, tag: string, argumentsList: string[]): string {
+function testCase(
+  endpoint: string,
+  tag: string,
+  argumentsList: string[]
+): string {
   return `test(name, async () => {
         let res: ResponseType;
         try {
-            res = await client.${tag}.${endpoint}(${argumentsList
+            res = await ${endpoint}(${argumentsList
     .map((_, idx) => `data[${idx}]`)
-    .join(', ')})
+    .join(', ')}, sharedTestClient)
             expect(res).toHaveProperty('Response');
         } catch (e) {
             expect(failure).not.toBeUndefined();
