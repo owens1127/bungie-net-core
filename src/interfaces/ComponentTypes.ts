@@ -13,7 +13,7 @@ export type ConditionalComponent<
   : never;
 
 export interface ComponentResponse<T> {
-  readonly data: T;
+  readonly data?: T;
   readonly privacy: ComponentPrivacySetting;
   readonly disabled?: true;
 }
