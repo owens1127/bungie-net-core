@@ -12,9 +12,12 @@ import { generateTypeDefinition } from './generate-classes.mjs';
 import { generateManifestUtils } from './generate-manifest.mjs';
 import { generateServiceDefinition } from './generate-endpoints.mjs';
 import { computeTypeMaps } from './generate-tree.mjs';
+import { writeOutFile } from './generate-common.mjs';
 
 (async () => {
-  const doc = JSON.parse(fs.readFileSync('./api-src/openapi.json').toString()) as OpenAPIObject;
+  const doc = JSON.parse(
+    fs.readFileSync('./api-src/openapi.json').toString()
+  ) as OpenAPIObject;
 
   // Pairs of [request path, path service description]
   const pathPairs = _.pairs(doc.paths) as [string, PathItemObject][];
@@ -26,10 +29,12 @@ import { computeTypeMaps } from './generate-tree.mjs';
   pathPairsByTag['Core'] = pathPairsByTag[''];
   delete pathPairsByTag[''];
 
-  const { componentsByFile, componentByDef, componentsByTag, manifestComponents } = computeTypeMaps(
-    pathPairsByTag,
-    doc
-  );
+  const {
+    componentsByFile,
+    componentByDef,
+    componentsByTag,
+    manifestComponents
+  } = computeTypeMaps(pathPairsByTag, doc);
 
   componentsByFile.forEach((component, file) => {
     generateTypeDefinition(file, component, doc, componentByDef);
@@ -42,4 +47,24 @@ import { computeTypeMaps } from './generate-tree.mjs';
   });
 
   generateIndices(componentsByTag, doc, componentsByFile);
+
+  const packagePath = './package.json';
+  let packageJson = JSON.parse(fs.readFileSync(packagePath).toString());
+  const exports = {
+    '.': './lib/index.js',
+    './models': './lib/models/index.js',
+    './manifest': './lib/manifest/index.js',
+    './auth': './lib/auth/index.js',
+    './api': './lib/api.js',
+    ...Object.fromEntries(
+      Object.keys(componentsByTag)
+        .sort()
+        .map(tag => [`./endpoints/${tag}`, `./lib/endpoints/${tag}/index.js`])
+    )
+  };
+
+  writeOutFile(
+    packagePath,
+    JSON.stringify({ ...packageJson, exports }, null, 2)
+  );
 })();

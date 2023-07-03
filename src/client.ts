@@ -35,14 +35,16 @@ export class BasicBungieClient implements BungieClientProtocol {
       throw new NotConfiguredError(['BUNGIE_API_KEY']);
     }
 
-    const headers: Record<string, string> = {
+    let headers: Record<string, string> = {
       'Content-Type': 'application/json',
       'X-API-KEY': apiKey
     };
-    if (this.accessToken)
-      Object.defineProperty(headers, 'Authorization', {
-        value: `Bearer ${this.accessToken}`
-      });
+    if (this.accessToken) {
+      headers = {
+        ...headers,
+        Authorization: `Bearer ${this.accessToken}`
+      };
+    }
 
     const body = config.body ? JSON.stringify(config.body) : null;
 
