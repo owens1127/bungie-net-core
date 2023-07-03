@@ -3,6 +3,7 @@ import { BungieNetResponse } from './interfaces/BungieNetResponse';
 import { NotConfiguredError } from './errors/NotConfiguredError';
 import { PlatformErrorCodes } from './models';
 import { BungieAPIError } from './errors/BungieAPIError';
+import fetch from 'isomorphic-fetch';
 
 /**
  * Represents an object to make a Bungie API request with
