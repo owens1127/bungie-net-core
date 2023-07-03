@@ -48,23 +48,23 @@ import { writeOutFile } from './generate-common.mjs';
 
   generateIndices(componentsByTag, doc, componentsByFile);
 
-  const packagePath = './package.json';
-  let packageJson = JSON.parse(fs.readFileSync(packagePath).toString());
-  const exports = {
-    '.': './lib/index.js',
-    './models': './lib/models/index.js',
-    './manifest': './lib/manifest/index.js',
-    './auth': './lib/auth/index.js',
-    './api': './lib/api.js',
-    ...Object.fromEntries(
-      Object.keys(componentsByTag)
-        .sort()
-        .map(tag => [`./endpoints/${tag}`, `./lib/endpoints/${tag}/index.js`])
-    )
-  };
+  // const packagePath = './package.json';
+  // let packageJson = JSON.parse(fs.readFileSync(packagePath).toString());
+  // const exports = {
+  //   '.': './lib/index.js',
+  //   './models': './lib/models/index.js',
+  //   './manifest': './lib/manifest/index.js',
+  //   './auth': './lib/auth/index.js',
+  //   './api': './lib/api.js',
+  //   ...Object.fromEntries(
+  //     Object.keys(componentsByTag)
+  //       .sort()
+  //       .map(tag => [`./endpoints/${tag}`, `./lib/endpoints/${tag}/index.js`])
+  //   )
+  // };
 
-  writeOutFile(
-    packagePath,
-    JSON.stringify({ ...packageJson, exports }, null, 2)
-  );
+  // writeOutFile(
+  //   packagePath,
+  //   JSON.stringify({ ...packageJson, exports }, null, 2)
+  // );
 })();

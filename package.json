@@ -84,24 +84,5 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^3.0.0"
-  },
-  "exports": {
-    ".": "./lib/index.js",
-    "./models": "./lib/models/index.js",
-    "./manifest": "./lib/manifest/index.js",
-    "./auth": "./lib/auth/index.js",
-    "./api": "./lib/api.js",
-    "./endpoints/App": "./lib/endpoints/App/index.js",
-    "./endpoints/CommunityContent": "./lib/endpoints/CommunityContent/index.js",
-    "./endpoints/Content": "./lib/endpoints/Content/index.js",
-    "./endpoints/Core": "./lib/endpoints/Core/index.js",
-    "./endpoints/Destiny2": "./lib/endpoints/Destiny2/index.js",
-    "./endpoints/Fireteam": "./lib/endpoints/Fireteam/index.js",
-    "./endpoints/Forum": "./lib/endpoints/Forum/index.js",
-    "./endpoints/GroupV2": "./lib/endpoints/GroupV2/index.js",
-    "./endpoints/Social": "./lib/endpoints/Social/index.js",
-    "./endpoints/Tokens": "./lib/endpoints/Tokens/index.js",
-    "./endpoints/Trending": "./lib/endpoints/Trending/index.js",
-    "./endpoints/User": "./lib/endpoints/User/index.js"
   }
 }
