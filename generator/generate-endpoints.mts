@@ -102,7 +102,12 @@ function generatePathDefinition(
       ) + '\n\n';
     argumentsList.push('params');
     parameterArgs.push(
-      `params: ${interfaceName}Params${componentResponse.value ? '<T>' : ''}`
+      `params: ${interfaceName}Params${
+        componentResponse.value ||
+        interfaceName === 'GetDestinyEntityDefinition'
+          ? '<T>'
+          : ''
+      }`
     );
   }
 
@@ -185,18 +190,28 @@ ${indent(paramInitializers.join(',\n'), 3)}
   );
 
   const headerImports: string[] = [];
-  for (const [key] of Array.from(importFiles.entries())) {
-    headerImports.push(`import { ${key} } from '../../models'`);
+  for (const [component, file] of Array.from(importFiles.entries())) {
+    if (file.startsWith('#')) {
+      headerImports.push(`import { ${component} } from '../../models'`);
+    } else {
+      headerImports.push(`import { ${component} } from '${file}'`);
+    }
   }
   const rateDoc =
     methodDef['x-documentation-attributes']
       ?.ThrottleSecondsBetweenActionPerUser &&
     `Wait at least ${methodDef['x-documentation-attributes']?.ThrottleSecondsBetweenActionPerUser}s between actions.`;
 
-  const snakeInterface =
+  let snakeInterface =
     interfaceName[0].toLocaleLowerCase() + interfaceName.substring(1);
 
   generateTestStub(tag, snakeInterface, doc, argumentsList);
+
+  if (snakeInterface == 'getDestinyEntityDefinition') {
+    snakeInterface += '<T extends DestinyManifestDefinition>';
+  } else if (componentResponse.value) {
+    snakeInterface += '<T extends DestinyComponentType[]>';
+  }
 
   return (
     `${staticImports.join('\n')}\n${headerImports.join(
@@ -205,9 +220,9 @@ ${indent(paramInitializers.join(',\n'), 3)}
       methodDef.description! + (rateDoc ? '\n' + rateDoc : ''),
       [hyperRef]
     )}
-export async function ${snakeInterface}${
-      componentResponse.value ? '<T extends DestinyComponentType[]>' : ''
-    }(${parameterArgs.join(', ')}): Promise<BungieNetResponse<${responseType}${
+export async function ${snakeInterface}(${parameterArgs.join(
+      ', '
+    )}): Promise<BungieNetResponse<${responseType}${
       componentResponse.value ? '<T>' : ''
     }>> {` +
     `\nreturn client.fetch<${responseType}${
@@ -243,6 +258,10 @@ function generateParamsType(
     const docString = param.description
       ? docComment(param.description) + '\n'
       : '';
+    if (param.name === 'entityType') {
+      paramType = 'T';
+      importFiles.set('DestinyManifestDefinition', '../../manifest');
+    }
     const isComponent =
       param.name === 'components' && paramType === 'DestinyComponentType[]';
     if (isComponent) {
@@ -254,6 +273,10 @@ function generateParamsType(
     }: ${paramType};`;
   });
 
+  if (typeName === 'GetDestinyEntityDefinitionParams') {
+    importFiles.set('DestinyManifestDefinition', '../../manifest');
+    typeName += '<T extends DestinyManifestDefinition>';
+  }
   return `${docComment('', [reference])}\nexport type ${typeName}${
     componentResponse.value ? '<T extends DestinyComponentType[]>' : ''
   } = {

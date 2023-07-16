@@ -12,11 +12,13 @@
  */
 //
 
+import { DestinyManifestDefinition } from '../../../manifest';
+
 /**
  * Provides common properties for destiny definitions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDefinition}
  */
-export interface DestinyDefinition {
+export type DestinyDefinition<T extends DestinyManifestDefinition> = T & {
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of
    * entity, but not globally.
@@ -32,4 +34,4 @@ export interface DestinyDefinition {
    * but BNet is not yet allowed to show it. Sorry!
    */
   readonly redacted: boolean;
-}
+};

@@ -1,13 +1,11 @@
-import {
-  AllDestinyManifestComponents,
-  DestinyManifestComponentName,
-  DestinyManifestLanguage
-} from './';
+import { DestinyManifestLanguage } from './';
 import { DestinyManifest } from '../models';
 import { ManifestRequestError } from '../errors/ManifestRequestError';
+import { AllManifestComponents, ManifestDefinition } from './manifest-types';
+import fetch from 'isomorphic-fetch';
 
 export interface GetDestinyManifestComponentParams<
-  T extends DestinyManifestComponentName
+  T extends ManifestDefinition
 > {
   destinyManifest: DestinyManifest;
   tableName: T;
@@ -28,18 +26,16 @@ export interface GetDestinyManifestComponentParams<
  *
  * but make sure it's not a `let x =` or a dynamically set string.
  */
-export async function getDestinyManifestComponent<
-  T extends DestinyManifestComponentName
->(
+export async function getDestinyManifestComponent<T extends ManifestDefinition>(
   params: GetDestinyManifestComponentParams<T>
-): Promise<AllDestinyManifestComponents[T]> {
+): Promise<AllManifestComponents[T]> {
   let url =
     'https://www.bungie.net' +
     params.destinyManifest.jsonWorldComponentContentPaths[params.language][
       params.tableName
     ];
 
-  const request = async (): Promise<AllDestinyManifestComponents[T]> => {
+  const request = async (): Promise<AllManifestComponents[T]> => {
     const data = await fetch(url);
     if (data.ok) {
       return data.json();

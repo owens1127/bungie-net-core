@@ -1,7 +1,10 @@
-import { AllDestinyManifestComponents, DestinyManifestLanguage } from './index';
 import { DestinyManifest } from '../models/index';
-import { BungieClientProtocol } from '../client';
 import { ManifestRequestError } from '../errors/ManifestRequestError';
+import {
+  AllManifestComponents,
+  DestinyManifestLanguage
+} from './manifest-types';
+import fetch from 'isomorphic-fetch';
 
 export interface GetAllDestinyManifestComponentsParams {
   destinyManifest: DestinyManifest;
@@ -9,9 +12,8 @@ export interface GetAllDestinyManifestComponentsParams {
 }
 /** fetches the enormous combined JSON manifest file */
 export async function getAllDestinyManifestComponents(
-  params: GetAllDestinyManifestComponentsParams,
-  client: BungieClientProtocol
-): Promise<AllDestinyManifestComponents> {
+  params: GetAllDestinyManifestComponentsParams
+): Promise<AllManifestComponents> {
   try {
     const data = await fetch(
       'https://www.bungie.net' +

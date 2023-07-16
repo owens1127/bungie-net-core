@@ -36,11 +36,17 @@ export async function generateManifestUtils(
   let manifestMetadata = await manifestMetadataPromise;
 
   // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
-  const jsonKeys = Object.keys(manifestMetadata.jsonWorldComponentContentPaths.en);
+  const jsonKeys = Object.keys(
+    manifestMetadata.jsonWorldComponentContentPaths.en
+  );
   // exclude some tables from the definitionmanifest table because we don't have the format for them
-  const defsToInclude = components.filter(def => jsonKeys.includes(def.typeName));
+  const defsToInclude = components.filter(def =>
+    jsonKeys.includes(def.typeName)
+  );
 
-  const languageList = Object.keys(manifestMetadata.jsonWorldComponentContentPaths).sort();
+  const languageList = Object.keys(
+    manifestMetadata.jsonWorldComponentContentPaths
+  ).sort();
 
   const body = `import {${defsToInclude.map(c => `\n  ${c.typeName},`).join('')}
 } from '../models';
@@ -49,19 +55,28 @@ export async function generateManifestUtils(
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,
  * but also just what we use here to dole out single-table, typed definitions
  */
-export interface AllDestinyManifestComponents {
+
+export type ManifestComponent<T> = {
+  [key: number]: T;
+}
+
+export enum ManifestDefinition {
 ${defsToInclude
   .map(
     manifestComponent =>
-      `  ${manifestComponent.typeName}: { [key: number]: ${manifestComponent.typeName} };\n`
+      `${manifestComponent.typeName} = '${manifestComponent.typeName}'`
   )
-  .join('')}}
+  .join(',\n')}
+  }
 
-export const enum ManifestComponents {
-${defsToInclude
-  .map(manifestComponent => `  ${manifestComponent.typeName} = '${manifestComponent.typeName}',\n`)
-  .join('')}
-}
+  export type AllManifestComponents = {
+    ${defsToInclude
+      .map(
+        manifestComponent =>
+          `'${manifestComponent.typeName}': ManifestComponent<${manifestComponent.typeName}>`
+      )
+      .join('\n')}
+  }
 
 /**
  * languages the manifest comes in, as their required keys to download them
@@ -70,10 +85,9 @@ export const destinyManifestLanguages = [
 ${languageList.map(l => `  '${l}',`).join('\n')}
 ] as const;
 export type DestinyManifestLanguage = typeof destinyManifestLanguages[number];
-export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
 
-export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName[]>> = Pick<
-  AllDestinyManifestComponents,
+export type DestinyManifestSlice<K extends Readonly<ManifestDefinition[]>> = Pick<
+  AllManifestComponents,
   K[number]
 >;
 
@@ -84,8 +98,8 @@ export type DestinyManifestSlice<K extends Readonly<DestinyManifestComponentName
  * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
  */
 export type DestinyDefinitionFrom<
-  K extends DestinyManifestComponentName
-> = AllDestinyManifestComponents[K][number];
+  K extends ManifestDefinition
+> = AllManifestComponents[K][number];
 `;
 
   writeOutFile(filename, [generateManifestHeader(doc), body].join('\n\n'));

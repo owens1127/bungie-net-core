@@ -69,113 +69,12 @@ import {
  * this is roughly what you get if you decode the gigantic, single-json manifest blob,
  * but also just what we use here to dole out single-table, typed definitions
  */
-export interface AllDestinyManifestComponents {
-  DestinyProgressionDefinition: { [key: number]: DestinyProgressionDefinition };
-  DestinyInventoryItemDefinition: {
-    [key: number]: DestinyInventoryItemDefinition;
-  };
-  DestinyCollectibleDefinition: { [key: number]: DestinyCollectibleDefinition };
-  DestinyMaterialRequirementSetDefinition: {
-    [key: number]: DestinyMaterialRequirementSetDefinition;
-  };
-  DestinyPresentationNodeDefinition: {
-    [key: number]: DestinyPresentationNodeDefinition;
-  };
-  DestinyObjectiveDefinition: { [key: number]: DestinyObjectiveDefinition };
-  DestinyLocationDefinition: { [key: number]: DestinyLocationDefinition };
-  DestinyVendorDefinition: { [key: number]: DestinyVendorDefinition };
-  DestinyFactionDefinition: { [key: number]: DestinyFactionDefinition };
-  DestinyDestinationDefinition: { [key: number]: DestinyDestinationDefinition };
-  DestinyPlaceDefinition: { [key: number]: DestinyPlaceDefinition };
-  DestinyActivityDefinition: { [key: number]: DestinyActivityDefinition };
-  DestinyActivityTypeDefinition: {
-    [key: number]: DestinyActivityTypeDefinition;
-  };
-  DestinyActivityModifierDefinition: {
-    [key: number]: DestinyActivityModifierDefinition;
-  };
-  DestinyActivityModeDefinition: {
-    [key: number]: DestinyActivityModeDefinition;
-  };
-  DestinyActivityGraphDefinition: {
-    [key: number]: DestinyActivityGraphDefinition;
-  };
-  DestinyEquipmentSlotDefinition: {
-    [key: number]: DestinyEquipmentSlotDefinition;
-  };
-  DestinyInventoryBucketDefinition: {
-    [key: number]: DestinyInventoryBucketDefinition;
-  };
-  DestinySocketTypeDefinition: { [key: number]: DestinySocketTypeDefinition };
-  DestinySocketCategoryDefinition: {
-    [key: number]: DestinySocketCategoryDefinition;
-  };
-  DestinyVendorGroupDefinition: { [key: number]: DestinyVendorGroupDefinition };
-  DestinySandboxPerkDefinition: { [key: number]: DestinySandboxPerkDefinition };
-  DestinyDamageTypeDefinition: { [key: number]: DestinyDamageTypeDefinition };
-  DestinyStatDefinition: { [key: number]: DestinyStatDefinition };
-  DestinyRecordDefinition: { [key: number]: DestinyRecordDefinition };
-  DestinyLoreDefinition: { [key: number]: DestinyLoreDefinition };
-  DestinyGenderDefinition: { [key: number]: DestinyGenderDefinition };
-  DestinyTraitDefinition: { [key: number]: DestinyTraitDefinition };
-  DestinyMetricDefinition: { [key: number]: DestinyMetricDefinition };
-  DestinyItemTierTypeDefinition: {
-    [key: number]: DestinyItemTierTypeDefinition;
-  };
-  DestinyStatGroupDefinition: { [key: number]: DestinyStatGroupDefinition };
-  DestinySandboxPatternDefinition: {
-    [key: number]: DestinySandboxPatternDefinition;
-  };
-  DestinyClassDefinition: { [key: number]: DestinyClassDefinition };
-  DestinyArtifactDefinition: { [key: number]: DestinyArtifactDefinition };
-  DestinyProgressionLevelRequirementDefinition: {
-    [key: number]: DestinyProgressionLevelRequirementDefinition;
-  };
-  DestinyPowerCapDefinition: { [key: number]: DestinyPowerCapDefinition };
-  DestinyRewardSourceDefinition: {
-    [key: number]: DestinyRewardSourceDefinition;
-  };
-  DestinyEnergyTypeDefinition: { [key: number]: DestinyEnergyTypeDefinition };
-  DestinyPlugSetDefinition: { [key: number]: DestinyPlugSetDefinition };
-  DestinyTalentGridDefinition: { [key: number]: DestinyTalentGridDefinition };
-  DestinyItemCategoryDefinition: {
-    [key: number]: DestinyItemCategoryDefinition;
-  };
-  DestinyBreakerTypeDefinition: { [key: number]: DestinyBreakerTypeDefinition };
-  DestinySeasonDefinition: { [key: number]: DestinySeasonDefinition };
-  DestinySeasonPassDefinition: { [key: number]: DestinySeasonPassDefinition };
-  DestinyEventCardDefinition: { [key: number]: DestinyEventCardDefinition };
-  DestinyGuardianRankDefinition: {
-    [key: number]: DestinyGuardianRankDefinition;
-  };
-  DestinyChecklistDefinition: { [key: number]: DestinyChecklistDefinition };
-  DestinySocialCommendationNodeDefinition: {
-    [key: number]: DestinySocialCommendationNodeDefinition;
-  };
-  DestinySocialCommendationDefinition: {
-    [key: number]: DestinySocialCommendationDefinition;
-  };
-  DestinyRaceDefinition: { [key: number]: DestinyRaceDefinition };
-  DestinyLoadoutColorDefinition: {
-    [key: number]: DestinyLoadoutColorDefinition;
-  };
-  DestinyLoadoutIconDefinition: { [key: number]: DestinyLoadoutIconDefinition };
-  DestinyLoadoutNameDefinition: { [key: number]: DestinyLoadoutNameDefinition };
-  DestinyMilestoneDefinition: { [key: number]: DestinyMilestoneDefinition };
-  DestinyUnlockDefinition: { [key: number]: DestinyUnlockDefinition };
-  DestinyReportReasonCategoryDefinition: {
-    [key: number]: DestinyReportReasonCategoryDefinition;
-  };
-  DestinyMedalTierDefinition: { [key: number]: DestinyMedalTierDefinition };
-  DestinyLoadoutConstantsDefinition: {
-    [key: number]: DestinyLoadoutConstantsDefinition;
-  };
-  DestinyGuardianRankConstantsDefinition: {
-    [key: number]: DestinyGuardianRankConstantsDefinition;
-  };
-}
 
-export const enum ManifestComponents {
+export type ManifestComponent<T> = {
+  [key: number]: T;
+};
+
+export enum ManifestDefinition {
   DestinyProgressionDefinition = 'DestinyProgressionDefinition',
   DestinyInventoryItemDefinition = 'DestinyInventoryItemDefinition',
   DestinyCollectibleDefinition = 'DestinyCollectibleDefinition',
@@ -237,6 +136,68 @@ export const enum ManifestComponents {
   DestinyGuardianRankConstantsDefinition = 'DestinyGuardianRankConstantsDefinition'
 }
 
+export type AllManifestComponents = {
+  DestinyProgressionDefinition: ManifestComponent<DestinyProgressionDefinition>;
+  DestinyInventoryItemDefinition: ManifestComponent<DestinyInventoryItemDefinition>;
+  DestinyCollectibleDefinition: ManifestComponent<DestinyCollectibleDefinition>;
+  DestinyMaterialRequirementSetDefinition: ManifestComponent<DestinyMaterialRequirementSetDefinition>;
+  DestinyPresentationNodeDefinition: ManifestComponent<DestinyPresentationNodeDefinition>;
+  DestinyObjectiveDefinition: ManifestComponent<DestinyObjectiveDefinition>;
+  DestinyLocationDefinition: ManifestComponent<DestinyLocationDefinition>;
+  DestinyVendorDefinition: ManifestComponent<DestinyVendorDefinition>;
+  DestinyFactionDefinition: ManifestComponent<DestinyFactionDefinition>;
+  DestinyDestinationDefinition: ManifestComponent<DestinyDestinationDefinition>;
+  DestinyPlaceDefinition: ManifestComponent<DestinyPlaceDefinition>;
+  DestinyActivityDefinition: ManifestComponent<DestinyActivityDefinition>;
+  DestinyActivityTypeDefinition: ManifestComponent<DestinyActivityTypeDefinition>;
+  DestinyActivityModifierDefinition: ManifestComponent<DestinyActivityModifierDefinition>;
+  DestinyActivityModeDefinition: ManifestComponent<DestinyActivityModeDefinition>;
+  DestinyActivityGraphDefinition: ManifestComponent<DestinyActivityGraphDefinition>;
+  DestinyEquipmentSlotDefinition: ManifestComponent<DestinyEquipmentSlotDefinition>;
+  DestinyInventoryBucketDefinition: ManifestComponent<DestinyInventoryBucketDefinition>;
+  DestinySocketTypeDefinition: ManifestComponent<DestinySocketTypeDefinition>;
+  DestinySocketCategoryDefinition: ManifestComponent<DestinySocketCategoryDefinition>;
+  DestinyVendorGroupDefinition: ManifestComponent<DestinyVendorGroupDefinition>;
+  DestinySandboxPerkDefinition: ManifestComponent<DestinySandboxPerkDefinition>;
+  DestinyDamageTypeDefinition: ManifestComponent<DestinyDamageTypeDefinition>;
+  DestinyStatDefinition: ManifestComponent<DestinyStatDefinition>;
+  DestinyRecordDefinition: ManifestComponent<DestinyRecordDefinition>;
+  DestinyLoreDefinition: ManifestComponent<DestinyLoreDefinition>;
+  DestinyGenderDefinition: ManifestComponent<DestinyGenderDefinition>;
+  DestinyTraitDefinition: ManifestComponent<DestinyTraitDefinition>;
+  DestinyMetricDefinition: ManifestComponent<DestinyMetricDefinition>;
+  DestinyItemTierTypeDefinition: ManifestComponent<DestinyItemTierTypeDefinition>;
+  DestinyStatGroupDefinition: ManifestComponent<DestinyStatGroupDefinition>;
+  DestinySandboxPatternDefinition: ManifestComponent<DestinySandboxPatternDefinition>;
+  DestinyClassDefinition: ManifestComponent<DestinyClassDefinition>;
+  DestinyArtifactDefinition: ManifestComponent<DestinyArtifactDefinition>;
+  DestinyProgressionLevelRequirementDefinition: ManifestComponent<DestinyProgressionLevelRequirementDefinition>;
+  DestinyPowerCapDefinition: ManifestComponent<DestinyPowerCapDefinition>;
+  DestinyRewardSourceDefinition: ManifestComponent<DestinyRewardSourceDefinition>;
+  DestinyEnergyTypeDefinition: ManifestComponent<DestinyEnergyTypeDefinition>;
+  DestinyPlugSetDefinition: ManifestComponent<DestinyPlugSetDefinition>;
+  DestinyTalentGridDefinition: ManifestComponent<DestinyTalentGridDefinition>;
+  DestinyItemCategoryDefinition: ManifestComponent<DestinyItemCategoryDefinition>;
+  DestinyBreakerTypeDefinition: ManifestComponent<DestinyBreakerTypeDefinition>;
+  DestinySeasonDefinition: ManifestComponent<DestinySeasonDefinition>;
+  DestinySeasonPassDefinition: ManifestComponent<DestinySeasonPassDefinition>;
+  DestinyEventCardDefinition: ManifestComponent<DestinyEventCardDefinition>;
+  DestinyGuardianRankDefinition: ManifestComponent<DestinyGuardianRankDefinition>;
+  DestinyChecklistDefinition: ManifestComponent<DestinyChecklistDefinition>;
+  DestinySocialCommendationNodeDefinition: ManifestComponent<DestinySocialCommendationNodeDefinition>;
+  DestinySocialCommendationDefinition: ManifestComponent<DestinySocialCommendationDefinition>;
+  DestinyRaceDefinition: ManifestComponent<DestinyRaceDefinition>;
+  DestinyLoadoutColorDefinition: ManifestComponent<DestinyLoadoutColorDefinition>;
+  DestinyLoadoutIconDefinition: ManifestComponent<DestinyLoadoutIconDefinition>;
+  DestinyLoadoutNameDefinition: ManifestComponent<DestinyLoadoutNameDefinition>;
+  DestinyMilestoneDefinition: ManifestComponent<DestinyMilestoneDefinition>;
+  DestinyUnlockDefinition: ManifestComponent<DestinyUnlockDefinition>;
+  DestinyReportReasonCategoryDefinition: ManifestComponent<DestinyReportReasonCategoryDefinition>;
+  DestinyMedalTierDefinition: ManifestComponent<DestinyMedalTierDefinition>;
+  DestinyLoadoutConstantsDefinition: ManifestComponent<DestinyLoadoutConstantsDefinition>;
+  DestinyGuardianRankConstantsDefinition: ManifestComponent<DestinyGuardianRankConstantsDefinition>;
+};
+
 /**
  * languages the manifest comes in, as their required keys to download them
  */
@@ -256,11 +217,9 @@ export const destinyManifestLanguages = [
   'zh-cht'
 ] as const;
 export type DestinyManifestLanguage = (typeof destinyManifestLanguages)[number];
-export type DestinyManifestComponentName = keyof AllDestinyManifestComponents;
 
-export type DestinyManifestSlice<
-  K extends Readonly<DestinyManifestComponentName[]>
-> = Pick<AllDestinyManifestComponents, K[number]>;
+export type DestinyManifestSlice<K extends Readonly<ManifestDefinition[]>> =
+  Pick<AllManifestComponents, K[number]>;
 
 /**
  * given a STRING table name, returns that TYPE, so that you can write a function like:
@@ -268,5 +227,5 @@ export type DestinyManifestSlice<
  * i.e.
  * func('DestinyInventoryItemDefinition') will return type DestinyInventoryItemDefinition
  */
-export type DestinyDefinitionFrom<K extends DestinyManifestComponentName> =
-  AllDestinyManifestComponents[K][number];
+export type DestinyDefinitionFrom<K extends ManifestDefinition> =
+  AllManifestComponents[K][number];

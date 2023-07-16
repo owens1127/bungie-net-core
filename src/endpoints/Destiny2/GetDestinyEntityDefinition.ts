@@ -14,9 +14,12 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyDefinition } from '../../models';
+import { DestinyManifestDefinition } from '../../manifest';
+import { DestinyDefinition } from '../../models/Destiny/Definitions/DestinyDefinition';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition} */
-export type GetDestinyEntityDefinitionParams = {
+export type GetDestinyEntityDefinitionParams<
+  T extends DestinyManifestDefinition
+> = {
   /**
    * The type of entity for whom you would like results. These correspond to the
    * entity's definition contract name. For instance, if you are looking for items,
@@ -24,7 +27,7 @@ export type GetDestinyEntityDefinitionParams = {
    * is still in beta, and may experience rough edges. The schema is tentatively in
    * final form, but there may be bugs that prevent desirable operation.
    */
-  entityType: string;
+  entityType: T;
   /** The hash identifier for the specific Entity you want returned. */
   hashIdentifier: number;
 };
@@ -39,11 +42,13 @@ export type GetDestinyEntityDefinitionParams = {
  * accesses this should be handy.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
  */
-export async function getDestinyEntityDefinition(
-  params: GetDestinyEntityDefinitionParams,
+export async function getDestinyEntityDefinition<
+  T extends DestinyManifestDefinition
+>(
+  params: GetDestinyEntityDefinitionParams<T>,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<DestinyDefinition>> {
-  return client.fetch<DestinyDefinition>({
+): Promise<BungieNetResponse<DestinyDefinition<T>>> {
+  return client.fetch<DestinyDefinition<T>>({
     method: 'GET',
     url: `https://www.bungie.net/Platform/Destiny2/Manifest/${params.entityType}/${params.hashIdentifier}/`
   });

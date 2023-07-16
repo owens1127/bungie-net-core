@@ -13,7 +13,12 @@ import {
   seeDefHyperLink
 } from './util.mjs';
 import { OpenAPIObject, ReferenceObject, SchemaObject } from 'openapi3-ts';
-import { generateHeader, docComment, indent, writeOutFile } from './generate-common.mjs';
+import {
+  generateHeader,
+  docComment,
+  indent,
+  writeOutFile
+} from './generate-common.mjs';
 
 /**
  * Some properties aren't marked as nullable in the openapi docs, but they are
@@ -51,7 +56,11 @@ export function generateTypeDefinition(
   const filename = `src/${file}`;
 
   const definition =
-    _.compact([generateHeader(doc), imports.join('\n'), componentDefiniton]).join('\n\n') + '\n';
+    _.compact([
+      generateHeader(doc),
+      imports.join('\n'),
+      componentDefiniton
+    ]).join('\n\n') + '\n';
 
   writeOutFile(filename, definition);
 }
@@ -70,7 +79,13 @@ function generateComponentDefinition(
   if (component.enum) {
     return generateEnum(defInfo, component);
   } else {
-    return generateTypeSchema(defInfo, component, doc, componentByDef, importFiles);
+    return generateTypeSchema(
+      defInfo,
+      component,
+      doc,
+      componentByDef,
+      importFiles
+    );
   }
 }
 
@@ -90,7 +105,9 @@ function generateEnum(defInfo: DefInfo, component: SchemaObject) {
     );
   }
 
-  const docString = hyperRef ? docComment(docs.join('\n'), [hyperRef]) + '\n' : '';
+  const docString = hyperRef
+    ? docComment(docs.join('\n'), [hyperRef]) + '\n'
+    : '';
 
   return `${docString}export enum ${defInfo.typeName} {
 ${indent(values, 1)}
@@ -115,17 +132,36 @@ export function typeNameImports(
   if (componentPath.includes('/responses/')) {
     const property = component.properties!.Response;
     if (property) {
-      return resolveSchemaType(property, doc, importFiles, componentByDef, null);
+      return resolveSchemaType(
+        property,
+        doc,
+        importFiles,
+        componentByDef,
+        null
+      );
     }
   }
 
-  if (name.includes('DictionaryComponentResponseOf')) {
+  if (name.includes('DestinyDefinition')) {
+    importFiles.set(
+      'DestinyDefinition',
+      '../../models/Destiny/Definitions/DestinyDefinition'
+    );
+    return `DestinyDefinition<T>`;
+  } else if (name.includes('DictionaryComponentResponseOf')) {
     importFiles.set('DictionaryComponentResponse', DictionaryComponentImport);
     importFiles.set('ConditionalComponent', './interfaces/ComponentTypes');
-    resolveSchemaType(component.properties?.data!, doc, importFiles, componentByDef, null);
+    resolveSchemaType(
+      component.properties?.data!,
+      doc,
+      importFiles,
+      componentByDef,
+      null
+    );
     const data = component.properties!.data! as SchemaObject;
     const addProps = data.additionalProperties as ReferenceObject;
-    const requiredComponent = componentByDef[addProps.$ref].componentName ?? mappedComponentName;
+    const requiredComponent =
+      componentByDef[addProps.$ref].componentName ?? mappedComponentName;
     const [_, hash, structure] = name.match(DictionaryComponentPattern)!;
 
     return `ConditionalComponent<T, DestinyComponentType.${requiredComponent}, DictionaryComponentResponse<${resolveHashType(
@@ -134,16 +170,26 @@ export function typeNameImports(
   } else if (name.includes('SingleComponentResponseOf')) {
     importFiles.set('SingleComponentResponse', SingleComponentImport);
     importFiles.set('ConditionalComponent', './interfaces/ComponentTypes');
-    resolveSchemaType(component.properties?.['data']!, doc, importFiles, componentByDef, null);
+    resolveSchemaType(
+      component.properties?.['data']!,
+      doc,
+      importFiles,
+      componentByDef,
+      null
+    );
     const data = component.properties!.data as ReferenceObject;
-    const requiredComponent = componentByDef[data.$ref].componentName ?? mappedComponentName;
+    const requiredComponent =
+      componentByDef[data.$ref].componentName ?? mappedComponentName;
     return `ConditionalComponent<T, DestinyComponentType.${requiredComponent}, SingleComponentResponse<${
       name.match(SingleComponentPattern)![1]
     }>>`;
   } else if (name.includes('ItemComponentSetOf')) {
     importFiles.set(name, componentPath);
     return `${name}<T>`;
-  } else if (isEnum || (name !== 'int64' && name !== 'int32' && name !== 'boolean')) {
+  } else if (
+    isEnum ||
+    (name !== 'int64' && name !== 'int32' && name !== 'boolean')
+  ) {
     importFiles.set(name, componentPath);
   }
   return name;
@@ -159,45 +205,75 @@ function generateTypeSchema(
 ) {
   if (defInfo.isComponentResponse) {
     importFiles.set('ComponentData', './interfaces/ComponentTypes');
-    importFiles.set('DestinyComponentType', './models/Destiny/DestinyComponentType');
+    importFiles.set(
+      'DestinyComponentType',
+      './models/Destiny/DestinyComponentType'
+    );
   }
   if (defInfo.typeName.includes('ItemComponentSetOf')) {
-    importFiles.set('DestinyComponentType', './models/Destiny/DestinyComponentType');
+    importFiles.set(
+      'DestinyComponentType',
+      './models/Destiny/DestinyComponentType'
+    );
   }
-  const classFields = _.map(component.properties!, (schema: SchemaObject, param) => {
-    const paramDef = resolveSchemaType(schema, doc, importFiles, componentByDef, null);
-    const docs = schema.description ? [schema.description] : [];
+  const classFields = _.map(
+    component.properties!,
+    (schema: SchemaObject, param) => {
+      const paramDef = resolveSchemaType(
+        schema,
+        doc,
+        importFiles,
+        componentByDef,
+        null
+      );
+      const docs = schema.description ? [schema.description] : [];
 
-    if (schema['x-mapped-definition']) {
-      docs.push(
-        `Mapped to ${componentByDef[schema['x-mapped-definition'].$ref].typeName} in the manifest.`
-      );
+      if (schema['x-mapped-definition']) {
+        docs.push(
+          `Mapped to ${
+            componentByDef[schema['x-mapped-definition'].$ref].typeName
+          } in the manifest.`
+        );
+      }
+      if (schema['x-enum-is-bitmask']) {
+        docs.push(
+          `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
+        );
+      }
+      const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
+      return `${comment}readonly ${param}${
+        schema.nullable ||
+        frequentlyNullProperties.includes(param) ||
+        schema.description?.toLowerCase().includes('null')
+          ? '?'
+          : ''
+      }: ${paramDef};`;
     }
-    if (schema['x-enum-is-bitmask']) {
-      docs.push(
-        `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
-      );
-    }
-    const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
-    return `${comment}readonly ${param}${
-      schema.nullable ||
-      frequentlyNullProperties.includes(param) ||
-      schema.description?.toLowerCase().includes('null')
-        ? '?'
-        : ''
-    }: ${paramDef};`;
-  });
+  );
 
   const hyperRef = seeDefHyperLink(defInfo.def);
+
+  let generic = '';
+  let extension = '';
+  let isInterface = true;
+  if (defInfo.typeName.includes('ItemComponentSetOf')) {
+    generic = '<T extends DestinyComponentType[]> ';
+  } else if (defInfo.isComponentResponse) {
+    generic = '<T extends DestinyComponentType[]> ';
+    extension = 'extends ComponentData';
+  } else if (defInfo.filename.includes('DestinyDefinition')) {
+    importFiles.set('DestinyManifestDefinition', '../../../manifest');
+    isInterface = false;
+    generic = '<T extends DestinyManifestDefinition> ';
+    extension = '= T & ';
+  }
 
   const docString = component.description
     ? docComment(component.description, [hyperRef])
     : docComment('', [hyperRef]);
-  return `${docString}\nexport interface ${defInfo.typeName}${
-    defInfo.isComponentResponse || defInfo.typeName.includes('ItemComponentSetOf')
-      ? '<T extends DestinyComponentType[]> '
-      : ''
-  }${defInfo.isComponentResponse ? 'extends ComponentData' : ''} {
+  return `${docString}\nexport ${isInterface ? 'interface' : 'type'} ${
+    defInfo.typeName
+  }${generic}${extension} {
 ${indent(classFields.join('\n'), 1)}
 }`;
 }

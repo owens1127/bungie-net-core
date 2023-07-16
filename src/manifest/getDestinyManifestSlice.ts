@@ -1,14 +1,13 @@
 import {
-  AllDestinyManifestComponents,
-  DestinyManifestComponentName,
   DestinyManifestLanguage,
   DestinyManifestSlice,
   getDestinyManifestComponent
 } from './';
 import { DestinyManifest } from '../models';
+import { AllManifestComponents, ManifestDefinition } from './manifest-types';
 
 export interface GetDestinyManifestSliceParams<
-  T extends DestinyManifestComponentName[]
+  T extends readonly ManifestDefinition[]
 > {
   destinyManifest: DestinyManifest;
   tableNames: T;
@@ -36,7 +35,7 @@ export interface GetDestinyManifestSliceParams<
  */
 
 export async function getDestinyManifestSlice<
-  T extends DestinyManifestComponentName[]
+  T extends readonly ManifestDefinition[]
 >(params: GetDestinyManifestSliceParams<T>): Promise<DestinyManifestSlice<T>> {
   const downloadedTables = await Promise.all(
     params.tableNames.map(async tableName => {
@@ -48,7 +47,7 @@ export async function getDestinyManifestSlice<
       return { tableName, tableContent };
     })
   );
-  const manifestSlice = {} as AllDestinyManifestComponents;
+  const manifestSlice = {} as AllManifestComponents;
   for (const downloadedTable of downloadedTables) {
     manifestSlice[downloadedTable.tableName] =
       downloadedTable.tableContent as any;

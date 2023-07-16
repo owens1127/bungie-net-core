@@ -47,6 +47,7 @@ import {
 } from '../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
 import { PlatformErrorCodes } from '../lib/models';
+import { ManifestDefinition } from '../src/manifest/manifest-types';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
 export const awaInitializeRequestTests: TestCase<
@@ -85,7 +86,7 @@ export const getDestinyEntityDefinitionTests: TestCase<
     name: 'get destiny entity definition',
     data: [
       {
-        entityType: 'DestinyInventoryItemDefinition',
+        entityType: ManifestDefinition.DestinyInventoryItemDefinition,
         hashIdentifier: constants.gjallarhornHash
       }
     ],
