@@ -14,6 +14,7 @@ import { DestinyActivityDefinition } from '../src/models';
 import { sharedTestClient } from './global-setup';
 
 describe('destiny manifest component', () => {
+  jest.setTimeout(15000);
   const tables = [
     DestinyManifestDefinition.DestinyActivityDefinition,
     DestinyManifestDefinition.DestinyGuardianRankDefinition,
@@ -77,6 +78,7 @@ describe('entire destiny manifest', () => {
   let res: AllManifestComponents | null = null;
 
   beforeAll(async () => {
+    jest.setTimeout(60000);
     const { Response: destinyManifest } = await getDestinyManifest(
       sharedTestClient
     );
@@ -127,6 +129,7 @@ describe('entire destiny manifest', () => {
   }, 15000);
 });
 describe('destiny manifest slice', () => {
+  jest.setTimeout(60000);
   let res: ManifestComponent<DestinyActivityDefinition> | null = null;
 
   beforeAll(async () => {
