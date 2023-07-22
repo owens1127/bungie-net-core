@@ -22,7 +22,7 @@ export function generateOAuthURL({
   redirect_uri: redirectUri,
   reauth,
   client_id
-}: CreateAuthURLOptions): URL {
+}: CreateAuthURLOptions = {}): URL {
   const clientId = client_id ?? getBungieEnv().BUNGIE_CLIENT_ID;
   if (!clientId) throw new NotConfiguredError(['BUNGIE_CLIENT_ID']);
 

@@ -26,6 +26,7 @@ export type BungieTokensResponse = {
 export type OAuthBungieCredentials = {
   BUNGIE_CLIENT_ID?: string;
   BUNGIE_CLIENT_SECRET?: string;
+  BUNGIE_API_KEY?: string;
 };
 
 export async function getAccessTokenFromAuthCode(
@@ -34,8 +35,8 @@ export async function getAccessTokenFromAuthCode(
 ): Promise<BungieTokens> {
   return fetchTokens({
     code,
-    key: 'authorization_code',
-    grantType: 'code',
+    key: 'code',
+    grantType: 'authorization_code',
     credentials
   });
 }
@@ -67,10 +68,12 @@ async function fetchTokens({
   const env = getBungieEnv();
   const clientId = credentials?.BUNGIE_CLIENT_ID ?? env.BUNGIE_CLIENT_ID;
   const secret = credentials?.BUNGIE_CLIENT_SECRET ?? env.BUNGIE_CLIENT_SECRET;
-  if (!clientId || !secret) {
+  const apiKey = credentials?.BUNGIE_API_KEY ?? env.BUNGIE_API_KEY;
+  if (!clientId || !secret || !apiKey) {
     const vars = new Array<keyof BungieCredentials>();
     if (!clientId) vars.push('BUNGIE_CLIENT_ID');
     if (!secret) vars.push('BUNGIE_CLIENT_SECRET');
+    if (!apiKey) vars.push('BUNGIE_API_KEY');
     throw new NotConfiguredError(vars);
   }
 
@@ -100,7 +103,13 @@ async function fetchTokens({
       throw new TokenRequestError('Error parsing tokens', e);
     }
   } else {
-    throw new TokenRequestError('Error fetching tokens', res);
+    let data;
+    try {
+      data = await res.json();
+    } catch {
+      throw new TokenRequestError('Error fetching tokens', res);
+    }
+    throw new TokenRequestError('Error fetching tokens', data);
   }
 }
 

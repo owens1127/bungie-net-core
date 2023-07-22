@@ -262,10 +262,13 @@ function generateTypeSchema(
     generic = '<T extends DestinyComponentType[]> ';
     extension = 'extends ComponentData';
   } else if (defInfo.filename.includes('DestinyDefinition')) {
-    importFiles.set('DestinyManifestDefinition', '../../../manifest');
+    importFiles.set(
+      'AllManifestComponents',
+      '../../../manifest/manifest-types'
+    );
     isInterface = false;
-    generic = '<T extends DestinyManifestDefinition> ';
-    extension = '= T & ';
+    generic = '<T extends keyof AllManifestComponents> ';
+    extension = '= AllManifestComponents[T][number] & ';
   }
 
   const docString = component.description

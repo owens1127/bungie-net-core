@@ -208,7 +208,7 @@ ${indent(paramInitializers.join(',\n'), 3)}
   generateTestStub(tag, snakeInterface, doc, argumentsList);
 
   if (snakeInterface == 'getDestinyEntityDefinition') {
-    snakeInterface += '<T extends DestinyManifestDefinition>';
+    snakeInterface += '<T extends keyof AllManifestComponents>';
   } else if (componentResponse.value) {
     snakeInterface += '<T extends DestinyComponentType[]>';
   }
@@ -260,7 +260,6 @@ function generateParamsType(
       : '';
     if (param.name === 'entityType') {
       paramType = 'T';
-      importFiles.set('DestinyManifestDefinition', '../../manifest');
     }
     const isComponent =
       param.name === 'components' && paramType === 'DestinyComponentType[]';
@@ -274,8 +273,8 @@ function generateParamsType(
   });
 
   if (typeName === 'GetDestinyEntityDefinitionParams') {
-    importFiles.set('DestinyManifestDefinition', '../../manifest');
-    typeName += '<T extends DestinyManifestDefinition>';
+    importFiles.set('AllManifestComponents', '../../manifest/manifest-types');
+    typeName += '<T extends keyof AllManifestComponents>';
   }
   return `${docComment('', [reference])}\nexport type ${typeName}${
     componentResponse.value ? '<T extends DestinyComponentType[]>' : ''

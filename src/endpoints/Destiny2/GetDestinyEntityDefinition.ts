@@ -14,11 +14,11 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyManifestDefinition } from '../../manifest';
+import { AllManifestComponents } from '../../manifest/manifest-types';
 import { DestinyDefinition } from '../../models/Destiny/Definitions/DestinyDefinition';
 /** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition} */
 export type GetDestinyEntityDefinitionParams<
-  T extends DestinyManifestDefinition
+  T extends keyof AllManifestComponents
 > = {
   /**
    * The type of entity for whom you would like results. These correspond to the
@@ -43,7 +43,7 @@ export type GetDestinyEntityDefinitionParams<
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
  */
 export async function getDestinyEntityDefinition<
-  T extends DestinyManifestDefinition
+  T extends keyof AllManifestComponents
 >(
   params: GetDestinyEntityDefinitionParams<T>,
   client: BungieClientProtocol
