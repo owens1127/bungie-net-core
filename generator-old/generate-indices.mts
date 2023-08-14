@@ -1,5 +1,9 @@
 import { OpenAPIObject } from 'openapi3-ts';
-import { docComment, generateHeader, writeOutFile } from './generate-common.mjs';
+import {
+  docComment,
+  generateHeader,
+  writeOutFile
+} from './generate-common.mjs';
 import { DefInfo, getRef } from './util.mjs';
 
 export function generateIndices(
@@ -11,21 +15,29 @@ export function generateIndices(
   generateEndpointsSuperIndex(componentsByTag, doc);
 }
 
-function generateSchemaIndex(doc: OpenAPIObject, componentsByFile: Map<string, DefInfo>) {
-  const filename = 'src/models/index.ts';
+function generateSchemaIndex(
+  doc: OpenAPIObject,
+  componentsByFile: Map<string, DefInfo>
+) {
+  const models: string[] = [];
+  const enums: string[] = [];
 
-  const exports: string[] = [];
-  for (const [component, defInfo] of componentsByFile) {
-    exports.push(
+  for (const [path, defInfo] of componentsByFile) {
+    const [arr, str] = path.includes('models')
+      ? [models, 'models']
+      : [enums, 'enums'];
+    arr.push(
       `export ${getRef(doc, defInfo.def)?.enum ? '' : 'type '}{ ${
         defInfo.typeName
-      } } from '${component.replace('models/', './').replace('.ts', '')}';`
+      } } from '${path.replace(`${str}/`, './').replace('.ts', '')}';`
     );
   }
 
-  const definition = [generateHeader(doc), exports.join('\n')].join('\n\n') + '\n';
+  const definition = (exps: string[]) =>
+    [generateHeader(doc), exps.join('\n')].join('\n\n') + '\n';
 
-  writeOutFile(filename, definition);
+  writeOutFile('src/models/index.ts', definition(models));
+  writeOutFile('src/enums/index.ts', definition(enums));
 }
 
 function generateEndpointsSuperIndex(

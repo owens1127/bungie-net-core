@@ -1,5 +1,6 @@
 import {
   DefInfo,
+  getRef,
   isReferenceObject,
   isRequestBodyObject,
   lastPart,
@@ -190,11 +191,15 @@ ${indent(paramInitializers.join(',\n'), 3)}
   );
 
   const headerImports: string[] = [];
-  for (const [component, file] of Array.from(importFiles.entries())) {
-    if (file.startsWith('#')) {
-      headerImports.push(`import { ${component} } from '../../models'`);
+  for (const [component, refOrFile] of Array.from(importFiles.entries())) {
+    if (refOrFile.startsWith('#')) {
+      headerImports.push(
+        `import { ${component} } from '../../${
+          getRef(doc, refOrFile)?.['x-enum-values'] ? 'enums' : 'models'
+        }'`
+      );
     } else {
-      headerImports.push(`import { ${component} } from '${file}'`);
+      headerImports.push(`import { ${component} } from '${refOrFile}'`);
     }
   }
   const rateDoc =

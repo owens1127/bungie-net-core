@@ -1,139 +1,79 @@
-import _ from 'underscore';
 import {
   OpenAPIObject,
-  PathItemObject,
   ParameterObject,
-  SchemaObject,
-  ReferenceObject
+  PathItemObject,
+  ReferenceObject,
+  SchemaObject
 } from 'openapi3-ts';
+import {
+  DefinitionObject,
+  DictionaryComponentPattern,
+  ServiceInterfaces,
+  SingleComponentPattern
+} from './types.mjs';
+import {
+  combineSets,
+  hasConditionalComponents,
+  isEnum,
+  mappedToMobileManifestEntity
+} from './util.mjs';
 import {
   getRef,
   getReferencedTypes,
-  DefInfo,
-  isRequestBodyObject,
-  DictionaryComponentPattern,
-  SingleComponentPattern,
-  componentName,
-  lastPart,
-  isComponentResponse
-} from './util.mjs';
+  isRequestBodyObject
+} from './open-api-3-util.mjs';
+import _ from 'underscore';
 
-export function computeTypeMaps(
-  pathPairsByTag: { [tag: string]: [string, PathItemObject][] },
-  doc: OpenAPIObject
-) {
-  const allDefsEverywhere = new Set<string>();
-  const defsByTag: { [tag: string]: Set<string> } = {};
-  _.each(pathPairsByTag, (paths, tag) => {
-    const defs = findReachableComponents(tag, paths, doc);
-    addAll(allDefsEverywhere, defs);
-    defsByTag[tag] = defs;
-  });
-
-  const componentsByFile: Map<string, DefInfo> = new Map<string, DefInfo>();
-  const componentsByTag: { [tag: string]: DefInfo[] } = {};
-  const componentByDef: { [def: string]: DefInfo } = {};
-  const manifestComponents: DefInfo[] = [];
-  const directoryExportsMap = new Map<string, Set<string>>();
-
-  for (const def of Array.from(allDefsEverywhere).filter(
-    def => !def.match(DictionaryComponentPattern) && !def.match(SingleComponentPattern)
-  )) {
-    const tags: string[] = [];
-    _.each(defsByTag, (defs: Set<string>, tag) => {
-      if (defs.has(def)) {
-        tags.push(tag);
-      }
-    });
-    const info: DefInfo = {
-      def,
-      tags,
-      filename: addFile(def),
-      typeName: typeName(def, doc),
-      componentName: componentName(def, doc),
-      isComponentResponse: isComponentResponse(def, doc)
-    };
-
-    if (info.filename) {
-      if (isMobileManifestEntity(def, doc)) {
-        manifestComponents.push(info);
-      }
-
-      componentsByFile.set(info.filename, info);
-
-      info.tags.forEach(tag => {
-        componentsByTag[tag] = componentsByTag[tag] || [];
-        componentsByTag[tag].push(info);
-      });
-
-      componentByDef[info.def] = info;
-    }
-  }
-
-  return {
-    manifestComponents,
-    directoryExportsMap,
-    componentsByFile,
-    componentsByTag,
-    componentByDef
-  };
-}
-
-function typeName(componentPath: string, doc: OpenAPIObject) {
-  const name = lastPart(componentPath);
-  const component = getRef(doc, componentPath);
-  if (!component) {
-    return 'any';
-  }
-  return name;
-}
-
-function addFile(def: string): string {
-  const split = def.split('/');
-  if (split[2] === 'responses') return '';
-  const schemaName: string = _.last(split)!;
-  const root = split.slice(2, split.length - 1).join('/');
-  const subDirectories = schemaName.split('.');
-  const pathToDefinition = subDirectories.join('/');
-
-  if (
-    pathToDefinition === 'boolean' ||
-    pathToDefinition === 'int32' ||
-    pathToDefinition === 'int64'
-  )
-    return '';
-  return root.replace('schemas', 'models') + '/' + pathToDefinition + `.ts`;
-}
-
-function findReachableComponents(
-  tag: string,
+export function createTree(
   paths: [string, PathItemObject][],
   doc: OpenAPIObject
 ) {
+  //   const componentsByTag = new Map<string, string[]>();
+  const components = findReachableComponents(paths, doc);
+
+  const defintionsByComponent: Map<string, DefinitionObject> = new Map<
+    string,
+    DefinitionObject
+  >();
+
+  Array.from(components).forEach(component => {
+    defintionsByComponent.set(component, getDefinition(component, doc));
+  });
+
+  const defintionsByFile: Map<string, DefinitionObject> = new Map<
+    string,
+    DefinitionObject
+  >();
+  const defintionsByTag: Map<string, DefinitionObject> = new Map<
+    string,
+    DefinitionObject
+  >();
+
+  //   console.log(defintionsByComponent);
+}
+
+function findReachableComponents(
+  paths: [string, PathItemObject][],
+  doc: OpenAPIObject
+): Set<string> {
   const pathDefinitions = paths.reduce(
-    (memo: Set<string>, [_, pathDef]) => addAll(memo, findReachableComponentsFromPath(pathDef)),
+    (memo: Set<string>, [_, pathDef]) =>
+      combineSets(memo, findReachableComponentsFromPath(pathDef)),
     new Set<string>()
   );
 
   const allDefinitions = new Set(pathDefinitions);
-  pathDefinitions.forEach(definition =>
-    addReachableComponentsFromComponent(allDefinitions, definition, doc)
-  );
+  pathDefinitions.forEach(definition => {
+    addReachableComponentsFromComponent(allDefinitions, definition, doc);
+  });
   return allDefinitions;
-}
-
-function addAll<T>(first: Set<T>, second: Set<T>): Set<T> {
-  for (const value of second) {
-    first.add(value);
-  }
-  return first;
 }
 
 function findReachableComponentsFromPath(pathDef: PathItemObject): Set<string> {
   const methodDef = pathDef.get || pathDef.post!;
   const params = (methodDef.parameters || []) as ParameterObject[];
   const paramTypes = new Set(
-    params.map(param => getReferencedTypes(param.schema!)).filter(p => p)
+    params.map(param => getReferencedTypes(param.schema!)).filter(Boolean)
   ) as Set<string>;
 
   const requestBody = methodDef.requestBody;
@@ -167,24 +107,39 @@ function addReachableComponentsFromComponent(
     addDefinitions(allDefinitions, component.items!, doc);
   } else if (component.type === 'object') {
     if (component.properties) {
-      Object.values(component.properties).forEach((schema: SchemaObject | ReferenceObject) => {
-        addDefinitions(allDefinitions, schema, doc);
-      });
+      Object.values(component.properties).forEach(
+        (schema: SchemaObject | ReferenceObject) => {
+          addDefinitions(allDefinitions, schema, doc);
+        }
+      );
     }
-    (component.allOf || []).forEach((schema: SchemaObject | ReferenceObject) => {
-      addDefinitions(allDefinitions, schema, doc);
-    });
-    if (component.additionalProperties && typeof component.additionalProperties !== 'boolean') {
+    (component.allOf || []).forEach(
+      (schema: SchemaObject | ReferenceObject) => {
+        addDefinitions(allDefinitions, schema, doc);
+      }
+    );
+    if (
+      component.additionalProperties &&
+      typeof component.additionalProperties !== 'boolean'
+    ) {
       addDefinitions(allDefinitions, component.additionalProperties, doc);
     }
   }
 }
 
-function addDefinitions(allDefinitions: Set<string>, schema: SchemaObject, doc: OpenAPIObject) {
+function addDefinitions(
+  allDefinitions: Set<string>,
+  schema: SchemaObject,
+  doc: OpenAPIObject
+) {
   const newDefinition = getReferencedTypes(schema);
   addDefinitionsFromComponent(allDefinitions, newDefinition, doc);
   if (schema['x-mapped-definition']) {
-    addDefinitionsFromComponent(allDefinitions, schema['x-mapped-definition'].$ref, doc);
+    addDefinitionsFromComponent(
+      allDefinitions,
+      schema['x-mapped-definition'].$ref,
+      doc
+    );
   }
 }
 
@@ -199,6 +154,97 @@ function addDefinitionsFromComponent(
   }
 }
 
-function isMobileManifestEntity(def: string, doc: OpenAPIObject) {
-  return getRef(doc, def)!['x-mobile-manifest-name']! !== undefined;
+function getDefinition(
+  component: string,
+  doc: OpenAPIObject
+): DefinitionObject {
+  const ref = getRef(doc, component)!;
+  return {
+    tags: [],
+    module: filesFor(component, doc, ref),
+    data: {
+      hasConditionalComponents: hasConditionalComponents(component, doc),
+      manifest: mappedToMobileManifestEntity(component, doc),
+      dependsOnComponent: ref['x-destiny-component-type-dependency']
+    }
+  };
+}
+
+function filesFor(
+  component: string,
+  doc: OpenAPIObject,
+  ref: SchemaObject
+): DefinitionObject['module'] {
+  const split = component.split('/');
+  const schemaName: string = _.last(split)!;
+  const _parts = schemaName.split('.');
+  const pathToDefinition = _parts.join('/');
+  const componentName = _.last(_parts)!;
+
+  // handle primitive types
+  if (
+    pathToDefinition === 'boolean' ||
+    pathToDefinition === 'int32' ||
+    pathToDefinition === 'int64'
+  )
+    return {
+      interfaceName: pathToDefinition,
+      componentName,
+      exportTo: null,
+      importFrom: null
+    };
+
+  const root = split.slice(2, split.length - 1).join('/') as
+    | 'responses'
+    | 'schemas';
+  if (root === 'responses') {
+    return {
+      interfaceName: `${ServiceInterfaces.BungieResponse}<${componentName}>`,
+      componentName,
+      exportTo: null,
+      importFrom: {
+        interface: ServiceInterfaces.BungieResponse,
+        ref: component.replace('responses', 'schemas')
+      }
+    };
+  }
+
+  const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
+  if (dictionaryComponentMatch) {
+    return {
+      interfaceName: `${ServiceInterfaces.DictionaryComponent}<${componentName}>`,
+      componentName,
+      exportTo: null,
+      importFrom: {
+        interface: ServiceInterfaces.DictionaryComponent,
+        ref: (
+          (ref.properties!.data as SchemaObject)
+            .additionalProperties as ReferenceObject
+        ).$ref
+      }
+    };
+  }
+
+  const singleComponentMatch = component.match(SingleComponentPattern);
+  if (singleComponentMatch) {
+    return {
+      interfaceName: `${ServiceInterfaces.SingleComponent}<${componentName}>`,
+      componentName,
+      exportTo: null,
+      importFrom: {
+        interface: ServiceInterfaces.SingleComponent,
+        ref: ref.properties?.data.$ref
+      }
+    };
+  }
+
+  const fileName = `./${
+    isEnum(component, doc) ? 'enums' : 'models'
+  }/${pathToDefinition}`;
+  return {
+    interfaceName: componentName,
+    componentName,
+    exportTo: fileName,
+    importFrom: fileName
+  };
 }

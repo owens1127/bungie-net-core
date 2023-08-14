@@ -43,9 +43,15 @@ export function generateTypeDefinition(
   );
 
   const imports: string[] = [];
-  for (const [name, path] of importFiles) {
+  for (const [name, ref] of importFiles) {
+    console.log({ name, ref });
     const importPathStr = importPath(
-      path.replace('#/components', '').replace('schemas', 'models'),
+      ref
+        .replace('#/components', '')
+        .replace(
+          'schemas',
+          getRef(doc, ref)?.['x-enum-values'] ? 'enums' : 'models'
+        ),
       '/' + file.replace('.ts', '')
     );
     if (importPathStr !== name) {
