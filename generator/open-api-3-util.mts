@@ -56,3 +56,7 @@ export function getRef(
     return result;
   }
 }
+
+export function isEnum(component: string, doc: OpenAPIObject): boolean {
+  return !!getRef(doc, component)?.['x-enum-values'];
+}

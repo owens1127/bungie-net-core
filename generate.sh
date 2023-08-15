@@ -5,7 +5,7 @@ rm -rf ./__test__/__api__
 rm ./src/manifest/manifest-types.ts
 
 # Run the generator to produce typescript library in ./src
-node --experimental-json-modules ./build/generate.mjs ; echo Generation complete, Library TypeScript generated
+node --experimental-json-modules ./build/index.mjs ; echo Generation complete, Library TypeScript generated
 
 # fix one small error
 perl -pi -e 's/item: DestinyItemResponse/item: DestinyItemResponse<any>/g' ./src/models/Destiny/Responses/DestinyItemChangeResponse.ts

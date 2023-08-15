@@ -12,10 +12,6 @@ export function combineSets<T>(first: Set<T>, second: Set<T>): Set<T> {
   return newSet;
 }
 
-export function isEnum(component: string, doc: OpenAPIObject): boolean {
-  return !!getRef(doc, component)?.['x-enum-values'];
-}
-
 export function mappedToMobileManifestEntity(
   component: string,
   doc: OpenAPIObject

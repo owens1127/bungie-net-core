@@ -14,12 +14,12 @@ import {
 import {
   combineSets,
   hasConditionalComponents,
-  isEnum,
   mappedToMobileManifestEntity
 } from './util.mjs';
 import {
   getRef,
   getReferencedTypes,
+  isEnum,
   isRequestBodyObject
 } from './open-api-3-util.mjs';
 import _ from 'underscore';
@@ -31,25 +31,16 @@ export function createTree(
   //   const componentsByTag = new Map<string, string[]>();
   const components = findReachableComponents(paths, doc);
 
-  const defintionsByComponent: Map<string, DefinitionObject> = new Map<
+  const componentDefinitions: Map<string, DefinitionObject> = new Map<
     string,
     DefinitionObject
   >();
 
   Array.from(components).forEach(component => {
-    defintionsByComponent.set(component, getDefinition(component, doc));
+    componentDefinitions.set(component, getDefinition(component, doc));
   });
 
-  const defintionsByFile: Map<string, DefinitionObject> = new Map<
-    string,
-    DefinitionObject
-  >();
-  const defintionsByTag: Map<string, DefinitionObject> = new Map<
-    string,
-    DefinitionObject
-  >();
-
-  //   console.log(defintionsByComponent);
+  return componentDefinitions;
 }
 
 function findReachableComponents(
@@ -161,6 +152,8 @@ function getDefinition(
   const ref = getRef(doc, component)!;
   return {
     tags: [],
+    component,
+    ref,
     module: filesFor(component, doc, ref),
     data: {
       hasConditionalComponents: hasConditionalComponents(component, doc),

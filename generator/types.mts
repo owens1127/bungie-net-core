@@ -1,5 +1,9 @@
+import { SchemaObject } from 'openapi3-ts';
+
 export interface DefinitionObject {
   tags: string[];
+  component: string;
+  ref: SchemaObject;
   module: {
     interfaceName: string;
     componentName: string;
@@ -22,3 +26,5 @@ export enum ServiceInterfaces {
   DictionaryComponent = './interfaces/DictionaryComponentResponse',
   SingleComponent = './interfaces/SingleComponentResponse'
 }
+
+export const frequentlyNullProperties = ['itemCategoryHashes'];

@@ -7,6 +7,7 @@ import fs from 'fs';
 import _ from 'underscore';
 import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
 import { createTree } from './generate-tree.mjs';
+import { generateComponentFile } from './generate-component.mjs';
 
 (async () => {
   const doc = JSON.parse(
@@ -16,11 +17,17 @@ import { createTree } from './generate-tree.mjs';
   // Pairs of [request path, path service description]
   const paths = _.pairs(doc.paths) as [string, PathItemObject][];
 
-  createTree(paths, doc);
+  const componentMap = createTree(paths, doc);
 
-  // componentsByFile.forEach((component, file) => {
-  //   generateTypeDefinition(file, component, doc, componentByDef);
-  // });
+  const definitionsByFile = _.groupBy(
+    Array.from(componentMap.values()),
+    def => def.module.exportTo ?? ''
+  );
+  delete definitionsByFile[''];
+
+  _.forEach(definitionsByFile, (definitions, file) => {
+    generateComponentFile(file, definitions, doc, componentMap);
+  });
 
   // await generateManifestUtils(manifestComponents, componentByDef, doc);
 
