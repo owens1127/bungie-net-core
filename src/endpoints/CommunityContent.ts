@@ -21,6 +21,7 @@ import { PostSearchResponse } from '../models/Forum/PostSearchResponse';
  * @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent}
  */
 export async function getCommunityContent(
+  client: BungieClientProtocol,
   params: {
     /** The type of media to get */
     mediaFilter: ForumTopicsCategoryFiltersEnum;
@@ -28,8 +29,7 @@ export async function getCommunityContent(
     page: number;
     /** The sort mode. */
     sort: CommunityContentSortMode;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/CommunityContent/Get/${params.sort}/${params.mediaFilter}/${params.page}/`

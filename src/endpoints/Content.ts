@@ -23,10 +23,10 @@ import { NewsArticleRssResponse } from '../models/Content/NewsArticleRssResponse
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
  */
 export async function getContentType(
+  client: BungieClientProtocol,
   params: {
     type: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<ContentTypeDescription>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
@@ -39,13 +39,13 @@ export async function getContentType(
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
  */
 export async function getContentById(
+  client: BungieClientProtocol,
   params: {
     /** false */
     head?: boolean;
     id: string;
     locale: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`
@@ -59,14 +59,14 @@ export async function getContentById(
  * @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType}
  */
 export async function getContentByTagAndType(
+  client: BungieClientProtocol,
   params: {
     /** Not used. */
     head?: boolean;
     locale: string;
     tag: string;
     type: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
@@ -81,6 +81,7 @@ export async function getContentByTagAndType(
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
  */
 export async function searchContentWithText(
+  client: BungieClientProtocol,
   params: {
     /** Content type tag: Help, News, etc. Supply multiple ctypes separated by space. */
     ctype?: string;
@@ -95,8 +96,7 @@ export async function searchContentWithText(
     source?: string;
     /** Tag used on the content to be searched. */
     tag?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/Search/${params.locale}/`
@@ -115,6 +115,7 @@ export async function searchContentWithText(
  * @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType}
  */
 export async function searchContentByTagAndType(
+  client: BungieClientProtocol,
   params: {
     /** Page number for the search results starting with page 1. */
     currentpage?: number;
@@ -125,8 +126,7 @@ export async function searchContentByTagAndType(
     locale: string;
     tag: string;
     type: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/SearchContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
@@ -142,11 +142,11 @@ export async function searchContentByTagAndType(
  * @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles}
  */
 export async function searchHelpArticles(
+  client: BungieClientProtocol,
   params: {
     searchtext: string;
     size: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<object>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/SearchHelpArticles/${params.searchtext}/${params.size}/`
@@ -159,6 +159,7 @@ export async function searchHelpArticles(
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
  */
 export async function rssNewsArticles(
+  client: BungieClientProtocol,
   params: {
     /** Optionally filter response to only include news items in a certain category. */
     categoryfilter?: string;
@@ -166,8 +167,7 @@ export async function rssNewsArticles(
     includebody?: boolean;
     /** Zero-based pagination token for paging through result sets. */
     pageToken: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<NewsArticleRssResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`

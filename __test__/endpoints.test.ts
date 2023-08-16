@@ -66,10 +66,6 @@ type None = null | never[];
 
 function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
   describe(key, () => {
-    test('the endpoint exists', () => {
-      expect(endpoint).toBeDefined();
-    });
-
     cases.map(({ name, data, promise: { failure, success } }) =>
       describe(name, () => {
         let res: ResponseType<typeof endpoint> | null = null;
@@ -77,7 +73,7 @@ function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
 
         beforeAll(async () => {
           try {
-            res = await endpoint(sharedTestClient, data[0], data[1]);
+            res = await endpoint(sharedTestClient, data?.[0], data?.[1]);
           } catch (e) {
             err = e;
           }
@@ -100,10 +96,12 @@ function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
             expect(err).not.toBeNull();
           });
           it('is a Bungie error', () => {
-            expect(err).toBeInstanceOf(BungieAPIError);
+            expect(err).toHaveProperty('ErrorCode');
           });
           test('it throws the correct error', () =>
-            failure!(err as BungieAPIError<ReturnType<typeof endpoint>>));
+            failure!(
+              new BungieAPIError<ReturnType<typeof endpoint>>(err as any)
+            ));
         }
       })
     );

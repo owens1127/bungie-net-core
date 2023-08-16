@@ -76,11 +76,11 @@ export async function getAvailableThemes(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting}
  */
 export async function getUserClanInviteSetting(
+  client: BungieClientProtocol,
   params: {
     /** The Destiny membership type of the account we wish to access settings. */
     mType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
@@ -94,13 +94,13 @@ export async function getUserClanInviteSetting(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
  */
 export async function getRecommendedGroups(
+  client: BungieClientProtocol,
   params: {
     /** Requested range in which to pull recommended groups */
     createDateRange: GroupDateRange;
     /** Type of groups requested */
     groupType: GroupType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupV2Card[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/Recommended/${params.groupType}/${params.createDateRange}/`
@@ -113,14 +113,14 @@ export async function getRecommendedGroups(
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}
  */
 export async function groupSearch(
-  body: GroupQuery,
-  client: BungieClientProtocol
+  client: BungieClientProtocol,
+  body: GroupQuery
 ): Promise<BungieNetResponse<GroupSearchResponse>> {
   const url = new URL(`https://www.bungie.net/Platform/GroupV2/Search/`);
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -130,11 +130,11 @@ export async function groupSearch(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroup}
  */
 export async function getGroup(
+  client: BungieClientProtocol,
   params: {
     /** Requested group's id. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/`
@@ -147,13 +147,13 @@ export async function getGroup(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName}
  */
 export async function getGroupByName(
+  client: BungieClientProtocol,
   params: {
     /** Exact name of the group to find. */
     groupName: string;
     /** Type of group to find. */
     groupType: GroupType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/Name/${params.groupName}/${params.groupType}/`
@@ -167,14 +167,14 @@ export async function getGroupByName(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByNameV2}
  */
 export async function getGroupByNameV2(
-  body: GroupNameSearchRequest,
-  client: BungieClientProtocol
+  client: BungieClientProtocol,
+  body: GroupNameSearchRequest
 ): Promise<BungieNetResponse<GroupResponse>> {
   const url = new URL(`https://www.bungie.net/Platform/GroupV2/NameV2/`);
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -184,11 +184,11 @@ export async function getGroupByNameV2(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
  */
 export async function getGroupOptionalConversations(
+  client: BungieClientProtocol,
   params: {
     /** Requested group's id. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupOptionalConversation[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/`
@@ -203,12 +203,12 @@ export async function getGroupOptionalConversations(
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
  */
 export async function editGroup(
+  client: BungieClientProtocol,
   params: {
     /** Group ID of the group to edit. */
     groupId: string;
   },
-  body: GroupEditAction,
-  client: BungieClientProtocol
+  body: GroupEditAction
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Edit/`
@@ -216,7 +216,7 @@ export async function editGroup(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -227,12 +227,12 @@ export async function editGroup(
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
  */
 export async function editClanBanner(
+  client: BungieClientProtocol,
   params: {
     /** Group ID of the group to edit. */
     groupId: string;
   },
-  body: ClanBanner,
-  client: BungieClientProtocol
+  body: ClanBanner
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditClanBanner/`
@@ -240,7 +240,7 @@ export async function editClanBanner(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -251,12 +251,12 @@ export async function editClanBanner(
  * @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions}
  */
 export async function editFounderOptions(
+  client: BungieClientProtocol,
   params: {
     /** Group ID of the group to edit. */
     groupId: string;
   },
-  body: GroupOptionsEditAction,
-  client: BungieClientProtocol
+  body: GroupOptionsEditAction
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditFounderOptions/`
@@ -264,7 +264,7 @@ export async function editFounderOptions(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -275,12 +275,12 @@ export async function editFounderOptions(
  * @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation}
  */
 export async function addOptionalConversation(
+  client: BungieClientProtocol,
   params: {
     /** Group ID of the group to edit. */
     groupId: string;
   },
-  body: GroupOptionalConversationAddRequest,
-  client: BungieClientProtocol
+  body: GroupOptionalConversationAddRequest
 ): Promise<BungieNetResponse<string>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Add/`
@@ -288,7 +288,7 @@ export async function addOptionalConversation(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -299,14 +299,14 @@ export async function addOptionalConversation(
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
  */
 export async function editOptionalConversation(
+  client: BungieClientProtocol,
   params: {
     /** Conversation Id of the channel being edited. */
     conversationId: string;
     /** Group ID of the group to edit. */
     groupId: string;
   },
-  body: GroupOptionalConversationEditRequest,
-  client: BungieClientProtocol
+  body: GroupOptionalConversationEditRequest
 ): Promise<BungieNetResponse<string>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Edit/${params.conversationId}/`
@@ -314,7 +314,7 @@ export async function editOptionalConversation(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -324,6 +324,7 @@ export async function editOptionalConversation(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
  */
 export async function getMembersOfGroup(
+  client: BungieClientProtocol,
   params: {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
     currentpage: number;
@@ -336,8 +337,7 @@ export async function getMembersOfGroup(
      * matching display or unique names.
      */
     nameSearch?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/`
@@ -353,13 +353,13 @@ export async function getMembersOfGroup(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup}
  */
 export async function getAdminsAndFounderOfGroup(
+  client: BungieClientProtocol,
   params: {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
     currentpage: number;
     /** The ID of the group. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/AdminsAndFounder/`
@@ -374,6 +374,7 @@ export async function getAdminsAndFounderOfGroup(
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership}
  */
 export async function editGroupMembership(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group to which the member belongs. */
     groupId: string;
@@ -383,8 +384,7 @@ export async function editGroupMembership(
     membershipType: BungieMembershipType;
     /** New membertype for the specified member. */
     memberType: RuntimeGroupMemberType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/SetMembershipType/${params.memberType}/`
@@ -399,6 +399,7 @@ export async function editGroupMembership(
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
  */
 export async function kickMember(
+  client: BungieClientProtocol,
   params: {
     /** Group ID to kick the user from. */
     groupId: string;
@@ -406,8 +407,7 @@ export async function kickMember(
     membershipId: string;
     /** Membership type of the provided membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupMemberLeaveResult>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Kick/`
@@ -421,6 +421,7 @@ export async function kickMember(
  * @see {@link https://bungie-net.github.io/#GroupV2.BanMember}
  */
 export async function banMember(
+  client: BungieClientProtocol,
   params: {
     /** Group ID that has the member to ban. */
     groupId: string;
@@ -429,8 +430,7 @@ export async function banMember(
     /** Membership type of the provided membership ID. */
     membershipType: BungieMembershipType;
   },
-  body: GroupBanRequest,
-  client: BungieClientProtocol
+  body: GroupBanRequest
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Ban/`
@@ -438,7 +438,7 @@ export async function banMember(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -448,14 +448,14 @@ export async function banMember(
  * @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember}
  */
 export async function unbanMember(
+  client: BungieClientProtocol,
   params: {
     groupId: string;
     /** Membership ID of the member to unban from the group */
     membershipId: string;
     /** Membership type of the provided membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Unban/`
@@ -469,13 +469,13 @@ export async function unbanMember(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
  */
 export async function getBannedMembersOfGroup(
+  client: BungieClientProtocol,
   params: {
     /** Page number (starting with 1). Each page has a fixed size of 50 entries. */
     currentpage: number;
     /** Group ID whose banned members you are fetching */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfGroupBan>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`
@@ -490,6 +490,7 @@ export async function getBannedMembersOfGroup(
  * @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership}
  */
 export async function abdicateFoundership(
+  client: BungieClientProtocol,
   params: {
     /** The new founder for this group. Must already be a group admin. */
     founderIdNew: string;
@@ -497,8 +498,7 @@ export async function abdicateFoundership(
     groupId: string;
     /** Membership type of the provided founderIdNew. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Admin/AbdicateFoundership/${params.membershipType}/${params.founderIdNew}/`
@@ -512,13 +512,13 @@ export async function abdicateFoundership(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPendingMemberships}
  */
 export async function getPendingMemberships(
+  client: BungieClientProtocol,
   params: {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
     currentpage: number;
     /** ID of the group. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Pending/`
@@ -532,13 +532,13 @@ export async function getPendingMemberships(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals}
  */
 export async function getInvitedIndividuals(
+  client: BungieClientProtocol,
   params: {
     /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
     currentpage: number;
     /** ID of the group. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/InvitedIndividuals/`
@@ -552,12 +552,12 @@ export async function getInvitedIndividuals(
  * @see {@link https://bungie-net.github.io/#GroupV2.ApproveAllPending}
  */
 export async function approveAllPending(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group. */
     groupId: string;
   },
-  body: GroupApplicationRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveAll/`
@@ -565,7 +565,7 @@ export async function approveAllPending(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -575,12 +575,12 @@ export async function approveAllPending(
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyAllPending}
  */
 export async function denyAllPending(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group. */
     groupId: string;
   },
-  body: GroupApplicationRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyAll/`
@@ -588,7 +588,7 @@ export async function denyAllPending(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -598,12 +598,12 @@ export async function denyAllPending(
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePendingForList}
  */
 export async function approvePendingForList(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group. */
     groupId: string;
   },
-  body: GroupApplicationListRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationListRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveList/`
@@ -611,7 +611,7 @@ export async function approvePendingForList(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -622,6 +622,7 @@ export async function approvePendingForList(
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending}
  */
 export async function approvePending(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group. */
     groupId: string;
@@ -630,8 +631,7 @@ export async function approvePending(
     /** Membership type of the supplied membership ID. */
     membershipType: BungieMembershipType;
   },
-  body: GroupApplicationRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationRequest
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Approve/${params.membershipType}/${params.membershipId}/`
@@ -639,7 +639,7 @@ export async function approvePending(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -649,12 +649,12 @@ export async function approvePending(
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyPendingForList}
  */
 export async function denyPendingForList(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group. */
     groupId: string;
   },
-  body: GroupApplicationListRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationListRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyList/`
@@ -662,7 +662,7 @@ export async function denyPendingForList(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -672,6 +672,7 @@ export async function denyPendingForList(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember}
  */
 export async function getGroupsForMember(
+  client: BungieClientProtocol,
   params: {
     /** Filter apply to list of joined groups. */
     filter: GroupsForMemberFilter;
@@ -681,8 +682,7 @@ export async function getGroupsForMember(
     membershipId: string;
     /** Membership type of the supplied membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GetGroupsForMemberResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/User/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
@@ -696,6 +696,7 @@ export async function getGroupsForMember(
  * @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder}
  */
 export async function recoverGroupForFounder(
+  client: BungieClientProtocol,
   params: {
     /** Type of group the supplied member founded. */
     groupType: GroupType;
@@ -703,8 +704,7 @@ export async function recoverGroupForFounder(
     membershipId: string;
     /** Membership type of the supplied membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupMembershipSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/Recover/${params.membershipType}/${params.membershipId}/${params.groupType}/`
@@ -718,6 +718,7 @@ export async function recoverGroupForFounder(
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
  */
 export async function getPotentialGroupsForMember(
+  client: BungieClientProtocol,
   params: {
     /** Filter apply to list of potential joined groups. */
     filter: GroupPotentialMemberStatus;
@@ -727,8 +728,7 @@ export async function getPotentialGroupsForMember(
     membershipId: string;
     /** Membership type of the supplied membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/User/Potential/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
@@ -741,6 +741,7 @@ export async function getPotentialGroupsForMember(
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite}
  */
 export async function individualGroupInvite(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group you would like to join. */
     groupId: string;
@@ -749,8 +750,7 @@ export async function individualGroupInvite(
     /** MembershipType of the account being invited. */
     membershipType: BungieMembershipType;
   },
-  body: GroupApplicationRequest,
-  client: BungieClientProtocol
+  body: GroupApplicationRequest
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInvite/${params.membershipType}/${params.membershipId}/`
@@ -758,7 +758,7 @@ export async function individualGroupInvite(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -768,6 +768,7 @@ export async function individualGroupInvite(
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
  */
 export async function individualGroupInviteCancel(
+  client: BungieClientProtocol,
   params: {
     /** ID of the group you would like to join. */
     groupId: string;
@@ -775,8 +776,7 @@ export async function individualGroupInviteCancel(
     membershipId: string;
     /** MembershipType of the account being cancelled. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInviteCancel/${params.membershipType}/${params.membershipId}/`

@@ -26,6 +26,7 @@ import { ForumRecruitmentDetail } from '../models/Forum/ForumRecruitmentDetail';
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
  */
 export async function getTopicsPaged(
+  client: BungieClientProtocol,
   params: {
     /** A category filter */
     categoryFilter: ForumTopicsCategoryFiltersEnum;
@@ -46,8 +47,7 @@ export async function getTopicsPaged(
     sort: ForumTopicsSortEnum;
     /** The tags to search, if any. */
     tagstring?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
@@ -62,6 +62,7 @@ export async function getTopicsPaged(
  * @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged}
  */
 export async function getCoreTopicsPaged(
+  client: BungieClientProtocol,
   params: {
     /** The category filter. */
     categoryFilter: ForumTopicsCategoryFiltersEnum;
@@ -76,8 +77,7 @@ export async function getCoreTopicsPaged(
     quickDate: ForumTopicsQuickDateEnum;
     /** The sort mode. */
     sort: ForumTopicsSortEnum;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetCoreTopicsPaged/${params.page}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
@@ -92,6 +92,7 @@ export async function getCoreTopicsPaged(
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPaged}
  */
 export async function getPostsThreadedPaged(
+  client: BungieClientProtocol,
   params: {
     getParentPost: boolean;
     page: number;
@@ -102,8 +103,7 @@ export async function getPostsThreadedPaged(
     /** If this value is not null or empty, banned posts are requested to be returned */
     showbanned?: string;
     sortMode: ForumPostSortEnum;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostsThreadedPaged/${params.parentPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.getParentPost}/${params.rootThreadMode}/${params.sortMode}/`
@@ -118,6 +118,7 @@ export async function getPostsThreadedPaged(
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPagedFromChild}
  */
 export async function getPostsThreadedPagedFromChild(
+  client: BungieClientProtocol,
   params: {
     childPostId: string;
     page: number;
@@ -127,8 +128,7 @@ export async function getPostsThreadedPagedFromChild(
     /** If this value is not null or empty, banned posts are requested to be returned */
     showbanned?: string;
     sortMode: ForumPostSortEnum;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostsThreadedPagedFromChild/${params.childPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.rootThreadMode}/${params.sortMode}/`
@@ -142,12 +142,12 @@ export async function getPostsThreadedPagedFromChild(
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParent}
  */
 export async function getPostAndParent(
+  client: BungieClientProtocol,
   params: {
     childPostId: string;
     /** If this value is not null or empty, banned posts are requested to be returned */
     showbanned?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`
@@ -162,12 +162,12 @@ export async function getPostAndParent(
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval}
  */
 export async function getPostAndParentAwaitingApproval(
+  client: BungieClientProtocol,
   params: {
     childPostId: string;
     /** If this value is not null or empty, banned posts are requested to be returned */
     showbanned?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`
@@ -181,10 +181,10 @@ export async function getPostAndParentAwaitingApproval(
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent}
  */
 export async function getTopicForContent(
+  client: BungieClientProtocol,
   params: {
     contentId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<string>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
@@ -198,11 +198,11 @@ export async function getTopicForContent(
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
  */
 export async function getForumTagSuggestions(
+  client: BungieClientProtocol,
   params: {
     /** The partial tag input to generate suggestions from. */
     partialtag?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<TagResponse[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/`
@@ -216,11 +216,11 @@ export async function getForumTagSuggestions(
  * @see {@link https://bungie-net.github.io/#Forum.GetPoll}
  */
 export async function getPoll(
+  client: BungieClientProtocol,
   params: {
     /** The post id of the topic that has the poll. */
     topicId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/Poll/${params.topicId}/`
@@ -234,8 +234,8 @@ export async function getPoll(
  * @see {@link https://bungie-net.github.io/#Forum.GetRecruitmentThreadSummaries}
  */
 export async function getRecruitmentThreadSummaries(
-  body: string[],
-  client: BungieClientProtocol
+  client: BungieClientProtocol,
+  body: string[]
 ): Promise<BungieNetResponse<ForumRecruitmentDetail[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/Recruit/Summaries/`
@@ -243,7 +243,7 @@ export async function getRecruitmentThreadSummaries(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }

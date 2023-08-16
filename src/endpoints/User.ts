@@ -27,11 +27,11 @@ import { UserSearchPrefixRequest } from '../models/User/UserSearchPrefixRequest'
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
  */
 export async function getBungieNetUserById(
+  client: BungieClientProtocol,
   params: {
     /** The requested Bungie.net membership id. */
     id: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GeneralUser>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
@@ -46,11 +46,11 @@ export async function getBungieNetUserById(
  * @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames}
  */
 export async function getSanitizedPlatformDisplayNames(
+  client: BungieClientProtocol,
   params: {
     /** The requested membership id to load. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<{ [key in BungieCredentialType]: string }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
@@ -63,11 +63,11 @@ export async function getSanitizedPlatformDisplayNames(
  * @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount}
  */
 export async function getCredentialTypesForTargetAccount(
+  client: BungieClientProtocol,
   params: {
     /** The user's membership id */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/GetCredentialTypesForTargetAccount/${params.membershipId}/`
@@ -95,13 +95,13 @@ export async function getAvailableThemes(
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataById}
  */
 export async function getMembershipDataById(
+  client: BungieClientProtocol,
   params: {
     /** The membership ID of the target user. */
     membershipId: string;
     /** Type of the supplied membership ID. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<UserMembershipData>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/GetMembershipsById/${params.membershipId}/${params.membershipType}/`
@@ -129,13 +129,13 @@ export async function getMembershipDataForCurrentUser(
  * @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential}
  */
 export async function getMembershipFromHardLinkedCredential(
+  client: BungieClientProtocol,
   params: {
     /** The credential to look up. Must be a valid SteamID64. */
     credential: string;
     /** The credential type. 'SteamId' is the only valid value at present. */
     crType: BungieCredentialType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<HardLinkedUserMembership>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/GetMembershipFromHardLinkedCredential/${params.crType}/${params.credential}/`
@@ -148,13 +148,13 @@ export async function getMembershipFromHardLinkedCredential(
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix}
  */
 export async function searchByGlobalNamePrefix(
+  client: BungieClientProtocol,
   params: {
     /** The display name prefix you're looking for. */
     displayNamePrefix: string;
     /** The zero-based page of results you desire. */
     page: number;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<UserSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`
@@ -167,12 +167,12 @@ export async function searchByGlobalNamePrefix(
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
  */
 export async function searchByGlobalNamePost(
+  client: BungieClientProtocol,
   params: {
     /** The zero-based page of results you desire. */
     page: number;
   },
-  body: UserSearchPrefixRequest,
-  client: BungieClientProtocol
+  body: UserSearchPrefixRequest
 ): Promise<BungieNetResponse<UserSearchResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`
@@ -180,7 +180,7 @@ export async function searchByGlobalNamePost(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }

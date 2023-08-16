@@ -47,11 +47,11 @@ export async function getFriendRequestList(
  * @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest}
  */
 export async function issueFriendRequest(
+  client: BungieClientProtocol,
   params: {
     /** The membership id of the user you wish to add. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/Friends/Add/${params.membershipId}/`
@@ -65,11 +65,11 @@ export async function issueFriendRequest(
  * @see {@link https://bungie-net.github.io/#Social.AcceptFriendRequest}
  */
 export async function acceptFriendRequest(
+  client: BungieClientProtocol,
   params: {
     /** The membership id of the user you wish to accept. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/Friends/Requests/Accept/${params.membershipId}/`
@@ -83,11 +83,11 @@ export async function acceptFriendRequest(
  * @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest}
  */
 export async function declineFriendRequest(
+  client: BungieClientProtocol,
   params: {
     /** The membership id of the user you wish to decline. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/Friends/Requests/Decline/${params.membershipId}/`
@@ -101,11 +101,11 @@ export async function declineFriendRequest(
  * @see {@link https://bungie-net.github.io/#Social.RemoveFriend}
  */
 export async function removeFriend(
+  client: BungieClientProtocol,
   params: {
     /** The membership id of the user you wish to remove. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/Friends/Remove/${params.membershipId}/`
@@ -119,11 +119,11 @@ export async function removeFriend(
  * @see {@link https://bungie-net.github.io/#Social.RemoveFriendRequest}
  */
 export async function removeFriendRequest(
+  client: BungieClientProtocol,
   params: {
     /** The membership id of the user you wish to remove. */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/Friends/Requests/Remove/${params.membershipId}/`
@@ -137,13 +137,13 @@ export async function removeFriendRequest(
  * @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList}
  */
 export async function getPlatformFriendList(
+  client: BungieClientProtocol,
   params: {
     /** The platform friend type. */
     friendPlatform: PlatformFriendType;
     /** The zero based page to return. Page size is 100. */
     page: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PlatformFriendResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Social/PlatformFriends/${params.friendPlatform}/${params.page}/`

@@ -37,8 +37,8 @@ export async function forceDropsRepair(
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}
  */
 export async function claimPartnerOffer(
-  body: PartnerOfferClaimRequest,
-  client: BungieClientProtocol
+  client: BungieClientProtocol,
+  body: PartnerOfferClaimRequest
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Partner/ClaimOffer/`
@@ -46,7 +46,7 @@ export async function claimPartnerOffer(
   return client.fetch({
     method: 'POST',
     url,
-    body,
+    body: JSON.stringify(body),
     headers: { 'Content-Type': 'application/json' }
   });
 }
@@ -57,6 +57,7 @@ export async function claimPartnerOffer(
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
  */
 export async function applyMissingPartnerOffersWithoutClaim(
+  client: BungieClientProtocol,
   params: {
     /** The partner application identifier. */
     partnerApplicationId: number;
@@ -65,8 +66,7 @@ export async function applyMissingPartnerOffersWithoutClaim(
      * permissions are required.
      */
     targetBnetMembershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<boolean>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Partner/ApplyMissingOffers/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
@@ -80,6 +80,7 @@ export async function applyMissingPartnerOffersWithoutClaim(
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
  */
 export async function getPartnerOfferSkuHistory(
+  client: BungieClientProtocol,
   params: {
     /** The partner application identifier. */
     partnerApplicationId: number;
@@ -88,8 +89,7 @@ export async function getPartnerOfferSkuHistory(
      * permissions are required.
      */
     targetBnetMembershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Partner/History/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
@@ -103,13 +103,13 @@ export async function getPartnerOfferSkuHistory(
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
  */
 export async function getPartnerRewardHistory(
+  client: BungieClientProtocol,
   params: {
     /** The partner application identifier. */
     partnerApplicationId: number;
     /** The bungie.net user to return reward history for. */
     targetBnetMembershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<PartnerRewardHistoryResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Partner/History/${params.targetBnetMembershipId}/Application/${params.partnerApplicationId}/`
@@ -122,14 +122,14 @@ export async function getPartnerRewardHistory(
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
  */
 export async function getBungieRewardsForUser(
+  client: BungieClientProtocol,
   params: {
     /**
      * bungie.net user membershipId for requested user rewards. If not self, elevated
      * permissions are required.
      */
     membershipId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
@@ -143,6 +143,7 @@ export async function getBungieRewardsForUser(
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser}
  */
 export async function getBungieRewardsForPlatformUser(
+  client: BungieClientProtocol,
   params: {
     /**
      * users platform membershipId for requested user rewards. If not self, elevated
@@ -151,8 +152,7 @@ export async function getBungieRewardsForPlatformUser(
     membershipId: string;
     /** The target Destiny 2 membership type. */
     membershipType: BungieMembershipType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForPlatformUser/${params.membershipId}/${params.membershipType}/`

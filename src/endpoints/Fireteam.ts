@@ -27,11 +27,11 @@ import { FireteamResponse } from '../models/Fireteam/FireteamResponse';
  * @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount}
  */
 export async function getActivePrivateClanFireteamCount(
+  client: BungieClientProtocol,
   params: {
     /** The group id of the clan. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<number>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`
@@ -45,6 +45,7 @@ export async function getActivePrivateClanFireteamCount(
  * @see {@link https://bungie-net.github.io/#Fireteam.GetAvailableClanFireteams}
  */
 export async function getAvailableClanFireteams(
+  client: BungieClientProtocol,
   params: {
     /** The activity type to filter by. */
     activityType: number;
@@ -67,8 +68,7 @@ export async function getAvailableClanFireteams(
     publicOnly: FireteamPublicSearchOption;
     /** Filters based on available slots */
     slotFilter: FireteamSlotSearch;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfFireteamSummary>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.publicOnly}/${params.page}/`
@@ -84,6 +84,7 @@ export async function getAvailableClanFireteams(
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
  */
 export async function searchPublicAvailableClanFireteams(
+  client: BungieClientProtocol,
   params: {
     /** The activity type to filter by. */
     activityType: number;
@@ -102,8 +103,7 @@ export async function searchPublicAvailableClanFireteams(
     platform: FireteamPlatform;
     /** Filters based on available slots */
     slotFilter: FireteamSlotSearch;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfFireteamSummary>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`
@@ -119,6 +119,7 @@ export async function searchPublicAvailableClanFireteams(
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
  */
 export async function getMyClanFireteams(
+  client: BungieClientProtocol,
   params: {
     /**
      * If true, filter by clan. Otherwise, ignore the clan and show all of the user's
@@ -138,8 +139,7 @@ export async function getMyClanFireteams(
     page: number;
     /** The platform filter. */
     platform: FireteamPlatform;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfFireteamResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`
@@ -154,13 +154,13 @@ export async function getMyClanFireteams(
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
  */
 export async function getClanFireteam(
+  client: BungieClientProtocol,
   params: {
     /** The unique id of the fireteam. */
     fireteamId: string;
     /** The group id of the clan. */
     groupId: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<FireteamResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`

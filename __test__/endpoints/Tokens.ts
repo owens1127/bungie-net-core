@@ -10,7 +10,10 @@ import {
   getPartnerRewardHistory
 } from '../../src/endpoints/Tokens';
 
-export const applyMissingPartnerOffersWithoutClaimTests: TestCase<typeof applyMissingPartnerOffersWithoutClaim>[] = [];
+export const applyMissingPartnerOffersWithoutClaimTests: EndpointTestSuite<typeof applyMissingPartnerOffersWithoutClaim> = {
+  endpoint: applyMissingPartnerOffersWithoutClaim,
+  cases: []
+};
 export const claimPartnerOfferTests: EndpointTestSuite<typeof claimPartnerOffer> = {
   endpoint: claimPartnerOffer,
   cases: []
@@ -19,8 +22,23 @@ export const forceDropsRepairTests: EndpointTestSuite<typeof forceDropsRepair> =
   endpoint: forceDropsRepair,
   cases: []
 };
-export const getBungieRewardsForPlatformUserTests: TestCase<typeof getBungieRewardsForPlatformUser>[] = [];
-export const getBungieRewardsForUserTests: TestCase<typeof getBungieRewardsForUser>[] = [];
-export const getBungieRewardsListTests: TestCase<typeof getBungieRewardsList>[] = [];
-export const getPartnerOfferSkuHistoryTests: TestCase<typeof getPartnerOfferSkuHistory>[] = [];
-export const getPartnerRewardHistoryTests: TestCase<typeof getPartnerRewardHistory>[] = [];
+export const getBungieRewardsForPlatformUserTests: EndpointTestSuite<typeof getBungieRewardsForPlatformUser> = {
+  endpoint: getBungieRewardsForPlatformUser,
+  cases: []
+};
+export const getBungieRewardsForUserTests: EndpointTestSuite<typeof getBungieRewardsForUser> = {
+  endpoint: getBungieRewardsForUser,
+  cases: []
+};
+export const getBungieRewardsListTests: EndpointTestSuite<typeof getBungieRewardsList> = {
+  endpoint: getBungieRewardsList,
+  cases: []
+};
+export const getPartnerOfferSkuHistoryTests: EndpointTestSuite<typeof getPartnerOfferSkuHistory> = {
+  endpoint: getPartnerOfferSkuHistory,
+  cases: []
+};
+export const getPartnerRewardHistoryTests: EndpointTestSuite<typeof getPartnerRewardHistory> = {
+  endpoint: getPartnerRewardHistory,
+  cases: []
+};

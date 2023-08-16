@@ -9,19 +9,21 @@ import { BungieClientProtocol } from '.';
  * @param client_id Provided by the portal
  * @see {@link https://github.com/Bungie-net/api/wiki/OAuth-Documentation}
  */
-export function createOAuthURL(
-  client_id: string,
-  redirect_uri?: string,
-  state?: string,
-  reauth?: boolean
-): URL {
+export function createOAuthURL(query: {
+  client_id: string;
+  redirect_uri?: string;
+  state?: string;
+  reauth?: boolean;
+}): URL {
   const url = new URL('https://www.bungie.net/en/OAuth/Authorize');
-  url.searchParams.set('client_id', client_id);
+  if (!query.client_id) throw Error('Missing client_id in query');
+  url.searchParams.set('client_id', query.client_id);
   url.searchParams.set('response_type', 'code');
-  if (state !== undefined) url.searchParams.set('state', state);
-  if (reauth !== undefined) url.searchParams.set('reauth', reauth.toString());
-  if (redirect_uri !== undefined)
-    url.searchParams.set('redirect_uri', redirect_uri);
+  if (query.state !== undefined) url.searchParams.set('state', query.state);
+  if (query.reauth !== undefined)
+    url.searchParams.set('reauth', query.reauth.toString());
+  if (query.redirect_uri !== undefined)
+    url.searchParams.set('redirect_uri', query.redirect_uri);
 
   return url;
 }

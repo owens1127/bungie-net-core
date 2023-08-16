@@ -5,25 +5,32 @@ import {
   getDestinyManifestComponent
 } from '../src/manifest';
 
-describe('destiny manifest component', () => {
-  jest.setTimeout(15000);
-  const tables = [
-    'DestinyActivityDefinition',
-    'DestinyGuardianRankDefinition',
-    'DestinyInventoryItemDefinition'
-  ] as const;
+const tables = [
+  'DestinyActivityDefinition',
+  'DestinyGuardianRankDefinition',
+  'DestinyInventoryItemDefinition'
+] as const;
 
-  let res: Record<
+let res: {
+  [key in (typeof tables)[number]]: Record<
     string,
-    DestinyManifestDefinition<(typeof tables)[number]>
-  >[] = [];
-  beforeAll(async () => {
-    const { Response: destinyManifest } = await getDestinyManifest(
-      sharedTestClient
-    );
-    res = await Promise.all(
-      tables.map(table =>
-        getDestinyManifestComponent(
+    DestinyManifestDefinition<key>
+  >;
+} = {
+  DestinyActivityDefinition: {},
+  DestinyGuardianRankDefinition: {},
+  DestinyInventoryItemDefinition: {}
+};
+
+beforeAll(async () => {
+  const { Response: destinyManifest } = await getDestinyManifest(
+    sharedTestClient
+  );
+  res = Object.fromEntries(
+    await Promise.all(
+      tables.map(async table => [
+        table,
+        await getDestinyManifestComponent(
           {
             destinyManifest,
             language: 'en',
@@ -31,47 +38,61 @@ describe('destiny manifest component', () => {
           },
           sharedTestClient
         )
-      )
+      ])
+    )
+  );
+});
+
+it('gets a response', () => {
+  expect(res).not.toBeNull();
+});
+
+describe('is a valid response', () => {
+  test('has DestinyActivityDefinition', () => {
+    expect(res).toHaveProperty('DestinyActivityDefinition');
+  });
+  test('has DestinyGuardianRankDefinition', () => {
+    expect(res).toHaveProperty('DestinyActivityDefinition');
+  });
+  test('has DestinyInventoryItemDefinition', () => {
+    expect(res).toHaveProperty('DestinyActivityDefinition');
+  });
+});
+
+describe('the tables are correct', () => {
+  test('DestinyActivityDefinition has the right shape', () => {
+    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
+      'activityTypeHash'
+    );
+    expect(res['DestinyActivityDefinition'][27283751]).toHaveProperty(
+      'displayProperties'
+    );
+    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
+      'pgcrImage'
     );
   });
 
-  it('is expected to succeed', () => {
-    expect(res).not.toBeNull();
+  test('DestinyGuardianRankDefinition has the right shape', () => {
+    expect(res['DestinyGuardianRankDefinition'][1]).toHaveProperty(
+      'rankNumber'
+    );
+    expect(res['DestinyGuardianRankDefinition'][4]).toHaveProperty(
+      'displayProperties'
+    );
+    expect(res['DestinyGuardianRankDefinition'][8]).toHaveProperty(
+      'foregroundImagePath'
+    );
   });
-  it('is a valid response', () => {
-    if (res) {
-      expect(res).toHaveProperty('DestinyActivityDefinition');
-      expect(res).toHaveProperty('DestinyGuardianRankDefinition');
-      expect(res).toHaveProperty('DestinyInventoryItemDefinition');
-      expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
-        'activityTypeHash'
-      );
-      expect(res['DestinyActivityDefinition'][27283751]).toHaveProperty(
-        'displayProperties'
-      );
-      expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
-        'pgcrImage'
-      );
-      expect(res['DestinyGuardianRankDefinition'][1]).toHaveProperty(
-        'rankNumber'
-      );
-      expect(res['DestinyGuardianRankDefinition'][4]).toHaveProperty(
-        'displayProperties'
-      );
-      expect(res['DestinyGuardianRankDefinition'][8]).toHaveProperty(
-        'foregroundImagePath'
-      );
-      expect(res['DestinyInventoryItemDefinition'][3949435]).toHaveProperty(
-        'acquireUnlockHash'
-      );
-      expect(res['DestinyInventoryItemDefinition'][24043435]).toHaveProperty(
-        'displayProperties'
-      );
-      expect(res['DestinyInventoryItemDefinition'][25023897]).toHaveProperty(
-        'classType'
-      );
-    } else {
-      throw new Error('No Response');
-    }
+
+  test('DestinyInventoryItemDefinition has the right shape', () => {
+    expect(res['DestinyInventoryItemDefinition'][3949435]).toHaveProperty(
+      'acquireUnlockHash'
+    );
+    expect(res['DestinyInventoryItemDefinition'][24043435]).toHaveProperty(
+      'displayProperties'
+    );
+    expect(res['DestinyInventoryItemDefinition'][25023897]).toHaveProperty(
+      'classType'
+    );
   });
 });

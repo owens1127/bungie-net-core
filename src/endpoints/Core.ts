@@ -57,11 +57,11 @@ export async function getUserSystemOverrides(
  * @see {@link https://bungie-net.github.io/#.GetGlobalAlerts}
  */
 export async function getGlobalAlerts(
+  client: BungieClientProtocol,
   params: {
     /** Determines whether Streaming Alerts are included in results */
     includestreaming?: boolean;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<GlobalAlert[]>> {
   const url = new URL(`https://www.bungie.net/Platform/GlobalAlerts/`);
   addParam(url, params['includestreaming'], 'includestreaming');

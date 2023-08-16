@@ -34,13 +34,13 @@ export async function getTrendingCategories(
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory}
  */
 export async function getTrendingCategory(
+  client: BungieClientProtocol,
   params: {
     /** The ID of the category for whom you want additional results. */
     categoryId: string;
     /** The page # of results to return. */
     pageNumber: number;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<SearchResultOfTrendingEntry>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Trending/Categories/${params.categoryId}/${params.pageNumber}/`
@@ -56,13 +56,13 @@ export async function getTrendingCategory(
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail}
  */
 export async function getTrendingEntryDetail(
+  client: BungieClientProtocol,
   params: {
     /** The identifier for the entity to be returned. */
     identifier: string;
     /** The type of entity to be returned. */
     trendingEntryType: TrendingEntryType;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<TrendingDetail>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Trending/Details/${params.trendingEntryType}/${params.identifier}/`

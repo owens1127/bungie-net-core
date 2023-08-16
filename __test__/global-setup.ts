@@ -71,7 +71,9 @@ class BungieTestClient implements BungieClientProtocol {
         console.error(e);
         console.log(
           '\nAuthorization Link: ' +
-            createOAuthURL(process.env.BUNGIE_CLIENT_ID!).toString()
+            createOAuthURL({
+              client_id: process.env.BUNGIE_CLIENT_ID!
+            }).toString()
         );
         process.exit(1);
       });

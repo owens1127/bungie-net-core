@@ -24,6 +24,7 @@ import { Application } from '../models/Applications/Application';
  * @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage}
  */
 export async function getApplicationApiUsage(
+  client: BungieClientProtocol,
   params: {
     /** ID of the application to get usage statistics. */
     applicationId: number;
@@ -31,8 +32,7 @@ export async function getApplicationApiUsage(
     end?: string;
     /** Start time for query. Goes to 24 hours ago if not specified. */
     start?: string;
-  },
-  client: BungieClientProtocol
+  }
 ): Promise<BungieNetResponse<ApiUsage>> {
   const url = new URL(
     `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`
