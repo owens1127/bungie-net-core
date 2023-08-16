@@ -3,20 +3,29 @@ import { BungieNetResponse } from '../src/interfaces/BungieNetResponse';
 import { BungieAPIError, sharedTestClient } from './global-setup';
 import * as App from './endpoints/App';
 import * as CommunityContent from './endpoints/CommunityContent';
-import * as Content from './endpoints/App';
-import * as Core from './endpoints/App';
-import * as Destiny2 from './endpoints/App';
-import * as Fireteam from './endpoints/App';
-import * as App from './endpoints/App';
-import * as App from './endpoints/App';
-import * as App from './endpoints/App';
-import * as App from './endpoints/App';
-import * as App from './endpoints/App';
+import * as Content from './endpoints/Content';
+import * as Core from './endpoints/Core';
+import * as Destiny2 from './endpoints/Destiny2';
+import * as Fireteam from './endpoints/Fireteam';
+import * as Forum from './endpoints/Forum';
+import * as GroupV2 from './endpoints/GroupV2';
+import * as Social from './endpoints/Social';
+import * as Tokens from './endpoints/Tokens';
+import * as Trending from './endpoints/Trending';
 
-const allImports = [App, CommunityContent] as Record<
-  string,
-  EndpointTestSuite
->[];
+const allImports = [
+  App,
+  CommunityContent,
+  Content,
+  Core,
+  Destiny2,
+  Fireteam,
+  Forum,
+  GroupV2,
+  Social,
+  Tokens,
+  Trending
+] as Record<string, EndpointTestSuite>[];
 
 allImports.forEach(imprt =>
   Object.entries(imprt).forEach(([key, suite]) => performTests(key, suite))

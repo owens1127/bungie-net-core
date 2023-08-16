@@ -1,4 +1,4 @@
-import { constants, TestCase } from '../global-setup';
+import { EndpointTestSuite } from '../endpoints.test';
 import {
   abdicateFoundership,
   addOptionalConversation,
@@ -36,72 +36,139 @@ import {
   unbanMember
 } from '../../src/endpoints/GroupV2';
 
-export const abdicateFoundershipTests: TestCase<typeof abdicateFoundership>[] =
-  [];
-export const addOptionalConversationTests: TestCase<
-  typeof addOptionalConversation
->[] = [];
-export const approveAllPendingTests: TestCase<typeof approveAllPending>[] = [];
-export const approvePendingTests: TestCase<typeof approvePending>[] = [];
-export const approvePendingForListTests: TestCase<
-  typeof approvePendingForList
->[] = [];
-export const banMemberTests: TestCase<typeof banMember>[] = [];
-export const denyAllPendingTests: TestCase<typeof denyAllPending>[] = [];
-export const denyPendingForListTests: TestCase<typeof denyPendingForList>[] =
-  [];
-export const editClanBannerTests: TestCase<typeof editClanBanner>[] = [];
-export const editFounderOptionsTests: TestCase<typeof editFounderOptions>[] =
-  [];
-export const editGroupTests: TestCase<typeof editGroup>[] = [];
-export const editGroupMembershipTests: TestCase<typeof editGroupMembership>[] =
-  [];
-export const editOptionalConversationTests: TestCase<
-  typeof editOptionalConversation
->[] = [];
-export const getAdminsAndFounderOfGroupTests: TestCase<
-  typeof getAdminsAndFounderOfGroup
->[] = [];
-export const getAvailableAvatarsTests: TestCase<typeof getAvailableAvatars>[] =
-  [];
-export const getAvailableThemesTests: TestCase<typeof getAvailableThemes>[] =
-  [];
-export const getBannedMembersOfGroupTests: TestCase<
-  typeof getBannedMembersOfGroup
->[] = [];
-export const getGroupTests: TestCase<typeof getGroup>[] = [];
-export const getGroupByNameTests: TestCase<typeof getGroupByName>[] = [];
-export const getGroupByNameV2Tests: TestCase<typeof getGroupByNameV2>[] = [];
-export const getGroupOptionalConversationsTests: TestCase<
-  typeof getGroupOptionalConversations
->[] = [];
-export const getGroupsForMemberTests: TestCase<typeof getGroupsForMember>[] =
-  [];
-export const getInvitedIndividualsTests: TestCase<
-  typeof getInvitedIndividuals
->[] = [];
-export const getMembersOfGroupTests: TestCase<typeof getMembersOfGroup>[] = [];
-export const getPendingMembershipsTests: TestCase<
-  typeof getPendingMemberships
->[] = [];
-export const getPotentialGroupsForMemberTests: TestCase<
-  typeof getPotentialGroupsForMember
->[] = [];
-export const getRecommendedGroupsTests: TestCase<
-  typeof getRecommendedGroups
->[] = [];
-export const getUserClanInviteSettingTests: TestCase<
-  typeof getUserClanInviteSetting
->[] = [];
-export const groupSearchTests: TestCase<typeof groupSearch>[] = [];
-export const individualGroupInviteTests: TestCase<
-  typeof individualGroupInvite
->[] = [];
-export const individualGroupInviteCancelTests: TestCase<
-  typeof individualGroupInviteCancel
->[] = [];
-export const kickMemberTests: TestCase<typeof kickMember>[] = [];
-export const recoverGroupForFounderTests: TestCase<
-  typeof recoverGroupForFounder
->[] = [];
-export const unbanMemberTests: TestCase<typeof unbanMember>[] = [];
+export const abdicateFoundershipTests: EndpointTestSuite<typeof abdicateFoundership> = {
+  endpoint: abdicateFoundership,
+  cases: []
+};
+export const addOptionalConversationTests: EndpointTestSuite<typeof addOptionalConversation> = {
+  endpoint: addOptionalConversation,
+  cases: []
+};
+export const approveAllPendingTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const approvePendingTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const approvePendingForListTests: EndpointTestSuite<typeof approvePendingForList> = {
+  endpoint: approvePendingForList,
+  cases: []
+};
+export const banMemberTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const denyAllPendingTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const denyPendingForListTests: EndpointTestSuite<typeof denyPendingForList> = {
+  endpoint: denyPendingForList,
+  cases: []
+};
+export const editClanBannerTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const editFounderOptionsTests: EndpointTestSuite<typeof editFounderOptions> = {
+  endpoint: editFounderOptions,
+  cases: []
+};
+export const editGroupTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const editGroupMembershipTests: EndpointTestSuite<typeof editGroupMembership> = {
+  endpoint: editGroupMembership,
+  cases: []
+};
+export const editOptionalConversationTests: EndpointTestSuite<typeof editOptionalConversation> = {
+  endpoint: editOptionalConversation,
+  cases: []
+};
+export const getAdminsAndFounderOfGroupTests: EndpointTestSuite<typeof getAdminsAndFounderOfGroup> = {
+  endpoint: getAdminsAndFounderOfGroup,
+  cases: []
+};
+export const getAvailableAvatarsTests: EndpointTestSuite<typeof getAvailableAvatars> = {
+  endpoint: getAvailableAvatars,
+  cases: []
+};
+export const getAvailableThemesTests: EndpointTestSuite<typeof getAvailableThemes> = {
+  endpoint: getAvailableThemes,
+  cases: []
+};
+export const getBannedMembersOfGroupTests: EndpointTestSuite<typeof getBannedMembersOfGroup> = {
+  endpoint: getBannedMembersOfGroup,
+  cases: []
+};
+export const getGroupTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getGroupByNameTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getGroupByNameV2Tests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getGroupOptionalConversationsTests: EndpointTestSuite<typeof getGroupOptionalConversations> = {
+  endpoint: getGroupOptionalConversations,
+  cases: []
+};
+export const getGroupsForMemberTests: EndpointTestSuite<typeof getGroupsForMember> = {
+  endpoint: getGroupsForMember,
+  cases: []
+};
+export const getInvitedIndividualsTests: EndpointTestSuite<typeof getInvitedIndividuals> = {
+  endpoint: getInvitedIndividuals,
+  cases: []
+};
+export const getMembersOfGroupTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getPendingMembershipsTests: EndpointTestSuite<typeof getPendingMemberships> = {
+  endpoint: getPendingMemberships,
+  cases: []
+};
+export const getPotentialGroupsForMemberTests: EndpointTestSuite<typeof getPotentialGroupsForMember> = {
+  endpoint: getPotentialGroupsForMember,
+  cases: []
+};
+export const getRecommendedGroupsTests: EndpointTestSuite<typeof getRecommendedGroups> = {
+  endpoint: getRecommendedGroups,
+  cases: []
+};
+export const getUserClanInviteSettingTests: EndpointTestSuite<typeof getUserClanInviteSetting> = {
+  endpoint: getUserClanInviteSetting,
+  cases: []
+};
+export const groupSearchTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const individualGroupInviteTests: EndpointTestSuite<typeof individualGroupInvite> = {
+  endpoint: individualGroupInvite,
+  cases: []
+};
+export const individualGroupInviteCancelTests: EndpointTestSuite<typeof individualGroupInviteCancel> = {
+  endpoint: individualGroupInviteCancel,
+  cases: []
+};
+export const kickMemberTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const recoverGroupForFounderTests: EndpointTestSuite<typeof recoverGroupForFounder> = {
+  endpoint: recoverGroupForFounder,
+  cases: []
+};
+export const unbanMemberTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};

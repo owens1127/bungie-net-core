@@ -1,4 +1,4 @@
-import { constants, TestCase } from './global-setup';
+import { EndpointTestSuite } from '../endpoints.test';
 import {
   awaGetActionToken,
   awaInitializeRequest,
@@ -43,45 +43,73 @@ import {
   snapshotLoadout,
   transferItem,
   updateLoadoutIdentifiers
-} from '../src/endpoints/Destiny2';
+} from '../../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
 import { DestinyComponentType } from '../src/enums/Destiny/DestinyComponentType';
 import { BungieMembershipType } from '../src/enums/BungieMembershipType';
 import { PlatformErrorCodes } from '../src/enums/Exceptions/PlatformErrorCodes';
 
-export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
-export const awaInitializeRequestTests: TestCase<
-  typeof awaInitializeRequest
->[] = [];
-export const awaProvideAuthorizationResultTests: TestCase<
-  typeof awaProvideAuthorizationResult
->[] = [];
-export const clearLoadoutTests: TestCase<typeof clearLoadout>[] = [];
-export const equipItemTests: TestCase<typeof equipItem>[] = [];
-export const equipItemsTests: TestCase<typeof equipItems>[] = [];
-export const equipLoadoutTests: TestCase<typeof equipLoadout>[] = [];
-export const getActivityHistoryTests: TestCase<typeof getActivityHistory>[] =
-  [];
-export const getCharacterTests: TestCase<typeof getCharacter>[] = [];
-export const getClanAggregateStatsTests: TestCase<
-  typeof getClanAggregateStats
->[] = [];
-export const getClanBannerSourceTests: TestCase<typeof getClanBannerSource>[] =
-  [];
-export const getClanLeaderboardsTests: TestCase<typeof getClanLeaderboards>[] =
-  [];
-export const getClanWeeklyRewardStateTests: TestCase<
-  typeof getClanWeeklyRewardState
->[] = [];
-export const getCollectibleNodeDetailsTests: TestCase<
-  typeof getCollectibleNodeDetails
->[] = [];
-export const getDestinyAggregateActivityStatsTests: TestCase<
-  typeof getDestinyAggregateActivityStats
->[] = [];
-export const getDestinyEntityDefinitionTests: TestCase<
-  typeof getDestinyEntityDefinition
->[] = [
+export const awaGetActionTokenTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const awaInitializeRequestTests: EndpointTestSuite<typeof awaInitializeRequest> = {
+  endpoint: awaInitializeRequest,
+  cases: []
+};
+export const awaProvideAuthorizationResultTests: EndpointTestSuite<typeof awaProvideAuthorizationResult> = {
+  endpoint: awaProvideAuthorizationResult,
+  cases: []
+};
+export const clearLoadoutTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const equipItemTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const equipItemsTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const equipLoadoutTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getActivityHistoryTests: EndpointTestSuite<typeof getActivityHistory> = {
+  endpoint: getActivityHistory,
+  cases: []
+};
+export const getCharacterTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getClanAggregateStatsTests: EndpointTestSuite<typeof getClanAggregateStats> = {
+  endpoint: getClanAggregateStats,
+  cases: []
+};
+export const getClanBannerSourceTests: EndpointTestSuite<typeof getClanBannerSource> = {
+  endpoint: getClanBannerSource,
+  cases: []
+};
+export const getClanLeaderboardsTests: EndpointTestSuite<typeof getClanLeaderboards> = {
+  endpoint: getClanLeaderboards,
+  cases: []
+};
+export const getClanWeeklyRewardStateTests: EndpointTestSuite<typeof getClanWeeklyRewardState> = {
+  endpoint: getClanWeeklyRewardState,
+  cases: []
+};
+export const getCollectibleNodeDetailsTests: EndpointTestSuite<typeof getCollectibleNodeDetails> = {
+  endpoint: getCollectibleNodeDetails,
+  cases: []
+};
+export const getDestinyAggregateActivityStatsTests: EndpointTestSuite<typeof getDestinyAggregateActivityStats> = {
+  endpoint: getDestinyAggregateActivityStats,
+  cases: []
+};
+export const getDestinyEntityDefinitionTests: TestCase<typeof getDestinyEntityDefinition>[] = [
   {
     name: 'get destiny entity definition',
     data: [
@@ -112,23 +140,38 @@ export const getDestinyManifestTests: TestCase<typeof getDestinyManifest>[] = [
     }
   }
 ];
-export const getHistoricalStatsTests: TestCase<typeof getHistoricalStats>[] =
-  [];
-export const getHistoricalStatsDefinitionTests: TestCase<
-  typeof getHistoricalStatsDefinition
->[] = [];
-export const getHistoricalStatsForAccountTests: TestCase<
-  typeof getHistoricalStatsForAccount
->[] = [];
-export const getItemTests: TestCase<typeof getItem>[] = [];
-export const getLeaderboardsTests: TestCase<typeof getLeaderboards>[] = [];
-export const getLeaderboardsForCharacterTests: TestCase<
-  typeof getLeaderboardsForCharacter
->[] = [];
-export const getLinkedProfilesTests: TestCase<typeof getLinkedProfiles>[] = [];
-export const getPostGameCarnageReportTests: TestCase<
-  typeof getPostGameCarnageReport
->[] = [];
+export const getHistoricalStatsTests: EndpointTestSuite<typeof getHistoricalStats> = {
+  endpoint: getHistoricalStats,
+  cases: []
+};
+export const getHistoricalStatsDefinitionTests: EndpointTestSuite<typeof getHistoricalStatsDefinition> = {
+  endpoint: getHistoricalStatsDefinition,
+  cases: []
+};
+export const getHistoricalStatsForAccountTests: EndpointTestSuite<typeof getHistoricalStatsForAccount> = {
+  endpoint: getHistoricalStatsForAccount,
+  cases: []
+};
+export const getItemTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getLeaderboardsTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getLeaderboardsForCharacterTests: EndpointTestSuite<typeof getLeaderboardsForCharacter> = {
+  endpoint: getLeaderboardsForCharacter,
+  cases: []
+};
+export const getLinkedProfilesTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getPostGameCarnageReportTests: EndpointTestSuite<typeof getPostGameCarnageReport> = {
+  endpoint: getPostGameCarnageReport,
+  cases: []
+};
 export const getProfileTests: TestCase<typeof getProfile>[] = [
   {
     name: 'test get profile',
@@ -144,11 +187,7 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
         expect(Response.characterActivities).toHaveProperty('profile');
         expect(Response).toHaveProperty('data');
         expect(Response).toMatchObject({
-          characterIds: [
-            '2305843009468984093',
-            '2305843009478184284',
-            '2305843009524164531'
-          ],
+          characterIds: ['2305843009468984093', '2305843009478184284', '2305843009524164531'],
           userInfo: {
             applicableMembershipTypes: [5, 6, 3],
             bungieGlobalDisplayName: 'Newo',
@@ -176,39 +215,56 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
     ],
     promise: {
       failure: e => {
-        expect(e.message).toBe(
-          'Unable to parse your parameters.  Please correct them, and try again.'
-        );
+        expect(e.message).toBe('Unable to parse your parameters.  Please correct them, and try again.');
       }
     }
   }
 ];
-export const getPublicMilestoneContentTests: TestCase<
-  typeof getPublicMilestoneContent
->[] = [];
-export const getPublicMilestonesTests: TestCase<typeof getPublicMilestones>[] =
-  [];
-export const getPublicVendorsTests: TestCase<typeof getPublicVendors>[] = [];
-export const getUniqueWeaponHistoryTests: TestCase<
-  typeof getUniqueWeaponHistory
->[] = [];
-export const getVendorTests: TestCase<typeof getVendor>[] = [];
-export const getVendorsTests: TestCase<typeof getVendors>[] = [];
-export const insertSocketPlugTests: TestCase<typeof insertSocketPlug>[] = [];
-export const insertSocketPlugFreeTests: TestCase<
-  typeof insertSocketPlugFree
->[] = [];
-export const pullFromPostmasterTests: TestCase<typeof pullFromPostmaster>[] =
-  [];
-export const reportOffensivePostGameCarnageReportPlayerTests: TestCase<
-  typeof reportOffensivePostGameCarnageReportPlayer
->[] = [];
-export const searchDestinyEntitiesTests: TestCase<
-  typeof searchDestinyEntities
->[] = [];
-export const searchDestinyPlayerByBungieNameTests: TestCase<
-  typeof searchDestinyPlayerByBungieName
->[] = [
+export const getPublicMilestoneContentTests: EndpointTestSuite<typeof getPublicMilestoneContent> = {
+  endpoint: getPublicMilestoneContent,
+  cases: []
+};
+export const getPublicMilestonesTests: EndpointTestSuite<typeof getPublicMilestones> = {
+  endpoint: getPublicMilestones,
+  cases: []
+};
+export const getPublicVendorsTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getUniqueWeaponHistoryTests: EndpointTestSuite<typeof getUniqueWeaponHistory> = {
+  endpoint: getUniqueWeaponHistory,
+  cases: []
+};
+export const getVendorTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const getVendorsTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const insertSocketPlugTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const insertSocketPlugFreeTests: EndpointTestSuite<typeof insertSocketPlugFree> = {
+  endpoint: insertSocketPlugFree,
+  cases: []
+};
+export const pullFromPostmasterTests: EndpointTestSuite<typeof pullFromPostmaster> = {
+  endpoint: pullFromPostmaster,
+  cases: []
+};
+export const reportOffensivePostGameCarnageReportPlayerTests: EndpointTestSuite<typeof reportOffensivePostGameCarnageReportPlayer> = {
+  endpoint: reportOffensivePostGameCarnageReportPlayer,
+  cases: []
+};
+export const searchDestinyEntitiesTests: EndpointTestSuite<typeof searchDestinyEntities> = {
+  endpoint: searchDestinyEntities,
+  cases: []
+};
+export const searchDestinyPlayerByBungieNameTests: TestCase<typeof searchDestinyPlayerByBungieName>[] = [
   {
     name: 'search player test exact',
     data: [
@@ -265,11 +321,19 @@ export const setItemLockStateTests: TestCase<typeof setItemLockState>[] = [
     }
   }
 ];
-export const setQuestTrackedStateTests: TestCase<
-  typeof setQuestTrackedState
->[] = [];
-export const snapshotLoadoutTests: TestCase<typeof snapshotLoadout>[] = [];
-export const transferItemTests: TestCase<typeof transferItem>[] = [];
-export const updateLoadoutIdentifiersTests: TestCase<
-  typeof updateLoadoutIdentifiers
->[] = [];
+export const setQuestTrackedStateTests: EndpointTestSuite<typeof setQuestTrackedState> = {
+  endpoint: setQuestTrackedState,
+  cases: []
+};
+export const snapshotLoadoutTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const transferItemTests: EndpointTestSuite<typeof $1> = {
+  endpoint: $1,
+  cases: []
+};
+export const updateLoadoutIdentifiersTests: EndpointTestSuite<typeof updateLoadoutIdentifiers> = {
+  endpoint: updateLoadoutIdentifiers,
+  cases: []
+};
