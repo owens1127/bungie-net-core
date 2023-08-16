@@ -34,11 +34,9 @@ export async function getApplicationApiUsage(
     start?: string;
   }
 ): Promise<BungieNetResponse<ApiUsage>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`
-  );
-  addParam(url, params['end'], 'end');
-  addParam(url, params['start'], 'start');
+  const url = new URL(`https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`);
+  addParam(url, params.end, 'end');
+  addParam(url, params.start, 'start');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -46,9 +44,7 @@ export async function getApplicationApiUsage(
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
  */
-export async function getBungieApplications(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<Application[]>> {
+export async function getBungieApplications(client: BungieClientProtocol): Promise<BungieNetResponse<Application[]>> {
   const url = new URL(`https://www.bungie.net/Platform/App/FirstParty/`);
   return client.fetch({ method: 'GET', url });
 }

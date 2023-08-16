@@ -67,9 +67,7 @@ import { AwaAuthorizationResult } from '../models/Destiny/Advanced/AwaAuthorizat
  * Returns the current version of the manifest as a json object.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyManifest}
  */
-export async function getDestinyManifest(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<DestinyManifest>> {
+export async function getDestinyManifest(client: BungieClientProtocol): Promise<BungieNetResponse<DestinyManifest>> {
   const url = new URL(`https://www.bungie.net/Platform/Destiny2/Manifest/`);
   return client.fetch({ method: 'GET', url });
 }
@@ -84,9 +82,7 @@ export async function getDestinyManifest(
  * accesses this should be handy.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
  */
-export async function getDestinyEntityDefinition<
-  T extends keyof AllManifestComponents
->(
+export async function getDestinyEntityDefinition<T extends keyof AllManifestComponents>(
   client: BungieClientProtocol,
   params: {
     /**
@@ -166,7 +162,7 @@ export async function getLinkedProfiles(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.membershipId}/LinkedProfiles/`
   );
-  addParam(url, params['getAllMemberships'], 'getAllMemberships');
+  addParam(url, params.getAllMemberships, 'getAllMemberships');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -192,7 +188,7 @@ export async function getProfile<T extends readonly DestinyComponentType[]>(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/`
   );
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -220,7 +216,7 @@ export async function getCharacter<T extends readonly DestinyComponentType[]>(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/`
   );
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -236,9 +232,7 @@ export async function getClanWeeklyRewardState(
     groupId: string;
   }
 ): Promise<BungieNetResponse<DestinyMilestone>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -246,12 +240,8 @@ export async function getClanWeeklyRewardState(
  * Returns the dictionary of values for the Clan Banner
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanBannerSource}
  */
-export async function getClanBannerSource(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<ClanBannerSource>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/`
-  );
+export async function getClanBannerSource(client: BungieClientProtocol): Promise<BungieNetResponse<ClanBannerSource>> {
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -281,7 +271,7 @@ export async function getItem<T extends readonly DestinyComponentType[]>(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Item/${params.itemInstanceId}/`
   );
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -314,8 +304,8 @@ export async function getVendors<T extends readonly DestinyComponentType[]>(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/`
   );
-  addParam(url, params['components'], 'components');
-  addParam(url, params['filter'], 'filter');
+  addParam(url, params.components, 'components');
+  addParam(url, params.filter, 'filter');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -345,7 +335,7 @@ export async function getVendor<T extends readonly DestinyComponentType[]>(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/${params.vendorHash}/`
   );
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -357,9 +347,7 @@ export async function getVendor<T extends readonly DestinyComponentType[]>(
  * guilty of saying: 'It's a long story...'
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
  */
-export async function getPublicVendors<
-  T extends readonly DestinyComponentType[]
->(
+export async function getPublicVendors<T extends readonly DestinyComponentType[]>(
   client: BungieClientProtocol,
   params: {
     /**
@@ -371,7 +359,7 @@ export async function getPublicVendors<
   }
 ): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>> {
   const url = new URL(`https://www.bungie.net/Platform/Destiny2/Vendors/`);
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -381,9 +369,7 @@ export async function getPublicVendors<
  * character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails}
  */
-export async function getCollectibleNodeDetails<
-  T extends readonly DestinyComponentType[]
->(
+export async function getCollectibleNodeDetails<T extends readonly DestinyComponentType[]>(
   client: BungieClientProtocol,
   params: {
     /**
@@ -412,7 +398,7 @@ export async function getCollectibleNodeDetails<
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Collectibles/${params.collectiblePresentationNodeHash}/`
   );
-  addParam(url, params['components'], 'components');
+  addParam(url, params.components, 'components');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -428,9 +414,7 @@ export async function transferItem(
   client: BungieClientProtocol,
   body: DestinyItemTransferRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -451,9 +435,7 @@ export async function pullFromPostmaster(
   client: BungieClientProtocol,
   body: DestinyPostmasterTransferRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -473,9 +455,7 @@ export async function equipItem(
   client: BungieClientProtocol,
   body: DestinyItemActionRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItem/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItem/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -496,9 +476,7 @@ export async function equipItems(
   client: BungieClientProtocol,
   body: DestinyItemSetActionRequest
 ): Promise<BungieNetResponse<DestinyEquipItemResults>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -518,9 +496,7 @@ export async function equipLoadout(
   client: BungieClientProtocol,
   body: DestinyLoadoutActionRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/EquipLoadout/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/EquipLoadout/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -539,9 +515,7 @@ export async function snapshotLoadout(
   client: BungieClientProtocol,
   body: DestinyLoadoutUpdateActionRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -560,9 +534,7 @@ export async function updateLoadoutIdentifiers(
   client: BungieClientProtocol,
   body: DestinyLoadoutUpdateActionRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/UpdateLoadoutIdentifiers/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/UpdateLoadoutIdentifiers/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -581,9 +553,7 @@ export async function clearLoadout(
   client: BungieClientProtocol,
   body: DestinyLoadoutActionRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/ClearLoadout/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/ClearLoadout/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -602,9 +572,7 @@ export async function setItemLockState(
   client: BungieClientProtocol,
   body: DestinyItemStateRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -624,9 +592,7 @@ export async function setQuestTrackedState(
   client: BungieClientProtocol,
   body: DestinyItemStateRequest
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/SetTrackedState/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/SetTrackedState/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -651,9 +617,7 @@ export async function insertSocketPlug(
   client: BungieClientProtocol,
   body: DestinyInsertPlugsActionRequest
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -676,9 +640,7 @@ export async function insertSocketPlugFree(
   client: BungieClientProtocol,
   body: DestinyInsertPlugsFreeActionRequest
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlugFree/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlugFree/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -698,9 +660,7 @@ export async function getPostGameCarnageReport(
     activityId: string;
   }
 ): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>> {
-  const url = new URL(
-    `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`
-  );
+  const url = new URL(`https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -736,12 +696,8 @@ export async function reportOffensivePostGameCarnageReportPlayer(
  */
 export async function getHistoricalStatsDefinition(
   client: BungieClientProtocol
-): Promise<
-  BungieNetResponse<{ [key: string]: DestinyHistoricalStatsDefinition }>
-> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Stats/Definition/`
-  );
+): Promise<BungieNetResponse<{ [key: string]: DestinyHistoricalStatsDefinition }>> {
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Stats/Definition/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -771,15 +727,11 @@ export async function getClanLeaderboards(
     /** ID of stat to return rather than returning all Leaderboard stats. */
     statid?: string;
   }
-): Promise<
-  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
-> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/Clans/${params.groupId}/`
-  );
-  addParam(url, params['maxtop'], 'maxtop');
-  addParam(url, params['modes'], 'modes');
-  addParam(url, params['statid'], 'statid');
+): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/Clans/${params.groupId}/`);
+  addParam(url, params.maxtop, 'maxtop');
+  addParam(url, params.modes, 'modes');
+  addParam(url, params.statid, 'statid');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -803,10 +755,8 @@ export async function getClanAggregateStats(
     modes?: string;
   }
 ): Promise<BungieNetResponse<DestinyClanAggregateStat[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`
-  );
-  addParam(url, params['modes'], 'modes');
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`);
+  addParam(url, params.modes, 'modes');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -838,15 +788,13 @@ export async function getLeaderboards(
     /** ID of stat to return rather than returning all Leaderboard stats. */
     statid?: string;
   }
-): Promise<
-  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
-> {
+): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/Leaderboards/`
   );
-  addParam(url, params['maxtop'], 'maxtop');
-  addParam(url, params['modes'], 'modes');
-  addParam(url, params['statid'], 'statid');
+  addParam(url, params.maxtop, 'maxtop');
+  addParam(url, params.modes, 'modes');
+  addParam(url, params.statid, 'statid');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -883,15 +831,13 @@ export async function getLeaderboardsForCharacter(
     /** ID of stat to return rather than returning all Leaderboard stats. */
     statid?: string;
   }
-): Promise<
-  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
-> {
+): Promise<BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`
   );
-  addParam(url, params['maxtop'], 'maxtop');
-  addParam(url, params['modes'], 'modes');
-  addParam(url, params['statid'], 'statid');
+  addParam(url, params.maxtop, 'maxtop');
+  addParam(url, params.modes, 'modes');
+  addParam(url, params.statid, 'statid');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -914,10 +860,8 @@ export async function searchDestinyEntities(
     type: string;
   }
 ): Promise<BungieNetResponse<DestinyEntitySearchResult>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`
-  );
-  addParam(url, params['page'], 'page');
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`);
+  addParam(url, params.page, 'page');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -965,17 +909,15 @@ export async function getHistoricalStats(
      */
     periodType?: PeriodType;
   }
-): Promise<
-  BungieNetResponse<{ [key: string]: DestinyHistoricalStatsByPeriod }>
-> {
+): Promise<BungieNetResponse<{ [key: string]: DestinyHistoricalStatsByPeriod }>> {
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/`
   );
-  addParam(url, params['dayend'], 'dayend');
-  addParam(url, params['daystart'], 'daystart');
-  addParam(url, params['groups'], 'groups');
-  addParam(url, params['modes'], 'modes');
-  addParam(url, params['periodType'], 'periodType');
+  addParam(url, params.dayend, 'dayend');
+  addParam(url, params.daystart, 'daystart');
+  addParam(url, params.groups, 'groups');
+  addParam(url, params.modes, 'modes');
+  addParam(url, params.periodType, 'periodType');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -1001,7 +943,7 @@ export async function getHistoricalStatsForAccount(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/`
   );
-  addParam(url, params['groups'], 'groups');
+  addParam(url, params.groups, 'groups');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -1033,9 +975,9 @@ export async function getActivityHistory(
   const url = new URL(
     `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/Activities/`
   );
-  addParam(url, params['count'], 'count');
-  addParam(url, params['mode'], 'mode');
-  addParam(url, params['page'], 'page');
+  addParam(url, params.count, 'count');
+  addParam(url, params.mode, 'mode');
+  addParam(url, params.page, 'page');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -1093,9 +1035,7 @@ export async function getPublicMilestoneContent(
     milestoneHash: number;
   }
 ): Promise<BungieNetResponse<DestinyMilestoneContent>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Milestones/${params.milestoneHash}/Content/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Milestones/${params.milestoneHash}/Content/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -1118,9 +1058,7 @@ export async function awaInitializeRequest(
   client: BungieClientProtocol,
   body: AwaPermissionRequested
 ): Promise<BungieNetResponse<AwaInitializeResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Awa/Initialize/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Awa/Initialize/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -1138,9 +1076,7 @@ export async function awaProvideAuthorizationResult(
   client: BungieClientProtocol,
   body: AwaUserResponse
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -1160,8 +1096,6 @@ export async function awaGetActionToken(
     correlationId: string;
   }
 ): Promise<BungieNetResponse<AwaAuthorizationResult>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`);
   return client.fetch({ method: 'GET', url });
 }

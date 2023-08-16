@@ -30,9 +30,7 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyPublicVendorsResponse}
  */
 
-export interface DestinyPublicVendorsResponse<
-  T extends readonly DestinyComponentType[]
-> {
+export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponentType[]> {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs
@@ -40,23 +38,14 @@ export interface DestinyPublicVendorsResponse<
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendorGroups: SingleComponentResponse<
-    DestinyVendorGroupComponent,
-    T,
-    DestinyComponentType.Vendors
-  >;
+  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, T, DestinyComponentType.Vendors>;
   /**
    * The base properties of the vendor. These are keyed by the Vendor Hash, so you
    * will get one Vendor Component per vendor returned.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendors: DictionaryComponentResponse<
-    number,
-    DestinyPublicVendorComponent,
-    T,
-    DestinyComponentType.Vendors
-  >;
+  readonly vendors: DictionaryComponentResponse<number, DestinyPublicVendorComponent, T, DestinyComponentType.Vendors>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    * These are keyed by the Vendor Hash, so you will get one Categories Component per

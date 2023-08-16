@@ -11,10 +11,7 @@ import { DestinyItemPlugComponent } from '../models/Destiny/Components/Items/Des
 import { DestinyItemObjectivesComponent } from '../models/Destiny/Entities/Items/DestinyItemObjectivesComponent';
 import { DestinyItemPerksComponent } from '../models/Destiny/Entities/Items/DestinyItemPerksComponent';
 
-export interface DestinyItemComponentSet<
-  K extends number | string,
-  T extends readonly DestinyComponentType[]
-> {
+export interface DestinyItemComponentSet<K extends number | string, T extends readonly DestinyComponentType[]> {
   readonly instances: DictionaryComponentResponse<
     K,
     DestinyItemInstanceComponent,
@@ -27,18 +24,8 @@ export interface DestinyItemComponentSet<
     T,
     DestinyComponentType.ItemRenderData
   >;
-  readonly stats: DictionaryComponentResponse<
-    K,
-    DestinyItemStatsComponent,
-    T,
-    DestinyComponentType.ItemStats
-  >;
-  readonly sockets: DictionaryComponentResponse<
-    K,
-    DestinyItemSocketsComponent,
-    T,
-    DestinyComponentType.ItemSockets
-  >;
+  readonly stats: DictionaryComponentResponse<K, DestinyItemStatsComponent, T, DestinyComponentType.ItemStats>;
+  readonly sockets: DictionaryComponentResponse<K, DestinyItemSocketsComponent, T, DestinyComponentType.ItemSockets>;
   readonly reusablePlugs: DictionaryComponentResponse<
     K,
     DestinyItemReusablePlugsComponent,
@@ -57,22 +44,12 @@ export interface DestinyItemComponentSet<
     T,
     DestinyComponentType.ItemTalentGrids
   >;
-  readonly plugStates: DictionaryComponentResponse<
-    K,
-    DestinyItemPlugComponent,
-    T,
-    DestinyComponentType.ItemPlugStates
-  >;
+  readonly plugStates: DictionaryComponentResponse<K, DestinyItemPlugComponent, T, DestinyComponentType.ItemPlugStates>;
   readonly objectives: DictionaryComponentResponse<
     K,
     DestinyItemObjectivesComponent,
     T,
     DestinyComponentType.ItemObjectives
   >;
-  readonly perks: DictionaryComponentResponse<
-    K,
-    DestinyItemPerksComponent,
-    T,
-    DestinyComponentType.ItemPerks
-  >;
+  readonly perks: DictionaryComponentResponse<K, DestinyItemPerksComponent, T, DestinyComponentType.ItemPerks>;
 }

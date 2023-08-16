@@ -26,9 +26,7 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorsResponse}
  */
 
-export interface DestinyVendorsResponse<
-  T extends readonly DestinyComponentType[]
-> {
+export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[]> {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs
@@ -36,23 +34,14 @@ export interface DestinyVendorsResponse<
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendorGroups: SingleComponentResponse<
-    DestinyVendorGroupComponent,
-    T,
-    DestinyComponentType.Vendors
-  >;
+  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, T, DestinyComponentType.Vendors>;
   /**
    * The base properties of the vendor. These are keyed by the Vendor Hash, so you
    * will get one Vendor Component per vendor returned.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendors: DictionaryComponentResponse<
-    number,
-    DestinyVendorComponent,
-    T,
-    DestinyComponentType.Vendors
-  >;
+  readonly vendors: DictionaryComponentResponse<number, DestinyVendorComponent, T, DestinyComponentType.Vendors>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    * These are keyed by the Vendor Hash, so you will get one Categories Component per
@@ -91,9 +80,7 @@ export interface DestinyVendorsResponse<
    * will have whatever item-level components you requested (Sockets, Stats, Instance
    * data etc...) per item being sold by the vendor.
    */
-  readonly itemComponents: {
-    [key: number]: DestinyItemComponentSet<number, T>;
-  };
+  readonly itemComponents: { [key: number]: DestinyItemComponentSet<number, T> };
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.

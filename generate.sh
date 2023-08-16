@@ -2,7 +2,6 @@
 rm -rf ./src/endpoints
 rm -rf ./src/models
 rm -rf ./src/enums
-rm -rf ./__test__/__api__
 rm ./src/manifest/types.ts
 
 # Run the generator to produce typescript library in ./src
@@ -13,7 +12,7 @@ perl -pi -e 's/readonly item: DestinyItemResponse<T>/readonly item: DestinyItemR
 perl -pi -e 's/entityType: string/entityType: T/g' ./src/endpoints/Destiny2.ts
 
 # beautify
-prettier --config .prettierrc './{src/**/*,__test__/*}.ts' --write
+prettier --config .prettierrc './src/**/*.ts' --write
 
 # prepare the library folder
 rm -rf ./lib && mkdir -p lib

@@ -28,9 +28,7 @@ export async function getContentType(
     type: string;
   }
 ): Promise<BungieNetResponse<ContentTypeDescription>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -47,10 +45,8 @@ export async function getContentById(
     locale: string;
   }
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`
-  );
-  addParam(url, params['head'], 'head');
+  const url = new URL(`https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`);
+  addParam(url, params.head, 'head');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -71,7 +67,7 @@ export async function getContentByTagAndType(
   const url = new URL(
     `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
   );
-  addParam(url, params['head'], 'head');
+  addParam(url, params.head, 'head');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -98,15 +94,13 @@ export async function searchContentWithText(
     tag?: string;
   }
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Content/Search/${params.locale}/`
-  );
-  addParam(url, params['ctype'], 'ctype');
-  addParam(url, params['currentpage'], 'currentpage');
-  addParam(url, params['head'], 'head');
-  addParam(url, params['searchtext'], 'searchtext');
-  addParam(url, params['source'], 'source');
-  addParam(url, params['tag'], 'tag');
+  const url = new URL(`https://www.bungie.net/Platform/Content/Search/${params.locale}/`);
+  addParam(url, params.ctype, 'ctype');
+  addParam(url, params.currentpage, 'currentpage');
+  addParam(url, params.head, 'head');
+  addParam(url, params.searchtext, 'searchtext');
+  addParam(url, params.source, 'source');
+  addParam(url, params.tag, 'tag');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -131,9 +125,9 @@ export async function searchContentByTagAndType(
   const url = new URL(
     `https://www.bungie.net/Platform/Content/SearchContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
   );
-  addParam(url, params['currentpage'], 'currentpage');
-  addParam(url, params['head'], 'head');
-  addParam(url, params['itemsperpage'], 'itemsperpage');
+  addParam(url, params.currentpage, 'currentpage');
+  addParam(url, params.head, 'head');
+  addParam(url, params.itemsperpage, 'itemsperpage');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -169,10 +163,8 @@ export async function rssNewsArticles(
     pageToken: string;
   }
 ): Promise<BungieNetResponse<NewsArticleRssResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`
-  );
-  addParam(url, params['categoryfilter'], 'categoryfilter');
-  addParam(url, params['includebody'], 'includebody');
+  const url = new URL(`https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`);
+  addParam(url, params.categoryfilter, 'categoryfilter');
+  addParam(url, params.includebody, 'includebody');
   return client.fetch({ method: 'GET', url });
 }

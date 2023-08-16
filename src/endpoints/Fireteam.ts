@@ -33,9 +33,7 @@ export async function getActivePrivateClanFireteamCount(
     groupId: string;
   }
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -73,8 +71,8 @@ export async function getAvailableClanFireteams(
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.publicOnly}/${params.page}/`
   );
-  addParam(url, params['excludeImmediate'], 'excludeImmediate');
-  addParam(url, params['langFilter'], 'langFilter');
+  addParam(url, params.excludeImmediate, 'excludeImmediate');
+  addParam(url, params.langFilter, 'langFilter');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -108,8 +106,8 @@ export async function searchPublicAvailableClanFireteams(
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`
   );
-  addParam(url, params['excludeImmediate'], 'excludeImmediate');
-  addParam(url, params['langFilter'], 'langFilter');
+  addParam(url, params.excludeImmediate, 'excludeImmediate');
+  addParam(url, params.langFilter, 'langFilter');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -144,8 +142,8 @@ export async function getMyClanFireteams(
   const url = new URL(
     `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`
   );
-  addParam(url, params['groupFilter'], 'groupFilter');
-  addParam(url, params['langFilter'], 'langFilter');
+  addParam(url, params.groupFilter, 'groupFilter');
+  addParam(url, params.langFilter, 'langFilter');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -162,8 +160,6 @@ export async function getClanFireteam(
     groupId: string;
   }
 ): Promise<BungieNetResponse<FireteamResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`);
   return client.fetch({ method: 'GET', url });
 }

@@ -33,9 +33,7 @@ export async function getBungieNetUserById(
     id: string;
   }
 ): Promise<BungieNetResponse<GeneralUser>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -52,9 +50,7 @@ export async function getSanitizedPlatformDisplayNames(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<{ [key in BungieCredentialType]: string }>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -79,12 +75,8 @@ export async function getCredentialTypesForTargetAccount(
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
  */
-export async function getAvailableThemes(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<UserTheme[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/GetAvailableThemes/`
-  );
+export async function getAvailableThemes(client: BungieClientProtocol): Promise<BungieNetResponse<UserTheme[]>> {
+  const url = new URL(`https://www.bungie.net/Platform/User/GetAvailableThemes/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -117,9 +109,7 @@ export async function getMembershipDataById(
 export async function getMembershipDataForCurrentUser(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserMembershipData>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -156,9 +146,7 @@ export async function searchByGlobalNamePrefix(
     page: number;
   }
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -174,9 +162,7 @@ export async function searchByGlobalNamePost(
   },
   body: UserSearchPrefixRequest
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`);
   return client.fetch({
     method: 'POST',
     url,

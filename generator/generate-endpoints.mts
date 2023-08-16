@@ -130,7 +130,7 @@ function generateEndpointDefinition(
   }
 
   const paramInitializers = groupedParams.query?.map(param => {
-    return `addParam(url, params['${param.name}'], '${param.name}')`;
+    return `addParam(url, params.${param.name}, '${param.name}')`;
   });
   const searchParamsString = paramInitializers?.join('\n') ?? '';
   if (searchParamsString) addValue(importFiles, './util', 'addParam');

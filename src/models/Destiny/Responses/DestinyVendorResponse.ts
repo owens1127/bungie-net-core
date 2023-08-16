@@ -25,19 +25,13 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorResponse}
  */
 
-export interface DestinyVendorResponse<
-  T extends readonly DestinyComponentType[]
-> {
+export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]> {
   /**
    * The base properties of the vendor.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendor: SingleComponentResponse<
-    DestinyVendorComponent,
-    T,
-    DestinyComponentType.Vendors
-  >;
+  readonly vendor: SingleComponentResponse<DestinyVendorComponent, T, DestinyComponentType.Vendors>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    *

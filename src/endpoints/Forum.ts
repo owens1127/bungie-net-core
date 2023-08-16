@@ -52,8 +52,8 @@ export async function getTopicsPaged(
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
   );
-  addParam(url, params['locales'], 'locales');
-  addParam(url, params['tagstring'], 'tagstring');
+  addParam(url, params.locales, 'locales');
+  addParam(url, params.tagstring, 'tagstring');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -82,7 +82,7 @@ export async function getCoreTopicsPaged(
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetCoreTopicsPaged/${params.page}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
   );
-  addParam(url, params['locales'], 'locales');
+  addParam(url, params.locales, 'locales');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -108,7 +108,7 @@ export async function getPostsThreadedPaged(
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostsThreadedPaged/${params.parentPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.getParentPost}/${params.rootThreadMode}/${params.sortMode}/`
   );
-  addParam(url, params['showbanned'], 'showbanned');
+  addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -133,7 +133,7 @@ export async function getPostsThreadedPagedFromChild(
   const url = new URL(
     `https://www.bungie.net/Platform/Forum/GetPostsThreadedPagedFromChild/${params.childPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.rootThreadMode}/${params.sortMode}/`
   );
-  addParam(url, params['showbanned'], 'showbanned');
+  addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -149,10 +149,8 @@ export async function getPostAndParent(
     showbanned?: string;
   }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`
-  );
-  addParam(url, params['showbanned'], 'showbanned');
+  const url = new URL(`https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`);
+  addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -169,10 +167,8 @@ export async function getPostAndParentAwaitingApproval(
     showbanned?: string;
   }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`
-  );
-  addParam(url, params['showbanned'], 'showbanned');
+  const url = new URL(`https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`);
+  addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -186,9 +182,7 @@ export async function getTopicForContent(
     contentId: string;
   }
 ): Promise<BungieNetResponse<string>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -204,10 +198,8 @@ export async function getForumTagSuggestions(
     partialtag?: string;
   }
 ): Promise<BungieNetResponse<TagResponse[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/`
-  );
-  addParam(url, params['partialtag'], 'partialtag');
+  const url = new URL(`https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/`);
+  addParam(url, params.partialtag, 'partialtag');
   return client.fetch({ method: 'GET', url });
 }
 
@@ -222,9 +214,7 @@ export async function getPoll(
     topicId: string;
   }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/Poll/${params.topicId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Forum/Poll/${params.topicId}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -237,9 +227,7 @@ export async function getRecruitmentThreadSummaries(
   client: BungieClientProtocol,
   body: string[]
 ): Promise<BungieNetResponse<ForumRecruitmentDetail[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Forum/Recruit/Summaries/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Forum/Recruit/Summaries/`);
   return client.fetch({
     method: 'POST',
     url,

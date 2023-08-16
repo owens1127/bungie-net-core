@@ -20,10 +20,8 @@ export function createOAuthURL(query: {
   url.searchParams.set('client_id', query.client_id);
   url.searchParams.set('response_type', 'code');
   if (query.state !== undefined) url.searchParams.set('state', query.state);
-  if (query.reauth !== undefined)
-    url.searchParams.set('reauth', query.reauth.toString());
-  if (query.redirect_uri !== undefined)
-    url.searchParams.set('redirect_uri', query.redirect_uri);
+  if (query.reauth !== undefined) url.searchParams.set('reauth', query.reauth.toString());
+  if (query.redirect_uri !== undefined) url.searchParams.set('redirect_uri', query.redirect_uri);
 
   return url;
 }

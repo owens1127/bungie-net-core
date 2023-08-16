@@ -23,9 +23,7 @@ export interface EmailSubscriptionDefinition {
   /** The unique identifier for this subscription. */
   readonly name: string;
   /** A dictionary of localized text for the EMail Opt-in setting, keyed by the locale. */
-  readonly localization: {
-    [key: string]: EMailSettingSubscriptionLocalization;
-  };
+  readonly localization: { [key: string]: EMailSettingSubscriptionLocalization };
   /** The bitflag value for this subscription. Should be a unique power of two value. */
   readonly value: string;
 }

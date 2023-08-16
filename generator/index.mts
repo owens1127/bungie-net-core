@@ -6,7 +6,6 @@
 import fs from 'fs';
 import _ from 'underscore';
 import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
-import { createTree } from './generate-tree.mjs';
 import {
   generateComponentFile,
   generateSuperIndex
@@ -14,6 +13,7 @@ import {
 import { generateManifestTypes } from './generate-manifest-types.mjs';
 import { generateEndpointFile } from './generate-endpoints.mjs';
 import { getTags } from './util.mjs';
+import { createTree } from './parse-schema-tree.mjs';
 
 (async () => {
   const doc = JSON.parse(

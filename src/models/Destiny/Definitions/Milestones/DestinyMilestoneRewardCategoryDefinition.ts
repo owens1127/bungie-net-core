@@ -37,9 +37,7 @@ export interface DestinyMilestoneRewardCategoryDefinition {
    * that we'll use at runtime to determine whether you've already earned or redeemed
    * this set of rewards, and the category that this reward should be placed under.
    */
-  readonly rewardEntries: {
-    [key: number]: DestinyMilestoneRewardEntryDefinition;
-  };
+  readonly rewardEntries: { [key: number]: DestinyMilestoneRewardEntryDefinition };
   /**
    * If you want to use BNet's recommended order for rendering categories
    * programmatically, use this value and compare it to other categories to determine

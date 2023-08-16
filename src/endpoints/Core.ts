@@ -64,6 +64,6 @@ export async function getGlobalAlerts(
   }
 ): Promise<BungieNetResponse<GlobalAlert[]>> {
   const url = new URL(`https://www.bungie.net/Platform/GlobalAlerts/`);
-  addParam(url, params['includestreaming'], 'includestreaming');
+  addParam(url, params.includestreaming, 'includestreaming');
   return client.fetch({ method: 'GET', url });
 }

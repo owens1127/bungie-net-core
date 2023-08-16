@@ -45,9 +45,7 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileResponse}
  */
 
-export interface DestinyProfileResponse<
-  T extends readonly DestinyComponentType[]
-> {
+export interface DestinyProfileResponse<T extends readonly DestinyComponentType[]> {
   /**
    * Records the timestamp of when most components were last generated from the world
    * server source. Unless the component type is specified in the documentation for
@@ -102,11 +100,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: Profiles
    */
-  readonly profile: SingleComponentResponse<
-    DestinyProfileComponent,
-    T,
-    DestinyComponentType.Profiles
-  >;
+  readonly profile: SingleComponentResponse<DestinyProfileComponent, T, DestinyComponentType.Profiles>;
   /**
    * Silver quantities for any platform on which this Profile plays destiny.
    *
@@ -128,11 +122,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly profileKiosks: SingleComponentResponse<
-    DestinyKiosksComponent,
-    T,
-    DestinyComponentType.Kiosks
-  >;
+  readonly profileKiosks: SingleComponentResponse<DestinyKiosksComponent, T, DestinyComponentType.Kiosks>;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
    * info), this is the set of plugs and their states that are profile-scoped.
@@ -142,11 +132,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly profilePlugSets: SingleComponentResponse<
-    DestinyPlugSetsComponent,
-    T,
-    DestinyComponentType.ItemSockets
-  >;
+  readonly profilePlugSets: SingleComponentResponse<DestinyPlugSetsComponent, T, DestinyComponentType.ItemSockets>;
   /**
    * When we have progression information - such as Checklists - that may apply
    * profile-wide, it will be returned here rather than in the per-character
@@ -166,11 +152,7 @@ export interface DestinyProfileResponse<
     DestinyComponentType.PresentationNodes
   >;
   /** COMPONENT TYPE: Records */
-  readonly profileRecords: SingleComponentResponse<
-    DestinyProfileRecordsComponent,
-    T,
-    DestinyComponentType.Records
-  >;
+  readonly profileRecords: SingleComponentResponse<DestinyProfileRecordsComponent, T, DestinyComponentType.Records>;
   /** COMPONENT TYPE: Collectibles */
   readonly profileCollectibles: SingleComponentResponse<
     DestinyProfileCollectiblesComponent,
@@ -184,11 +166,7 @@ export interface DestinyProfileResponse<
     DestinyComponentType.Transitory
   >;
   /** COMPONENT TYPE: Metrics */
-  readonly metrics: SingleComponentResponse<
-    DestinyMetricsComponent,
-    T,
-    DestinyComponentType.Metrics
-  >;
+  readonly metrics: SingleComponentResponse<DestinyMetricsComponent, T, DestinyComponentType.Metrics>;
   /** COMPONENT TYPE: StringVariables */
   readonly profileStringVariables: SingleComponentResponse<
     DestinyStringVariablesComponent,
@@ -293,12 +271,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly characterKiosks: DictionaryComponentResponse<
-    string,
-    DestinyKiosksComponent,
-    T,
-    DestinyComponentType.Kiosks
-  >;
+  readonly characterKiosks: DictionaryComponentResponse<string, DestinyKiosksComponent, T, DestinyComponentType.Kiosks>;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
    * info), this is the set of plugs and their states, per character, that are
@@ -347,9 +320,7 @@ export interface DestinyProfileResponse<
    * I'm not crying, you're crying Okay we're both crying but it's going to be okay I
    * promise Actually I shouldn't promise that, I don't know if it's going to be okay
    */
-  readonly characterUninstancedItemComponents: {
-    [key: string]: DestinyBaseItemComponentSet<T>;
-  };
+  readonly characterUninstancedItemComponents: { [key: string]: DestinyBaseItemComponentSet<T> };
   /** COMPONENT TYPE: PresentationNodes */
   readonly characterPresentationNodes: DictionaryComponentResponse<
     string,
