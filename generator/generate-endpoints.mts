@@ -150,7 +150,7 @@ function generateEndpointDefinition(
     'const url = new URL(`' +
       (route.includes('{')
         ? `${server}${route.replace(/{/g, '${params.')}`
-        : `${server}${path}`) +
+        : `${server}${route}`) +
       '`)',
     searchParamsString
   ].join('\n');

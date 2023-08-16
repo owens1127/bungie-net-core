@@ -26,7 +26,7 @@ import { PlatformFriendResponse } from '../models/Social/Friends/PlatformFriendR
 export async function getFriendList(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<BungieFriendListResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Social/Friends/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -38,7 +38,9 @@ export async function getFriendList(
 export async function getFriendRequestList(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<BungieFriendRequestListResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Requests/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }

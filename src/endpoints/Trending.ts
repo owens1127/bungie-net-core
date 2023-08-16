@@ -27,7 +27,7 @@ import { TrendingDetail } from '../models/Trending/TrendingDetail';
 export async function getTrendingCategories(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<TrendingCategories>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Trending/Categories/`);
 
   return client.fetch({ method: 'GET', url });
 }

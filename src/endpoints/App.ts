@@ -51,7 +51,7 @@ export async function getApplicationApiUsage(
 export async function getBungieApplications(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<Application[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/App/FirstParty/`);
 
   return client.fetch({ method: 'GET', url });
 }

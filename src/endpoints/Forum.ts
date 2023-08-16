@@ -213,7 +213,9 @@ export async function getForumTagSuggestions(
   },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<TagResponse[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/`
+  );
   params.partialtag !== undefined &&
     url.searchParams.set('partialtag', String(params.partialtag));
   return client.fetch({ method: 'GET', url });
@@ -246,7 +248,9 @@ export async function getRecruitmentThreadSummaries(
   body: string[],
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ForumRecruitmentDetail[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/Recruit/Summaries/`
+  );
 
   return client.fetch({
     method: 'POST',

@@ -28,7 +28,9 @@ import { BungieMembershipType } from '../enums/BungieMembershipType';
 export async function forceDropsRepair(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Partner/ForceDropsRepair/`
+  );
 
   return client.fetch({ method: 'POST', url });
 }
@@ -41,7 +43,9 @@ export async function claimPartnerOffer(
   body: PartnerOfferClaimRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Partner/ClaimOffer/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -172,7 +176,9 @@ export async function getBungieRewardsForPlatformUser(
 export async function getBungieRewardsList(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Rewards/BungieRewards/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }

@@ -52,7 +52,9 @@ import { GroupApplicationResponse } from '../models/GroupsV2/GroupApplicationRes
 export async function getAvailableAvatars(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: number]: string }>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/GetAvailableAvatars/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }
@@ -64,7 +66,9 @@ export async function getAvailableAvatars(
 export async function getAvailableThemes(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupTheme[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/GetAvailableThemes/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }
@@ -117,7 +121,7 @@ export async function groupSearch(
   body: GroupQuery,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupSearchResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/Search/`);
 
   return client.fetch({
     method: 'POST',
@@ -174,7 +178,7 @@ export async function getGroupByNameV2(
   body: GroupNameSearchRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/NameV2/`);
 
   return client.fetch({
     method: 'POST',

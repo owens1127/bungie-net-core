@@ -71,7 +71,7 @@ import { AwaAuthorizationResult } from '../models/Destiny/Advanced/AwaAuthorizat
 export async function getDestinyManifest(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyManifest>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Manifest/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -257,7 +257,9 @@ export async function getClanWeeklyRewardState(
 export async function getClanBannerSource(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ClanBannerSource>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }
@@ -381,7 +383,7 @@ export async function getPublicVendors<
   },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Vendors/`);
   params.components !== undefined &&
     url.searchParams.set('components', params.components.join(','));
   return client.fetch({ method: 'GET', url });
@@ -441,7 +443,9 @@ export async function transferItem(
   body: DestinyItemTransferRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -463,7 +467,9 @@ export async function pullFromPostmaster(
   body: DestinyPostmasterTransferRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -484,7 +490,9 @@ export async function equipItem(
   body: DestinyItemActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItem/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -506,7 +514,9 @@ export async function equipItems(
   body: DestinyItemSetActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyEquipItemResults>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -527,7 +537,9 @@ export async function equipLoadout(
   body: DestinyLoadoutActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/EquipLoadout/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -547,7 +559,9 @@ export async function snapshotLoadout(
   body: DestinyLoadoutUpdateActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -567,7 +581,9 @@ export async function updateLoadoutIdentifiers(
   body: DestinyLoadoutUpdateActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/UpdateLoadoutIdentifiers/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -587,7 +603,9 @@ export async function clearLoadout(
   body: DestinyLoadoutActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/ClearLoadout/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -607,7 +625,9 @@ export async function setItemLockState(
   body: DestinyItemStateRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -628,7 +648,9 @@ export async function setQuestTrackedState(
   body: DestinyItemStateRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/SetTrackedState/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -654,7 +676,9 @@ export async function insertSocketPlug(
   body: DestinyInsertPlugsActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -678,7 +702,9 @@ export async function insertSocketPlugFree(
   body: DestinyInsertPlugsFreeActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlugFree/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -742,7 +768,9 @@ export async function getHistoricalStatsDefinition(
 ): Promise<
   BungieNetResponse<{ [key: string]: DestinyHistoricalStatsDefinition }>
 > {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Stats/Definition/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }
@@ -1131,7 +1159,7 @@ export async function getPublicMilestoneContent(
 export async function getPublicMilestones(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: number]: DestinyPublicMilestone }>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Destiny2/Milestones/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -1144,7 +1172,9 @@ export async function awaInitializeRequest(
   body: AwaPermissionRequested,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<AwaInitializeResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Awa/Initialize/`
+  );
 
   return client.fetch({
     method: 'POST',
@@ -1163,7 +1193,9 @@ export async function awaProvideAuthorizationResult(
   body: AwaUserResponse,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/`
+  );
 
   return client.fetch({
     method: 'POST',

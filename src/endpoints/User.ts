@@ -87,7 +87,9 @@ export async function getCredentialTypesForTargetAccount(
 export async function getAvailableThemes(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserTheme[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetAvailableThemes/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }
@@ -122,7 +124,9 @@ export async function getMembershipDataById(
 export async function getMembershipDataForCurrentUser(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserMembershipData>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/`
+  );
 
   return client.fetch({ method: 'GET', url });
 }

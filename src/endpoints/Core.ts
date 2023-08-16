@@ -25,7 +25,7 @@ import { GlobalAlert } from '../models/GlobalAlert';
 export async function getAvailableLocales(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: string]: string }>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/GetAvailableLocales/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -37,7 +37,7 @@ export async function getAvailableLocales(
 export async function getCommonSettings(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<CoreSettingsConfiguration>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/Settings/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -50,7 +50,7 @@ export async function getCommonSettings(
 export async function getUserSystemOverrides(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<{ [key: string]: CoreSystem }>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/UserSystemOverrides/`);
 
   return client.fetch({ method: 'GET', url });
 }
@@ -67,7 +67,7 @@ export async function getGlobalAlerts(
   },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GlobalAlert[]>> {
-  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  const url = new URL(`https://www.bungie.net/Platform/GlobalAlerts/`);
   params.includestreaming !== undefined &&
     url.searchParams.set('includestreaming', String(params.includestreaming));
   return client.fetch({ method: 'GET', url });
