@@ -17,12 +17,11 @@
     "REST API"
   ],
   "openapi": "2.18.0",
-  "types": "lib/index.d.ts",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts"
     },
-    "./*": {
+    "./services/*": {
       "types": "./lib/endpoints/*.d.ts",
       "default": "./lib/endpoints/*.js"
     },

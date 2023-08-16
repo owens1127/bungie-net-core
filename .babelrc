@@ -1,6 +1,7 @@
 {
   "comments": false,
   "ignore": ["src/models", "src/interfaces"],
+  "sourceMaps": "inline",
   "presets": [
     "@babel/preset-typescript",
     [
