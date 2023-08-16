@@ -26,7 +26,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.SocketPlugSources}
  */
-export const enum SocketPlugSources {
+export enum SocketPlugSources {
   /** If there's no way we can detect to insert new plugs. */
   None = 0,
   /**

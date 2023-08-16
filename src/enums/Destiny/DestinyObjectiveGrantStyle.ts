@@ -16,7 +16,7 @@
  * granted.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyObjectiveGrantStyle}
  */
-export const enum DestinyObjectiveGrantStyle {
+export enum DestinyObjectiveGrantStyle {
   WhenIncomplete = 0,
   WhenComplete = 1,
   Always = 2

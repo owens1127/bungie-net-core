@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.TierType} */
-export const enum TierType {
+export enum TierType {
   Unknown = 0,
   Currency = 1,
   Basic = 2,

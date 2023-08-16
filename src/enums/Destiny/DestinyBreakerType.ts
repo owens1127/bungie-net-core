@@ -15,7 +15,7 @@
  * units in unique ways. Activating this plug can grant one of these types.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyBreakerType}
  */
-export const enum DestinyBreakerType {
+export enum DestinyBreakerType {
   None = 0,
   ShieldPiercing = 1,
   Disruption = 2,

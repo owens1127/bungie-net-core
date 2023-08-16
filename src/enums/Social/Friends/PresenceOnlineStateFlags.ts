@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.PresenceOnlineStateFlags}
  */
-export const enum PresenceOnlineStateFlags {
+export enum PresenceOnlineStateFlags {
   None = 0,
   Destiny1 = 1,
   Destiny2 = 2

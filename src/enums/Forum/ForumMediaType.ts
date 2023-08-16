@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumMediaType} */
-export const enum ForumMediaType {
+export enum ForumMediaType {
   None = 0,
   Image = 1,
   Video = 2,

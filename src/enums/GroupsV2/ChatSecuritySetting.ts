@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.ChatSecuritySetting} */
-export const enum ChatSecuritySetting {
+export enum ChatSecuritySetting {
   Group = 0,
   Admins = 1
 }

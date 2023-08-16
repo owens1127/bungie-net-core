@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupType} */
-export const enum GroupType {
+export enum GroupType {
   General = 0,
   Clan = 1
 }

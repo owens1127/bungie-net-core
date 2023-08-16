@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.BucketScope} */
-export const enum BucketScope {
+export enum BucketScope {
   Character = 0,
   Account = 1
 }

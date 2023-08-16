@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.VendorItemStatus}
  */
-export const enum VendorItemStatus {
+export enum VendorItemStatus {
   Success = 0,
   NoInventorySpace = 1,
   NoFunds = 2,

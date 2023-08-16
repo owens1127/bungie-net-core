@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.BucketCategory} */
-export const enum BucketCategory {
+export enum BucketCategory {
   Invisible = 0,
   Item = 1,
   Currency = 2,

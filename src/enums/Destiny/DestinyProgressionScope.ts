@@ -17,7 +17,7 @@
  * other game logic
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionScope}
  */
-export const enum DestinyProgressionScope {
+export enum DestinyProgressionScope {
   Account = 0,
   Character = 1,
   Clan = 2,

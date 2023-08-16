@@ -16,7 +16,7 @@
  * scope.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyScope}
  */
-export const enum DestinyScope {
+export enum DestinyScope {
   Profile = 0,
   Character = 1
 }

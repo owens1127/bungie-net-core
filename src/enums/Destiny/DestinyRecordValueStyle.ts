@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyRecordValueStyle} */
-export const enum DestinyRecordValueStyle {
+export enum DestinyRecordValueStyle {
   Integer = 0,
   Percentage = 1,
   Milliseconds = 2,

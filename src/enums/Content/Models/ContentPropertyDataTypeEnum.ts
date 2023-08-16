@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentPropertyDataTypeEnum} */
-export const enum ContentPropertyDataTypeEnum {
+export enum ContentPropertyDataTypeEnum {
   None = 0,
   Plaintext = 1,
   Html = 2,

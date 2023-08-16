@@ -15,7 +15,7 @@
  * Socket Categories.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinySocketCategoryStyle}
  */
-export const enum DestinySocketCategoryStyle {
+export enum DestinySocketCategoryStyle {
   Unknown = 0,
   Reusable = 1,
   Consumable = 2,

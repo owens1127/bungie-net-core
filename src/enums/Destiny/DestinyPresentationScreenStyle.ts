@@ -15,7 +15,7 @@
  * into. How you use this is your UI is up to you.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPresentationScreenStyle}
  */
-export const enum DestinyPresentationScreenStyle {
+export enum DestinyPresentationScreenStyle {
   /** Use the "default" view for the presentation nodes. */
   Default = 0,
   /**

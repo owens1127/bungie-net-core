@@ -18,7 +18,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyRecordState}
  */
-export const enum DestinyRecordState {
+export enum DestinyRecordState {
   /**
    * If there are no flags set, the record is in a state where it *could* be redeemed,
    * but it has not been yet.

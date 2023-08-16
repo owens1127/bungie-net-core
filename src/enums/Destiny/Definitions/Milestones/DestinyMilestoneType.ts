@@ -15,7 +15,7 @@
  * repeating but not necessarily tutorials, or Repeating Milestones.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneType}
  */
-export const enum DestinyMilestoneType {
+export enum DestinyMilestoneType {
   Unknown = 0,
   /**
    * One-time milestones that are specifically oriented toward teaching players about

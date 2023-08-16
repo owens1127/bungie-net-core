@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyRace} */
-export const enum DestinyRace {
+export enum DestinyRace {
   Human = 0,
   Awoken = 1,
   Exo = 2,

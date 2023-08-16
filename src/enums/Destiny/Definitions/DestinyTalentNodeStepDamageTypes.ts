@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepDamageTypes}
  */
-export const enum DestinyTalentNodeStepDamageTypes {
+export enum DestinyTalentNodeStepDamageTypes {
   None = 0,
   Kinetic = 1,
   Arc = 2,

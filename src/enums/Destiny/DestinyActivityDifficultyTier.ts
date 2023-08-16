@@ -15,7 +15,7 @@
  * Their names are... more qualitative than quantitative.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivityDifficultyTier}
  */
-export const enum DestinyActivityDifficultyTier {
+export enum DestinyActivityDifficultyTier {
   Trivial = 0,
   Easy = 1,
   Normal = 2,

@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyGender} */
-export const enum DestinyGender {
+export enum DestinyGender {
   Male = 0,
   Female = 1,
   Unknown = 2

@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.DeveloperRole} */
-export const enum DeveloperRole {
+export enum DeveloperRole {
   None = 0,
   Owner = 1,
   TeamMember = 2

@@ -14,7 +14,7 @@
  * Activity Modes are grouped into a few possible broad categories.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivityModeCategory}
  */
-export const enum DestinyActivityModeCategory {
+export enum DestinyActivityModeCategory {
   /** Activities that are neither PVP nor PVE, such as social activities. */
   None = 0,
   /** PvE activities, where you shoot aliens in the face. */

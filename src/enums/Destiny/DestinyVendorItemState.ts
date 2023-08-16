@@ -19,7 +19,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyVendorItemState}
  */
-export const enum DestinyVendorItemState {
+export enum DestinyVendorItemState {
   /** There are no augments on the item. */
   None = 0,
   /**

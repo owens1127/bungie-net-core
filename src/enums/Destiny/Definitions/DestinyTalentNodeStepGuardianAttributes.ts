@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepGuardianAttributes}
  */
-export const enum DestinyTalentNodeStepGuardianAttributes {
+export enum DestinyTalentNodeStepGuardianAttributes {
   None = 0,
   Stats = 1,
   Shields = 2,

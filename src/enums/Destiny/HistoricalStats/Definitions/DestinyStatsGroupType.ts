@@ -16,7 +16,7 @@
  * general cases)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyStatsGroupType}
  */
-export const enum DestinyStatsGroupType {
+export enum DestinyStatsGroupType {
   None = 0,
   General = 1,
   Weapons = 2,

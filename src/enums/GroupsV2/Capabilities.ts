@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.Capabilities}
  */
-export const enum Capabilities {
+export enum Capabilities {
   None = 0,
   Leaderboards = 1,
   Callsign = 2,

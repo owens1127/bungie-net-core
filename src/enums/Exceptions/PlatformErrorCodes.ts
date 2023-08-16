@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Exceptions.PlatformErrorCodes} */
-export const enum PlatformErrorCodes {
+export enum PlatformErrorCodes {
   None = 0,
   Success = 1,
   TransportException = 2,

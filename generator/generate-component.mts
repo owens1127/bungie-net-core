@@ -1,21 +1,12 @@
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import { DefinitionObject, frequentlyNullProperties } from './types.mjs';
 import path from 'path';
-import {
-  docComment,
-  generateHeader,
-  generateImports,
-  indent,
-  seeLink,
-  writeOutFile
-} from './writing-utils.mjs';
+import { docComment, generateHeader, generateImports, indent, seeLink, writeOutFile } from './writing-utils.mjs';
 import _ from 'underscore';
 import { resolveParamType } from './resolve-parameters.mjs';
 import { addValue, importInterface } from './util.mjs';
 
-export function generateSuperIndex(
-  componentsByFile: Record<string, DefinitionObject<'normal' | 'enum'>[]>
-) {
+export function generateSuperIndex(componentsByFile: Record<string, DefinitionObject<'normal' | 'enum'>[]>) {
   const models = new Map<string, Set<string>>();
   const enums = new Map<string, Set<string>>();
   _.forEach(componentsByFile, (components, file) => {
@@ -29,19 +20,12 @@ export function generateSuperIndex(
   const modelContents = [
     'export * from "../interfaces"',
     ...Array.from(models.entries()).map(([file, impts]) =>
-      generateImports(
-        path.join('models', 'index'),
-        file,
-        Array.from(impts),
-        true
-      )
+      generateImports(path.join('models', 'index'), file, Array.from(impts), true)
     )
   ].join('\n');
 
   const enumContents = Array.from(enums.entries())
-    .map(([file, impts]) =>
-      generateImports(path.join('enum', 'index'), file, Array.from(impts), true)
-    )
+    .map(([file, impts]) => generateImports(path.join('enum', 'index'), file, Array.from(impts), true))
     .join('\n');
 
   writeOutFile(path.join('src', 'models', 'index'), '.ts', modelContents);
@@ -66,12 +50,7 @@ export function generateComponentFile(
     )
   );
 
-  const contents =
-    _.compact([
-      generateHeader(doc),
-      imports.join('\n'),
-      componentDefinitons
-    ]).join('\n\n') + '\n';
+  const contents = _.compact([generateHeader(doc), imports.join('\n'), componentDefinitons]).join('\n\n') + '\n';
 
   writeOutFile(path.join('src/', file), '.ts', contents);
 }
@@ -100,16 +79,14 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
 
   const docs = definition.ref.description ? [definition.ref.description] : [];
   if (definition.ref['x-enum-is-bitmask']) {
-    docs.push(
-      `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
-    );
+    docs.push(`This enum represents a set of flags - use bitwise operators to check which of these match your value.`);
   }
 
   const docString = docComment(docs.join('\n'), [link]);
 
   return [
     docString,
-    `export const enum ${definition.module.name} {
+    `export enum ${definition.module.name} {
 ${indent(values, 1)}
 }`
   ].join('\n');
@@ -130,45 +107,32 @@ function generateInterface(
     });
   }
 
-  const classFields = _.map(
-    definition.ref.properties!,
-    (schema: SchemaObject, param) => {
-      const paramDef = resolveParamType(
-        schema,
-        componentMap,
-        importFiles,
-        null
-      );
-      const docs = schema.description ? [schema.description] : [];
+  const classFields = _.map(definition.ref.properties!, (schema: SchemaObject, param) => {
+    const paramDef = resolveParamType(schema, componentMap, importFiles, null);
+    const docs = schema.description ? [schema.description] : [];
 
-      if (schema['x-mapped-definition']) {
-        const module = componentMap.get(schema['x-mapped-definition'].$ref)!
-          .module!;
+    if (schema['x-mapped-definition']) {
+      const module = componentMap.get(schema['x-mapped-definition'].$ref)!.module!;
 
-        docs.push(
-          `Mapped to ${
-            module?.type === 'normal' ? module.name : module.importName
-          } in the manifest.`
-        );
-      }
-      if (schema['x-enum-is-bitmask']) {
-        docs.push(
-          `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
-        );
-      }
-      const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
-      return (
-        `${comment}` +
-        `readonly ${param}${
-          schema.nullable ||
-          frequentlyNullProperties.includes(param) ||
-          schema.description?.toLowerCase().includes('null')
-            ? '?'
-            : ''
-        }: ${paramDef};`
+      docs.push(`Mapped to ${module?.type === 'normal' ? module.name : module.importName} in the manifest.`);
+    }
+    if (schema['x-enum-is-bitmask']) {
+      docs.push(
+        `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
       );
     }
-  );
+    const comment = docs.length ? docComment(docs.join(' ')) + '\n' : '';
+    return (
+      `${comment}` +
+      `readonly ${param}${
+        schema.nullable ||
+        frequentlyNullProperties.includes(param) ||
+        schema.description?.toLowerCase().includes('null')
+          ? '?'
+          : ''
+      }: ${paramDef};`
+    );
+  });
 
   const link = seeLink(definition.component);
 
@@ -177,20 +141,13 @@ function generateInterface(
   //     extension = '= AllManifestComponents[T][number] & ';
   //   }
 
-  const docString = docComment(
-    _.compact([definition.ref.description ?? '']).join(' '),
-    [link]
-  );
+  const docString = docComment(_.compact([definition.ref.description ?? '']).join(' '), [link]);
 
-  const module = definition.module as DefinitionObject<
-    'normal' | 'genericParams'
-  >['module'];
+  const module = definition.module as DefinitionObject<'normal' | 'genericParams'>['module'];
   return (
     docString +
     '\n\n' +
-    `export interface ${
-      module.type === 'normal' ? module.name : module.interfaceName
-    } {` +
+    `export interface ${module.type === 'normal' ? module.name : module.interfaceName} {` +
     '\n' +
     indent(classFields.join('\n'), 1) +
     '\n' +

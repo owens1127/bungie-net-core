@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DamageType} */
-export const enum DamageType {
+export enum DamageType {
   None = 0,
   Kinetic = 1,
   Arc = 2,

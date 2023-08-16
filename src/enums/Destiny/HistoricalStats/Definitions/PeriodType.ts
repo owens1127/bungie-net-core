@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.PeriodType} */
-export const enum PeriodType {
+export enum PeriodType {
   None = 0,
   Daily = 1,
   AllTime = 2,

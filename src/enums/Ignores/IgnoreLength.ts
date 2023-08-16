@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Ignores.IgnoreLength} */
-export const enum IgnoreLength {
+export enum IgnoreLength {
   None = 0,
   Week = 1,
   TwoWeeks = 2,

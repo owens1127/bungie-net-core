@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivityNavPointType} */
-export const enum DestinyActivityNavPointType {
+export enum DestinyActivityNavPointType {
   Inactive = 0,
   PrimaryObjective = 1,
   SecondaryObjective = 2,

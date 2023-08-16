@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepWeaponPerformances}
  */
-export const enum DestinyTalentNodeStepWeaponPerformances {
+export enum DestinyTalentNodeStepWeaponPerformances {
   None = 0,
   RateOfFire = 1,
   Damage = 2,

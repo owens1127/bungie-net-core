@@ -29,7 +29,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyCollectibleState}
  */
-export const enum DestinyCollectibleState {
+export enum DestinyCollectibleState {
   None = 0,
   /** If this flag is set, you have not yet obtained this collectible. */
   NotAcquired = 1,

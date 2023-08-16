@@ -17,7 +17,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.TransferStatuses}
  */
-export const enum TransferStatuses {
+export enum TransferStatuses {
   /** The item can be transferred. */
   CanTransfer = 0,
   /** You can't transfer the item because it is equipped on a character. */

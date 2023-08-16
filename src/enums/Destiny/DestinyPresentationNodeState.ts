@@ -20,7 +20,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPresentationNodeState}
  */
-export const enum DestinyPresentationNodeState {
+export enum DestinyPresentationNodeState {
   None = 0,
   /**
    * If this is set, the game recommends that you not show this node. But you know

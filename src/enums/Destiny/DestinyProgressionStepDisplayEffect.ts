@@ -15,7 +15,7 @@
  * effects on the character or its item - or neither.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionStepDisplayEffect}
  */
-export const enum DestinyProgressionStepDisplayEffect {
+export enum DestinyProgressionStepDisplayEffect {
   None = 0,
   Character = 1,
   Item = 2

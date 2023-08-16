@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaResponseReason} */
-export const enum AwaResponseReason {
+export enum AwaResponseReason {
   None = 0,
   /** User provided an answer */
   Answered = 1,

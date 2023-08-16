@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyPresentationNodeType} */
-export const enum DestinyPresentationNodeType {
+export enum DestinyPresentationNodeType {
   Default = 0,
   Category = 1,
   Collectibles = 2,

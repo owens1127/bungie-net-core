@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupSortBy} */
-export const enum GroupSortBy {
+export enum GroupSortBy {
   Name = 0,
   Date = 1,
   Popularity = 2,

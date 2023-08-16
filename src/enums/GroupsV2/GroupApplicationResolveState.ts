@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationResolveState} */
-export const enum GroupApplicationResolveState {
+export enum GroupApplicationResolveState {
   Unresolved = 0,
   Accepted = 1,
   Denied = 2,

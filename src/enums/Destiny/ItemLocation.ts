@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ItemLocation} */
-export const enum ItemLocation {
+export enum ItemLocation {
   Unknown = 0,
   Inventory = 1,
   Vault = 2,

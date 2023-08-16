@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.ItemBindStatus} */
-export const enum ItemBindStatus {
+export enum ItemBindStatus {
   NotBound = 0,
   BoundToCharacter = 1,
   BoundToAccount = 2,

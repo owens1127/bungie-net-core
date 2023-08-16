@@ -18,7 +18,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.PlugUiStyles}
  */
-export const enum PlugUiStyles {
+export enum PlugUiStyles {
   None = 0,
   Masterwork = 1
 }

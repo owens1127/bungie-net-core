@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamSlotSearch} */
-export const enum FireteamSlotSearch {
+export enum FireteamSlotSearch {
   NoSlotRestriction = 0,
   HasOpenPlayerSlots = 1,
   HasOpenPlayerOrAltSlots = 2

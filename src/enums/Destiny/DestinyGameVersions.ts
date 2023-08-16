@@ -18,7 +18,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyGameVersions}
  */
-export const enum DestinyGameVersions {
+export enum DestinyGameVersions {
   None = 0,
   Destiny2 = 1,
   DLC1 = 2,

@@ -14,7 +14,7 @@
  * The known entity types that you can have returned from Trending.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryType}
  */
-export const enum TrendingEntryType {
+export enum TrendingEntryType {
   News = 0,
   DestinyItem = 1,
   DestinyActivity = 2,

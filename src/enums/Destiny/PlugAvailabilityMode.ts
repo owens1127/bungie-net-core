@@ -25,7 +25,7 @@
  * comparing it to
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.PlugAvailabilityMode}
  */
-export const enum PlugAvailabilityMode {
+export enum PlugAvailabilityMode {
   Normal = 0,
   UnavailableIfSocketContainsMatchingPlugCategory = 1,
   AvailableIfSocketContainsMatchingPlugCategory = 2

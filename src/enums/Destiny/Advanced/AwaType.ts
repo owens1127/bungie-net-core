@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaType} */
-export const enum AwaType {
+export enum AwaType {
   None = 0,
   /** Insert plugs into sockets. */
   InsertPlugs = 1

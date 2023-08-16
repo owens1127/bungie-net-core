@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamPlatformInviteResult} */
-export const enum FireteamPlatformInviteResult {
+export enum FireteamPlatformInviteResult {
   None = 0,
   Success = 1,
   AlreadyInFireteam = 2,

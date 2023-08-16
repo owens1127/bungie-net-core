@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.PlatformFriendType} */
-export const enum PlatformFriendType {
+export enum PlatformFriendType {
   Unknown = 0,
   Xbox = 1,
   PSN = 2,

@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPostPublicity} */
-export const enum GroupPostPublicity {
+export enum GroupPostPublicity {
   Public = 0,
   Alliance = 1,
   Private = 2

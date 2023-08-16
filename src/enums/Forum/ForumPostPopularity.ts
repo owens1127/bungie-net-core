@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumPostPopularity} */
-export const enum ForumPostPopularity {
+export enum ForumPostPopularity {
   Empty = 0,
   Default = 1,
   Discussed = 2,

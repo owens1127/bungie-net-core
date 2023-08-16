@@ -16,7 +16,7 @@
  * back!
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.Definitions.DestinyActivityModeType}
  */
-export const enum DestinyActivityModeType {
+export enum DestinyActivityModeType {
   None = 0,
   Story = 2,
   Strike = 3,

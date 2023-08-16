@@ -15,7 +15,7 @@
  * items.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionRewardItemAcquisitionBehavior}
  */
-export const enum DestinyProgressionRewardItemAcquisitionBehavior {
+export enum DestinyProgressionRewardItemAcquisitionBehavior {
   Instant = 0,
   PlayerClaimRequired = 1
 }

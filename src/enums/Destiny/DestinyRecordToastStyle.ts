@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyRecordToastStyle} */
-export const enum DestinyRecordToastStyle {
+export enum DestinyRecordToastStyle {
   None = 0,
   Record = 1,
   Lore = 2,

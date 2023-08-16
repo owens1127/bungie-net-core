@@ -11,7 +11,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupHomepage} */
-export const enum GroupHomepage {
+export enum GroupHomepage {
   Wall = 0,
   Forum = 1,
   AllianceForum = 2

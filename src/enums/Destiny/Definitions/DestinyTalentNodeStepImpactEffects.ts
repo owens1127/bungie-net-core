@@ -15,7 +15,7 @@
  * these match your value.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepImpactEffects}
  */
-export const enum DestinyTalentNodeStepImpactEffects {
+export enum DestinyTalentNodeStepImpactEffects {
   None = 0,
   ArmorPiercing = 1,
   Ricochet = 2,
