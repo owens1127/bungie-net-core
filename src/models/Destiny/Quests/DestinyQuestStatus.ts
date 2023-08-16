@@ -21,6 +21,7 @@ import { DestinyObjectiveProgress } from './DestinyObjectiveProgress';
  * quest.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Quests.DestinyQuestStatus}
  */
+
 export interface DestinyQuestStatus {
   /**
    * The hash identifier for the Quest Item. (Note: Quests are defined as Items, and

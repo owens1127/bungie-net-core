@@ -13,9 +13,10 @@
 //
 
 import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileUserInfoCard} */
+
 export interface DestinyProfileUserInfoCard {
   readonly dateLastPlayed: string;
   /**

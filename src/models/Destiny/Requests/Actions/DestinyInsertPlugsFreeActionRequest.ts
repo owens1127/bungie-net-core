@@ -13,9 +13,10 @@
 //
 
 import { DestinyInsertPlugsRequestEntry } from './DestinyInsertPlugsRequestEntry';
-import { BungieMembershipType } from '../../../BungieMembershipType';
+import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyInsertPlugsFreeActionRequest} */
+
 export interface DestinyInsertPlugsFreeActionRequest {
   /** The plugs being inserted. */
   readonly plug: DestinyInsertPlugsRequestEntry;

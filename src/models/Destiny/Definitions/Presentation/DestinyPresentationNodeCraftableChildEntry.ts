@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeCraftableChildEntry} */
+
 export interface DestinyPresentationNodeCraftableChildEntry {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly craftableItemHash: number;

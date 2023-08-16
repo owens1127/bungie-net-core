@@ -12,9 +12,9 @@
  */
 //
 
-import { GroupType } from './GroupType';
-import { MembershipOption } from './MembershipOption';
-import { Capabilities } from './Capabilities';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { MembershipOption } from '../../enums/GroupsV2/MembershipOption';
+import { Capabilities } from '../../enums/GroupsV2/Capabilities';
 import { GroupV2ClanInfo } from './GroupV2ClanInfo';
 
 /**
@@ -22,6 +22,7 @@ import { GroupV2ClanInfo } from './GroupV2ClanInfo';
  * are returned
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2Card}
  */
+
 export interface GroupV2Card {
   readonly groupId: string;
   readonly name: string;

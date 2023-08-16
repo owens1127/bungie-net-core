@@ -22,6 +22,7 @@ import { DestinyMilestoneContentItemCategory } from './DestinyMilestoneContentIt
  * need this data, hit the Milestone Content endpoint.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneContent}
  */
+
 export interface DestinyMilestoneContent {
   /** The "About this Milestone" text from the Firehose. */
   readonly about: string;

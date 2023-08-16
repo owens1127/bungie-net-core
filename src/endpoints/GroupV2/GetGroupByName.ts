@@ -12,28 +12,27 @@
  */
 //
 
+import { GroupType } from '../../enums/GroupsV2/GroupType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupType } from '../../models';
-import { GroupResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName} */
-export type GetGroupByNameParams = {
-  /** Exact name of the group to find. */
-  groupName: string;
-  /** Type of group to find. */
-  groupType: GroupType;
-};
+import { GroupResponse } from '../../models/GroupsV2/GroupResponse';
 
 /**
  * Get information about a specific group with the given name and type.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupByName}
  */
 export async function getGroupByName(
-  params: GetGroupByNameParams,
+  params: {
+    /** Exact name of the group to find. */
+    groupName: string;
+    /** Type of group to find. */
+    groupType: GroupType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupResponse>> {
-  return client.fetch<GroupResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/Name/${params.groupName}/${params.groupType}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/Name/${params.groupName}/${params.groupType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

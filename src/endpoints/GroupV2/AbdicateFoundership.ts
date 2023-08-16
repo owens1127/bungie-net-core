@@ -12,18 +12,9 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership} */
-export type AbdicateFoundershipParams = {
-  /** The new founder for this group. Must already be a group admin. */
-  founderIdNew: string;
-  /** The target group id. */
-  groupId: string;
-  /** Membership type of the provided founderIdNew. */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * An administrative method to allow the founder of a group or clan to give up
@@ -31,11 +22,19 @@ export type AbdicateFoundershipParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.AbdicateFoundership}
  */
 export async function abdicateFoundership(
-  params: AbdicateFoundershipParams,
+  params: {
+    /** The new founder for this group. Must already be a group admin. */
+    founderIdNew: string;
+    /** The target group id. */
+    groupId: string;
+    /** Membership type of the provided founderIdNew. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Admin/AbdicateFoundership/${params.membershipType}/${params.founderIdNew}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Admin/AbdicateFoundership/${params.membershipType}/${params.founderIdNew}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

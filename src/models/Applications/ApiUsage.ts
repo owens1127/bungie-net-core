@@ -15,6 +15,7 @@
 import { Series } from './Series';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApiUsage} */
+
 export interface ApiUsage {
   /** Counts for on API calls made for the time range. */
   readonly apiCalls: Series[];

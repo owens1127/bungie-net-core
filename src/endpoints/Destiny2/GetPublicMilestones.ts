@@ -14,16 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyPublicMilestone } from '../../models';
+
 /**
  * Gets public information about currently available Milestones.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestones}
  */
 export async function getPublicMilestones(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<{ [key: number]: DestinyPublicMilestone }>> {
-  return client.fetch<{ [key: number]: DestinyPublicMilestone }>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Destiny2/Milestones/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

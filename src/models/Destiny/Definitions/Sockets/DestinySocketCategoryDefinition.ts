@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle';
+import { DestinySocketCategoryStyle } from '../../../../enums/Destiny/DestinySocketCategoryStyle';
 
 /**
  * Sockets on an item are organized into Categories visually.
@@ -38,6 +38,7 @@ import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle';
  * github.com/Bungie-net/api/issues/522 for more info)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinySocketCategoryDefinition}
  */
+
 export interface DestinySocketCategoryDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

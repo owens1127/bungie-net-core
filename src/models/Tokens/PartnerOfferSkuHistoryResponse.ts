@@ -15,6 +15,7 @@
 import { PartnerOfferHistoryResponse } from './PartnerOfferHistoryResponse';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerOfferSkuHistoryResponse} */
+
 export interface PartnerOfferSkuHistoryResponse {
   readonly SkuIdentifier: string;
   readonly LocalizedName: string;

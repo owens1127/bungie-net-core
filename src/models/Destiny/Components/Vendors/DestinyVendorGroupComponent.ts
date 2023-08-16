@@ -20,6 +20,7 @@ import { DestinyVendorGroup } from './DestinyVendorGroup';
  * which both the groups and the vendors within that group should be rendered.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyVendorGroupComponent}
  */
+
 export interface DestinyVendorGroupComponent {
   /** The ordered list of groups being returned. */
   readonly groups: DestinyVendorGroup[];

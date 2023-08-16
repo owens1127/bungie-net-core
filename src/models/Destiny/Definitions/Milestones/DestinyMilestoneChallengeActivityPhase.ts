@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneChallengeActivityPhase} */
+
 export interface DestinyMilestoneChallengeActivityPhase {
   /** The hash identifier of the activity's phase. */
   readonly phaseHash: number;

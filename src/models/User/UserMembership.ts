@@ -12,12 +12,13 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 
 /**
  * Very basic info about a user as returned by the Account server.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.UserMembership}
  */
+
 export interface UserMembership {
   /** Type of the membership. Not necessarily the native type. */
   readonly membershipType: BungieMembershipType;

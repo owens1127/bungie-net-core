@@ -17,6 +17,7 @@
  * which sockets are under that category.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketCategoryDefinition}
  */
+
 export interface DestinyItemSocketCategoryDefinition {
   /**
    * The hash for the Socket Category: a quick way to go get the header display

@@ -29,6 +29,7 @@ import { DestinyKioskItem } from './DestinyKioskItem';
  * version of the content manifest databases before using this data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Kiosks.DestinyKiosksComponent}
  */
+
 export interface DestinyKiosksComponent {
   /**
    * A dictionary keyed by the Kiosk Vendor's hash identifier (use it to look up the

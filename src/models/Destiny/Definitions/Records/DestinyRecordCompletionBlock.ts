@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyRecordToastStyle } from '../../DestinyRecordToastStyle';
+import { DestinyRecordToastStyle } from '../../../../enums/Destiny/DestinyRecordToastStyle';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordCompletionBlock} */
+
 export interface DestinyRecordCompletionBlock {
   /**
    * The number of objectives that must be completed before the objective is

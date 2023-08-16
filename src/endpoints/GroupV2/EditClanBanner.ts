@@ -12,14 +12,9 @@
  */
 //
 
+import { ClanBanner } from '../../models/GroupsV2/ClanBanner';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ClanBanner } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner} */
-export type EditClanBannerParams = {
-  /** Group ID of the group to edit. */
-  groupId: string;
-};
 
 /**
  * Edit an existing group's clan banner. You must have suitable permissions in the
@@ -27,13 +22,21 @@ export type EditClanBannerParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditClanBanner}
  */
 export async function editClanBanner(
-  params: EditClanBannerParams,
+  params: {
+    /** Group ID of the group to edit. */
+    groupId: string;
+  },
   body: ClanBanner,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditClanBanner/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditClanBanner/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

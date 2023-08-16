@@ -16,6 +16,7 @@ import { DestinyEntitySearchResultItem } from './Destiny/Definitions/DestinyEnti
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfDestinyEntitySearchResultItem} */
+
 export interface SearchResultOfDestinyEntitySearchResultItem {
   readonly results: DestinyEntitySearchResultItem[];
   readonly totalResults: number;

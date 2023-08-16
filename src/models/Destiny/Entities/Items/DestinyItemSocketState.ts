@@ -20,6 +20,7 @@
  * the inserted item instead of most of these properties. :shrug:
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemSocketState}
  */
+
 export interface DestinyItemSocketState {
   /**
    * The currently active plug, if any.

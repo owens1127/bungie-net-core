@@ -14,28 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfGroupMember } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup} */
-export type GetAdminsAndFounderOfGroupParams = {
-  /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
-  currentpage: number;
-  /** The ID of the group. */
-  groupId: string;
-};
+import { SearchResultOfGroupMember } from '../../models/SearchResultOfGroupMember';
 
 /**
  * Get the list of members in a given group who are of admin level or higher.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAdminsAndFounderOfGroup}
  */
 export async function getAdminsAndFounderOfGroup(
-  params: GetAdminsAndFounderOfGroupParams,
+  params: {
+    /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
+    currentpage: number;
+    /** The ID of the group. */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
-  return client.fetch<SearchResultOfGroupMember>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/AdminsAndFounder/`,
-    params: {
-      currentpage: params.currentpage
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/AdminsAndFounder/`
+  );
+  url.searchParams.set('currentpage', String(params.currentpage));
+  return client.fetch({ method: 'GET', url });
 }

@@ -16,6 +16,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
 import { DestinyColor } from '../../Misc/DestinyColor';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Social.DestinySocialCommendationNodeDefinition} */
+
 export interface DestinySocialCommendationNodeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** The color associated with this group of commendations. */

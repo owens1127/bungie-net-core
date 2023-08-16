@@ -14,23 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfContentItemPublicContract } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.SearchContentWithText} */
-export type SearchContentWithTextParams = {
-  /** Content type tag: Help, News, etc. Supply multiple ctypes separated by space. */
-  ctype?: string;
-  /** Page number for the search results, starting with page 1. */
-  currentpage?: number;
-  /** Not used. */
-  head?: boolean;
-  locale: string;
-  /** Word or phrase for the search. */
-  searchtext?: string;
-  /** For analytics, hint at the part of the app that triggered the search. Optional. */
-  source?: string;
-  /** Tag used on the content to be searched. */
-  tag?: string;
-};
+import { SearchResultOfContentItemPublicContract } from '../../models/SearchResultOfContentItemPublicContract';
 
 /**
  * Gets content based on querystring information passed in. Provides basic search
@@ -38,19 +22,36 @@ export type SearchContentWithTextParams = {
  * @see {@link https://bungie-net.github.io/#Content.SearchContentWithText}
  */
 export async function searchContentWithText(
-  params: SearchContentWithTextParams,
+  params: {
+    /** Content type tag: Help, News, etc. Supply multiple ctypes separated by space. */
+    ctype?: string;
+    /** Page number for the search results, starting with page 1. */
+    currentpage?: number;
+    /** Not used. */
+    head?: boolean;
+    locale: string;
+    /** Word or phrase for the search. */
+    searchtext?: string;
+    /** For analytics, hint at the part of the app that triggered the search. Optional. */
+    source?: string;
+    /** Tag used on the content to be searched. */
+    tag?: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
-  return client.fetch<SearchResultOfContentItemPublicContract>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/Search/${params.locale}/`,
-    params: {
-      ctype: params.ctype,
-      currentpage: params.currentpage,
-      head: params.head,
-      searchtext: params.searchtext,
-      source: params.source,
-      tag: params.tag
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/Search/${params.locale}/`
+  );
+  params.ctype !== undefined &&
+    url.searchParams.set('ctype', String(params.ctype));
+  params.currentpage !== undefined &&
+    url.searchParams.set('currentpage', String(params.currentpage));
+  params.head !== undefined &&
+    url.searchParams.set('head', String(params.head));
+  params.searchtext !== undefined &&
+    url.searchParams.set('searchtext', String(params.searchtext));
+  params.source !== undefined &&
+    url.searchParams.set('source', String(params.source));
+  params.tag !== undefined && url.searchParams.set('tag', String(params.tag));
+  return client.fetch({ method: 'GET', url });
 }

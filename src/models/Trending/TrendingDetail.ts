@@ -12,7 +12,7 @@
  */
 //
 
-import { TrendingEntryType } from './TrendingEntryType';
+import { TrendingEntryType } from '../../enums/Trending/TrendingEntryType';
 import { TrendingEntryNews } from './TrendingEntryNews';
 import { TrendingEntrySupportArticle } from './TrendingEntrySupportArticle';
 import { TrendingEntryDestinyItem } from './TrendingEntryDestinyItem';
@@ -21,6 +21,7 @@ import { TrendingEntryDestinyRitual } from './TrendingEntryDestinyRitual';
 import { TrendingEntryCommunityCreation } from './TrendingEntryCommunityCreation';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingDetail} */
+
 export interface TrendingDetail {
   readonly identifier: string;
   readonly entityType: TrendingEntryType;

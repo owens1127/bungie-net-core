@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DamageType } from '../DamageType';
+import { DamageType } from '../../../enums/Destiny/DamageType';
 import { DestinyNodeActivationRequirement } from './DestinyNodeActivationRequirement';
 import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups';
 import { DestinyNodeSocketReplaceResponse } from './DestinyNodeSocketReplaceResponse';
@@ -37,6 +37,7 @@ import { DestinyNodeSocketReplaceResponse } from './DestinyNodeSocketReplaceResp
  * thus are subject to change between content updates.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyNodeStepDefinition}
  */
+
 export interface DestinyNodeStepDefinition {
   /**
    * These are the display properties actually used to render the Talent Node. The

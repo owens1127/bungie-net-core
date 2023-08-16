@@ -12,27 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { DestinyLinkedProfilesResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles} */
-export type GetLinkedProfilesParams = {
-  /**
-   * (optional) if set to 'true', all memberships regardless of whether they're
-   * obscured by overrides will be returned. Normal privacy restrictions on account
-   * linking will still apply no matter what.
-   */
-  getAllMemberships?: boolean;
-  /**
-   * The ID of the membership whose linked Destiny accounts you want returned. Make
-   * sure your membership ID matches its Membership Type: don't pass us a PSN
-   * membership ID and the XBox membership type, it's not going to work!
-   */
-  membershipId: string;
-  /** The type for the membership whose linked Destiny accounts you want returned. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyLinkedProfilesResponse } from '../../models/Destiny/Responses/DestinyLinkedProfilesResponse';
 
 /**
  * Returns a summary information about all profiles linked to the requesting
@@ -45,14 +28,28 @@ export type GetLinkedProfilesParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLinkedProfiles}
  */
 export async function getLinkedProfiles(
-  params: GetLinkedProfilesParams,
+  params: {
+    /**
+     * (optional) if set to 'true', all memberships regardless of whether they're
+     * obscured by overrides will be returned. Normal privacy restrictions on account
+     * linking will still apply no matter what.
+     */
+    getAllMemberships?: boolean;
+    /**
+     * The ID of the membership whose linked Destiny accounts you want returned. Make
+     * sure your membership ID matches its Membership Type: don't pass us a PSN
+     * membership ID and the XBox membership type, it's not going to work!
+     */
+    membershipId: string;
+    /** The type for the membership whose linked Destiny accounts you want returned. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyLinkedProfilesResponse>> {
-  return client.fetch<DestinyLinkedProfilesResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.membershipId}/LinkedProfiles/`,
-    params: {
-      getAllMemberships: params.getAllMemberships
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.membershipId}/LinkedProfiles/`
+  );
+  params.getAllMemberships !== undefined &&
+    url.searchParams.set('getAllMemberships', String(params.getAllMemberships));
+  return client.fetch({ method: 'GET', url });
 }

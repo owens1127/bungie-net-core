@@ -16,6 +16,7 @@ import { FireteamSummary } from './Fireteam/FireteamSummary';
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfFireteamSummary} */
+
 export interface SearchResultOfFireteamSummary {
   readonly results: FireteamSummary[];
   readonly totalResults: number;

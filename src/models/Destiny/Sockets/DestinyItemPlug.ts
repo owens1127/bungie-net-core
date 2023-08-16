@@ -15,6 +15,7 @@
 import { DestinyObjectiveProgress } from '../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Sockets.DestinyItemPlug} */
+
 export interface DestinyItemPlug {
   /**
    * Sometimes, Plugs may have objectives: these are often used for flavor and

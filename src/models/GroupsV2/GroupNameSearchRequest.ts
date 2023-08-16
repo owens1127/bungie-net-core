@@ -12,9 +12,10 @@
  */
 //
 
-import { GroupType } from './GroupType';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupNameSearchRequest} */
+
 export interface GroupNameSearchRequest {
   readonly groupName: string;
   readonly groupType: GroupType;

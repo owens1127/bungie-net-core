@@ -12,10 +12,11 @@
  */
 //
 
-import { ApplicationStatus } from './ApplicationStatus';
+import { ApplicationStatus } from '../../enums/Applications/ApplicationStatus';
 import { ApplicationDeveloper } from './ApplicationDeveloper';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Application} */
+
 export interface Application {
   /** Unique ID assigned to the application */
   readonly applicationId: number;

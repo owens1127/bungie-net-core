@@ -22,6 +22,7 @@
  * entries have values being tracked.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryTrackingEntry}
  */
+
 export interface DestinyProfileTransitoryTrackingEntry {
   /**
    * OPTIONAL - If this is tracking a DestinyLocationDefinition, this is the

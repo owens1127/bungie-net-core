@@ -16,6 +16,7 @@ import { TrendingEntry } from './Trending/TrendingEntry';
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfTrendingEntry} */
+
 export interface SearchResultOfTrendingEntry {
   readonly results: TrendingEntry[];
   readonly totalResults: number;

@@ -14,28 +14,25 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ContentItemPublicContract } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.GetContentById} */
-export type GetContentByIdParams = {
-  /** false */
-  head?: boolean;
-  id: string;
-  locale: string;
-};
+import { ContentItemPublicContract } from '../../models/Content/ContentItemPublicContract';
 
 /**
  * Returns a content item referenced by id
  * @see {@link https://bungie-net.github.io/#Content.GetContentById}
  */
 export async function getContentById(
-  params: GetContentByIdParams,
+  params: {
+    /** false */
+    head?: boolean;
+    id: string;
+    locale: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  return client.fetch<ContentItemPublicContract>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`,
-    params: {
-      head: params.head
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`
+  );
+  params.head !== undefined &&
+    url.searchParams.set('head', String(params.head));
+  return client.fetch({ method: 'GET', url });
 }

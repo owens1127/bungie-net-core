@@ -14,18 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyHistoricalStatsDefinition } from '../../models';
+
 /**
  * Gets historical stats definitions.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsDefinition}
  */
 export async function getHistoricalStatsDefinition(
   client: BungieClientProtocol
-): Promise<
-  BungieNetResponse<{ [key: string]: DestinyHistoricalStatsDefinition }>
-> {
-  return client.fetch<{ [key: string]: DestinyHistoricalStatsDefinition }>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Destiny2/Stats/Definition/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

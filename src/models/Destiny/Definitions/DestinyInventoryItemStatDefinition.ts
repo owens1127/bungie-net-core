@@ -21,6 +21,7 @@
  * at least be close. If it's not close, let us know on the Bungie API forums.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyInventoryItemStatDefinition}
  */
+
 export interface DestinyInventoryItemStatDefinition {
   /**
    * The hash for the DestinyStatDefinition representing this stat. Mapped to

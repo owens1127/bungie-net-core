@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyObjectiveDisplayProperties} */
+
 export interface DestinyObjectiveDisplayProperties {
   /**
    * The activity associated with this objective in the context of this item, if any.

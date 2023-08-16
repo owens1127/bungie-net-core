@@ -22,6 +22,7 @@
  * continue to exist.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyMedalTierDefinition}
  */
+
 export interface DestinyMedalTierDefinition {
   /** The name of the tier. */
   readonly tierName: string;

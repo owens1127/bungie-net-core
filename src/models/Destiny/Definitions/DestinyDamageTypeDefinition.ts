@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DamageType } from '../DamageType';
+import { DamageType } from '../../../enums/Destiny/DamageType';
 import { DestinyColor } from '../Misc/DestinyColor';
 
 /**
@@ -21,6 +21,7 @@ import { DestinyColor } from '../Misc/DestinyColor';
  * localized info and icons as needed.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDamageTypeDefinition}
  */
+
 export interface DestinyDamageTypeDefinition {
   /** The description of the damage type, icon etc... */
   readonly displayProperties: DestinyDisplayPropertiesDefinition;

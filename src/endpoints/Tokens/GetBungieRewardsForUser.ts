@@ -14,26 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieRewardDisplay } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser} */
-export type GetBungieRewardsForUserParams = {
-  /**
-   * bungie.net user membershipId for requested user rewards. If not self, elevated
-   * permissions are required.
-   */
-  membershipId: string;
-};
 
 /**
  * Returns the bungie rewards for the targeted user.
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForUser}
  */
 export async function getBungieRewardsForUser(
-  params: GetBungieRewardsForUserParams,
+  params: {
+    /**
+     * bungie.net user membershipId for requested user rewards. If not self, elevated
+     * permissions are required.
+     */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  return client.fetch<{ [key: string]: BungieRewardDisplay }>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

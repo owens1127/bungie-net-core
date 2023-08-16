@@ -24,6 +24,7 @@ import { DestinyMilestoneActivityVariantDefinition } from './DestinyMilestoneAct
  * difficulty levels and variants.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneActivityDefinition}
  */
+
 export interface DestinyMilestoneActivityDefinition {
   /**
    * The "Conceptual" activity hash. Basically, we picked the lowest level activity

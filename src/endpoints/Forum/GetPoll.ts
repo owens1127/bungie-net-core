@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetPoll} */
-export type GetPollParams = {
-  /** The post id of the topic that has the poll. */
-  topicId: string;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Gets the specified forum poll.
  * @see {@link https://bungie-net.github.io/#Forum.GetPoll}
  */
 export async function getPoll(
-  params: GetPollParams,
+  params: {
+    /** The post id of the topic that has the poll. */
+    topicId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/Poll/${params.topicId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/Poll/${params.topicId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

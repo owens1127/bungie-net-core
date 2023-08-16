@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeCollectibleChildEntry} */
+
 export interface DestinyPresentationNodeCollectibleChildEntry {
   /** Mapped to DestinyCollectibleDefinition in the manifest. */
   readonly collectibleHash: number;

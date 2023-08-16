@@ -12,20 +12,11 @@
  */
 //
 
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { GroupMembershipSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder} */
-export type RecoverGroupForFounderParams = {
-  /** Type of group the supplied member founded. */
-  groupType: GroupType;
-  /** Membership ID to for which to find founded groups. */
-  membershipId: string;
-  /** Membership type of the supplied membership ID. */
-  membershipType: BungieMembershipType;
-};
+import { GroupMembershipSearchResponse } from '../../models/GroupsV2/GroupMembershipSearchResponse';
 
 /**
  * Allows a founder to manually recover a group they can see in game but not on
@@ -33,11 +24,19 @@ export type RecoverGroupForFounderParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.RecoverGroupForFounder}
  */
 export async function recoverGroupForFounder(
-  params: RecoverGroupForFounderParams,
+  params: {
+    /** Type of group the supplied member founded. */
+    groupType: GroupType;
+    /** Membership ID to for which to find founded groups. */
+    membershipId: string;
+    /** Membership type of the supplied membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupMembershipSearchResponse>> {
-  return client.fetch<GroupMembershipSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/Recover/${params.membershipType}/${params.membershipId}/${params.groupType}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/Recover/${params.membershipType}/${params.membershipId}/${params.groupType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

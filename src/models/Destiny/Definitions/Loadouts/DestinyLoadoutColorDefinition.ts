@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Loadouts.DestinyLoadoutColorDefinition} */
+
 export interface DestinyLoadoutColorDefinition {
   readonly colorImagePath: string;
   /**

@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetGroup} */
-export type GetGroupParams = {
-  /** Requested group's id. */
-  groupId: string;
-};
+import { GroupResponse } from '../../models/GroupsV2/GroupResponse';
 
 /**
  * Get information about a specific group of the given ID.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroup}
  */
 export async function getGroup(
-  params: GetGroupParams,
+  params: {
+    /** Requested group's id. */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupResponse>> {
-  return client.fetch<GroupResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

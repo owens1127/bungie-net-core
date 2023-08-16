@@ -17,6 +17,7 @@ import { ContentRepresentation } from './ContentRepresentation';
 import { CommentSummary } from './CommentSummary';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.ContentItemPublicContract} */
+
 export interface ContentItemPublicContract {
   readonly contentId: string;
   readonly cType: string;

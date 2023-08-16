@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Sockets.DestinyItemPlugBase} */
+
 export interface DestinyItemPlugBase {
   /**
    * The hash identifier of the DestinyInventoryItemDefinition that represents this

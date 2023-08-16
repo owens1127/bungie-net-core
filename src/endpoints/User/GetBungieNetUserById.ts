@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GeneralUser } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById} */
-export type GetBungieNetUserByIdParams = {
-  /** The requested Bungie.net membership id. */
-  id: string;
-};
+import { GeneralUser } from '../../models/User/GeneralUser';
 
 /**
  * Loads a bungienet user by membership id.
  * @see {@link https://bungie-net.github.io/#User.GetBungieNetUserById}
  */
 export async function getBungieNetUserById(
-  params: GetBungieNetUserByIdParams,
+  params: {
+    /** The requested Bungie.net membership id. */
+    id: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GeneralUser>> {
-  return client.fetch<GeneralUser>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetBungieNetUserById/${params.id}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

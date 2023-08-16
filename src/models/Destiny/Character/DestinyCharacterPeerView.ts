@@ -19,6 +19,7 @@ import { DestinyItemPeerView } from './DestinyItemPeerView';
  * summary screen or showing the character in 3D.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Character.DestinyCharacterPeerView}
  */
+
 export interface DestinyCharacterPeerView {
   readonly equipment: DestinyItemPeerView[];
 }

@@ -12,17 +12,10 @@
  */
 //
 
+import { BungieCredentialType } from '../../enums/BungieCredentialType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieCredentialType } from '../../models';
-import { HardLinkedUserMembership } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential} */
-export type GetMembershipFromHardLinkedCredentialParams = {
-  /** The credential to look up. Must be a valid SteamID64. */
-  credential: string;
-  /** The credential type. 'SteamId' is the only valid value at present. */
-  crType: BungieCredentialType;
-};
+import { HardLinkedUserMembership } from '../../models/User/HardLinkedUserMembership';
 
 /**
  * Gets any hard linked membership given a credential. Only works for credentials
@@ -30,11 +23,17 @@ export type GetMembershipFromHardLinkedCredentialParams = {
  * @see {@link https://bungie-net.github.io/#User.GetMembershipFromHardLinkedCredential}
  */
 export async function getMembershipFromHardLinkedCredential(
-  params: GetMembershipFromHardLinkedCredentialParams,
+  params: {
+    /** The credential to look up. Must be a valid SteamID64. */
+    credential: string;
+    /** The credential type. 'SteamId' is the only valid value at present. */
+    crType: BungieCredentialType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<HardLinkedUserMembership>> {
-  return client.fetch<HardLinkedUserMembership>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/GetMembershipFromHardLinkedCredential/${params.crType}/${params.credential}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetMembershipFromHardLinkedCredential/${params.crType}/${params.credential}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -19,6 +19,7 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * are the definitions for those tooltip friendly rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityRewardDefinition}
  */
+
 export interface DestinyActivityRewardDefinition {
   /** The header for the reward set, if any. */
   readonly rewardText: string;

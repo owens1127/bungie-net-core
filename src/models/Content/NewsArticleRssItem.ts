@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.NewsArticleRssItem} */
+
 export interface NewsArticleRssItem {
   readonly Title: string;
   readonly Link: string;

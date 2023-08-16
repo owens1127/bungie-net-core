@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieFriendListResponse } from '../../models';
+import { BungieFriendListResponse } from '../../models/Social/Friends/BungieFriendListResponse';
+
 /**
  * Returns your Bungie Friend list
  * @see {@link https://bungie-net.github.io/#Social.GetFriendList}
@@ -22,8 +23,7 @@ import { BungieFriendListResponse } from '../../models';
 export async function getFriendList(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<BungieFriendListResponse>> {
-  return client.fetch<BungieFriendListResponse>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Social/Friends/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

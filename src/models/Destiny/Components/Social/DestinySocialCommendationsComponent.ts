@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Social.DestinySocialCommendationsComponent} */
+
 export interface DestinySocialCommendationsComponent {
   readonly totalScore: number;
   readonly scoreDetailValues: number[];

@@ -23,6 +23,7 @@ import { DestinyProgression } from '../DestinyProgression';
  * overview information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactProfileScoped}
  */
+
 export interface DestinyArtifactProfileScoped {
   /** Mapped to DestinyArtifactDefinition in the manifest. */
   readonly artifactHash: number;

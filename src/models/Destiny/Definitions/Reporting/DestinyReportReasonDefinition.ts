@@ -21,6 +21,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * entries like "Other" are defined under most categories for example.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Reporting.DestinyReportReasonDefinition}
  */
+
 export interface DestinyReportReasonDefinition {
   /**
    * The identifier for the reason: they are only guaranteed unique under the

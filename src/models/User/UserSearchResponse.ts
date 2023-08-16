@@ -15,6 +15,7 @@
 import { UserSearchResponseDetail } from './UserSearchResponseDetail';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchResponse} */
+
 export interface UserSearchResponse {
   readonly searchResults: UserSearchResponseDetail[];
   readonly page: number;

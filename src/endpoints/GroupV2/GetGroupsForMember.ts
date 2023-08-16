@@ -12,34 +12,33 @@
  */
 //
 
+import { GroupsForMemberFilter } from '../../enums/GroupsV2/GroupsForMemberFilter';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupsForMemberFilter } from '../../models';
-import { GroupType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { GetGroupsForMemberResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember} */
-export type GetGroupsForMemberParams = {
-  /** Filter apply to list of joined groups. */
-  filter: GroupsForMemberFilter;
-  /** Type of group the supplied member founded. */
-  groupType: GroupType;
-  /** Membership ID to for which to find founded groups. */
-  membershipId: string;
-  /** Membership type of the supplied membership ID. */
-  membershipType: BungieMembershipType;
-};
+import { GetGroupsForMemberResponse } from '../../models/GroupsV2/GetGroupsForMemberResponse';
 
 /**
  * Get information about the groups that a given member has joined.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupsForMember}
  */
 export async function getGroupsForMember(
-  params: GetGroupsForMemberParams,
+  params: {
+    /** Filter apply to list of joined groups. */
+    filter: GroupsForMemberFilter;
+    /** Type of group the supplied member founded. */
+    groupType: GroupType;
+    /** Membership ID to for which to find founded groups. */
+    membershipId: string;
+    /** Membership type of the supplied membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GetGroupsForMemberResponse>> {
-  return client.fetch<GetGroupsForMemberResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/User/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/User/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

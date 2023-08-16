@@ -16,6 +16,7 @@ import { DestinyPlayer } from './DestinyPlayer';
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyLeaderboardEntry} */
+
 export interface DestinyLeaderboardEntry {
   /** Where this player ranks on the leaderboard. A value of 1 is the top rank. */
   readonly rank: number;

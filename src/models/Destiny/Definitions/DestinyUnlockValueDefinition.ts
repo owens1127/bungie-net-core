@@ -20,6 +20,7 @@
  * storage of variable numeric values.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyUnlockValueDefinition}
  */
+
 export interface DestinyUnlockValueDefinition {
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of

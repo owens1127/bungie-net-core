@@ -12,10 +12,11 @@
  */
 //
 
-import { DestinyRecordState } from '../../DestinyRecordState';
+import { DestinyRecordState } from '../../../../enums/Destiny/DestinyRecordState';
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyRecordComponent} */
+
 export interface DestinyRecordComponent {
   /**
    * This enum represents a set of flags - use bitwise operators to check which of

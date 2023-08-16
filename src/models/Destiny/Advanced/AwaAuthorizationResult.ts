@@ -12,12 +12,13 @@
  */
 //
 
-import { AwaUserSelection } from './AwaUserSelection';
-import { AwaResponseReason } from './AwaResponseReason';
-import { AwaType } from './AwaType';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { AwaUserSelection } from '../../../enums/Destiny/Advanced/AwaUserSelection';
+import { AwaResponseReason } from '../../../enums/Destiny/Advanced/AwaResponseReason';
+import { AwaType } from '../../../enums/Destiny/Advanced/AwaType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaAuthorizationResult} */
+
 export interface AwaAuthorizationResult {
   /**
    * Indication of how the user responded to the request. If the value is "Approved"

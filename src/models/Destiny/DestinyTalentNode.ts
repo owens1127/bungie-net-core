@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyTalentNodeState } from './DestinyTalentNodeState';
+import { DestinyTalentNodeState } from '../../enums/Destiny/DestinyTalentNodeState';
 import { DestinyMaterialRequirement } from './Definitions/DestinyMaterialRequirement';
 import { DestinyTalentNodeStatBlock } from './DestinyTalentNodeStatBlock';
 
@@ -38,6 +38,7 @@ import { DestinyTalentNodeStatBlock } from './DestinyTalentNodeStatBlock';
  * based on talent grid data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyTalentNode}
  */
+
 export interface DestinyTalentNode {
   /**
    * The index of the Talent Node being referred to (an index into

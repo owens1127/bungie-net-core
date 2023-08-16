@@ -16,6 +16,7 @@
  * Localized text relevant to a given EMail setting in a given localization.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EMailSettingLocalization}
  */
+
 export interface EMailSettingLocalization {
   readonly title: string;
   readonly description: string;

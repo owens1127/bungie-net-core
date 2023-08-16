@@ -21,6 +21,7 @@
  * item's category.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinyPlugWhitelistEntryDefinition}
  */
+
 export interface DestinyPlugWhitelistEntryDefinition {
   /**
    * The hash identifier of the Plug Category to compare against the plug item's plug.

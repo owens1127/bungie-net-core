@@ -20,6 +20,7 @@
  * actually relevant at the moment, given the user's current state.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneVendorDefinition}
  */
+
 export interface DestinyMilestoneVendorDefinition {
   /**
    * The hash of the vendor whose wares should be shown as associated with the

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Common.Models.CoreSystem} */
+
 export interface CoreSystem {
   readonly enabled: boolean;
   readonly parameters: { [key: string]: string };

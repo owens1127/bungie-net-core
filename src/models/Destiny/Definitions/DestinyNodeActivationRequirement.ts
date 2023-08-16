@@ -20,6 +20,7 @@
  * can be activated.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyNodeActivationRequirement}
  */
+
 export interface DestinyNodeActivationRequirement {
   /**
    * The Progression level on the Talent Grid required to activate this node.

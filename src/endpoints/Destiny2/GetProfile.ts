@@ -12,38 +12,35 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyProfileResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetProfile} */
-export type GetProfileParams<T extends DestinyComponentType[]> = {
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-  /** Destiny membership ID. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyProfileResponse } from '../../models/Destiny/Responses/DestinyProfileResponse';
 
 /**
  * Returns Destiny Profile information for the supplied membership.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetProfile}
  */
-export async function getProfile<T extends DestinyComponentType[]>(
-  params: GetProfileParams<T>,
+export async function getProfile<T extends readonly DestinyComponentType[]>(
+  params: {
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+    /** Destiny membership ID. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyProfileResponse<T>>> {
-  return client.fetch<DestinyProfileResponse<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/`,
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/`
+  );
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

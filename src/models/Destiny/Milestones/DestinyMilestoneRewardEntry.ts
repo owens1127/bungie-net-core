@@ -17,6 +17,7 @@
  * DestinyMilestoneDefinition for more information about Reward Entries.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneRewardEntry}
  */
+
 export interface DestinyMilestoneRewardEntry {
   /**
    * The identifier for the reward entry in question. It is important to look up the

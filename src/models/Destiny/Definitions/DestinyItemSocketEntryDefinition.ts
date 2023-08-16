@@ -13,13 +13,14 @@
 //
 
 import { DestinyItemSocketEntryPlugItemDefinition } from './DestinyItemSocketEntryPlugItemDefinition';
-import { SocketPlugSources } from '../SocketPlugSources';
+import { SocketPlugSources } from '../../../enums/Destiny/SocketPlugSources';
 
 /**
  * The definition information for a specific socket on an item. This will determine
  * how the socket behaves in-game.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketEntryDefinition}
  */
+
 export interface DestinyItemSocketEntryDefinition {
   /**
    * All sockets have a type, and this is the hash identifier for this particular

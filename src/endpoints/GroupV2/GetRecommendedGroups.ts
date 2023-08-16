@@ -12,18 +12,10 @@
  */
 //
 
+import { GroupDateRange } from '../../enums/GroupsV2/GroupDateRange';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupDateRange } from '../../models';
-import { GroupType } from '../../models';
-import { GroupV2Card } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups} */
-export type GetRecommendedGroupsParams = {
-  /** Requested range in which to pull recommended groups */
-  createDateRange: GroupDateRange;
-  /** Type of groups requested */
-  groupType: GroupType;
-};
 
 /**
  * Gets groups recommended for you based on the groups to whom those you follow
@@ -31,11 +23,17 @@ export type GetRecommendedGroupsParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetRecommendedGroups}
  */
 export async function getRecommendedGroups(
-  params: GetRecommendedGroupsParams,
+  params: {
+    /** Requested range in which to pull recommended groups */
+    createDateRange: GroupDateRange;
+    /** Type of groups requested */
+    groupType: GroupType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<GroupV2Card[]>> {
-  return client.fetch<GroupV2Card[]>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/Recommended/${params.groupType}/${params.createDateRange}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/Recommended/${params.groupType}/${params.createDateRange}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

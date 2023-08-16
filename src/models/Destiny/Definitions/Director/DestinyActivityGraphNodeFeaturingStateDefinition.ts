@@ -12,7 +12,7 @@
  */
 //
 
-import { ActivityGraphNodeHighlightType } from '../../ActivityGraphNodeHighlightType';
+import { ActivityGraphNodeHighlightType } from '../../../../enums/Destiny/ActivityGraphNodeHighlightType';
 
 /**
  * Nodes can have different visual states. This object represents a single visual
@@ -20,6 +20,7 @@ import { ActivityGraphNodeHighlightType } from '../../ActivityGraphNodeHighlight
  * condition to determine whether it should be set.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeFeaturingStateDefinition}
  */
+
 export interface DestinyActivityGraphNodeFeaturingStateDefinition {
   /**
    * The node can be highlighted in a variety of ways - the game iterates through

@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyGender } from '../../DestinyGender';
+import { DestinyGender } from '../../../../enums/Destiny/DestinyGender';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordTitleBlock} */
+
 export interface DestinyRecordTitleBlock {
   readonly hasTitle: boolean;
   readonly titlesByGender: { [key in DestinyGender]: string };

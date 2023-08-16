@@ -22,6 +22,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * it's not necessarily us.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneValueDefinition}
  */
+
 export interface DestinyMilestoneValueDefinition {
   readonly key: string;
   readonly displayProperties: DestinyDisplayPropertiesDefinition;

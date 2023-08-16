@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.TwitchDropHistoryResponse} */
+
 export interface TwitchDropHistoryResponse {
   readonly Title: string;
   readonly Description: string;

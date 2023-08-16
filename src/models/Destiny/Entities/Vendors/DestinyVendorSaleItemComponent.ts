@@ -12,9 +12,9 @@
  */
 //
 
-import { VendorItemStatus } from '../../VendorItemStatus';
+import { VendorItemStatus } from '../../../../enums/Destiny/VendorItemStatus';
 import { DestinyUnlockStatus } from '../../DestinyUnlockStatus';
-import { DestinyVendorItemState } from '../../DestinyVendorItemState';
+import { DestinyVendorItemState } from '../../../../enums/Destiny/DestinyVendorItemState';
 import { DestinyItemQuantity } from '../../DestinyItemQuantity';
 
 /**
@@ -27,6 +27,7 @@ import { DestinyItemQuantity } from '../../DestinyItemQuantity';
  * acquire them from the DestinyVendorResponse's "items" property.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Vendors.DestinyVendorSaleItemComponent}
  */
+
 export interface DestinyVendorSaleItemComponent {
   /**
    * A flag indicating whether the requesting character can buy the item, and if not

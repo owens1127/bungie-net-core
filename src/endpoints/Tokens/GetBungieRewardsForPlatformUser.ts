@@ -12,20 +12,9 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { BungieRewardDisplay } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser} */
-export type GetBungieRewardsForPlatformUserParams = {
-  /**
-   * users platform membershipId for requested user rewards. If not self, elevated
-   * permissions are required.
-   */
-  membershipId: string;
-  /** The target Destiny 2 membership type. */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * Returns the bungie rewards for the targeted user when a platform membership Id
@@ -33,11 +22,20 @@ export type GetBungieRewardsForPlatformUserParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsForPlatformUser}
  */
 export async function getBungieRewardsForPlatformUser(
-  params: GetBungieRewardsForPlatformUserParams,
+  params: {
+    /**
+     * users platform membershipId for requested user rewards. If not self, elevated
+     * permissions are required.
+     */
+    membershipId: string;
+    /** The target Destiny 2 membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  return client.fetch<{ [key: string]: BungieRewardDisplay }>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForPlatformUser/${params.membershipId}/${params.membershipType}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForPlatformUser/${params.membershipId}/${params.membershipType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

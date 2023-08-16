@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrder';
+import { VendorDisplayCategorySortOrder } from '../../../enums/Destiny/VendorDisplayCategorySortOrder';
 
 /**
  * Display Categories are different from "categories" in that these are
@@ -23,6 +23,7 @@ import { VendorDisplayCategorySortOrder } from '../VendorDisplayCategorySortOrde
  * often will be no meaningful relationship between the two.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDisplayCategoryDefinition}
  */
+
 export interface DestinyDisplayCategoryDefinition {
   readonly index: number;
   /** A string identifier for the display category. */

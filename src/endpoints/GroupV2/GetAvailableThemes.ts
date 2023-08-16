@@ -14,16 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupTheme } from '../../models';
+
 /**
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}
  */
 export async function getAvailableThemes(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<GroupTheme[]>> {
-  return client.fetch<GroupTheme[]>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/GroupV2/GetAvailableThemes/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

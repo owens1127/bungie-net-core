@@ -18,6 +18,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * An individual Destiny Entity returned from the entity search.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyEntitySearchResultItem}
  */
+
 export interface DestinyEntitySearchResultItem {
   /**
    * The hash identifier of the entity. You will use this to look up the

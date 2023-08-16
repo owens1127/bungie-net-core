@@ -16,6 +16,7 @@ import { GroupUserInfoCard } from '../GroupsV2/GroupUserInfoCard';
 import { GeneralUser } from './GeneralUser';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserMembershipData} */
+
 export interface UserMembershipData {
   /**
    * this allows you to see destiny memberships that are visible and linked to this

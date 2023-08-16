@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.ClanBanner} */
+
 export interface ClanBanner {
   readonly decalId: number;
   readonly decalColorId: number;

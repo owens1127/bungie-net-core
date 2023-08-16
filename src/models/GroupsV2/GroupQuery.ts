@@ -12,9 +12,9 @@
  */
 //
 
-import { GroupType } from './GroupType';
-import { GroupDateRange } from './GroupDateRange';
-import { GroupSortBy } from './GroupSortBy';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { GroupDateRange } from '../../enums/GroupsV2/GroupDateRange';
+import { GroupSortBy } from '../../enums/GroupsV2/GroupSortBy';
 
 /**
  * NOTE: GroupQuery, as of Destiny 2, has essentially two totally different and
@@ -31,6 +31,7 @@ import { GroupSortBy } from './GroupSortBy';
  * If you pass these, you will get a useless InvalidParameters error.
  * @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupQuery}
  */
+
 export interface GroupQuery {
   readonly name: string;
   readonly groupType: GroupType;

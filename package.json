@@ -48,7 +48,6 @@
     "@babel/preset-typescript": "^7.21.4",
     "@babel/runtime": "^7.21.0",
     "@jest/globals": "^29.4.3",
-    "@types/isomorphic-fetch": "^0.0.36",
     "@types/jest": "^29.4.0",
     "@types/mkdirp": "1.0.0",
     "@types/node": "^16.11.9",
@@ -80,8 +79,5 @@
       "**/**.test.ts"
     ],
     "globalSetup": "<rootDir>/__test__/global-setup.ts"
-  },
-  "dependencies": {
-    "isomorphic-fetch": "^3.0.0"
   }
 }

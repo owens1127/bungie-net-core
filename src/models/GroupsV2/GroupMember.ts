@@ -12,11 +12,12 @@
  */
 //
 
-import { RuntimeGroupMemberType } from './RuntimeGroupMemberType';
+import { RuntimeGroupMemberType } from '../../enums/GroupsV2/RuntimeGroupMemberType';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupMember} */
+
 export interface GroupMember {
   readonly memberType: RuntimeGroupMemberType;
   readonly isOnline: boolean;

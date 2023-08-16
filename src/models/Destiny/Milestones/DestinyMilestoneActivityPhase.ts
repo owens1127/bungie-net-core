@@ -19,6 +19,7 @@
  * making it more than just a list of booleans out of that overly-optimistic hope.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityPhase}
  */
+
 export interface DestinyMilestoneActivityPhase {
   /** Indicates if the phase has been completed. */
   readonly complete: boolean;

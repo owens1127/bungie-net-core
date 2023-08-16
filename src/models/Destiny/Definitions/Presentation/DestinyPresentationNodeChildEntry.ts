@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeChildEntry} */
+
 export interface DestinyPresentationNodeChildEntry {
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly presentationNodeHash: number;

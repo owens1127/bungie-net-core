@@ -12,13 +12,14 @@
  */
 //
 
-import { DestinyItemSortType } from '../DestinyItemSortType';
+import { DestinyItemSortType } from '../../../enums/Destiny/DestinyItemSortType';
 
 /**
  * Information about a single inventory bucket in a vendor flyout UI and how it is
  * shown.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInventoryFlyoutBucketDefinition}
  */
+
 export interface DestinyVendorInventoryFlyoutBucketDefinition {
   /** If true, the inventory bucket should be able to be collapsed visually. */
   readonly collapsible: boolean;

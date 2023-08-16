@@ -15,22 +15,20 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles} */
-export type SearchHelpArticlesParams = {
-  searchtext: string;
-  size: string;
-};
-
 /**
  * Search for Help Articles.
  * @see {@link https://bungie-net.github.io/#Content.SearchHelpArticles}
  */
 export async function searchHelpArticles(
-  params: SearchHelpArticlesParams,
+  params: {
+    searchtext: string;
+    size: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<object>> {
-  return client.fetch<object>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/SearchHelpArticles/${params.searchtext}/${params.size}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/SearchHelpArticles/${params.searchtext}/${params.size}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyPlugItemCraftingUnlockRequirement} */
+
 export interface DestinyPlugItemCraftingUnlockRequirement {
   readonly failureDescription: string;
 }

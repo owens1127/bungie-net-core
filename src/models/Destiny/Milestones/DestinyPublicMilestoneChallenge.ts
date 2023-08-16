@@ -17,6 +17,7 @@
  * provide a fun way to mix-up play and provide extra rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneChallenge}
  */
+
 export interface DestinyPublicMilestoneChallenge {
   /**
    * The objective for the Challenge, which should have human-readable data about

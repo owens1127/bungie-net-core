@@ -16,6 +16,7 @@ import { DestinyHistoricalStatsWithMerged } from './DestinyHistoricalStatsWithMe
 import { DestinyHistoricalStatsPerCharacter } from './DestinyHistoricalStatsPerCharacter';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsAccountResult} */
+
 export interface DestinyHistoricalStatsAccountResult {
   readonly mergedDeletedCharacters: DestinyHistoricalStatsWithMerged;
   readonly mergedAllCharacters: DestinyHistoricalStatsWithMerged;

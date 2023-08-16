@@ -20,6 +20,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * bubbleSettings for more information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyBubbleDefinition}
  */
+
 export interface DestinyBubbleDefinition {
   /**
    * The identifier for the bubble: only guaranteed to be unique within the

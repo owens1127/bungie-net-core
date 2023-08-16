@@ -12,11 +12,11 @@
  */
 //
 
-import { DestinyTalentNodeStepWeaponPerformances } from './DestinyTalentNodeStepWeaponPerformances';
-import { DestinyTalentNodeStepImpactEffects } from './DestinyTalentNodeStepImpactEffects';
-import { DestinyTalentNodeStepGuardianAttributes } from './DestinyTalentNodeStepGuardianAttributes';
-import { DestinyTalentNodeStepLightAbilities } from './DestinyTalentNodeStepLightAbilities';
-import { DestinyTalentNodeStepDamageTypes } from './DestinyTalentNodeStepDamageTypes';
+import { DestinyTalentNodeStepWeaponPerformances } from '../../../enums/Destiny/Definitions/DestinyTalentNodeStepWeaponPerformances';
+import { DestinyTalentNodeStepImpactEffects } from '../../../enums/Destiny/Definitions/DestinyTalentNodeStepImpactEffects';
+import { DestinyTalentNodeStepGuardianAttributes } from '../../../enums/Destiny/Definitions/DestinyTalentNodeStepGuardianAttributes';
+import { DestinyTalentNodeStepLightAbilities } from '../../../enums/Destiny/Definitions/DestinyTalentNodeStepLightAbilities';
+import { DestinyTalentNodeStepDamageTypes } from '../../../enums/Destiny/Definitions/DestinyTalentNodeStepDamageTypes';
 
 /**
  * These properties are an attempt to categorize talent node steps by certain
@@ -24,6 +24,7 @@ import { DestinyTalentNodeStepDamageTypes } from './DestinyTalentNodeStepDamageT
  * categorized.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeStepGroups}
  */
+
 export interface DestinyTalentNodeStepGroups {
   /**
    * This enum represents a set of flags - use bitwise operators to check which of

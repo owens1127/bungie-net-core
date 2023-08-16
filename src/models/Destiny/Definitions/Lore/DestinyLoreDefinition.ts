@@ -23,6 +23,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * with them. If they end up having cool data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Lore.DestinyLoreDefinition}
  */
+
 export interface DestinyLoreDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly subtitle: string;

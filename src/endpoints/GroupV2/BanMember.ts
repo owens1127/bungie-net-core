@@ -12,19 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { GroupBanRequest } from '../../models/GroupsV2/GroupBanRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { GroupBanRequest } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.BanMember} */
-export type BanMemberParams = {
-  /** Group ID that has the member to ban. */
-  groupId: string;
-  /** Membership ID of the member to ban from the group. */
-  membershipId: string;
-  /** Membership type of the provided membership ID. */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * Bans the requested member from the requested group for the specified period of
@@ -32,13 +23,25 @@ export type BanMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.BanMember}
  */
 export async function banMember(
-  params: BanMemberParams,
+  params: {
+    /** Group ID that has the member to ban. */
+    groupId: string;
+    /** Membership ID of the member to ban from the group. */
+    membershipId: string;
+    /** Membership type of the provided membership ID. */
+    membershipType: BungieMembershipType;
+  },
   body: GroupBanRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Ban/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Ban/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Common.Models.CoreSetting} */
+
 export interface CoreSetting {
   readonly identifier: string;
   readonly isDefault: boolean;

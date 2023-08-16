@@ -13,7 +13,7 @@
 //
 
 import { DestinyActivity } from '../../DestinyActivity';
-import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
 
 /**
  * This component holds activity data for a character. It will tell you about the
@@ -21,6 +21,7 @@ import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/Desti
  * the user.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Characters.DestinyCharacterActivitiesComponent}
  */
+
 export interface DestinyCharacterActivitiesComponent {
   /** The last date that the user started playing an activity. */
   readonly dateActivityStarted: string;

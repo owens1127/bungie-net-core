@@ -16,6 +16,7 @@ import { DestinyCollectibleDefinition } from '../Destiny/Definitions/Collectible
 import { DestinyInventoryItemDefinition } from '../Destiny/Definitions/DestinyInventoryItemDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.CollectibleDefinitions} */
+
 export interface CollectibleDefinitions {
   readonly CollectibleDefinition: DestinyCollectibleDefinition;
   readonly DestinyInventoryItemDefinition: DestinyInventoryItemDefinition;

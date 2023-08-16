@@ -22,6 +22,7 @@ import { DestinyMilestoneActivityDefinition } from './DestinyMilestoneActivityDe
  * regret it.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneQuestDefinition}
  */
+
 export interface DestinyMilestoneQuestDefinition {
   /**
    * The item representing this Milestone quest. Use this hash to look up the

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupOptionalConversationEditRequest} */
+
 export interface GroupOptionalConversationEditRequest {
   readonly chatEnabled?: boolean;
   readonly chatName: string;

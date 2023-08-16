@@ -12,40 +12,37 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyCharacterResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter} */
-export type GetCharacterParams<T extends DestinyComponentType[]> = {
-  /** ID of the character. */
-  characterId: string;
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-  /** Destiny membership ID. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyCharacterResponse } from '../../models/Destiny/Responses/DestinyCharacterResponse';
 
 /**
  * Returns character information for the supplied character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetCharacter}
  */
-export async function getCharacter<T extends DestinyComponentType[]>(
-  params: GetCharacterParams<T>,
+export async function getCharacter<T extends readonly DestinyComponentType[]>(
+  params: {
+    /** ID of the character. */
+    characterId: string;
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+    /** Destiny membership ID. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyCharacterResponse<T>>> {
-  return client.fetch<DestinyCharacterResponse<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/`,
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/`
+  );
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

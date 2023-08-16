@@ -13,8 +13,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyRace } from '../DestinyRace';
-import { DestinyGender } from '../DestinyGender';
+import { DestinyRace } from '../../../enums/Destiny/DestinyRace';
+import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
 
 /**
  * In Destiny, "Races" are really more like "Species". Sort of. I mean, are the
@@ -23,6 +23,7 @@ import { DestinyGender } from '../DestinyGender';
  * Players will choose one for their character.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyRaceDefinition}
  */
+
 export interface DestinyRaceDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

@@ -12,9 +12,9 @@
  */
 //
 
-import { DamageType } from '../../DamageType';
+import { DamageType } from '../../../../enums/Destiny/DamageType';
 import { DestinyStat } from '../../DestinyStat';
-import { EquipFailureReason } from '../../EquipFailureReason';
+import { EquipFailureReason } from '../../../../enums/Destiny/EquipFailureReason';
 import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy';
 
 /**
@@ -33,6 +33,7 @@ import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy';
  * isInstanceItem property.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceComponent}
  */
+
 export interface DestinyItemInstanceComponent {
   /** If the item has a damage type, this is the item's current damage type. */
   readonly damageType: DamageType;

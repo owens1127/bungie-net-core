@@ -14,22 +14,21 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ContentTypeDescription } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.GetContentType} */
-export type GetContentTypeParams = {
-  type: string;
-};
+import { ContentTypeDescription } from '../../models/Content/Models/ContentTypeDescription';
 
 /**
  * Gets an object describing a particular variant of content.
  * @see {@link https://bungie-net.github.io/#Content.GetContentType}
  */
 export async function getContentType(
-  params: GetContentTypeParams,
+  params: {
+    type: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentTypeDescription>> {
-  return client.fetch<ContentTypeDescription>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/GetContentType/${params.type}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

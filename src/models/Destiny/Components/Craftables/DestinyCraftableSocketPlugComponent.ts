@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Craftables.DestinyCraftableSocketPlugComponent} */
+
 export interface DestinyCraftableSocketPlugComponent {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly plugItemHash: number;

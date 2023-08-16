@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.SchemaRecordStateBlock} */
+
 export interface SchemaRecordStateBlock {
   readonly featuredPriority: number;
   readonly obscuredString: string;

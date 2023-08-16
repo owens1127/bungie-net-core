@@ -20,6 +20,7 @@ import { DestinyItemSocketCategoryDefinition } from './DestinyItemSocketCategory
  * If defined, the item has at least one socket.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketBlockDefinition}
  */
+
 export interface DestinyItemSocketBlockDefinition {
   /**
    * This was supposed to be a string that would give per-item details about sockets.

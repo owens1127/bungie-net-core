@@ -13,8 +13,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyStatAggregationType } from '../DestinyStatAggregationType';
-import { DestinyStatCategory } from '../DestinyStatCategory';
+import { DestinyStatAggregationType } from '../../../enums/Destiny/DestinyStatAggregationType';
+import { DestinyStatCategory } from '../../../enums/Destiny/DestinyStatCategory';
 
 /**
  * This represents a stat that's applied to a character or an item (such as a
@@ -71,6 +71,7 @@ import { DestinyStatCategory } from '../DestinyStatCategory';
  * is then piped back to the UI for display in-game, but not to BNet.)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyStatDefinition}
  */
+
 export interface DestinyStatDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

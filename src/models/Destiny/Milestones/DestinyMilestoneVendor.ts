@@ -17,6 +17,7 @@
  * contain information about that vendor that you can choose to show.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneVendor}
  */
+
 export interface DestinyMilestoneVendor {
   /**
    * The hash identifier of the Vendor related to this Milestone. You can show useful

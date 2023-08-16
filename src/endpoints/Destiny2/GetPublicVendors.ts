@@ -12,19 +12,10 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { DestinyPublicVendorsResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors} */
-export type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-};
+import { DestinyPublicVendorsResponse } from '../../models/Destiny/Responses/DestinyPublicVendorsResponse';
 
 /**
  * Get items available from vendors where the vendors have items for sale that are
@@ -34,15 +25,21 @@ export type GetPublicVendorsParams<T extends DestinyComponentType[]> = {
  * guilty of saying: 'It's a long story...'
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicVendors}
  */
-export async function getPublicVendors<T extends DestinyComponentType[]>(
-  params: GetPublicVendorsParams<T>,
+export async function getPublicVendors<
+  T extends readonly DestinyComponentType[]
+>(
+  params: {
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyPublicVendorsResponse<T>>> {
-  return client.fetch<DestinyPublicVendorsResponse<T>>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Destiny2/Vendors/',
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

@@ -18,6 +18,7 @@
  * gearset completion (a very rare use for unlock expressions!)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemGearsetBlockDefinition}
  */
+
 export interface DestinyItemGearsetBlockDefinition {
   /** The maximum possible number of items that can be collected. */
   readonly trackingValueMax: number;

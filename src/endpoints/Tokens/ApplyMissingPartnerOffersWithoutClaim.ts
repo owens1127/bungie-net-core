@@ -15,28 +15,26 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim} */
-export type ApplyMissingPartnerOffersWithoutClaimParams = {
-  /** The partner application identifier. */
-  partnerApplicationId: number;
-  /**
-   * The bungie.net user to apply missing offers to. If not self, elevated
-   * permissions are required.
-   */
-  targetBnetMembershipId: string;
-};
-
 /**
  * Apply a partner offer to the targeted user. This endpoint does not claim a new
  * offer, but any already claimed offers will be applied to the game if not already.
  * @see {@link https://bungie-net.github.io/#Tokens.ApplyMissingPartnerOffersWithoutClaim}
  */
 export async function applyMissingPartnerOffersWithoutClaim(
-  params: ApplyMissingPartnerOffersWithoutClaimParams,
+  params: {
+    /** The partner application identifier. */
+    partnerApplicationId: number;
+    /**
+     * The bungie.net user to apply missing offers to. If not self, elevated
+     * permissions are required.
+     */
+    targetBnetMembershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/Tokens/Partner/ApplyMissingOffers/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Partner/ApplyMissingOffers/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

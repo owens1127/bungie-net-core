@@ -15,6 +15,7 @@
 import { DestinyCollectibleComponent } from './DestinyCollectibleComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Collectibles.DestinyProfileCollectiblesComponent} */
+
 export interface DestinyProfileCollectiblesComponent {
   /**
    * The list of collectibles determined by the game as having been "recently"

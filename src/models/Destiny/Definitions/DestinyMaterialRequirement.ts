@@ -22,6 +22,7 @@
  * response contracts. I'm not sure yet whether I regret that.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyMaterialRequirement}
  */
+
 export interface DestinyMaterialRequirement {
   /**
    * The hash identifier of the material required. Use it to look up the material's

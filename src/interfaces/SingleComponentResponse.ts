@@ -1,4 +1,8 @@
-import { ComponentData, ComponentResponse } from './ComponentTypes';
+import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
+import { ResponseComponent } from './ResponseComponent';
 
-export interface SingleComponentResponse<C extends ComponentData>
-  extends ComponentResponse<C> {}
+export type SingleComponentResponse<
+  D,
+  T extends readonly DestinyComponentType[],
+  C extends DestinyComponentType
+> = ResponseComponent<T, C, D>;

@@ -16,6 +16,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
 import { DestinyGuardianRankIconBackgroundsDefinition } from './DestinyGuardianRankIconBackgroundsDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.GuardianRanks.DestinyGuardianRankConstantsDefinition} */
+
 export interface DestinyGuardianRankConstantsDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly rankCount: number;

@@ -15,7 +15,7 @@
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 import { DestinyInsertPlugActionDefinition } from './DestinyInsertPlugActionDefinition';
 import { DestinyPlugWhitelistEntryDefinition } from './DestinyPlugWhitelistEntryDefinition';
-import { DestinySocketVisibility } from '../../DestinySocketVisibility';
+import { DestinySocketVisibility } from '../../../../enums/Destiny/DestinySocketVisibility';
 import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocketTypeScalarMaterialRequirementEntry';
 
 /**
@@ -28,6 +28,7 @@ import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocket
  * Plugs.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinySocketTypeDefinition}
  */
+
 export interface DestinySocketTypeDefinition {
   /**
    * There are fields for this display data, but they appear to be unpopulated as of

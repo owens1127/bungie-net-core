@@ -28,6 +28,7 @@ import { InterpolationPointFloat } from '../../../Interpolation/InterpolationPoi
  * that interpolation will be the required level for the item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Progression.DestinyProgressionLevelRequirementDefinition}
  */
+
 export interface DestinyProgressionLevelRequirementDefinition {
   /**
    * A curve of level requirements, weighted by the related progressions' level.

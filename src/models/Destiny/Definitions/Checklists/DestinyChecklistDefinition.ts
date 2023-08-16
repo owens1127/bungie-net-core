@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../DestinyScope';
+import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
 import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefinition';
 
 /**
@@ -38,6 +38,7 @@ import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefiniti
  * the release of D2: Forsaken.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Checklists.DestinyChecklistDefinition}
  */
+
 export interface DestinyChecklistDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** A localized string prompting you to view the checklist. */

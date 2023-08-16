@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyManifest } from '../../models';
+import { DestinyManifest } from '../../models/Destiny/Config/DestinyManifest';
+
 /**
  * Returns the current version of the manifest as a json object.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyManifest}
@@ -22,8 +23,7 @@ import { DestinyManifest } from '../../models';
 export async function getDestinyManifest(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyManifest>> {
-  return client.fetch<DestinyManifest>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Destiny2/Manifest/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

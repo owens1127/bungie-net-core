@@ -16,6 +16,7 @@ import { GroupBan } from './GroupsV2/GroupBan';
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfGroupBan} */
+
 export interface SearchResultOfGroupBan {
   readonly results: GroupBan[];
   readonly totalResults: number;

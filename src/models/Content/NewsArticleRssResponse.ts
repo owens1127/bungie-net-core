@@ -15,6 +15,7 @@
 import { NewsArticleRssItem } from './NewsArticleRssItem';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.NewsArticleRssResponse} */
+
 export interface NewsArticleRssResponse {
   readonly NewsArticles: NewsArticleRssItem[];
   readonly CurrentPaginationToken: number;

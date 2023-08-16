@@ -12,14 +12,22 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyCollectibleNodeDetailResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails} */
-export type GetCollectibleNodeDetailsParams<T extends DestinyComponentType[]> =
-  {
+import { DestinyCollectibleNodeDetailResponse } from '../../models/Destiny/Responses/DestinyCollectibleNodeDetailResponse';
+
+/**
+ * Given a Presentation Node that has Collectibles as direct descendants, this will
+ * return item details about those descendants in the context of the requesting
+ * character.
+ * @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails}
+ */
+export async function getCollectibleNodeDetails<
+  T extends readonly DestinyComponentType[]
+>(
+  params: {
     /**
      * The Destiny Character ID of the character for whom we're getting collectible
      * detail info.
@@ -41,25 +49,13 @@ export type GetCollectibleNodeDetailsParams<T extends DestinyComponentType[]> =
     destinyMembershipId: string;
     /** A valid non-BungieNet membership type. */
     membershipType: BungieMembershipType;
-  };
-
-/**
- * Given a Presentation Node that has Collectibles as direct descendants, this will
- * return item details about those descendants in the context of the requesting
- * character.
- * @see {@link https://bungie-net.github.io/#Destiny2.GetCollectibleNodeDetails}
- */
-export async function getCollectibleNodeDetails<
-  T extends DestinyComponentType[]
->(
-  params: GetCollectibleNodeDetailsParams<T>,
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyCollectibleNodeDetailResponse<T>>> {
-  return client.fetch<DestinyCollectibleNodeDetailResponse<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Collectibles/${params.collectiblePresentationNodeHash}/`,
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Collectibles/${params.collectiblePresentationNodeHash}/`
+  );
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

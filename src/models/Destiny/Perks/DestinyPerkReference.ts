@@ -20,6 +20,7 @@
  * intrinsic to the item or provided in activated talent nodes or sockets.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Perks.DestinyPerkReference}
  */
+
 export interface DestinyPerkReference {
   /**
    * The hash identifier for the perk, which can be used to look up

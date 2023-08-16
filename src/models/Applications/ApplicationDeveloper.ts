@@ -12,10 +12,11 @@
  */
 //
 
-import { DeveloperRole } from './DeveloperRole';
+import { DeveloperRole } from '../../enums/Applications/DeveloperRole';
 import { UserInfoCard } from '../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApplicationDeveloper} */
+
 export interface ApplicationDeveloper {
   readonly role: DeveloperRole;
   readonly apiEulaVersion: number;

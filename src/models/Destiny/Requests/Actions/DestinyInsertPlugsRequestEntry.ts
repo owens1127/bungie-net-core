@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinySocketArrayType } from './DestinySocketArrayType';
+import { DestinySocketArrayType } from '../../../../enums/Destiny/Requests/Actions/DestinySocketArrayType';
 
 /**
  * Represents all of the data related to a single plug to be inserted.
@@ -21,6 +21,7 @@ import { DestinySocketArrayType } from './DestinySocketArrayType';
  * receive an error if you attempt to do so. Come on guys, let's play nice.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyInsertPlugsRequestEntry}
  */
+
 export interface DestinyInsertPlugsRequestEntry {
   /**
    * The index into the socket array, which identifies the specific socket being

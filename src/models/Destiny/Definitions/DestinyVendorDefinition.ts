@@ -13,7 +13,7 @@
 //
 
 import { DestinyVendorDisplayPropertiesDefinition } from './DestinyVendorDisplayPropertiesDefinition';
-import { DestinyVendorProgressionType } from '../DestinyVendorProgressionType';
+import { DestinyVendorProgressionType } from '../../../enums/Destiny/DestinyVendorProgressionType';
 import { DateRange } from '../../Dates/DateRange';
 import { DestinyVendorActionDefinition } from './DestinyVendorActionDefinition';
 import { DestinyVendorCategoryEntryDefinition } from './DestinyVendorCategoryEntryDefinition';
@@ -66,6 +66,7 @@ import { DestinyVendorGroupReference } from './DestinyVendorGroupReference';
  * information from the API when it is available.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorDefinition}
  */
+
 export interface DestinyVendorDefinition {
   readonly displayProperties: DestinyVendorDisplayPropertiesDefinition;
   /**

@@ -15,6 +15,7 @@
 import { DestinyPresentationNodeComponent } from './DestinyPresentationNodeComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodesComponent} */
+
 export interface DestinyPresentationNodesComponent {
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly nodes: { [key: number]: DestinyPresentationNodeComponent };

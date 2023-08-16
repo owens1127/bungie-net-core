@@ -23,6 +23,7 @@ import { DestinyPublicMilestoneActivityVariant } from './DestinyPublicMilestoneA
  * meet up in person.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneActivity}
  */
+
 export interface DestinyPublicMilestoneActivity {
   /**
    * The hash identifier of the activity that's been chosen to be considered the

@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyGraphNodeState } from '../../DestinyGraphNodeState';
+import { DestinyGraphNodeState } from '../../../../enums/Destiny/DestinyGraphNodeState';
 
 /**
  * Represents a single state that a graph node might end up in. Depending on what's
@@ -20,6 +20,7 @@ import { DestinyGraphNodeState } from '../../DestinyGraphNodeState';
  * excluded from view entirely.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeStateEntry}
  */
+
 export interface DestinyActivityGraphNodeStateEntry {
   readonly state: DestinyGraphNodeState;
 }

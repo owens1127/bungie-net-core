@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.RewardDisplayProperties} */
+
 export interface RewardDisplayProperties {
   readonly Name: string;
   readonly Description: string;

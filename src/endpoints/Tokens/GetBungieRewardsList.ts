@@ -14,16 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieRewardDisplay } from '../../models';
+
 /**
  * Returns a list of the current bungie rewards
  * @see {@link https://bungie-net.github.io/#Tokens.GetBungieRewardsList}
  */
 export async function getBungieRewardsList(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  return client.fetch<{ [key: string]: BungieRewardDisplay }>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Tokens/Rewards/BungieRewards/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyItemTransferRequest } from '../../models/Destiny/Requests/DestinyItemTransferRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyItemTransferRequest } from '../../models';
+
 /**
  * Transfer an item to/from your vault. You must have a valid Destiny account. You
  * must also pass BOTH a reference AND an instance ID if it's an instanced item.
@@ -26,10 +27,13 @@ import { DestinyItemTransferRequest } from '../../models';
 export async function transferItem(
   body: DestinyItemTransferRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/TransferItem/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

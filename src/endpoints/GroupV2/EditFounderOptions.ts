@@ -12,14 +12,9 @@
  */
 //
 
+import { GroupOptionsEditAction } from '../../models/GroupsV2/GroupOptionsEditAction';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupOptionsEditAction } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions} */
-export type EditFounderOptionsParams = {
-  /** Group ID of the group to edit. */
-  groupId: string;
-};
 
 /**
  * Edit group options only available to a founder. You must have suitable
@@ -27,13 +22,21 @@ export type EditFounderOptionsParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditFounderOptions}
  */
 export async function editFounderOptions(
-  params: EditFounderOptionsParams,
+  params: {
+    /** Group ID of the group to edit. */
+    groupId: string;
+  },
   body: GroupOptionsEditAction,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditFounderOptions/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditFounderOptions/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

@@ -17,6 +17,7 @@
  * images
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonPreviewImageDefinition}
  */
+
 export interface DestinySeasonPreviewImageDefinition {
   /** A thumbnail icon path to preview seasonal content, probably 480x270. */
   readonly thumbnailImage: string;

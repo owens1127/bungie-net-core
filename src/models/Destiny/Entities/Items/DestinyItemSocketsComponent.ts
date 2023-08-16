@@ -23,6 +23,7 @@ import { DestinyItemSocketState } from './DestinyItemSocketState';
  * for more details.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemSocketsComponent}
  */
+
 export interface DestinyItemSocketsComponent {
   /** The list of all sockets on the item, and their status information. */
   readonly sockets: DestinyItemSocketState[];

@@ -14,7 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ForumRecruitmentDetail } from '../../models';
+
 /**
  * Allows the caller to get a list of to 25 recruitment thread summary information
  * objects.
@@ -23,10 +23,13 @@ import { ForumRecruitmentDetail } from '../../models';
 export async function getRecruitmentThreadSummaries(
   body: string[],
   client: BungieClientProtocol
-): Promise<BungieNetResponse<ForumRecruitmentDetail[]>> {
-  return client.fetch<ForumRecruitmentDetail[]>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Forum/Recruit/Summaries/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

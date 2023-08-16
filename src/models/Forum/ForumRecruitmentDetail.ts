@@ -12,11 +12,12 @@
  */
 //
 
-import { ForumRecruitmentIntensityLabel } from './ForumRecruitmentIntensityLabel';
-import { ForumRecruitmentToneLabel } from './ForumRecruitmentToneLabel';
+import { ForumRecruitmentIntensityLabel } from '../../enums/Forum/ForumRecruitmentIntensityLabel';
+import { ForumRecruitmentToneLabel } from '../../enums/Forum/ForumRecruitmentToneLabel';
 import { GeneralUser } from '../User/GeneralUser';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumRecruitmentDetail} */
+
 export interface ForumRecruitmentDetail {
   readonly topicId: string;
   readonly microphoneRequired: boolean;

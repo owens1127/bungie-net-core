@@ -16,6 +16,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
 import { DestinyColor } from '../../Misc/DestinyColor';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Social.DestinySocialCommendationDefinition} */
+
 export interface DestinySocialCommendationDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly cardImagePath: string;

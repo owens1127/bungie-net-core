@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DamageType } from '../DamageType';
+import { DamageType } from '../../../enums/Destiny/DamageType';
 import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups';
 
 /**
@@ -37,6 +37,7 @@ import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups';
  * unknown and undocumented.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinySandboxPerkDefinition}
  */
+
 export interface DestinySandboxPerkDefinition {
   /**
    * These display properties are by no means guaranteed to be populated. Usually

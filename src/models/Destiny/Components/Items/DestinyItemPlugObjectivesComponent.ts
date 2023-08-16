@@ -15,6 +15,7 @@
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Items.DestinyItemPlugObjectivesComponent} */
+
 export interface DestinyItemPlugObjectivesComponent {
   /**
    * This set of data is keyed by the Item Hash (DestinyInventoryItemDefinition) of

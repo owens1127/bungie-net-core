@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Common.DestinyPositionDefinition} */
+
 export interface DestinyPositionDefinition {
   readonly x: number;
   readonly y: number;

@@ -20,6 +20,7 @@ import { ImagePyramidEntry } from './ImagePyramidEntry';
  * by those calling the Destiny Platform.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Config.DestinyManifest}
  */
+
 export interface DestinyManifest {
   readonly version: string;
   readonly mobileAssetContentPath: string;

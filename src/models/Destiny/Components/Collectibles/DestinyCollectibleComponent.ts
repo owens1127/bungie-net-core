@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyCollectibleState } from '../../DestinyCollectibleState';
+import { DestinyCollectibleState } from '../../../../enums/Destiny/DestinyCollectibleState';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Collectibles.DestinyCollectibleComponent} */
+
 export interface DestinyCollectibleComponent {
   /**
    * This enum represents a set of flags - use bitwise operators to check which of

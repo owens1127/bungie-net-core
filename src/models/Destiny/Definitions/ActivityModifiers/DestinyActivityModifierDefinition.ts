@@ -19,6 +19,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * can be applied to an Activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.ActivityModifiers.DestinyActivityModifierDefinition}
  */
+
 export interface DestinyActivityModifierDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly displayInNavMode: boolean;

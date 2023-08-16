@@ -21,6 +21,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * sometimes have human readable data as well, but only extremely sporadically.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionMappingDefinition}
  */
+
 export interface DestinyProgressionMappingDefinition {
   /**
    * Infrequently defined in practice. Defer to the individual progressions' display

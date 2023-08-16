@@ -17,6 +17,7 @@
  * 255.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Misc.DestinyColor}
  */
+
 export interface DestinyColor {
   readonly red: number;
   readonly green: number;

@@ -12,10 +12,11 @@
  */
 //
 
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyClanAggregateStat} */
+
 export interface DestinyClanAggregateStat {
   /** The id of the mode of stats (allPvp, allPvE, etc) */
   readonly mode: DestinyActivityModeType;

@@ -13,10 +13,10 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyBreakerType } from '../DestinyBreakerType';
-import { DestinyItemType } from '../DestinyItemType';
-import { DestinyItemSubType } from '../DestinyItemSubType';
-import { DestinyClass } from '../DestinyClass';
+import { DestinyBreakerType } from '../../../enums/Destiny/DestinyBreakerType';
+import { DestinyItemType } from '../../../enums/Destiny/DestinyItemType';
+import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
+import { DestinyClass } from '../../../enums/Destiny/DestinyClass';
 
 /**
  * In an attempt to categorize items by type, usage, and other interesting
@@ -34,6 +34,7 @@ import { DestinyClass } from '../DestinyClass';
  * And let us know if you see more categories that you wish would be added!
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemCategoryDefinition}
  */
+
 export interface DestinyItemCategoryDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

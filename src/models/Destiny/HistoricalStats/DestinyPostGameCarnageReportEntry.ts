@@ -17,6 +17,7 @@ import { DestinyPlayer } from './DestinyPlayer';
 import { DestinyPostGameCarnageReportExtendedData } from './DestinyPostGameCarnageReportExtendedData';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportEntry} */
+
 export interface DestinyPostGameCarnageReportEntry {
   /** Standing of the player */
   readonly standing: number;

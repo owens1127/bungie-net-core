@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyLinkedGraphEntryDefinition} */
+
 export interface DestinyLinkedGraphEntryDefinition {
   readonly activityGraphHash: number;
 }

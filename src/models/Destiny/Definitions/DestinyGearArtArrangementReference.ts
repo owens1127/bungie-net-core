@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyGearArtArrangementReference} */
+
 export interface DestinyGearArtArrangementReference {
   /** Mapped to DestinyClassDefinition in the manifest. */
   readonly classHash: number;

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneChallengeActivity} */
+
 export interface DestinyPublicMilestoneChallengeActivity {
   /** Mapped to DestinyActivityDefinition in the manifest. */
   readonly activityHash: number;

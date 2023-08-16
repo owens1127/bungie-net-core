@@ -13,7 +13,7 @@
 //
 
 import { DestinyItemQuantity } from '../DestinyItemQuantity';
-import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy';
+import { DestinyVendorItemRefundPolicy } from '../../../enums/Destiny/DestinyVendorItemRefundPolicy';
 
 /**
  * If a character purchased an item that is refundable, a Vendor Receipt will be
@@ -22,6 +22,7 @@ import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy'
  * provide the ability to refund a purchase *yet*, but you know.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Vendors.DestinyVendorReceipt}
  */
+
 export interface DestinyVendorReceipt {
   /**
    * The amount paid for the item, in terms of items that were consumed in the

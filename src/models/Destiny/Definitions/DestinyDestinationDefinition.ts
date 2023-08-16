@@ -26,6 +26,7 @@ import { DestinyBubbleDefinition } from './DestinyBubbleDefinition';
  * Please, pick a more interesting destination if you come to visit Earth).
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyDestinationDefinition}
  */
+
 export interface DestinyDestinationDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

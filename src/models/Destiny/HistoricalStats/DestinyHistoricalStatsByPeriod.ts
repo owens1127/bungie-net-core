@@ -16,6 +16,7 @@ import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsByPeriod} */
+
 export interface DestinyHistoricalStatsByPeriod {
   readonly allTime: { [key: string]: DestinyHistoricalStatsValue };
   readonly allTimeTier1: { [key: string]: DestinyHistoricalStatsValue };

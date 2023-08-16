@@ -17,6 +17,7 @@
  * custom plug data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorItemSocketOverride}
  */
+
 export interface DestinyVendorItemSocketOverride {
   /**
    * If this is populated, the socket will be overridden with a specific plug.

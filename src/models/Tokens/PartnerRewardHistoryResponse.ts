@@ -16,6 +16,7 @@ import { PartnerOfferSkuHistoryResponse } from './PartnerOfferSkuHistoryResponse
 import { TwitchDropHistoryResponse } from './TwitchDropHistoryResponse';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerRewardHistoryResponse} */
+
 export interface PartnerRewardHistoryResponse {
   readonly PartnerOffers: PartnerOfferSkuHistoryResponse[];
   readonly TwitchDrops: TwitchDropHistoryResponse[];

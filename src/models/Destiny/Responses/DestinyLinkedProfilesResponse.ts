@@ -24,6 +24,7 @@ import { DestinyErrorProfile } from './DestinyErrorProfile';
  * response whose
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyLinkedProfilesResponse}
  */
+
 export interface DestinyLinkedProfilesResponse {
   /**
    * Any Destiny account for whom we could successfully pull characters will be

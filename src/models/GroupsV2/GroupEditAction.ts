@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupEditAction} */
+
 export interface GroupEditAction {
   readonly name: string;
   readonly about: string;

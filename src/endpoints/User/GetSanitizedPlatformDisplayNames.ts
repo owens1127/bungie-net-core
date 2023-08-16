@@ -14,12 +14,6 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieCredentialType } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames} */
-export type GetSanitizedPlatformDisplayNamesParams = {
-  /** The requested membership id to load. */
-  membershipId: string;
-};
 
 /**
  * Gets a list of all display names linked to this membership id but sanitized (
@@ -28,11 +22,15 @@ export type GetSanitizedPlatformDisplayNamesParams = {
  * @see {@link https://bungie-net.github.io/#User.GetSanitizedPlatformDisplayNames}
  */
 export async function getSanitizedPlatformDisplayNames(
-  params: GetSanitizedPlatformDisplayNamesParams,
+  params: {
+    /** The requested membership id to load. */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<{ [key in BungieCredentialType]: string }>> {
-  return client.fetch<{ [key in BungieCredentialType]: string }>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

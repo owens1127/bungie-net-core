@@ -21,6 +21,7 @@ import { DestinyDerivedItemCategoryDefinition } from './Items/DestinyDerivedItem
  * This defines those categories, and gives some insights into that data's source.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemPreviewBlockDefinition}
  */
+
 export interface DestinyItemPreviewBlockDefinition {
   /**
    * A string that the game UI uses as a hint for which detail screen to show for the

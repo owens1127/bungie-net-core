@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyPostGameCarnageReportData } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport} */
-export type GetPostGameCarnageReportParams = {
-  /** The ID of the activity whose PGCR is requested. */
-  activityId: string;
-};
+import { DestinyPostGameCarnageReportData } from '../../models/Destiny/HistoricalStats/DestinyPostGameCarnageReportData';
 
 /**
  * Gets the available post game carnage report for the activity ID.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPostGameCarnageReport}
  */
 export async function getPostGameCarnageReport(
-  params: GetPostGameCarnageReportParams,
+  params: {
+    /** The ID of the activity whose PGCR is requested. */
+    activityId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyPostGameCarnageReportData>> {
-  return client.fetch<DestinyPostGameCarnageReportData>({
-    method: 'GET',
-    url: `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`
-  });
+  const url = new URL(
+    `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

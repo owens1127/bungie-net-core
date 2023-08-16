@@ -15,6 +15,7 @@
 import { DestinyLeaderboardEntry } from './DestinyLeaderboardEntry';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyLeaderboard} */
+
 export interface DestinyLeaderboard {
   readonly statId: string;
   readonly entries: DestinyLeaderboardEntry[];

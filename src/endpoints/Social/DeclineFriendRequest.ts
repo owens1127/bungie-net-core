@@ -15,23 +15,21 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest} */
-export type DeclineFriendRequestParams = {
-  /** The membership id of the user you wish to decline. */
-  membershipId: string;
-};
-
 /**
  * Declines a friend relationship with the target user. The user must be on your
  * incoming friend request list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.DeclineFriendRequest}
  */
 export async function declineFriendRequest(
-  params: DeclineFriendRequestParams,
+  params: {
+    /** The membership id of the user you wish to decline. */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/Social/Friends/Requests/Decline/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Requests/Decline/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

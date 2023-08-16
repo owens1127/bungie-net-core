@@ -15,6 +15,7 @@
 import { UserMembership } from '../User/UserMembership';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationListRequest} */
+
 export interface GroupApplicationListRequest {
   readonly memberships: UserMembership[];
   readonly message: string;

@@ -12,7 +12,7 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 
 /**
  * This contract supplies basic information commonly used to display a minimal
@@ -23,6 +23,7 @@ import { BungieMembershipType } from '../BungieMembershipType';
  * contract, use UserInfoCard as a property of other contracts.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.UserInfoCard}
  */
+
 export interface UserInfoCard {
   /**
    * A platform specific additional display name - ex: psn Real Name, bnet Unique

@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType';
+import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyLoadoutActionRequest} */
+
 export interface DestinyLoadoutActionRequest {
   /** The index of the loadout for this action request. */
   readonly loadoutIndex: number;

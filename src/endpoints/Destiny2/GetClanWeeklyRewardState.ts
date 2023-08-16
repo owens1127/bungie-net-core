@@ -14,12 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyMilestone } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState} */
-export type GetClanWeeklyRewardStateParams = {
-  /** A valid group id of clan. */
-  groupId: string;
-};
+import { DestinyMilestone } from '../../models/Destiny/Milestones/DestinyMilestone';
 
 /**
  * Returns information on the weekly clan rewards and if the clan has earned them
@@ -27,11 +22,15 @@ export type GetClanWeeklyRewardStateParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanWeeklyRewardState}
  */
 export async function getClanWeeklyRewardState(
-  params: GetClanWeeklyRewardStateParams,
+  params: {
+    /** A valid group id of clan. */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyMilestone>> {
-  return client.fetch<DestinyMilestone>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Clan/${params.groupId}/WeeklyRewardState/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

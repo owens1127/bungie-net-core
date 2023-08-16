@@ -33,6 +33,7 @@ import { DestinyInventoryItemStatDefinition } from './DestinyInventoryItemStatDe
  * statistics, without any planned fix.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemStatBlockDefinition}
  */
+
 export interface DestinyItemStatBlockDefinition {
   /**
    * If true, the game won't show the "primary" stat on this item when you inspect it.

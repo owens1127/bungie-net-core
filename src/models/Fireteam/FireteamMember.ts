@@ -14,9 +14,10 @@
 
 import { FireteamUserInfoCard } from './FireteamUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
-import { FireteamPlatformInviteResult } from './FireteamPlatformInviteResult';
+import { FireteamPlatformInviteResult } from '../../enums/Fireteam/FireteamPlatformInviteResult';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamMember} */
+
 export interface FireteamMember {
   readonly destinyUserInfo: FireteamUserInfoCard;
   readonly bungieNetUserInfo: UserInfoCard;

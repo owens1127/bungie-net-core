@@ -15,6 +15,7 @@
 import { UserInfoCard } from './UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchResponseDetail} */
+
 export interface UserSearchResponseDetail {
   readonly bungieGlobalDisplayName: string;
   readonly bungieGlobalDisplayNameCode?: number;

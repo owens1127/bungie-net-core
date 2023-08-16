@@ -26,6 +26,7 @@ import { DestinyArtifactTierDefinition } from './DestinyArtifactTierDefinition';
  * to accommodate it more easily.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Artifacts.DestinyArtifactDefinition}
  */
+
 export interface DestinyArtifactDefinition {
   /**
    * Any basic display info we know about the Artifact. Currently sourced from a

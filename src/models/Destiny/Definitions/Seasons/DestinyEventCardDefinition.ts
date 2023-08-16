@@ -22,6 +22,7 @@ import { DestinyEventCardImages } from './DestinyEventCardImages';
  * special title. For example: Solstice of Heroes 2022.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinyEventCardDefinition}
  */
+
 export interface DestinyEventCardDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly linkRedirectPath: string;

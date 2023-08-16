@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemCraftingBlockBonusPlugDefinition} */
+
 export interface DestinyItemCraftingBlockBonusPlugDefinition {
   /** Mapped to DestinySocketTypeDefinition in the manifest. */
   readonly socketTypeHash: number;

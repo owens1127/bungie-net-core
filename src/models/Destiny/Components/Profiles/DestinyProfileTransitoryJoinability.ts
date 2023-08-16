@@ -12,8 +12,8 @@
  */
 //
 
-import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting';
-import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons';
+import { DestinyGamePrivacySetting } from '../../../../enums/Destiny/DestinyGamePrivacySetting';
+import { DestinyJoinClosedReasons } from '../../../../enums/Destiny/DestinyJoinClosedReasons';
 
 /**
  * Some basic information about whether you can be joined, how many slots are left
@@ -21,6 +21,7 @@ import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons';
  * perhaps it will be in some use cases?
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryJoinability}
  */
+
 export interface DestinyProfileTransitoryJoinability {
   /** The number of slots still available on this person's fireteam. */
   readonly openSlots: number;

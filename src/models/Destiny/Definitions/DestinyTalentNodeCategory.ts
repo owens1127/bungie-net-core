@@ -22,6 +22,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * purpose.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeCategory}
  */
+
 export interface DestinyTalentNodeCategory {
   /**
    * Mostly just for debug purposes, but if you find it useful you can have it. This

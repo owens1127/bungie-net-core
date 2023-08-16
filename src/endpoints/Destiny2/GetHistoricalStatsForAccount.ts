@@ -12,23 +12,11 @@
  */
 //
 
+import { DestinyStatsGroupType } from '../../enums/Destiny/HistoricalStats/Definitions/DestinyStatsGroupType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyStatsGroupType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyHistoricalStatsAccountResult } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount} */
-export type GetHistoricalStatsForAccountParams = {
-  /** The Destiny membershipId of the user to retrieve. */
-  destinyMembershipId: string;
-  /**
-   * Groups of stats to include, otherwise only general stats are returned. Comma
-   * separated list is allowed. Values: General, Weapons, Medals.
-   */
-  groups?: DestinyStatsGroupType[];
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyHistoricalStatsAccountResult } from '../../models/Destiny/HistoricalStats/DestinyHistoricalStatsAccountResult';
 
 /**
  * Gets aggregate historical stats organized around each character for a given
@@ -36,14 +24,23 @@ export type GetHistoricalStatsForAccountParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetHistoricalStatsForAccount}
  */
 export async function getHistoricalStatsForAccount(
-  params: GetHistoricalStatsForAccountParams,
+  params: {
+    /** The Destiny membershipId of the user to retrieve. */
+    destinyMembershipId: string;
+    /**
+     * Groups of stats to include, otherwise only general stats are returned. Comma
+     * separated list is allowed. Values: General, Weapons, Medals.
+     */
+    groups?: DestinyStatsGroupType[];
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyHistoricalStatsAccountResult>> {
-  return client.fetch<DestinyHistoricalStatsAccountResult>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/`,
-    params: {
-      groups: params.groups ? params.groups.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Stats/`
+  );
+  params.groups !== undefined &&
+    url.searchParams.set('groups', params.groups.join(','));
+  return client.fetch({ method: 'GET', url });
 }

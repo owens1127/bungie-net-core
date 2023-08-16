@@ -12,17 +12,10 @@
  */
 //
 
+import { TrendingEntryType } from '../../enums/Trending/TrendingEntryType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { TrendingEntryType } from '../../models';
-import { TrendingDetail } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail} */
-export type GetTrendingEntryDetailParams = {
-  /** The identifier for the entity to be returned. */
-  identifier: string;
-  /** The type of entity to be returned. */
-  trendingEntryType: TrendingEntryType;
-};
+import { TrendingDetail } from '../../models/Trending/TrendingDetail';
 
 /**
  * Returns the detailed results for a specific trending entry. Note that trending
@@ -32,11 +25,17 @@ export type GetTrendingEntryDetailParams = {
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingEntryDetail}
  */
 export async function getTrendingEntryDetail(
-  params: GetTrendingEntryDetailParams,
+  params: {
+    /** The identifier for the entity to be returned. */
+    identifier: string;
+    /** The type of entity to be returned. */
+    trendingEntryType: TrendingEntryType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<TrendingDetail>> {
-  return client.fetch<TrendingDetail>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Trending/Details/${params.trendingEntryType}/${params.identifier}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Trending/Details/${params.trendingEntryType}/${params.identifier}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

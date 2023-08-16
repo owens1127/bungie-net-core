@@ -16,6 +16,7 @@ import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus';
 import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneChallengeActivity} */
+
 export interface DestinyMilestoneChallengeActivity {
   /** Mapped to DestinyActivityDefinition in the manifest. */
   readonly activityHash: number;

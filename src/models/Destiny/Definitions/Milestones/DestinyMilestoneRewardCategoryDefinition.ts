@@ -19,6 +19,7 @@ import { DestinyMilestoneRewardEntryDefinition } from './DestinyMilestoneRewardE
  * The definition of a category of rewards, that contains many individual rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneRewardCategoryDefinition}
  */
+
 export interface DestinyMilestoneRewardCategoryDefinition {
   /**
    * Identifies the reward category. Only guaranteed unique within this specific

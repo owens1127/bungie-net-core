@@ -15,6 +15,7 @@
 import { DestinyHistoricalWeaponStats } from './DestinyHistoricalWeaponStats';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalWeaponStatsData} */
+
 export interface DestinyHistoricalWeaponStatsData {
   /** List of weapons and their perspective values. */
   readonly weapons: DestinyHistoricalWeaponStats[];

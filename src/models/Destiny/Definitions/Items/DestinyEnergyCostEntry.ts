@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType';
+import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
 
 /**
  * Some plugs cost Energy, which is a stat on the item that can be increased by
@@ -20,6 +20,7 @@ import { DestinyEnergyType } from '../../DestinyEnergyType';
  * upgrading). If a plug has costs, the details of that cost are defined here.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyEnergyCostEntry}
  */
+
 export interface DestinyEnergyCostEntry {
   /** The Energy cost for inserting this plug. */
   readonly energyCost: number;

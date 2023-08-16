@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeDefaultValue} */
+
 export interface ContentTypeDefaultValue {
   readonly whenClause: string;
   readonly whenValue: string;

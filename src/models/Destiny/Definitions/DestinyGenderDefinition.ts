@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyGender } from '../DestinyGender';
+import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 
 /**
@@ -20,6 +20,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * now there happens to only be two, but we'll see what the future holds.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyGenderDefinition}
  */
+
 export interface DestinyGenderDefinition {
   /**
    * This is a quick reference enumeration for all of the currently defined Genders.

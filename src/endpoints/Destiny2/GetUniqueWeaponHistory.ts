@@ -12,30 +12,29 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { DestinyHistoricalWeaponStatsData } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory} */
-export type GetUniqueWeaponHistoryParams = {
-  /** The id of the character to retrieve. */
-  characterId: string;
-  /** The Destiny membershipId of the user to retrieve. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyHistoricalWeaponStatsData } from '../../models/Destiny/HistoricalStats/DestinyHistoricalWeaponStatsData';
 
 /**
  * Gets details about unique weapon usage, including all exotic weapons.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetUniqueWeaponHistory}
  */
 export async function getUniqueWeaponHistory(
-  params: GetUniqueWeaponHistoryParams,
+  params: {
+    /** The id of the character to retrieve. */
+    characterId: string;
+    /** The Destiny membershipId of the user to retrieve. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyHistoricalWeaponStatsData>> {
-  return client.fetch<DestinyHistoricalWeaponStatsData>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/UniqueWeapons/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/UniqueWeapons/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

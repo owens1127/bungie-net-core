@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyArrangementRegionFilterDefinition} */
+
 export interface DestinyArrangementRegionFilterDefinition {
   readonly artArrangementRegionHash: number;
   readonly artArrangementRegionIndex: number;

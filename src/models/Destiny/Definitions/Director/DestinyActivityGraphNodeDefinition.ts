@@ -26,6 +26,7 @@ import { DestinyActivityGraphNodeStateEntry } from './DestinyActivityGraphNodeSt
  * and other UI related to the node)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeDefinition}
  */
+
 export interface DestinyActivityGraphNodeDefinition {
   /**
    * An identifier for the Activity Graph Node, only guaranteed to be unique within

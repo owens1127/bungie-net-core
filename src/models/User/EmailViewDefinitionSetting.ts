@@ -13,10 +13,11 @@
 //
 
 import { EMailSettingLocalization } from './EMailSettingLocalization';
-import { OptInFlags } from './OptInFlags';
+import { OptInFlags } from '../../enums/User/OptInFlags';
 import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailViewDefinitionSetting} */
+
 export interface EmailViewDefinitionSetting {
   /**
    * The identifier for this UI Setting, which can be used to relate it to custom

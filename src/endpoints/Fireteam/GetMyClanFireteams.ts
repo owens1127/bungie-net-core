@@ -12,31 +12,10 @@
  */
 //
 
+import { FireteamPlatform } from '../../enums/Fireteam/FireteamPlatform';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { FireteamPlatform } from '../../models';
-import { SearchResultOfFireteamResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams} */
-export type GetMyClanFireteamsParams = {
-  /**
-   * If true, filter by clan. Otherwise, ignore the clan and show all of the user's
-   * fireteams.
-   */
-  groupFilter?: boolean;
-  /**
-   * The group id of the clan. (This parameter is ignored unless the optional query
-   * parameter groupFilter is true).
-   */
-  groupId: string;
-  /** If true, return fireteams that have been closed. */
-  includeClosed: boolean;
-  /** An optional language filter. */
-  langFilter?: string;
-  /** Deprecated parameter, ignored. */
-  page: number;
-  /** The platform filter. */
-  platform: FireteamPlatform;
-};
+import { SearchResultOfFireteamResponse } from '../../models/SearchResultOfFireteamResponse';
 
 /**
  * Gets a listing of all fireteams that caller is an applicant, a member, or an
@@ -44,15 +23,34 @@ export type GetMyClanFireteamsParams = {
  * @see {@link https://bungie-net.github.io/#Fireteam.GetMyClanFireteams}
  */
 export async function getMyClanFireteams(
-  params: GetMyClanFireteamsParams,
+  params: {
+    /**
+     * If true, filter by clan. Otherwise, ignore the clan and show all of the user's
+     * fireteams.
+     */
+    groupFilter?: boolean;
+    /**
+     * The group id of the clan. (This parameter is ignored unless the optional query
+     * parameter groupFilter is true).
+     */
+    groupId: string;
+    /** If true, return fireteams that have been closed. */
+    includeClosed: boolean;
+    /** An optional language filter. */
+    langFilter?: string;
+    /** Deprecated parameter, ignored. */
+    page: number;
+    /** The platform filter. */
+    platform: FireteamPlatform;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfFireteamResponse>> {
-  return client.fetch<SearchResultOfFireteamResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`,
-    params: {
-      groupFilter: params.groupFilter,
-      langFilter: params.langFilter
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/My/${params.platform}/${params.includeClosed}/${params.page}/`
+  );
+  params.groupFilter !== undefined &&
+    url.searchParams.set('groupFilter', String(params.groupFilter));
+  params.langFilter !== undefined &&
+    url.searchParams.set('langFilter', String(params.langFilter));
+  return client.fetch({ method: 'GET', url });
 }

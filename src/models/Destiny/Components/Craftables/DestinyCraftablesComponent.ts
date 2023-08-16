@@ -15,6 +15,7 @@
 import { DestinyCraftableComponent } from './DestinyCraftableComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Craftables.DestinyCraftablesComponent} */
+
 export interface DestinyCraftablesComponent {
   /**
    * A map of craftable item hashes to craftable item state components. Mapped to

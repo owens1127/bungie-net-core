@@ -15,6 +15,7 @@
 import { DestinyIconSequenceDefinition } from './Common/DestinyIconSequenceDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionDisplayPropertiesDefinition} */
+
 export interface DestinyProgressionDisplayPropertiesDefinition {
   /**
    * When progressions show your "experience" gained, that bar has units (i.e. "

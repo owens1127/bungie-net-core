@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupUserInfoCard} */
+
 export interface GroupUserInfoCard {
   /**
    * This will be the display name the clan server last saw the user as. If the

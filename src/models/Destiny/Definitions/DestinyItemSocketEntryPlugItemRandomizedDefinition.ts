@@ -15,6 +15,7 @@
 import { DestinyPlugItemCraftingRequirements } from './DestinyPlugItemCraftingRequirements';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSocketEntryPlugItemRandomizedDefinition} */
+
 export interface DestinyItemSocketEntryPlugItemRandomizedDefinition {
   readonly craftingRequirements: DestinyPlugItemCraftingRequirements;
   /**

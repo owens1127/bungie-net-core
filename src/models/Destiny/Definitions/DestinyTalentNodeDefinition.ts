@@ -27,6 +27,7 @@ import { DestinyNodeStepDefinition } from './DestinyNodeStepDefinition';
  * work, and how they are used in Destiny 2 (and how they were used in Destiny 1).
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeDefinition}
  */
+
 export interface DestinyTalentNodeDefinition {
   /**
    * The index into the DestinyTalentGridDefinition's "nodes" property where this

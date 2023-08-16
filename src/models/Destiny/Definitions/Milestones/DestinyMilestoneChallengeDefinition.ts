@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneChallengeDefinition} */
+
 export interface DestinyMilestoneChallengeDefinition {
   /**
    * The challenge related to this milestone. Mapped to DestinyObjectiveDefinition in

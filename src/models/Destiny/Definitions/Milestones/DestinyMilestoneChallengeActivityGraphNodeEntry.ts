@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneChallengeActivityGraphNodeEntry} */
+
 export interface DestinyMilestoneChallengeActivityGraphNodeEntry {
   readonly activityGraphHash: number;
   readonly activityGraphNodeHash: number;

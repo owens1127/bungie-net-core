@@ -24,6 +24,7 @@
  * completed on a weekly achievement.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityInsertionPointDefinition}
  */
+
 export interface DestinyActivityInsertionPointDefinition {
   /**
    * A unique hash value representing the phase. This can be useful for, for example,

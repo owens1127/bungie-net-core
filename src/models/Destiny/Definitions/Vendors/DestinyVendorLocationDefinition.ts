@@ -17,6 +17,7 @@
  * at different times in the game.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Vendors.DestinyVendorLocationDefinition}
  */
+
 export interface DestinyVendorLocationDefinition {
   /**
    * The hash identifier for a Destination at which this vendor may be located. Each

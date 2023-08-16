@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.HardLinkedUserMembership} */
+
 export interface HardLinkedUserMembership {
   readonly membershipType: BungieMembershipType;
   readonly membershipId: string;

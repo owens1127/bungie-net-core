@@ -12,10 +12,11 @@
  */
 //
 
+import { DestinyInsertPlugsFreeActionRequest } from '../../models/Destiny/Requests/Actions/DestinyInsertPlugsFreeActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyInsertPlugsFreeActionRequest } from '../../models';
-import { DestinyItemChangeResponse } from '../../models';
+import { DestinyItemChangeResponse } from '../../models/Destiny/Responses/DestinyItemChangeResponse';
+
 /**
  * Insert a 'free' plug into an item's socket. This does not require 'Advanced
  * Write Action' authorization and is available to 3rd-party apps, but will only
@@ -30,9 +31,12 @@ export async function insertSocketPlugFree(
   body: DestinyInsertPlugsFreeActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  return client.fetch<DestinyItemChangeResponse>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlugFree/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

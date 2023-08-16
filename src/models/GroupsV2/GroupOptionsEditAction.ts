@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupOptionsEditAction} */
+
 export interface GroupOptionsEditAction {
   /**
    * Minimum Member Level allowed to invite new members to group

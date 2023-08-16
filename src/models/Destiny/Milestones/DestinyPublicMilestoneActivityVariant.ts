@@ -16,6 +16,7 @@
  * Represents a variant of an activity that's relevant to a milestone.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneActivityVariant}
  */
+
 export interface DestinyPublicMilestoneActivityVariant {
   /**
    * The hash identifier of this activity variant. Examine the activity's definition

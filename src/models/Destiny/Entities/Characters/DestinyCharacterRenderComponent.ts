@@ -26,6 +26,7 @@ import { DestinyCharacterPeerView } from '../../Character/DestinyCharacterPeerVi
  * how we use this data, but be warned: the rabbit hole goes pretty deep.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Characters.DestinyCharacterRenderComponent}
  */
+
 export interface DestinyCharacterRenderComponent {
   /**
    * Custom dyes, calculated by iterating over the character's equipped items. Useful

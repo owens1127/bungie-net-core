@@ -27,6 +27,7 @@ import { DestinyFactionVendorDefinition } from './DestinyFactionVendorDefinition
  * Orbit could theoretically exist without the Vendor that provides rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyFactionDefinition}
  */
+
 export interface DestinyFactionDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

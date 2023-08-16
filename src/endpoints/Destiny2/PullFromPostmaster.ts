@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyPostmasterTransferRequest } from '../../models/Destiny/Requests/Actions/DestinyPostmasterTransferRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyPostmasterTransferRequest } from '../../models';
+
 /**
  * Extract an item from the Postmaster, with whatever implications that may entail.
  * You must have a valid Destiny account. You must also pass BOTH a reference AND
@@ -26,10 +27,13 @@ import { DestinyPostmasterTransferRequest } from '../../models';
 export async function pullFromPostmaster(
   body: DestinyPostmasterTransferRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/PullFromPostmaster/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

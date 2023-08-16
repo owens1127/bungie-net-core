@@ -15,6 +15,7 @@
 import { DestinyMetricComponent } from './DestinyMetricComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Metrics.DestinyMetricsComponent} */
+
 export interface DestinyMetricsComponent {
   readonly metrics: { [key: number]: DestinyMetricComponent };
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */

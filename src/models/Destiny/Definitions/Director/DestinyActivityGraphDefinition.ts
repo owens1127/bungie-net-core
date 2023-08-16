@@ -39,6 +39,7 @@ import { DestinyLinkedGraphDefinition } from './DestinyLinkedGraphDefinition';
  * providing that content in this definition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphDefinition}
  */
+
 export interface DestinyActivityGraphDefinition {
   /**
    * These represent the visual "nodes" on the map's view. These are the activities

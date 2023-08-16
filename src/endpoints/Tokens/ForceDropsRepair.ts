@@ -22,9 +22,8 @@ import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
  */
 export async function forceDropsRepair(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: 'https://www.bungie.net/Platform/Tokens/Partner/ForceDropsRepair/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'POST', url });
 }

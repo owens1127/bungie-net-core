@@ -19,6 +19,7 @@
  * populated and someone finds it useful, it is defined here.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorActionDefinition}
  */
+
 export interface DestinyVendorActionDefinition {
   readonly description: string;
   readonly executeSeconds: number;

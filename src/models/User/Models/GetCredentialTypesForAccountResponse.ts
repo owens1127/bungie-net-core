@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieCredentialType } from '../../BungieCredentialType';
+import { BungieCredentialType } from '../../../enums/BungieCredentialType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.Models.GetCredentialTypesForAccountResponse} */
+
 export interface GetCredentialTypesForAccountResponse {
   readonly credentialType: BungieCredentialType;
   readonly credentialDisplayName: string;

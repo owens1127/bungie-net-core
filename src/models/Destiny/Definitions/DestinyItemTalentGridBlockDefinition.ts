@@ -12,7 +12,7 @@
  */
 //
 
-import { DamageType } from '../DamageType';
+import { DamageType } from '../../../enums/Destiny/DamageType';
 
 /**
  * This defines information that can only come from a talent grid on an item. Items
@@ -23,6 +23,7 @@ import { DamageType } from '../DamageType';
  * meaningful Nodes.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemTalentGridBlockDefinition}
  */
+
 export interface DestinyItemTalentGridBlockDefinition {
   /**
    * The hash identifier of the DestinyTalentGridDefinition attached to this item.

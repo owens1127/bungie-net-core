@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Links.HyperlinkReference} */
+
 export interface HyperlinkReference {
   readonly title: string;
   readonly url: string;

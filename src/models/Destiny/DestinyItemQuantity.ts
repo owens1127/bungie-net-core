@@ -19,6 +19,7 @@
  * Thanks.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyItemQuantity}
  */
+
 export interface DestinyItemQuantity {
   /**
    * The hash identifier for the item in question. Use it to look up the item's

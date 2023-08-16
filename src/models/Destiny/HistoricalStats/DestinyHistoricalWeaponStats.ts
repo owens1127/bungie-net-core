@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalWeaponStats} */
+
 export interface DestinyHistoricalWeaponStats {
   /**
    * The hash ID of the item definition that describes the weapon. Mapped to

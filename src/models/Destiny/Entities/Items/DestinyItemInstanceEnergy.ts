@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType';
+import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceEnergy} */
+
 export interface DestinyItemInstanceEnergy {
   /**
    * The type of energy for this item. Plugs that require Energy can only be inserted

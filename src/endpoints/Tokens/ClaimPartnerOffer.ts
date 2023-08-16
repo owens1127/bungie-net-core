@@ -12,9 +12,10 @@
  */
 //
 
+import { PartnerOfferClaimRequest } from '../../models/Tokens/PartnerOfferClaimRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PartnerOfferClaimRequest } from '../../models';
+
 /**
  * Claim a partner offer as the authenticated user.
  * @see {@link https://bungie-net.github.io/#Tokens.ClaimPartnerOffer}
@@ -22,10 +23,13 @@ import { PartnerOfferClaimRequest } from '../../models';
 export async function claimPartnerOffer(
   body: PartnerOfferClaimRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Tokens/Partner/ClaimOffer/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

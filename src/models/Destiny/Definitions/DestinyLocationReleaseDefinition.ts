@@ -13,13 +13,14 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType';
+import { DestinyActivityNavPointType } from '../../../enums/Destiny/DestinyActivityNavPointType';
 
 /**
  * A specific "spot" referred to by a location. Only one of these can be active at
  * a time for a given Location.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyLocationReleaseDefinition}
  */
+
 export interface DestinyLocationReleaseDefinition {
   /** Sadly, these don't appear to be populated anymore (ever?) */
   readonly displayProperties: DestinyDisplayPropertiesDefinition;

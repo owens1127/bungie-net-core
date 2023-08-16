@@ -15,6 +15,7 @@
 import { UserInfoCard } from '../../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPlayer} */
+
 export interface DestinyPlayer {
   /**
    * Details about the player as they are known in game (platform display name,

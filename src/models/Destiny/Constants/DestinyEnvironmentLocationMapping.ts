@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Constants.DestinyEnvironmentLocationMapping} */
+
 export interface DestinyEnvironmentLocationMapping {
   /**
    * The location that is revealed on the director by this mapping. Mapped to

@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType';
+import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyItemSetActionRequest} */
+
 export interface DestinyItemSetActionRequest {
   readonly itemIds: string[];
   readonly characterId: string;

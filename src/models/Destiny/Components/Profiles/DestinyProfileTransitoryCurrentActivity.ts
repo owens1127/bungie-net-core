@@ -21,6 +21,7 @@
  * comparison.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryCurrentActivity}
  */
+
 export interface DestinyProfileTransitoryCurrentActivity {
   /** When the activity started. */
   readonly startTime?: string;

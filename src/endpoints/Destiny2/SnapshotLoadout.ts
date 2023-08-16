@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyLoadoutUpdateActionRequest } from '../../models/Destiny/Requests/Actions/DestinyLoadoutUpdateActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyLoadoutUpdateActionRequest } from '../../models';
+
 /**
  * Snapshot a loadout with the currently equipped items.
  *
@@ -24,10 +25,13 @@ import { DestinyLoadoutUpdateActionRequest } from '../../models';
 export async function snapshotLoadout(
   body: DestinyLoadoutUpdateActionRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/SnapshotLoadout/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

@@ -16,6 +16,7 @@ import { GroupPotentialMember } from './GroupPotentialMember';
 import { GroupV2 } from './GroupV2';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPotentialMembership} */
+
 export interface GroupPotentialMembership {
   readonly member: GroupPotentialMember;
   readonly group: GroupV2;

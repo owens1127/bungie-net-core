@@ -20,6 +20,7 @@ import { EMailSettingSubscriptionLocalization } from './EMailSettingSubscription
  * feature).
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailSubscriptionDefinition}
  */
+
 export interface EmailSubscriptionDefinition {
   /** The unique identifier for this subscription. */
   readonly name: string;

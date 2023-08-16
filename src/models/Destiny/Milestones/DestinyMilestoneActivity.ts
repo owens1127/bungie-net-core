@@ -20,6 +20,7 @@ import { DestinyMilestoneActivityVariant } from './DestinyMilestoneActivityVaria
  * variants. (sometimes there's only one variant, but I think you get the point)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivity}
  */
+
 export interface DestinyMilestoneActivity {
   /**
    * The hash of an arbitrarily chosen variant of this activity. We'll go ahead and

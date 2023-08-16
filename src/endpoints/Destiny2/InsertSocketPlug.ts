@@ -12,10 +12,11 @@
  */
 //
 
+import { DestinyInsertPlugsActionRequest } from '../../models/Destiny/Requests/Actions/DestinyInsertPlugsActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyInsertPlugsActionRequest } from '../../models';
-import { DestinyItemChangeResponse } from '../../models';
+import { DestinyItemChangeResponse } from '../../models/Destiny/Responses/DestinyItemChangeResponse';
+
 /**
  * Insert a plug into a socketed item. I know how it sounds, but I assure you it's
  * much more G-rated than you might be guessing. We haven't decided yet whether
@@ -32,9 +33,12 @@ export async function insertSocketPlug(
   body: DestinyInsertPlugsActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemChangeResponse>> {
-  return client.fetch<DestinyItemChangeResponse>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/InsertSocketPlug/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

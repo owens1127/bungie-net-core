@@ -20,6 +20,7 @@ import { DestinyProgressionRewardDefinition } from './DestinyProgressionRewardDe
  * defined here if you care.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemActionBlockDefinition}
  */
+
 export interface DestinyItemActionBlockDefinition {
   /** Localized text for the verb of the action being performed. */
   readonly verbName: string;

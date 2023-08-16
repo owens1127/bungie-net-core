@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyItemActionRequest } from '../../models/Destiny/Requests/Actions/DestinyItemActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyItemActionRequest } from '../../models';
+
 /**
  * Equip an item. You must have a valid Destiny Account, and either be in a social
  * space, in orbit, or offline.
@@ -25,10 +26,13 @@ import { DestinyItemActionRequest } from '../../models';
 export async function equipItem(
   body: DestinyItemActionRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItem/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

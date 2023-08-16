@@ -12,28 +12,30 @@
  */
 //
 
+import { GroupApplicationRequest } from '../../models/GroupsV2/GroupApplicationRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupApplicationRequest } from '../../models';
-import { EntityActionResult } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.DenyAllPending} */
-export type DenyAllPendingParams = {
-  /** ID of the group. */
-  groupId: string;
-};
 
 /**
  * Deny all of the pending users for the given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.DenyAllPending}
  */
 export async function denyAllPending(
-  params: DenyAllPendingParams,
+  params: {
+    /** ID of the group. */
+    groupId: string;
+  },
   body: GroupApplicationRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<EntityActionResult[]>> {
-  return client.fetch<EntityActionResult[]>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyAll/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyAll/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

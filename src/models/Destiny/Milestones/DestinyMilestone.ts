@@ -25,6 +25,7 @@ import { DestinyMilestoneRewardCategory } from './DestinyMilestoneRewardCategory
  * 3.0 for those who remember the Destiny 1 API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestone}
  */
+
 export interface DestinyMilestone {
   /**
    * The unique identifier for the Milestone. Use it to look up the

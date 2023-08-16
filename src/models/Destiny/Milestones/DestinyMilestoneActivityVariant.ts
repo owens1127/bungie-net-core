@@ -18,6 +18,7 @@ import { DestinyMilestoneActivityCompletionStatus } from './DestinyMilestoneActi
  * Represents custom data that we know about an individual variant of an activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityVariant}
  */
+
 export interface DestinyMilestoneActivityVariant {
   /**
    * The hash for the specific variant of the activity related to this milestone. You

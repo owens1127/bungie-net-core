@@ -15,6 +15,7 @@
 import { ContentItemPublicContract } from '../Content/ContentItemPublicContract';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntrySupportArticle} */
+
 export interface TrendingEntrySupportArticle {
   readonly article: ContentItemPublicContract;
 }

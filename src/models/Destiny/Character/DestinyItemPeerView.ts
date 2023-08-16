@@ -19,6 +19,7 @@ import { DyeReference } from '../DyeReference';
  * item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Character.DestinyItemPeerView}
  */
+
 export interface DestinyItemPeerView {
   /**
    * The hash identifier of the item in question. Use it to look up the

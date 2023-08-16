@@ -13,8 +13,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyMilestoneDisplayPreference } from './DestinyMilestoneDisplayPreference';
-import { DestinyMilestoneType } from './DestinyMilestoneType';
+import { DestinyMilestoneDisplayPreference } from '../../../../enums/Destiny/Definitions/Milestones/DestinyMilestoneDisplayPreference';
+import { DestinyMilestoneType } from '../../../../enums/Destiny/Definitions/Milestones/DestinyMilestoneType';
 import { DestinyMilestoneQuestDefinition } from './DestinyMilestoneQuestDefinition';
 import { DestinyMilestoneRewardCategoryDefinition } from './DestinyMilestoneRewardCategoryDefinition';
 import { DestinyMilestoneVendorDefinition } from './DestinyMilestoneVendorDefinition';
@@ -68,6 +68,7 @@ import { DestinyMilestoneChallengeActivityDefinition } from './DestinyMilestoneC
  * sometimes nonexistant) milestone-level names and descriptions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneDefinition}
  */
+
 export interface DestinyMilestoneDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

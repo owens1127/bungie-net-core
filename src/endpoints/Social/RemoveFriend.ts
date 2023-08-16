@@ -15,23 +15,21 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Social.RemoveFriend} */
-export type RemoveFriendParams = {
-  /** The membership id of the user you wish to remove. */
-  membershipId: string;
-};
-
 /**
  * Remove a friend relationship with the target user. The user must be on your
  * friend list, though no error will occur if they are not.
  * @see {@link https://bungie-net.github.io/#Social.RemoveFriend}
  */
 export async function removeFriend(
-  params: RemoveFriendParams,
+  params: {
+    /** The membership id of the user you wish to remove. */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/Social/Friends/Remove/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Remove/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

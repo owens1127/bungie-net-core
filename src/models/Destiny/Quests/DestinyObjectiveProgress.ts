@@ -17,6 +17,7 @@
  * DestinyObjectiveDefinition static data for display purposes.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Quests.DestinyObjectiveProgress}
  */
+
 export interface DestinyObjectiveProgress {
   /**
    * The unique identifier of the Objective being referred to. Use to look up the

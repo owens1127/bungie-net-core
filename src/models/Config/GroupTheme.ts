@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Config.GroupTheme} */
+
 export interface GroupTheme {
   readonly name: string;
   readonly folder: string;

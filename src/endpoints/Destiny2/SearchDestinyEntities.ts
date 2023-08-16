@@ -14,34 +14,31 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyEntitySearchResult } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities} */
-export type SearchDestinyEntitiesParams = {
-  /** Page number to return, starting with 0. */
-  page?: number;
-  /** The string to use when searching for Destiny entities. */
-  searchTerm: string;
-  /**
-   * The type of entity for whom you would like results. These correspond to the
-   * entity's definition contract name. For instance, if you are looking for items,
-   * this property should be 'DestinyInventoryItemDefinition'.
-   */
-  type: string;
-};
+import { DestinyEntitySearchResult } from '../../models/Destiny/Definitions/DestinyEntitySearchResult';
 
 /**
  * Gets a page list of Destiny items.
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyEntities}
  */
 export async function searchDestinyEntities(
-  params: SearchDestinyEntitiesParams,
+  params: {
+    /** Page number to return, starting with 0. */
+    page?: number;
+    /** The string to use when searching for Destiny entities. */
+    searchTerm: string;
+    /**
+     * The type of entity for whom you would like results. These correspond to the
+     * entity's definition contract name. For instance, if you are looking for items,
+     * this property should be 'DestinyInventoryItemDefinition'.
+     */
+    type: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyEntitySearchResult>> {
-  return client.fetch<DestinyEntitySearchResult>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`,
-    params: {
-      page: params.page
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Armory/Search/${params.type}/${params.searchTerm}/`
+  );
+  params.page !== undefined &&
+    url.searchParams.set('page', String(params.page));
+  return client.fetch({ method: 'GET', url });
 }

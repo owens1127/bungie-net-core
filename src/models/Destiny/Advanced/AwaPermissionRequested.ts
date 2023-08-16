@@ -12,10 +12,11 @@
  */
 //
 
-import { AwaType } from './AwaType';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { AwaType } from '../../../enums/Destiny/Advanced/AwaType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaPermissionRequested} */
+
 export interface AwaPermissionRequested {
   /** Type of advanced write action. */
   readonly type: AwaType;

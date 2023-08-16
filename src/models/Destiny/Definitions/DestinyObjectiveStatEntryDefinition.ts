@@ -13,13 +13,14 @@
 //
 
 import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStatDefinition';
-import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
+import { DestinyObjectiveGrantStyle } from '../../../enums/Destiny/DestinyObjectiveGrantStyle';
 
 /**
  * Defines the conditions under which stat modifications will be applied to a
  * Character while participating in an objective.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyObjectiveStatEntryDefinition}
  */
+
 export interface DestinyObjectiveStatEntryDefinition {
   /** The stat being modified, and the value used. */
   readonly stat: DestinyItemInvestmentStatDefinition;

@@ -22,6 +22,7 @@ import { DestinyItemTierTypeInfusionBlock } from './DestinyItemTierTypeInfusionB
  * It also provides some base data for infusion that could be useful.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyItemTierTypeDefinition}
  */
+
 export interface DestinyItemTierTypeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** If this tier defines infusion properties, they will be contained here. */

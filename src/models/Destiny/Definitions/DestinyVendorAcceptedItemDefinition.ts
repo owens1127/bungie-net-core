@@ -25,6 +25,7 @@
  * by Accepted Items.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorAcceptedItemDefinition}
  */
+
 export interface DestinyVendorAcceptedItemDefinition {
   /**
    * The "source" bucket for a transfer. When a user wants to transfer an item, the

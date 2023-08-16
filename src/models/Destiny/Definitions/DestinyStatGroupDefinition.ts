@@ -31,6 +31,7 @@ import { DestinyStatOverrideDefinition } from './DestinyStatOverrideDefinition';
  * without live data (such as stat modifiers on Talent Grids and Socket Plugs)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyStatGroupDefinition}
  */
+
 export interface DestinyStatGroupDefinition {
   /**
    * The maximum possible value that any stat in this group can be transformed into.

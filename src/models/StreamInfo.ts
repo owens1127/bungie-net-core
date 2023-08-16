@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/StreamInfo} */
+
 export interface StreamInfo {
   readonly ChannelName: string;
 }

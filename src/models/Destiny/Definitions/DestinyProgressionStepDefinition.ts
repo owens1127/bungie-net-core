@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyProgressionStepDisplayEffect } from '../DestinyProgressionStepDisplayEffect';
+import { DestinyProgressionStepDisplayEffect } from '../../../enums/Destiny/DestinyProgressionStepDisplayEffect';
 import { DestinyItemQuantity } from '../DestinyItemQuantity';
 
 /**
@@ -20,6 +20,7 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * See DestinyProgressionDefinition for caveats).
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionStepDefinition}
  */
+
 export interface DestinyProgressionStepDefinition {
   /**
    * Very rarely, Progressions will have localized text describing the Level of the

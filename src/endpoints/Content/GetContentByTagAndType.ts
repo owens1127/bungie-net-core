@@ -14,29 +14,26 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ContentItemPublicContract } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType} */
-export type GetContentByTagAndTypeParams = {
-  /** Not used. */
-  head?: boolean;
-  locale: string;
-  tag: string;
-  type: string;
-};
+import { ContentItemPublicContract } from '../../models/Content/ContentItemPublicContract';
 
 /**
  * Returns the newest item that matches a given tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.GetContentByTagAndType}
  */
 export async function getContentByTagAndType(
-  params: GetContentByTagAndTypeParams,
+  params: {
+    /** Not used. */
+    head?: boolean;
+    locale: string;
+    tag: string;
+    type: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  return client.fetch<ContentItemPublicContract>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`,
-    params: {
-      head: params.head
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/GetContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
+  );
+  params.head !== undefined &&
+    url.searchParams.set('head', String(params.head));
+  return client.fetch({ method: 'GET', url });
 }

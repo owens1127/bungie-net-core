@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorGroupReference} */
+
 export interface DestinyVendorGroupReference {
   /**
    * The DestinyVendorGroupDefinition to which this Vendor can belong. Mapped to

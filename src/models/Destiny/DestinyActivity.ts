@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyActivityDifficultyTier } from './DestinyActivityDifficultyTier';
+import { DestinyActivityDifficultyTier } from '../../enums/Destiny/DestinyActivityDifficultyTier';
 import { DestinyChallengeStatus } from './Challenges/DestinyChallengeStatus';
 
 /**
@@ -24,6 +24,7 @@ import { DestinyChallengeStatus } from './Challenges/DestinyChallengeStatus';
  * picture of the Activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyActivity}
  */
+
 export interface DestinyActivity {
   /**
    * The hash identifier of the Activity. Use this to look up the

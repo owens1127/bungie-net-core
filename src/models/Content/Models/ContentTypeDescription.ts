@@ -19,6 +19,7 @@ import { ContentPreview } from './ContentPreview';
 import { ContentTypePropertySection } from './ContentTypePropertySection';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeDescription} */
+
 export interface ContentTypeDescription {
   readonly cType: string;
   readonly name: string;

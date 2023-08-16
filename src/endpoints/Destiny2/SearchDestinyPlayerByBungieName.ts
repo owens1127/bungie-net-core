@@ -12,19 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { ExactSearchRequest } from '../../models/User/ExactSearchRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { ExactSearchRequest } from '../../models';
-import { UserInfoCard } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName} */
-export type SearchDestinyPlayerByBungieNameParams = {
-  /**
-   * A valid non-BungieNet membership type, or All. Indicates which memberships to
-   * return. You probably want this set to All.
-   */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * Returns a list of Destiny memberships given a global Bungie Display Name. This
@@ -32,13 +23,24 @@ export type SearchDestinyPlayerByBungieNameParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.SearchDestinyPlayerByBungieName}
  */
 export async function searchDestinyPlayerByBungieName(
-  params: SearchDestinyPlayerByBungieNameParams,
+  params: {
+    /**
+     * A valid non-BungieNet membership type, or All. Indicates which memberships to
+     * return. You probably want this set to All.
+     */
+    membershipType: BungieMembershipType;
+  },
   body: ExactSearchRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<UserInfoCard[]>> {
-  return client.fetch<UserInfoCard[]>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayerByBungieName/${params.membershipType}/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayerByBungieName/${params.membershipType}/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

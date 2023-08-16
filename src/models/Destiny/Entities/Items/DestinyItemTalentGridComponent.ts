@@ -38,6 +38,7 @@ import { DestinyProgression } from '../../DestinyProgression';
  * s cold out there in the deep end.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemTalentGridComponent}
  */
+
 export interface DestinyItemTalentGridComponent {
   /**
    * Most items don't have useful talent grids anymore, but Builds in particular

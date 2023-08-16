@@ -19,6 +19,7 @@ import { DestinyVendorCategoryOverlayDefinition } from './DestinyVendorCategoryO
  * grouped.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorCategoryEntryDefinition}
  */
+
 export interface DestinyVendorCategoryEntryDefinition {
   /** The index of the category in the original category definitions for the vendor. */
   readonly categoryIndex: number;

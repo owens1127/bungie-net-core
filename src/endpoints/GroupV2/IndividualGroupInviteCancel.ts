@@ -12,30 +12,29 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { GroupApplicationResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel} */
-export type IndividualGroupInviteCancelParams = {
-  /** ID of the group you would like to join. */
-  groupId: string;
-  /** Membership id of the account being cancelled. */
-  membershipId: string;
-  /** MembershipType of the account being cancelled. */
-  membershipType: BungieMembershipType;
-};
+import { GroupApplicationResponse } from '../../models/GroupsV2/GroupApplicationResponse';
 
 /**
  * Cancels a pending invitation to join a group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInviteCancel}
  */
 export async function individualGroupInviteCancel(
-  params: IndividualGroupInviteCancelParams,
+  params: {
+    /** ID of the group you would like to join. */
+    groupId: string;
+    /** Membership id of the account being cancelled. */
+    membershipId: string;
+    /** MembershipType of the account being cancelled. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
-  return client.fetch<GroupApplicationResponse>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInviteCancel/${params.membershipType}/${params.membershipId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInviteCancel/${params.membershipType}/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

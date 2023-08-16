@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypePropertySection} */
+
 export interface ContentTypePropertySection {
   readonly name: string;
   readonly readableName: string;

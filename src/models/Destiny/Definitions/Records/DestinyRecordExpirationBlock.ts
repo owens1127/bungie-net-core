@@ -17,6 +17,7 @@
  * information about that expiration.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordExpirationBlock}
  */
+
 export interface DestinyRecordExpirationBlock {
   readonly hasExpiration: boolean;
   readonly description: string;

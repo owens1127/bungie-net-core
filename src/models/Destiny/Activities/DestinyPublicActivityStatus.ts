@@ -20,6 +20,7 @@ import { DestinyItemQuantity } from '../DestinyItemQuantity';
  * progress in it.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Activities.DestinyPublicActivityStatus}
  */
+
 export interface DestinyPublicActivityStatus {
   /**
    * Active Challenges for the activity, if any - represented as hashes for

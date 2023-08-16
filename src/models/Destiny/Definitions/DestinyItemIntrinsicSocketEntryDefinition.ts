@@ -18,6 +18,7 @@
  * but that plug/Mod should never change.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemIntrinsicSocketEntryDefinition}
  */
+
 export interface DestinyItemIntrinsicSocketEntryDefinition {
   /**
    * Indicates the plug that is intrinsically inserted into this socket. Mapped to

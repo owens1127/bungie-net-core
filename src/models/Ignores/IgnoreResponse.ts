@@ -12,9 +12,10 @@
  */
 //
 
-import { IgnoreStatus } from './IgnoreStatus';
+import { IgnoreStatus } from '../../enums/Ignores/IgnoreStatus';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Ignores.IgnoreResponse} */
+
 export interface IgnoreResponse {
   readonly isIgnored: boolean;
   /**

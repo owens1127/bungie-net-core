@@ -13,13 +13,14 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyEnergyType } from '../../DestinyEnergyType';
+import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
 
 /**
  * Represents types of Energy that can be used for costs and payments related to
  * Armor 2.0 mods.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.EnergyTypes.DestinyEnergyTypeDefinition}
  */
+
 export interface DestinyEnergyTypeDefinition {
   /** The description of the energy type, icon etc... */
   readonly displayProperties: DestinyDisplayPropertiesDefinition;

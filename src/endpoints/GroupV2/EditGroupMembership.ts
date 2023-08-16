@@ -12,21 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { RuntimeGroupMemberType } from '../../enums/GroupsV2/RuntimeGroupMemberType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { RuntimeGroupMemberType } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership} */
-export type EditGroupMembershipParams = {
-  /** ID of the group to which the member belongs. */
-  groupId: string;
-  /** Membership ID to modify. */
-  membershipId: string;
-  /** Membership type of the provide membership ID. */
-  membershipType: BungieMembershipType;
-  /** New membertype for the specified member. */
-  memberType: RuntimeGroupMemberType;
-};
 
 /**
  * Edit the membership type of a given member. You must have suitable permissions
@@ -34,11 +23,21 @@ export type EditGroupMembershipParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroupMembership}
  */
 export async function editGroupMembership(
-  params: EditGroupMembershipParams,
+  params: {
+    /** ID of the group to which the member belongs. */
+    groupId: string;
+    /** Membership ID to modify. */
+    membershipId: string;
+    /** Membership type of the provide membership ID. */
+    membershipType: BungieMembershipType;
+    /** New membertype for the specified member. */
+    memberType: RuntimeGroupMemberType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/SetMembershipType/${params.memberType}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/SetMembershipType/${params.memberType}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

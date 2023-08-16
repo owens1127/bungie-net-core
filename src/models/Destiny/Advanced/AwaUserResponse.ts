@@ -12,9 +12,10 @@
  */
 //
 
-import { AwaUserSelection } from './AwaUserSelection';
+import { AwaUserSelection } from '../../../enums/Destiny/Advanced/AwaUserSelection';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaUserResponse} */
+
 export interface AwaUserResponse {
   /** Indication of the selection the user has made (Approving or rejecting the action) */
   readonly selection: AwaUserSelection;

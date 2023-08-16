@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.GuardianRanks.DestinyGuardianRankIconBackgroundsDefinition} */
+
 export interface DestinyGuardianRankIconBackgroundsDefinition {
   readonly backgroundEmptyBorderedImagePath: string;
   readonly backgroundEmptyBlueGradientBorderedImagePath: string;

@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory';
+import { DestinyRewardSourceCategory } from '../../../enums/Destiny/Definitions/DestinyRewardSourceCategory';
 
 /**
  * Represents a heuristically-determined "item source" according to Bungie.net.
@@ -33,6 +33,7 @@ import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory';
  * reward.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyRewardSourceDefinition}
  */
+
 export interface DestinyRewardSourceDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

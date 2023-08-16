@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyItemSubType } from '../DestinyItemSubType';
+import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirement} */
+
 export interface DestinyActivityLoadoutRequirement {
   /** Mapped to DestinyEquipmentSlotDefinition in the manifest. */
   readonly equipmentSlotHash: number;

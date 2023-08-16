@@ -28,6 +28,7 @@ import { DestinyDerivedItemDefinition } from './DestinyDerivedItemDefinition';
  * aggregation manually.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyDerivedItemCategoryDefinition}
  */
+
 export interface DestinyDerivedItemCategoryDefinition {
   /**
    * The localized string for the category title. This will be something describing

@@ -12,28 +12,27 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember} */
-export type UnbanMemberParams = {
-  groupId: string;
-  /** Membership ID of the member to unban from the group */
-  membershipId: string;
-  /** Membership type of the provided membership ID. */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * Unbans the requested member, allowing them to re-apply for membership.
  * @see {@link https://bungie-net.github.io/#GroupV2.UnbanMember}
  */
 export async function unbanMember(
-  params: UnbanMemberParams,
+  params: {
+    groupId: string;
+    /** Membership ID of the member to unban from the group */
+    membershipId: string;
+    /** Membership type of the provided membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Unban/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Unban/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

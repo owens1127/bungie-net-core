@@ -20,6 +20,7 @@
  * DestinyUnlockDefinition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyUnlockStatus}
  */
+
 export interface DestinyUnlockStatus {
   /**
    * The hash identifier for the Unlock Flag. Use to lookup DestinyUnlockDefinition

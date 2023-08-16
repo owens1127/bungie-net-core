@@ -16,6 +16,7 @@ import { DestinyPublicMilestoneActivity } from './DestinyPublicMilestoneActivity
 import { DestinyPublicMilestoneChallenge } from './DestinyPublicMilestoneChallenge';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneQuest} */
+
 export interface DestinyPublicMilestoneQuest {
   /**
    * Quests are defined as Items in content. As such, this is the hash identifier of

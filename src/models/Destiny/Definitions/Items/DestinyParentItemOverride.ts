@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyParentItemOverride} */
+
 export interface DestinyParentItemOverride {
   readonly additionalEquipRequirementsDisplayStrings: string[];
   readonly pipIcon: string;

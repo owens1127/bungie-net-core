@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyLoadoutActionRequest } from '../../models/Destiny/Requests/Actions/DestinyLoadoutActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyLoadoutActionRequest } from '../../models';
+
 /**
  * Equip a loadout. You must have a valid Destiny Account, and either be in a
  * social space, in orbit, or offline.
@@ -25,10 +26,13 @@ import { DestinyLoadoutActionRequest } from '../../models';
 export async function equipLoadout(
   body: DestinyLoadoutActionRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Loadouts/EquipLoadout/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

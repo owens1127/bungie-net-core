@@ -18,6 +18,7 @@ import { DestinyEquipItemResult } from './DestinyEquipItemResult';
  * The results of a bulk Equipping operation performed through the Destiny API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEquipItemResults}
  */
+
 export interface DestinyEquipItemResults {
   readonly equipResults: DestinyEquipItemResult[];
 }

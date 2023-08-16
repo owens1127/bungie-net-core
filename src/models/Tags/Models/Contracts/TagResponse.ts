@@ -15,6 +15,7 @@
 import { IgnoreResponse } from '../../../Ignores/IgnoreResponse';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tags.Models.Contracts.TagResponse} */
+
 export interface TagResponse {
   readonly tagText: string;
   readonly ignoreStatus: IgnoreResponse;

@@ -12,12 +12,13 @@
  */
 //
 
-import { ItemPerkVisibility } from '../ItemPerkVisibility';
+import { ItemPerkVisibility } from '../../../enums/Destiny/ItemPerkVisibility';
 
 /**
  * An intrinsic perk on an item, and the requirements for it to be activated.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemPerkEntryDefinition}
  */
+
 export interface DestinyItemPerkEntryDefinition {
   /**
    * If this perk is not active, this is the string to show for why it's not

@@ -15,23 +15,21 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest} */
-export type IssueFriendRequestParams = {
-  /** The membership id of the user you wish to add. */
-  membershipId: string;
-};
-
 /**
  * Requests a friend relationship with the target user. Any of the target user's
  * linked membership ids are valid inputs.
  * @see {@link https://bungie-net.github.io/#Social.IssueFriendRequest}
  */
 export async function issueFriendRequest(
-  params: IssueFriendRequestParams,
+  params: {
+    /** The membership id of the user you wish to add. */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/Social/Friends/Add/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Add/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

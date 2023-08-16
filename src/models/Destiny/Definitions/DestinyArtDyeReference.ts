@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyArtDyeReference} */
+
 export interface DestinyArtDyeReference {
   readonly artDyeChannelHash: number;
 }

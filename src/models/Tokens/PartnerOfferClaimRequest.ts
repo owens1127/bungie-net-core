@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerOfferClaimRequest} */
+
 export interface PartnerOfferClaimRequest {
   readonly PartnerOfferId: string;
   readonly BungieNetMembershipId: string;

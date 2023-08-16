@@ -22,6 +22,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * Places are more on the planetary scale, like "Earth" and "Your Mom."
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyPlaceDefinition}
  */
+
 export interface DestinyPlaceDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

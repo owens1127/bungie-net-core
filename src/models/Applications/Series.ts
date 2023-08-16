@@ -15,6 +15,7 @@
 import { Datapoint } from './Datapoint';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Series} */
+
 export interface Series {
   /** Collection of samples with time and value. */
   readonly datapoints: Datapoint[];

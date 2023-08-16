@@ -13,11 +13,11 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyGatingScope } from '../DestinyGatingScope';
-import { DestinyUnlockValueUIStyle } from '../DestinyUnlockValueUIStyle';
+import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
+import { DestinyUnlockValueUIStyle } from '../../../enums/Destiny/DestinyUnlockValueUIStyle';
 import { DestinyObjectivePerkEntryDefinition } from './DestinyObjectivePerkEntryDefinition';
 import { DestinyObjectiveStatEntryDefinition } from './DestinyObjectiveStatEntryDefinition';
-import { DestinyObjectiveUiStyle } from '../DestinyObjectiveUiStyle';
+import { DestinyObjectiveUiStyle } from '../../../enums/Destiny/DestinyObjectiveUiStyle';
 
 /**
  * Defines an "Objective".
@@ -39,6 +39,7 @@ import { DestinyObjectiveUiStyle } from '../DestinyObjectiveUiStyle';
  * can enhance the information provided about the task.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyObjectiveDefinition}
  */
+
 export interface DestinyObjectiveDefinition {
   /**
    * Ideally, this should tell you what your task is. I'm not going to lie to you

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Dates.DateRange} */
+
 export interface DateRange {
   readonly start: string;
   readonly end: string;

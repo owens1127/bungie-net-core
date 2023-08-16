@@ -16,6 +16,7 @@ import { ContentItemPublicContract } from './Content/ContentItemPublicContract';
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfContentItemPublicContract} */
+
 export interface SearchResultOfContentItemPublicContract {
   readonly results: ContentItemPublicContract[];
   readonly totalResults: number;

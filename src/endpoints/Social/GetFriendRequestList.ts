@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieFriendRequestListResponse } from '../../models';
+import { BungieFriendRequestListResponse } from '../../models/Social/Friends/BungieFriendRequestListResponse';
+
 /**
  * Returns your friend request queue.
  * @see {@link https://bungie-net.github.io/#Social.GetFriendRequestList}
@@ -22,8 +23,7 @@ import { BungieFriendRequestListResponse } from '../../models';
 export async function getFriendRequestList(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<BungieFriendRequestListResponse>> {
-  return client.fetch<BungieFriendRequestListResponse>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Social/Friends/Requests/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

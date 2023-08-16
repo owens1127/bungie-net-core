@@ -13,7 +13,7 @@
 //
 
 import { DestinyProgressionResetEntry } from './DestinyProgressionResetEntry';
-import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemState } from '../../enums/Destiny/DestinyProgressionRewardItemState';
 
 /**
  * Information about a current character's status with a Progression. A progression
@@ -22,6 +22,7 @@ import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardIte
  * DestinyProgressionDefinition for a full picture of the Progression.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgression}
  */
+
 export interface DestinyProgression {
   /**
    * The hash identifier of the Progression in question. Use it to look up the

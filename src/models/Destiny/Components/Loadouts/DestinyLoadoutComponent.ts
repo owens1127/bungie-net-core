@@ -15,6 +15,7 @@
 import { DestinyLoadoutItemComponent } from './DestinyLoadoutItemComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Loadouts.DestinyLoadoutComponent} */
+
 export interface DestinyLoadoutComponent {
   /** Mapped to DestinyLoadoutColorDefinition in the manifest. */
   readonly colorHash: number;

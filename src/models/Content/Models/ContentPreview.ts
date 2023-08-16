@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentPreview} */
+
 export interface ContentPreview {
   readonly name: string;
   readonly path: string;

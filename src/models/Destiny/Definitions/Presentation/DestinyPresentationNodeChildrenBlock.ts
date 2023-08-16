@@ -26,6 +26,7 @@ import { DestinyPresentationNodeCraftableChildEntry } from './DestinyPresentatio
  * entity (if anything)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeChildrenBlock}
  */
+
 export interface DestinyPresentationNodeChildrenBlock {
   readonly presentationNodes: DestinyPresentationNodeChildEntry[];
   readonly collectibles: DestinyPresentationNodeCollectibleChildEntry[];

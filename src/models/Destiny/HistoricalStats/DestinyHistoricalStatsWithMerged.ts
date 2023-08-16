@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsByPeriod } from './DestinyHistoricalStatsByPeriod';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsWithMerged} */
+
 export interface DestinyHistoricalStatsWithMerged {
   readonly results: { [key: string]: DestinyHistoricalStatsByPeriod };
   readonly merged: DestinyHistoricalStatsByPeriod;

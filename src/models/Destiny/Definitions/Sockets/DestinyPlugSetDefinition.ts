@@ -34,6 +34,7 @@ import { DestinyItemSocketEntryPlugItemRandomizedDefinition } from '../DestinyIt
  * there where possible, but it will be invalid for many/most plug sets.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinyPlugSetDefinition}
  */
+
 export interface DestinyPlugSetDefinition {
   /**
    * If you want to show these plugs in isolation, these are the display properties

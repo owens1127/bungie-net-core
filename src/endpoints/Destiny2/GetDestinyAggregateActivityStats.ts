@@ -12,19 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { DestinyAggregateActivityResults } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats} */
-export type GetDestinyAggregateActivityStatsParams = {
-  /** The specific character whose activities should be returned. */
-  characterId: string;
-  /** The Destiny membershipId of the user to retrieve. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyAggregateActivityResults } from '../../models/Destiny/HistoricalStats/DestinyAggregateActivityResults';
 
 /**
  * Gets all activities the character has participated in together with aggregate
@@ -32,11 +23,19 @@ export type GetDestinyAggregateActivityStatsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyAggregateActivityStats}
  */
 export async function getDestinyAggregateActivityStats(
-  params: GetDestinyAggregateActivityStatsParams,
+  params: {
+    /** The specific character whose activities should be returned. */
+    characterId: string;
+    /** The Destiny membershipId of the user to retrieve. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyAggregateActivityResults>> {
-  return client.fetch<DestinyAggregateActivityResults>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/AggregateActivityStats/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/AggregateActivityStats/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

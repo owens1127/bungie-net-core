@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyAggregateActivityStats} */
+
 export interface DestinyAggregateActivityStats {
   /**
    * Hash ID that can be looked up in the DestinyActivityTable. Mapped to

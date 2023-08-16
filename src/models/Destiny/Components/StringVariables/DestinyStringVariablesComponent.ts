@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.StringVariables.DestinyStringVariablesComponent} */
+
 export interface DestinyStringVariablesComponent {
   readonly integerValuesByHash: { [key: number]: number };
 }

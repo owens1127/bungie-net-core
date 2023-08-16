@@ -14,16 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { Application } from '../../models';
+
 /**
  * Get list of applications created by Bungie.
  * @see {@link https://bungie-net.github.io/#App.GetBungieApplications}
  */
 export async function getBungieApplications(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<Application[]>> {
-  return client.fetch<Application[]>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/App/FirstParty/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

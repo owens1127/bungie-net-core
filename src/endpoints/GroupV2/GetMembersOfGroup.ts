@@ -12,40 +12,38 @@
  */
 //
 
+import { RuntimeGroupMemberType } from '../../enums/GroupsV2/RuntimeGroupMemberType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { RuntimeGroupMemberType } from '../../models';
-import { SearchResultOfGroupMember } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup} */
-export type GetMembersOfGroupParams = {
-  /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
-  currentpage: number;
-  /** The ID of the group. */
-  groupId: string;
-  /** Filter out other member types. Use None for all members. */
-  memberType?: RuntimeGroupMemberType;
-  /**
-   * The name fragment upon which a search should be executed for members with
-   * matching display or unique names.
-   */
-  nameSearch?: string;
-};
+import { SearchResultOfGroupMember } from '../../models/SearchResultOfGroupMember';
 
 /**
  * Get the list of members in a given group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetMembersOfGroup}
  */
 export async function getMembersOfGroup(
-  params: GetMembersOfGroupParams,
+  params: {
+    /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
+    currentpage: number;
+    /** The ID of the group. */
+    groupId: string;
+    /** Filter out other member types. Use None for all members. */
+    memberType?: RuntimeGroupMemberType;
+    /**
+     * The name fragment upon which a search should be executed for members with
+     * matching display or unique names.
+     */
+    nameSearch?: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
-  return client.fetch<SearchResultOfGroupMember>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/`,
-    params: {
-      currentpage: params.currentpage,
-      memberType: params.memberType,
-      nameSearch: params.nameSearch
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/`
+  );
+  url.searchParams.set('currentpage', String(params.currentpage));
+  params.memberType !== undefined &&
+    url.searchParams.set('memberType', String(params.memberType));
+  params.nameSearch !== undefined &&
+    url.searchParams.set('nameSearch', String(params.nameSearch));
+  return client.fetch({ method: 'GET', url });
 }

@@ -57,6 +57,7 @@ import { DestinyTalentNodeCategory } from './DestinyTalentNodeCategory';
  * s talent grid.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentGridDefinition}
  */
+
 export interface DestinyTalentGridDefinition {
   /**
    * The maximum possible level of the Talent Grid: at this level, any nodes are

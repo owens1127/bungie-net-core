@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.UserSearchPrefixRequest} */
+
 export interface UserSearchPrefixRequest {
   readonly displayNamePrefix: string;
 }

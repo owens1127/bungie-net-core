@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.TagMetadataItem} */
+
 export interface TagMetadataItem {
   readonly description: string;
   readonly tagText: string;

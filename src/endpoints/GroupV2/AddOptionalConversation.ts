@@ -12,14 +12,9 @@
  */
 //
 
+import { GroupOptionalConversationAddRequest } from '../../models/GroupsV2/GroupOptionalConversationAddRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupOptionalConversationAddRequest } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation} */
-export type AddOptionalConversationParams = {
-  /** Group ID of the group to edit. */
-  groupId: string;
-};
 
 /**
  * Add a new optional conversation/chat channel. Requires admin permissions to the
@@ -27,13 +22,21 @@ export type AddOptionalConversationParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.AddOptionalConversation}
  */
 export async function addOptionalConversation(
-  params: AddOptionalConversationParams,
+  params: {
+    /** Group ID of the group to edit. */
+    groupId: string;
+  },
   body: GroupOptionalConversationAddRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<string>> {
-  return client.fetch<string>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Add/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Add/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

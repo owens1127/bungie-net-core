@@ -22,6 +22,7 @@
  * one is active for the week.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphNodeActivityDefinition}
  */
+
 export interface DestinyActivityGraphNodeActivityDefinition {
   /**
    * An identifier for this node activity. It is only guaranteed to be unique within

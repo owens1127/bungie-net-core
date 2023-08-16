@@ -17,6 +17,7 @@
  * season of release.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.PowerCaps.DestinyPowerCapDefinition}
  */
+
 export interface DestinyPowerCapDefinition {
   /** The raw value for a power cap. */
   readonly powerCap: number;

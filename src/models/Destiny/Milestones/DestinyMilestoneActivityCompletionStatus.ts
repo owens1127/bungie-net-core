@@ -22,6 +22,7 @@ import { DestinyMilestoneActivityPhase } from './DestinyMilestoneActivityPhase';
  * doesn't make sense to talk about a Crucible Playlist in those terms.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneActivityCompletionStatus}
  */
+
 export interface DestinyMilestoneActivityCompletionStatus {
   /** If the activity has been "completed", that information will be returned here. */
   readonly completed: boolean;

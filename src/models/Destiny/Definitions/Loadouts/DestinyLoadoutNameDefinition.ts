@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Loadouts.DestinyLoadoutNameDefinition} */
+
 export interface DestinyLoadoutNameDefinition {
   readonly name: string;
   /**

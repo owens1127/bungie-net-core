@@ -14,23 +14,21 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GetCredentialTypesForAccountResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount} */
-export type GetCredentialTypesForTargetAccountParams = {
-  /** The user's membership id */
-  membershipId: string;
-};
 
 /**
  * Returns a list of credential types attached to the requested account
  * @see {@link https://bungie-net.github.io/#User.GetCredentialTypesForTargetAccount}
  */
 export async function getCredentialTypesForTargetAccount(
-  params: GetCredentialTypesForTargetAccountParams,
+  params: {
+    /** The user's membership id */
+    membershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<GetCredentialTypesForAccountResponse[]>> {
-  return client.fetch<GetCredentialTypesForAccountResponse[]>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/GetCredentialTypesForTargetAccount/${params.membershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetCredentialTypesForTargetAccount/${params.membershipId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

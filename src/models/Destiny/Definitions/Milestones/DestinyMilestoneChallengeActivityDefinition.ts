@@ -17,6 +17,7 @@ import { DestinyMilestoneChallengeActivityGraphNodeEntry } from './DestinyMilest
 import { DestinyMilestoneChallengeActivityPhase } from './DestinyMilestoneChallengeActivityPhase';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneChallengeActivityDefinition} */
+
 export interface DestinyMilestoneChallengeActivityDefinition {
   /**
    * The activity for which this challenge is active. Mapped to

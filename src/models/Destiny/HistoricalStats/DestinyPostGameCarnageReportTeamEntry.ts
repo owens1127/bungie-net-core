@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportTeamEntry} */
+
 export interface DestinyPostGameCarnageReportTeamEntry {
   /** Integer ID for the team. */
   readonly teamId: number;

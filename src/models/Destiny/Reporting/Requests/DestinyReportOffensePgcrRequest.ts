@@ -27,6 +27,7 @@
  * itself.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Reporting.Requests.DestinyReportOffensePgcrRequest}
  */
+
 export interface DestinyReportOffensePgcrRequest {
   /**
    * So you've decided to report someone instead of cursing them and their

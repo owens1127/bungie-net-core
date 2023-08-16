@@ -14,12 +14,6 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { TagResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions} */
-export type GetForumTagSuggestionsParams = {
-  /** The partial tag input to generate suggestions from. */
-  partialtag?: string;
-};
 
 /**
  * Gets tag suggestions based on partial text entry, matching them with other tags
@@ -27,14 +21,14 @@ export type GetForumTagSuggestionsParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetForumTagSuggestions}
  */
 export async function getForumTagSuggestions(
-  params: GetForumTagSuggestionsParams,
+  params: {
+    /** The partial tag input to generate suggestions from. */
+    partialtag?: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<TagResponse[]>> {
-  return client.fetch<TagResponse[]>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Forum/GetForumTagSuggestions/',
-    params: {
-      partialtag: params.partialtag
-    }
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+  params.partialtag !== undefined &&
+    url.searchParams.set('partialtag', String(params.partialtag));
+  return client.fetch({ method: 'GET', url });
 }

@@ -12,10 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../../BungieMembershipType';
-import { DestinyRace } from '../../DestinyRace';
-import { DestinyClass } from '../../DestinyClass';
-import { DestinyGender } from '../../DestinyGender';
+import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
+import { DestinyRace } from '../../../../enums/Destiny/DestinyRace';
+import { DestinyClass } from '../../../../enums/Destiny/DestinyClass';
+import { DestinyGender } from '../../../../enums/Destiny/DestinyGender';
 import { DestinyColor } from '../../Misc/DestinyColor';
 import { DestinyProgression } from '../../DestinyProgression';
 
@@ -24,6 +24,7 @@ import { DestinyProgression } from '../../DestinyProgression';
  * to always request this component, but hey you do you.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Characters.DestinyCharacterComponent}
  */
+
 export interface DestinyCharacterComponent {
   /**
    * Every Destiny Profile has a membershipId. This is provided on the character as

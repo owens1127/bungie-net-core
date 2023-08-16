@@ -12,46 +12,45 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { DestinyActivityModeType } from '../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { DestinyActivityModeType } from '../../models';
-import { DestinyActivityHistoryResults } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetActivityHistory} */
-export type GetActivityHistoryParams = {
-  /** The id of the character to retrieve. */
-  characterId: string;
-  /** Number of rows to return */
-  count?: number;
-  /** The Destiny membershipId of the user to retrieve. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-  /**
-   * A filter for the activity mode to be returned. None returns all activities. See
-   * the documentation for DestinyActivityModeType for valid values, and pass in
-   * string representation.
-   */
-  mode?: DestinyActivityModeType;
-  /** Page number to return, starting with 0. */
-  page?: number;
-};
+import { DestinyActivityHistoryResults } from '../../models/Destiny/HistoricalStats/DestinyActivityHistoryResults';
 
 /**
  * Gets activity history stats for indicated character.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetActivityHistory}
  */
 export async function getActivityHistory(
-  params: GetActivityHistoryParams,
+  params: {
+    /** The id of the character to retrieve. */
+    characterId: string;
+    /** Number of rows to return */
+    count?: number;
+    /** The Destiny membershipId of the user to retrieve. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+    /**
+     * A filter for the activity mode to be returned. None returns all activities. See
+     * the documentation for DestinyActivityModeType for valid values, and pass in
+     * string representation.
+     */
+    mode?: DestinyActivityModeType;
+    /** Page number to return, starting with 0. */
+    page?: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyActivityHistoryResults>> {
-  return client.fetch<DestinyActivityHistoryResults>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/Activities/`,
-    params: {
-      count: params.count,
-      mode: params.mode,
-      page: params.page
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Account/${params.destinyMembershipId}/Character/${params.characterId}/Stats/Activities/`
+  );
+  params.count !== undefined &&
+    url.searchParams.set('count', String(params.count));
+  params.mode !== undefined &&
+    url.searchParams.set('mode', String(params.mode));
+  params.page !== undefined &&
+    url.searchParams.set('page', String(params.page));
+  return client.fetch({ method: 'GET', url });
 }

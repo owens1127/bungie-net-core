@@ -12,10 +12,8 @@
  */
 //
 
-import { ComponentData } from '../../../interfaces/ComponentTypes';
-import { DestinyComponentType } from '../DestinyComponentType';
+import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
 import { SingleComponentResponse } from '../../../interfaces/SingleComponentResponse';
-import { ConditionalComponent } from '../../../interfaces/ComponentTypes';
 import { DestinyVendorReceiptsComponent } from '../Entities/Profiles/DestinyVendorReceiptsComponent';
 import { DestinyInventoryComponent } from '../Entities/Inventory/DestinyInventoryComponent';
 import { DestinyProfileComponent } from '../Entities/Profiles/DestinyProfileComponent';
@@ -40,7 +38,7 @@ import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemCompon
 import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent';
 import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
 import { DestinyCraftablesComponent } from '../Components/Craftables/DestinyCraftablesComponent';
-import { DestinyItemComponentSetOfint64 } from '../../DestinyItemComponentSetOfint64';
+import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
 import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 
 /**
@@ -48,8 +46,10 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileResponse}
  */
-export interface DestinyProfileResponse<T extends DestinyComponentType[]>
-  extends ComponentData {
+
+export interface DestinyProfileResponse<
+  T extends readonly DestinyComponentType[]
+> {
   /**
    * Records the timestamp of when most components were last generated from the world
    * server source. Unless the component type is specified in the documentation for
@@ -74,50 +74,50 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: VendorReceipts
    */
-  readonly vendorReceipts: ConditionalComponent<
+  readonly vendorReceipts: SingleComponentResponse<
+    DestinyVendorReceiptsComponent,
     T,
-    DestinyComponentType.VendorReceipts,
-    SingleComponentResponse<DestinyVendorReceiptsComponent>
+    DestinyComponentType.VendorReceipts
   >;
   /**
    * The profile-level inventory of the Destiny Profile.
    *
    * COMPONENT TYPE: ProfileInventories
    */
-  readonly profileInventory: ConditionalComponent<
+  readonly profileInventory: SingleComponentResponse<
+    DestinyInventoryComponent,
     T,
-    DestinyComponentType.ProfileInventories,
-    SingleComponentResponse<DestinyInventoryComponent>
+    DestinyComponentType.ProfileInventories
   >;
   /**
    * The profile-level currencies owned by the Destiny Profile.
    *
    * COMPONENT TYPE: ProfileCurrencies
    */
-  readonly profileCurrencies: ConditionalComponent<
+  readonly profileCurrencies: SingleComponentResponse<
+    DestinyInventoryComponent,
     T,
-    DestinyComponentType.ProfileCurrencies,
-    SingleComponentResponse<DestinyInventoryComponent>
+    DestinyComponentType.ProfileCurrencies
   >;
   /**
    * The basic information about the Destiny Profile (formerly "Account").
    *
    * COMPONENT TYPE: Profiles
    */
-  readonly profile: ConditionalComponent<
+  readonly profile: SingleComponentResponse<
+    DestinyProfileComponent,
     T,
-    DestinyComponentType.Profiles,
-    SingleComponentResponse<DestinyProfileComponent>
+    DestinyComponentType.Profiles
   >;
   /**
    * Silver quantities for any platform on which this Profile plays destiny.
    *
    * COMPONENT TYPE: PlatformSilver
    */
-  readonly platformSilver: ConditionalComponent<
+  readonly platformSilver: SingleComponentResponse<
+    DestinyPlatformSilverComponent,
     T,
-    DestinyComponentType.PlatformSilver,
-    SingleComponentResponse<DestinyPlatformSilverComponent>
+    DestinyComponentType.PlatformSilver
   >;
   /**
    * Items available from Kiosks that are available Profile-wide (i.e. across all
@@ -130,10 +130,10 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly profileKiosks: ConditionalComponent<
+  readonly profileKiosks: SingleComponentResponse<
+    DestinyKiosksComponent,
     T,
-    DestinyComponentType.Kiosks,
-    SingleComponentResponse<DestinyKiosksComponent>
+    DestinyComponentType.Kiosks
   >;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
@@ -144,10 +144,10 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly profilePlugSets: ConditionalComponent<
+  readonly profilePlugSets: SingleComponentResponse<
+    DestinyPlugSetsComponent,
     T,
-    DestinyComponentType.ItemSockets,
-    SingleComponentResponse<DestinyPlugSetsComponent>
+    DestinyComponentType.ItemSockets
   >;
   /**
    * When we have progression information - such as Checklists - that may apply
@@ -156,92 +156,96 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ProfileProgression
    */
-  readonly profileProgression: ConditionalComponent<
+  readonly profileProgression: SingleComponentResponse<
+    DestinyProfileProgressionComponent,
     T,
-    DestinyComponentType.ProfileProgression,
-    SingleComponentResponse<DestinyProfileProgressionComponent>
+    DestinyComponentType.ProfileProgression
   >;
   /** COMPONENT TYPE: PresentationNodes */
-  readonly profilePresentationNodes: ConditionalComponent<
+  readonly profilePresentationNodes: SingleComponentResponse<
+    DestinyPresentationNodesComponent,
     T,
-    DestinyComponentType.PresentationNodes,
-    SingleComponentResponse<DestinyPresentationNodesComponent>
+    DestinyComponentType.PresentationNodes
   >;
   /** COMPONENT TYPE: Records */
-  readonly profileRecords: ConditionalComponent<
+  readonly profileRecords: SingleComponentResponse<
+    DestinyProfileRecordsComponent,
     T,
-    DestinyComponentType.Records,
-    SingleComponentResponse<DestinyProfileRecordsComponent>
+    DestinyComponentType.Records
   >;
   /** COMPONENT TYPE: Collectibles */
-  readonly profileCollectibles: ConditionalComponent<
+  readonly profileCollectibles: SingleComponentResponse<
+    DestinyProfileCollectiblesComponent,
     T,
-    DestinyComponentType.Collectibles,
-    SingleComponentResponse<DestinyProfileCollectiblesComponent>
+    DestinyComponentType.Collectibles
   >;
   /** COMPONENT TYPE: Transitory */
-  readonly profileTransitoryData: ConditionalComponent<
+  readonly profileTransitoryData: SingleComponentResponse<
+    DestinyProfileTransitoryComponent,
     T,
-    DestinyComponentType.Transitory,
-    SingleComponentResponse<DestinyProfileTransitoryComponent>
+    DestinyComponentType.Transitory
   >;
   /** COMPONENT TYPE: Metrics */
-  readonly metrics: ConditionalComponent<
+  readonly metrics: SingleComponentResponse<
+    DestinyMetricsComponent,
     T,
-    DestinyComponentType.Metrics,
-    SingleComponentResponse<DestinyMetricsComponent>
+    DestinyComponentType.Metrics
   >;
   /** COMPONENT TYPE: StringVariables */
-  readonly profileStringVariables: ConditionalComponent<
+  readonly profileStringVariables: SingleComponentResponse<
+    DestinyStringVariablesComponent,
     T,
-    DestinyComponentType.StringVariables,
-    SingleComponentResponse<DestinyStringVariablesComponent>
+    DestinyComponentType.StringVariables
   >;
   /** COMPONENT TYPE: SocialCommendations */
-  readonly profileCommendations: ConditionalComponent<
+  readonly profileCommendations: SingleComponentResponse<
+    DestinySocialCommendationsComponent,
     T,
-    DestinyComponentType.SocialCommendations,
-    SingleComponentResponse<DestinySocialCommendationsComponent>
+    DestinyComponentType.SocialCommendations
   >;
   /**
    * Basic information about each character, keyed by the CharacterId.
    *
    * COMPONENT TYPE: Characters
    */
-  readonly characters: ConditionalComponent<
+  readonly characters: DictionaryComponentResponse<
+    string,
+    DestinyCharacterComponent,
     T,
-    DestinyComponentType.Characters,
-    DictionaryComponentResponse<string, DestinyCharacterComponent>
+    DestinyComponentType.Characters
   >;
   /**
    * The character-level non-equipped inventory items, keyed by the Character's Id.
    *
    * COMPONENT TYPE: CharacterInventories
    */
-  readonly characterInventories: ConditionalComponent<
+  readonly characterInventories: DictionaryComponentResponse<
+    string,
+    DestinyInventoryComponent,
     T,
-    DestinyComponentType.CharacterInventories,
-    DictionaryComponentResponse<string, DestinyInventoryComponent>
+    DestinyComponentType.CharacterInventories
   >;
   /**
    * The character loadouts, keyed by the Character's Id.
    *
    * COMPONENT TYPE: CharacterLoadouts
    */
-  readonly characterLoadouts: ConditionalComponent<
+  readonly characterLoadouts: DictionaryComponentResponse<
+    string,
+    DestinyLoadoutsComponent,
     T,
-    DestinyComponentType.CharacterLoadouts,
-    DictionaryComponentResponse<string, DestinyLoadoutsComponent>
+    DestinyComponentType.CharacterLoadouts
   >;
   /**
    * Character-level progression data, keyed by the Character's Id.
    *
    * COMPONENT TYPE: CharacterProgressions
    */
-  readonly characterProgressions: ConditionalComponent<
+  readonly characterProgressions: DictionaryComponentResponse<
+    string,
+    DestinyCharacterProgressionComponent,
     T,
-    DestinyComponentType.CharacterProgressions,
-    DictionaryComponentResponse<string, DestinyCharacterProgressionComponent>
+    DestinyComponentType.CharacterProgressions
   >;
   /**
    * Character rendering data - a minimal set of info needed to render a character in
@@ -249,10 +253,11 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: CharacterRenderData
    */
-  readonly characterRenderData: ConditionalComponent<
+  readonly characterRenderData: DictionaryComponentResponse<
+    string,
+    DestinyCharacterRenderComponent,
     T,
-    DestinyComponentType.CharacterRenderData,
-    DictionaryComponentResponse<string, DestinyCharacterRenderComponent>
+    DestinyComponentType.CharacterRenderData
   >;
   /**
    * Character activity data - the activities available to this character and its
@@ -260,20 +265,22 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: CharacterActivities
    */
-  readonly characterActivities: ConditionalComponent<
+  readonly characterActivities: DictionaryComponentResponse<
+    string,
+    DestinyCharacterActivitiesComponent,
     T,
-    DestinyComponentType.CharacterActivities,
-    DictionaryComponentResponse<string, DestinyCharacterActivitiesComponent>
+    DestinyComponentType.CharacterActivities
   >;
   /**
    * The character's equipped items, keyed by the Character's Id.
    *
    * COMPONENT TYPE: CharacterEquipment
    */
-  readonly characterEquipment: ConditionalComponent<
+  readonly characterEquipment: DictionaryComponentResponse<
+    string,
+    DestinyInventoryComponent,
     T,
-    DestinyComponentType.CharacterEquipment,
-    DictionaryComponentResponse<string, DestinyInventoryComponent>
+    DestinyComponentType.CharacterEquipment
   >;
   /**
    * Items available from Kiosks that are available to a specific character as
@@ -288,10 +295,11 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly characterKiosks: ConditionalComponent<
+  readonly characterKiosks: DictionaryComponentResponse<
+    string,
+    DestinyKiosksComponent,
     T,
-    DestinyComponentType.Kiosks,
-    DictionaryComponentResponse<string, DestinyKiosksComponent>
+    DestinyComponentType.Kiosks
   >;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
@@ -303,10 +311,11 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly characterPlugSets: ConditionalComponent<
+  readonly characterPlugSets: DictionaryComponentResponse<
+    string,
+    DestinyPlugSetsComponent,
     T,
-    DestinyComponentType.ItemSockets,
-    DictionaryComponentResponse<string, DestinyPlugSetsComponent>
+    DestinyComponentType.ItemSockets
   >;
   /**
    * Do you ever get the feeling that a system was designed *too* flexibly? That it
@@ -344,34 +353,39 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
     [key: string]: DestinyBaseItemComponentSetOfuint32<T>;
   };
   /** COMPONENT TYPE: PresentationNodes */
-  readonly characterPresentationNodes: ConditionalComponent<
+  readonly characterPresentationNodes: DictionaryComponentResponse<
+    string,
+    DestinyPresentationNodesComponent,
     T,
-    DestinyComponentType.PresentationNodes,
-    DictionaryComponentResponse<string, DestinyPresentationNodesComponent>
+    DestinyComponentType.PresentationNodes
   >;
   /** COMPONENT TYPE: Records */
-  readonly characterRecords: ConditionalComponent<
+  readonly characterRecords: DictionaryComponentResponse<
+    string,
+    DestinyCharacterRecordsComponent,
     T,
-    DestinyComponentType.Records,
-    DictionaryComponentResponse<string, DestinyCharacterRecordsComponent>
+    DestinyComponentType.Records
   >;
   /** COMPONENT TYPE: Collectibles */
-  readonly characterCollectibles: ConditionalComponent<
+  readonly characterCollectibles: DictionaryComponentResponse<
+    string,
+    DestinyCollectiblesComponent,
     T,
-    DestinyComponentType.Collectibles,
-    DictionaryComponentResponse<string, DestinyCollectiblesComponent>
+    DestinyComponentType.Collectibles
   >;
   /** COMPONENT TYPE: StringVariables */
-  readonly characterStringVariables: ConditionalComponent<
+  readonly characterStringVariables: DictionaryComponentResponse<
+    string,
+    DestinyStringVariablesComponent,
     T,
-    DestinyComponentType.StringVariables,
-    DictionaryComponentResponse<string, DestinyStringVariablesComponent>
+    DestinyComponentType.StringVariables
   >;
   /** COMPONENT TYPE: Craftables */
-  readonly characterCraftables: ConditionalComponent<
+  readonly characterCraftables: DictionaryComponentResponse<
+    string,
+    DestinyCraftablesComponent,
     T,
-    DestinyComponentType.Craftables,
-    DictionaryComponentResponse<string, DestinyCraftablesComponent>
+    DestinyComponentType.Craftables
   >;
   /**
    * Information about instanced items across all returned characters, keyed by the
@@ -380,16 +394,17 @@ export interface DestinyProfileResponse<T extends DestinyComponentType[]>
    * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
    * types.]
    */
-  readonly itemComponents: DestinyItemComponentSetOfint64<T>;
+  readonly itemComponents: DestinyItemComponentSet<string, T>;
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.
    *
    * COMPONENT TYPE: CurrencyLookups
    */
-  readonly characterCurrencyLookups: ConditionalComponent<
+  readonly characterCurrencyLookups: DictionaryComponentResponse<
+    string,
+    DestinyCurrenciesComponent,
     T,
-    DestinyComponentType.CurrencyLookups,
-    DictionaryComponentResponse<string, DestinyCurrenciesComponent>
+    DestinyComponentType.CurrencyLookups
   >;
 }

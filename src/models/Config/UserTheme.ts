@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Config.UserTheme} */
+
 export interface UserTheme {
   readonly userThemeId: number;
   readonly userThemeName: string;

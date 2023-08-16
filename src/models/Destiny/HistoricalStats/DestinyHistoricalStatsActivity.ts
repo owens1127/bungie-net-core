@@ -12,13 +12,14 @@
  */
 //
 
-import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 
 /**
  * Summary information about the activity that was played.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsActivity}
  */
+
 export interface DestinyHistoricalStatsActivity {
   /**
    * The unique hash identifier of the DestinyActivityDefinition that was played. If

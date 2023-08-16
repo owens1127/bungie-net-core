@@ -12,10 +12,11 @@
  */
 //
 
-import { ContentPropertyDataTypeEnum } from './ContentPropertyDataTypeEnum';
+import { ContentPropertyDataTypeEnum } from '../../../enums/Content/Models/ContentPropertyDataTypeEnum';
 import { ContentTypeDefaultValue } from './ContentTypeDefaultValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeProperty} */
+
 export interface ContentTypeProperty {
   readonly name: string;
   readonly rootPropertyName: string;

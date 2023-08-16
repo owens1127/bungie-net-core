@@ -15,6 +15,7 @@
 import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/DestinyPresentationNodeRequirementsBlock';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Collectibles.DestinyCollectibleStateBlock} */
+
 export interface DestinyCollectibleStateBlock {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly obscuredOverrideItemHash?: number;

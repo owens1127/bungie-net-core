@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinySocketTypeScalarMaterialRequirementEntry} */
+
 export interface DestinySocketTypeScalarMaterialRequirementEntry {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly currencyItemHash: number;

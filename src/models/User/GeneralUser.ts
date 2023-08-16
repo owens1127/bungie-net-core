@@ -15,6 +15,7 @@
 import { UserToUserContext } from './UserToUserContext';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.GeneralUser} */
+
 export interface GeneralUser {
   readonly membershipId: string;
   readonly uniqueName: string;

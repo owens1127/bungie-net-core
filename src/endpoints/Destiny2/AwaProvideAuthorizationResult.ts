@@ -12,9 +12,10 @@
  */
 //
 
+import { AwaUserResponse } from '../../models/Destiny/Advanced/AwaUserResponse';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { AwaUserResponse } from '../../models';
+
 /**
  * Provide the result of the user interaction. Called by the Bungie Destiny App to
  * approve or reject a request.
@@ -23,10 +24,13 @@ import { AwaUserResponse } from '../../models';
 export async function awaProvideAuthorizationResult(
   body: AwaUserResponse,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Awa/AwaProvideAuthorizationResult/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

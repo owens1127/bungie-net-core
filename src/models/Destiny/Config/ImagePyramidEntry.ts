@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Config.ImagePyramidEntry} */
+
 export interface ImagePyramidEntry {
   /** The name of the subfolder where these images are located. */
   readonly name: string;

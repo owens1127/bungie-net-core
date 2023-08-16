@@ -19,6 +19,7 @@
  * seasons. So be careful and check the season numbers being returned.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyProgressionResetEntry}
  */
+
 export interface DestinyProgressionResetEntry {
   readonly season: number;
   readonly resets: number;

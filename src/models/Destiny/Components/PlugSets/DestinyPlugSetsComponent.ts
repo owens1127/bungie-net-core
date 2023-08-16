@@ -27,6 +27,7 @@ import { DestinyItemPlug } from '../../Sockets/DestinyItemPlug';
  * they cannot be reused)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.PlugSets.DestinyPlugSetsComponent}
  */
+
 export interface DestinyPlugSetsComponent {
   /**
    * The shared list of plugs for each relevant PlugSet, keyed by the hash identifier

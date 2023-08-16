@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../BungieMembershipType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamUserInfoCard} */
+
 export interface FireteamUserInfoCard {
   readonly FireteamDisplayName: string;
   readonly FireteamMembershipType: BungieMembershipType;

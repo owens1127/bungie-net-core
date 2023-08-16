@@ -14,28 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfGroupMemberApplication } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals} */
-export type GetInvitedIndividualsParams = {
-  /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
-  currentpage: number;
-  /** ID of the group. */
-  groupId: string;
-};
+import { SearchResultOfGroupMemberApplication } from '../../models/SearchResultOfGroupMemberApplication';
 
 /**
  * Get the list of users who have been invited into the group.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetInvitedIndividuals}
  */
 export async function getInvitedIndividuals(
-  params: GetInvitedIndividualsParams,
+  params: {
+    /** Page number (starting with 1). Each page has a fixed size of 50 items per page. */
+    currentpage: number;
+    /** ID of the group. */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>> {
-  return client.fetch<SearchResultOfGroupMemberApplication>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/InvitedIndividuals/`,
-    params: {
-      currentpage: params.currentpage
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/InvitedIndividuals/`
+  );
+  url.searchParams.set('currentpage', String(params.currentpage));
+  return client.fetch({ method: 'GET', url });
 }

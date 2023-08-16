@@ -16,6 +16,7 @@
  * Information about the category and items currently sold in that category.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Vendors.DestinyVendorCategory}
  */
+
 export interface DestinyVendorCategory {
   /**
    * An index into the DestinyVendorDefinition.displayCategories property, so you can

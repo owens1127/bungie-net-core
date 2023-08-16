@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsPeriodGroup } from './DestinyHistoricalStatsPeriodGroup';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyActivityHistoryResults} */
+
 export interface DestinyActivityHistoryResults {
   /** List of activities, the most recent activity first. */
   readonly activities: DestinyHistoricalStatsPeriodGroup[];

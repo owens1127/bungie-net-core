@@ -30,6 +30,7 @@ import { DestinyProfileTransitoryTrackingEntry } from './DestinyProfileTransitor
  * changed their status before we can receive refreshed data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryComponent}
  */
+
 export interface DestinyProfileTransitoryComponent {
   /**
    * If you have any members currently in your party, this is some (very) bare-bones

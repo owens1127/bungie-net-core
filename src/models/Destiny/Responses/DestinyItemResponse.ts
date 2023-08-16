@@ -12,10 +12,8 @@
  */
 //
 
-import { ComponentData } from '../../../interfaces/ComponentTypes';
-import { DestinyComponentType } from '../DestinyComponentType';
+import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
 import { SingleComponentResponse } from '../../../interfaces/SingleComponentResponse';
-import { ConditionalComponent } from '../../../interfaces/ComponentTypes';
 import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent';
 import { DestinyItemInstanceComponent } from '../Entities/Items/DestinyItemInstanceComponent';
 import { DestinyItemObjectivesComponent } from '../Entities/Items/DestinyItemObjectivesComponent';
@@ -33,8 +31,10 @@ import { DestinyItemPlugObjectivesComponent } from '../Components/Items/DestinyI
  * those, get your information from the DestinyInventoryDefinition.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemResponse}
  */
-export interface DestinyItemResponse<T extends DestinyComponentType[]>
-  extends ComponentData {
+
+export interface DestinyItemResponse<
+  T extends readonly DestinyComponentType[]
+> {
   /**
    * If the item is on a character, this will return the ID of the character that is
    * holding the item.
@@ -45,60 +45,60 @@ export interface DestinyItemResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemCommonData
    */
-  readonly item: ConditionalComponent<
+  readonly item: SingleComponentResponse<
+    DestinyItemComponent,
     T,
-    DestinyComponentType.ItemCommonData,
-    SingleComponentResponse<DestinyItemComponent>
+    DestinyComponentType.ItemCommonData
   >;
   /**
    * Basic instance data for the item.
    *
    * COMPONENT TYPE: ItemInstances
    */
-  readonly instance: ConditionalComponent<
+  readonly instance: SingleComponentResponse<
+    DestinyItemInstanceComponent,
     T,
-    DestinyComponentType.ItemInstances,
-    SingleComponentResponse<DestinyItemInstanceComponent>
+    DestinyComponentType.ItemInstances
   >;
   /**
    * Information specifically about the item's objectives.
    *
    * COMPONENT TYPE: ItemObjectives
    */
-  readonly objectives: ConditionalComponent<
+  readonly objectives: SingleComponentResponse<
+    DestinyItemObjectivesComponent,
     T,
-    DestinyComponentType.ItemObjectives,
-    SingleComponentResponse<DestinyItemObjectivesComponent>
+    DestinyComponentType.ItemObjectives
   >;
   /**
    * Information specifically about the perks currently active on the item.
    *
    * COMPONENT TYPE: ItemPerks
    */
-  readonly perks: ConditionalComponent<
+  readonly perks: SingleComponentResponse<
+    DestinyItemPerksComponent,
     T,
-    DestinyComponentType.ItemPerks,
-    SingleComponentResponse<DestinyItemPerksComponent>
+    DestinyComponentType.ItemPerks
   >;
   /**
    * Information about how to render the item in 3D.
    *
    * COMPONENT TYPE: ItemRenderData
    */
-  readonly renderData: ConditionalComponent<
+  readonly renderData: SingleComponentResponse<
+    DestinyItemRenderComponent,
     T,
-    DestinyComponentType.ItemRenderData,
-    SingleComponentResponse<DestinyItemRenderComponent>
+    DestinyComponentType.ItemRenderData
   >;
   /**
    * Information about the computed stats of the item: power, defense, etc...
    *
    * COMPONENT TYPE: ItemStats
    */
-  readonly stats: ConditionalComponent<
+  readonly stats: SingleComponentResponse<
+    DestinyItemStatsComponent,
     T,
-    DestinyComponentType.ItemStats,
-    SingleComponentResponse<DestinyItemStatsComponent>
+    DestinyComponentType.ItemStats
   >;
   /**
    * Information about the talent grid attached to the item. Talent nodes can provide
@@ -107,10 +107,10 @@ export interface DestinyItemResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemTalentGrids
    */
-  readonly talentGrid: ConditionalComponent<
+  readonly talentGrid: SingleComponentResponse<
+    DestinyItemTalentGridComponent,
     T,
-    DestinyComponentType.ItemTalentGrids,
-    SingleComponentResponse<DestinyItemTalentGridComponent>
+    DestinyComponentType.ItemTalentGrids
   >;
   /**
    * Information about the sockets of the item: which are currently active, what
@@ -119,10 +119,10 @@ export interface DestinyItemResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly sockets: ConditionalComponent<
+  readonly sockets: SingleComponentResponse<
+    DestinyItemSocketsComponent,
     T,
-    DestinyComponentType.ItemSockets,
-    SingleComponentResponse<DestinyItemSocketsComponent>
+    DestinyComponentType.ItemSockets
   >;
   /**
    * Information about the Reusable Plugs for sockets on an item. These are plugs
@@ -134,10 +134,10 @@ export interface DestinyItemResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemReusablePlugs
    */
-  readonly reusablePlugs: ConditionalComponent<
+  readonly reusablePlugs: SingleComponentResponse<
+    DestinyItemReusablePlugsComponent,
     T,
-    DestinyComponentType.ItemReusablePlugs,
-    SingleComponentResponse<DestinyItemReusablePlugsComponent>
+    DestinyComponentType.ItemReusablePlugs
   >;
   /**
    * Information about objectives on Plugs for a given item. See the component's
@@ -145,9 +145,9 @@ export interface DestinyItemResponse<T extends DestinyComponentType[]>
    *
    * COMPONENT TYPE: ItemPlugObjectives
    */
-  readonly plugObjectives: ConditionalComponent<
+  readonly plugObjectives: SingleComponentResponse<
+    DestinyItemPlugObjectivesComponent,
     T,
-    DestinyComponentType.ItemPlugObjectives,
-    SingleComponentResponse<DestinyItemPlugObjectivesComponent>
+    DestinyComponentType.ItemPlugObjectives
   >;
 }

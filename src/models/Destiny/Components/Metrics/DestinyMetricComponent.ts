@@ -15,6 +15,7 @@
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Metrics.DestinyMetricComponent} */
+
 export interface DestinyMetricComponent {
   readonly invisible: boolean;
   readonly objectiveProgress: DestinyObjectiveProgress;

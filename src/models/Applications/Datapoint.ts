@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Datapoint} */
+
 export interface Datapoint {
   /** Timestamp for the related count. */
   readonly time: string;

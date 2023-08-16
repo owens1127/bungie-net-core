@@ -30,6 +30,7 @@ import { DestinyArtDyeReference } from './DestinyArtDyeReference';
  * buckets must have Equipment Slots.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyEquipmentSlotDefinition}
  */
+
 export interface DestinyEquipmentSlotDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

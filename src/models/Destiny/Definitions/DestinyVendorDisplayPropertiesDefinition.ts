@@ -16,6 +16,7 @@ import { DestinyVendorRequirementDisplayEntryDefinition } from './DestinyVendorR
 import { DestinyIconSequenceDefinition } from './Common/DestinyIconSequenceDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorDisplayPropertiesDefinition} */
+
 export interface DestinyVendorDisplayPropertiesDefinition {
   /**
    * I regret calling this a "large icon". It's more like a medium-sized image with a

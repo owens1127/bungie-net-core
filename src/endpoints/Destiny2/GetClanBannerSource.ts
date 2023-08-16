@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ClanBannerSource } from '../../models';
+import { ClanBannerSource } from '../../models/Config/ClanBanner/ClanBannerSource';
+
 /**
  * Returns the dictionary of values for the Clan Banner
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanBannerSource}
@@ -22,8 +23,7 @@ import { ClanBannerSource } from '../../models';
 export async function getClanBannerSource(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ClanBannerSource>> {
-  return client.fetch<ClanBannerSource>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Destiny2/Clan/ClanBannerDictionary/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

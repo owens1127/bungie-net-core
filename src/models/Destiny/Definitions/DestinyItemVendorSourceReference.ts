@@ -24,6 +24,7 @@
  * there may be multiple vendorItemIndexes for a single Vendor hash.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemVendorSourceReference}
  */
+
 export interface DestinyItemVendorSourceReference {
   /**
    * The identifier for the vendor that may sell this item. Mapped to

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaInitializeResponse} */
+
 export interface AwaInitializeResponse {
   /**
    * ID used to get the token. Present this ID to the user as it will identify this

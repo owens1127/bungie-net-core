@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Loadouts.DestinyLoadoutItemComponent} */
+
 export interface DestinyLoadoutItemComponent {
   readonly itemInstanceId: string;
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */

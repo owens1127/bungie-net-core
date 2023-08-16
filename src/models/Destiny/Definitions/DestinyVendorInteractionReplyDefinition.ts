@@ -12,8 +12,8 @@
  */
 //
 
-import { DestinyVendorInteractionRewardSelection } from '../DestinyVendorInteractionRewardSelection';
-import { DestinyVendorReplyType } from '../DestinyVendorReplyType';
+import { DestinyVendorInteractionRewardSelection } from '../../../enums/Destiny/DestinyVendorInteractionRewardSelection';
+import { DestinyVendorReplyType } from '../../../enums/Destiny/DestinyVendorReplyType';
 
 /**
  * When the interaction is replied to, Reward sites will fire and items potentially
@@ -23,6 +23,7 @@ import { DestinyVendorReplyType } from '../DestinyVendorReplyType';
  * interaction: this is how you get either/or rewards from vendors.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInteractionReplyDefinition}
  */
+
 export interface DestinyVendorInteractionReplyDefinition {
   /** The rewards granted upon responding to the vendor. */
   readonly itemRewardsSelection: DestinyVendorInteractionRewardSelection;

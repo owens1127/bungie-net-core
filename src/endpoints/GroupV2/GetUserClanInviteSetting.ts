@@ -12,14 +12,9 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting} */
-export type GetUserClanInviteSettingParams = {
-  /** The Destiny membership type of the account we wish to access settings. */
-  mType: BungieMembershipType;
-};
 
 /**
  * Gets the state of the user's clan invite preferences for a particular membership
@@ -27,11 +22,15 @@ export type GetUserClanInviteSettingParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetUserClanInviteSetting}
  */
 export async function getUserClanInviteSetting(
-  params: GetUserClanInviteSettingParams,
+  params: {
+    /** The Destiny membership type of the account we wish to access settings. */
+    mType: BungieMembershipType;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

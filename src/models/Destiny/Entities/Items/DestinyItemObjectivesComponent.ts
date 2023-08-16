@@ -19,6 +19,7 @@ import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
  * obtain information about any Objectives and progression tied to this item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemObjectivesComponent}
  */
+
 export interface DestinyItemObjectivesComponent {
   /**
    * If the item has a hard association with objectives, your progress on them will

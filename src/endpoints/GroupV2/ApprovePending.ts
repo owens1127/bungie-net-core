@@ -12,19 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { GroupApplicationRequest } from '../../models/GroupsV2/GroupApplicationRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { GroupApplicationRequest } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending} */
-export type ApprovePendingParams = {
-  /** ID of the group. */
-  groupId: string;
-  /** The membership id being approved. */
-  membershipId: string;
-  /** Membership type of the supplied membership ID. */
-  membershipType: BungieMembershipType;
-};
 
 /**
  * Approve the given membershipId to join the group/clan as long as they have
@@ -32,13 +23,25 @@ export type ApprovePendingParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.ApprovePending}
  */
 export async function approvePending(
-  params: ApprovePendingParams,
+  params: {
+    /** ID of the group. */
+    groupId: string;
+    /** The membership id being approved. */
+    membershipId: string;
+    /** Membership type of the supplied membership ID. */
+    membershipType: BungieMembershipType;
+  },
   body: GroupApplicationRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
-  return client.fetch<boolean>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Approve/${params.membershipType}/${params.membershipId}/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/Approve/${params.membershipType}/${params.membershipId}/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

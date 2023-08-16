@@ -23,6 +23,7 @@ import { DestinyMilestoneQuestRewardItem } from './DestinyMilestoneQuestRewardIt
  * inside of their own class?"
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneQuestRewardsDefinition}
  */
+
 export interface DestinyMilestoneQuestRewardsDefinition {
   /**
    * The items that represent your reward for completing the quest.

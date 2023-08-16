@@ -12,42 +12,39 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyVendorResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetVendor} */
-export type GetVendorParams<T extends DestinyComponentType[]> = {
-  /** The Destiny Character ID of the character for whom we're getting vendor info. */
-  characterId: string;
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-  /** Destiny membership ID of another user. You may be denied. */
-  destinyMembershipId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-  /** The Hash identifier of the Vendor to be returned. */
-  vendorHash: number;
-};
+import { DestinyVendorResponse } from '../../models/Destiny/Responses/DestinyVendorResponse';
 
 /**
  * Get the details of a specific Vendor.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetVendor}
  */
-export async function getVendor<T extends DestinyComponentType[]>(
-  params: GetVendorParams<T>,
+export async function getVendor<T extends readonly DestinyComponentType[]>(
+  params: {
+    /** The Destiny Character ID of the character for whom we're getting vendor info. */
+    characterId: string;
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+    /** Destiny membership ID of another user. You may be denied. */
+    destinyMembershipId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+    /** The Hash identifier of the Vendor to be returned. */
+    vendorHash: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyVendorResponse<T>>> {
-  return client.fetch<DestinyVendorResponse<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/${params.vendorHash}/`,
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Character/${params.characterId}/Vendors/${params.vendorHash}/`
+  );
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

@@ -26,6 +26,7 @@
  * we will do grouping in the Companion.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorGroupDefinition}
  */
+
 export interface DestinyVendorGroupDefinition {
   /** The recommended order in which to render the groups, Ascending order. */
   readonly order: number;

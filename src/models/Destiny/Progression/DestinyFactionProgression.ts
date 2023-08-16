@@ -13,7 +13,7 @@
 //
 
 import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry';
-import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemState } from '../../../enums/Destiny/DestinyProgressionRewardItemState';
 
 /**
  * Mostly for historical purposes, we segregate Faction progressions from other
@@ -21,6 +21,7 @@ import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardIt
  * DestinyFactionDefinition of the faction related to the progression.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Progression.DestinyFactionProgression}
  */
+
 export interface DestinyFactionProgression {
   /**
    * The hash identifier of the Faction related to this progression. Use it to look

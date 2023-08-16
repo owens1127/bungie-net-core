@@ -13,4 +13,5 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Config.ClanBanner.ClanBannerSource} */
+
 export interface ClanBannerSource {}

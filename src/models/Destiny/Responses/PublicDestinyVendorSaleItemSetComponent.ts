@@ -15,6 +15,7 @@
 import { DestinyPublicVendorSaleItemComponent } from '../Components/Vendors/DestinyPublicVendorSaleItemComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.PublicDestinyVendorSaleItemSetComponent} */
+
 export interface PublicDestinyVendorSaleItemSetComponent {
   readonly saleItems: { [key: number]: DestinyPublicVendorSaleItemComponent };
 }

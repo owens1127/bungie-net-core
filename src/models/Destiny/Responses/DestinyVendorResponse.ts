@@ -12,15 +12,13 @@
  */
 //
 
-import { ComponentData } from '../../../interfaces/ComponentTypes';
-import { DestinyComponentType } from '../DestinyComponentType';
+import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
 import { SingleComponentResponse } from '../../../interfaces/SingleComponentResponse';
-import { ConditionalComponent } from '../../../interfaces/ComponentTypes';
 import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorComponent';
 import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent';
 import { DictionaryComponentResponse } from '../../../interfaces/DictionaryComponentResponse';
 import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent';
-import { DestinyItemComponentSetOfint32 } from '../../DestinyItemComponentSetOfint32';
+import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
 import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent';
 
@@ -28,37 +26,40 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * A response containing all of the components for a vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorResponse}
  */
-export interface DestinyVendorResponse<T extends DestinyComponentType[]>
-  extends ComponentData {
+
+export interface DestinyVendorResponse<
+  T extends readonly DestinyComponentType[]
+> {
   /**
    * The base properties of the vendor.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendor: ConditionalComponent<
+  readonly vendor: SingleComponentResponse<
+    DestinyVendorComponent,
     T,
-    DestinyComponentType.Vendors,
-    SingleComponentResponse<DestinyVendorComponent>
+    DestinyComponentType.Vendors
   >;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    *
    * COMPONENT TYPE: VendorCategories
    */
-  readonly categories: ConditionalComponent<
+  readonly categories: SingleComponentResponse<
+    DestinyVendorCategoriesComponent,
     T,
-    DestinyComponentType.VendorCategories,
-    SingleComponentResponse<DestinyVendorCategoriesComponent>
+    DestinyComponentType.VendorCategories
   >;
   /**
    * Sales, keyed by the vendorItemIndex of the item being sold.
    *
    * COMPONENT TYPE: VendorSales
    */
-  readonly sales: ConditionalComponent<
+  readonly sales: DictionaryComponentResponse<
+    number,
+    DestinyVendorSaleItemComponent,
     T,
-    DestinyComponentType.VendorSales,
-    DictionaryComponentResponse<number, DestinyVendorSaleItemComponent>
+    DestinyComponentType.VendorSales
   >;
   /**
    * Item components, keyed by the vendorItemIndex of the active sale items.
@@ -66,26 +67,26 @@ export interface DestinyVendorResponse<T extends DestinyComponentType[]>
    * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
    * types.]
    */
-  readonly itemComponents: DestinyItemComponentSetOfint32<T>;
+  readonly itemComponents: DestinyItemComponentSet<number, T>;
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.
    *
    * COMPONENT TYPE: CurrencyLookups
    */
-  readonly currencyLookups: ConditionalComponent<
+  readonly currencyLookups: SingleComponentResponse<
+    DestinyCurrenciesComponent,
     T,
-    DestinyComponentType.CurrencyLookups,
-    SingleComponentResponse<DestinyCurrenciesComponent>
+    DestinyComponentType.CurrencyLookups
   >;
   /**
    * A map of string variable values by hash for this character context.
    *
    * COMPONENT TYPE: StringVariables
    */
-  readonly stringVariables: ConditionalComponent<
+  readonly stringVariables: SingleComponentResponse<
+    DestinyStringVariablesComponent,
     T,
-    DestinyComponentType.StringVariables,
-    SingleComponentResponse<DestinyStringVariablesComponent>
+    DestinyComponentType.StringVariables
   >;
 }

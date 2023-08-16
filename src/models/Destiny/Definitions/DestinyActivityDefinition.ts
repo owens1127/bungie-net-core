@@ -22,7 +22,7 @@ import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphL
 import { DestinyActivityMatchmakingBlockDefinition } from './DestinyActivityMatchmakingBlockDefinition';
 import { DestinyActivityGuidedBlockDefinition } from './DestinyActivityGuidedBlockDefinition';
 import { DestinyActivityLoadoutRequirementSet } from './DestinyActivityLoadoutRequirementSet';
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
 import { DestinyActivityInsertionPointDefinition } from './DestinyActivityInsertionPointDefinition';
 import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironmentLocationMapping';
 
@@ -52,6 +52,7 @@ import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironme
  * See DestinyActivityTypeDefinition for more information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityDefinition}
  */
+
 export interface DestinyActivityDefinition {
   /**
    * The title, subtitle, and icon for the activity. We do a little post-processing

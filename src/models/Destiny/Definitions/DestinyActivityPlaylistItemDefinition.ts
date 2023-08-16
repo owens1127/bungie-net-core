@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
 
 /**
  * If the activity is a playlist, this is the definition for a specific entry in
@@ -20,6 +20,7 @@ import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyA
  * can be chosen.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityPlaylistItemDefinition}
  */
+
 export interface DestinyActivityPlaylistItemDefinition {
   /**
    * The hash identifier of the Activity that can be played. Use it to look up the

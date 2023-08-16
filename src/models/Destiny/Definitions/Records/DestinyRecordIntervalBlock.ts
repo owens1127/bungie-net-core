@@ -16,6 +16,7 @@ import { DestinyRecordIntervalObjective } from './DestinyRecordIntervalObjective
 import { DestinyRecordIntervalRewards } from './DestinyRecordIntervalRewards';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordIntervalBlock} */
+
 export interface DestinyRecordIntervalBlock {
   readonly intervalObjectives: DestinyRecordIntervalObjective[];
   readonly intervalRewards: DestinyRecordIntervalRewards[];

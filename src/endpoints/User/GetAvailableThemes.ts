@@ -14,16 +14,15 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { UserTheme } from '../../models';
+
 /**
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
  */
 export async function getAvailableThemes(
   client: BungieClientProtocol
-): Promise<BungieNetResponse<UserTheme[]>> {
-  return client.fetch<UserTheme[]>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/User/GetAvailableThemes/'
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsValuePair} */
+
 export interface DestinyHistoricalStatsValuePair {
   /** Raw value of the statistic */
   readonly value: number;

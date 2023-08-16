@@ -12,16 +12,9 @@
  */
 //
 
+import { GroupOptionalConversationEditRequest } from '../../models/GroupsV2/GroupOptionalConversationEditRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupOptionalConversationEditRequest } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation} */
-export type EditOptionalConversationParams = {
-  /** Conversation Id of the channel being edited. */
-  conversationId: string;
-  /** Group ID of the group to edit. */
-  groupId: string;
-};
 
 /**
  * Edit the settings of an optional conversation/chat channel. Requires admin
@@ -29,13 +22,23 @@ export type EditOptionalConversationParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditOptionalConversation}
  */
 export async function editOptionalConversation(
-  params: EditOptionalConversationParams,
+  params: {
+    /** Conversation Id of the channel being edited. */
+    conversationId: string;
+    /** Group ID of the group to edit. */
+    groupId: string;
+  },
   body: GroupOptionalConversationEditRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<string>> {
-  return client.fetch<string>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Edit/${params.conversationId}/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Edit/${params.conversationId}/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

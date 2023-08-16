@@ -23,6 +23,7 @@ import { DestinyPublicMilestoneVendor } from './DestinyPublicMilestoneVendor';
  * this as GetPublicAdvisors 3.0, for those who used the Destiny 1 API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestone}
  */
+
 export interface DestinyPublicMilestone {
   /**
    * The hash identifier for the milestone. Use it to look up the

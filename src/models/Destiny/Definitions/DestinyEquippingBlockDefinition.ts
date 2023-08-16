@@ -12,14 +12,15 @@
  */
 //
 
-import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes';
-import { DestinyAmmunitionType } from '../DestinyAmmunitionType';
+import { EquippingItemBlockAttributes } from '../../../enums/Destiny/EquippingItemBlockAttributes';
+import { DestinyAmmunitionType } from '../../../enums/Destiny/DestinyAmmunitionType';
 
 /**
  * Items that can be equipped define this block. It contains information we need to
  * understand how and when the item can be equipped.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyEquippingBlockDefinition}
  */
+
 export interface DestinyEquippingBlockDefinition {
   /**
    * If the item is part of a gearset, this is a reference to that gearset item.

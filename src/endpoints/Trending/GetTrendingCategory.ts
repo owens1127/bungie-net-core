@@ -14,25 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfTrendingEntry } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory} */
-export type GetTrendingCategoryParams = {
-  /** The ID of the category for whom you want additional results. */
-  categoryId: string;
-  /** The page # of results to return. */
-  pageNumber: number;
-};
+import { SearchResultOfTrendingEntry } from '../../models/SearchResultOfTrendingEntry';
 
 /**
  * Returns paginated lists of trending items for a category.
  * @see {@link https://bungie-net.github.io/#Trending.GetTrendingCategory}
  */
 export async function getTrendingCategory(
-  params: GetTrendingCategoryParams,
+  params: {
+    /** The ID of the category for whom you want additional results. */
+    categoryId: string;
+    /** The page # of results to return. */
+    pageNumber: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfTrendingEntry>> {
-  return client.fetch<SearchResultOfTrendingEntry>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Trending/Categories/${params.categoryId}/${params.pageNumber}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Trending/Categories/${params.categoryId}/${params.pageNumber}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

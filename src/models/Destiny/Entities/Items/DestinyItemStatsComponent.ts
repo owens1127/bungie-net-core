@@ -24,6 +24,7 @@ import { DestinyStat } from '../../DestinyStat';
  * compared to what you see in-game for some stats. I know, it sucks. I hate it too.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemStatsComponent}
  */
+
 export interface DestinyItemStatsComponent {
   /**
    * If the item has stats that it provides (damage, defense, etc...), it will be

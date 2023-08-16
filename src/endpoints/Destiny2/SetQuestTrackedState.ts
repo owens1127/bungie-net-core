@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyItemStateRequest } from '../../models/Destiny/Requests/Actions/DestinyItemStateRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyItemStateRequest } from '../../models';
+
 /**
  * Set the Tracking State for an instanced item, if that item is a Quest or Bounty.
  * You must have a valid Destiny Account. Yeah, it's an item.
@@ -25,10 +26,13 @@ import { DestinyItemStateRequest } from '../../models';
 export async function setQuestTrackedState(
   body: DestinyItemStateRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/SetTrackedState/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

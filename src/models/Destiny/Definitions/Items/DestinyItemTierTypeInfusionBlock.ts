@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyItemTierTypeInfusionBlock} */
+
 export interface DestinyItemTierTypeInfusionBlock {
   /**
    * The default portion of quality that will transfer from the infuser to the

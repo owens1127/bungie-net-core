@@ -12,9 +12,10 @@
  */
 //
 
-import { GroupApplicationResolveState } from './GroupApplicationResolveState';
+import { GroupApplicationResolveState } from '../../enums/GroupsV2/GroupApplicationResolveState';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationResponse} */
+
 export interface GroupApplicationResponse {
   readonly resolution: GroupApplicationResolveState;
 }

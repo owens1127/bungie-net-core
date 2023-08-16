@@ -12,15 +12,16 @@
  */
 //
 
-import { DestinyClass } from '../DestinyClass';
+import { DestinyClass } from '../../../enums/Destiny/DestinyClass';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyGender } from '../DestinyGender';
+import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
 
 /**
  * Defines a Character Class in Destiny 2. These are types of characters you can
  * play, like Titan, Warlock, and Hunter.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyClassDefinition}
  */
+
 export interface DestinyClassDefinition {
   /**
    * In Destiny 1, we added a convenience Enumeration for referring to classes. We've

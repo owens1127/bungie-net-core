@@ -14,14 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PartnerRewardHistoryResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory} */
-export type GetPartnerRewardHistoryParams = {
-  /** The partner application identifier. */
-  partnerApplicationId: number;
-  /** The bungie.net user to return reward history for. */
-  targetBnetMembershipId: string;
-};
+import { PartnerRewardHistoryResponse } from '../../models/Tokens/PartnerRewardHistoryResponse';
 
 /**
  * Returns the partner rewards history of the targeted user, both partner offers
@@ -29,11 +22,17 @@ export type GetPartnerRewardHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerRewardHistory}
  */
 export async function getPartnerRewardHistory(
-  params: GetPartnerRewardHistoryParams,
+  params: {
+    /** The partner application identifier. */
+    partnerApplicationId: number;
+    /** The bungie.net user to return reward history for. */
+    targetBnetMembershipId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PartnerRewardHistoryResponse>> {
-  return client.fetch<PartnerRewardHistoryResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.targetBnetMembershipId}/Application/${params.partnerApplicationId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Partner/History/${params.targetBnetMembershipId}/Application/${params.partnerApplicationId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

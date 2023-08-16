@@ -14,14 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfGroupBan } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup} */
-export type GetBannedMembersOfGroupParams = {
-  /** Page number (starting with 1). Each page has a fixed size of 50 entries. */
-  currentpage: number;
-  /** Group ID whose banned members you are fetching */
-  groupId: string;
-};
+import { SearchResultOfGroupBan } from '../../models/SearchResultOfGroupBan';
 
 /**
  * Get the list of banned members in a given group. Only accessible to group Admins
@@ -29,14 +22,17 @@ export type GetBannedMembersOfGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetBannedMembersOfGroup}
  */
 export async function getBannedMembersOfGroup(
-  params: GetBannedMembersOfGroupParams,
+  params: {
+    /** Page number (starting with 1). Each page has a fixed size of 50 entries. */
+    currentpage: number;
+    /** Group ID whose banned members you are fetching */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfGroupBan>> {
-  return client.fetch<SearchResultOfGroupBan>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`,
-    params: {
-      currentpage: params.currentpage
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`
+  );
+  url.searchParams.set('currentpage', String(params.currentpage));
+  return client.fetch({ method: 'GET', url });
 }

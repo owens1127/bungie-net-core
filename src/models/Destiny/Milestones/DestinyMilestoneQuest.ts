@@ -21,6 +21,7 @@ import { DestinyChallengeStatus } from '../Challenges/DestinyChallengeStatus';
  * for the character's status with one of those quests.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneQuest}
  */
+
 export interface DestinyMilestoneQuest {
   /**
    * Quests are defined as Items in content. As such, this is the hash identifier of

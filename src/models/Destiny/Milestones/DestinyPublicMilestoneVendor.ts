@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyPublicMilestoneVendor} */
+
 export interface DestinyPublicMilestoneVendor {
   /**
    * The hash identifier of the Vendor related to this Milestone. You can show useful

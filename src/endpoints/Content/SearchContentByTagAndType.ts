@@ -14,35 +14,34 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { SearchResultOfContentItemPublicContract } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType} */
-export type SearchContentByTagAndTypeParams = {
-  /** Page number for the search results starting with page 1. */
-  currentpage?: number;
-  /** Not used. */
-  head?: boolean;
-  /** Not used. */
-  itemsperpage?: number;
-  locale: string;
-  tag: string;
-  type: string;
-};
+import { SearchResultOfContentItemPublicContract } from '../../models/SearchResultOfContentItemPublicContract';
 
 /**
  * Searches for Content Items that match the given Tag and Content Type.
  * @see {@link https://bungie-net.github.io/#Content.SearchContentByTagAndType}
  */
 export async function searchContentByTagAndType(
-  params: SearchContentByTagAndTypeParams,
+  params: {
+    /** Page number for the search results starting with page 1. */
+    currentpage?: number;
+    /** Not used. */
+    head?: boolean;
+    /** Not used. */
+    itemsperpage?: number;
+    locale: string;
+    tag: string;
+    type: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfContentItemPublicContract>> {
-  return client.fetch<SearchResultOfContentItemPublicContract>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/SearchContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`,
-    params: {
-      currentpage: params.currentpage,
-      head: params.head,
-      itemsperpage: params.itemsperpage
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/SearchContentByTagAndType/${params.tag}/${params.type}/${params.locale}/`
+  );
+  params.currentpage !== undefined &&
+    url.searchParams.set('currentpage', String(params.currentpage));
+  params.head !== undefined &&
+    url.searchParams.set('head', String(params.head));
+  params.itemsperpage !== undefined &&
+    url.searchParams.set('itemsperpage', String(params.itemsperpage));
+  return client.fetch({ method: 'GET', url });
 }

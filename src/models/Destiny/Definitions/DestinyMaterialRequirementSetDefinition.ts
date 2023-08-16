@@ -22,6 +22,7 @@ import { DestinyMaterialRequirement } from './DestinyMaterialRequirement';
  * actions that can be performed in game.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyMaterialRequirementSetDefinition}
  */
+
 export interface DestinyMaterialRequirementSetDefinition {
   /** The list of all materials that are required. */
   readonly materials: DestinyMaterialRequirement[];

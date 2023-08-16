@@ -13,8 +13,8 @@
 //
 
 import { DestinyPlugRuleDefinition } from './DestinyPlugRuleDefinition';
-import { PlugUiStyles } from '../../PlugUiStyles';
-import { PlugAvailabilityMode } from '../../PlugAvailabilityMode';
+import { PlugUiStyles } from '../../../../enums/Destiny/PlugUiStyles';
+import { PlugAvailabilityMode } from '../../../../enums/Destiny/PlugAvailabilityMode';
 import { DestinyParentItemOverride } from './DestinyParentItemOverride';
 import { DestinyEnergyCapacityEntry } from './DestinyEnergyCapacityEntry';
 import { DestinyEnergyCostEntry } from './DestinyEnergyCostEntry';
@@ -29,6 +29,7 @@ import { DestinyEnergyCostEntry } from './DestinyEnergyCostEntry';
  * compatibility), whether it is enabled and other Plug info.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyItemPlugDefinition}
  */
+
 export interface DestinyItemPlugDefinition {
   /**
    * The rules around when this plug can be inserted into a socket, aside from the

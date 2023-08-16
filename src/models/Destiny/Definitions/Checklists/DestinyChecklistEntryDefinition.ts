@@ -13,7 +13,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../DestinyScope';
+import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
 
 /**
  * The properties of an individual checklist item. Note that almost everything is
@@ -24,6 +24,7 @@ import { DestinyScope } from '../../DestinyScope';
  * actually be able to be associated with some other Destiny entity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Checklists.DestinyChecklistEntryDefinition}
  */
+
 export interface DestinyChecklistEntryDefinition {
   /**
    * The identifier for this Checklist entry. Guaranteed unique only within this

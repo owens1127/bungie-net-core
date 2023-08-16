@@ -15,6 +15,7 @@
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Kiosks.DestinyKioskItem} */
+
 export interface DestinyKioskItem {
   /**
    * The index of the item in the related DestinyVendorDefintion's itemList property,

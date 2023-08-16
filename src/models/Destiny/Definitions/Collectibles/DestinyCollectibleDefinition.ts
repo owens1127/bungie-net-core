@@ -13,16 +13,17 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../DestinyScope';
+import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
 import { DestinyCollectibleAcquisitionBlock } from './DestinyCollectibleAcquisitionBlock';
 import { DestinyCollectibleStateBlock } from './DestinyCollectibleStateBlock';
 import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock';
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
+import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
 
 /**
  * Defines a
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Collectibles.DestinyCollectibleDefinition}
  */
+
 export interface DestinyCollectibleDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

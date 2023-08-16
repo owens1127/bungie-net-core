@@ -15,6 +15,7 @@
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Loadouts.DestinyLoadoutConstantsDefinition} */
+
 export interface DestinyLoadoutConstantsDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

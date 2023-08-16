@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeMetricChildEntry} */
+
 export interface DestinyPresentationNodeMetricChildEntry {
   /** Mapped to DestinyMetricDefinition in the manifest. */
   readonly metricHash: number;

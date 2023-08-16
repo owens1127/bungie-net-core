@@ -15,6 +15,7 @@
 import { DestinyItemPlugBase } from '../../Sockets/DestinyItemPlugBase';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Items.DestinyItemReusablePlugsComponent} */
+
 export interface DestinyItemReusablePlugsComponent {
   /**
    * If the item supports reusable plugs, this is the list of plugs that are allowed

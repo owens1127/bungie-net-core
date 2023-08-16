@@ -22,6 +22,7 @@
  * progressions can be granted progression points/experience at the same time.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardDefinition}
  */
+
 export interface DestinyProgressionRewardDefinition {
   /**
    * The hash identifier of the DestinyProgressionMappingDefinition that contains the

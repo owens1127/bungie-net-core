@@ -17,6 +17,7 @@
  * explanatory localized strings that can be shown.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorCategoryOverlayDefinition}
  */
+
 export interface DestinyVendorCategoryOverlayDefinition {
   readonly choiceDescription: string;
   readonly description: string;

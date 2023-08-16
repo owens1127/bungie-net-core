@@ -19,6 +19,7 @@
  * two different locations.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyFactionVendorDefinition}
  */
+
 export interface DestinyFactionVendorDefinition {
   /** The faction vendor hash. Mapped to DestinyVendorDefinition in the manifest. */
   readonly vendorHash: number;

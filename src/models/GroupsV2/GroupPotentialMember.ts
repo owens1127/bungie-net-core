@@ -12,11 +12,12 @@
  */
 //
 
-import { GroupPotentialMemberStatus } from './GroupPotentialMemberStatus';
+import { GroupPotentialMemberStatus } from '../../enums/GroupsV2/GroupPotentialMemberStatus';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupPotentialMember} */
+
 export interface GroupPotentialMember {
   readonly potentialStatus: GroupPotentialMemberStatus;
   readonly groupId: string;

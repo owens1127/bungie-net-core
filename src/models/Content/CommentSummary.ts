@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.CommentSummary} */
+
 export interface CommentSummary {
   readonly topicId: string;
   readonly commentCount: number;

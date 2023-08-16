@@ -13,11 +13,13 @@
 //
 
 import { DestinyItemResponse } from './DestinyItemResponse';
+import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
 import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemChangeResponse} */
+
 export interface DestinyItemChangeResponse {
-  readonly item: DestinyItemResponse<any>;
+  readonly item: DestinyItemResponse<DestinyComponentType[]>;
   /** Items that appeared in the inventory possibly as a result of an action. */
   readonly addedInventoryItems: DestinyItemComponent[];
   /** Items that disappeared from the inventory possibly as a result of an action. */

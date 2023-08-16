@@ -26,6 +26,7 @@ import { DestinyItemVersionDefinition } from './DestinyItemVersionDefinition';
  * information about Infusion.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemQualityBlockDefinition}
  */
+
 export interface DestinyItemQualityBlockDefinition {
   /**
    * The "base" defined level of an item. This is a list because, in theory, each

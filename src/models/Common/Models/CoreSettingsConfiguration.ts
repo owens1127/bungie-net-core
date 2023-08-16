@@ -18,6 +18,7 @@ import { Destiny2CoreSettings } from './Destiny2CoreSettings';
 import { EmailSettings } from '../../User/EmailSettings';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Common.Models.CoreSettingsConfiguration} */
+
 export interface CoreSettingsConfiguration {
   readonly environment: string;
   readonly systems: { [key: string]: CoreSystem };

@@ -12,35 +12,9 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { DestinyLeaderboard } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter} */
-export type GetLeaderboardsForCharacterParams = {
-  /**
-   * The specific character to build the leaderboard around for the provided Destiny
-   * Membership.
-   */
-  characterId: string;
-  /** The Destiny membershipId of the user to retrieve. */
-  destinyMembershipId: string;
-  /**
-   * Maximum number of top players to return. Use a large number to get entire
-   * leaderboard.
-   */
-  maxtop?: number;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-  /**
-   * List of game modes for which to get leaderboards. See the documentation for
-   * DestinyActivityModeType for valid values, and pass in string representation,
-   * comma delimited.
-   */
-  modes?: string;
-  /** ID of stat to return rather than returning all Leaderboard stats. */
-  statid?: string;
-};
 
 /**
  * Gets leaderboards with the signed in user's friends and the supplied
@@ -50,20 +24,40 @@ export type GetLeaderboardsForCharacterParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetLeaderboardsForCharacter}
  */
 export async function getLeaderboardsForCharacter(
-  params: GetLeaderboardsForCharacterParams,
+  params: {
+    /**
+     * The specific character to build the leaderboard around for the provided Destiny
+     * Membership.
+     */
+    characterId: string;
+    /** The Destiny membershipId of the user to retrieve. */
+    destinyMembershipId: string;
+    /**
+     * Maximum number of top players to return. Use a large number to get entire
+     * leaderboard.
+     */
+    maxtop?: number;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+    /**
+     * List of game modes for which to get leaderboards. See the documentation for
+     * DestinyActivityModeType for valid values, and pass in string representation,
+     * comma delimited.
+     */
+    modes?: string;
+    /** ID of stat to return rather than returning all Leaderboard stats. */
+    statid?: string;
+  },
   client: BungieClientProtocol
-): Promise<
-  BungieNetResponse<{ [key: string]: { [key: string]: DestinyLeaderboard } }>
-> {
-  return client.fetch<{ [key: string]: { [key: string]: DestinyLeaderboard } }>(
-    {
-      method: 'GET',
-      url: `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`,
-      params: {
-        maxtop: params.maxtop,
-        modes: params.modes,
-        statid: params.statid
-      }
-    }
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Stats/Leaderboards/${params.membershipType}/${params.destinyMembershipId}/${params.characterId}/`
   );
+  params.maxtop !== undefined &&
+    url.searchParams.set('maxtop', String(params.maxtop));
+  params.modes !== undefined &&
+    url.searchParams.set('modes', String(params.modes));
+  params.statid !== undefined &&
+    url.searchParams.set('statid', String(params.statid));
+  return client.fetch({ method: 'GET', url });
 }

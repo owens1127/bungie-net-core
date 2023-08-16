@@ -15,6 +15,7 @@
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Traits.DestinyTraitDefinition} */
+
 export interface DestinyTraitDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

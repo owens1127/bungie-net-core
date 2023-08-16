@@ -12,10 +12,11 @@
  */
 //
 
+import { GroupNameSearchRequest } from '../../models/GroupsV2/GroupNameSearchRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupNameSearchRequest } from '../../models';
-import { GroupResponse } from '../../models';
+import { GroupResponse } from '../../models/GroupsV2/GroupResponse';
+
 /**
  * Get information about a specific group with the given name and type. The POST
  * version.
@@ -25,9 +26,12 @@ export async function getGroupByNameV2(
   body: GroupNameSearchRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupResponse>> {
-  return client.fetch<GroupResponse>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/GroupV2/NameV2/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

@@ -20,6 +20,7 @@
  * relevant.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityGraphListEntryDefinition}
  */
+
 export interface DestinyActivityGraphListEntryDefinition {
   /**
    * The hash identifier of the DestinyActivityGraphDefinition that should be shown

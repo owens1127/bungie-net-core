@@ -20,6 +20,7 @@
  * to deactivate.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentExclusiveGroup}
  */
+
 export interface DestinyTalentExclusiveGroup {
   /**
    * The identifier for this exclusive group. Only guaranteed unique within the

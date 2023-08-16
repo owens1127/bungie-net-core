@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Artifacts.DestinyArtifactTierItemDefinition} */
+
 export interface DestinyArtifactTierItemDefinition {
   /**
    * The identifier of the Plug Item unlocked by activating this item in the Artifact.

@@ -18,6 +18,7 @@
  * same as programmatically generated rewards.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneContentItemCategory}
  */
+
 export interface DestinyMilestoneContentItemCategory {
   readonly title: string;
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */

@@ -25,6 +25,7 @@ import { DestinyArtifactCharacterScoped } from '../../Artifacts/DestinyArtifactC
  * data where the user is gaining levels, reputation, completions, rewards, etc...
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Characters.DestinyCharacterProgressionComponent}
  */
+
 export interface DestinyCharacterProgressionComponent {
   /**
    * A Dictionary of all known progressions for the Character, keyed by the

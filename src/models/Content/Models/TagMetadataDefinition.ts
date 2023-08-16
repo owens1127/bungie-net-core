@@ -15,6 +15,7 @@
 import { TagMetadataItem } from './TagMetadataItem';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.TagMetadataDefinition} */
+
 export interface TagMetadataDefinition {
   readonly description: string;
   readonly order: number;

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Common.Models.Destiny2CoreSettings} */
+
 export interface Destiny2CoreSettings {
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly collectionRootNode: number;

@@ -12,24 +12,26 @@
  */
 //
 
-import { DestinyComponentType } from './Destiny/DestinyComponentType';
+import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
 import { DictionaryComponentResponse } from '../interfaces/DictionaryComponentResponse';
-import { ConditionalComponent } from '../interfaces/ComponentTypes';
 import { DestinyItemObjectivesComponent } from './Destiny/Entities/Items/DestinyItemObjectivesComponent';
 import { DestinyItemPerksComponent } from './Destiny/Entities/Items/DestinyItemPerksComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyBaseItemComponentSetOfuint32} */
+
 export interface DestinyBaseItemComponentSetOfuint32<
-  T extends DestinyComponentType[]
+  T extends readonly DestinyComponentType[]
 > {
-  readonly objectives: ConditionalComponent<
+  readonly objectives: DictionaryComponentResponse<
+    number,
+    DestinyItemObjectivesComponent,
     T,
-    DestinyComponentType.ItemObjectives,
-    DictionaryComponentResponse<string, DestinyItemObjectivesComponent>
+    DestinyComponentType.ItemObjectives
   >;
-  readonly perks: ConditionalComponent<
+  readonly perks: DictionaryComponentResponse<
+    number,
+    DestinyItemPerksComponent,
     T,
-    DestinyComponentType.ItemPerks,
-    DictionaryComponentResponse<string, DestinyItemPerksComponent>
+    DestinyComponentType.ItemPerks
   >;
 }

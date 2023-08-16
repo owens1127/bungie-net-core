@@ -17,6 +17,7 @@
  * exclusive set. (See DestinyTalentNodeDefinition.nodeIndex)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyTalentNodeExclusiveSetDefinition}
  */
+
 export interface DestinyTalentNodeExclusiveSetDefinition {
   /**
    * The list of node indexes for the exclusive set. Historically, these were indexes.

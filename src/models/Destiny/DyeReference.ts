@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DyeReference} */
+
 export interface DyeReference {
   readonly channelHash: number;
   readonly dyeHash: number;

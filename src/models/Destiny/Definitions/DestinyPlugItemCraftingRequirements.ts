@@ -15,6 +15,7 @@
 import { DestinyPlugItemCraftingUnlockRequirement } from './DestinyPlugItemCraftingUnlockRequirement';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyPlugItemCraftingRequirements} */
+
 export interface DestinyPlugItemCraftingRequirements {
   readonly unlockRequirements: DestinyPlugItemCraftingUnlockRequirement[];
   /** If the plug has a known level requirement, it'll be available here. */

@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyMilestoneContent } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent} */
-export type GetPublicMilestoneContentParams = {
-  /** The identifier for the milestone to be returned. */
-  milestoneHash: number;
-};
+import { DestinyMilestoneContent } from '../../models/Destiny/Milestones/DestinyMilestoneContent';
 
 /**
  * Gets custom localized content for the milestone of the given hash, if it exists.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetPublicMilestoneContent}
  */
 export async function getPublicMilestoneContent(
-  params: GetPublicMilestoneContentParams,
+  params: {
+    /** The identifier for the milestone to be returned. */
+    milestoneHash: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyMilestoneContent>> {
-  return client.fetch<DestinyMilestoneContent>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Milestones/${params.milestoneHash}/Content/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Milestones/${params.milestoneHash}/Content/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

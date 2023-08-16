@@ -12,17 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { UserMembershipData } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.GetMembershipDataById} */
-export type GetMembershipDataByIdParams = {
-  /** The membership ID of the target user. */
-  membershipId: string;
-  /** Type of the supplied membership ID. */
-  membershipType: BungieMembershipType;
-};
+import { UserMembershipData } from '../../models/User/UserMembershipData';
 
 /**
  * Returns a list of accounts associated with the supplied membership ID and
@@ -31,11 +24,17 @@ export type GetMembershipDataByIdParams = {
  * @see {@link https://bungie-net.github.io/#User.GetMembershipDataById}
  */
 export async function getMembershipDataById(
-  params: GetMembershipDataByIdParams,
+  params: {
+    /** The membership ID of the target user. */
+    membershipId: string;
+    /** Type of the supplied membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserMembershipData>> {
-  return client.fetch<UserMembershipData>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/GetMembershipsById/${params.membershipId}/${params.membershipType}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetMembershipsById/${params.membershipId}/${params.membershipType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

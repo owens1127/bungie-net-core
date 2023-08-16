@@ -12,10 +12,10 @@
  */
 //
 
-import { ItemBindStatus } from '../../ItemBindStatus';
-import { ItemLocation } from '../../ItemLocation';
-import { TransferStatuses } from '../../TransferStatuses';
-import { ItemState } from '../../ItemState';
+import { ItemBindStatus } from '../../../../enums/Destiny/ItemBindStatus';
+import { ItemLocation } from '../../../../enums/Destiny/ItemLocation';
+import { TransferStatuses } from '../../../../enums/Destiny/TransferStatuses';
+import { ItemState } from '../../../../enums/Destiny/ItemState';
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /**
@@ -24,6 +24,7 @@ import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress'
  * component.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemComponent}
  */
+
 export interface DestinyItemComponent {
   /**
    * The identifier for the item's definition, which is where most of the useful

@@ -12,9 +12,10 @@
  */
 //
 
+import { DestinyItemStateRequest } from '../../models/Destiny/Requests/Actions/DestinyItemStateRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyItemStateRequest } from '../../models';
+
 /**
  * Set the Lock State for an instanced item. You must have a valid Destiny Account.
  *
@@ -24,10 +25,13 @@ import { DestinyItemStateRequest } from '../../models';
 export async function setItemLockState(
   body: DestinyItemStateRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/SetLockState/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

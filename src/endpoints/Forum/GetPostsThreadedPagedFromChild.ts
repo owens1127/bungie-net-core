@@ -12,21 +12,10 @@
  */
 //
 
+import { ForumPostSortEnum } from '../../enums/Forum/ForumPostSortEnum';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ForumPostSortEnum } from '../../models';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPagedFromChild} */
-export type GetPostsThreadedPagedFromChildParams = {
-  childPostId: string;
-  page: number;
-  pageSize: number;
-  replySize: number;
-  rootThreadMode: boolean;
-  /** If this value is not null or empty, banned posts are requested to be returned */
-  showbanned?: string;
-  sortMode: ForumPostSortEnum;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Returns a thread of posts starting at the topicId of the input childPostId,
@@ -34,14 +23,22 @@ export type GetPostsThreadedPagedFromChildParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetPostsThreadedPagedFromChild}
  */
 export async function getPostsThreadedPagedFromChild(
-  params: GetPostsThreadedPagedFromChildParams,
+  params: {
+    childPostId: string;
+    page: number;
+    pageSize: number;
+    replySize: number;
+    rootThreadMode: boolean;
+    /** If this value is not null or empty, banned posts are requested to be returned */
+    showbanned?: string;
+    sortMode: ForumPostSortEnum;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/GetPostsThreadedPagedFromChild/${params.childPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.rootThreadMode}/${params.sortMode}/`,
-    params: {
-      showbanned: params.showbanned
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetPostsThreadedPagedFromChild/${params.childPostId}/${params.page}/${params.pageSize}/${params.replySize}/${params.rootThreadMode}/${params.sortMode}/`
+  );
+  params.showbanned !== undefined &&
+    url.searchParams.set('showbanned', String(params.showbanned));
+  return client.fetch({ method: 'GET', url });
 }

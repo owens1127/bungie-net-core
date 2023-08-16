@@ -14,31 +14,29 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { NewsArticleRssResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Content.RssNewsArticles} */
-export type RssNewsArticlesParams = {
-  /** Optionally filter response to only include news items in a certain category. */
-  categoryfilter?: string;
-  /** Optionally include full content body for each news item. */
-  includebody?: boolean;
-  /** Zero-based pagination token for paging through result sets. */
-  pageToken: string;
-};
+import { NewsArticleRssResponse } from '../../models/Content/NewsArticleRssResponse';
 
 /**
  * Returns a JSON string response that is the RSS feed for news articles.
  * @see {@link https://bungie-net.github.io/#Content.RssNewsArticles}
  */
 export async function rssNewsArticles(
-  params: RssNewsArticlesParams,
+  params: {
+    /** Optionally filter response to only include news items in a certain category. */
+    categoryfilter?: string;
+    /** Optionally include full content body for each news item. */
+    includebody?: boolean;
+    /** Zero-based pagination token for paging through result sets. */
+    pageToken: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<NewsArticleRssResponse>> {
-  return client.fetch<NewsArticleRssResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`,
-    params: {
-      categoryfilter: params.categoryfilter,
-      includebody: params.includebody
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`
+  );
+  params.categoryfilter !== undefined &&
+    url.searchParams.set('categoryfilter', String(params.categoryfilter));
+  params.includebody !== undefined &&
+    url.searchParams.set('includebody', String(params.includebody));
+  return client.fetch({ method: 'GET', url });
 }

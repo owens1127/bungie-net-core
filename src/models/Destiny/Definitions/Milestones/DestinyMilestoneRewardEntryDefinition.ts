@@ -20,6 +20,7 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
  * rewards and that has optional information about how it is obtained.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneRewardEntryDefinition}
  */
+
 export interface DestinyMilestoneRewardEntryDefinition {
   /**
    * The identifier for this reward entry. Runtime data will refer to reward entries

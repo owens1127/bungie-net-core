@@ -12,7 +12,7 @@
  */
 //
 
-import { OptInFlags } from './OptInFlags';
+import { OptInFlags } from '../../enums/User/OptInFlags';
 import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 
 /**
@@ -20,6 +20,7 @@ import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
  * the subject related to the opt-in.
  * @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailOptInDefinition}
  */
+
 export interface EmailOptInDefinition {
   /** The unique identifier for this opt-in category. */
   readonly name: string;

@@ -15,6 +15,7 @@
 import { DestinyArtifactTierItemDefinition } from './DestinyArtifactTierItemDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Artifacts.DestinyArtifactTierDefinition} */
+
 export interface DestinyArtifactTierDefinition {
   /** An identifier, unique within the Artifact, for this specific tier. */
   readonly tierHash: number;

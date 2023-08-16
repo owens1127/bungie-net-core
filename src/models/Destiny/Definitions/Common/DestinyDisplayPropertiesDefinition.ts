@@ -20,6 +20,7 @@ import { DestinyIconSequenceDefinition } from './DestinyIconSequenceDefinition';
  * information. This is the base class for that display information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Common.DestinyDisplayPropertiesDefinition}
  */
+
 export interface DestinyDisplayPropertiesDefinition {
   readonly description: string;
   readonly name: string;

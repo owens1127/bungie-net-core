@@ -15,6 +15,7 @@
 import { DestinyArtifactTier } from './DestinyArtifactTier';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactCharacterScoped} */
+
 export interface DestinyArtifactCharacterScoped {
   /** Mapped to DestinyArtifactDefinition in the manifest. */
   readonly artifactHash: number;

@@ -16,6 +16,7 @@
  * The metrics available for display and selection on an item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemMetricBlockDefinition}
  */
+
 export interface DestinyItemMetricBlockDefinition {
   /**
    * Hash identifiers for any DestinyPresentationNodeDefinition entry that can be

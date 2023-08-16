@@ -21,6 +21,7 @@
  * clever person just may do it with our existing endpoints.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneQuestRewardItem}
  */
+
 export interface DestinyMilestoneQuestRewardItem {
   /**
    * The quest reward item *may* be associated with a vendor. If so, this is that

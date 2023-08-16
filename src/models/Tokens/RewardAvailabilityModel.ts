@@ -16,6 +16,7 @@ import { DestinyRecordDefinition } from '../Destiny/Definitions/Records/DestinyR
 import { CollectibleDefinitions } from './CollectibleDefinitions';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.RewardAvailabilityModel} */
+
 export interface RewardAvailabilityModel {
   readonly HasExistingCode: boolean;
   readonly RecordDefinitions: DestinyRecordDefinition[];

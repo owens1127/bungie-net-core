@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyGatingScope } from '../DestinyGatingScope';
+import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
 
 /**
  * Where the sausage gets made. Unlock Expressions are the foundation of the game's
@@ -24,6 +24,7 @@ import { DestinyGatingScope } from '../DestinyGatingScope';
  * parsed from Babel.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyUnlockExpressionDefinition}
  */
+
 export interface DestinyUnlockExpressionDefinition {
   /**
    * A shortcut for determining the most restrictive gating that this expression

@@ -26,6 +26,7 @@ import { DestinyReportReasonDefinition } from './DestinyReportReasonDefinition';
  * are some reasons defined under multiple categories.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Reporting.DestinyReportReasonCategoryDefinition}
  */
+
 export interface DestinyReportReasonCategoryDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** The specific reasons for the report under this category. */

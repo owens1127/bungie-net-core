@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemTooltipNotification} */
+
 export interface DestinyItemTooltipNotification {
   readonly displayString: string;
   readonly displayStyle: string;

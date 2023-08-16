@@ -19,6 +19,7 @@
  * BNet servers, but it's there)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorItemQuantity}
  */
+
 export interface DestinyVendorItemQuantity {
   /**
    * The hash identifier for the item in question. Use it to look up the item's

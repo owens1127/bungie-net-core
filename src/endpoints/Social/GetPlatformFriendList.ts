@@ -12,17 +12,10 @@
  */
 //
 
+import { PlatformFriendType } from '../../enums/Social/Friends/PlatformFriendType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PlatformFriendType } from '../../models';
-import { PlatformFriendResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList} */
-export type GetPlatformFriendListParams = {
-  /** The platform friend type. */
-  friendPlatform: PlatformFriendType;
-  /** The zero based page to return. Page size is 100. */
-  page: string;
-};
+import { PlatformFriendResponse } from '../../models/Social/Friends/PlatformFriendResponse';
 
 /**
  * Gets the platform friend of the requested type, with additional information if
@@ -30,11 +23,17 @@ export type GetPlatformFriendListParams = {
  * @see {@link https://bungie-net.github.io/#Social.GetPlatformFriendList}
  */
 export async function getPlatformFriendList(
-  params: GetPlatformFriendListParams,
+  params: {
+    /** The platform friend type. */
+    friendPlatform: PlatformFriendType;
+    /** The zero based page to return. Page size is 100. */
+    page: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PlatformFriendResponse>> {
-  return client.fetch<PlatformFriendResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Social/PlatformFriends/${params.friendPlatform}/${params.page}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/PlatformFriends/${params.friendPlatform}/${params.page}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

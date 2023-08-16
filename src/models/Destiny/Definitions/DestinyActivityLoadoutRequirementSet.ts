@@ -15,6 +15,7 @@
 import { DestinyActivityLoadoutRequirement } from './DestinyActivityLoadoutRequirement';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirementSet} */
+
 export interface DestinyActivityLoadoutRequirementSet {
   /**
    * The set of requirements that will be applied on the activity if this requirement

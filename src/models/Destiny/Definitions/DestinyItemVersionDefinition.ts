@@ -16,6 +16,7 @@
  * The version definition currently just holds a reference to the power cap.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemVersionDefinition}
  */
+
 export interface DestinyItemVersionDefinition {
   /**
    * A reference to the power cap for this item version. Mapped to

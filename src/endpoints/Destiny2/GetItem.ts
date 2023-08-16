@@ -12,26 +12,11 @@
  */
 //
 
+import { DestinyComponentType } from '../../enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyComponentType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { DestinyItemResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetItem} */
-export type GetItemParams<T extends DestinyComponentType[]> = {
-  /**
-   * A comma separated list of components to return (as strings or numeric values).
-   * See the DestinyComponentType enum for valid components to request. You must
-   * request at least one component to receive results.
-   */
-  components: [...T];
-  /** The membership ID of the destiny profile. */
-  destinyMembershipId: string;
-  /** The Instance ID of the destiny item. */
-  itemInstanceId: string;
-  /** A valid non-BungieNet membership type. */
-  membershipType: BungieMembershipType;
-};
+import { DestinyItemResponse } from '../../models/Destiny/Responses/DestinyItemResponse';
 
 /**
  * Retrieve the details of an instanced Destiny Item. An instanced Destiny item is
@@ -39,15 +24,27 @@ export type GetItemParams<T extends DestinyComponentType[]> = {
  * useful instance-specific details and thus are not queryable here.
  * @see {@link https://bungie-net.github.io/#Destiny2.GetItem}
  */
-export async function getItem<T extends DestinyComponentType[]>(
-  params: GetItemParams<T>,
+export async function getItem<T extends readonly DestinyComponentType[]>(
+  params: {
+    /**
+     * A comma separated list of components to return (as strings or numeric values).
+     * See the DestinyComponentType enum for valid components to request. You must
+     * request at least one component to receive results.
+     */
+    components: [...T];
+    /** The membership ID of the destiny profile. */
+    destinyMembershipId: string;
+    /** The Instance ID of the destiny item. */
+    itemInstanceId: string;
+    /** A valid non-BungieNet membership type. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyItemResponse<T>>> {
-  return client.fetch<DestinyItemResponse<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Item/${params.itemInstanceId}/`,
-    params: {
-      components: params.components ? params.components.join(',') : undefined
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/${params.membershipType}/Profile/${params.destinyMembershipId}/Item/${params.itemInstanceId}/`
+  );
+  params.components !== undefined &&
+    url.searchParams.set('components', params.components.join(','));
+  return client.fetch({ method: 'GET', url });
 }

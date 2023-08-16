@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { UserMembershipData } from '../../models';
+import { UserMembershipData } from '../../models/User/UserMembershipData';
+
 /**
  * Returns a list of accounts associated with signed in user. This is useful for
  * OAuth implementations that do not give you access to the token response.
@@ -23,8 +24,7 @@ import { UserMembershipData } from '../../models';
 export async function getMembershipDataForCurrentUser(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserMembershipData>> {
-  return client.fetch<UserMembershipData>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

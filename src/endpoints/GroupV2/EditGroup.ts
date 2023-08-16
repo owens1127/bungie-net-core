@@ -12,14 +12,9 @@
  */
 //
 
+import { GroupEditAction } from '../../models/GroupsV2/GroupEditAction';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupEditAction } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.EditGroup} */
-export type EditGroupParams = {
-  /** Group ID of the group to edit. */
-  groupId: string;
-};
 
 /**
  * Edit an existing group. You must have suitable permissions in the group to
@@ -28,13 +23,21 @@ export type EditGroupParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.EditGroup}
  */
 export async function editGroup(
-  params: EditGroupParams,
+  params: {
+    /** Group ID of the group to edit. */
+    groupId: string;
+  },
   body: GroupEditAction,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Edit/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Edit/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

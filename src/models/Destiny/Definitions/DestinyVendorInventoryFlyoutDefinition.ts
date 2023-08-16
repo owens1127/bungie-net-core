@@ -20,6 +20,7 @@ import { DestinyVendorInventoryFlyoutBucketDefinition } from './DestinyVendorInv
  * an otherwise hidden vendor inventory: like the Vault inventory buckets.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInventoryFlyoutDefinition}
  */
+
 export interface DestinyVendorInventoryFlyoutDefinition {
   /** If the flyout is locked, this is the reason why. */
   readonly lockedDescription: string;

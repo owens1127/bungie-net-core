@@ -14,25 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { FireteamResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam} */
-export type GetClanFireteamParams = {
-  /** The unique id of the fireteam. */
-  fireteamId: string;
-  /** The group id of the clan. */
-  groupId: string;
-};
+import { FireteamResponse } from '../../models/Fireteam/FireteamResponse';
 
 /**
  * Gets a specific fireteam.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetClanFireteam}
  */
 export async function getClanFireteam(
-  params: GetClanFireteamParams,
+  params: {
+    /** The unique id of the fireteam. */
+    fireteamId: string;
+    /** The group id of the clan. */
+    groupId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<FireteamResponse>> {
-  return client.fetch<FireteamResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

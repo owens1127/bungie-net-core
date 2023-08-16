@@ -12,7 +12,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../../Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../../../enums/Exceptions/PlatformErrorCodes';
 import { UserInfoCard } from '../../User/UserInfoCard';
 
 /**
@@ -24,6 +24,7 @@ import { UserInfoCard } from '../../User/UserInfoCard';
  * Membership ID.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyErrorProfile}
  */
+
 export interface DestinyErrorProfile {
   /**
    * The error that we encountered. You should be able to look up localized text to

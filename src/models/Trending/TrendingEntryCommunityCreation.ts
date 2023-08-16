@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryCommunityCreation} */
+
 export interface TrendingEntryCommunityCreation {
   readonly media: string;
   readonly title: string;

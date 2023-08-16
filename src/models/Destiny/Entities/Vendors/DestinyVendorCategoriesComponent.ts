@@ -24,6 +24,7 @@ import { DestinyVendorCategory } from './DestinyVendorCategory';
  * this data. This is an unfortunate, but permanent, limitation of Vendor data.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Vendors.DestinyVendorCategoriesComponent}
  */
+
 export interface DestinyVendorCategoriesComponent {
   /**
    * The list of categories for items that the vendor sells, in rendering order.

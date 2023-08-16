@@ -20,6 +20,7 @@ import { DestinyStat } from './DestinyStat';
  * those stat bonuses.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyTalentNodeStatBlock}
  */
+
 export interface DestinyTalentNodeStatBlock {
   /**
    * The stat benefits conferred when this talent node is activated for the current

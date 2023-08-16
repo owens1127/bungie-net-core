@@ -13,13 +13,14 @@
 //
 
 import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference';
 
 /**
  * Data about an item's "sources": ways that the item can be obtained.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSourceBlockDefinition}
  */
+
 export interface DestinyItemSourceBlockDefinition {
   /**
    * The list of hash identifiers for Reward Sources that hint where the item can be

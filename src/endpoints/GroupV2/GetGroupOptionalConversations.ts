@@ -14,23 +14,21 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupOptionalConversation } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations} */
-export type GetGroupOptionalConversationsParams = {
-  /** Requested group's id. */
-  groupId: string;
-};
 
 /**
  * Gets a list of available optional conversation channels and their settings.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupOptionalConversations}
  */
 export async function getGroupOptionalConversations(
-  params: GetGroupOptionalConversationsParams,
+  params: {
+    /** Requested group's id. */
+    groupId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<GroupOptionalConversation[]>> {
-  return client.fetch<GroupOptionalConversation[]>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -27,6 +27,7 @@
  * GetProfile calls.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Inventory.DestinyCurrenciesComponent}
  */
+
 export interface DestinyCurrenciesComponent {
   /**
    * A dictionary - keyed by the item's hash identifier (

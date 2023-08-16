@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Common.DestinyIconSequenceDefinition} */
+
 export interface DestinyIconSequenceDefinition {
   readonly frames: string[];
 }

@@ -17,6 +17,7 @@
  * physical attribute stat like Attack, Defense etc...)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyStat}
  */
+
 export interface DestinyStat {
   /**
    * The hash identifier for the Stat. Use it to look up the DestinyStatDefinition

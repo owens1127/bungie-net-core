@@ -16,6 +16,7 @@
  * Guided Game information for this activity.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityGuidedBlockDefinition}
  */
+
 export interface DestinyActivityGuidedBlockDefinition {
   /** The maximum amount of people that can be in the waiting lobby. */
   readonly guidedMaxLobbySize: number;

@@ -15,6 +15,7 @@
 import { DestinyRecordComponent } from './DestinyRecordComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyCharacterRecordsComponent} */
+
 export interface DestinyCharacterRecordsComponent {
   /** Mapped to DestinyRecordDefinition in the manifest. */
   readonly featuredRecordHashes: number[];

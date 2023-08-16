@@ -12,49 +12,47 @@
  */
 //
 
+import { ForumTopicsCategoryFiltersEnum } from '../../enums/Forum/ForumTopicsCategoryFiltersEnum';
+import { ForumTopicsQuickDateEnum } from '../../enums/Forum/ForumTopicsQuickDateEnum';
+import { ForumTopicsSortEnum } from '../../enums/Forum/ForumTopicsSortEnum';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ForumTopicsCategoryFiltersEnum } from '../../models';
-import { ForumTopicsQuickDateEnum } from '../../models';
-import { ForumTopicsSortEnum } from '../../models';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged} */
-export type GetTopicsPagedParams = {
-  /** A category filter */
-  categoryFilter: ForumTopicsCategoryFiltersEnum;
-  /** The group, if any. */
-  group: string;
-  /**
-   * Comma seperated list of locales posts must match to return in the result list.
-   * Default 'en'
-   */
-  locales?: string;
-  /** Zero paged page number */
-  page: number;
-  /** Unused */
-  pageSize: number;
-  /** A date filter. */
-  quickDate: ForumTopicsQuickDateEnum;
-  /** The sort mode. */
-  sort: ForumTopicsSortEnum;
-  /** The tags to search, if any. */
-  tagstring?: string;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Get topics from any forum.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicsPaged}
  */
 export async function getTopicsPaged(
-  params: GetTopicsPagedParams,
+  params: {
+    /** A category filter */
+    categoryFilter: ForumTopicsCategoryFiltersEnum;
+    /** The group, if any. */
+    group: string;
+    /**
+     * Comma seperated list of locales posts must match to return in the result list.
+     * Default 'en'
+     */
+    locales?: string;
+    /** Zero paged page number */
+    page: number;
+    /** Unused */
+    pageSize: number;
+    /** A date filter. */
+    quickDate: ForumTopicsQuickDateEnum;
+    /** The sort mode. */
+    sort: ForumTopicsSortEnum;
+    /** The tags to search, if any. */
+    tagstring?: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`,
-    params: {
-      locales: params.locales,
-      tagstring: params.tagstring
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetTopicsPaged/${params.page}/${params.pageSize}/${params.group}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
+  );
+  params.locales !== undefined &&
+    url.searchParams.set('locales', String(params.locales));
+  params.tagstring !== undefined &&
+    url.searchParams.set('tagstring', String(params.tagstring));
+  return client.fetch({ method: 'GET', url });
 }

@@ -12,15 +12,16 @@
  */
 //
 
-import { GroupType } from './GroupType';
-import { ChatSecuritySetting } from './ChatSecuritySetting';
-import { GroupHomepage } from './GroupHomepage';
-import { MembershipOption } from './MembershipOption';
-import { GroupPostPublicity } from './GroupPostPublicity';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { ChatSecuritySetting } from '../../enums/GroupsV2/ChatSecuritySetting';
+import { GroupHomepage } from '../../enums/GroupsV2/GroupHomepage';
+import { MembershipOption } from '../../enums/GroupsV2/MembershipOption';
+import { GroupPostPublicity } from '../../enums/GroupsV2/GroupPostPublicity';
 import { GroupFeatures } from './GroupFeatures';
 import { GroupV2ClanInfoAndInvestment } from './GroupV2ClanInfoAndInvestment';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupV2} */
+
 export interface GroupV2 {
   readonly groupId: string;
   readonly name: string;

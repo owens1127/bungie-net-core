@@ -12,7 +12,7 @@
  */
 //
 
-import { TierType } from '../TierType';
+import { TierType } from '../../../enums/Destiny/TierType';
 
 /**
  * If the item can exist in an inventory - the overwhelming majority of them can
@@ -20,6 +20,7 @@ import { TierType } from '../TierType';
  * with the inventory.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemInventoryBlockDefinition}
  */
+
 export interface DestinyItemInventoryBlockDefinition {
   /**
    * If this string is populated, you can't have more than one stack with this label

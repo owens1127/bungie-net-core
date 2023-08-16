@@ -17,6 +17,7 @@
  * the custom data needed to render this specific instance of the item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemRenderComponent}
  */
+
 export interface DestinyItemRenderComponent {
   /** If you should use custom dyes on this item, it will be indicated here. */
   readonly useCustomDyes: boolean;

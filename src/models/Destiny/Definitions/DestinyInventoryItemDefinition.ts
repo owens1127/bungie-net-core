@@ -38,12 +38,12 @@ import { DestinyItemInvestmentStatDefinition } from './DestinyItemInvestmentStat
 import { DestinyItemPerkEntryDefinition } from './DestinyItemPerkEntryDefinition';
 import { DestinyAnimationReference } from './Animations/DestinyAnimationReference';
 import { HyperlinkReference } from '../../Links/HyperlinkReference';
-import { SpecialItemType } from '../SpecialItemType';
-import { DestinyItemType } from '../DestinyItemType';
-import { DestinyItemSubType } from '../DestinyItemSubType';
-import { DestinyClass } from '../DestinyClass';
-import { DestinyBreakerType } from '../DestinyBreakerType';
-import { DamageType } from '../DamageType';
+import { SpecialItemType } from '../../../enums/Destiny/SpecialItemType';
+import { DestinyItemType } from '../../../enums/Destiny/DestinyItemType';
+import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
+import { DestinyClass } from '../../../enums/Destiny/DestinyClass';
+import { DestinyBreakerType } from '../../../enums/Destiny/DestinyBreakerType';
+import { DamageType } from '../../../enums/Destiny/DamageType';
 
 /**
  * So much of what you see in Destiny is actually an Item used in a new and
@@ -57,6 +57,7 @@ import { DamageType } from '../DamageType';
  * generic definitions.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyInventoryItemDefinition}
  */
+
 export interface DestinyInventoryItemDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

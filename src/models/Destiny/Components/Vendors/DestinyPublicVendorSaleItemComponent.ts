@@ -23,6 +23,7 @@ import { DestinyItemQuantity } from '../../DestinyItemQuantity';
  * these, however, you'll have to ask for it in context of a specific character.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyPublicVendorSaleItemComponent}
  */
+
 export interface DestinyPublicVendorSaleItemComponent {
   /**
    * The index into the DestinyVendorDefinition.itemList property. Note that this

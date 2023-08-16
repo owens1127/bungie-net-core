@@ -14,13 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval} */
-export type GetPostAndParentAwaitingApprovalParams = {
-  childPostId: string;
-  /** If this value is not null or empty, banned posts are requested to be returned */
-  showbanned?: string;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Returns the post specified and its immediate parent of posts that are awaiting
@@ -28,14 +22,17 @@ export type GetPostAndParentAwaitingApprovalParams = {
  * @see {@link https://bungie-net.github.io/#Forum.GetPostAndParentAwaitingApproval}
  */
 export async function getPostAndParentAwaitingApproval(
-  params: GetPostAndParentAwaitingApprovalParams,
+  params: {
+    childPostId: string;
+    /** If this value is not null or empty, banned posts are requested to be returned */
+    showbanned?: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`,
-    params: {
-      showbanned: params.showbanned
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`
+  );
+  params.showbanned !== undefined &&
+    url.searchParams.set('showbanned', String(params.showbanned));
+  return client.fetch({ method: 'GET', url });
 }

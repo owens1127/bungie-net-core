@@ -12,23 +12,12 @@
  */
 //
 
+import { GroupPotentialMemberStatus } from '../../enums/GroupsV2/GroupPotentialMemberStatus';
+import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupPotentialMemberStatus } from '../../models';
-import { GroupType } from '../../models';
-import { BungieMembershipType } from '../../models';
-import { GroupPotentialMembershipSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember} */
-export type GetPotentialGroupsForMemberParams = {
-  /** Filter apply to list of potential joined groups. */
-  filter: GroupPotentialMemberStatus;
-  /** Type of group the supplied member applied. */
-  groupType: GroupType;
-  /** Membership ID to for which to find applied groups. */
-  membershipId: string;
-  /** Membership type of the supplied membership ID. */
-  membershipType: BungieMembershipType;
-};
+import { GroupPotentialMembershipSearchResponse } from '../../models/GroupsV2/GroupPotentialMembershipSearchResponse';
 
 /**
  * Get information about the groups that a given member has applied to or been
@@ -36,11 +25,21 @@ export type GetPotentialGroupsForMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.GetPotentialGroupsForMember}
  */
 export async function getPotentialGroupsForMember(
-  params: GetPotentialGroupsForMemberParams,
+  params: {
+    /** Filter apply to list of potential joined groups. */
+    filter: GroupPotentialMemberStatus;
+    /** Type of group the supplied member applied. */
+    groupType: GroupType;
+    /** Membership ID to for which to find applied groups. */
+    membershipId: string;
+    /** Membership type of the supplied membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupPotentialMembershipSearchResponse>> {
-  return client.fetch<GroupPotentialMembershipSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/GroupV2/User/Potential/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/User/Potential/${params.membershipType}/${params.membershipId}/${params.filter}/${params.groupType}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

@@ -13,9 +13,9 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { BucketScope } from '../BucketScope';
-import { BucketCategory } from '../BucketCategory';
-import { ItemLocation } from '../ItemLocation';
+import { BucketScope } from '../../../enums/Destiny/BucketScope';
+import { BucketCategory } from '../../../enums/Destiny/BucketCategory';
+import { ItemLocation } from '../../../enums/Destiny/ItemLocation';
 
 /**
  * An Inventory (be it Character or Profile level) is comprised of many Buckets. An
@@ -36,6 +36,7 @@ import { ItemLocation } from '../ItemLocation';
  * of a Vendor. See the vendor's acceptedItems property for more details.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyInventoryBucketDefinition}
  */
+
 export interface DestinyInventoryBucketDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** Where the bucket is found. 0 = Character, 1 = Account */

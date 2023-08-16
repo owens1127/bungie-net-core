@@ -22,6 +22,7 @@
  * something useful or interesting with the pre-processed statistics.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemInvestmentStatDefinition}
  */
+
 export interface DestinyItemInvestmentStatDefinition {
   /**
    * The hash identifier for the DestinyStatDefinition defining this stat. Mapped to

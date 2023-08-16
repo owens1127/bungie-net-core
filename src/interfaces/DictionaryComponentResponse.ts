@@ -1,6 +1,9 @@
-import { ComponentData, ComponentResponse } from './ComponentTypes';
+import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
+import { ResponseComponent } from './ResponseComponent';
 
-export interface DictionaryComponentResponse<
-  Key extends number | string,
-  C extends ComponentData
-> extends ComponentResponse<Record<Key, C>> {}
+export type DictionaryComponentResponse<
+  K extends number | string,
+  D,
+  T extends readonly DestinyComponentType[],
+  C extends DestinyComponentType
+> = ResponseComponent<T, C, Record<K, D>>;

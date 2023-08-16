@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinyEventCardImages} */
+
 export interface DestinyEventCardImages {
   readonly unownedCardSleeveImagePath: string;
   readonly unownedCardSleeveWrapImagePath: string;

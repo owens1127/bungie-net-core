@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
+import { DestinyObjectiveGrantStyle } from '../../../enums/Destiny/DestinyObjectiveGrantStyle';
 
 /**
  * Defines the conditions under which an intrinsic perk is applied while
@@ -22,6 +22,7 @@ import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
  * modifies gameplay in some interesting way.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyObjectivePerkEntryDefinition}
  */
+
 export interface DestinyObjectivePerkEntryDefinition {
   /**
    * The hash identifier of the DestinySandboxPerkDefinition that will be applied to

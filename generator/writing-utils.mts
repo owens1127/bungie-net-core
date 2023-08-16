@@ -55,11 +55,16 @@ export function indent(text: string, indentLevel: number) {
   return lines.map(line => '  '.repeat(indentLevel) + line).join('\n');
 }
 
-export async function writeOutFile(filename: string, contents: string) {
+export async function writeOutFile(
+  filename: string,
+  suffix: string,
+  contents: string
+) {
+  const fullPath = filename + suffix;
   try {
-    await mkdirp(path.dirname(filename));
+    await mkdirp(path.dirname(fullPath));
 
-    writeFile(filename, contents, () => {});
+    writeFile(fullPath, contents, () => {});
   } catch (e) {
     console.error(e);
   }
@@ -70,12 +75,21 @@ export function generateImports(
   fileName: string,
   componentNames: string[]
 ) {
-  return `import { ${componentNames.join(', ')} } from '${path.relative(
-    currentFile,
-    fileName
-  )}'`;
+  if (fileName === currentFile) return null;
+  const start = path.join(process.cwd(), './src', currentFile);
+  const end = path.join(process.cwd(), './src', fileName);
+  const relative = path.relative(start, end);
+  return `import { ${componentNames.join(', ')} } from '${
+    relative.startsWith('../../')
+      ? relative.substring(3)
+      : relative.substring(1)
+  }'`;
 }
 
 export function seeLink(component: string) {
   return `@see {@link https://bungie-net.github.io/${component}}`;
+}
+
+export function camelCase(name: string) {
+  return name[0].toLowerCase() + name.substring(1);
 }

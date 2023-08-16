@@ -13,11 +13,11 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
-import { DestinyScope } from '../../DestinyScope';
+import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
+import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
 import { DestinyPresentationNodeChildrenBlock } from './DestinyPresentationNodeChildrenBlock';
-import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle';
-import { DestinyPresentationScreenStyle } from '../../DestinyPresentationScreenStyle';
+import { DestinyPresentationDisplayStyle } from '../../../../enums/Destiny/DestinyPresentationDisplayStyle';
+import { DestinyPresentationScreenStyle } from '../../../../enums/Destiny/DestinyPresentationScreenStyle';
 import { DestinyPresentationNodeRequirementsBlock } from './DestinyPresentationNodeRequirementsBlock';
 
 /**
@@ -41,6 +41,7 @@ import { DestinyPresentationNodeRequirementsBlock } from './DestinyPresentationN
  * We'll see if I come to regret this as well.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeDefinition}
  */
+
 export interface DestinyPresentationNodeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** The original icon for this presentation node, before we futzed with it. */

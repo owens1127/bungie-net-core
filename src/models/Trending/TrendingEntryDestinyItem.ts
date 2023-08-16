@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryDestinyItem} */
+
 export interface TrendingEntryDestinyItem {
   readonly itemHash: number;
 }

@@ -24,6 +24,7 @@ import { InterpolationPoint } from '../../Interpolation/InterpolationPoint';
  * value that BNet can get to the in-game display value of the stat)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyStatDisplayDefinition}
  */
+
 export interface DestinyStatDisplayDefinition {
   /**
    * The hash identifier for the stat being transformed into a Display stat.

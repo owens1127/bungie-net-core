@@ -14,18 +14,6 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyClanAggregateStat } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats} */
-export type GetClanAggregateStatsParams = {
-  /** Group ID of the clan whose leaderboards you wish to fetch. */
-  groupId: string;
-  /**
-   * List of game modes for which to get leaderboards. See the documentation for
-   * DestinyActivityModeType for valid values, and pass in string representation,
-   * comma delimited.
-   */
-  modes?: string;
-};
 
 /**
  * Gets aggregated stats for a clan using the same categories as the clan
@@ -35,14 +23,22 @@ export type GetClanAggregateStatsParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.GetClanAggregateStats}
  */
 export async function getClanAggregateStats(
-  params: GetClanAggregateStatsParams,
+  params: {
+    /** Group ID of the clan whose leaderboards you wish to fetch. */
+    groupId: string;
+    /**
+     * List of game modes for which to get leaderboards. See the documentation for
+     * DestinyActivityModeType for valid values, and pass in string representation,
+     * comma delimited.
+     */
+    modes?: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<DestinyClanAggregateStat[]>> {
-  return client.fetch<DestinyClanAggregateStat[]>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`,
-    params: {
-      modes: params.modes
-    }
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Stats/AggregateClanStats/${params.groupId}/`
+  );
+  params.modes !== undefined &&
+    url.searchParams.set('modes', String(params.modes));
+  return client.fetch({ method: 'GET', url });
 }

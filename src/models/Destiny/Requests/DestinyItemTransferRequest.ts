@@ -12,9 +12,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.DestinyItemTransferRequest} */
+
 export interface DestinyItemTransferRequest {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly itemReferenceHash: number;

@@ -12,11 +12,12 @@
  */
 //
 
-import { GroupApplicationResolveState } from './GroupApplicationResolveState';
+import { GroupApplicationResolveState } from '../../enums/GroupsV2/GroupApplicationResolveState';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupMemberApplication} */
+
 export interface GroupMemberApplication {
   readonly groupId: string;
   readonly creationDate: string;

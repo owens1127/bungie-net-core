@@ -12,14 +12,9 @@
  */
 //
 
+import { DestinyReportOffensePgcrRequest } from '../../models/Destiny/Reporting/Requests/DestinyReportOffensePgcrRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyReportOffensePgcrRequest } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer} */
-export type ReportOffensivePostGameCarnageReportPlayerParams = {
-  /** The ID of the activity where you ran into the brigand that you're reporting. */
-  activityId: string;
-};
 
 /**
  * Report a player that you met in an activity that was engaging in ToS-violating
@@ -29,13 +24,21 @@ export type ReportOffensivePostGameCarnageReportPlayerParams = {
  * @see {@link https://bungie-net.github.io/#Destiny2.ReportOffensivePostGameCarnageReportPlayer}
  */
 export async function reportOffensivePostGameCarnageReportPlayer(
-  params: ReportOffensivePostGameCarnageReportPlayerParams,
+  params: {
+    /** The ID of the activity where you ran into the brigand that you're reporting. */
+    activityId: string;
+  },
   body: DestinyReportOffensePgcrRequest,
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/Report/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://stats.bungie.net/Platform/Destiny2/Stats/PostGameCarnageReport/${params.activityId}/Report/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

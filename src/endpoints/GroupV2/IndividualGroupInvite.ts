@@ -12,33 +12,36 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { GroupApplicationRequest } from '../../models/GroupsV2/GroupApplicationRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { GroupApplicationRequest } from '../../models';
-import { GroupApplicationResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite} */
-export type IndividualGroupInviteParams = {
-  /** ID of the group you would like to join. */
-  groupId: string;
-  /** Membership id of the account being invited. */
-  membershipId: string;
-  /** MembershipType of the account being invited. */
-  membershipType: BungieMembershipType;
-};
+import { GroupApplicationResponse } from '../../models/GroupsV2/GroupApplicationResponse';
 
 /**
  * Invite a user to join this group.
  * @see {@link https://bungie-net.github.io/#GroupV2.IndividualGroupInvite}
  */
 export async function individualGroupInvite(
-  params: IndividualGroupInviteParams,
+  params: {
+    /** ID of the group you would like to join. */
+    groupId: string;
+    /** Membership id of the account being invited. */
+    membershipId: string;
+    /** MembershipType of the account being invited. */
+    membershipType: BungieMembershipType;
+  },
   body: GroupApplicationRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupApplicationResponse>> {
-  return client.fetch<GroupApplicationResponse>({
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInvite/${params.membershipType}/${params.membershipId}/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/IndividualInvite/${params.membershipType}/${params.membershipId}/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

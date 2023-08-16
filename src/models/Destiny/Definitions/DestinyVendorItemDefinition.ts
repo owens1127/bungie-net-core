@@ -13,17 +13,18 @@
 //
 
 import { DestinyVendorItemQuantity } from './DestinyVendorItemQuantity';
-import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy';
+import { DestinyVendorItemRefundPolicy } from '../../../enums/Destiny/DestinyVendorItemRefundPolicy';
 import { DestinyItemCreationEntryLevelDefinition } from './DestinyItemCreationEntryLevelDefinition';
 import { DestinyVendorSaleItemActionBlockDefinition } from './DestinyVendorSaleItemActionBlockDefinition';
-import { DestinyGatingScope } from '../DestinyGatingScope';
-import { BungieMembershipType } from '../../BungieMembershipType';
+import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
+import { BungieMembershipType } from '../../../enums/BungieMembershipType';
 import { DestinyVendorItemSocketOverride } from './DestinyVendorItemSocketOverride';
 
 /**
  * This represents an item being sold by the vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorItemDefinition}
  */
+
 export interface DestinyVendorItemDefinition {
   /**
    * The index into the DestinyVendorDefinition.saleList. This is what we use to

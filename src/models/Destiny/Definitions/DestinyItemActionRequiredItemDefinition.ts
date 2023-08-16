@@ -17,6 +17,7 @@
  * order to perform an action.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemActionRequiredItemDefinition}
  */
+
 export interface DestinyItemActionRequiredItemDefinition {
   /** The minimum quantity of the item you have to have. */
   readonly count: number;

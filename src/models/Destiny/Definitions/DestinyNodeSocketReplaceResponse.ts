@@ -19,6 +19,7 @@
  * indicated plug item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyNodeSocketReplaceResponse}
  */
+
 export interface DestinyNodeSocketReplaceResponse {
   /**
    * The hash identifier of the socket type to find amidst the item's sockets (the

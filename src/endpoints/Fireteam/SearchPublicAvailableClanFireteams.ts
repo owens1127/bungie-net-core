@@ -12,32 +12,12 @@
  */
 //
 
+import { FireteamDateRange } from '../../enums/Fireteam/FireteamDateRange';
+import { FireteamPlatform } from '../../enums/Fireteam/FireteamPlatform';
+import { FireteamSlotSearch } from '../../enums/Fireteam/FireteamSlotSearch';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { FireteamDateRange } from '../../models';
-import { FireteamPlatform } from '../../models';
-import { FireteamSlotSearch } from '../../models';
-import { SearchResultOfFireteamSummary } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams} */
-export type SearchPublicAvailableClanFireteamsParams = {
-  /** The activity type to filter by. */
-  activityType: number;
-  /** The date range to grab available fireteams. */
-  dateRange: FireteamDateRange;
-  /**
-   * If you wish the result to exclude immediate fireteams, set this to true.
-   * Immediate-only can be forced using the dateRange enum.
-   */
-  excludeImmediate?: boolean;
-  /** An optional language filter. */
-  langFilter?: string;
-  /** Zero based page */
-  page: number;
-  /** The platform filter. */
-  platform: FireteamPlatform;
-  /** Filters based on available slots */
-  slotFilter: FireteamSlotSearch;
-};
+import { SearchResultOfFireteamSummary } from '../../models/SearchResultOfFireteamSummary';
 
 /**
  * Gets a listing of all public fireteams starting now with open slots. Caller is
@@ -45,15 +25,33 @@ export type SearchPublicAvailableClanFireteamsParams = {
  * @see {@link https://bungie-net.github.io/#Fireteam.SearchPublicAvailableClanFireteams}
  */
 export async function searchPublicAvailableClanFireteams(
-  params: SearchPublicAvailableClanFireteamsParams,
+  params: {
+    /** The activity type to filter by. */
+    activityType: number;
+    /** The date range to grab available fireteams. */
+    dateRange: FireteamDateRange;
+    /**
+     * If you wish the result to exclude immediate fireteams, set this to true.
+     * Immediate-only can be forced using the dateRange enum.
+     */
+    excludeImmediate?: boolean;
+    /** An optional language filter. */
+    langFilter?: string;
+    /** Zero based page */
+    page: number;
+    /** The platform filter. */
+    platform: FireteamPlatform;
+    /** Filters based on available slots */
+    slotFilter: FireteamSlotSearch;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<SearchResultOfFireteamSummary>> {
-  return client.fetch<SearchResultOfFireteamSummary>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`,
-    params: {
-      excludeImmediate: params.excludeImmediate,
-      langFilter: params.langFilter
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Fireteam/Search/Available/${params.platform}/${params.activityType}/${params.dateRange}/${params.slotFilter}/${params.page}/`
+  );
+  params.excludeImmediate !== undefined &&
+    url.searchParams.set('excludeImmediate', String(params.excludeImmediate));
+  params.langFilter !== undefined &&
+    url.searchParams.set('langFilter', String(params.langFilter));
+  return client.fetch({ method: 'GET', url });
 }

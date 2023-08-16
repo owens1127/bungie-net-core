@@ -12,19 +12,10 @@
  */
 //
 
+import { BungieMembershipType } from '../../enums/BungieMembershipType';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { BungieMembershipType } from '../../models';
-import { GroupMemberLeaveResult } from '../../models';
-/** @see {@link https://bungie-net.github.io/#GroupV2.KickMember} */
-export type KickMemberParams = {
-  /** Group ID to kick the user from. */
-  groupId: string;
-  /** Membership ID to kick. */
-  membershipId: string;
-  /** Membership type of the provided membership ID. */
-  membershipType: BungieMembershipType;
-};
+import { GroupMemberLeaveResult } from '../../models/GroupsV2/GroupMemberLeaveResult';
 
 /**
  * Kick a member from the given group, forcing them to reapply if they wish to re-
@@ -33,11 +24,19 @@ export type KickMemberParams = {
  * @see {@link https://bungie-net.github.io/#GroupV2.KickMember}
  */
 export async function kickMember(
-  params: KickMemberParams,
+  params: {
+    /** Group ID to kick the user from. */
+    groupId: string;
+    /** Membership ID to kick. */
+    membershipId: string;
+    /** Membership type of the provided membership ID. */
+    membershipType: BungieMembershipType;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupMemberLeaveResult>> {
-  return client.fetch<GroupMemberLeaveResult>({
-    method: 'POST',
-    url: `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Kick/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/${params.membershipType}/${params.membershipId}/Kick/`
+  );
+
+  return client.fetch({ method: 'POST', url });
 }

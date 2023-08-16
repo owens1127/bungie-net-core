@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Interpolation.InterpolationPointFloat} */
+
 export interface InterpolationPointFloat {
   readonly value: number;
   readonly weight: number;

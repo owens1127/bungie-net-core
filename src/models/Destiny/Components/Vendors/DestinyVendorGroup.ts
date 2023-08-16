@@ -20,6 +20,7 @@
  * complicated over time.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyVendorGroup}
  */
+
 export interface DestinyVendorGroup {
   /** Mapped to DestinyVendorGroupDefinition in the manifest. */
   readonly vendorGroupHash: number;

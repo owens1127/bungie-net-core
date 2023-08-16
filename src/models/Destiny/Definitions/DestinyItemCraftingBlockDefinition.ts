@@ -19,6 +19,7 @@ import { DestinyItemCraftingBlockBonusPlugDefinition } from './DestinyItemCrafti
  * defined here if you care.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemCraftingBlockDefinition}
  */
+
 export interface DestinyItemCraftingBlockDefinition {
   /**
    * A reference to the item definition that is created when crafting with this '

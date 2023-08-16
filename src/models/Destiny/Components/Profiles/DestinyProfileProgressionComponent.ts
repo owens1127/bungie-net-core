@@ -22,6 +22,7 @@ import { DestinyArtifactProfileScoped } from '../../Artifacts/DestinyArtifactPro
  * This will include information such as Checklist info.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileProgressionComponent}
  */
+
 export interface DestinyProfileProgressionComponent {
   /**
    * The set of checklists that can be examined on a profile-wide basis, keyed by the

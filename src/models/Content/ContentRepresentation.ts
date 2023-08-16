@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.ContentRepresentation} */
+
 export interface ContentRepresentation {
   readonly name: string;
   readonly path: string;

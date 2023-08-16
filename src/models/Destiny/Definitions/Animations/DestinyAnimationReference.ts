@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Animations.DestinyAnimationReference} */
+
 export interface DestinyAnimationReference {
   readonly animName: string;
   readonly animIdentifier: string;

@@ -17,6 +17,7 @@ import { DestinyPostGameCarnageReportEntry } from './DestinyPostGameCarnageRepor
 import { DestinyPostGameCarnageReportTeamEntry } from './DestinyPostGameCarnageReportTeamEntry';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyPostGameCarnageReportData} */
+
 export interface DestinyPostGameCarnageReportData {
   /** Date and time for the activity. */
   readonly period: string;

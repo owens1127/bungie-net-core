@@ -16,6 +16,7 @@
  * Defines a particular entry in an ItemSet (AKA a particular Quest Step in a Quest)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSetBlockEntryDefinition}
  */
+
 export interface DestinyItemSetBlockEntryDefinition {
   /**
    * Used for tracking which step a user reached. These values will be populated in

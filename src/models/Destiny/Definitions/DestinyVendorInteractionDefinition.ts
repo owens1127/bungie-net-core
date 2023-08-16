@@ -14,7 +14,7 @@
 
 import { DestinyVendorInteractionReplyDefinition } from './DestinyVendorInteractionReplyDefinition';
 import { DestinyVendorInteractionSackEntryDefinition } from './DestinyVendorInteractionSackEntryDefinition';
-import { VendorInteractionType } from '../VendorInteractionType';
+import { VendorInteractionType } from '../../../enums/Destiny/VendorInteractionType';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 
 /**
@@ -23,6 +23,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * to it by choosing an option or reward.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyVendorInteractionDefinition}
  */
+
 export interface DestinyVendorInteractionDefinition {
   /**
    * The position of this interaction in its parent array. Note that this is NOT

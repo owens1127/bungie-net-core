@@ -12,28 +12,31 @@
  */
 //
 
+import { UserSearchPrefixRequest } from '../../models/User/UserSearchPrefixRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { UserSearchPrefixRequest } from '../../models';
-import { UserSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost} */
-export type SearchByGlobalNamePostParams = {
-  /** The zero-based page of results you desire. */
-  page: number;
-};
+import { UserSearchResponse } from '../../models/User/UserSearchResponse';
 
 /**
  * Given the prefix of a global display name, returns all users who share that name.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePost}
  */
 export async function searchByGlobalNamePost(
-  params: SearchByGlobalNamePostParams,
+  params: {
+    /** The zero-based page of results you desire. */
+    page: number;
+  },
   body: UserSearchPrefixRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  return client.fetch<UserSearchResponse>({
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`
+  );
+
+  return client.fetch({
     method: 'POST',
-    url: `https://www.bungie.net/Platform/User/Search/GlobalName/${params.page}/`,
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

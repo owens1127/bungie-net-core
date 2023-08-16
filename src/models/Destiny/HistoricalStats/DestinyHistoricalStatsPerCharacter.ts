@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsByPeriod } from './DestinyHistoricalStatsByPeriod';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsPerCharacter} */
+
 export interface DestinyHistoricalStatsPerCharacter {
   readonly characterId: string;
   readonly deleted: boolean;

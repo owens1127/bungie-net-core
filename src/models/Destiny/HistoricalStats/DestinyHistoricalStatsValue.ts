@@ -15,6 +15,7 @@
 import { DestinyHistoricalStatsValuePair } from './DestinyHistoricalStatsValuePair';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyHistoricalStatsValue} */
+
 export interface DestinyHistoricalStatsValue {
   /** Unique ID for this stat */
   readonly statId: string;

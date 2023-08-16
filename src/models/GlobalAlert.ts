@@ -12,11 +12,12 @@
  */
 //
 
-import { GlobalAlertLevel } from './GlobalAlertLevel';
-import { GlobalAlertType } from './GlobalAlertType';
+import { GlobalAlertLevel } from '../enums/GlobalAlertLevel';
+import { GlobalAlertType } from '../enums/GlobalAlertType';
 import { StreamInfo } from './StreamInfo';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlert} */
+
 export interface GlobalAlert {
   readonly AlertKey: string;
   readonly AlertHtml: string;

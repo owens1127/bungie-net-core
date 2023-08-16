@@ -16,6 +16,7 @@ import { DestinyPublicMilestone } from '../Destiny/Milestones/DestinyPublicMiles
 import { DestinyMilestoneContent } from '../Destiny/Milestones/DestinyMilestoneContent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntryDestinyRitual} */
+
 export interface TrendingEntryDestinyRitual {
   readonly image: string;
   readonly icon: string;

@@ -12,42 +12,39 @@
  */
 //
 
+import { ForumTopicsCategoryFiltersEnum } from '../../enums/Forum/ForumTopicsCategoryFiltersEnum';
+import { ForumTopicsQuickDateEnum } from '../../enums/Forum/ForumTopicsQuickDateEnum';
+import { ForumTopicsSortEnum } from '../../enums/Forum/ForumTopicsSortEnum';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ForumTopicsCategoryFiltersEnum } from '../../models';
-import { ForumTopicsQuickDateEnum } from '../../models';
-import { ForumTopicsSortEnum } from '../../models';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged} */
-export type GetCoreTopicsPagedParams = {
-  /** The category filter. */
-  categoryFilter: ForumTopicsCategoryFiltersEnum;
-  /**
-   * Comma seperated list of locales posts must match to return in the result list.
-   * Default 'en'
-   */
-  locales?: string;
-  /** Zero base page */
-  page: number;
-  /** The date filter. */
-  quickDate: ForumTopicsQuickDateEnum;
-  /** The sort mode. */
-  sort: ForumTopicsSortEnum;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Gets a listing of all topics marked as part of the core group.
  * @see {@link https://bungie-net.github.io/#Forum.GetCoreTopicsPaged}
  */
 export async function getCoreTopicsPaged(
-  params: GetCoreTopicsPagedParams,
+  params: {
+    /** The category filter. */
+    categoryFilter: ForumTopicsCategoryFiltersEnum;
+    /**
+     * Comma seperated list of locales posts must match to return in the result list.
+     * Default 'en'
+     */
+    locales?: string;
+    /** Zero base page */
+    page: number;
+    /** The date filter. */
+    quickDate: ForumTopicsQuickDateEnum;
+    /** The sort mode. */
+    sort: ForumTopicsSortEnum;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/GetCoreTopicsPaged/${params.page}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`,
-    params: {
-      locales: params.locales
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetCoreTopicsPaged/${params.page}/${params.sort}/${params.quickDate}/${params.categoryFilter}/`
+  );
+  params.locales !== undefined &&
+    url.searchParams.set('locales', String(params.locales));
+  return client.fetch({ method: 'GET', url });
 }

@@ -15,23 +15,21 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount} */
-export type GetActivePrivateClanFireteamCountParams = {
-  /** The group id of the clan. */
-  groupId: string;
-};
-
 /**
  * Gets a count of all active non-public fireteams for the specified clan. Maximum
  * value returned is 25.
  * @see {@link https://bungie-net.github.io/#Fireteam.GetActivePrivateClanFireteamCount}
  */
 export async function getActivePrivateClanFireteamCount(
-  params: GetActivePrivateClanFireteamCountParams,
+  params: {
+    /** The group id of the clan. */
+    groupId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<number>> {
-  return client.fetch<number>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

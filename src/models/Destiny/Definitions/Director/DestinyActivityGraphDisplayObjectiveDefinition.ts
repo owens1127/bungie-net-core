@@ -17,6 +17,7 @@
  * well as an identifier.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphDisplayObjectiveDefinition}
  */
+
 export interface DestinyActivityGraphDisplayObjectiveDefinition {
   /**
    * $NOTE $amola 2017-01-19 This field is apparently something that CUI uses to

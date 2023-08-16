@@ -15,21 +15,19 @@
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
 
-/** @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent} */
-export type GetTopicForContentParams = {
-  contentId: string;
-};
-
 /**
  * Gets the post Id for the given content item's comments, if it exists.
  * @see {@link https://bungie-net.github.io/#Forum.GetTopicForContent}
  */
 export async function getTopicForContent(
-  params: GetTopicForContentParams,
+  params: {
+    contentId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<string>> {
-  return client.fetch<string>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

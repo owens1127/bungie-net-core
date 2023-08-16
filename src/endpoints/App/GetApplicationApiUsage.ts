@@ -14,16 +14,7 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ApiUsage } from '../../models';
-/** @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage} */
-export type GetApplicationApiUsageParams = {
-  /** ID of the application to get usage statistics. */
-  applicationId: number;
-  /** End time for query. Goes to now if not specified. */
-  end?: string;
-  /** Start time for query. Goes to 24 hours ago if not specified. */
-  start?: string;
-};
+import { ApiUsage } from '../../models/Applications/ApiUsage';
 
 /**
  * Get API usage by application for time frame specified. You can go as far back as
@@ -33,15 +24,21 @@ export type GetApplicationApiUsageParams = {
  * @see {@link https://bungie-net.github.io/#App.GetApplicationApiUsage}
  */
 export async function getApplicationApiUsage(
-  params: GetApplicationApiUsageParams,
+  params: {
+    /** ID of the application to get usage statistics. */
+    applicationId: number;
+    /** End time for query. Goes to now if not specified. */
+    end?: string;
+    /** Start time for query. Goes to 24 hours ago if not specified. */
+    start?: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<ApiUsage>> {
-  return client.fetch<ApiUsage>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`,
-    params: {
-      end: params.end,
-      start: params.start
-    }
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/App/ApiUsage/${params.applicationId}/`
+  );
+  params.end !== undefined && url.searchParams.set('end', String(params.end));
+  params.start !== undefined &&
+    url.searchParams.set('start', String(params.start));
+  return client.fetch({ method: 'GET', url });
 }

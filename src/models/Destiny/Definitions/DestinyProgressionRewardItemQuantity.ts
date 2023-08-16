@@ -12,9 +12,10 @@
  */
 //
 
-import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior';
+import { DestinyProgressionRewardItemAcquisitionBehavior } from '../../../enums/Destiny/DestinyProgressionRewardItemAcquisitionBehavior';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardItemQuantity} */
+
 export interface DestinyProgressionRewardItemQuantity {
   readonly rewardedAtProgressionLevel: number;
   readonly acquisitionBehavior: DestinyProgressionRewardItemAcquisitionBehavior;

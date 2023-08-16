@@ -17,6 +17,7 @@
  * perspective of a character-agnostic view.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Vendors.DestinyPublicVendorComponent}
  */
+
 export interface DestinyPublicVendorComponent {
   /**
    * The unique identifier for the vendor. Use it to look up their

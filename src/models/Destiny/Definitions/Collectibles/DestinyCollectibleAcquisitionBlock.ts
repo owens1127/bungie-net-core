@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Collectibles.DestinyCollectibleAcquisitionBlock} */
+
 export interface DestinyCollectibleAcquisitionBlock {
   /** Mapped to DestinyMaterialRequirementSetDefinition in the manifest. */
   readonly acquireMaterialRequirementHash?: number;

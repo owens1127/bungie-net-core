@@ -20,6 +20,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * and other interesting tidbits of information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyUnlockDefinition}
  */
+
 export interface DestinyUnlockDefinition {
   /**
    * Sometimes, but not frequently, these unlock flags also have human readable

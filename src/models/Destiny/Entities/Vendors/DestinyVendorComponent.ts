@@ -18,6 +18,7 @@ import { DestinyProgression } from '../../DestinyProgression';
  * This component contains essential/summary information about the vendor.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Vendors.DestinyVendorComponent}
  */
+
 export interface DestinyVendorComponent {
   /** If True, you can purchase from the Vendor. */
   readonly canPurchase: boolean;

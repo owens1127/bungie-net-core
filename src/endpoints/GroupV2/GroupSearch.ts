@@ -12,10 +12,11 @@
  */
 //
 
+import { GroupQuery } from '../../models/GroupsV2/GroupQuery';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { GroupQuery } from '../../models';
-import { GroupSearchResponse } from '../../models';
+import { GroupSearchResponse } from '../../models/GroupsV2/GroupSearchResponse';
+
 /**
  * Search for Groups.
  * @see {@link https://bungie-net.github.io/#GroupV2.GroupSearch}
@@ -24,9 +25,12 @@ export async function groupSearch(
   body: GroupQuery,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<GroupSearchResponse>> {
-  return client.fetch<GroupSearchResponse>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/GroupV2/Search/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

@@ -12,13 +12,14 @@
  */
 //
 
-import { TrendingEntryType } from './TrendingEntryType';
+import { TrendingEntryType } from '../../enums/Trending/TrendingEntryType';
 
 /**
  * The list entry view for trending items. Returns just enough to show the item on
  * the trending page.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Trending.TrendingEntry}
  */
+
 export interface TrendingEntry {
   /** The weighted score of this trending item. */
   readonly weight: number;

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Tokens.PartnerOfferHistoryResponse} */
+
 export interface PartnerOfferHistoryResponse {
   readonly PartnerOfferKey: string;
   readonly MembershipId?: string;

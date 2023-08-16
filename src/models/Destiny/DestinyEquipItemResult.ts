@@ -12,12 +12,13 @@
  */
 //
 
-import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../../enums/Exceptions/PlatformErrorCodes';
 
 /**
  * The results of an Equipping operation performed through the Destiny API.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyEquipItemResult}
  */
+
 export interface DestinyEquipItemResult {
   /**
    * The instance ID of the item in question (all items that can be equipped must,

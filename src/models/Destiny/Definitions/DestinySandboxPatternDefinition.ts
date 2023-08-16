@@ -12,10 +12,11 @@
  */
 //
 
-import { DestinyItemSubType } from '../DestinyItemSubType';
+import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
 import { DestinyArrangementRegionFilterDefinition } from './DestinyArrangementRegionFilterDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinySandboxPatternDefinition} */
+
 export interface DestinySandboxPatternDefinition {
   readonly patternHash: number;
   readonly patternGlobalTagIdHash: number;

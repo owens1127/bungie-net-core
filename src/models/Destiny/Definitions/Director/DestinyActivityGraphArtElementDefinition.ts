@@ -21,6 +21,7 @@ import { DestinyPositionDefinition } from '../Common/DestinyPositionDefinition';
  * if it ever will)
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Director.DestinyActivityGraphArtElementDefinition}
  */
+
 export interface DestinyActivityGraphArtElementDefinition {
   /** The position on the map of the art element. */
   readonly position: DestinyPositionDefinition;

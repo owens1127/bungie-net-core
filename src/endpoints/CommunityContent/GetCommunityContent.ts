@@ -12,31 +12,30 @@
  */
 //
 
+import { ForumTopicsCategoryFiltersEnum } from '../../enums/Forum/ForumTopicsCategoryFiltersEnum';
+import { CommunityContentSortMode } from '../../enums/Forum/CommunityContentSortMode';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { ForumTopicsCategoryFiltersEnum } from '../../models';
-import { CommunityContentSortMode } from '../../models';
-import { PostSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent} */
-export type GetCommunityContentParams = {
-  /** The type of media to get */
-  mediaFilter: ForumTopicsCategoryFiltersEnum;
-  /** Zero based page */
-  page: number;
-  /** The sort mode. */
-  sort: CommunityContentSortMode;
-};
+import { PostSearchResponse } from '../../models/Forum/PostSearchResponse';
 
 /**
  * Returns community content.
  * @see {@link https://bungie-net.github.io/#CommunityContent.GetCommunityContent}
  */
 export async function getCommunityContent(
-  params: GetCommunityContentParams,
+  params: {
+    /** The type of media to get */
+    mediaFilter: ForumTopicsCategoryFiltersEnum;
+    /** Zero based page */
+    page: number;
+    /** The sort mode. */
+    sort: CommunityContentSortMode;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  return client.fetch<PostSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/CommunityContent/Get/${params.sort}/${params.mediaFilter}/${params.page}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/CommunityContent/Get/${params.sort}/${params.mediaFilter}/${params.page}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

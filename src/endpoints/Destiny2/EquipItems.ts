@@ -12,10 +12,11 @@
  */
 //
 
+import { DestinyItemSetActionRequest } from '../../models/Destiny/Requests/Actions/DestinyItemSetActionRequest';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { DestinyItemSetActionRequest } from '../../models';
-import { DestinyEquipItemResults } from '../../models';
+import { DestinyEquipItemResults } from '../../models/Destiny/DestinyEquipItemResults';
+
 /**
  * Equip a list of items by itemInstanceIds. You must have a valid Destiny Account,
  * and either be in a social space, in orbit, or offline. Any items not found on
@@ -28,9 +29,12 @@ export async function equipItems(
   body: DestinyItemSetActionRequest,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyEquipItemResults>> {
-  return client.fetch<DestinyEquipItemResults>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Actions/Items/EquipItems/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

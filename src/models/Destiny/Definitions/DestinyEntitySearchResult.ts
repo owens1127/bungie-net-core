@@ -19,6 +19,7 @@ import { SearchResultOfDestinyEntitySearchResultItem } from '../../SearchResultO
  * I've been doing some experimenting to see what might be useful.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyEntitySearchResult}
  */
+
 export interface DestinyEntitySearchResult {
   /**
    * A list of suggested words that might make for better search results, based on

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Queries.PagedQuery} */
+
 export interface PagedQuery {
   readonly itemsPerPage: number;
   readonly currentPage: number;

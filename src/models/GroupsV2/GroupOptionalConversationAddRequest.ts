@@ -12,9 +12,10 @@
  */
 //
 
-import { ChatSecuritySetting } from './ChatSecuritySetting';
+import { ChatSecuritySetting } from '../../enums/GroupsV2/ChatSecuritySetting';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupOptionalConversationAddRequest} */
+
 export interface GroupOptionalConversationAddRequest {
   readonly chatName: string;
   readonly chatSecurity: ChatSecuritySetting;

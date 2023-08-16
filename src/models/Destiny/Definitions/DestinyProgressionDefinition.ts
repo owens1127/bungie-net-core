@@ -13,7 +13,7 @@
 //
 
 import { DestinyProgressionDisplayPropertiesDefinition } from './DestinyProgressionDisplayPropertiesDefinition';
-import { DestinyProgressionScope } from '../DestinyProgressionScope';
+import { DestinyProgressionScope } from '../../../enums/Destiny/DestinyProgressionScope';
 import { DestinyProgressionStepDefinition } from './DestinyProgressionStepDefinition';
 import { DestinyColor } from '../Misc/DestinyColor';
 import { DestinyProgressionRewardItemQuantity } from './DestinyProgressionRewardItemQuantity';
@@ -45,6 +45,7 @@ import { DestinyProgressionRewardItemQuantity } from './DestinyProgressionReward
  * about those.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionDefinition}
  */
+
 export interface DestinyProgressionDefinition {
   readonly displayProperties: DestinyProgressionDisplayPropertiesDefinition;
   /**

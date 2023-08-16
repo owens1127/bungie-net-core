@@ -33,6 +33,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * description.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyStatOverrideDefinition}
  */
+
 export interface DestinyStatOverrideDefinition {
   /**
    * The hash identifier of the stat whose display properties are being overridden.

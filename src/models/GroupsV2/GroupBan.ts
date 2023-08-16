@@ -16,6 +16,7 @@ import { UserInfoCard } from '../User/UserInfoCard';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupBan} */
+
 export interface GroupBan {
   readonly groupId: string;
   readonly lastModifiedBy: UserInfoCard;

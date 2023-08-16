@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationNodeRecordChildEntry} */
+
 export interface DestinyPresentationNodeRecordChildEntry {
   /** Mapped to DestinyRecordDefinition in the manifest. */
   readonly recordHash: number;

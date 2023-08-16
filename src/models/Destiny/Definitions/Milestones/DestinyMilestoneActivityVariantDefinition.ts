@@ -20,6 +20,7 @@
  * progression steps, tier-specific rewards, and custom values.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Milestones.DestinyMilestoneActivityVariantDefinition}
  */
+
 export interface DestinyMilestoneActivityVariantDefinition {
   /**
    * The hash to use for looking up the variant Activity's definition (

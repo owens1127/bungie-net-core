@@ -14,17 +14,6 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { PartnerOfferSkuHistoryResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory} */
-export type GetPartnerOfferSkuHistoryParams = {
-  /** The partner application identifier. */
-  partnerApplicationId: number;
-  /**
-   * The bungie.net user to apply missing offers to. If not self, elevated
-   * permissions are required.
-   */
-  targetBnetMembershipId: string;
-};
 
 /**
  * Returns the partner sku and offer history of the targeted user. Elevated
@@ -32,11 +21,20 @@ export type GetPartnerOfferSkuHistoryParams = {
  * @see {@link https://bungie-net.github.io/#Tokens.GetPartnerOfferSkuHistory}
  */
 export async function getPartnerOfferSkuHistory(
-  params: GetPartnerOfferSkuHistoryParams,
+  params: {
+    /** The partner application identifier. */
+    partnerApplicationId: number;
+    /**
+     * The bungie.net user to apply missing offers to. If not self, elevated
+     * permissions are required.
+     */
+    targetBnetMembershipId: string;
+  },
   client: BungieClientProtocol
-): Promise<BungieNetResponse<PartnerOfferSkuHistoryResponse[]>> {
-  return client.fetch<PartnerOfferSkuHistoryResponse[]>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Tokens/Partner/History/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
-  });
+): Promise<BungieNetResponse<unknown>> {
+  const url = new URL(
+    `https://www.bungie.net/Platform/Tokens/Partner/History/${params.partnerApplicationId}/${params.targetBnetMembershipId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

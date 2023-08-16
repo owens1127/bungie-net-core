@@ -13,13 +13,14 @@
 //
 
 import { UserInfoCard } from '../../../User/UserInfoCard';
-import { DestinyGameVersions } from '../../DestinyGameVersions';
+import { DestinyGameVersions } from '../../../../enums/Destiny/DestinyGameVersions';
 
 /**
  * The most essential summary information about a Profile (in Destiny 1, we called
  * these "Accounts").
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Profiles.DestinyProfileComponent}
  */
+
 export interface DestinyProfileComponent {
   /**
    * If you need to render the Profile (their platform name, icon, etc...) somewhere,

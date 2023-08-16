@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates';
+import { DestinyPartyMemberStates } from '../../../../enums/Destiny/DestinyPartyMemberStates';
 
 /**
  * This is some bare minimum information about a party member in a Fireteam.
@@ -27,6 +27,7 @@ import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates';
  * character. Pretty please with sugar on top.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Profiles.DestinyProfileTransitoryPartyMember}
  */
+
 export interface DestinyProfileTransitoryPartyMember {
   /** The Membership ID that matches the party member. */
   readonly membershipId: string;

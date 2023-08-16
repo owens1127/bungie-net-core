@@ -16,6 +16,7 @@ import { GroupMember } from './GroupsV2/GroupMember';
 import { PagedQuery } from './Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/SearchResultOfGroupMember} */
+
 export interface SearchResultOfGroupMember {
   readonly results: GroupMember[];
   readonly totalResults: number;

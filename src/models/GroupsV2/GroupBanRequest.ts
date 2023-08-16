@@ -12,9 +12,10 @@
  */
 //
 
-import { IgnoreLength } from '../Ignores/IgnoreLength';
+import { IgnoreLength } from '../../enums/Ignores/IgnoreLength';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupBanRequest} */
+
 export interface GroupBanRequest {
   readonly comment: string;
   readonly length: IgnoreLength;

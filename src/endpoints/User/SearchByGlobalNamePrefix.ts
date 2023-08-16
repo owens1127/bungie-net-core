@@ -14,25 +14,24 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { UserSearchResponse } from '../../models';
-/** @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix} */
-export type SearchByGlobalNamePrefixParams = {
-  /** The display name prefix you're looking for. */
-  displayNamePrefix: string;
-  /** The zero-based page of results you desire. */
-  page: number;
-};
+import { UserSearchResponse } from '../../models/User/UserSearchResponse';
 
 /**
  * [OBSOLETE] Do not use this to search users, use SearchByGlobalNamePost instead.
  * @see {@link https://bungie-net.github.io/#User.SearchByGlobalNamePrefix}
  */
 export async function searchByGlobalNamePrefix(
-  params: SearchByGlobalNamePrefixParams,
+  params: {
+    /** The display name prefix you're looking for. */
+    displayNamePrefix: string;
+    /** The zero-based page of results you desire. */
+    page: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  return client.fetch<UserSearchResponse>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

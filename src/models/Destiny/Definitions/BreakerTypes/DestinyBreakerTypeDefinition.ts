@@ -13,9 +13,10 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyBreakerType } from '../../DestinyBreakerType';
+import { DestinyBreakerType } from '../../../../enums/Destiny/DestinyBreakerType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.BreakerTypes.DestinyBreakerTypeDefinition} */
+
 export interface DestinyBreakerTypeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

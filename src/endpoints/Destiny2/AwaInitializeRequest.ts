@@ -12,10 +12,11 @@
  */
 //
 
+import { AwaPermissionRequested } from '../../models/Destiny/Advanced/AwaPermissionRequested';
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { AwaPermissionRequested } from '../../models';
-import { AwaInitializeResponse } from '../../models';
+import { AwaInitializeResponse } from '../../models/Destiny/Advanced/AwaInitializeResponse';
+
 /**
  * Initialize a request to perform an advanced write action.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaInitializeRequest}
@@ -24,9 +25,12 @@ export async function awaInitializeRequest(
   body: AwaPermissionRequested,
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<AwaInitializeResponse>> {
-  return client.fetch<AwaInitializeResponse>({
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({
     method: 'POST',
-    url: 'https://www.bungie.net/Platform/Destiny2/Awa/Initialize/',
-    body
+    url,
+    body,
+    headers: { 'Content-Type': 'application/json' }
   });
 }

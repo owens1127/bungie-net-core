@@ -21,6 +21,7 @@ import { ForumRecruitmentDetail } from './ForumRecruitmentDetail';
 import { PagedQuery } from '../Queries/PagedQuery';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PostSearchResponse} */
+
 export interface PostSearchResponse {
   readonly relatedPosts: PostResponse[];
   readonly authors: GeneralUser[];

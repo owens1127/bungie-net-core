@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Artifacts.DestinyArtifactTierItem} */
+
 export interface DestinyArtifactTierItem {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly itemHash: number;

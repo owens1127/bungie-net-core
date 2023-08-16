@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Config.GearAssetDataBaseDefinition} */
+
 export interface GearAssetDataBaseDefinition {
   readonly version: number;
   readonly path: string;

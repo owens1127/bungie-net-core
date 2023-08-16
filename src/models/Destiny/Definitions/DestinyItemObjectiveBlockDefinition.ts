@@ -23,6 +23,7 @@ import { DestinyObjectiveDisplayProperties } from './DestinyObjectiveDisplayProp
  * data as DestinyQuestStatus data, and other useful information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemObjectiveBlockDefinition}
  */
+
 export interface DestinyItemObjectiveBlockDefinition {
   /**
    * The hashes to Objectives (DestinyObjectiveDefinition) that are part of this

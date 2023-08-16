@@ -14,23 +14,22 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { AwaAuthorizationResult } from '../../models';
-/** @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken} */
-export type AwaGetActionTokenParams = {
-  /** The identifier for the advanced write action request. */
-  correlationId: string;
-};
+import { AwaAuthorizationResult } from '../../models/Destiny/Advanced/AwaAuthorizationResult';
 
 /**
  * Returns the action token if user approves the request.
  * @see {@link https://bungie-net.github.io/#Destiny2.AwaGetActionToken}
  */
 export async function awaGetActionToken(
-  params: AwaGetActionTokenParams,
+  params: {
+    /** The identifier for the advanced write action request. */
+    correlationId: string;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<AwaAuthorizationResult>> {
-  return client.fetch<AwaAuthorizationResult>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Awa/GetActionToken/${params.correlationId}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

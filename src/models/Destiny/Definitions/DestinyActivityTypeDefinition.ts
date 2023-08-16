@@ -33,6 +33,7 @@ import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPrope
  * in many places across our codebase.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityTypeDefinition}
  */
+
 export interface DestinyActivityTypeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

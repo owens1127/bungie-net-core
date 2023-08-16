@@ -7,7 +7,10 @@ import {
 } from 'openapi3-ts';
 import {
   DefinitionObject,
+  DestinyComponentTypeEnumComponent,
+  DestinyDefinitionModel,
   DictionaryComponentPattern,
+  ItemComponentSetPattern,
   ServiceInterfaces,
   SingleComponentPattern
 } from './types.mjs';
@@ -23,6 +26,7 @@ import {
   isRequestBodyObject
 } from './open-api-3-util.mjs';
 import _ from 'underscore';
+import { primitiveToDictionaryKey } from './resolve-parameters.mjs';
 
 export function createTree(
   paths: [string, PathItemObject][],
@@ -31,10 +35,7 @@ export function createTree(
   //   const componentsByTag = new Map<string, string[]>();
   const components = findReachableComponents(paths, doc);
 
-  const componentDefinitions: Map<string, DefinitionObject> = new Map<
-    string,
-    DefinitionObject
-  >();
+  const componentDefinitions: Map<string, DefinitionObject<any>> = new Map();
 
   Array.from(components).forEach(component => {
     componentDefinitions.set(component, getDefinition(component, doc));
@@ -148,31 +149,45 @@ function addDefinitionsFromComponent(
 function getDefinition(
   component: string,
   doc: OpenAPIObject
-): DefinitionObject {
+): DefinitionObject<any> {
   const ref = getRef(doc, component)!;
+  const data: DefinitionObject['data'] = {
+    hasConditionalComponents: hasConditionalComponents(component, doc),
+    manifest: mappedToMobileManifestEntity(component, doc)
+  };
   return {
     tags: [],
     component,
     ref,
-    module: filesFor(component, doc, ref),
-    data: {
-      hasConditionalComponents: hasConditionalComponents(component, doc),
-      manifest: mappedToMobileManifestEntity(component, doc),
-      dependsOnComponent: ref['x-destiny-component-type-dependency']
-    }
+    module: filesFor(component, doc, ref, data),
+    data
   };
 }
 
 function filesFor(
   component: string,
   doc: OpenAPIObject,
-  ref: SchemaObject
-): DefinitionObject['module'] {
+  ref: SchemaObject,
+  data: DefinitionObject<any>['data']
+): DefinitionObject<any>['module'] {
   const split = component.split('/');
   const schemaName: string = _.last(split)!;
   const _parts = schemaName.split('.');
   const pathToDefinition = _parts.join('/');
   const componentName = _.last(_parts)!;
+
+  const root = split.slice(2, split.length - 1).join('/') as
+    | 'responses'
+    | 'schemas';
+  if (root === 'responses') {
+    return {
+      type: 'appliedToInterface',
+      interface: ServiceInterfaces.BungieResponse,
+      parameterName: componentName =>
+        `${ServiceInterfaces.BungieResponse}<${componentName}>`,
+      childRef: { $ref: component.replace('responses', 'schemas') }
+    };
+  }
 
   // handle primitive types
   if (
@@ -181,63 +196,80 @@ function filesFor(
     pathToDefinition === 'int64'
   )
     return {
-      interfaceName: pathToDefinition,
-      componentName,
-      exportTo: null,
-      importFrom: null
+      type: 'primitive'
     };
 
-  const root = split.slice(2, split.length - 1).join('/') as
-    | 'responses'
-    | 'schemas';
-  if (root === 'responses') {
+  if (isEnum(component, doc)) {
     return {
-      interfaceName: `${ServiceInterfaces.BungieResponse}<${componentName}>`,
-      componentName,
-      exportTo: null,
-      importFrom: {
-        interface: ServiceInterfaces.BungieResponse,
-        ref: component.replace('responses', 'schemas')
-      }
+      type: 'normal',
+      name: componentName,
+      fileName: `./enums/${pathToDefinition}`
     };
   }
 
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
+    const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
+    const childRef = (ref.properties!.data as SchemaObject)
+      .additionalProperties as ReferenceObject;
     return {
-      interfaceName: `${ServiceInterfaces.DictionaryComponent}<${componentName}>`,
-      componentName,
-      exportTo: null,
-      importFrom: {
-        interface: ServiceInterfaces.DictionaryComponent,
-        ref: (
-          (ref.properties!.data as SchemaObject)
-            .additionalProperties as ReferenceObject
-        ).$ref
-      }
+      type: 'appliedToInterface',
+      parameterName: (...args) =>
+        `${ServiceInterfaces.DictionaryComponent}<${key}, ${args[0]}, ${args[1]}, ${args[2]}>`,
+      childRef,
+      interface: ServiceInterfaces.DictionaryComponent
     };
   }
 
   const singleComponentMatch = component.match(SingleComponentPattern);
   if (singleComponentMatch) {
+    const childRef = ref.properties!.data as ReferenceObject;
     return {
-      interfaceName: `${ServiceInterfaces.SingleComponent}<${componentName}>`,
-      componentName,
-      exportTo: null,
-      importFrom: {
-        interface: ServiceInterfaces.SingleComponent,
-        ref: ref.properties?.data.$ref
-      }
+      type: 'appliedToInterface',
+      parameterName: (...args) =>
+        `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
+      interface: ServiceInterfaces.SingleComponent,
+      childRef
     };
   }
 
-  const fileName = `./${
-    isEnum(component, doc) ? 'enums' : 'models'
-  }/${pathToDefinition}`;
+  const itemComponentSetMatch = component.match(ItemComponentSetPattern);
+  if (itemComponentSetMatch) {
+    const key = primitiveToDictionaryKey(itemComponentSetMatch[1] as any);
+    return {
+      type: 'appliedToInterface',
+      parameterName: (...args) =>
+        `${ServiceInterfaces.ItemComponentSet}<${key}, ${args[0]}>`,
+      interface: ServiceInterfaces.ItemComponentSet,
+      childRef: null
+    };
+  }
+
+  if (data.hasConditionalComponents) {
+    return {
+      type: 'genericParams',
+      interfaceName: `${componentName}<T extends readonly DestinyComponentType[]>`,
+      parameterName: componentName + `<T>`,
+      importName: componentName,
+      fileName: `./models/${pathToDefinition}`,
+      interfaces: [],
+      additionalReferences: [DestinyComponentTypeEnumComponent]
+    };
+  }
+
+  if (component === DestinyDefinitionModel) {
+    return {
+      type: 'appliedToInterface',
+      parameterName: (...args) =>
+        `${ServiceInterfaces.DestinyDefinition}<${args[0]}>`,
+      interface: ServiceInterfaces.DestinyDefinition,
+      childRef: null
+    };
+  }
+
   return {
-    interfaceName: componentName,
-    componentName,
-    exportTo: fileName,
-    importFrom: fileName
+    type: 'normal',
+    name: componentName,
+    fileName: `./models/${pathToDefinition}`
   };
 }

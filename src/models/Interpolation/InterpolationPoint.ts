@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Interpolation.InterpolationPoint} */
+
 export interface InterpolationPoint {
   readonly value: number;
   readonly weight: number;

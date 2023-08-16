@@ -13,8 +13,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
-import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory';
+import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeCategory } from '../../../enums/Destiny/DestinyActivityModeCategory';
 
 /**
  * This definition represents an "Activity Mode" as it exists in the Historical
@@ -28,6 +28,7 @@ import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory';
  * played, regardless of what specific PVP mode was being played.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityModeDefinition}
  */
+
 export interface DestinyActivityModeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /**

@@ -12,26 +12,25 @@
  */
 //
 
-import { ComponentData } from '../../../interfaces/ComponentTypes';
-import { DestinyComponentType } from '../DestinyComponentType';
+import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
 import { SingleComponentResponse } from '../../../interfaces/SingleComponentResponse';
-import { ConditionalComponent } from '../../../interfaces/ComponentTypes';
 import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
-import { DestinyItemComponentSetOfuint32 } from '../../DestinyItemComponentSetOfuint32';
+import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
 
 /**
  * Returns the detailed information about a Collectible Presentation Node and any
  * Collectibles that are direct descendants.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCollectibleNodeDetailResponse}
  */
+
 export interface DestinyCollectibleNodeDetailResponse<
-  T extends DestinyComponentType[]
-> extends ComponentData {
+  T extends readonly DestinyComponentType[]
+> {
   /** COMPONENT TYPE: Collectibles */
-  readonly collectibles: ConditionalComponent<
+  readonly collectibles: SingleComponentResponse<
+    DestinyCollectiblesComponent,
     T,
-    DestinyComponentType.Collectibles,
-    SingleComponentResponse<DestinyCollectiblesComponent>
+    DestinyComponentType.Collectibles
   >;
   /**
    * Item components, keyed by the item hash of the items pointed at collectibles
@@ -51,5 +50,5 @@ export interface DestinyCollectibleNodeDetailResponse<
    * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
    * types.]
    */
-  readonly collectibleItemComponents: DestinyItemComponentSetOfuint32<T>;
+  readonly collectibleItemComponents: DestinyItemComponentSet<number, T>;
 }

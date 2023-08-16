@@ -21,6 +21,7 @@ import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition
  * and celebrates various seasonal events.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonDefinition}
  */
+
 export interface DestinySeasonDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly backgroundImagePath: string;

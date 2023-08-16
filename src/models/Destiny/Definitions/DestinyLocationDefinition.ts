@@ -23,6 +23,7 @@ import { DestinyLocationReleaseDefinition } from './DestinyLocationReleaseDefini
  * Place being referred to by the Objective.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyLocationDefinition}
  */
+
 export interface DestinyLocationDefinition {
   /**
    * If the location has a Vendor on it, this is the hash identifier for that Vendor.

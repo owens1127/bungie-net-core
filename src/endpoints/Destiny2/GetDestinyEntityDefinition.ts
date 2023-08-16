@@ -14,23 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { AllManifestComponents } from '../../manifest/manifest-types';
-import { DestinyDefinition } from '../../models/Destiny/Definitions/DestinyDefinition';
-/** @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition} */
-export type GetDestinyEntityDefinitionParams<
-  T extends keyof AllManifestComponents
-> = {
-  /**
-   * The type of entity for whom you would like results. These correspond to the
-   * entity's definition contract name. For instance, if you are looking for items,
-   * this property should be 'DestinyInventoryItemDefinition'. PREVIEW: This endpoint
-   * is still in beta, and may experience rough edges. The schema is tentatively in
-   * final form, but there may be bugs that prevent desirable operation.
-   */
-  entityType: T;
-  /** The hash identifier for the specific Entity you want returned. */
-  hashIdentifier: number;
-};
+import { DestinyDefinition } from '../../interfaces/DestinyDefinition';
+import { AllManifestComponents } from '../../manifest/types';
 
 /**
  * Returns the static definition of an entity of the given Type and hash identifier.
@@ -43,13 +28,25 @@ export type GetDestinyEntityDefinitionParams<
  * @see {@link https://bungie-net.github.io/#Destiny2.GetDestinyEntityDefinition}
  */
 export async function getDestinyEntityDefinition<
-  T extends keyof AllManifestComponents
+  T extends AllManifestComponents
 >(
-  params: GetDestinyEntityDefinitionParams<T>,
+  params: {
+    /**
+     * The type of entity for whom you would like results. These correspond to the
+     * entity's definition contract name. For instance, if you are looking for items,
+     * this property should be 'DestinyInventoryItemDefinition'. PREVIEW: This endpoint
+     * is still in beta, and may experience rough edges. The schema is tentatively in
+     * final form, but there may be bugs that prevent desirable operation.
+     */
+    entityType: string;
+    /** The hash identifier for the specific Entity you want returned. */
+    hashIdentifier: number;
+  },
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<DestinyDefinition<T>>> {
-  return client.fetch<DestinyDefinition<T>>({
-    method: 'GET',
-    url: `https://www.bungie.net/Platform/Destiny2/Manifest/${params.entityType}/${params.hashIdentifier}/`
-  });
+  const url = new URL(
+    `https://www.bungie.net/Platform/Destiny2/Manifest/${params.entityType}/${params.hashIdentifier}/`
+  );
+
+  return client.fetch({ method: 'GET', url });
 }

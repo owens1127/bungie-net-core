@@ -19,6 +19,7 @@ import { DestinyMilestoneRewardEntry } from './DestinyMilestoneRewardEntry';
  * regardless of specific quest rewards that can be earned.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Milestones.DestinyMilestoneRewardCategory}
  */
+
 export interface DestinyMilestoneRewardCategory {
   /**
    * Look up the relevant DestinyMilestoneDefinition, and then use rewardCategoryHash

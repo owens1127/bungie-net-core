@@ -12,13 +12,14 @@
  */
 //
 
-import { SocketTypeActionType } from '../../SocketTypeActionType';
+import { SocketTypeActionType } from '../../../../enums/Destiny/SocketTypeActionType';
 
 /**
  * Data related to what happens while a plug is being inserted, mostly for UI
  * purposes.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sockets.DestinyInsertPlugActionDefinition}
  */
+
 export interface DestinyInsertPlugActionDefinition {
   /**
    * How long it takes for the Plugging of the item to be completed once it is

@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordIntervalObjective} */
+
 export interface DestinyRecordIntervalObjective {
   /** Mapped to DestinyObjectiveDefinition in the manifest. */
   readonly intervalObjectiveHash: number;

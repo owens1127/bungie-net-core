@@ -12,7 +12,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../DestinyEnergyType';
+import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
 
 /**
  * Items can have Energy Capacity, and plugs can provide that capacity such as on a
@@ -20,6 +20,7 @@ import { DestinyEnergyType } from '../../DestinyEnergyType';
  * activating plugs for this item.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyEnergyCapacityEntry}
  */
+
 export interface DestinyEnergyCapacityEntry {
   /** How much energy capacity this plug provides. */
   readonly capacityValue: number;

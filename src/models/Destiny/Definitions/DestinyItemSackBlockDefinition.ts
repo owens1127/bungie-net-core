@@ -18,6 +18,7 @@
  * example of items that are considered to be "Sacks".
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSackBlockDefinition}
  */
+
 export interface DestinyItemSackBlockDefinition {
   /**
    * A description of what will happen when you open the sack. As far as I can tell,

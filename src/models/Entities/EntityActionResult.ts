@@ -12,9 +12,10 @@
  */
 //
 
-import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../../enums/Exceptions/PlatformErrorCodes';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Entities.EntityActionResult} */
+
 export interface EntityActionResult {
   readonly entityId: string;
   readonly result: PlatformErrorCodes;

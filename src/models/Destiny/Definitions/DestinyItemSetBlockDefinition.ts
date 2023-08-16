@@ -19,6 +19,7 @@ import { DestinyItemSetBlockEntryDefinition } from './DestinyItemSetBlockEntryDe
  * if it is a quest and its various quest steps.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyItemSetBlockDefinition}
  */
+
 export interface DestinyItemSetBlockDefinition {
   /**
    * A collection of hashes of set items, for items such as Quest Metadata items that

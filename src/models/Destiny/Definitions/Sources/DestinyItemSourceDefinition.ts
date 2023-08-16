@@ -23,6 +23,7 @@ import { DestinyInventoryItemStatDefinition } from '../DestinyInventoryItemStatD
  * and give more granular data about where items spawn for specific level ranges.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Sources.DestinyItemSourceDefinition}
  */
+
 export interface DestinyItemSourceDefinition {
   /**
    * The level at which the item spawns. Essentially the Primary Key for this source

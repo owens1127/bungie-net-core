@@ -12,9 +12,10 @@
  */
 //
 
-import { FireteamPlatform } from './FireteamPlatform';
+import { FireteamPlatform } from '../../enums/Fireteam/FireteamPlatform';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamSummary} */
+
 export interface FireteamSummary {
   readonly fireteamId: string;
   readonly groupId: string;

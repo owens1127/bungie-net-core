@@ -1,5 +1,6 @@
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import { getRef } from './open-api-3-util.mjs';
+import { ServiceInterfaces } from './types.mjs';
 
 export function combineSets<T>(first: Set<T>, second: Set<T>): Set<T> {
   const newSet = new Set<T>();
@@ -10,6 +11,14 @@ export function combineSets<T>(first: Set<T>, second: Set<T>): Set<T> {
     newSet.add(value);
   }
   return newSet;
+}
+
+export function addValue<T, S>(map: Map<T, Set<S>>, key: T, value: S): void {
+  if (map.has(key)) {
+    map.get(key)!.add(value);
+  } else {
+    map.set(key, new Set([value]));
+  }
 }
 
 export function mappedToMobileManifestEntity(
@@ -30,4 +39,11 @@ export function hasConditionalComponents(
     (potentialComponents: SchemaObject) =>
       potentialComponents['x-destiny-component-type-dependency']
   );
+}
+
+export function importInterface(
+  serviceInterface: ServiceInterfaces,
+  importFiles: Map<string, Set<string>>
+) {
+  addValue(importFiles, `./interfaces/${serviceInterface}`, serviceInterface);
 }

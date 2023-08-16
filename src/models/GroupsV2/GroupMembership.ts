@@ -16,6 +16,7 @@ import { GroupMember } from './GroupMember';
 import { GroupV2 } from './GroupV2';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupMembership} */
+
 export interface GroupMembership {
   readonly member: GroupMember;
   readonly group: GroupV2;

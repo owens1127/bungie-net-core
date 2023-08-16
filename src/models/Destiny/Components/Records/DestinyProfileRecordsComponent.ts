@@ -15,6 +15,7 @@
 import { DestinyRecordComponent } from './DestinyRecordComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyProfileRecordsComponent} */
+
 export interface DestinyProfileRecordsComponent {
   /** Your 'active' Triumphs score, maintained for backwards compatibility. */
   readonly score: number;

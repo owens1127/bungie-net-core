@@ -25,6 +25,7 @@ import { DestinyPerkReference } from '../../Perks/DestinyPerkReference';
  * summarized here for your convenience.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemPerksComponent}
  */
+
 export interface DestinyItemPerksComponent {
   /**
    * The list of perks to display in an item tooltip - and whether or not they have

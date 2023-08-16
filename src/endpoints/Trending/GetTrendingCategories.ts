@@ -14,7 +14,8 @@
 
 import { BungieClientProtocol } from '../../client';
 import { BungieNetResponse } from '../../interfaces/BungieNetResponse';
-import { TrendingCategories } from '../../models';
+import { TrendingCategories } from '../../models/Trending/TrendingCategories';
+
 /**
  * Returns trending items for Bungie.net, collapsed into the first page of items
  * per category. For pagination within a category, call GetTrendingCategory.
@@ -23,8 +24,7 @@ import { TrendingCategories } from '../../models';
 export async function getTrendingCategories(
   client: BungieClientProtocol
 ): Promise<BungieNetResponse<TrendingCategories>> {
-  return client.fetch<TrendingCategories>({
-    method: 'GET',
-    url: 'https://www.bungie.net/Platform/Trending/Categories/'
-  });
+  const url = new URL(`https://www.bungie.net/Platform[object Object]`);
+
+  return client.fetch({ method: 'GET', url });
 }

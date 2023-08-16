@@ -19,6 +19,7 @@
  * See DestinyDerivedItemCategoryDefinition for more information.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Items.DestinyDerivedItemDefinition}
  */
+
 export interface DestinyDerivedItemDefinition {
   /**
    * The hash for the DestinyInventoryItemDefinition of this derived item, if there

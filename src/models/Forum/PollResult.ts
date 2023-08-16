@@ -13,6 +13,7 @@
 //
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PollResult} */
+
 export interface PollResult {
   readonly answerText: string;
   readonly answerSlot: number;
