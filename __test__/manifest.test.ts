@@ -1,9 +1,6 @@
 import { getDestinyManifest } from '../src/endpoints/Destiny2';
 import { sharedTestClient } from './global-setup';
-import {
-  DestinyManifestDefinition,
-  getDestinyManifestComponent
-} from '../src/manifest';
+import { DestinyManifestDefinition, getDestinyManifestComponent } from '../src/manifest';
 
 const tables = [
   'DestinyActivityDefinition',
@@ -12,10 +9,7 @@ const tables = [
 ] as const;
 
 let res: {
-  [key in (typeof tables)[number]]: Record<
-    string,
-    DestinyManifestDefinition<key>
-  >;
+  [key in (typeof tables)[number]]: Record<string, DestinyManifestDefinition<key>>;
 } = {
   DestinyActivityDefinition: {},
   DestinyGuardianRankDefinition: {},
@@ -23,21 +17,16 @@ let res: {
 };
 
 beforeAll(async () => {
-  const { Response: destinyManifest } = await getDestinyManifest(
-    sharedTestClient
-  );
+  const { Response: destinyManifest } = await getDestinyManifest(sharedTestClient);
   res = Object.fromEntries(
     await Promise.all(
       tables.map(async table => [
         table,
-        await getDestinyManifestComponent(
-          {
-            destinyManifest,
-            language: 'en',
-            tableName: table
-          },
-          sharedTestClient
-        )
+        await getDestinyManifestComponent(sharedTestClient, {
+          destinyManifest,
+          language: 'en',
+          tableName: table
+        })
       ])
     )
   );
@@ -61,38 +50,20 @@ describe('is a valid response', () => {
 
 describe('the tables are correct', () => {
   test('DestinyActivityDefinition has the right shape', () => {
-    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
-      'activityTypeHash'
-    );
-    expect(res['DestinyActivityDefinition'][27283751]).toHaveProperty(
-      'displayProperties'
-    );
-    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty(
-      'pgcrImage'
-    );
+    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty('activityTypeHash');
+    expect(res['DestinyActivityDefinition'][27283751]).toHaveProperty('displayProperties');
+    expect(res['DestinyActivityDefinition'][119944200]).toHaveProperty('pgcrImage');
   });
 
   test('DestinyGuardianRankDefinition has the right shape', () => {
-    expect(res['DestinyGuardianRankDefinition'][1]).toHaveProperty(
-      'rankNumber'
-    );
-    expect(res['DestinyGuardianRankDefinition'][4]).toHaveProperty(
-      'displayProperties'
-    );
-    expect(res['DestinyGuardianRankDefinition'][8]).toHaveProperty(
-      'foregroundImagePath'
-    );
+    expect(res['DestinyGuardianRankDefinition'][1]).toHaveProperty('rankNumber');
+    expect(res['DestinyGuardianRankDefinition'][4]).toHaveProperty('displayProperties');
+    expect(res['DestinyGuardianRankDefinition'][8]).toHaveProperty('foregroundImagePath');
   });
 
   test('DestinyInventoryItemDefinition has the right shape', () => {
-    expect(res['DestinyInventoryItemDefinition'][3949435]).toHaveProperty(
-      'acquireUnlockHash'
-    );
-    expect(res['DestinyInventoryItemDefinition'][24043435]).toHaveProperty(
-      'displayProperties'
-    );
-    expect(res['DestinyInventoryItemDefinition'][25023897]).toHaveProperty(
-      'classType'
-    );
+    expect(res['DestinyInventoryItemDefinition'][3949435]).toHaveProperty('acquireUnlockHash');
+    expect(res['DestinyInventoryItemDefinition'][24043435]).toHaveProperty('displayProperties');
+    expect(res['DestinyInventoryItemDefinition'][25023897]).toHaveProperty('classType');
   });
 });
