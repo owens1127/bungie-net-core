@@ -1,11 +1,11 @@
-import { constants, TestCase } from './global-setup';
+import { constants, TestCase } from '../global-setup';
 import {
   getActivePrivateClanFireteamCount,
   getAvailableClanFireteams,
   getClanFireteam,
   getMyClanFireteams,
   searchPublicAvailableClanFireteams
-} from '../src/endpoints/Fireteam';
+} from '../../src/endpoints/Fireteam';
 
 export const getActivePrivateClanFireteamCountTests: TestCase<
   typeof getActivePrivateClanFireteamCount

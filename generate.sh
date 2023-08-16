@@ -8,8 +8,9 @@ rm ./src/manifest/types.ts
 # Run the generator to produce typescript library in ./src
 node --experimental-json-modules ./build/index.mjs && echo Generation complete, Library TypeScript generated
 
-# fix one small error
+# fix small errors
 perl -pi -e 's/readonly item: DestinyItemResponse<T>/readonly item: DestinyItemResponse<DestinyComponentType[]>/g' ./src/models/Destiny/Responses/DestinyItemChangeResponse.ts
+perl -pi -e 's/entityType: string/entityType: T/g' ./src/endpoints/Destiny2.ts
 
 # beautify
 prettier --config .prettierrc './{src/**/*,__test__/*}.ts' --write

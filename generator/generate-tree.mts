@@ -281,7 +281,7 @@ function filesFor(
     return {
       type: 'appliedToInterface',
       parameterName: (...args) =>
-        `${ServiceInterfaces.DestinyDefinition}<${args[0]}>`,
+        `${ServiceInterfaces.DestinyDefinition}<AllManifestComponents[${args[0]}]>`,
       interface: ServiceInterfaces.DestinyDefinition,
       child: null
     };

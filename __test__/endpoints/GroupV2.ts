@@ -1,4 +1,4 @@
-import { constants, TestCase } from './global-setup';
+import { constants, TestCase } from '../global-setup';
 import {
   abdicateFoundership,
   addOptionalConversation,
@@ -34,7 +34,7 @@ import {
   kickMember,
   recoverGroupForFounder,
   unbanMember
-} from '../src/endpoints/GroupV2';
+} from '../../src/endpoints/GroupV2';
 
 export const abdicateFoundershipTests: TestCase<typeof abdicateFoundership>[] =
   [];

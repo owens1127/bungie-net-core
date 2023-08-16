@@ -1,9 +1,8 @@
 import * as dotenv from 'dotenv';
-import { getAccessTokenFromRefreshToken } from '../src/auth/tokens';
-import { BungieClientProtocol, BungieFetchConfig } from '../src/client';
+import { BungieClientProtocol, BungieFetchConfig } from '../src';
 import { BungieNetResponse } from '../src/interfaces/BungieNetResponse';
-import { BungieAPIError } from '../src/errors/BungieAPIError';
-import { PlatformErrorCodes } from '../src/models';
+import { PlatformErrorCodes } from '../src/enums/Exceptions/PlatformErrorCodes';
+import { createOAuthURL, refreshAuthorization } from '../src/auth';
 
 export const constants = {
   gjallarhornHash: 1363886209,
@@ -14,27 +13,20 @@ export const constants = {
 
 class BungieTestClient implements BungieClientProtocol {
   access_token: undefined | string;
-  async fetch<T>(config: BungieFetchConfig): Promise<BungieNetResponse<T>> {
+  async fetch<T>(config: BungieFetchConfig): Promise<T> {
     const apiKey = process.env.BUNGIE_API_KEY!;
 
     const headers: Record<string, string> = {
-      'Content-Type': 'application/json',
+      ...config.headers,
       'X-API-KEY': apiKey
     };
-    if (this.access_token)
+    if (this.access_token) {
       headers['Authorization'] = `Bearer ${this.access_token}`;
-
-    const body = config.body ? JSON.stringify(config.body) : null;
-
-    const url = new URL(config.url);
-    if (config.params)
-      Object.entries(config.params)
-        .filter(([_, value]) => !!value)
-        .forEach(([key, value]) => url.searchParams.set(key, value));
+    }
 
     const payload = {
       method: config.method,
-      body,
+      body: config.body,
       headers
     };
 
@@ -43,12 +35,19 @@ class BungieTestClient implements BungieClientProtocol {
     while (attempts < 3) {
       attempts++;
       try {
-        const res = await fetch(url, payload);
-        const data: BungieNetResponse<T> = await res.json();
-        if (data.ErrorCode !== PlatformErrorCodes.Success || !res.ok) {
-          throw new BungieAPIError(data);
+        const res = await fetch(config.url, payload);
+        const data = await res.json();
+        if (data.ErrorCode) {
+          if (data.ErrorCode !== PlatformErrorCodes.Success || !res.ok) {
+            throw new BungieAPIError(data);
+          }
+        } else {
+          if (!res.ok) {
+            err = data;
+            break;
+          }
         }
-        return data;
+        return data as T;
       } catch (e) {
         err = e;
       }
@@ -56,8 +55,26 @@ class BungieTestClient implements BungieClientProtocol {
     throw err;
   }
 
-  setToken(value: string) {
-    this.access_token = value;
+  async reauth() {
+    await refreshAuthorization(
+      process.env.BUNGIE_REFRESH!,
+      {
+        client_id: process.env.BUNGIE_CLIENT_ID!,
+        client_secret: process.env.BUNGIE_CLIENT_SECRET!
+      },
+      this
+    )
+      .then(tokens => {
+        this.access_token = tokens.access_token;
+      })
+      .catch(e => {
+        console.error(e);
+        console.log(
+          '\nAuthorization Link: ' +
+            createOAuthURL(process.env.BUNGIE_CLIENT_ID!).toString()
+        );
+        process.exit(1);
+      });
   }
 }
 
@@ -65,34 +82,34 @@ export const sharedTestClient = new BungieTestClient();
 
 const globalSetup = async () => {
   dotenv.config();
-  const tokens = await getAccessTokenFromRefreshToken(
-    process.env.NEWO_BUNGIE_REFRESH!
-  );
-  sharedTestClient.setToken(tokens.access.value);
+  await sharedTestClient.reauth();
 };
 
-type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U>
-  ? U
-  : never;
-
-export type ResponseType<T extends (...args: any) => any> = UnwrapPromise<
-  ReturnType<T>
->;
-
-type None = null | never[];
-export interface TestCase<
-  Endpoint extends (...args: any[]) => Promise<BungieNetResponse<any>>
-> {
-  name: string;
-  data: Parameters<Endpoint> extends [...infer Data, infer _Client]
-    ? Data extends never[]
-      ? None
-      : Data
-    : None;
-  promise: {
-    success?: (res: UnwrapPromise<ReturnType<Endpoint>>) => void;
-    failure?: (e: BungieAPIError<ReturnType<Endpoint>>) => void;
-  };
-}
-
 export default globalSetup;
+
+export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
+  readonly DetailedErrorTrace: string;
+  readonly ErrorCode: PlatformErrorCodes;
+  readonly ErrorStatus: string;
+  readonly Message: string;
+  readonly MessageData: { [p: string]: string };
+  readonly Response: T;
+  readonly ThrottleSeconds: number;
+
+  constructor(response: BungieNetResponse<T>) {
+    super();
+    this.name = 'BungieAPIError';
+    this.DetailedErrorTrace = response.DetailedErrorTrace;
+    this.ErrorCode = response.ErrorCode;
+    this.ErrorStatus = response.ErrorStatus;
+    this.MessageData = response.MessageData;
+    this.Message = response.Message;
+    this.MessageData = response.MessageData;
+    this.Response = response.Response;
+    this.ThrottleSeconds = response.ThrottleSeconds;
+  }
+
+  get message(): string {
+    return this.Message;
+  }
+}

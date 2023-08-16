@@ -61,7 +61,7 @@ export async function authorize(
 export async function refreshAuthorization(
   token: string,
   credentials: {
-    clientId: string;
+    client_id: string;
     client_secret: string;
   },
   client: BungieClientProtocol
@@ -75,7 +75,7 @@ export async function refreshAuthorization(
     body: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: token,
-      client_id: credentials.clientId,
+      client_id: credentials.client_id,
       client_secret: credentials.client_secret
     })
   };

@@ -39,7 +39,7 @@ export async function generateManifestTypes(
     '\n' +
     '}';
 
-  const languageType = `export type DestinyManifestLanguage = ${languageList
+  const languageType = `export type ManifestLanguage = ${languageList
     .map(l => `'${l}'`)
     .join(' | ')}`;
 

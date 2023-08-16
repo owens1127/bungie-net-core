@@ -1,5 +1,4 @@
 import { constants, TestCase } from './global-setup';
-import { BungieMembershipType, DestinyComponentType } from '../src/models';
 import {
   awaGetActionToken,
   awaInitializeRequest,
@@ -46,8 +45,9 @@ import {
   updateLoadoutIdentifiers
 } from '../src/endpoints/Destiny2';
 import { expect } from '@jest/globals';
-import { PlatformErrorCodes } from '../lib/models';
-import { ManifestDefinition } from '../src/manifest/manifest-types';
+import { DestinyComponentType } from '../src/enums/Destiny/DestinyComponentType';
+import { BungieMembershipType } from '../src/enums/BungieMembershipType';
+import { PlatformErrorCodes } from '../src/enums/Exceptions/PlatformErrorCodes';
 
 export const awaGetActionTokenTests: TestCase<typeof awaGetActionToken>[] = [];
 export const awaInitializeRequestTests: TestCase<
@@ -86,7 +86,7 @@ export const getDestinyEntityDefinitionTests: TestCase<
     name: 'get destiny entity definition',
     data: [
       {
-        entityType: ManifestDefinition.DestinyInventoryItemDefinition,
+        entityType: 'DestinyInventoryItemDefinition',
         hashIdentifier: constants.gjallarhornHash
       }
     ],
@@ -141,9 +141,9 @@ export const getProfileTests: TestCase<typeof getProfile>[] = [
     ],
     promise: {
       success: ({ Response }) => {
-        expect(Response).toHaveProperty('profile');
-        expect(Response.profile).toHaveProperty('data');
-        expect(Response.profile.data).toMatchObject({
+        expect(Response.characterActivities).toHaveProperty('profile');
+        expect(Response).toHaveProperty('data');
+        expect(Response).toMatchObject({
           characterIds: [
             '2305843009468984093',
             '2305843009478184284',

@@ -92,7 +92,7 @@ function generateEndpointDefinition(
     Record<ParameterLocation, ParameterObject[]>
   >;
 
-  const args = new Array<string>();
+  const args = ['client: BungieClientProtocol'];
 
   if (params.length) {
     args.push(`params: ${generateParamsType(params, components, importFiles)}`);
@@ -117,10 +117,17 @@ function generateEndpointDefinition(
       throw new Error("didn't expect this");
     }
   }
-
-  args.push('client: BungieClientProtocol');
   addValue(importFiles, './', 'BungieClientProtocol');
   importInterface(ServiceInterfaces.BungieResponse, importFiles);
+
+  const hasComponentResponse = !!groupedParams.query?.some(
+    param => param.name === 'components'
+  );
+  const getEntity = name === 'GetDestinyEntityDefinition';
+
+  if (getEntity) {
+    addValue(importFiles, './manifest/types', 'AllManifestComponents');
+  }
 
   const paramInitializers = groupedParams.query?.map(param => {
     return `addParam(url, params['${param.name}'], '${param.name}')`;
@@ -139,7 +146,7 @@ function generateEndpointDefinition(
 
   let requestBodyString = '';
   if (methodDef.requestBody && isRequestBodyObject(methodDef.requestBody)) {
-    requestBodyString = 'body';
+    requestBodyString = 'body: JSON.stringify(body)';
   }
 
   const responseType = resolveParamType(
@@ -149,26 +156,15 @@ function generateEndpointDefinition(
     null
   );
 
-  //   generateTestStub(tag, snakeInterface, doc, argumentsList);
-
   const docs = docComment(
     methodDef.description! + (rateDoc ? '\n' + rateDoc : ''),
     [link]
   );
 
-  const hasComponentResponse = !!groupedParams.query?.some(
-    param => param.name === 'components'
-  );
-  const getEntity = name === 'GetDestinyEntityDefinition';
-
-  if (getEntity) {
-    addValue(importFiles, './manifest/types', 'AllManifestComponents');
-  }
-
   const generic = hasComponentResponse
     ? '<T extends readonly DestinyComponentType[]>'
     : getEntity
-    ? '<T extends AllManifestComponents>'
+    ? '<T extends keyof AllManifestComponents>'
     : '';
 
   const fetchArgs = _.compact([
