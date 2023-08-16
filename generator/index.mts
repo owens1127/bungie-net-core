@@ -9,8 +9,8 @@ import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
 import { createTree } from './generate-tree.mjs';
 import { generateComponentFile } from './generate-component.mjs';
 import { generateManifestTypes } from './generate-manifest-types.mjs';
-import path from 'path';
 import { generateEndpointFile } from './generate-endpoints.mjs';
+import { getTags } from './util.mjs';
 
 (async () => {
   const doc = JSON.parse(
@@ -33,9 +33,14 @@ import { generateEndpointFile } from './generate-endpoints.mjs';
     generateComponentFile(file, definitions, doc, componentMap);
   });
 
-  _.forEach(paths, path => {
-    generateEndpointFile(path, doc, componentMap);
-  });
+  const pathsByTag = _.groupBy(
+    paths,
+    ([route, path]) => _.first(Array.from(getTags(path)))!
+  );
+
+  _.forEach(pathsByTag, (paths, tag) =>
+    generateEndpointFile(tag, paths, doc, componentMap)
+  );
 
   await generateManifestTypes(
     Array.from(componentMap.values()).filter(v => v.data.manifest),

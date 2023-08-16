@@ -1,6 +1,7 @@
-import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
+import { OpenAPIObject, PathItemObject, SchemaObject } from 'openapi3-ts';
 import { getRef } from './open-api-3-util.mjs';
 import { ServiceInterfaces } from './types.mjs';
+import _ from 'underscore';
 
 export function combineSets<T>(first: Set<T>, second: Set<T>): Set<T> {
   const newSet = new Set<T>();
@@ -46,4 +47,15 @@ export function importInterface(
   importFiles: Map<string, Set<string>>
 ) {
   addValue(importFiles, `./interfaces/${serviceInterface}`, serviceInterface);
+}
+
+export function getTags(pathItemObject: PathItemObject) {
+  const tags = new Set<string>(
+    _.compact([pathItemObject.get?.tags, pathItemObject.post?.tags]).flat()
+  );
+  if (tags.has('')) {
+    tags.delete('');
+    tags.add('Core');
+  }
+  return tags;
 }

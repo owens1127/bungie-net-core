@@ -1,9 +1,9 @@
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import { DefinitionObject, frequentlyNullProperties } from './types.mjs';
 import path from 'path';
-import { generateHeader } from '../generator-old/generate-common.mjs';
 import {
   docComment,
+  generateHeader,
   generateImports,
   indent,
   seeLink,
@@ -11,7 +11,6 @@ import {
 } from './writing-utils.mjs';
 import _ from 'underscore';
 import { resolveParamType } from './resolve-parameters.mjs';
-import { getRef } from './open-api-3-util.mjs';
 import { importInterface } from './util.mjs';
 
 export function generateComponentFile(

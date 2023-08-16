@@ -26,7 +26,7 @@ import { DestinyPresentationNodesComponent } from '../Components/Presentation/De
 import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent';
 import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
 import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
-import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32';
+import { DestinyBaseItemComponentSet } from '../../../interfaces/DestinyBaseItemComponentSet';
 import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 
 /**
@@ -166,7 +166,7 @@ export interface DestinyCharacterResponse<
    * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
    * types.]
    */
-  readonly uninstancedItemComponents: DestinyBaseItemComponentSetOfuint32<T>;
+  readonly uninstancedItemComponents: DestinyBaseItemComponentSet<T>;
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.

@@ -1,15 +1,20 @@
-import { ReferenceObject, SchemaObject, isReferenceObject } from 'openapi3-ts';
+import {
+  ReferenceObject,
+  SchemaObject,
+  isReferenceObject,
+  isSchemaObject
+} from 'openapi3-ts';
 import { DefinitionObject } from './types.mjs';
 import { addValue, importInterface } from './util.mjs';
 import _ from 'underscore';
 
 export function resolveParamType(
-  schema: SchemaObject,
+  schema: SchemaObject | ReferenceObject,
   componentMap: Map<string, DefinitionObject<any>>,
   importFiles: Map<string, Set<string>>,
   dependency: string[] | null
 ): string {
-  if (schema['x-destiny-component-type-dependency']) {
+  if (isSchemaObject(schema) && schema['x-destiny-component-type-dependency']) {
     dependency = [
       `DestinyComponentType.${schema['x-destiny-component-type-dependency']}`
     ];
@@ -18,7 +23,7 @@ export function resolveParamType(
   let module: DefinitionObject<any>['module'];
   if (isReferenceObject(schema)) {
     const def = componentMap.get(schema.$ref);
-    if (!def) return 'unknown';
+    if (!def) throw Error('Missing reference');
     module = def.module;
   } else if ('x-enum-reference' in schema) {
     module = componentMap.get(schema['x-enum-reference'].$ref)!.module;
@@ -34,13 +39,9 @@ export function resolveParamType(
       return module.name;
     case 'appliedToInterface':
       importInterface(module.interface, importFiles);
-      const resolvedComponentName = module.childRef
-        ? resolveParamType(
-            module.childRef,
-            componentMap,
-            importFiles,
-            dependency
-          )
+
+      const resolvedComponentName = module.child
+        ? resolveParamType(module.child, componentMap, importFiles, dependency)
         : null;
       const args = _.compact([
         resolvedComponentName,

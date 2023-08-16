@@ -19,25 +19,29 @@ import _ from 'underscore';
 import { isRequestBodyObject } from './open-api-3-util.mjs';
 import { resolveParamType } from './resolve-parameters.mjs';
 import { DefinitionObject, ServiceInterfaces } from './types.mjs';
-import { addValue, importInterface } from './util.mjs';
+import { addValue, getTags, importInterface } from './util.mjs';
 
 export function generateEndpointFile(
-  [route, pathDef]: [string, PathItemObject],
+  tag: string,
+  paths: [string, PathItemObject][],
   doc: OpenAPIObject,
   components: Map<string, DefinitionObject<any>>
 ): void {
-  const pathToFile = pathDef.summary!.split('.').join('/');
-
-  const filename = path.join('./endpoints', pathToFile);
-
   const importFiles = new Map<string, Set<string>>();
-  const pathDefinition = generateEndpointDefinition(
-    route,
-    pathDef,
-    doc,
-    components,
-    importFiles
-  );
+  const defs = new Array<string>();
+  _.forEach(paths, ([route, pathDef]) => {
+    const pathDefinition = generateEndpointDefinition(
+      route,
+      pathDef,
+      doc,
+      components,
+      importFiles
+    );
+    defs.push(pathDefinition);
+  });
+
+  const filename = path.join('./endpoints', tag);
+
   const definition = [
     generateHeader(doc),
     _.compact(
@@ -45,7 +49,7 @@ export function generateEndpointFile(
         generateImports(filename, key, Array.from(value))
       )
     ).join('\n'),
-    pathDefinition
+    defs.join('\n\n')
   ].join('\n\n');
 
   writeOutFile(path.join('./src', filename), '.ts', definition);
@@ -70,6 +74,7 @@ function generateEndpointDefinition(
   const name = _.last(pathDef.summary!.split('.'))!;
   const method = pathDef.get ? 'GET' : 'POST';
   const methodDef = pathDef.get || pathDef.post!;
+  const tags = getTags(pathDef);
   const params = (methodDef.parameters || []) as ParameterObject[];
   const link = seeLink('#' + pathDef.summary);
   const rateDoc =

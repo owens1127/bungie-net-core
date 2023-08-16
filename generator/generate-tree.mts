@@ -6,6 +6,7 @@ import {
   SchemaObject
 } from 'openapi3-ts';
 import {
+  BaseItemComponentSetPattern,
   DefinitionObject,
   DestinyComponentTypeEnumComponent,
   DestinyDefinitionModel,
@@ -16,6 +17,7 @@ import {
 } from './types.mjs';
 import {
   combineSets,
+  getTags,
   hasConditionalComponents,
   mappedToMobileManifestEntity
 } from './util.mjs';
@@ -38,7 +40,10 @@ export function createTree(
   const componentDefinitions: Map<string, DefinitionObject<any>> = new Map();
 
   Array.from(components).forEach(component => {
-    componentDefinitions.set(component, getDefinition(component, doc));
+    componentDefinitions.set(
+      component,
+      getDefinition(component, getTags(paths[1]), doc)
+    );
   });
 
   return componentDefinitions;
@@ -148,6 +153,7 @@ function addDefinitionsFromComponent(
 
 function getDefinition(
   component: string,
+  tags: Set<string>,
   doc: OpenAPIObject
 ): DefinitionObject<any> {
   const ref = getRef(doc, component)!;
@@ -156,7 +162,7 @@ function getDefinition(
     manifest: mappedToMobileManifestEntity(component, doc)
   };
   return {
-    tags: [],
+    tags,
     component,
     ref,
     module: filesFor(component, doc, ref, data),
@@ -185,7 +191,7 @@ function filesFor(
       interface: ServiceInterfaces.BungieResponse,
       parameterName: componentName =>
         `${ServiceInterfaces.BungieResponse}<${componentName}>`,
-      childRef: { $ref: component.replace('responses', 'schemas') }
+      child: ref.properties!.Response
     };
   }
 
@@ -210,26 +216,27 @@ function filesFor(
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
     const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
-    const childRef = (ref.properties!.data as SchemaObject)
-      .additionalProperties as ReferenceObject;
+    const child = (ref.properties!.data as SchemaObject)
+      .additionalProperties as SchemaObject | ReferenceObject;
+
     return {
       type: 'appliedToInterface',
       parameterName: (...args) =>
         `${ServiceInterfaces.DictionaryComponent}<${key}, ${args[0]}, ${args[1]}, ${args[2]}>`,
-      childRef,
+      child,
       interface: ServiceInterfaces.DictionaryComponent
     };
   }
 
   const singleComponentMatch = component.match(SingleComponentPattern);
   if (singleComponentMatch) {
-    const childRef = ref.properties!.data as ReferenceObject;
+    const child = ref.properties!.data;
     return {
       type: 'appliedToInterface',
       parameterName: (...args) =>
         `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
       interface: ServiceInterfaces.SingleComponent,
-      childRef
+      child
     };
   }
 
@@ -241,7 +248,20 @@ function filesFor(
       parameterName: (...args) =>
         `${ServiceInterfaces.ItemComponentSet}<${key}, ${args[0]}>`,
       interface: ServiceInterfaces.ItemComponentSet,
-      childRef: null
+      child: null
+    };
+  }
+
+  const baseItemComponentSetMatch = component.match(
+    BaseItemComponentSetPattern
+  );
+  if (baseItemComponentSetMatch) {
+    return {
+      type: 'appliedToInterface',
+      parameterName: (...args) =>
+        `${ServiceInterfaces.BaseItemComponentSet}<${args[0]}>`,
+      interface: ServiceInterfaces.BaseItemComponentSet,
+      child: null
     };
   }
 
@@ -263,7 +283,7 @@ function filesFor(
       parameterName: (...args) =>
         `${ServiceInterfaces.DestinyDefinition}<${args[0]}>`,
       interface: ServiceInterfaces.DestinyDefinition,
-      childRef: null
+      child: null
     };
   }
 

@@ -9,7 +9,7 @@ type DefintionType =
 export interface DefinitionObject<
   T extends DefintionType = 'normal' | 'genericParams'
 > {
-  tags: string[];
+  tags: Set<string>;
   component: string;
   ref: SchemaObject;
   module: T extends 'primitive'
@@ -35,7 +35,7 @@ export interface DefinitionObject<
     : {
         type: 'appliedToInterface';
         parameterName: (...args: string[]) => string;
-        childRef: ReferenceObject | null;
+        child: SchemaObject | ReferenceObject | null;
         interface: ServiceInterfaces;
       };
   data: {

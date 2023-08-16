@@ -34,7 +34,7 @@ import { DestinyLoadoutsComponent } from '../Components/Loadouts/DestinyLoadouts
 import { DestinyCharacterProgressionComponent } from '../Entities/Characters/DestinyCharacterProgressionComponent';
 import { DestinyCharacterRenderComponent } from '../Entities/Characters/DestinyCharacterRenderComponent';
 import { DestinyCharacterActivitiesComponent } from '../Entities/Characters/DestinyCharacterActivitiesComponent';
-import { DestinyBaseItemComponentSetOfuint32 } from '../../DestinyBaseItemComponentSetOfuint32';
+import { DestinyBaseItemComponentSet } from '../../../interfaces/DestinyBaseItemComponentSet';
 import { DestinyCharacterRecordsComponent } from '../Components/Records/DestinyCharacterRecordsComponent';
 import { DestinyCollectiblesComponent } from '../Components/Collectibles/DestinyCollectiblesComponent';
 import { DestinyCraftablesComponent } from '../Components/Craftables/DestinyCraftablesComponent';
@@ -350,7 +350,7 @@ export interface DestinyProfileResponse<
    * promise Actually I shouldn't promise that, I don't know if it's going to be okay
    */
   readonly characterUninstancedItemComponents: {
-    [key: string]: DestinyBaseItemComponentSetOfuint32<T>;
+    [key: string]: DestinyBaseItemComponentSet<T>;
   };
   /** COMPONENT TYPE: PresentationNodes */
   readonly characterPresentationNodes: DictionaryComponentResponse<
