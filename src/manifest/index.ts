@@ -1,5 +1,8 @@
-export { getManifestComponentJSON as getDestinyManifestComponent } from './getManifestComponent';
+export {
+  getManifestComponentJSON as getDestinyManifestComponent,
+  ManifestDefinition as DestinyManifestDefinition
+} from './getManifestComponent';
 export type {
   AllManifestComponents as AllDestinyManifestComponents,
-  DestinyManifestLanguage
+  ManifestLanguage as DestinyManifestLanguage
 } from './types';

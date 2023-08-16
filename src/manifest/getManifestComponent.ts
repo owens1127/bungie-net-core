@@ -1,8 +1,8 @@
 import { BungieClientProtocol } from '..';
 import { DestinyManifest } from '../models/Destiny/Config/DestinyManifest';
-import { AllManifestComponents, DestinyManifestLanguage } from './types';
+import { AllManifestComponents, ManifestLanguage } from './types';
 
-type ManifestDefinition<T extends keyof AllManifestComponents> =
+export type ManifestDefinition<T extends keyof AllManifestComponents> =
   AllManifestComponents[T];
 
 export async function getManifestComponentJSON<
@@ -15,7 +15,7 @@ export async function getManifestComponentJSON<
   }: {
     destinyManifest: DestinyManifest;
     tableName: T;
-    language: DestinyManifestLanguage;
+    language: ManifestLanguage;
   },
   client: BungieClientProtocol
 ): Promise<Record<string, ManifestDefinition<T>>> {

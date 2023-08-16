@@ -1,6 +1,10 @@
 import { ComponentPrivacySetting } from '../enums/Components/ComponentPrivacySetting';
 import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
 
+/**
+ * If we can infer the components used in this type, we can determine when that component
+ * is undefined, otherwise we just let it pass through
+ */
 export type ResponseComponent<
   K extends readonly DestinyComponentType[],
   R extends DestinyComponentType,
@@ -13,4 +17,8 @@ export type ResponseComponent<
         readonly disabled?: true;
       }
     : undefined
-  : never;
+  : {
+      readonly data?: T;
+      readonly privacy: ComponentPrivacySetting;
+      readonly disabled?: true;
+    };

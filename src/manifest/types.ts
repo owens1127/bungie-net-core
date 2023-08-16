@@ -132,7 +132,7 @@ export type AllManifestComponents = {
   DestinyGuardianRankConstantsDefinition: DestinyGuardianRankConstantsDefinition;
 };
 
-export type DestinyManifestLanguage =
+export type ManifestLanguage =
   | 'de'
   | 'en'
   | 'es'
