@@ -1,15 +1,15 @@
 {
   "comments": false,
+  "ignore": ["src/models", "src/interfaces"],
   "presets": [
     "@babel/preset-typescript",
     [
       "@babel/preset-env",
       {
         "targets": {
-          "node": "6.10"
+          "node": "12.0"
         }
       }
     ]
-  ],
-  "plugins": ["@babel/proposal-class-properties", "@babel/proposal-object-rest-spread"]
+  ]
 }

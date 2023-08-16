@@ -1,8 +1,8 @@
 {
+  "include": ["src"],
+
   "compilerOptions": {
-    "incremental": true,
-    "strictNullChecks": true,
-    "strict": true,
+    "outDir": "./lib",
 
     "target": "es6",
     "module": "ES6",
@@ -10,10 +10,10 @@
     "esModuleInterop": true,
 
     "declaration": true,
-    "emitDeclarationOnly": false,
-    "sourceMap": false,
-    "outDir": "./lib"
-  },
-  "include": ["./src"],
-  "exclude": ["node_modules", "**/__tests__/*", "generator", "build"]
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+
+    "strictNullChecks": true,
+    "strict": true
+  }
 }

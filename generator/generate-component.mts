@@ -11,7 +11,42 @@ import {
 } from './writing-utils.mjs';
 import _ from 'underscore';
 import { resolveParamType } from './resolve-parameters.mjs';
-import { importInterface } from './util.mjs';
+import { addValue, importInterface } from './util.mjs';
+
+export function generateSuperIndex(
+  componentsByFile: Record<string, DefinitionObject<'normal' | 'enum'>[]>
+) {
+  const models = new Map<string, Set<string>>();
+  const enums = new Map<string, Set<string>>();
+  _.forEach(componentsByFile, (components, file) => {
+    if (file.includes('/enums/')) {
+      components.forEach(c => addValue(enums, file, c.module.name));
+    } else if (file.includes('/models/')) {
+      components.forEach(c => addValue(models, file, c.module.name));
+    }
+  });
+
+  const modelContents = [
+    'export * from "../interfaces"',
+    ...Array.from(models.entries()).map(([file, impts]) =>
+      generateImports(
+        path.join('models', 'index'),
+        file,
+        Array.from(impts),
+        true
+      )
+    )
+  ].join('\n');
+
+  const enumContents = Array.from(enums.entries())
+    .map(([file, impts]) =>
+      generateImports(path.join('enum', 'index'), file, Array.from(impts), true)
+    )
+    .join('\n');
+
+  writeOutFile(path.join('src', 'models', 'index'), '.ts', modelContents);
+  writeOutFile(path.join('src', 'enums', 'index'), '.ts', enumContents);
+}
 
 export function generateComponentFile(
   file: string,
@@ -54,7 +89,7 @@ function generateComponentCode(
   }
 }
 
-function generateEnum(definition: DefinitionObject<'normal'>): string {
+function generateEnum(definition: DefinitionObject<'enum'>): string {
   const link = seeLink(definition.component);
   const values = definition.ref['x-enum-values']
     .map((value: SchemaObject) => {
@@ -70,11 +105,14 @@ function generateEnum(definition: DefinitionObject<'normal'>): string {
     );
   }
 
-  const docString = docComment(docs.join('\n'), [link]) + '\n';
+  const docString = docComment(docs.join('\n'), [link]);
 
-  return `${docString}export enum ${definition.module.name} {
+  return [
+    docString,
+    `export const enum ${definition.module.name} {
 ${indent(values, 1)}
-}`;
+}`
+  ].join('\n');
 }
 
 function generateInterface(

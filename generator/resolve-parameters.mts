@@ -34,6 +34,10 @@ export function resolveParamType(
   switch (module.type) {
     case 'primitive':
       throw Error('primtive value');
+    case 'enum':
+    case 'normal':
+      addValue(importFiles, module.fileName, module.name);
+      return module.name;
     case 'normal':
       addValue(importFiles, module.fileName, module.name);
       return module.name;

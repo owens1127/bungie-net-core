@@ -4,10 +4,11 @@ type DefintionType =
   | 'primitive'
   | 'normal'
   | 'genericParams'
-  | 'appliedToInterface';
+  | 'appliedToInterface'
+  | 'enum';
 
 export interface DefinitionObject<
-  T extends DefintionType = 'normal' | 'genericParams'
+  T extends DefintionType = 'normal' | 'genericParams' | 'enum'
 > {
   tags: Set<string>;
   component: string;
@@ -19,6 +20,12 @@ export interface DefinitionObject<
     : T extends 'normal'
     ? {
         type: 'normal';
+        name: string;
+        fileName: string;
+      }
+    : T extends 'enum'
+    ? {
+        type: 'enum';
         name: string;
         fileName: string;
       }

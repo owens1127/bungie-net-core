@@ -1,11 +1,11 @@
-import { BungieClientProtocol } from '../client';
+import { BungieClientProtocol } from '..';
 import { DestinyManifest } from '../models/Destiny/Config/DestinyManifest';
 import { AllManifestComponents, DestinyManifestLanguage } from './types';
 
 type ManifestDefinition<T extends keyof AllManifestComponents> =
   AllManifestComponents[T];
 
-export async function getDestinyManifestComponentJSON<
+export async function getManifestComponentJSON<
   T extends keyof AllManifestComponents
 >(
   {

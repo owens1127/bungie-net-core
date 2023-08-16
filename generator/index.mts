@@ -7,7 +7,10 @@ import fs from 'fs';
 import _ from 'underscore';
 import { OpenAPIObject, PathItemObject } from 'openapi3-ts';
 import { createTree } from './generate-tree.mjs';
-import { generateComponentFile } from './generate-component.mjs';
+import {
+  generateComponentFile,
+  generateSuperIndex
+} from './generate-component.mjs';
 import { generateManifestTypes } from './generate-manifest-types.mjs';
 import { generateEndpointFile } from './generate-endpoints.mjs';
 import { getTags } from './util.mjs';
@@ -23,11 +26,15 @@ import { getTags } from './util.mjs';
   const componentMap = createTree(paths, doc);
 
   const definitionsByFile = _.groupBy(Array.from(componentMap.values()), def =>
-    def.module.type === 'normal' || def.module.type === 'genericParams'
+    def.module.type === 'normal' ||
+    def.module.type === 'genericParams' ||
+    def.module.type === 'enum'
       ? def.module.fileName
       : ''
   );
   delete definitionsByFile[''];
+
+  generateSuperIndex(definitionsByFile);
 
   _.forEach(definitionsByFile, (definitions, file) => {
     generateComponentFile(file, definitions, doc, componentMap);

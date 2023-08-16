@@ -1,11 +1,4 @@
-import { BungieClientProtocol } from './client';
-
-export type CreateAuthURLOptions = {
-  client_id: string;
-  state?: string;
-  redirect_uri?: string;
-  reauth?: boolean;
-};
+import { BungieClientProtocol } from '.';
 
 /**
  * Creates an authentication URL for users to click
@@ -16,19 +9,19 @@ export type CreateAuthURLOptions = {
  * @param client_id Provided by the portal
  * @see {@link https://github.com/Bungie-net/api/wiki/OAuth-Documentation}
  */
-export function createOAuthURL({
-  state,
-  redirect_uri: redirectUri,
-  reauth,
-  client_id
-}: CreateAuthURLOptions): URL {
+export function createOAuthURL(
+  client_id: string,
+  redirect_uri?: string,
+  state?: string,
+  reauth?: boolean
+): URL {
   const url = new URL('https://www.bungie.net/en/OAuth/Authorize');
   url.searchParams.set('client_id', client_id);
   url.searchParams.set('response_type', 'code');
   if (state !== undefined) url.searchParams.set('state', state);
   if (reauth !== undefined) url.searchParams.set('reauth', reauth.toString());
-  if (redirectUri !== undefined)
-    url.searchParams.set('redirect_uri', redirectUri);
+  if (redirect_uri !== undefined)
+    url.searchParams.set('redirect_uri', redirect_uri);
 
   return url;
 }

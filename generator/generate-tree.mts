@@ -207,7 +207,7 @@ function filesFor(
 
   if (isEnum(component, doc)) {
     return {
-      type: 'normal',
+      type: 'enum',
       name: componentName,
       fileName: `./enums/${pathToDefinition}`
     };

@@ -4,20 +4,43 @@
   "author": "Owen Simpson",
   "homepage": "https://github.com/owensimpson/bungie-net-core",
   "description": "An easy way to interact with the Bungie.net API",
+  "bugs": "https://github.com/owensimpson/bungie-net-core/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owensimpson/bungie-net-core"
+  },
   "keywords": [
     "Destiny 2",
     "Bungie",
     "TypeScript",
     "REST API"
   ],
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "openapi": "2.18.0",
   "types": "lib/index.d.ts",
-  "bugs": "https://github.com/owensimpson/bungie-net-core/issues",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/owensimpson/bungie-net-core"
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts"
+    },
+    "./*": {
+      "types": "./lib/endpoints/*.d.ts",
+      "default": "./lib/endpoints/*.js"
+    },
+    "./models": {
+      "types": "./lib/models/index.d.ts"
+    },
+    "./enums": {
+      "types": "./lib/enums/index.d.ts",
+      "default": "./lib/enums/index.js"
+    },
+    "./manifest": {
+      "types": "./lib/manifest/index.d.ts",
+      "default": "./lib/manifest/index.js"
+    },
+    "./auth": {
+      "types": "./lib/auth.d.ts",
+      "default": "./lib/auth.js"
+    }
   },
   "scripts": {
     "create": "git submodule add https://github.com/Bungie-net/api api-src && git submodule init",
@@ -42,17 +65,13 @@
   "devDependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.4",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.20.2",
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-typescript": "^7.21.4",
-    "@babel/runtime": "^7.21.0",
     "@jest/globals": "^29.4.3",
     "@types/jest": "^29.4.0",
     "@types/mkdirp": "1.0.0",
     "@types/node": "^16.11.9",
     "@types/underscore": "^1.11.3",
-    "bungie-net-core": "^1.0.3",
     "dotenv": "^16.0.3",
     "jest": "^29.4.3",
     "mkdirp": "1.0.3",
@@ -61,7 +80,7 @@
     "ts-jest": "^29.1.0",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^5.1.0-dev.20230422",
+    "typescript": "^5.1.0",
     "underscore": "1.13.6"
   },
   "jest": {

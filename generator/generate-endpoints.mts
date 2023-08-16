@@ -119,41 +119,23 @@ function generateEndpointDefinition(
   }
 
   args.push('client: BungieClientProtocol');
-  addValue(importFiles, './client', 'BungieClientProtocol');
+  addValue(importFiles, './', 'BungieClientProtocol');
   importInterface(ServiceInterfaces.BungieResponse, importFiles);
 
-  let searchParamsString = '';
-  if (groupedParams.query?.length) {
-    const paramInitializers = groupedParams.query.map(param => {
-      const paramType = resolveParamType(
-        param.schema!,
-        components,
-        importFiles,
-        null
-      );
+  const paramInitializers = groupedParams.query?.map(param => {
+    return `addParam(url, params['${param.name}'], '${param.name}')`;
+  });
+  const searchParamsString = paramInitializers?.join('\n') ?? '';
+  if (searchParamsString) addValue(importFiles, './util', 'addParam');
 
-      const p = param.name;
-      const optional = param.required ? '' : `params.${p} !== undefined && `;
-      if (paramType.endsWith('[]')) {
-        return (
-          optional + `url.searchParams.set("${p}", params.${p}.join(","));`
-        );
-      }
-
-      return optional + `url.searchParams.set("${p}", String(params.${p}));`;
-    });
-
-    searchParamsString = paramInitializers.join('\n');
-  }
-
-  const urlString = [
+  const urlString = _.compact([
     'const url = new URL(`' +
       (route.includes('{')
         ? `${server}${route.replace(/{/g, '${params.')}`
         : `${server}${route}`) +
       '`)',
     searchParamsString
-  ].join('\n');
+  ]).join('\n');
 
   let requestBodyString = '';
   if (methodDef.requestBody && isRequestBodyObject(methodDef.requestBody)) {

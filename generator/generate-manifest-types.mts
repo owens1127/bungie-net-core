@@ -1,4 +1,3 @@
-import { DestinyManifest } from 'bungie-net-core/lib/models';
 import { OpenAPIObject } from 'openapi3-ts';
 import { DefinitionObject } from './types.mjs';
 import _ from 'underscore';
@@ -55,13 +54,13 @@ export async function generateManifestTypes(
     ].join('\n\n')
   );
 
-  async function getManifest(retry: number = 0): Promise<DestinyManifest> {
+  async function getManifest(retry: number = 0): Promise<any> {
     try {
       // @ts-ignore
-      let manifestMeta: { Response: Object } = await fetch(
+      const data = await fetch(
         'https://www.bungie.net/Platform/Destiny2/Manifest/'
       ).then(res => res.json());
-      if (!manifestMeta?.Response) {
+      if (!data?.Response) {
         if (retry > 3) {
           console.error(new Error('Failed to download Manifest'));
           process.exit(1);
@@ -69,7 +68,7 @@ export async function generateManifestTypes(
         // try again
         return await getManifest(++attempt);
       }
-      return manifestMeta.Response as DestinyManifest;
+      return data.Response;
     } catch (e) {
       console.error(e);
       process.exit(1);
