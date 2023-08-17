@@ -1,6 +1,6 @@
 {
   "comments": false,
-  "ignore": ["src/models", "src/interfaces"],
+  "ignore": ["src/models", "src/interfaces", "src/manifest/types"],
   "sourceMaps": false,
   "presets": [
     "@babel/preset-typescript",
