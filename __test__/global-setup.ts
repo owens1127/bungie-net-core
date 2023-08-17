@@ -91,7 +91,7 @@ export default globalSetup;
 
 export class BungieAPIError<T> extends Error implements BungieNetResponse<T> {
   readonly DetailedErrorTrace: string;
-  readonly ErrorCode: PlatformErrorCodes;
+  readonly ErrorCode: (typeof PlatformErrorCodes)[keyof typeof PlatformErrorCodes];
   readonly ErrorStatus: string;
   readonly Message: string;
   readonly MessageData: { [p: string]: string };

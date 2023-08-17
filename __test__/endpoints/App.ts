@@ -1,15 +1,10 @@
 import { constants } from '../global-setup';
 import { expect } from '@jest/globals';
-import {
-  getApplicationApiUsage,
-  getBungieApplications
-} from '../../src/endpoints/App';
+import { getApplicationApiUsage, getBungieApplications } from '../../src/endpoints/App';
 import { PlatformErrorCodes } from '../../src/enums/Exceptions/PlatformErrorCodes';
 import { EndpointTestSuite } from '../endpoints.test';
 
-export const getApplicationApiUsageTests: EndpointTestSuite<
-  typeof getApplicationApiUsage
-> = {
+export const getApplicationApiUsageTests: EndpointTestSuite<typeof getApplicationApiUsage> = {
   endpoint: getApplicationApiUsage,
   cases: [
     {
@@ -29,9 +24,7 @@ export const getApplicationApiUsageTests: EndpointTestSuite<
   ]
 };
 
-export const getBungieApplicationsTests: EndpointTestSuite<
-  typeof getBungieApplications
-> = {
+export const getBungieApplicationsTests: EndpointTestSuite<typeof getBungieApplications> = {
   endpoint: getBungieApplications,
   cases: []
 };
