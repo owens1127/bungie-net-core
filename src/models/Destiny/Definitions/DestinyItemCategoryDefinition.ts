@@ -11,10 +11,10 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyBreakerType } from '../../../enums/Destiny/DestinyBreakerType';
-import { DestinyItemType } from '../../../enums/Destiny/DestinyItemType';
-import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
-import { DestinyClass } from '../../../enums/Destiny/DestinyClass';
+import { DestinyBreakerType } from '../DestinyBreakerType';
+import { DestinyItemType } from '../DestinyItemType';
+import { DestinyItemSubType } from '../DestinyItemSubType';
+import { DestinyClass } from '../DestinyClass';
 
 /**
  * In an attempt to categorize items by type, usage, and other interesting

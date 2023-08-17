@@ -14,7 +14,7 @@ import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { TrendingCategories } from '../models/Trending/TrendingCategories';
 import { SearchResultOfTrendingEntry } from '../models/SearchResultOfTrendingEntry';
-import { TrendingEntryType } from '../enums/Trending/TrendingEntryType';
+import { TrendingEntryType } from '../models/Trending/TrendingEntryType';
 import { TrendingDetail } from '../models/Trending/TrendingDetail';
 
 /**

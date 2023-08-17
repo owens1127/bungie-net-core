@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyObjectiveGrantStyle } from '../../../enums/Destiny/DestinyObjectiveGrantStyle';
+import { DestinyObjectiveGrantStyle } from '../DestinyObjectiveGrantStyle';
 
 /**
  * Defines the conditions under which an intrinsic perk is applied while

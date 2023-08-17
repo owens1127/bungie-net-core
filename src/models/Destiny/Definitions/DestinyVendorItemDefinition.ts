@@ -11,11 +11,11 @@
 //
 
 import { DestinyVendorItemQuantity } from './DestinyVendorItemQuantity';
-import { DestinyVendorItemRefundPolicy } from '../../../enums/Destiny/DestinyVendorItemRefundPolicy';
+import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy';
 import { DestinyItemCreationEntryLevelDefinition } from './DestinyItemCreationEntryLevelDefinition';
 import { DestinyVendorSaleItemActionBlockDefinition } from './DestinyVendorSaleItemActionBlockDefinition';
-import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
+import { DestinyGatingScope } from '../DestinyGatingScope';
+import { BungieMembershipType } from '../../BungieMembershipType';
 import { DestinyVendorItemSocketOverride } from './DestinyVendorItemSocketOverride';
 
 /**

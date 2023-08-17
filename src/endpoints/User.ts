@@ -13,10 +13,10 @@
 import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { GeneralUser } from '../models/User/GeneralUser';
-import { BungieCredentialType } from '../enums/BungieCredentialType';
+import { BungieCredentialType } from '../models/BungieCredentialType';
 import { GetCredentialTypesForAccountResponse } from '../models/User/Models/GetCredentialTypesForAccountResponse';
 import { UserTheme } from '../models/Config/UserTheme';
-import { BungieMembershipType } from '../enums/BungieMembershipType';
+import { BungieMembershipType } from '../models/BungieMembershipType';
 import { UserMembershipData } from '../models/User/UserMembershipData';
 import { HardLinkedUserMembership } from '../models/User/HardLinkedUserMembership';
 import { UserSearchResponse } from '../models/User/UserSearchResponse';

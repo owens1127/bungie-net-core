@@ -10,8 +10,8 @@
  */
 //
 
-import { EquippingItemBlockAttributes } from '../../../enums/Destiny/EquippingItemBlockAttributes';
-import { DestinyAmmunitionType } from '../../../enums/Destiny/DestinyAmmunitionType';
+import { EquippingItemBlockAttributes } from '../EquippingItemBlockAttributes';
+import { DestinyAmmunitionType } from '../DestinyAmmunitionType';
 
 /**
  * Items that can be equipped define this block. It contains information we need to

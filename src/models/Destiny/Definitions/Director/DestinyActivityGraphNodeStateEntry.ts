@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyGraphNodeState } from '../../../../enums/Destiny/DestinyGraphNodeState';
+import { DestinyGraphNodeState } from '../../DestinyGraphNodeState';
 
 /**
  * Represents a single state that a graph node might end up in. Depending on what's

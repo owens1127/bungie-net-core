@@ -11,7 +11,7 @@
 //
 
 import { DestinyActivity } from '../../DestinyActivity';
-import { DestinyActivityModeType } from '../../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/DestinyActivityModeType';
 
 /**
  * This component holds activity data for a character. It will tell you about the

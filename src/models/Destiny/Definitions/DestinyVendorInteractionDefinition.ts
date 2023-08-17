@@ -12,7 +12,7 @@
 
 import { DestinyVendorInteractionReplyDefinition } from './DestinyVendorInteractionReplyDefinition';
 import { DestinyVendorInteractionSackEntryDefinition } from './DestinyVendorInteractionSackEntryDefinition';
-import { VendorInteractionType } from '../../../enums/Destiny/VendorInteractionType';
+import { VendorInteractionType } from '../VendorInteractionType';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 
 /**

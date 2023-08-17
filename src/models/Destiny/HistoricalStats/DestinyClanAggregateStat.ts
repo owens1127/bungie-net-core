@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
 import { DestinyHistoricalStatsValue } from './DestinyHistoricalStatsValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.HistoricalStats.DestinyClanAggregateStat} */

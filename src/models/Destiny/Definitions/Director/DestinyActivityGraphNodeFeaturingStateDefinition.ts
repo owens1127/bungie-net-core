@@ -10,7 +10,7 @@
  */
 //
 
-import { ActivityGraphNodeHighlightType } from '../../../../enums/Destiny/ActivityGraphNodeHighlightType';
+import { ActivityGraphNodeHighlightType } from '../../ActivityGraphNodeHighlightType';
 
 /**
  * Nodes can have different visual states. This object represents a single visual

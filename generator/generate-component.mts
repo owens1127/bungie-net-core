@@ -10,11 +10,13 @@ export function generateSuperIndex(componentsByFile: Record<string, DefinitionOb
   const models = new Map<string, Set<string>>();
   const enums = new Map<string, Set<string>>();
   _.forEach(componentsByFile, (components, file) => {
-    if (file.includes('/enums/')) {
-      components.forEach(c => addValue(enums, file, c.module.name));
-    } else if (file.includes('/models/')) {
-      components.forEach(c => addValue(models, file, c.module.name));
-    }
+    components.forEach(c => {
+      if ((c as DefinitionObject<'enum'>).module.enumFile) {
+        addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.name);
+      } else {
+        addValue(models, file, c.module.name);
+      }
+    });
   });
 
   const modelContents = [
@@ -45,8 +47,9 @@ export function generateComponentFile(
   );
 
   const imports = _.compact(
-    Array.from(importFiles).map(([importFrom, componentNames]) =>
-      generateImports(file, importFrom, Array.from(componentNames))
+    Array.from(importFiles).map(
+      ([importFrom, componentNames]) =>
+        componentNames.size && generateImports(file, importFrom, Array.from(componentNames))
     )
   );
 
@@ -70,12 +73,13 @@ function generateComponentCode(
 
 function generateEnum(definition: DefinitionObject<'enum'>): string {
   const link = seeLink(definition.component);
-  const values = definition.ref['x-enum-values']
-    .map((value: SchemaObject) => {
-      const doc = value.description ? docComment(value.description) + '\n' : '';
-      return `${doc}${value.identifier} = ${value.numericValue}`;
-    })
-    .join(',\n');
+  const values = (definition.ref['x-enum-values'] as SchemaObject[]).map(value => {
+    const doc = value.description ? docComment(value.description) + '\n' : '';
+    return [
+      doc + `${value.identifier}: ${value.numericValue}`,
+      doc + `${value.identifier} = ${value.numericValue}`
+    ] as const;
+  });
 
   const docs = definition.ref.description ? [definition.ref.description] : [];
   if (definition.ref['x-enum-is-bitmask']) {
@@ -84,12 +88,17 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
 
   const docString = docComment(docs.join('\n'), [link]);
 
-  return [
-    docString,
-    `export enum ${definition.module.name} {
-${indent(values, 1)}
-}`
-  ].join('\n');
+  writeOutFile(
+    path.join('src/', definition.module.enumFile),
+    '.ts',
+    [docString, `export const ${definition.module.name} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`].join(
+      '\n'
+    )
+  );
+
+  return [docString, `export declare enum ${definition.module.name} {\n${values.map(t => t[1]).join(',\n')}\n}`].join(
+    '\n'
+  );
 }
 
 function generateInterface(

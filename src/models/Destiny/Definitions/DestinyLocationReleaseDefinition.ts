@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyActivityNavPointType } from '../../../enums/Destiny/DestinyActivityNavPointType';
+import { DestinyActivityNavPointType } from '../DestinyActivityNavPointType';
 
 /**
  * A specific "spot" referred to by a location. Only one of these can be active at

@@ -1,15 +1,8 @@
 import { ReferenceObject, SchemaObject } from 'openapi3-ts';
 
-type DefintionType =
-  | 'primitive'
-  | 'normal'
-  | 'genericParams'
-  | 'appliedToInterface'
-  | 'enum';
+type DefintionType = 'primitive' | 'normal' | 'genericParams' | 'appliedToInterface' | 'enum';
 
-export interface DefinitionObject<
-  T extends DefintionType = 'normal' | 'genericParams' | 'enum'
-> {
+export interface DefinitionObject<T extends DefintionType = 'normal' | 'genericParams' | 'enum'> {
   tags: Set<string>;
   component: string;
   ref: SchemaObject;
@@ -28,6 +21,7 @@ export interface DefinitionObject<
         type: 'enum';
         name: string;
         fileName: string;
+        enumFile: string;
       }
     : T extends 'genericParams'
     ? {
@@ -51,8 +45,7 @@ export interface DefinitionObject<
   };
 }
 
-export const DictionaryComponentPattern =
-  /DictionaryComponentResponseOf(\w+)And(\w+)$/;
+export const DictionaryComponentPattern = /DictionaryComponentResponseOf(\w+)And(\w+)$/;
 export const SingleComponentPattern = /SingleComponentResponseOf(\w+)/;
 export const ItemComponentSetPattern = /DestinyItemComponentSetOf(\w+)/;
 export const BaseItemComponentSetPattern = /DestinyBaseItemComponentSetOf(\w+)/;
@@ -69,8 +62,6 @@ export enum ServiceInterfaces {
 
 export const frequentlyNullProperties = ['itemCategoryHashes'];
 
-export const DestinyComponentTypeEnumComponent =
-  '#/components/schemas/Destiny.DestinyComponentType';
+export const DestinyComponentTypeEnumComponent = '#/components/schemas/Destiny.DestinyComponentType';
 
-export const DestinyDefinitionModel =
-  '#/components/schemas/Destiny.Definitions.DestinyDefinition';
+export const DestinyDefinitionModel = '#/components/schemas/Destiny.Definitions.DestinyDefinition';

@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
+import { DestinyComponentType } from '../DestinyComponentType';
 import { SingleComponentResponse } from '../../../interfaces/SingleComponentResponse';
 import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorComponent';
 import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent';

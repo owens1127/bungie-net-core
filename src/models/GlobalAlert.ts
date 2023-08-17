@@ -10,8 +10,8 @@
  */
 //
 
-import { GlobalAlertLevel } from '../enums/GlobalAlertLevel';
-import { GlobalAlertType } from '../enums/GlobalAlertType';
+import { GlobalAlertLevel } from './GlobalAlertLevel';
+import { GlobalAlertType } from './GlobalAlertType';
 import { StreamInfo } from './StreamInfo';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GlobalAlert} */

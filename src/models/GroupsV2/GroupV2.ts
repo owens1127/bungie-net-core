@@ -10,11 +10,11 @@
  */
 //
 
-import { GroupType } from '../../enums/GroupsV2/GroupType';
-import { ChatSecuritySetting } from '../../enums/GroupsV2/ChatSecuritySetting';
-import { GroupHomepage } from '../../enums/GroupsV2/GroupHomepage';
-import { MembershipOption } from '../../enums/GroupsV2/MembershipOption';
-import { GroupPostPublicity } from '../../enums/GroupsV2/GroupPostPublicity';
+import { GroupType } from './GroupType';
+import { ChatSecuritySetting } from './ChatSecuritySetting';
+import { GroupHomepage } from './GroupHomepage';
+import { MembershipOption } from './MembershipOption';
+import { GroupPostPublicity } from './GroupPostPublicity';
 import { GroupFeatures } from './GroupFeatures';
 import { GroupV2ClanInfoAndInvestment } from './GroupV2ClanInfoAndInvestment';
 

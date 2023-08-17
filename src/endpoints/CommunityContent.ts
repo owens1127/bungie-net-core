@@ -10,8 +10,8 @@
  */
 //
 
-import { ForumTopicsCategoryFiltersEnum } from '../enums/Forum/ForumTopicsCategoryFiltersEnum';
-import { CommunityContentSortMode } from '../enums/Forum/CommunityContentSortMode';
+import { ForumTopicsCategoryFiltersEnum } from '../models/Forum/ForumTopicsCategoryFiltersEnum';
+import { CommunityContentSortMode } from '../models/Forum/CommunityContentSortMode';
 import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { PostSearchResponse } from '../models/Forum/PostSearchResponse';

@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
+import { DestinyGatingScope } from '../DestinyGatingScope';
 
 /**
  * Where the sausage gets made. Unlock Expressions are the foundation of the game's

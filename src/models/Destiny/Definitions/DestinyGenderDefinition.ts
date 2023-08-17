@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
+import { DestinyGender } from '../DestinyGender';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 
 /**

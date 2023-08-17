@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyProgressionRewardItemAcquisitionBehavior } from '../../../enums/Destiny/DestinyProgressionRewardItemAcquisitionBehavior';
+import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardItemQuantity} */
 

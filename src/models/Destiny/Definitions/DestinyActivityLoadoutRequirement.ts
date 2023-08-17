@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyItemSubType } from '../../../enums/Destiny/DestinyItemSubType';
+import { DestinyItemSubType } from '../DestinyItemSubType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyActivityLoadoutRequirement} */
 

@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyItemSortType } from '../../../enums/Destiny/DestinyItemSortType';
+import { DestinyItemSortType } from '../DestinyItemSortType';
 
 /**
  * Information about a single inventory bucket in a vendor flyout UI and how it is

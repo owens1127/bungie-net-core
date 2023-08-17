@@ -10,9 +10,9 @@
  */
 //
 
-import { VendorItemStatus } from '../../../../enums/Destiny/VendorItemStatus';
+import { VendorItemStatus } from '../../VendorItemStatus';
 import { DestinyUnlockStatus } from '../../DestinyUnlockStatus';
-import { DestinyVendorItemState } from '../../../../enums/Destiny/DestinyVendorItemState';
+import { DestinyVendorItemState } from '../../DestinyVendorItemState';
 import { DestinyItemQuantity } from '../../DestinyItemQuantity';
 
 /**

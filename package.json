@@ -17,13 +17,10 @@
     "REST API"
   ],
   "openapi": "2.18.0",
+  "types": "lib/index.d.ts",
   "exports": {
     ".": {
       "types": "./lib/index.d.ts"
-    },
-    "./services/*": {
-      "types": "./lib/endpoints/*.d.ts",
-      "default": "./lib/endpoints/*.js"
     },
     "./models": {
       "types": "./lib/models/index.d.ts"
@@ -39,6 +36,54 @@
     "./auth": {
       "types": "./lib/auth.d.ts",
       "default": "./lib/auth.js"
+    },
+    "./services/App": {
+      "types": "./lib/endpoints/App.d.ts",
+      "default": "./lib/endpoints/App.js"
+    },
+    "./services/CommunityContent": {
+      "types": "./lib/endpoints/CommunityContent.d.ts",
+      "default": "./lib/endpoints/CommunityContent.js"
+    },
+    "./services/Content": {
+      "types": "./lib/endpoints/Content.d.ts",
+      "default": "./lib/endpoints/Content.js"
+    },
+    "./services/Core": {
+      "types": "./lib/endpoints/Core.d.ts",
+      "default": "./lib/endpoints/Core.js"
+    },
+    "./services/Destiny2": {
+      "types": "./lib/endpoints/Destiny2.d.ts",
+      "default": "./lib/endpoints/Destiny2.js"
+    },
+    "./services/Fireteam": {
+      "types": "./lib/endpoints/Fireteam.d.ts",
+      "default": "./lib/endpoints/Fireteam.js"
+    },
+    "./services/Forum": {
+      "types": "./lib/endpoints/Forum.d.ts",
+      "default": "./lib/endpoints/Forum.js"
+    },
+    "./services/GroupV2": {
+      "types": "./lib/endpoints/GroupV2.d.ts",
+      "default": "./lib/endpoints/GroupV2.js"
+    },
+    "./services/Social": {
+      "types": "./lib/endpoints/Social.d.ts",
+      "default": "./lib/endpoints/Social.js"
+    },
+    "./services/Tokens": {
+      "types": "./lib/endpoints/Tokens.d.ts",
+      "default": "./lib/endpoints/Tokens.js"
+    },
+    "./services/Trending": {
+      "types": "./lib/endpoints/Trending.d.ts",
+      "default": "./lib/endpoints/Trending.js"
+    },
+    "./services/User": {
+      "types": "./lib/endpoints/User.d.ts",
+      "default": "./lib/endpoints/User.js"
     }
   },
   "scripts": {

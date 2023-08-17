@@ -10,10 +10,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
-import { DestinyRace } from '../../../../enums/Destiny/DestinyRace';
-import { DestinyClass } from '../../../../enums/Destiny/DestinyClass';
-import { DestinyGender } from '../../../../enums/Destiny/DestinyGender';
+import { BungieMembershipType } from '../../../BungieMembershipType';
+import { DestinyRace } from '../../DestinyRace';
+import { DestinyClass } from '../../DestinyClass';
+import { DestinyGender } from '../../DestinyGender';
 import { DestinyColor } from '../../Misc/DestinyColor';
 import { DestinyProgression } from '../../DestinyProgression';
 

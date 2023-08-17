@@ -12,10 +12,10 @@
 
 import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
-import { FireteamDateRange } from '../enums/Fireteam/FireteamDateRange';
-import { FireteamPlatform } from '../enums/Fireteam/FireteamPlatform';
-import { FireteamPublicSearchOption } from '../enums/Fireteam/FireteamPublicSearchOption';
-import { FireteamSlotSearch } from '../enums/Fireteam/FireteamSlotSearch';
+import { FireteamDateRange } from '../models/Fireteam/FireteamDateRange';
+import { FireteamPlatform } from '../models/Fireteam/FireteamPlatform';
+import { FireteamPublicSearchOption } from '../models/Fireteam/FireteamPublicSearchOption';
+import { FireteamSlotSearch } from '../models/Fireteam/FireteamSlotSearch';
 import { addParam } from '../util';
 import { SearchResultOfFireteamSummary } from '../models/SearchResultOfFireteamSummary';
 import { SearchResultOfFireteamResponse } from '../models/SearchResultOfFireteamResponse';

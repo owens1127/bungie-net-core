@@ -11,7 +11,7 @@
 //
 
 import { DestinyItemSourceDefinition } from './Sources/DestinyItemSourceDefinition';
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 import { DestinyItemVendorSourceReference } from './DestinyItemVendorSourceReference';
 
 /**

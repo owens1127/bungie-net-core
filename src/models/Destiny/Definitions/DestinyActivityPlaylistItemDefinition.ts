@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
 
 /**
  * If the activity is a playlist, this is the definition for a specific entry in

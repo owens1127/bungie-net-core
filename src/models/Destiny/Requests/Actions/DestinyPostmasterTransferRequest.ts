@@ -10,7 +10,7 @@
  */
 //
 
-import { BungieMembershipType } from '../../../../enums/BungieMembershipType';
+import { BungieMembershipType } from '../../../BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Requests.Actions.DestinyPostmasterTransferRequest} */
 

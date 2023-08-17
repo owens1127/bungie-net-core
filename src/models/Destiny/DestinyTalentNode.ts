@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyTalentNodeState } from '../../enums/Destiny/DestinyTalentNodeState';
+import { DestinyTalentNodeState } from './DestinyTalentNodeState';
 import { DestinyMaterialRequirement } from './Definitions/DestinyMaterialRequirement';
 import { DestinyTalentNodeStatBlock } from './DestinyTalentNodeStatBlock';
 

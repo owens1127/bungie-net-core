@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyRewardSourceCategory } from '../../../enums/Destiny/Definitions/DestinyRewardSourceCategory';
+import { DestinyRewardSourceCategory } from './DestinyRewardSourceCategory';
 
 /**
  * Represents a heuristically-determined "item source" according to Bungie.net.

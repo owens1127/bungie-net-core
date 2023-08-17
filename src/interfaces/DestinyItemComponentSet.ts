@@ -1,4 +1,4 @@
-import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
+import { DestinyComponentType } from '../models/Destiny/DestinyComponentType';
 import { DictionaryComponentResponse } from './DictionaryComponentResponse';
 import { DestinyItemInstanceComponent } from '../models/Destiny/Entities/Items/DestinyItemInstanceComponent';
 import { DestinyItemRenderComponent } from '../models/Destiny/Entities/Items/DestinyItemRenderComponent';

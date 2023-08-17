@@ -10,7 +10,7 @@
  */
 //
 
-import { GroupApplicationResolveState } from '../../enums/GroupsV2/GroupApplicationResolveState';
+import { GroupApplicationResolveState } from './GroupApplicationResolveState';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupApplicationResponse} */
 

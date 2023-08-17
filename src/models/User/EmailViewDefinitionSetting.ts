@@ -11,7 +11,7 @@
 //
 
 import { EMailSettingLocalization } from './EMailSettingLocalization';
-import { OptInFlags } from '../../enums/User/OptInFlags';
+import { OptInFlags } from './OptInFlags';
 import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.EmailViewDefinitionSetting} */

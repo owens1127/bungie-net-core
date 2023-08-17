@@ -20,7 +20,7 @@ import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphL
 import { DestinyActivityMatchmakingBlockDefinition } from './DestinyActivityMatchmakingBlockDefinition';
 import { DestinyActivityGuidedBlockDefinition } from './DestinyActivityGuidedBlockDefinition';
 import { DestinyActivityLoadoutRequirementSet } from './DestinyActivityLoadoutRequirementSet';
-import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
 import { DestinyActivityInsertionPointDefinition } from './DestinyActivityInsertionPointDefinition';
 import { DestinyEnvironmentLocationMapping } from '../Constants/DestinyEnvironmentLocationMapping';
 

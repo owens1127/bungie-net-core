@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyProgressionStepDisplayEffect } from '../../../enums/Destiny/DestinyProgressionStepDisplayEffect';
+import { DestinyProgressionStepDisplayEffect } from '../DestinyProgressionStepDisplayEffect';
 import { DestinyItemQuantity } from '../DestinyItemQuantity';
 
 /**

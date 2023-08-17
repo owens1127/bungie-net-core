@@ -10,8 +10,8 @@
  */
 //
 
-import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
-import { DestinyPresentationDisplayStyle } from '../../../../enums/Destiny/DestinyPresentationDisplayStyle';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
+import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Presentation.DestinyPresentationChildBlock} */
 

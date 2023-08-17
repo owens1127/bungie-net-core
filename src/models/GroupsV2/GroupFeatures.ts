@@ -10,10 +10,10 @@
  */
 //
 
-import { Capabilities } from '../../enums/GroupsV2/Capabilities';
-import { BungieMembershipType } from '../../enums/BungieMembershipType';
-import { HostGuidedGamesPermissionLevel } from '../../enums/GroupsV2/HostGuidedGamesPermissionLevel';
-import { RuntimeGroupMemberType } from '../../enums/GroupsV2/RuntimeGroupMemberType';
+import { Capabilities } from './Capabilities';
+import { BungieMembershipType } from '../BungieMembershipType';
+import { HostGuidedGamesPermissionLevel } from './HostGuidedGamesPermissionLevel';
+import { RuntimeGroupMemberType } from './RuntimeGroupMemberType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupFeatures} */
 

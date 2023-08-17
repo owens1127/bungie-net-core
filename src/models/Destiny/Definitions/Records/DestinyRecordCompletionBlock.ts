@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyRecordToastStyle } from '../../../../enums/Destiny/DestinyRecordToastStyle';
+import { DestinyRecordToastStyle } from '../../DestinyRecordToastStyle';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordCompletionBlock} */
 

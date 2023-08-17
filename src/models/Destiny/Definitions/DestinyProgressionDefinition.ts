@@ -11,7 +11,7 @@
 //
 
 import { DestinyProgressionDisplayPropertiesDefinition } from './DestinyProgressionDisplayPropertiesDefinition';
-import { DestinyProgressionScope } from '../../../enums/Destiny/DestinyProgressionScope';
+import { DestinyProgressionScope } from '../DestinyProgressionScope';
 import { DestinyProgressionStepDefinition } from './DestinyProgressionStepDefinition';
 import { DestinyColor } from '../Misc/DestinyColor';
 import { DestinyProgressionRewardItemQuantity } from './DestinyProgressionRewardItemQuantity';

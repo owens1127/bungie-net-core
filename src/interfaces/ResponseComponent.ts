@@ -1,5 +1,5 @@
-import { ComponentPrivacySetting } from '../enums/Components/ComponentPrivacySetting';
-import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
+import { ComponentPrivacySetting } from '../models/Components/ComponentPrivacySetting';
+import { DestinyComponentType } from '../models/Destiny/DestinyComponentType';
 
 /**
  * If we can infer the components used in this type, we can determine when that component

@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyPartyMemberStates } from '../../../../enums/Destiny/DestinyPartyMemberStates';
+import { DestinyPartyMemberStates } from '../../DestinyPartyMemberStates';
 
 /**
  * This is some bare minimum information about a party member in a Fireteam.

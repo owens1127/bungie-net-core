@@ -10,7 +10,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../../../enums/Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../../Exceptions/PlatformErrorCodes';
 import { UserInfoCard } from '../../User/UserInfoCard';
 
 /**

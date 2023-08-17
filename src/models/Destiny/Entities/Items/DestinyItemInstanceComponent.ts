@@ -10,9 +10,9 @@
  */
 //
 
-import { DamageType } from '../../../../enums/Destiny/DamageType';
+import { DamageType } from '../../DamageType';
 import { DestinyStat } from '../../DestinyStat';
-import { EquipFailureReason } from '../../../../enums/Destiny/EquipFailureReason';
+import { EquipFailureReason } from '../../EquipFailureReason';
 import { DestinyItemInstanceEnergy } from './DestinyItemInstanceEnergy';
 
 /**

@@ -53,11 +53,7 @@ export function indent(text: string, indentLevel: number) {
   return lines.map(line => '  '.repeat(indentLevel) + line).join('\n');
 }
 
-export async function writeOutFile(
-  filename: string,
-  suffix: string,
-  contents: string
-) {
+export async function writeOutFile(filename: string, suffix: string, contents: string) {
   const fullPath = filename + suffix;
   try {
     await mkdirp(path.dirname(fullPath));
@@ -74,16 +70,13 @@ export function generateImports(
   componentNames: string[],
   exprt: boolean = false
 ) {
-  if (fileName === currentFile) return null;
+  const components = _.compact(componentNames);
+  if (fileName === currentFile || !components.length) return null;
   const start = path.join(process.cwd(), './src', currentFile);
   const end = path.join(process.cwd(), './src', fileName);
   const relative = path.relative(start, end);
-  return `${exprt ? 'export' : 'import'} { ${componentNames.join(
-    ', '
-  )} } from '${
-    relative.startsWith('../../')
-      ? relative.substring(3)
-      : relative.substring(1)
+  return `${exprt ? 'export' : 'import'} { ${components.join(', ')} } from '${
+    relative.startsWith('../../') ? relative.substring(3) : relative.substring(1)
   }'`;
 }
 

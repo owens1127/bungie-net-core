@@ -11,7 +11,7 @@
 //
 
 import { DestinyItemQuantity } from '../DestinyItemQuantity';
-import { DestinyVendorItemRefundPolicy } from '../../../enums/Destiny/DestinyVendorItemRefundPolicy';
+import { DestinyVendorItemRefundPolicy } from '../DestinyVendorItemRefundPolicy';
 
 /**
  * If a character purchased an item that is refundable, a Vendor Receipt will be

@@ -10,7 +10,7 @@
  */
 //
 
-import { TierType } from '../../../enums/Destiny/TierType';
+import { TierType } from '../TierType';
 
 /**
  * If the item can exist in an inventory - the overwhelming majority of them can

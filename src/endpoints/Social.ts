@@ -14,7 +14,7 @@ import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { BungieFriendListResponse } from '../models/Social/Friends/BungieFriendListResponse';
 import { BungieFriendRequestListResponse } from '../models/Social/Friends/BungieFriendRequestListResponse';
-import { PlatformFriendType } from '../enums/Social/Friends/PlatformFriendType';
+import { PlatformFriendType } from '../models/Social/Friends/PlatformFriendType';
 import { PlatformFriendResponse } from '../models/Social/Friends/PlatformFriendResponse';
 
 /**

@@ -10,7 +10,7 @@
  */
 //
 
-import { TrendingEntryType } from '../../enums/Trending/TrendingEntryType';
+import { TrendingEntryType } from './TrendingEntryType';
 import { TrendingEntryNews } from './TrendingEntryNews';
 import { TrendingEntrySupportArticle } from './TrendingEntrySupportArticle';
 import { TrendingEntryDestinyItem } from './TrendingEntryDestinyItem';

@@ -10,10 +10,10 @@
  */
 //
 
-import { ItemBindStatus } from '../../../../enums/Destiny/ItemBindStatus';
-import { ItemLocation } from '../../../../enums/Destiny/ItemLocation';
-import { TransferStatuses } from '../../../../enums/Destiny/TransferStatuses';
-import { ItemState } from '../../../../enums/Destiny/ItemState';
+import { ItemBindStatus } from '../../ItemBindStatus';
+import { ItemLocation } from '../../ItemLocation';
+import { TransferStatuses } from '../../TransferStatuses';
+import { ItemState } from '../../ItemState';
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /**

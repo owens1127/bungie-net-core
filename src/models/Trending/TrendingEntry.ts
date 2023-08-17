@@ -10,7 +10,7 @@
  */
 //
 
-import { TrendingEntryType } from '../../enums/Trending/TrendingEntryType';
+import { TrendingEntryType } from './TrendingEntryType';
 
 /**
  * The list entry view for trending items. Returns just enough to show the item on

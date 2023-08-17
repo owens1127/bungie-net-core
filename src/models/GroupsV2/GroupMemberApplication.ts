@@ -10,7 +10,7 @@
  */
 //
 
-import { GroupApplicationResolveState } from '../../enums/GroupsV2/GroupApplicationResolveState';
+import { GroupApplicationResolveState } from './GroupApplicationResolveState';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 

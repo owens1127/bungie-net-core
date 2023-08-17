@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyBreakerType } from '../../../../enums/Destiny/DestinyBreakerType';
+import { DestinyBreakerType } from '../../DestinyBreakerType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.BreakerTypes.DestinyBreakerTypeDefinition} */
 

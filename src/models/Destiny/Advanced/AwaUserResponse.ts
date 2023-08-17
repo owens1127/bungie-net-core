@@ -10,7 +10,7 @@
  */
 //
 
-import { AwaUserSelection } from '../../../enums/Destiny/Advanced/AwaUserSelection';
+import { AwaUserSelection } from './AwaUserSelection';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaUserResponse} */
 

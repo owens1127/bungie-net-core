@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyRecordState } from '../../../../enums/Destiny/DestinyRecordState';
+import { DestinyRecordState } from '../../DestinyRecordState';
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Records.DestinyRecordComponent} */

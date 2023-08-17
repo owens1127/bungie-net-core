@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinySocketArrayType } from '../../../../enums/Destiny/Requests/Actions/DestinySocketArrayType';
+import { DestinySocketArrayType } from './DestinySocketArrayType';
 
 /**
  * Represents all of the data related to a single plug to be inserted.

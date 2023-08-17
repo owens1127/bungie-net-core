@@ -10,9 +10,9 @@
  */
 //
 
-import { DestinyClass } from '../../../enums/Destiny/DestinyClass';
+import { DestinyClass } from '../DestinyClass';
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
+import { DestinyGender } from '../DestinyGender';
 
 /**
  * Defines a Character Class in Destiny 2. These are types of characters you can

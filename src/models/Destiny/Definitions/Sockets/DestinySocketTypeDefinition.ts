@@ -13,7 +13,7 @@
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
 import { DestinyInsertPlugActionDefinition } from './DestinyInsertPlugActionDefinition';
 import { DestinyPlugWhitelistEntryDefinition } from './DestinyPlugWhitelistEntryDefinition';
-import { DestinySocketVisibility } from '../../../../enums/Destiny/DestinySocketVisibility';
+import { DestinySocketVisibility } from '../../DestinySocketVisibility';
 import { DestinySocketTypeScalarMaterialRequirementEntry } from './DestinySocketTypeScalarMaterialRequirementEntry';
 
 /**

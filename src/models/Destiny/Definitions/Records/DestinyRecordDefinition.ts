@@ -11,9 +11,9 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
+import { DestinyScope } from '../../DestinyScope';
 import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock';
-import { DestinyRecordValueStyle } from '../../../../enums/Destiny/DestinyRecordValueStyle';
+import { DestinyRecordValueStyle } from '../../DestinyRecordValueStyle';
 import { DestinyRecordTitleBlock } from './DestinyRecordTitleBlock';
 import { DestinyRecordCompletionBlock } from './DestinyRecordCompletionBlock';
 import { SchemaRecordStateBlock } from './SchemaRecordStateBlock';
@@ -21,7 +21,7 @@ import { DestinyPresentationNodeRequirementsBlock } from '../Presentation/Destin
 import { DestinyRecordExpirationBlock } from './DestinyRecordExpirationBlock';
 import { DestinyRecordIntervalBlock } from './DestinyRecordIntervalBlock';
 import { DestinyItemQuantity } from '../../DestinyItemQuantity';
-import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Records.DestinyRecordDefinition} */
 

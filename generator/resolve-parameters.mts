@@ -1,9 +1,4 @@
-import {
-  ReferenceObject,
-  SchemaObject,
-  isReferenceObject,
-  isSchemaObject
-} from 'openapi3-ts';
+import { ReferenceObject, SchemaObject, isReferenceObject, isSchemaObject } from 'openapi3-ts';
 import { DefinitionObject } from './types.mjs';
 import { addValue, importInterface } from './util.mjs';
 import _ from 'underscore';
@@ -15,9 +10,7 @@ export function resolveParamType(
   dependency: string[] | null
 ): string {
   if (isSchemaObject(schema) && schema['x-destiny-component-type-dependency']) {
-    dependency = [
-      `DestinyComponentType.${schema['x-destiny-component-type-dependency']}`
-    ];
+    dependency = [`DestinyComponentType.${schema['x-destiny-component-type-dependency']}`];
   }
 
   let module: DefinitionObject<any>['module'];
@@ -47,11 +40,7 @@ export function resolveParamType(
       const resolvedComponentName = module.child
         ? resolveParamType(module.child, componentMap, importFiles, dependency)
         : null;
-      const args = _.compact([
-        resolvedComponentName,
-        'T',
-        ...(dependency ?? [])
-      ]);
+      const args = _.compact([resolvedComponentName, 'T', ...(dependency ?? [])]);
       return module.parameterName(...args);
     case 'genericParams':
       addValue(importFiles, module.fileName, module.importName);
@@ -77,38 +66,21 @@ function findParamType(
       // JS can't represent a 64-bit int as a number, so bungie.net returns it as a string in JSON
       return primitiveToDictionaryKey(schema.format as any);
     case 'array':
-      return (
-        resolveParamType(schema.items!, componentMap, importFiles, dependency) +
-        '[]'
-      );
+      return resolveParamType(schema.items!, componentMap, importFiles, dependency) + '[]';
     case 'object':
       if (schema.allOf) {
-        return resolveParamType(
-          schema.allOf[0],
-          componentMap,
-          importFiles,
-          dependency
-        );
+        return resolveParamType(schema.allOf[0], componentMap, importFiles, dependency);
       } else if (
         schema.additionalProperties &&
         schema['x-dictionary-key'] &&
         typeof schema.additionalProperties !== 'boolean'
       ) {
-        const keySchema: SchemaObject | ReferenceObject =
-          schema['x-dictionary-key'];
+        const keySchema: SchemaObject | ReferenceObject = schema['x-dictionary-key'];
         const key = isReferenceObject(keySchema)
           ? 'number'
           : resolveParamType(keySchema, componentMap, importFiles, dependency);
-        const val = resolveParamType(
-          schema.additionalProperties,
-          componentMap,
-          importFiles,
-          dependency
-        );
-        const keyExp =
-          key === 'number' || key === 'string'
-            ? `key: ${key}`
-            : `key in ${key}`;
+        const val = resolveParamType(schema.additionalProperties, componentMap, importFiles, dependency);
+        const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
         return `{ [${keyExp}]: ${val} }`;
       }
   }
@@ -116,8 +88,6 @@ function findParamType(
   return schema.type!;
 }
 
-export function primitiveToDictionaryKey(
-  primitive: 'int32' | 'uint32' | 'int64'
-) {
+export function primitiveToDictionaryKey(primitive: 'int32' | 'uint32' | 'int64') {
   return primitive === 'int64' ? 'string' : 'number';
 }

@@ -10,7 +10,7 @@
  */
 //
 
-import { ChatSecuritySetting } from '../../enums/GroupsV2/ChatSecuritySetting';
+import { ChatSecuritySetting } from './ChatSecuritySetting';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupOptionalConversation} */
 

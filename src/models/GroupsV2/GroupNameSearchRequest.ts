@@ -10,7 +10,7 @@
  */
 //
 
-import { GroupType } from '../../enums/GroupsV2/GroupType';
+import { GroupType } from './GroupType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupNameSearchRequest} */
 

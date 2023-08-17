@@ -10,8 +10,8 @@
  */
 //
 
-import { ForumRecruitmentIntensityLabel } from '../../enums/Forum/ForumRecruitmentIntensityLabel';
-import { ForumRecruitmentToneLabel } from '../../enums/Forum/ForumRecruitmentToneLabel';
+import { ForumRecruitmentIntensityLabel } from './ForumRecruitmentIntensityLabel';
+import { ForumRecruitmentToneLabel } from './ForumRecruitmentToneLabel';
 import { GeneralUser } from '../User/GeneralUser';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.ForumRecruitmentDetail} */

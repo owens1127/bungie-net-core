@@ -10,8 +10,8 @@
  */
 //
 
-import { DestinyGamePrivacySetting } from '../../../../enums/Destiny/DestinyGamePrivacySetting';
-import { DestinyJoinClosedReasons } from '../../../../enums/Destiny/DestinyJoinClosedReasons';
+import { DestinyGamePrivacySetting } from '../../DestinyGamePrivacySetting';
+import { DestinyJoinClosedReasons } from '../../DestinyJoinClosedReasons';
 
 /**
  * Some basic information about whether you can be joined, how many slots are left

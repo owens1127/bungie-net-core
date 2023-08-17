@@ -11,7 +11,7 @@
 //
 
 import { DestinyItemSocketEntryPlugItemDefinition } from './DestinyItemSocketEntryPlugItemDefinition';
-import { SocketPlugSources } from '../../../enums/Destiny/SocketPlugSources';
+import { SocketPlugSources } from '../SocketPlugSources';
 
 /**
  * The definition information for a specific socket on an item. This will determine

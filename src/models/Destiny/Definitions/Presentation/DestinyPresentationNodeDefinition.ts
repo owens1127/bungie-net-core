@@ -11,11 +11,11 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
-import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
+import { DestinyScope } from '../../DestinyScope';
 import { DestinyPresentationNodeChildrenBlock } from './DestinyPresentationNodeChildrenBlock';
-import { DestinyPresentationDisplayStyle } from '../../../../enums/Destiny/DestinyPresentationDisplayStyle';
-import { DestinyPresentationScreenStyle } from '../../../../enums/Destiny/DestinyPresentationScreenStyle';
+import { DestinyPresentationDisplayStyle } from '../../DestinyPresentationDisplayStyle';
+import { DestinyPresentationScreenStyle } from '../../DestinyPresentationScreenStyle';
 import { DestinyPresentationNodeRequirementsBlock } from './DestinyPresentationNodeRequirementsBlock';
 
 /**

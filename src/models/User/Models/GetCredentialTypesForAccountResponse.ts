@@ -10,7 +10,7 @@
  */
 //
 
-import { BungieCredentialType } from '../../../enums/BungieCredentialType';
+import { BungieCredentialType } from '../../BungieCredentialType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/User.Models.GetCredentialTypesForAccountResponse} */
 

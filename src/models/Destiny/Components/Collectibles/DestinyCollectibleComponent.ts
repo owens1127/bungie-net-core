@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyCollectibleState } from '../../../../enums/Destiny/DestinyCollectibleState';
+import { DestinyCollectibleState } from '../../DestinyCollectibleState';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Collectibles.DestinyCollectibleComponent} */
 

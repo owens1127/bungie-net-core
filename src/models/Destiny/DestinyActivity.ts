@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyActivityDifficultyTier } from '../../enums/Destiny/DestinyActivityDifficultyTier';
+import { DestinyActivityDifficultyTier } from './DestinyActivityDifficultyTier';
 import { DestinyChallengeStatus } from './Challenges/DestinyChallengeStatus';
 
 /**

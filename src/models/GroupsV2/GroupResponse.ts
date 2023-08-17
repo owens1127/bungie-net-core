@@ -12,8 +12,8 @@
 
 import { GroupV2 } from './GroupV2';
 import { GroupMember } from './GroupMember';
-import { GroupAllianceStatus } from '../../enums/GroupsV2/GroupAllianceStatus';
-import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { GroupAllianceStatus } from './GroupAllianceStatus';
+import { BungieMembershipType } from '../BungieMembershipType';
 import { GroupPotentialMember } from './GroupPotentialMember';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupResponse} */

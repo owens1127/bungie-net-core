@@ -11,8 +11,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyRace } from '../../../enums/Destiny/DestinyRace';
-import { DestinyGender } from '../../../enums/Destiny/DestinyGender';
+import { DestinyRace } from '../DestinyRace';
+import { DestinyGender } from '../DestinyGender';
 
 /**
  * In Destiny, "Races" are really more like "Species". Sort of. I mean, are the

@@ -11,11 +11,11 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
+import { DestinyScope } from '../../DestinyScope';
 import { DestinyCollectibleAcquisitionBlock } from './DestinyCollectibleAcquisitionBlock';
 import { DestinyCollectibleStateBlock } from './DestinyCollectibleStateBlock';
 import { DestinyPresentationChildBlock } from '../Presentation/DestinyPresentationChildBlock';
-import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
 
 /**
  * Defines a

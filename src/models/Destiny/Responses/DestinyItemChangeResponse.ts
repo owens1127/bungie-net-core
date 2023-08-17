@@ -11,7 +11,7 @@
 //
 
 import { DestinyItemResponse } from './DestinyItemResponse';
-import { DestinyComponentType } from '../../../enums/Destiny/DestinyComponentType';
+import { DestinyComponentType } from '../DestinyComponentType';
 import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemChangeResponse} */

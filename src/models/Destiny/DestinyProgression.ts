@@ -11,7 +11,7 @@
 //
 
 import { DestinyProgressionResetEntry } from './DestinyProgressionResetEntry';
-import { DestinyProgressionRewardItemState } from '../../enums/Destiny/DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardItemState';
 
 /**
  * Information about a current character's status with a Progression. A progression

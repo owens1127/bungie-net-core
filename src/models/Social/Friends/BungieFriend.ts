@@ -10,10 +10,10 @@
  */
 //
 
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
-import { PresenceStatus } from '../../../enums/Social/Friends/PresenceStatus';
-import { PresenceOnlineStateFlags } from '../../../enums/Social/Friends/PresenceOnlineStateFlags';
-import { FriendRelationshipState } from '../../../enums/Social/Friends/FriendRelationshipState';
+import { BungieMembershipType } from '../../BungieMembershipType';
+import { PresenceStatus } from './PresenceStatus';
+import { PresenceOnlineStateFlags } from './PresenceOnlineStateFlags';
+import { FriendRelationshipState } from './FriendRelationshipState';
 import { GeneralUser } from '../../User/GeneralUser';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.BungieFriend} */

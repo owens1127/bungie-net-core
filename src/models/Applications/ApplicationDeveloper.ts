@@ -10,7 +10,7 @@
  */
 //
 
-import { DeveloperRole } from '../../enums/Applications/DeveloperRole';
+import { DeveloperRole } from './DeveloperRole';
 import { UserInfoCard } from '../User/UserInfoCard';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.ApplicationDeveloper} */

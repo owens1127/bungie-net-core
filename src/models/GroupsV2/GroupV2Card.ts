@@ -10,9 +10,9 @@
  */
 //
 
-import { GroupType } from '../../enums/GroupsV2/GroupType';
-import { MembershipOption } from '../../enums/GroupsV2/MembershipOption';
-import { Capabilities } from '../../enums/GroupsV2/Capabilities';
+import { GroupType } from './GroupType';
+import { MembershipOption } from './MembershipOption';
+import { Capabilities } from './Capabilities';
 import { GroupV2ClanInfo } from './GroupV2ClanInfo';
 
 /**

@@ -11,7 +11,7 @@
 //
 
 import { DestinyVendorDisplayPropertiesDefinition } from './DestinyVendorDisplayPropertiesDefinition';
-import { DestinyVendorProgressionType } from '../../../enums/Destiny/DestinyVendorProgressionType';
+import { DestinyVendorProgressionType } from '../DestinyVendorProgressionType';
 import { DateRange } from '../../Dates/DateRange';
 import { DestinyVendorActionDefinition } from './DestinyVendorActionDefinition';
 import { DestinyVendorCategoryEntryDefinition } from './DestinyVendorCategoryEntryDefinition';

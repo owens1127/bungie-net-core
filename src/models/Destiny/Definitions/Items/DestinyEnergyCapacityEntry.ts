@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 
 /**
  * Items can have Energy Capacity, and plugs can provide that capacity such as on a

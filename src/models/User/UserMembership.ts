@@ -10,7 +10,7 @@
  */
 //
 
-import { BungieMembershipType } from '../../enums/BungieMembershipType';
+import { BungieMembershipType } from '../BungieMembershipType';
 
 /**
  * Very basic info about a user as returned by the Account server.

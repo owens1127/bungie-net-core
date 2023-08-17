@@ -1,19 +1,12 @@
 import { OpenAPIObject } from 'openapi3-ts';
 import { DefinitionObject } from './types.mjs';
 import _ from 'underscore';
-import {
-  generateHeader,
-  generateImports,
-  writeOutFile
-} from './writing-utils.mjs';
+import { generateHeader, generateImports, writeOutFile } from './writing-utils.mjs';
 import path from 'path';
 
 const typesFile = './manifest/types';
 
-export async function generateManifestTypes(
-  defs: DefinitionObject<'normal'>[],
-  doc: OpenAPIObject
-) {
+export async function generateManifestTypes(defs: DefinitionObject<'normal'>[], doc: OpenAPIObject) {
   let attempt = 0;
   const manifest = await getManifest();
 
@@ -22,14 +15,10 @@ export async function generateManifestTypes(
   // exclude some tables from the definitionmanifest table because we don't have the format for them
   const defsToInclude = defs.filter(def => jsonKeys.includes(def.module.name));
 
-  const languageList = Object.keys(
-    manifest.jsonWorldComponentContentPaths
-  ).sort();
+  const languageList = Object.keys(manifest.jsonWorldComponentContentPaths).sort();
 
   const imports = _.compact(
-    defsToInclude.map(def =>
-      generateImports(typesFile, def.module.fileName, [def.module.name])
-    )
+    defsToInclude.map(def => generateImports(typesFile, def.module.fileName, [def.module.name]))
   );
 
   const allManifestComponentsType =
@@ -39,27 +28,18 @@ export async function generateManifestTypes(
     '\n' +
     '}';
 
-  const languageType = `export type ManifestLanguage = ${languageList
-    .map(l => `'${l}'`)
-    .join(' | ')}`;
+  const languageType = `export type ManifestLanguage = ${languageList.map(l => `'${l}'`).join(' | ')}`;
 
   writeOutFile(
     path.join('./src', typesFile),
     '.ts',
-    [
-      generateHeader(doc),
-      imports.join('\n'),
-      allManifestComponentsType,
-      languageType
-    ].join('\n\n')
+    [generateHeader(doc), imports.join('\n'), allManifestComponentsType, languageType].join('\n\n')
   );
 
   async function getManifest(retry: number = 0): Promise<any> {
     try {
       // @ts-ignore
-      const data = await fetch(
-        'https://www.bungie.net/Platform/Destiny2/Manifest/'
-      ).then(res => res.json());
+      const data = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(res => res.json());
       if (!data?.Response) {
         if (retry > 3) {
           console.error(new Error('Failed to download Manifest'));

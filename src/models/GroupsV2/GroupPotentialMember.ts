@@ -10,7 +10,7 @@
  */
 //
 
-import { GroupPotentialMemberStatus } from '../../enums/GroupsV2/GroupPotentialMemberStatus';
+import { GroupPotentialMemberStatus } from './GroupPotentialMemberStatus';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 

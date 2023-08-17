@@ -10,8 +10,8 @@
  */
 //
 
-import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
+import { DestinyActivityModeType } from './Definitions/DestinyActivityModeType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 
 /**
  * Summary information about the activity that was played.

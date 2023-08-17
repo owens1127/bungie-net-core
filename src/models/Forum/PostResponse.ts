@@ -10,8 +10,8 @@
  */
 //
 
-import { ForumMediaType } from '../../enums/Forum/ForumMediaType';
-import { ForumPostPopularity } from '../../enums/Forum/ForumPostPopularity';
+import { ForumMediaType } from './ForumMediaType';
+import { ForumPostPopularity } from './ForumPostPopularity';
 import { IgnoreResponse } from '../Ignores/IgnoreResponse';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Forum.PostResponse} */

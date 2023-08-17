@@ -10,7 +10,7 @@
  */
 //
 
-import { RuntimeGroupMemberType } from '../../enums/GroupsV2/RuntimeGroupMemberType';
+import { RuntimeGroupMemberType } from './RuntimeGroupMemberType';
 import { GroupUserInfoCard } from './GroupUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
 

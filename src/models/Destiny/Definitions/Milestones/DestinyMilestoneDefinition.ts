@@ -11,8 +11,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyMilestoneDisplayPreference } from '../../../../enums/Destiny/Definitions/Milestones/DestinyMilestoneDisplayPreference';
-import { DestinyMilestoneType } from '../../../../enums/Destiny/Definitions/Milestones/DestinyMilestoneType';
+import { DestinyMilestoneDisplayPreference } from './DestinyMilestoneDisplayPreference';
+import { DestinyMilestoneType } from './DestinyMilestoneType';
 import { DestinyMilestoneQuestDefinition } from './DestinyMilestoneQuestDefinition';
 import { DestinyMilestoneRewardCategoryDefinition } from './DestinyMilestoneRewardCategoryDefinition';
 import { DestinyMilestoneVendorDefinition } from './DestinyMilestoneVendorDefinition';

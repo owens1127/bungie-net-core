@@ -10,14 +10,14 @@
  */
 //
 
-import { ForumTopicsCategoryFiltersEnum } from '../enums/Forum/ForumTopicsCategoryFiltersEnum';
-import { ForumTopicsQuickDateEnum } from '../enums/Forum/ForumTopicsQuickDateEnum';
-import { ForumTopicsSortEnum } from '../enums/Forum/ForumTopicsSortEnum';
+import { ForumTopicsCategoryFiltersEnum } from '../models/Forum/ForumTopicsCategoryFiltersEnum';
+import { ForumTopicsQuickDateEnum } from '../models/Forum/ForumTopicsQuickDateEnum';
+import { ForumTopicsSortEnum } from '../models/Forum/ForumTopicsSortEnum';
 import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { addParam } from '../util';
 import { PostSearchResponse } from '../models/Forum/PostSearchResponse';
-import { ForumPostSortEnum } from '../enums/Forum/ForumPostSortEnum';
+import { ForumPostSortEnum } from '../models/Forum/ForumPostSortEnum';
 import { TagResponse } from '../models/Tags/Models/Contracts/TagResponse';
 import { ForumRecruitmentDetail } from '../models/Forum/ForumRecruitmentDetail';
 

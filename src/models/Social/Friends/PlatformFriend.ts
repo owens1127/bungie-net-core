@@ -10,7 +10,7 @@
  */
 //
 
-import { PlatformFriendType } from '../../../enums/Social/Friends/PlatformFriendType';
+import { PlatformFriendType } from './PlatformFriendType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Social.Friends.PlatformFriend} */
 

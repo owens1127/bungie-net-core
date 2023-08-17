@@ -10,7 +10,7 @@
  */
 //
 
-import { FireteamPlatform } from '../../enums/Fireteam/FireteamPlatform';
+import { FireteamPlatform } from './FireteamPlatform';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamSummary} */
 

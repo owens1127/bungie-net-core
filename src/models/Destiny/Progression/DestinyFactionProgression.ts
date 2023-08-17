@@ -11,7 +11,7 @@
 //
 
 import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry';
-import { DestinyProgressionRewardItemState } from '../../../enums/Destiny/DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState';
 
 /**
  * Mostly for historical purposes, we segregate Faction progressions from other

@@ -10,7 +10,7 @@
  */
 //
 
-import { DamageType } from '../../../enums/Destiny/DamageType';
+import { DamageType } from '../DamageType';
 
 /**
  * This defines information that can only come from a talent grid on an item. Items

@@ -11,8 +11,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyStatAggregationType } from '../../../enums/Destiny/DestinyStatAggregationType';
-import { DestinyStatCategory } from '../../../enums/Destiny/DestinyStatCategory';
+import { DestinyStatAggregationType } from '../DestinyStatAggregationType';
+import { DestinyStatCategory } from '../DestinyStatCategory';
 
 /**
  * This represents a stat that's applied to a character or an item (such as a

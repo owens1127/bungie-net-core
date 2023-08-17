@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinySocketCategoryStyle } from '../../../../enums/Destiny/DestinySocketCategoryStyle';
+import { DestinySocketCategoryStyle } from '../../DestinySocketCategoryStyle';
 
 /**
  * Sockets on an item are organized into Categories visually.

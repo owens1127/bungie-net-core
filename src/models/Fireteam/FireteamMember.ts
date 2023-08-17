@@ -12,7 +12,7 @@
 
 import { FireteamUserInfoCard } from './FireteamUserInfoCard';
 import { UserInfoCard } from '../User/UserInfoCard';
-import { FireteamPlatformInviteResult } from '../../enums/Fireteam/FireteamPlatformInviteResult';
+import { FireteamPlatformInviteResult } from './FireteamPlatformInviteResult';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Fireteam.FireteamMember} */
 

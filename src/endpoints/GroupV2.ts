@@ -13,9 +13,9 @@
 import { BungieClientProtocol } from './..';
 import { BungieNetResponse } from '../interfaces/BungieNetResponse';
 import { GroupTheme } from '../models/Config/GroupTheme';
-import { BungieMembershipType } from '../enums/BungieMembershipType';
-import { GroupDateRange } from '../enums/GroupsV2/GroupDateRange';
-import { GroupType } from '../enums/GroupsV2/GroupType';
+import { BungieMembershipType } from '../models/BungieMembershipType';
+import { GroupDateRange } from '../models/GroupsV2/GroupDateRange';
+import { GroupType } from '../models/GroupsV2/GroupType';
 import { GroupV2Card } from '../models/GroupsV2/GroupV2Card';
 import { GroupQuery } from '../models/GroupsV2/GroupQuery';
 import { GroupSearchResponse } from '../models/GroupsV2/GroupSearchResponse';
@@ -27,7 +27,7 @@ import { ClanBanner } from '../models/GroupsV2/ClanBanner';
 import { GroupOptionsEditAction } from '../models/GroupsV2/GroupOptionsEditAction';
 import { GroupOptionalConversationAddRequest } from '../models/GroupsV2/GroupOptionalConversationAddRequest';
 import { GroupOptionalConversationEditRequest } from '../models/GroupsV2/GroupOptionalConversationEditRequest';
-import { RuntimeGroupMemberType } from '../enums/GroupsV2/RuntimeGroupMemberType';
+import { RuntimeGroupMemberType } from '../models/GroupsV2/RuntimeGroupMemberType';
 import { addParam } from '../util';
 import { SearchResultOfGroupMember } from '../models/SearchResultOfGroupMember';
 import { GroupMemberLeaveResult } from '../models/GroupsV2/GroupMemberLeaveResult';
@@ -37,10 +37,10 @@ import { SearchResultOfGroupMemberApplication } from '../models/SearchResultOfGr
 import { GroupApplicationRequest } from '../models/GroupsV2/GroupApplicationRequest';
 import { EntityActionResult } from '../models/Entities/EntityActionResult';
 import { GroupApplicationListRequest } from '../models/GroupsV2/GroupApplicationListRequest';
-import { GroupsForMemberFilter } from '../enums/GroupsV2/GroupsForMemberFilter';
+import { GroupsForMemberFilter } from '../models/GroupsV2/GroupsForMemberFilter';
 import { GetGroupsForMemberResponse } from '../models/GroupsV2/GetGroupsForMemberResponse';
 import { GroupMembershipSearchResponse } from '../models/GroupsV2/GroupMembershipSearchResponse';
-import { GroupPotentialMemberStatus } from '../enums/GroupsV2/GroupPotentialMemberStatus';
+import { GroupPotentialMemberStatus } from '../models/GroupsV2/GroupPotentialMemberStatus';
 import { GroupPotentialMembershipSearchResponse } from '../models/GroupsV2/GroupPotentialMembershipSearchResponse';
 import { GroupApplicationResponse } from '../models/GroupsV2/GroupApplicationResponse';
 

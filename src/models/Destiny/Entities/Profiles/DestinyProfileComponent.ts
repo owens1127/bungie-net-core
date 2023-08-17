@@ -11,7 +11,7 @@
 //
 
 import { UserInfoCard } from '../../../User/UserInfoCard';
-import { DestinyGameVersions } from '../../../../enums/Destiny/DestinyGameVersions';
+import { DestinyGameVersions } from '../../DestinyGameVersions';
 
 /**
  * The most essential summary information about a Profile (in Destiny 1, we called

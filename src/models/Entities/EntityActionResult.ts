@@ -10,7 +10,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../../enums/Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Entities.EntityActionResult} */
 

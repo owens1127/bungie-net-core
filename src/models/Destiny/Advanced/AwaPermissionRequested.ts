@@ -10,8 +10,8 @@
  */
 //
 
-import { AwaType } from '../../../enums/Destiny/Advanced/AwaType';
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
+import { AwaType } from './AwaType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Advanced.AwaPermissionRequested} */
 

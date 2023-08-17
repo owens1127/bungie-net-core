@@ -11,9 +11,9 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { BucketScope } from '../../../enums/Destiny/BucketScope';
-import { BucketCategory } from '../../../enums/Destiny/BucketCategory';
-import { ItemLocation } from '../../../enums/Destiny/ItemLocation';
+import { BucketScope } from '../BucketScope';
+import { BucketCategory } from '../BucketCategory';
+import { ItemLocation } from '../ItemLocation';
 
 /**
  * An Inventory (be it Character or Profile level) is comprised of many Buckets. An

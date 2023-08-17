@@ -11,7 +11,7 @@
 //
 
 import { DestinyPlatformSilverComponent } from '../Components/Inventory/DestinyPlatformSilverComponent';
-import { BungieMembershipType } from '../../../enums/BungieMembershipType';
+import { BungieMembershipType } from '../../BungieMembershipType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileUserInfoCard} */
 

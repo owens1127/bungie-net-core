@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyPresentationNodeState } from '../../../../enums/Destiny/DestinyPresentationNodeState';
+import { DestinyPresentationNodeState } from '../../DestinyPresentationNodeState';
 import { DestinyObjectiveProgress } from '../../Quests/DestinyObjectiveProgress';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Presentation.DestinyPresentationNodeComponent} */

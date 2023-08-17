@@ -1,4 +1,4 @@
-import { DestinyComponentType } from '../enums/Destiny/DestinyComponentType';
+import { DestinyComponentType } from '../models/Destiny/DestinyComponentType';
 import { ResponseComponent } from './ResponseComponent';
 
 export type DictionaryComponentResponse<

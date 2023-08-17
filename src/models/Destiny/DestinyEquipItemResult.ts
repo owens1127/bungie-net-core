@@ -10,7 +10,7 @@
  */
 //
 
-import { PlatformErrorCodes } from '../../enums/Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../Exceptions/PlatformErrorCodes';
 
 /**
  * The results of an Equipping operation performed through the Destiny API.

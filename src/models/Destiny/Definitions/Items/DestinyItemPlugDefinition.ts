@@ -11,8 +11,8 @@
 //
 
 import { DestinyPlugRuleDefinition } from './DestinyPlugRuleDefinition';
-import { PlugUiStyles } from '../../../../enums/Destiny/PlugUiStyles';
-import { PlugAvailabilityMode } from '../../../../enums/Destiny/PlugAvailabilityMode';
+import { PlugUiStyles } from '../../PlugUiStyles';
+import { PlugAvailabilityMode } from '../../PlugAvailabilityMode';
 import { DestinyParentItemOverride } from './DestinyParentItemOverride';
 import { DestinyEnergyCapacityEntry } from './DestinyEnergyCapacityEntry';
 import { DestinyEnergyCostEntry } from './DestinyEnergyCostEntry';

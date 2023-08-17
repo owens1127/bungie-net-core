@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 
 /**
  * Represents types of Energy that can be used for costs and payments related to

@@ -10,7 +10,7 @@
  */
 //
 
-import { IgnoreStatus } from '../../enums/Ignores/IgnoreStatus';
+import { IgnoreStatus } from './IgnoreStatus';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Ignores.IgnoreResponse} */
 

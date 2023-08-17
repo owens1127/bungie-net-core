@@ -10,7 +10,7 @@
  */
 //
 
-import { DestinyEnergyType } from '../../../../enums/Destiny/DestinyEnergyType';
+import { DestinyEnergyType } from '../../DestinyEnergyType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Entities.Items.DestinyItemInstanceEnergy} */
 

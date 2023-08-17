@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyPresentationNodeType } from '../../../../enums/Destiny/DestinyPresentationNodeType';
+import { DestinyPresentationNodeType } from '../../DestinyPresentationNodeType';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Metrics.DestinyMetricDefinition} */
 

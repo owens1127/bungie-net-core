@@ -10,7 +10,7 @@
  */
 //
 
-import { IgnoreLength } from '../../enums/Ignores/IgnoreLength';
+import { IgnoreLength } from '../Ignores/IgnoreLength';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/GroupsV2.GroupBanRequest} */
 

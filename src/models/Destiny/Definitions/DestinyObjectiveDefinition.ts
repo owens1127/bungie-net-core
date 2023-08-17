@@ -11,11 +11,11 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyGatingScope } from '../../../enums/Destiny/DestinyGatingScope';
-import { DestinyUnlockValueUIStyle } from '../../../enums/Destiny/DestinyUnlockValueUIStyle';
+import { DestinyGatingScope } from '../DestinyGatingScope';
+import { DestinyUnlockValueUIStyle } from '../DestinyUnlockValueUIStyle';
 import { DestinyObjectivePerkEntryDefinition } from './DestinyObjectivePerkEntryDefinition';
 import { DestinyObjectiveStatEntryDefinition } from './DestinyObjectiveStatEntryDefinition';
-import { DestinyObjectiveUiStyle } from '../../../enums/Destiny/DestinyObjectiveUiStyle';
+import { DestinyObjectiveUiStyle } from '../DestinyObjectiveUiStyle';
 
 /**
  * Defines an "Objective".

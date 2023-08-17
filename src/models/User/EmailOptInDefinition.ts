@@ -10,7 +10,7 @@
  */
 //
 
-import { OptInFlags } from '../../enums/User/OptInFlags';
+import { OptInFlags } from './OptInFlags';
 import { EmailSubscriptionDefinition } from './EmailSubscriptionDefinition';
 
 /**

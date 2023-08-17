@@ -16,7 +16,7 @@ import { PartnerOfferClaimRequest } from '../models/Tokens/PartnerOfferClaimRequ
 import { PartnerOfferSkuHistoryResponse } from '../models/Tokens/PartnerOfferSkuHistoryResponse';
 import { PartnerRewardHistoryResponse } from '../models/Tokens/PartnerRewardHistoryResponse';
 import { BungieRewardDisplay } from '../models/Tokens/BungieRewardDisplay';
-import { BungieMembershipType } from '../enums/BungieMembershipType';
+import { BungieMembershipType } from '../models/BungieMembershipType';
 
 /**
  * Twitch Drops self-repair function - scans twitch for drops not marked as

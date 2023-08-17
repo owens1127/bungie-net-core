@@ -10,7 +10,7 @@
  */
 //
 
-import { ContentPropertyDataTypeEnum } from '../../../enums/Content/Models/ContentPropertyDataTypeEnum';
+import { ContentPropertyDataTypeEnum } from './ContentPropertyDataTypeEnum';
 import { ContentTypeDefaultValue } from './ContentTypeDefaultValue';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.Models.ContentTypeProperty} */

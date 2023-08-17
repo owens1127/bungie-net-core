@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
-import { DestinyScope } from '../../../../enums/Destiny/DestinyScope';
+import { DestinyScope } from '../../DestinyScope';
 import { DestinyChecklistEntryDefinition } from './DestinyChecklistEntryDefinition';
 
 /**

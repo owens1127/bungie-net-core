@@ -11,7 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DamageType } from '../../../enums/Destiny/DamageType';
+import { DamageType } from '../DamageType';
 import { DestinyColor } from '../Misc/DestinyColor';
 
 /**

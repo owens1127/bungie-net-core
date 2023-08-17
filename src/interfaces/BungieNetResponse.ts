@@ -1,4 +1,4 @@
-import { PlatformErrorCodes } from '../enums/Exceptions/PlatformErrorCodes';
+import { PlatformErrorCodes } from '../models/Exceptions/PlatformErrorCodes';
 
 /**
  * A general interface for a Bungie API response

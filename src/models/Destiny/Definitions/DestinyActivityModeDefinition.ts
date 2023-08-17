@@ -11,8 +11,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
-import { DestinyActivityModeType } from '../../../enums/Destiny/HistoricalStats/Definitions/DestinyActivityModeType';
-import { DestinyActivityModeCategory } from '../../../enums/Destiny/DestinyActivityModeCategory';
+import { DestinyActivityModeType } from '../HistoricalStats/Definitions/DestinyActivityModeType';
+import { DestinyActivityModeCategory } from '../DestinyActivityModeCategory';
 
 /**
  * This definition represents an "Activity Mode" as it exists in the Historical

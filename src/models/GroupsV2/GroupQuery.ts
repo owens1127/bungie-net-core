@@ -10,9 +10,9 @@
  */
 //
 
-import { GroupType } from '../../enums/GroupsV2/GroupType';
-import { GroupDateRange } from '../../enums/GroupsV2/GroupDateRange';
-import { GroupSortBy } from '../../enums/GroupsV2/GroupSortBy';
+import { GroupType } from './GroupType';
+import { GroupDateRange } from './GroupDateRange';
+import { GroupSortBy } from './GroupSortBy';
 
 /**
  * NOTE: GroupQuery, as of Destiny 2, has essentially two totally different and
