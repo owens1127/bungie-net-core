@@ -13,9 +13,8 @@ export function generateSuperIndex(componentsByFile: Record<string, DefinitionOb
     components.forEach(c => {
       if ((c as DefinitionObject<'enum'>).module.enumFile) {
         addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.name);
-      } else {
-        addValue(models, file, c.module.name);
       }
+      addValue(models, file, c.module.name);
     });
   });
 

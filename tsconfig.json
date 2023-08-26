@@ -5,9 +5,10 @@
     "outDir": "./lib",
 
     "target": "es6",
-    "module": "ES6",
-    "moduleResolution": "node16",
+    "module": "esnext",
+    "moduleResolution": "node",
     "esModuleInterop": true,
+    "stripInternal": true,
 
     "declaration": true,
     "emitDeclarationOnly": true,
