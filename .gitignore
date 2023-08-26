@@ -6,6 +6,15 @@ node_modules
 /build
 *.tsbuildinfo
 /lib
+/interfaces
+/enums
+/endpoints
+/models
+/manifest
+/node_modules
+auth.*
+index.*
+util.*
 
 test.*
 
