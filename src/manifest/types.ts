@@ -69,6 +69,7 @@ import { DestinyReportReasonCategoryDefinition } from '../models/Destiny/Definit
 import { DestinyMedalTierDefinition } from '../models/Destiny/Definitions/DestinyMedalTierDefinition';
 import { DestinyLoadoutConstantsDefinition } from '../models/Destiny/Definitions/Loadouts/DestinyLoadoutConstantsDefinition';
 import { DestinyGuardianRankConstantsDefinition } from '../models/Destiny/Definitions/GuardianRanks/DestinyGuardianRankConstantsDefinition';
+import { DestinyDefinition } from '../interfaces';
 
 export type AllManifestComponents = {
   DestinyProgressionDefinition: DestinyProgressionDefinition;
@@ -130,6 +131,28 @@ export type AllManifestComponents = {
   DestinyMedalTierDefinition: DestinyMedalTierDefinition;
   DestinyLoadoutConstantsDefinition: DestinyLoadoutConstantsDefinition;
   DestinyGuardianRankConstantsDefinition: DestinyGuardianRankConstantsDefinition;
+  DestinyNodeStepSummaryDefinition: DestinyDefinition<unknown>;
+  DestinyArtDyeChannelDefinition: DestinyDefinition<unknown>;
+  DestinyArtDyeReferenceDefinition: DestinyDefinition<unknown>;
+  DestinyProgressionMappingDefinition: DestinyDefinition<unknown>;
+  DestinyUnlockValueDefinition: DestinyDefinition<unknown>;
+  DestinyRewardMappingDefinition: DestinyDefinition<unknown>;
+  DestinyRewardSheetDefinition: DestinyDefinition<unknown>;
+  DestinyAchievementDefinition: DestinyDefinition<unknown>;
+  DestinyActivityInteractableDefinition: DestinyDefinition<unknown>;
+  DestinyBondDefinition: DestinyDefinition<unknown>;
+  DestinyCharacterCustomizationCategoryDefinition: DestinyDefinition<unknown>;
+  DestinyCharacterCustomizationOptionDefinition: DestinyDefinition<unknown>;
+  DestinyEntitlementOfferDefinition: DestinyDefinition<unknown>;
+  DestinyPlatformBucketMappingDefinition: DestinyDefinition<unknown>;
+  DestinyRewardAdjusterPointerDefinition: DestinyDefinition<unknown>;
+  DestinyRewardAdjusterProgressionMapDefinition: DestinyDefinition<unknown>;
+  DestinyRewardItemListDefinition: DestinyDefinition<unknown>;
+  DestinySackRewardItemListDefinition: DestinyDefinition<unknown>;
+  DestinyUnlockCountMappingDefinition: DestinyDefinition<unknown>;
+  DestinyUnlockEventDefinition: DestinyDefinition<unknown>;
+  DestinyUnlockExpressionMappingDefinition: DestinyDefinition<unknown>;
+  DestinyInventoryItemLiteDefinition: DestinyDefinition<DestinyInventoryItemDefinition> & { hash: never };
 };
 
 export type ManifestLanguage =
