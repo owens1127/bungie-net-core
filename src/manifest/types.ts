@@ -64,11 +64,19 @@ import { DestinyLoadoutColorDefinition } from '../models/Destiny/Definitions/Loa
 import { DestinyLoadoutIconDefinition } from '../models/Destiny/Definitions/Loadouts/DestinyLoadoutIconDefinition';
 import { DestinyLoadoutNameDefinition } from '../models/Destiny/Definitions/Loadouts/DestinyLoadoutNameDefinition';
 import { DestinyMilestoneDefinition } from '../models/Destiny/Definitions/Milestones/DestinyMilestoneDefinition';
+import { DestinyActivityInteractableDefinition } from '../models/Destiny/Definitions/Activities/DestinyActivityInteractableDefinition';
 import { DestinyUnlockDefinition } from '../models/Destiny/Definitions/DestinyUnlockDefinition';
 import { DestinyReportReasonCategoryDefinition } from '../models/Destiny/Definitions/Reporting/DestinyReportReasonCategoryDefinition';
 import { DestinyMedalTierDefinition } from '../models/Destiny/Definitions/DestinyMedalTierDefinition';
+import { DestinyFireteamFinderActivityGraphDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderActivityGraphDefinition';
+import { DestinyFireteamFinderActivitySetDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderActivitySetDefinition';
+import { DestinyFireteamFinderOptionDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderOptionDefinition';
+import { DestinyFireteamFinderOptionGroupDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderOptionGroupDefinition';
+import { DestinyFireteamFinderLabelDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderLabelDefinition';
+import { DestinyFireteamFinderLabelGroupDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderLabelGroupDefinition';
 import { DestinyLoadoutConstantsDefinition } from '../models/Destiny/Definitions/Loadouts/DestinyLoadoutConstantsDefinition';
 import { DestinyGuardianRankConstantsDefinition } from '../models/Destiny/Definitions/GuardianRanks/DestinyGuardianRankConstantsDefinition';
+import { DestinyFireteamFinderConstantsDefinition } from '../models/Destiny/Definitions/FireteamFinder/DestinyFireteamFinderConstantsDefinition';
 import { DestinyDefinition } from '../interfaces';
 
 export type AllManifestComponents = {
@@ -126,11 +134,19 @@ export type AllManifestComponents = {
   DestinyLoadoutIconDefinition: DestinyLoadoutIconDefinition;
   DestinyLoadoutNameDefinition: DestinyLoadoutNameDefinition;
   DestinyMilestoneDefinition: DestinyMilestoneDefinition;
+  DestinyActivityInteractableDefinition: DestinyActivityInteractableDefinition;
   DestinyUnlockDefinition: DestinyUnlockDefinition;
   DestinyReportReasonCategoryDefinition: DestinyReportReasonCategoryDefinition;
   DestinyMedalTierDefinition: DestinyMedalTierDefinition;
+  DestinyFireteamFinderActivityGraphDefinition: DestinyFireteamFinderActivityGraphDefinition;
+  DestinyFireteamFinderActivitySetDefinition: DestinyFireteamFinderActivitySetDefinition;
+  DestinyFireteamFinderOptionDefinition: DestinyFireteamFinderOptionDefinition;
+  DestinyFireteamFinderOptionGroupDefinition: DestinyFireteamFinderOptionGroupDefinition;
+  DestinyFireteamFinderLabelDefinition: DestinyFireteamFinderLabelDefinition;
+  DestinyFireteamFinderLabelGroupDefinition: DestinyFireteamFinderLabelGroupDefinition;
   DestinyLoadoutConstantsDefinition: DestinyLoadoutConstantsDefinition;
   DestinyGuardianRankConstantsDefinition: DestinyGuardianRankConstantsDefinition;
+  DestinyFireteamFinderConstantsDefinition: DestinyFireteamFinderConstantsDefinition;
   DestinyNodeStepSummaryDefinition: DestinyDefinition<unknown>;
   DestinyArtDyeChannelDefinition: DestinyDefinition<unknown>;
   DestinyArtDyeReferenceDefinition: DestinyDefinition<unknown>;
@@ -139,7 +155,6 @@ export type AllManifestComponents = {
   DestinyRewardMappingDefinition: DestinyDefinition<unknown>;
   DestinyRewardSheetDefinition: DestinyDefinition<unknown>;
   DestinyAchievementDefinition: DestinyDefinition<unknown>;
-  DestinyActivityInteractableDefinition: DestinyDefinition<unknown>;
   DestinyBondDefinition: DestinyDefinition<unknown>;
   DestinyCharacterCustomizationCategoryDefinition: DestinyDefinition<unknown>;
   DestinyCharacterCustomizationOptionDefinition: DestinyDefinition<unknown>;

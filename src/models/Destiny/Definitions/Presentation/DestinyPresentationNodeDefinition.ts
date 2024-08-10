@@ -54,6 +54,12 @@ export interface DestinyPresentationNodeDefinition {
   readonly rootViewIcon: string;
   readonly nodeType: DestinyPresentationNodeType;
   /**
+   * Primarily for Guardian Ranks, this property if the contents of this node are
+   * tied to the current season. These nodes are shown with a different color for the
+   * in-game Guardian Ranks display.
+   */
+  readonly isSeasonal: boolean;
+  /**
    * Indicates whether this presentation node's state is determined on a per-
    * character or on an account-wide basis.
    */

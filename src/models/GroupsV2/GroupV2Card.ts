@@ -36,6 +36,7 @@ export interface GroupV2Card {
    * these match your value.
    */
   readonly capabilities: Capabilities;
+  readonly remoteGroupId?: string;
   readonly clanInfo: GroupV2ClanInfo;
   readonly avatarPath: string;
   readonly theme: string;

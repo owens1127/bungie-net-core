@@ -11,6 +11,7 @@
 //
 
 import { DestinyActivity } from '../../DestinyActivity';
+import { DestinyActivityInteractableReference } from '../../Definitions/FireteamFinder/DestinyActivityInteractableReference';
 import { DestinyActivityModeType } from '../../HistoricalStats/Definitions/DestinyActivityModeType';
 
 /**
@@ -25,6 +26,8 @@ export interface DestinyCharacterActivitiesComponent {
   readonly dateActivityStarted: string;
   /** The list of activities that the user can play. */
   readonly availableActivities: DestinyActivity[];
+  /** The list of activity interactables that the player can interact with. */
+  readonly availableActivityInteractables: DestinyActivityInteractableReference[];
   /**
    * If the user is in an activity, this will be the hash of the Activity being
    * played. Note that you must combine this info with currentActivityModeHash to get

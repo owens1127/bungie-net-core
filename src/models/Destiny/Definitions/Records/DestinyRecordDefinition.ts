@@ -59,6 +59,11 @@ export interface DestinyRecordDefinition {
    * not be returned in this list.
    */
   readonly rewardItems: DestinyItemQuantity[];
+  /**
+   * A display name for the type of record this is (Triumphs, Lore, Medals, Seasonal
+   * Challenge, etc.).
+   */
+  readonly recordTypeName: string;
   readonly presentationNodeType: DestinyPresentationNodeType;
   readonly traitIds: string[];
   /** Mapped to DestinyTraitDefinition in the manifest. */

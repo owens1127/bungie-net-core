@@ -37,7 +37,7 @@ export type BungieTokensResponse = {
 export async function authorize(
   code: string,
   credentials: {
-    clientId: string;
+    client_id: string;
     client_secret: string;
   },
   client: BungieClientProtocol
@@ -51,7 +51,7 @@ export async function authorize(
     body: new URLSearchParams({
       grant_type: 'authorization_code',
       code,
-      client_id: credentials.clientId,
+      client_id: credentials.client_id,
       client_secret: credentials.client_secret
     })
   };

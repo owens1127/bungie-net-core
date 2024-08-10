@@ -10,12 +10,14 @@
  */
 //
 
+import { OAuthApplicationType } from './OAuthApplicationType';
 import { ApplicationStatus } from './ApplicationStatus';
 import { ApplicationDeveloper } from './ApplicationDeveloper';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Applications.Application} */
 
 export interface Application {
+  readonly applicationType: OAuthApplicationType;
   /** Unique ID assigned to the application */
   readonly applicationId: number;
   /** Name of the application */

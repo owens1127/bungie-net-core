@@ -14,6 +14,8 @@
 
 export interface DestinySocialCommendationsComponent {
   readonly totalScore: number;
+  /** The percentage for each commendation type out of total received */
+  readonly commendationNodePercentagesByHash: { [key: number]: number };
   readonly scoreDetailValues: number[];
   /** Mapped to DestinySocialCommendationNodeDefinition in the manifest. */
   readonly commendationNodeScoresByHash: { [key: number]: number };

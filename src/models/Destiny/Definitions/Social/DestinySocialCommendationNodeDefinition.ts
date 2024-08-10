@@ -19,6 +19,8 @@ export interface DestinySocialCommendationNodeDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   /** The color associated with this group of commendations. */
   readonly color: DestinyColor;
+  /** A version of the displayProperties icon tinted with the color of this node. */
+  readonly tintedIcon: string;
   /** Mapped to DestinySocialCommendationNodeDefinition in the manifest. */
   readonly parentCommendationNodeHash: number;
   /**

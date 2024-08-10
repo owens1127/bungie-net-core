@@ -8,7 +8,7 @@ export const getApplicationApiUsageTests: EndpointTestSuite<typeof getApplicatio
   endpoint: getApplicationApiUsage,
   cases: [
     {
-      name: ' get application api usage fails',
+      name: 'get application api usage fails',
       data: [
         {
           applicationId: constants.applicationId

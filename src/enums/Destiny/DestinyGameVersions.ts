@@ -17,5 +17,6 @@ export const DestinyGameVersions = {
   BeyondLight: 64,
   Anniversary30th: 128,
   TheWitchQueen: 256,
-  Lightfall: 512
+  Lightfall: 512,
+  TheFinalShape: 1024
 } as const;

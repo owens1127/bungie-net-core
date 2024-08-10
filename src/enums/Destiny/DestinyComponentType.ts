@@ -96,8 +96,8 @@ export const DestinyComponentType = {
    */
   ItemObjectives: 301,
   /**
-   * Items can have perks (DestinyPerkDefinition). If they do, this will return info
-   * for what perks are active on items.
+   * Items can have perks (DestinySandboxPerkDefinition). If they do, this will
+   * return info for what perks are active on items.
    */
   ItemPerks: 302,
   /**

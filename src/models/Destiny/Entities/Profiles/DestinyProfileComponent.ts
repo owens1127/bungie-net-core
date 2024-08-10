@@ -75,13 +75,21 @@ export interface DestinyProfileComponent {
    */
   readonly activeEventCardHash?: number;
   /**
-   * The 'current' Guardian Rank value, which starts at rank 1. Mapped to
-   * DestinyGuardianRankDefinition in the manifest.
+   * The 'current' Guardian Rank value, which starts at rank 1. This rank value will
+   * drop at the start of a new season to your 'renewed' rank from the previous
+   * season. Mapped to DestinyGuardianRankDefinition in the manifest.
    */
   readonly currentGuardianRank: number;
   /**
-   * The 'lifetime highest' Guardian Rank value, which starts at rank 1. Mapped to
-   * DestinyGuardianRankDefinition in the manifest.
+   * The 'lifetime highest' Guardian Rank value, which starts at rank 1. This rank
+   * value should never go down. Mapped to DestinyGuardianRankDefinition in the
+   * manifest.
    */
   readonly lifetimeHighestGuardianRank: number;
+  /**
+   * The seasonal 'renewed' Guardian Rank value. This rank value resets at the start
+   * of each new season to the highest-earned non-advanced rank. Mapped to
+   * DestinyGuardianRankDefinition in the manifest.
+   */
+  readonly renewedGuardianRank: number;
 }

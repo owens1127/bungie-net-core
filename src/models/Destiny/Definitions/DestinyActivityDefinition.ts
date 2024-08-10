@@ -15,6 +15,7 @@ import { DestinyActivityRewardDefinition } from './DestinyActivityRewardDefiniti
 import { DestinyActivityModifierReferenceDefinition } from './DestinyActivityModifierReferenceDefinition';
 import { DestinyActivityChallengeDefinition } from './DestinyActivityChallengeDefinition';
 import { DestinyActivityUnlockStringDefinition } from './DestinyActivityUnlockStringDefinition';
+import { DestinyActivityRequirementsBlock } from './DestinyActivityRequirementsBlock';
 import { DestinyActivityPlaylistItemDefinition } from './DestinyActivityPlaylistItemDefinition';
 import { DestinyActivityGraphListEntryDefinition } from './DestinyActivityGraphListEntryDefinition';
 import { DestinyActivityMatchmakingBlockDefinition } from './DestinyActivityMatchmakingBlockDefinition';
@@ -160,6 +161,7 @@ export interface DestinyActivityDefinition {
    * strings and the states needed in order for the strings to be shown.
    */
   readonly optionalUnlockStrings: DestinyActivityUnlockStringDefinition[];
+  readonly requirements: DestinyActivityRequirementsBlock;
   /**
    * Represents all of the possible activities that could be played in the Playlist,
    * along with information that we can use to determine if they are active at the

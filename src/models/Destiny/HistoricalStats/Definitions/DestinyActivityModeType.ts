@@ -104,5 +104,6 @@ export declare enum DestinyActivityModeType {
   Rift = 88,
   ZoneControl = 89,
   IronBannerRift = 90,
-  IronBannerZoneControl = 91
+  IronBannerZoneControl = 91,
+  Relic = 92
 }

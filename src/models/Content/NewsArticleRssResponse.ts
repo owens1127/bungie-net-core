@@ -15,9 +15,10 @@ import { NewsArticleRssItem } from './NewsArticleRssItem';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Content.NewsArticleRssResponse} */
 
 export interface NewsArticleRssResponse {
-  readonly NewsArticles: NewsArticleRssItem[];
   readonly CurrentPaginationToken: number;
   readonly NextPaginationToken?: number;
   readonly ResultCountThisPage: number;
+  readonly NewsArticles: NewsArticleRssItem[];
   readonly CategoryFilter: string;
+  readonly PagerAction: string;
 }

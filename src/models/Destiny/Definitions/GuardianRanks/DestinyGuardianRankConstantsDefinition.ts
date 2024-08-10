@@ -18,6 +18,8 @@ import { DestinyGuardianRankIconBackgroundsDefinition } from './DestinyGuardianR
 export interface DestinyGuardianRankConstantsDefinition {
   readonly displayProperties: DestinyDisplayPropertiesDefinition;
   readonly rankCount: number;
+  /** Mapped to DestinyGuardianRankDefinition in the manifest. */
+  readonly guardianRankHashes: number[];
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly rootNodeHash: number;
   readonly iconBackgrounds: DestinyGuardianRankIconBackgroundsDefinition;

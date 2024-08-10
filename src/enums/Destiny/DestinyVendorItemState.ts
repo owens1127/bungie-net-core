@@ -70,5 +70,8 @@ export const DestinyVendorItemState = {
   Locked: 262144,
   /** This indicates that the sale item is paracausal. */
   Paracausal: 524288,
-  Cryptarch: 1048576
+  Cryptarch: 1048576,
+  ArtifactPerkOwned: 2097152,
+  Savings: 4194304,
+  Ineligible: 8388608
 } as const;

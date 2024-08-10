@@ -48,5 +48,6 @@ export interface GroupV2 {
   readonly enableInvitationMessagingForAdmins: boolean;
   readonly banExpireDate?: string;
   readonly features: GroupFeatures;
+  readonly remoteGroupId?: string;
   readonly clanInfo: GroupV2ClanInfoAndInvestment;
 }

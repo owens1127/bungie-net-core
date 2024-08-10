@@ -4,7 +4,7 @@ import { sharedTestClient } from './global-setup';
 describe('refresh token tests', () => {
   test('tokens received', () => {
     return refreshAuthorization(
-      process.env.BUNGIE_REFRESH!,
+      process.env.BUNGIE_REFRESH_TOKEN!,
       {
         client_id: process.env.BUNGIE_CLIENT_ID!,
         client_secret: process.env.BUNGIE_CLIENT_SECRET!

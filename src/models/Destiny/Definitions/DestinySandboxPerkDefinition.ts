@@ -12,12 +12,11 @@
 
 import { DestinyDisplayPropertiesDefinition } from './Common/DestinyDisplayPropertiesDefinition';
 import { DamageType } from '../DamageType';
-import { DestinyTalentNodeStepGroups } from './DestinyTalentNodeStepGroups';
 
 /**
  * Perks are modifiers to a character or item that can be applied situationally.
  *
- * - Perks determine a weapons' damage type.
+ * - Perks determine a weapon's damage type.
  *
  * - Perks put the Mods in Modifiers (they are literally the entity that bestows
  * the Sandbox benefit for whatever fluff text about the modifier in the Socket,
@@ -67,14 +66,6 @@ export interface DestinySandboxPerkDefinition {
    * DestinyDamageTypeDefinition in the manifest.
    */
   readonly damageTypeHash?: number;
-  /**
-   * An old holdover from the original Armory, this was an attempt to group perks by
-   * functionality.
-   *
-   * It is as yet unpopulated, and there will be quite a bit of work needed to
-   * restore it to its former working order.
-   */
-  readonly perkGroups: DestinyTalentNodeStepGroups;
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of
    * entity, but not globally.

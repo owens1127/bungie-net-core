@@ -14,5 +14,14 @@
 
 export interface SchemaRecordStateBlock {
   readonly featuredPriority: number;
-  readonly obscuredString: string;
+  /**
+   * A display name override to show when this record is 'obscured' instead of the
+   * default obscured display name.
+   */
+  readonly obscuredName: string;
+  /**
+   * A display description override to show when this record is 'obscured' instead of
+   * the default obscured display description.
+   */
+  readonly obscuredDescription: string;
 }

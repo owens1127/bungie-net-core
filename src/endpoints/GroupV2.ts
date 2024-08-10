@@ -33,6 +33,7 @@ import { SearchResultOfGroupMember } from '../models/SearchResultOfGroupMember';
 import { GroupMemberLeaveResult } from '../models/GroupsV2/GroupMemberLeaveResult';
 import { GroupBanRequest } from '../models/GroupsV2/GroupBanRequest';
 import { SearchResultOfGroupBan } from '../models/SearchResultOfGroupBan';
+import { SearchResultOfGroupEditHistory } from '../models/SearchResultOfGroupEditHistory';
 import { SearchResultOfGroupMemberApplication } from '../models/SearchResultOfGroupMemberApplication';
 import { GroupApplicationRequest } from '../models/GroupsV2/GroupApplicationRequest';
 import { EntityActionResult } from '../models/Entities/EntityActionResult';
@@ -452,6 +453,25 @@ export async function getBannedMembersOfGroup(
   }
 ): Promise<BungieNetResponse<SearchResultOfGroupBan>> {
   const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/Banned/`);
+  addParam(url, params.currentpage, 'currentpage');
+  return client.fetch({ method: 'GET', url });
+}
+
+/**
+ * Get the list of edits made to a given group. Only accessible to group Admins and
+ * above.
+ * @see {@link https://bungie-net.github.io/#GroupV2.GetGroupEditHistory}
+ */
+export async function getGroupEditHistory(
+  client: BungieClientProtocol,
+  params: {
+    /** Page number (starting with 1). Each page has a fixed size of 50 entries. */
+    currentpage: number;
+    /** Group ID whose edit history you are fetching */
+    groupId: string;
+  }
+): Promise<BungieNetResponse<SearchResultOfGroupEditHistory>> {
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditHistory/`);
   addParam(url, params.currentpage, 'currentpage');
   return client.fetch({ method: 'GET', url });
 }

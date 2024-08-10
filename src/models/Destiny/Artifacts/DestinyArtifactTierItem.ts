@@ -16,4 +16,5 @@ export interface DestinyArtifactTierItem {
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly itemHash: number;
   readonly isActive: boolean;
+  readonly isVisible: boolean;
 }

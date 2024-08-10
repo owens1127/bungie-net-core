@@ -43,6 +43,8 @@ export interface Destiny2CoreSettings {
   readonly loadoutConstantsHash: number;
   /** Mapped to DestinyGuardianRankConstantsDefinition in the manifest. */
   readonly guardianRankConstantsHash: number;
+  /** Mapped to DestinyFireteamFinderConstantsDefinition in the manifest. */
+  readonly fireteamFinderConstantsHash: number;
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly guardianRanksRootNodeHash: number;
   /** Mapped to DestinyProgressionDefinition in the manifest. */
@@ -51,6 +53,8 @@ export interface Destiny2CoreSettings {
   readonly insertPlugFreeProtectedPlugItemHashes: number[];
   /** Mapped to DestinySocketTypeDefinition in the manifest. */
   readonly insertPlugFreeBlockedSocketTypeHashes: number[];
+  /** Mapped to DestinyFireteamFinderActivityGraphDefinition in the manifest. */
+  readonly enabledFireteamFinderActivityGraphHashes: number[];
   readonly undiscoveredCollectibleImage: string;
   readonly ammoTypeHeavyIcon: string;
   readonly ammoTypeSpecialIcon: string;

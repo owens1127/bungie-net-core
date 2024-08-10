@@ -11,6 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinySeasonActDefinition } from './DestinySeasonActDefinition';
 import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition';
 
 /**
@@ -34,6 +35,8 @@ export interface DestinySeasonDefinition {
   readonly artifactItemHash?: number;
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly sealPresentationNodeHash?: number;
+  /** A list of Acts for the Episode */
+  readonly acts: DestinySeasonActDefinition[];
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly seasonalChallengesPresentationNodeHash?: number;
   /**
