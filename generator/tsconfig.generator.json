@@ -6,7 +6,7 @@
     "strictNullChecks": true,
     "strict": true,
     "module": "esnext",
-    "target": "es2020",
+    "target": "esnext",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true

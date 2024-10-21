@@ -17,7 +17,7 @@ import { DictionaryComponentResponse } from '../../../interfaces/DictionaryCompo
 import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorComponent';
 import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent';
 import { PersonalDestinyVendorSaleItemSetComponent } from './PersonalDestinyVendorSaleItemSetComponent';
-import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
+import { DestinyVendorItemComponentSet } from '../../../interfaces/DestinyVendorItemComponentSet';
 import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent';
 
@@ -60,7 +60,7 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    * the Vendor Hash, so you will get one Sale Item Set Component per vendor returned.
    *
    * Note that within the Sale Item Set component, the sales are themselves keyed by
-   * the vendorSaleIndex, so you can relate it to the corrent sale item definition
+   * the vendorSaleIndex, so you can relate it to the current sale item definition
    * within the Vendor's definition.
    *
    * COMPONENT TYPE: VendorSales
@@ -80,7 +80,7 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    * will have whatever item-level components you requested (Sockets, Stats, Instance
    * data etc...) per item being sold by the vendor.
    */
-  readonly itemComponents: { [key: number]: DestinyItemComponentSet<number, T> };
+  readonly itemComponents: { [key: number]: DestinyVendorItemComponentSet<number, T> };
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.

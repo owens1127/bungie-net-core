@@ -38,4 +38,8 @@ export interface DestinyItemPlugBase {
    * This list will be empty if the plug is enabled.
    */
   readonly enableFailIndexes: number[];
+  /** If available, this is the stack size to display for the socket plug item. */
+  readonly stackSize?: number;
+  /** If available, this is the maximum stack size to display for the socket plug item. */
+  readonly maxStackSize?: number;
 }

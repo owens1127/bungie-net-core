@@ -12,9 +12,9 @@ export function generateSuperIndex(componentsByFile: Record<string, DefinitionOb
   _.forEach(componentsByFile, (components, file) => {
     components.forEach(c => {
       if ((c as DefinitionObject<'enum'>).module.enumFile) {
-        addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.name);
+        addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.importName);
       }
-      addValue(models, file, c.module.name);
+      addValue(models, file, c.module.importName);
     });
   });
 
@@ -66,7 +66,7 @@ function generateComponentCode(
   if (definition.ref.enum) {
     return generateEnum(definition);
   } else {
-    return generateInterface(definition, doc, componentMap, importFiles);
+    return generateInterface(definition, componentMap, importFiles);
   }
 }
 
@@ -90,19 +90,20 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
   writeOutFile(
     path.join('src/', definition.module.enumFile),
     '.ts',
-    [docString, `export const ${definition.module.name} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`].join(
-      '\n'
-    )
+    [
+      docString,
+      `export const ${definition.module.importName} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`
+    ].join('\n')
   );
 
-  return [docString, `export declare enum ${definition.module.name} {\n${values.map(t => t[1]).join(',\n')}\n}`].join(
-    '\n'
-  );
+  return [
+    docString,
+    `export declare enum ${definition.module.importName} {\n${values.map(t => t[1]).join(',\n')}\n}`
+  ].join('\n');
 }
 
 function generateInterface(
   definition: DefinitionObject,
-  doc: OpenAPIObject,
   componentMap: Map<string, DefinitionObject<'genericParams' | 'normal'>>,
   importFiles: Map<string, Set<string>>
 ) {
@@ -122,7 +123,7 @@ function generateInterface(
     if (schema['x-mapped-definition']) {
       const module = componentMap.get(schema['x-mapped-definition'].$ref)!.module!;
 
-      docs.push(`Mapped to ${module?.type === 'normal' ? module.name : module.importName} in the manifest.`);
+      docs.push(`Mapped to ${module.importName} in the manifest.`);
     }
     if (schema['x-enum-is-bitmask']) {
       docs.push(
@@ -155,7 +156,7 @@ function generateInterface(
   return (
     docString +
     '\n\n' +
-    `export interface ${module.type === 'normal' ? module.name : module.interfaceName} {` +
+    `export interface ${module.type === 'normal' ? module.importName : module.interfaceName} {` +
     '\n' +
     indent(classFields.join('\n'), 1) +
     '\n' +

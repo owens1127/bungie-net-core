@@ -16,7 +16,7 @@ import { DestinyVendorComponent } from '../Entities/Vendors/DestinyVendorCompone
 import { DestinyVendorCategoriesComponent } from '../Entities/Vendors/DestinyVendorCategoriesComponent';
 import { DictionaryComponentResponse } from '../../../interfaces/DictionaryComponentResponse';
 import { DestinyVendorSaleItemComponent } from '../Entities/Vendors/DestinyVendorSaleItemComponent';
-import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponentSet';
+import { DestinyVendorItemComponentSet } from '../../../interfaces/DestinyVendorItemComponentSet';
 import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurrenciesComponent';
 import { DestinyStringVariablesComponent } from '../Components/StringVariables/DestinyStringVariablesComponent';
 
@@ -56,10 +56,10 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
   /**
    * Item components, keyed by the vendorItemIndex of the active sale items.
    *
-   * COMPONENT TYPE: [See inside the DestinyItemComponentSet contract for component
-   * types.]
+   * COMPONENT TYPE: [See inside the DestinyVendorItemComponentSet contract for
+   * component types.]
    */
-  readonly itemComponents: DestinyItemComponentSet<number, T>;
+  readonly itemComponents: DestinyVendorItemComponentSet<number, T>;
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.

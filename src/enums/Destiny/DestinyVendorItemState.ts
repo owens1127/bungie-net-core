@@ -73,5 +73,6 @@ export const DestinyVendorItemState = {
   Cryptarch: 1048576,
   ArtifactPerkOwned: 2097152,
   Savings: 4194304,
-  Ineligible: 8388608
+  Ineligible: 8388608,
+  ArtifactPerkBoosted: 16777216
 } as const;

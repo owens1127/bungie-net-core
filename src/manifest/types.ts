@@ -49,7 +49,6 @@ import { DestinyPowerCapDefinition } from '../models/Destiny/Definitions/PowerCa
 import { DestinyRewardSourceDefinition } from '../models/Destiny/Definitions/DestinyRewardSourceDefinition';
 import { DestinyEnergyTypeDefinition } from '../models/Destiny/Definitions/EnergyTypes/DestinyEnergyTypeDefinition';
 import { DestinyPlugSetDefinition } from '../models/Destiny/Definitions/Sockets/DestinyPlugSetDefinition';
-import { DestinyTalentGridDefinition } from '../models/Destiny/Definitions/DestinyTalentGridDefinition';
 import { DestinyItemCategoryDefinition } from '../models/Destiny/Definitions/DestinyItemCategoryDefinition';
 import { DestinyBreakerTypeDefinition } from '../models/Destiny/Definitions/BreakerTypes/DestinyBreakerTypeDefinition';
 import { DestinySeasonDefinition } from '../models/Destiny/Definitions/Seasons/DestinySeasonDefinition';
@@ -119,7 +118,6 @@ export type AllManifestComponents = {
   DestinyRewardSourceDefinition: DestinyRewardSourceDefinition;
   DestinyEnergyTypeDefinition: DestinyEnergyTypeDefinition;
   DestinyPlugSetDefinition: DestinyPlugSetDefinition;
-  DestinyTalentGridDefinition: DestinyTalentGridDefinition;
   DestinyItemCategoryDefinition: DestinyItemCategoryDefinition;
   DestinyBreakerTypeDefinition: DestinyBreakerTypeDefinition;
   DestinySeasonDefinition: DestinySeasonDefinition;
@@ -147,7 +145,6 @@ export type AllManifestComponents = {
   DestinyLoadoutConstantsDefinition: DestinyLoadoutConstantsDefinition;
   DestinyGuardianRankConstantsDefinition: DestinyGuardianRankConstantsDefinition;
   DestinyFireteamFinderConstantsDefinition: DestinyFireteamFinderConstantsDefinition;
-  DestinyNodeStepSummaryDefinition: DestinyDefinition<unknown>;
   DestinyArtDyeChannelDefinition: DestinyDefinition<unknown>;
   DestinyArtDyeReferenceDefinition: DestinyDefinition<unknown>;
   DestinyProgressionMappingDefinition: DestinyDefinition<unknown>;
@@ -167,6 +164,7 @@ export type AllManifestComponents = {
   DestinyUnlockCountMappingDefinition: DestinyDefinition<unknown>;
   DestinyUnlockEventDefinition: DestinyDefinition<unknown>;
   DestinyUnlockExpressionMappingDefinition: DestinyDefinition<unknown>;
+  DestinyGlobalConstantsDefinition: DestinyDefinition<unknown>;
   DestinyInventoryItemLiteDefinition: DestinyDefinition<DestinyInventoryItemDefinition> & { hash: never };
 };
 

@@ -4,6 +4,7 @@ import {
   DefinitionObject,
   DestinyComponentTypeEnumComponent,
   DestinyDefinitionModel,
+  DestinyVendorItemComponentSetPattern,
   DictionaryComponentPattern,
   ItemComponentSetPattern,
   ServiceInterfaces,
@@ -18,7 +19,7 @@ export function createTree(paths: [string, PathItemObject][], doc: OpenAPIObject
   //   const componentsByTag = new Map<string, string[]>();
   const components = findReachableComponents(paths, doc);
 
-  const componentDefinitions: Map<string, DefinitionObject<any>> = new Map();
+  const componentDefinitions = new Map<string, DefinitionObject<any>>();
 
   Array.from(components).forEach(component => {
     componentDefinitions.set(component, getDefinition(component, getTags(paths[1]), doc));
@@ -146,12 +147,11 @@ function filesFor(
   if (isEnum(component, doc)) {
     return {
       type: 'enum',
-      name: componentName,
+      importName: componentName,
       fileName: `./models/${pathToDefinition}`,
       enumFile: `./enums/${pathToDefinition}`
     };
   }
-
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
     const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
@@ -184,6 +184,17 @@ function filesFor(
       type: 'appliedToInterface',
       parameterName: (...args) => `${ServiceInterfaces.ItemComponentSet}<${key}, ${args[0]}>`,
       interface: ServiceInterfaces.ItemComponentSet,
+      child: null
+    };
+  }
+
+  const vendorItemComponentSetMatch = component.match(DestinyVendorItemComponentSetPattern);
+  if (vendorItemComponentSetMatch) {
+    const key = primitiveToDictionaryKey(vendorItemComponentSetMatch[1] as any);
+    return {
+      type: 'appliedToInterface',
+      parameterName: (...args) => `${ServiceInterfaces.VendorItemComponentSet}<${key}, ${args[0]}>`,
+      interface: ServiceInterfaces.VendorItemComponentSet,
       child: null
     };
   }
@@ -221,7 +232,7 @@ function filesFor(
 
   return {
     type: 'normal',
-    name: componentName,
+    importName: componentName,
     fileName: `./models/${pathToDefinition}`
   };
 }
