@@ -5,4 +5,5 @@ import type {
 export { getManifestComponentJSON as getDestinyManifestComponent } from './getManifestComponent';
 export type { AllDestinyManifestComponents, DestinyManifestLanguage };
 export type DestinyManifestComponent = keyof AllDestinyManifestComponents;
-export type DestinyManifestDefinition<T extends DestinyManifestComponent> = AllDestinyManifestComponents[T];
+export type DestinyManifestDefinition<T extends DestinyManifestComponent> =
+  AllDestinyManifestComponents[T];

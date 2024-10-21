@@ -29,16 +29,22 @@ export function mappedToMobileManifestEntity(component: string, doc: OpenAPIObje
 export function hasConditionalComponents(component: string, doc: OpenAPIObject): boolean {
   const ref = getRef(doc, component);
   return Object.values(ref?.properties ?? {}).some(
-    (potentialComponents: SchemaObject) => potentialComponents['x-destiny-component-type-dependency']
+    (potentialComponents: SchemaObject) =>
+      potentialComponents['x-destiny-component-type-dependency']
   );
 }
 
-export function importInterface(serviceInterface: ServiceInterfaces, importFiles: Map<string, Set<string>>) {
+export function importInterface(
+  serviceInterface: ServiceInterfaces,
+  importFiles: Map<string, Set<string>>
+) {
   addValue(importFiles, `./interfaces/${serviceInterface}`, serviceInterface);
 }
 
 export function getTags(pathItemObject: PathItemObject) {
-  const tags = new Set<string>(_.compact([pathItemObject.get?.tags, pathItemObject.post?.tags]).flat());
+  const tags = new Set<string>(
+    _.compact([pathItemObject.get?.tags, pathItemObject.post?.tags]).flat()
+  );
   if (tags.has('')) {
     tags.delete('');
     tags.add('Core');

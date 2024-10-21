@@ -64,6 +64,7 @@ export enum ServiceInterfaces {
 
 export const frequentlyNullProperties = ['itemCategoryHashes'];
 
-export const DestinyComponentTypeEnumComponent = '#/components/schemas/Destiny.DestinyComponentType';
+export const DestinyComponentTypeEnumComponent =
+  '#/components/schemas/Destiny.DestinyComponentType';
 
 export const DestinyDefinitionModel = '#/components/schemas/Destiny.Definitions.DestinyDefinition';

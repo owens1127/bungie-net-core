@@ -149,7 +149,9 @@ export async function getPostAndParent(
     showbanned?: string;
   }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetPostAndParent/${params.childPostId}/`
+  );
   addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
@@ -167,7 +169,9 @@ export async function getPostAndParentAwaitingApproval(
     showbanned?: string;
   }
 ): Promise<BungieNetResponse<PostSearchResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetPostAndParentAwaitingApproval/${params.childPostId}/`
+  );
   addParam(url, params.showbanned, 'showbanned');
   return client.fetch({ method: 'GET', url });
 }
@@ -182,7 +186,9 @@ export async function getTopicForContent(
     contentId: string;
   }
 ): Promise<BungieNetResponse<string>> {
-  const url = new URL(`https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Forum/GetTopicForContent/${params.contentId}/`
+  );
   return client.fetch({ method: 'GET', url });
 }
 

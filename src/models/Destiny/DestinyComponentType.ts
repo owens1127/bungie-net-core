@@ -21,36 +21,42 @@
  * CharacterProgressions" You may use either the numerical or string values.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.DestinyComponentType}
  */
-export declare enum DestinyComponentType {
-  None = 0,
+export type DestinyComponentType =
+  | 'None'
+  | 0
   /**
    * Profiles is the most basic component, only relevant when calling GetProfile.
    * This returns basic information about the profile, which is almost nothing: a
    * list of characterIds, some information about the last time you logged in, and
    * that most sobering statistic: how long you've played.
    */
-  Profiles = 100,
+  | 'Profiles'
+  | 100
   /**
    * Only applicable for GetProfile, this will return information about receipts for
    * refundable vendor items.
    */
-  VendorReceipts = 101,
+  | 'VendorReceipts'
+  | 101
   /**
    * Asking for this will get you the profile-level inventories, such as your Vault
    * buckets (yeah, the Vault is really inventory buckets located on your Profile)
    */
-  ProfileInventories = 102,
+  | 'ProfileInventories'
+  | 102
   /**
    * This will get you a summary of items on your Profile that we consider to be "
    * currencies", such as Glimmer. I mean, if there's Glimmer in Destiny 2. I didn't
    * say there was Glimmer.
    */
-  ProfileCurrencies = 103,
+  | 'ProfileCurrencies'
+  | 103
   /**
    * This will get you any progression-related information that exists on a Profile-
    * wide level, across all characters.
    */
-  ProfileProgression = 104,
+  | 'ProfileProgression'
+  | 104
   /**
    * This will get you information about the silver that this profile has on every
    * platform on which it plays.
@@ -58,29 +64,34 @@ export declare enum DestinyComponentType {
    * You may only request this component for the logged in user's Profile, and will
    * not recieve it if you request it for another Profile.
    */
-  PlatformSilver = 105,
+  | 'PlatformSilver'
+  | 105
   /** This will get you summary info about each of the characters in the profile. */
-  Characters = 200,
+  | 'Characters'
+  | 200
   /**
    * This will get you information about any non-equipped items on the character or
    * character(s) in question, if you're allowed to see it. You have to either be
    * authenticated as that user, or that user must allow anonymous viewing of their
    * non-equipped items in Bungie.Net settings to actually get results.
    */
-  CharacterInventories = 201,
+  | 'CharacterInventories'
+  | 201
   /**
    * This will get you information about the progression (faction, experience, etc...
    * "levels") relevant to each character, if you are the currently authenticated
    * user or the user has elected to allow anonymous viewing of its progression info.
    */
-  CharacterProgressions = 202,
+  | 'CharacterProgressions'
+  | 202
   /**
    * This will get you just enough information to be able to render the character in
    * 3D if you have written a 3D rendering library for Destiny Characters, or "
    * borrowed" ours. It's okay, I won't tell anyone if you're using it. I'm no snitch.
    * (actually, we don't care if you use it - go to town)
    */
-  CharacterRenderData = 203,
+  | 'CharacterRenderData'
+  | 203
   /**
    * This will return info about activities that a user can see and gating on it, if
    * you are the currently authenticated user or the user has elected to allow
@@ -88,51 +99,61 @@ export declare enum DestinyComponentType {
    * can be unfortunately problematic and relatively unreliable in some cases. We'll
    * eventually work on making it more consistently reliable.
    */
-  CharacterActivities = 204,
+  | 'CharacterActivities'
+  | 204
   /**
    * This will return info about the equipped items on the character(s). Everyone can
    * see this.
    */
-  CharacterEquipment = 205,
+  | 'CharacterEquipment'
+  | 205
   /** This will return info about the loadouts of the character(s). */
-  CharacterLoadouts = 206,
+  | 'CharacterLoadouts'
+  | 206
   /**
    * This will return basic info about instanced items - whether they can be equipped,
    * their tracked status, and some info commonly needed in many places (current
    * damage type, primary stat value, etc)
    */
-  ItemInstances = 300,
+  | 'ItemInstances'
+  | 300
   /**
    * Items can have Objectives (DestinyObjectiveDefinition) bound to them. If they do,
    * this will return info for items that have such bound objectives.
    */
-  ItemObjectives = 301,
+  | 'ItemObjectives'
+  | 301
   /**
    * Items can have perks (DestinySandboxPerkDefinition). If they do, this will
    * return info for what perks are active on items.
    */
-  ItemPerks = 302,
+  | 'ItemPerks'
+  | 302
   /**
    * If you just want to render the weapon, this is just enough info to do that
    * rendering.
    */
-  ItemRenderData = 303,
+  | 'ItemRenderData'
+  | 303
   /**
    * Items can have stats, like rate of fire. Asking for this component will return
    * requested item's stats if they have stats.
    */
-  ItemStats = 304,
+  | 'ItemStats'
+  | 304
   /**
    * Items can have sockets, where plugs can be inserted. Asking for this component
    * will return all info relevant to the sockets on items that have them.
    */
-  ItemSockets = 305,
+  | 'ItemSockets'
+  | 305
   /**
    * Items can have talent grids, though that matters a lot less frequently than it
    * used to. Asking for this component will return all relevant info about activated
    * Nodes and Steps on this talent grid, like the good ol' days.
    */
-  ItemTalentGrids = 306,
+  | 'ItemTalentGrids'
+  | 306
   /**
    * Items that *aren't* instanced still have important information you need to know:
    * how much of it you have, the itemHash so you can look up their
@@ -141,19 +162,22 @@ export declare enum DestinyComponentType {
    * automatically with Inventory components - you only need to pass this when
    * calling GetItem on a specific item.
    */
-  ItemCommonData = 307,
+  | 'ItemCommonData'
+  | 307
   /**
    * Items that are "Plugs" can be inserted into sockets. This returns statuses about
    * those plugs and why they can/can't be inserted. I hear you giggling, there's
    * nothing funny about inserting plugs. Get your head out of the gutter and pay
    * attention!
    */
-  ItemPlugStates = 308,
+  | 'ItemPlugStates'
+  | 308
   /**
    * Sometimes, plugs have objectives on them. This data can get really large, so we
    * split it into its own component. Please, don't grab it unless you need it.
    */
-  ItemPlugObjectives = 309,
+  | 'ItemPlugObjectives'
+  | 309
   /**
    * Sometimes, designers create thousands of reusable plugs and suddenly your
    * response sizes are almost 3MB, and something has to give.
@@ -172,29 +196,34 @@ export declare enum DestinyComponentType {
    * return plugs that have state data that is per-item. See Plug Sets for available
    * plugs that have Character, Profile, or no state-specific restrictions.
    */
-  ItemReusablePlugs = 310,
+  | 'ItemReusablePlugs'
+  | 310
   /**
    * When obtaining vendor information, this will return summary information about
    * the Vendor or Vendors being returned.
    */
-  Vendors = 400,
+  | 'Vendors'
+  | 400
   /**
    * When obtaining vendor information, this will return information about the
    * categories of items provided by the Vendor.
    */
-  VendorCategories = 401,
+  | 'VendorCategories'
+  | 401
   /**
    * When obtaining vendor information, this will return the information about items
    * being sold by the Vendor.
    */
-  VendorSales = 402,
+  | 'VendorSales'
+  | 402
   /**
    * Asking for this component will return you the account's Kiosk statuses: that is,
    * what items have been filled out/acquired. But only if you are the currently
    * authenticated user or the user has elected to allow anonymous viewing of its
    * progression info.
    */
-  Kiosks = 500,
+  | 'Kiosks'
+  | 500
   /**
    * A "shortcut" component that will give you all of the item hashes/quantities of
    * items that the requested character can use to determine if an action (purchasing,
@@ -202,7 +231,8 @@ export declare enum DestinyComponentType {
    * just items, and that some vendor purchases require items that you might not
    * traditionally consider to be a "currency", like plugs/mods!)
    */
-  CurrencyLookups = 600,
+  | 'CurrencyLookups'
+  | 600
   /**
    * Returns summary status information about all "Presentation Nodes". See
    * DestinyPresentationNodeDefinition for more details, but the gist is that these
@@ -210,20 +240,23 @@ export declare enum DestinyComponentType {
    * hierarchy of categories. You may ask for and use this data if you want to
    * perform similar bucketing in your own UI: or you can skip it and roll your own.
    */
-  PresentationNodes = 700,
+  | 'PresentationNodes'
+  | 700
   /**
    * Returns summary status information about all "Collectibles". These are records
    * of what items you've discovered while playing Destiny, and some other basic
    * information. For detailed information, you will have to call a separate endpoint
    * devoted to the purpose.
    */
-  Collectibles = 800,
+  | 'Collectibles'
+  | 800
   /**
    * Returns summary status information about all "Records" (also known in the game
    * as "Triumphs". I know, it's confusing because there's also "Moments of Triumph"
    * that will themselves be represented as "Triumphs.")
    */
-  Records = 900,
+  | 'Records'
+  | 900
   /**
    * Returns information that Bungie considers to be "Transitory": data that may
    * change too frequently or come from a non-authoritative source such that we don't
@@ -231,22 +264,26 @@ export declare enum DestinyComponentType {
    * limited use cases. We can provide no guarantee of timeliness nor consistency for
    * this data: buyer beware with the Transitory component.
    */
-  Transitory = 1000,
+  | 'Transitory'
+  | 1000
   /**
    * Returns summary status information about all "Metrics" (also known in the game
    * as "Stat Trackers").
    */
-  Metrics = 1100,
+  | 'Metrics'
+  | 1100
   /**
    * Returns a mapping of localized string variable hashes to values, on a per-
    * account or per-character basis.
    */
-  StringVariables = 1200,
+  | 'StringVariables'
+  | 1200
   /**
    * Returns summary status information about all "Craftables" aka crafting recipe
    * items.
    */
-  Craftables = 1300,
+  | 'Craftables'
+  | 1300
   /** Returns score values for all commendations and commendation nodes. */
-  SocialCommendations = 1400
-}
+  | 'SocialCommendations'
+  | 1400;

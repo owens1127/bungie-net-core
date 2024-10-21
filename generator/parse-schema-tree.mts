@@ -1,4 +1,10 @@
-import { OpenAPIObject, ParameterObject, PathItemObject, ReferenceObject, SchemaObject } from 'openapi3-ts';
+import {
+  OpenAPIObject,
+  ParameterObject,
+  PathItemObject,
+  ReferenceObject,
+  SchemaObject
+} from 'openapi3-ts';
 import {
   BaseItemComponentSetPattern,
   DefinitionObject,
@@ -10,7 +16,12 @@ import {
   ServiceInterfaces,
   SingleComponentPattern
 } from './types.mjs';
-import { combineSets, getTags, hasConditionalComponents, mappedToMobileManifestEntity } from './util.mjs';
+import {
+  combineSets,
+  getTags,
+  hasConditionalComponents,
+  mappedToMobileManifestEntity
+} from './util.mjs';
 import { getRef, getReferencedTypes, isEnum, isRequestBodyObject } from './open-api-3-util.mjs';
 import _ from 'underscore';
 import { primitiveToDictionaryKey } from './resolve-parameters.mjs';
@@ -28,9 +39,13 @@ export function createTree(paths: [string, PathItemObject][], doc: OpenAPIObject
   return componentDefinitions;
 }
 
-function findReachableComponents(paths: [string, PathItemObject][], doc: OpenAPIObject): Set<string> {
+function findReachableComponents(
+  paths: [string, PathItemObject][],
+  doc: OpenAPIObject
+): Set<string> {
   const pathDefinitions = paths.reduce(
-    (memo: Set<string>, [_, pathDef]) => combineSets(memo, findReachableComponentsFromPath(pathDef)),
+    (memo: Set<string>, [_, pathDef]) =>
+      combineSets(memo, findReachableComponentsFromPath(pathDef)),
     new Set<string>()
   );
 
@@ -44,7 +59,9 @@ function findReachableComponents(paths: [string, PathItemObject][], doc: OpenAPI
 function findReachableComponentsFromPath(pathDef: PathItemObject): Set<string> {
   const methodDef = pathDef.get || pathDef.post!;
   const params = (methodDef.parameters || []) as ParameterObject[];
-  const paramTypes = new Set(params.map(param => getReferencedTypes(param.schema!)).filter(Boolean)) as Set<string>;
+  const paramTypes = new Set(
+    params.map(param => getReferencedTypes(param.schema!)).filter(Boolean)
+  ) as Set<string>;
 
   const requestBody = methodDef.requestBody;
   if (requestBody && isRequestBodyObject(requestBody)) {
@@ -63,7 +80,11 @@ function findReachableComponentsFromPath(pathDef: PathItemObject): Set<string> {
   return paramTypes;
 }
 
-function addReachableComponentsFromComponent(allDefinitions: Set<string>, definition: string, doc: OpenAPIObject) {
+function addReachableComponentsFromComponent(
+  allDefinitions: Set<string>,
+  definition: string,
+  doc: OpenAPIObject
+) {
   const component = getRef(doc, definition);
   if (!component) {
     return;
@@ -94,14 +115,22 @@ function addDefinitions(allDefinitions: Set<string>, schema: SchemaObject, doc: 
   }
 }
 
-function addDefinitionsFromComponent(allDefinitions: Set<string>, definition: string | undefined, doc: OpenAPIObject) {
+function addDefinitionsFromComponent(
+  allDefinitions: Set<string>,
+  definition: string | undefined,
+  doc: OpenAPIObject
+) {
   if (definition && !allDefinitions.has(definition)) {
     allDefinitions.add(definition);
     addReachableComponentsFromComponent(allDefinitions, definition, doc);
   }
 }
 
-function getDefinition(component: string, tags: Set<string>, doc: OpenAPIObject): DefinitionObject<any> {
+function getDefinition(
+  component: string,
+  tags: Set<string>,
+  doc: OpenAPIObject
+): DefinitionObject<any> {
   const ref = getRef(doc, component)!;
   const data: DefinitionObject['data'] = {
     hasConditionalComponents: hasConditionalComponents(component, doc),
@@ -111,12 +140,12 @@ function getDefinition(component: string, tags: Set<string>, doc: OpenAPIObject)
     tags,
     component,
     ref,
-    module: filesFor(component, doc, ref, data),
+    module: getModule(component, doc, ref, data),
     data
   };
 }
 
-function filesFor(
+function getModule(
   component: string,
   doc: OpenAPIObject,
   ref: SchemaObject,
@@ -139,7 +168,11 @@ function filesFor(
   }
 
   // handle primitive types
-  if (pathToDefinition === 'boolean' || pathToDefinition === 'int32' || pathToDefinition === 'int64')
+  if (
+    pathToDefinition === 'boolean' ||
+    pathToDefinition === 'int32' ||
+    pathToDefinition === 'int64'
+  )
     return {
       type: 'primitive'
     };
@@ -155,7 +188,9 @@ function filesFor(
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
     const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
-    const child = (ref.properties!.data as SchemaObject).additionalProperties as SchemaObject | ReferenceObject;
+    const child = (ref.properties!.data as SchemaObject).additionalProperties as
+      | SchemaObject
+      | ReferenceObject;
 
     return {
       type: 'appliedToInterface',
@@ -171,7 +206,8 @@ function filesFor(
     const child = ref.properties!.data;
     return {
       type: 'appliedToInterface',
-      parameterName: (...args) => `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
+      parameterName: (...args) =>
+        `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
       interface: ServiceInterfaces.SingleComponent,
       child
     };
@@ -190,10 +226,9 @@ function filesFor(
 
   const vendorItemComponentSetMatch = component.match(DestinyVendorItemComponentSetPattern);
   if (vendorItemComponentSetMatch) {
-    const key = primitiveToDictionaryKey(vendorItemComponentSetMatch[1] as any);
     return {
       type: 'appliedToInterface',
-      parameterName: (...args) => `${ServiceInterfaces.VendorItemComponentSet}<${key}, ${args[0]}>`,
+      parameterName: (...args) => `${ServiceInterfaces.VendorItemComponentSet}<${args[0]}>`,
       interface: ServiceInterfaces.VendorItemComponentSet,
       child: null
     };
@@ -212,8 +247,8 @@ function filesFor(
   if (data.hasConditionalComponents) {
     return {
       type: 'genericParams',
-      interfaceName: `${componentName}<T extends readonly DestinyComponentType[]>`,
-      parameterName: componentName + `<T>`,
+      interfaceName: `${componentName}<T extends readonly DestinyComponentType[] = DestinyComponentType[]>`,
+      parameterName: componentName + `<K>`,
       importName: componentName,
       fileName: `./models/${pathToDefinition}`,
       interfaces: [],
@@ -224,7 +259,8 @@ function filesFor(
   if (component === DestinyDefinitionModel) {
     return {
       type: 'appliedToInterface',
-      parameterName: (...args) => `${ServiceInterfaces.DestinyDefinition}<AllManifestComponents[${args[0]}]>`,
+      parameterName: (...args) =>
+        `${ServiceInterfaces.DestinyDefinition}<AllManifestComponents[${args[0]}]>`,
       interface: ServiceInterfaces.DestinyDefinition,
       child: null
     };

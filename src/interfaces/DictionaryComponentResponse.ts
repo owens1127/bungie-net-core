@@ -2,8 +2,8 @@ import { DestinyComponentType } from '../models/Destiny/DestinyComponentType';
 import { ResponseComponent } from './ResponseComponent';
 
 export type DictionaryComponentResponse<
-  K extends number | string,
+  I extends number | string,
   D,
-  T extends readonly DestinyComponentType[],
-  C extends DestinyComponentType
-> = ResponseComponent<T, C, Record<K, D>>;
+  R extends string & DestinyComponentType,
+  K extends readonly DestinyComponentType[]
+> = ResponseComponent<K, R, Record<I, D>>;

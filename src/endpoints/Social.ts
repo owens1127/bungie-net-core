@@ -67,7 +67,9 @@ export async function acceptFriendRequest(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform/Social/Friends/Requests/Accept/${params.membershipId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Requests/Accept/${params.membershipId}/`
+  );
   return client.fetch({ method: 'POST', url });
 }
 
@@ -83,7 +85,9 @@ export async function declineFriendRequest(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform/Social/Friends/Requests/Decline/${params.membershipId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Requests/Decline/${params.membershipId}/`
+  );
   return client.fetch({ method: 'POST', url });
 }
 
@@ -99,7 +103,9 @@ export async function removeFriend(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform/Social/Friends/Remove/${params.membershipId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Remove/${params.membershipId}/`
+  );
   return client.fetch({ method: 'POST', url });
 }
 
@@ -115,7 +121,9 @@ export async function removeFriendRequest(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(`https://www.bungie.net/Platform/Social/Friends/Requests/Remove/${params.membershipId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Social/Friends/Requests/Remove/${params.membershipId}/`
+  );
   return client.fetch({ method: 'POST', url });
 }
 

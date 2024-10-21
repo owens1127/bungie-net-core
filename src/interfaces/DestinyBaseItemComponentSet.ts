@@ -7,8 +7,8 @@ export interface DestinyBaseItemComponentSet<T extends readonly DestinyComponent
   readonly objectives: DictionaryComponentResponse<
     number,
     DestinyItemObjectivesComponent,
-    T,
-    DestinyComponentType.ItemObjectives
+    'ItemObjectives',
+    T
   >;
-  readonly perks: DictionaryComponentResponse<number, DestinyItemPerksComponent, T, DestinyComponentType.ItemPerks>;
+  readonly perks: DictionaryComponentResponse<number, DestinyItemPerksComponent, 'ItemPerks', T>;
 }

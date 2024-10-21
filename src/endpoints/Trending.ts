@@ -42,7 +42,9 @@ export async function getTrendingCategory(
     pageNumber: number;
   }
 ): Promise<BungieNetResponse<SearchResultOfTrendingEntry>> {
-  const url = new URL(`https://www.bungie.net/Platform/Trending/Categories/${params.categoryId}/${params.pageNumber}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Trending/Categories/${params.categoryId}/${params.pageNumber}/`
+  );
   return client.fetch({ method: 'GET', url });
 }
 

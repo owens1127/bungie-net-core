@@ -45,7 +45,9 @@ export async function getContentById(
     locale: string;
   }
 ): Promise<BungieNetResponse<ContentItemPublicContract>> {
-  const url = new URL(`https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/GetContentById/${params.id}/${params.locale}/`
+  );
   addParam(url, params.head, 'head');
   return client.fetch({ method: 'GET', url });
 }
@@ -163,7 +165,9 @@ export async function rssNewsArticles(
     pageToken: string;
   }
 ): Promise<BungieNetResponse<NewsArticleRssResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/Content/Rss/NewsArticles/${params.pageToken}/`
+  );
   addParam(url, params.categoryfilter, 'categoryfilter');
   addParam(url, params.includebody, 'includebody');
   return client.fetch({ method: 'GET', url });

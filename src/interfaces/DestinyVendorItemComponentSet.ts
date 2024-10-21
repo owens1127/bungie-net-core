@@ -14,61 +14,61 @@ import { DestinyItemPerksComponent } from '../models/Destiny/Entities/Items/Dest
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/DestinyVendorItemComponentSetOfint32} */
 
-export interface DestinyVendorItemComponentSet<T extends readonly DestinyComponentType[]> {
+export interface DestinyVendorItemComponentSet<K extends readonly DestinyComponentType[]> {
   readonly itemComponents: DictionaryComponentResponse<
     number,
     DestinyItemComponent,
-    T,
-    DestinyComponentType.ItemCommonData
+    'ItemCommonData',
+    K
   >;
   readonly instances: DictionaryComponentResponse<
     number,
     DestinyItemInstanceComponent,
-    T,
-    DestinyComponentType.ItemInstances
+    'ItemInstances',
+    K
   >;
   readonly renderData: DictionaryComponentResponse<
     number,
     DestinyItemRenderComponent,
-    T,
-    DestinyComponentType.ItemRenderData
+    'ItemRenderData',
+    K
   >;
-  readonly stats: DictionaryComponentResponse<number, DestinyItemStatsComponent, T, DestinyComponentType.ItemStats>;
+  readonly stats: DictionaryComponentResponse<number, DestinyItemStatsComponent, 'ItemStats', K>;
   readonly sockets: DictionaryComponentResponse<
     number,
     DestinyItemSocketsComponent,
-    T,
-    DestinyComponentType.ItemSockets
+    'ItemSockets',
+    K
   >;
   readonly reusablePlugs: DictionaryComponentResponse<
     number,
     DestinyItemReusablePlugsComponent,
-    T,
-    DestinyComponentType.ItemReusablePlugs
+    'ItemReusablePlugs',
+    K
   >;
   readonly plugObjectives: DictionaryComponentResponse<
     number,
     DestinyItemPlugObjectivesComponent,
-    T,
-    DestinyComponentType.ItemPlugObjectives
+    'ItemPlugObjectives',
+    K
   >;
   readonly talentGrids: DictionaryComponentResponse<
     number,
     DestinyItemTalentGridComponent,
-    T,
-    DestinyComponentType.ItemTalentGrids
+    'ItemTalentGrids',
+    K
   >;
   readonly plugStates: DictionaryComponentResponse<
     number,
     DestinyItemPlugComponent,
-    T,
-    DestinyComponentType.ItemPlugStates
+    'ItemPlugStates',
+    K
   >;
   readonly objectives: DictionaryComponentResponse<
     number,
     DestinyItemObjectivesComponent,
-    T,
-    DestinyComponentType.ItemObjectives
+    'ItemObjectives',
+    K
   >;
-  readonly perks: DictionaryComponentResponse<number, DestinyItemPerksComponent, T, DestinyComponentType.ItemPerks>;
+  readonly perks: DictionaryComponentResponse<number, DestinyItemPerksComponent, 'ItemPerks', K>;
 }

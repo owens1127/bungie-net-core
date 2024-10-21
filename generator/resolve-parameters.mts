@@ -10,7 +10,7 @@ export function resolveParamType(
   dependency: string[] | null
 ): string {
   if (isSchemaObject(schema) && 'x-destiny-component-type-dependency' in schema) {
-    dependency = [`DestinyComponentType.${schema['x-destiny-component-type-dependency']}`];
+    dependency = [`"${schema['x-destiny-component-type-dependency']}"`];
   }
 
   let module: DefinitionObject<any>['module'];
@@ -41,7 +41,7 @@ export function resolveParamType(
         ? resolveParamType(module.child, componentMap, importFiles, dependency)
         : null;
 
-      const args = _.compact([resolvedComponentName, 'T', ...(dependency ?? [])]);
+      const args = _.compact([resolvedComponentName, ...(dependency ?? []), 'T']);
 
       return module.parameterName(...args);
     case 'genericParams':
@@ -81,7 +81,12 @@ function findParamType(
         const key = isReferenceObject(keySchema)
           ? 'number'
           : resolveParamType(keySchema, componentMap, importFiles, dependency);
-        const val = resolveParamType(schema.additionalProperties, componentMap, importFiles, dependency);
+        const val = resolveParamType(
+          schema.additionalProperties,
+          componentMap,
+          importFiles,
+          dependency
+        );
         const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
         return `{ [${keyExp}]: ${val} }`;
       }

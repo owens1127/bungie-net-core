@@ -33,19 +33,21 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCharacterResponse}
  */
 
-export interface DestinyCharacterResponse<T extends readonly DestinyComponentType[]> {
+export interface DestinyCharacterResponse<
+  T extends readonly DestinyComponentType[] = DestinyComponentType[]
+> {
   /**
    * The character-level non-equipped inventory items.
    *
    * COMPONENT TYPE: CharacterInventories
    */
-  readonly inventory: SingleComponentResponse<DestinyInventoryComponent, T, DestinyComponentType.CharacterInventories>;
+  readonly inventory: SingleComponentResponse<DestinyInventoryComponent, 'CharacterInventories', T>;
   /**
    * Base information about the character in question.
    *
    * COMPONENT TYPE: Characters
    */
-  readonly character: SingleComponentResponse<DestinyCharacterComponent, T, DestinyComponentType.Characters>;
+  readonly character: SingleComponentResponse<DestinyCharacterComponent, 'Characters', T>;
   /**
    * Character progression data, including Milestones.
    *
@@ -53,8 +55,8 @@ export interface DestinyCharacterResponse<T extends readonly DestinyComponentTyp
    */
   readonly progressions: SingleComponentResponse<
     DestinyCharacterProgressionComponent,
-    T,
-    DestinyComponentType.CharacterProgressions
+    'CharacterProgressions',
+    T
   >;
   /**
    * Character rendering data - a minimal set of information about equipment and dyes
@@ -64,8 +66,8 @@ export interface DestinyCharacterResponse<T extends readonly DestinyComponentTyp
    */
   readonly renderData: SingleComponentResponse<
     DestinyCharacterRenderComponent,
-    T,
-    DestinyComponentType.CharacterRenderData
+    'CharacterRenderData',
+    T
   >;
   /**
    * Activity data - info about current activities available to the player.
@@ -74,27 +76,27 @@ export interface DestinyCharacterResponse<T extends readonly DestinyComponentTyp
    */
   readonly activities: SingleComponentResponse<
     DestinyCharacterActivitiesComponent,
-    T,
-    DestinyComponentType.CharacterActivities
+    'CharacterActivities',
+    T
   >;
   /**
    * Equipped items on the character.
    *
    * COMPONENT TYPE: CharacterEquipment
    */
-  readonly equipment: SingleComponentResponse<DestinyInventoryComponent, T, DestinyComponentType.CharacterEquipment>;
+  readonly equipment: SingleComponentResponse<DestinyInventoryComponent, 'CharacterEquipment', T>;
   /**
    * The loadouts available to the character.
    *
    * COMPONENT TYPE: CharacterLoadouts
    */
-  readonly loadouts: SingleComponentResponse<DestinyLoadoutsComponent, T, DestinyComponentType.CharacterLoadouts>;
+  readonly loadouts: SingleComponentResponse<DestinyLoadoutsComponent, 'CharacterLoadouts', T>;
   /**
    * Items available from Kiosks that are available to this specific character.
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly kiosks: SingleComponentResponse<DestinyKiosksComponent, T, DestinyComponentType.Kiosks>;
+  readonly kiosks: SingleComponentResponse<DestinyKiosksComponent, 'Kiosks', T>;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
    * info), this is the set of plugs and their states that are scoped to this
@@ -105,17 +107,17 @@ export interface DestinyCharacterResponse<T extends readonly DestinyComponentTyp
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly plugSets: SingleComponentResponse<DestinyPlugSetsComponent, T, DestinyComponentType.ItemSockets>;
+  readonly plugSets: SingleComponentResponse<DestinyPlugSetsComponent, 'ItemSockets', T>;
   /** COMPONENT TYPE: PresentationNodes */
   readonly presentationNodes: SingleComponentResponse<
     DestinyPresentationNodesComponent,
-    T,
-    DestinyComponentType.PresentationNodes
+    'PresentationNodes',
+    T
   >;
   /** COMPONENT TYPE: Records */
-  readonly records: SingleComponentResponse<DestinyCharacterRecordsComponent, T, DestinyComponentType.Records>;
+  readonly records: SingleComponentResponse<DestinyCharacterRecordsComponent, 'Records', T>;
   /** COMPONENT TYPE: Collectibles */
-  readonly collectibles: SingleComponentResponse<DestinyCollectiblesComponent, T, DestinyComponentType.Collectibles>;
+  readonly collectibles: SingleComponentResponse<DestinyCollectiblesComponent, 'Collectibles', T>;
   /**
    * The set of components belonging to the player's instanced items.
    *
@@ -139,7 +141,7 @@ export interface DestinyCharacterResponse<T extends readonly DestinyComponentTyp
    */
   readonly currencyLookups: SingleComponentResponse<
     DestinyCurrenciesComponent,
-    T,
-    DestinyComponentType.CurrencyLookups
+    'CurrencyLookups',
+    T
   >;
 }

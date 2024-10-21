@@ -30,7 +30,9 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyPublicVendorsResponse}
  */
 
-export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponentType[]> {
+export interface DestinyPublicVendorsResponse<
+  T extends readonly DestinyComponentType[] = DestinyComponentType[]
+> {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs
@@ -38,14 +40,14 @@ export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponen
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, T, DestinyComponentType.Vendors>;
+  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, 'Vendors', T>;
   /**
    * The base properties of the vendor. These are keyed by the Vendor Hash, so you
    * will get one Vendor Component per vendor returned.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendors: DictionaryComponentResponse<number, DestinyPublicVendorComponent, T, DestinyComponentType.Vendors>;
+  readonly vendors: DictionaryComponentResponse<number, DestinyPublicVendorComponent, 'Vendors', T>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    * These are keyed by the Vendor Hash, so you will get one Categories Component per
@@ -56,8 +58,8 @@ export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponen
   readonly categories: DictionaryComponentResponse<
     number,
     DestinyVendorCategoriesComponent,
-    T,
-    DestinyComponentType.VendorCategories
+    'VendorCategories',
+    T
   >;
   /**
    * Sales, keyed by the vendorItemIndex of the item being sold. These are keyed by
@@ -72,8 +74,8 @@ export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponen
   readonly sales: DictionaryComponentResponse<
     number,
     PublicDestinyVendorSaleItemSetComponent,
-    T,
-    DestinyComponentType.VendorSales
+    'VendorSales',
+    T
   >;
   /**
    * A set of string variable values by hash for a public vendors context.
@@ -82,7 +84,7 @@ export interface DestinyPublicVendorsResponse<T extends readonly DestinyComponen
    */
   readonly stringVariables: SingleComponentResponse<
     DestinyStringVariablesComponent,
-    T,
-    DestinyComponentType.StringVariables
+    'StringVariables',
+    T
   >;
 }

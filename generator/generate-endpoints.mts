@@ -1,4 +1,10 @@
-import { OpenAPIObject, ParameterLocation, ParameterObject, PathItemObject, isReferenceObject } from 'openapi3-ts';
+import {
+  OpenAPIObject,
+  ParameterLocation,
+  ParameterObject,
+  PathItemObject,
+  isReferenceObject
+} from 'openapi3-ts';
 import {
   camelCase,
   docComment,
@@ -33,7 +39,9 @@ export function generateEndpointFile(
   const definition = [
     generateHeader(doc),
     _.compact(
-      _.map(Array.from(importFiles.entries()), ([key, value]) => generateImports(filename, key, Array.from(value)))
+      _.map(Array.from(importFiles.entries()), ([key, value]) =>
+        generateImports(filename, key, Array.from(value))
+      )
     ).join('\n'),
     defs.join('\n\n')
   ].join('\n\n');
@@ -51,7 +59,10 @@ function generateEndpointDefinition(
   let server = doc.servers![0].url;
   // per https://github.com/Bungie-net/api/issues/853
   // strict condition, so no surprises if doc.servers changes
-  if (server === 'https://www.bungie.net/Platform' && route.includes('/Stats/PostGameCarnageReport/')) {
+  if (
+    server === 'https://www.bungie.net/Platform' &&
+    route.includes('/Stats/PostGameCarnageReport/')
+  ) {
     server = 'https://stats.bungie.net/Platform';
   }
   const name = _.last(pathDef.summary!.split('.'))!;
@@ -70,7 +81,9 @@ function generateEndpointDefinition(
     if (param.name === 'currentpage') param.in = 'query';
   });
 
-  const groupedParams = _.groupBy(params, param => param.in) as Partial<Record<ParameterLocation, ParameterObject[]>>;
+  const groupedParams = _.groupBy(params, param => param.in) as Partial<
+    Record<ParameterLocation, ParameterObject[]>
+  >;
 
   const args = ['client: BungieClientProtocol'];
 
@@ -83,9 +96,13 @@ function generateEndpointDefinition(
       const schema = methodDef.requestBody.content['application/json'].schema!;
 
       const paramType = resolveParamType(schema, components, importFiles, null);
-      const docString = methodDef.requestBody.description ? docComment(methodDef.requestBody.description) + '\n' : '';
+      const docString = methodDef.requestBody.description
+        ? docComment(methodDef.requestBody.description) + '\n'
+        : '';
 
-      args.push(docString + 'body' + (methodDef.requestBody.required ? '' : '?') + `: ${paramType}`);
+      args.push(
+        docString + 'body' + (methodDef.requestBody.required ? '' : '?') + `: ${paramType}`
+      );
     } else if (isReferenceObject(methodDef.requestBody)) {
       throw new Error("didn't expect this");
     }
@@ -123,7 +140,7 @@ function generateEndpointDefinition(
   const docs = docComment(methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [link]);
 
   const generic = hasComponentResponse
-    ? '<T extends readonly DestinyComponentType[]>'
+    ? '<K extends readonly DestinyComponentType[]>'
     : getEntity
     ? '<T extends keyof AllManifestComponents>'
     : '';
@@ -131,13 +148,17 @@ function generateEndpointDefinition(
   const fetchArgs = _.compact([
     `method: '${method}'`,
     'url',
-    requestBodyString ? [`${requestBodyString}`, 'headers: { "Content-Type": "application/json" }'].join(',\n') : null
+    requestBodyString
+      ? [`${requestBodyString}`, 'headers: { "Content-Type": "application/json" }'].join(',\n')
+      : null
   ]);
 
   const functionBody = [urlString, `return client.fetch({${fetchArgs.join(',\n')}})`].join('\n');
 
   const definition = [
-    `export async function ${camelCase(name)}${generic}(${args.join(', ')}): Promise<${responseType}> {`,
+    `export async function ${camelCase(name)}${generic}(${args.join(
+      ', '
+    )}): Promise<${responseType}> {`,
     functionBody,
     '}'
   ].join('\n');
@@ -156,10 +177,12 @@ function generateParamsType(
 
     const isComponent = param.name === 'components' && paramType === 'DestinyComponentType[]';
     if (isComponent) {
-      paramType = '[...T]';
+      paramType = '[...K]';
     }
 
-    return docString + param.name + (!param.required && !isComponent ? '?' : '') + `: ${paramType};`;
+    return (
+      docString + param.name + (!param.required && !isComponent ? '?' : '') + `: ${paramType};`
+    );
   });
 
   return '{\n' + indent(parameterArgs.join('\n'), 1) + '\n}';

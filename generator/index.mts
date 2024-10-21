@@ -21,7 +21,9 @@ import { createTree } from './parse-schema-tree.mjs';
   const componentMap = createTree(paths, doc);
 
   const definitionsByFile = _.groupBy(Array.from(componentMap.values()), def =>
-    def.module.type === 'normal' || def.module.type === 'genericParams' || def.module.type === 'enum'
+    def.module.type === 'normal' ||
+    def.module.type === 'genericParams' ||
+    def.module.type === 'enum'
       ? def.module.fileName
       : ''
   );

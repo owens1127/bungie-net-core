@@ -26,7 +26,9 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorsResponse}
  */
 
-export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[]> {
+export interface DestinyVendorsResponse<
+  T extends readonly DestinyComponentType[] = DestinyComponentType[]
+> {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs
@@ -34,14 +36,14 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, T, DestinyComponentType.Vendors>;
+  readonly vendorGroups: SingleComponentResponse<DestinyVendorGroupComponent, 'Vendors', T>;
   /**
    * The base properties of the vendor. These are keyed by the Vendor Hash, so you
    * will get one Vendor Component per vendor returned.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendors: DictionaryComponentResponse<number, DestinyVendorComponent, T, DestinyComponentType.Vendors>;
+  readonly vendors: DictionaryComponentResponse<number, DestinyVendorComponent, 'Vendors', T>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    * These are keyed by the Vendor Hash, so you will get one Categories Component per
@@ -52,8 +54,8 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
   readonly categories: DictionaryComponentResponse<
     number,
     DestinyVendorCategoriesComponent,
-    T,
-    DestinyComponentType.VendorCategories
+    'VendorCategories',
+    T
   >;
   /**
    * Sales, keyed by the vendorItemIndex of the item being sold. These are keyed by
@@ -68,8 +70,8 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
   readonly sales: DictionaryComponentResponse<
     number,
     PersonalDestinyVendorSaleItemSetComponent,
-    T,
-    DestinyComponentType.VendorSales
+    'VendorSales',
+    T
   >;
   /**
    * The set of item detail components, one set of item components per Vendor. These
@@ -80,7 +82,7 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    * will have whatever item-level components you requested (Sockets, Stats, Instance
    * data etc...) per item being sold by the vendor.
    */
-  readonly itemComponents: { [key: number]: DestinyVendorItemComponentSet<number, T> };
+  readonly itemComponents: { [key: number]: DestinyVendorItemComponentSet<T> };
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.
@@ -89,8 +91,8 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    */
   readonly currencyLookups: SingleComponentResponse<
     DestinyCurrenciesComponent,
-    T,
-    DestinyComponentType.CurrencyLookups
+    'CurrencyLookups',
+    T
   >;
   /**
    * A map of string variable values by hash for this character context.
@@ -99,7 +101,7 @@ export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[
    */
   readonly stringVariables: SingleComponentResponse<
     DestinyStringVariablesComponent,
-    T,
-    DestinyComponentType.StringVariables
+    'StringVariables',
+    T
   >;
 }

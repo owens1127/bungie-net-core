@@ -50,7 +50,9 @@ export async function getSanitizedPlatformDisplayNames(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<{ [key in BungieCredentialType]: string }>> {
-  const url = new URL(`https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/GetSanitizedPlatformDisplayNames/${params.membershipId}/`
+  );
   return client.fetch({ method: 'GET', url });
 }
 
@@ -75,7 +77,9 @@ export async function getCredentialTypesForTargetAccount(
  * Returns a list of all available user themes.
  * @see {@link https://bungie-net.github.io/#User.GetAvailableThemes}
  */
-export async function getAvailableThemes(client: BungieClientProtocol): Promise<BungieNetResponse<UserTheme[]>> {
+export async function getAvailableThemes(
+  client: BungieClientProtocol
+): Promise<BungieNetResponse<UserTheme[]>> {
   const url = new URL(`https://www.bungie.net/Platform/User/GetAvailableThemes/`);
   return client.fetch({ method: 'GET', url });
 }
@@ -146,7 +150,9 @@ export async function searchByGlobalNamePrefix(
     page: number;
   }
 ): Promise<BungieNetResponse<UserSearchResponse>> {
-  const url = new URL(`https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/User/Search/Prefix/${params.displayNamePrefix}/${params.page}/`
+  );
   return client.fetch({ method: 'GET', url });
 }
 

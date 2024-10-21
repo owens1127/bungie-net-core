@@ -25,13 +25,15 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorResponse}
  */
 
-export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]> {
+export interface DestinyVendorResponse<
+  T extends readonly DestinyComponentType[] = DestinyComponentType[]
+> {
   /**
    * The base properties of the vendor.
    *
    * COMPONENT TYPE: Vendors
    */
-  readonly vendor: SingleComponentResponse<DestinyVendorComponent, T, DestinyComponentType.Vendors>;
+  readonly vendor: SingleComponentResponse<DestinyVendorComponent, 'Vendors', T>;
   /**
    * Categories that the vendor has available, and references to the sales therein.
    *
@@ -39,8 +41,8 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
    */
   readonly categories: SingleComponentResponse<
     DestinyVendorCategoriesComponent,
-    T,
-    DestinyComponentType.VendorCategories
+    'VendorCategories',
+    T
   >;
   /**
    * Sales, keyed by the vendorItemIndex of the item being sold.
@@ -50,8 +52,8 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
   readonly sales: DictionaryComponentResponse<
     number,
     DestinyVendorSaleItemComponent,
-    T,
-    DestinyComponentType.VendorSales
+    'VendorSales',
+    T
   >;
   /**
    * Item components, keyed by the vendorItemIndex of the active sale items.
@@ -59,7 +61,7 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
    * COMPONENT TYPE: [See inside the DestinyVendorItemComponentSet contract for
    * component types.]
    */
-  readonly itemComponents: DestinyVendorItemComponentSet<number, T>;
+  readonly itemComponents: DestinyVendorItemComponentSet<T>;
   /**
    * A "lookup" convenience component that can be used to quickly check if the
    * character has access to items that can be used for purchasing.
@@ -68,8 +70,8 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
    */
   readonly currencyLookups: SingleComponentResponse<
     DestinyCurrenciesComponent,
-    T,
-    DestinyComponentType.CurrencyLookups
+    'CurrencyLookups',
+    T
   >;
   /**
    * A map of string variable values by hash for this character context.
@@ -78,7 +80,7 @@ export interface DestinyVendorResponse<T extends readonly DestinyComponentType[]
    */
   readonly stringVariables: SingleComponentResponse<
     DestinyStringVariablesComponent,
-    T,
-    DestinyComponentType.StringVariables
+    'StringVariables',
+    T
   >;
 }

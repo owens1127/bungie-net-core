@@ -183,7 +183,9 @@ export async function getListing(
     listingId: string;
   }
 ): Promise<BungieNetResponse<DestinyFireteamFinderListing>> {
-  const url = new URL(`https://www.bungie.net/Platform/FireteamFinder/Listing/${params.listingId}/`);
+  const url = new URL(
+    `https://www.bungie.net/Platform/FireteamFinder/Listing/${params.listingId}/`
+  );
   return client.fetch({ method: 'GET', url });
 }
 

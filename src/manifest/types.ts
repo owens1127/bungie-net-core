@@ -165,7 +165,9 @@ export type AllManifestComponents = {
   DestinyUnlockEventDefinition: DestinyDefinition<unknown>;
   DestinyUnlockExpressionMappingDefinition: DestinyDefinition<unknown>;
   DestinyGlobalConstantsDefinition: DestinyDefinition<unknown>;
-  DestinyInventoryItemLiteDefinition: DestinyDefinition<DestinyInventoryItemDefinition> & { hash: never };
+  DestinyInventoryItemLiteDefinition: DestinyDefinition<DestinyInventoryItemDefinition> & {
+    hash: never;
+  };
 };
 
 export type ManifestLanguage =
