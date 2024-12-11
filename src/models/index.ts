@@ -537,6 +537,7 @@ export { DestinyItemPlugComponent } from './Destiny/Components/Items/DestinyItem
 export { DestinyCurrenciesComponent } from './Destiny/Components/Inventory/DestinyCurrenciesComponent';
 export { DestinyMaterialRequirementSetState } from './Destiny/Components/Inventory/DestinyMaterialRequirementSetState';
 export { DestinyMaterialRequirementState } from './Destiny/Components/Inventory/DestinyMaterialRequirementState';
+export { DestinyCharacterResponse } from './Destiny/Responses/DestinyCharacterResponse';
 export { ClanBannerSource } from './Config/ClanBanner/ClanBannerSource';
 export { DestinyItemResponse } from './Destiny/Responses/DestinyItemResponse';
 export { DestinyVendorsResponse } from './Destiny/Responses/DestinyVendorsResponse';
