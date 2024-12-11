@@ -13,13 +13,13 @@ export interface DefinitionObject<T extends DefintionType = 'normal' | 'genericP
     : T extends 'normal'
     ? {
         type: 'normal';
-        name: string;
+        importName: string;
         fileName: string;
       }
     : T extends 'enum'
     ? {
         type: 'enum';
-        name: string;
+        importName: string;
         fileName: string;
         enumFile: string;
       }
@@ -48,6 +48,7 @@ export interface DefinitionObject<T extends DefintionType = 'normal' | 'genericP
 export const DictionaryComponentPattern = /DictionaryComponentResponseOf(\w+)And(\w+)$/;
 export const SingleComponentPattern = /SingleComponentResponseOf(\w+)/;
 export const ItemComponentSetPattern = /DestinyItemComponentSetOf(\w+)/;
+export const DestinyVendorItemComponentSetPattern = /DestinyVendorItemComponentSetOf(\w+)/;
 export const BaseItemComponentSetPattern = /DestinyBaseItemComponentSetOf(\w+)/;
 
 export enum ServiceInterfaces {
@@ -55,6 +56,7 @@ export enum ServiceInterfaces {
   DictionaryComponent = 'DictionaryComponentResponse',
   SingleComponent = 'SingleComponentResponse',
   ItemComponentSet = 'DestinyItemComponentSet',
+  VendorItemComponentSet = 'DestinyVendorItemComponentSet',
   BaseItemComponentSet = 'DestinyBaseItemComponentSet',
   ResponseComponent = 'ResponseComponent',
   DestinyDefinition = 'DestinyDefinition'

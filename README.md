@@ -10,49 +10,51 @@ npm i bungie-net-core
 
 ## Example Usage
 
+This http method is used for makingrequests to the Bungie Platform API
+
 ```typescript
-import { BungieClientProtocol } from 'bungie-net-core';
+import { BungieHttpProtocol } from 'bungie-net-core';
 import { getProfile } from 'bungie-net-core/services/Destiny2';
-import { BungieMembershipType, DestinyComponentType, PlatformErrorCodes } from 'bungie-net-core/enums';
 
-class BungieClient implements BungieClientProtocol {
-  // while not required, sometimes you will need an access_token for priviledged routes
-  private access_token: undefined | string;
+const bungiePlatformHttp: BungieHttpProtocol = async config => {
+  const headers = new Headers({
+    'X-API-KEY': process.env.BUNGIE_API_KEY!
+  });
 
-  // this method is required
-  async fetch<T>(config: BungieFetchConfig): Promise<T> {
-    const apiKey = process.env.BUNGIE_API_KEY!;
-
-    const headers: Record<string, string> = {
-      ...config.headers,
-      // we must provide the API key in the headers
-      'X-API-KEY': apiKey
-    };
-
-    // attach the acces_token if we have it as a Bearer token
-    if (this.access_token) {
-      headers['Authorization'] = `Bearer ${this.access_token}`;
-    }
-
-    const payload = {
-      method: config.method,
-      body: config.body,
-      headers
-    };
-
-    const res = await fetch(config.url, payload);
-    const data = await res.json();
-    if (!res.ok) {
-      throw data
-    }
-    return data as T;
+  let body;
+  if (config.contentType === 'application/json') {
+    headers.set('Content-Type', config.contentType);
+    body = JSON.stringify(config.body);
   }
 
-const client = new BungieClient();
+  // implement how you like
+  // headers.set('Authorization', `Bearer ${access_token}`);
 
-getProfile(client, {
-  components: [DestinyComponentType.CharacterInventories],
+  const url = config.baseUrl + (config.searchParams ? '?' + config.searchParams.toString() : '');
+
+  const payload = {
+    method: config.method,
+    body,
+    headers
+  };
+
+  const res = await fetch(url, payload);
+  if (!res.ok) {
+    // Your choice here
+    throw new Error(res.statusText);
+  }
+
+  if (res.headers.get('Content-Type')?.includes('application/json')) {
+    return await res.json();
+  } else {
+    // Your choice here
+    throw new Error('Response was not JSON');
+  }
+};
+
+getProfile(bungiePlatformHttp, {
+  components: ['CharacterInventories'],
   destinyMembershipId: '4611741274194011',
-  membershipType: BungieMembershipType.TigerPsn
+  membershipType: 3
 });
 ```

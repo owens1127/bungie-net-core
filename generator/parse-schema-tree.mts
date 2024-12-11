@@ -4,6 +4,7 @@ import {
   DefinitionObject,
   DestinyComponentTypeEnumComponent,
   DestinyDefinitionModel,
+  DestinyVendorItemComponentSetPattern,
   DictionaryComponentPattern,
   ItemComponentSetPattern,
   ServiceInterfaces,
@@ -18,7 +19,7 @@ export function createTree(paths: [string, PathItemObject][], doc: OpenAPIObject
   //   const componentsByTag = new Map<string, string[]>();
   const components = findReachableComponents(paths, doc);
 
-  const componentDefinitions: Map<string, DefinitionObject<any>> = new Map();
+  const componentDefinitions = new Map<string, DefinitionObject<any>>();
 
   Array.from(components).forEach(component => {
     componentDefinitions.set(component, getDefinition(component, getTags(paths[1]), doc));
@@ -110,12 +111,12 @@ function getDefinition(component: string, tags: Set<string>, doc: OpenAPIObject)
     tags,
     component,
     ref,
-    module: filesFor(component, doc, ref, data),
+    module: getModule(component, doc, ref, data),
     data
   };
 }
 
-function filesFor(
+function getModule(
   component: string,
   doc: OpenAPIObject,
   ref: SchemaObject,
@@ -146,12 +147,11 @@ function filesFor(
   if (isEnum(component, doc)) {
     return {
       type: 'enum',
-      name: componentName,
+      importName: componentName,
       fileName: `./models/${pathToDefinition}`,
       enumFile: `./enums/${pathToDefinition}`
     };
   }
-
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
     const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
@@ -188,6 +188,16 @@ function filesFor(
     };
   }
 
+  const vendorItemComponentSetMatch = component.match(DestinyVendorItemComponentSetPattern);
+  if (vendorItemComponentSetMatch) {
+    return {
+      type: 'appliedToInterface',
+      parameterName: (...args) => `${ServiceInterfaces.VendorItemComponentSet}<${args[0]}>`,
+      interface: ServiceInterfaces.VendorItemComponentSet,
+      child: null
+    };
+  }
+
   const baseItemComponentSetMatch = component.match(BaseItemComponentSetPattern);
   if (baseItemComponentSetMatch) {
     return {
@@ -202,7 +212,7 @@ function filesFor(
     return {
       type: 'genericParams',
       interfaceName: `${componentName}<T extends readonly DestinyComponentType[]>`,
-      parameterName: componentName + `<T>`,
+      parameterName: componentName + `<K>`,
       importName: componentName,
       fileName: `./models/${pathToDefinition}`,
       interfaces: [],
@@ -221,7 +231,7 @@ function filesFor(
 
   return {
     type: 'normal',
-    name: componentName,
+    importName: componentName,
     fileName: `./models/${pathToDefinition}`
   };
 }

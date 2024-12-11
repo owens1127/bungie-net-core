@@ -31,7 +31,9 @@ export const getMembershipDataForCurrentUserTests: EndpointTestSuite<typeof getM
   endpoint: getMembershipDataForCurrentUser,
   cases: []
 };
-export const getMembershipFromHardLinkedCredentialTests: EndpointTestSuite<typeof getMembershipFromHardLinkedCredential> = {
+export const getMembershipFromHardLinkedCredentialTests: EndpointTestSuite<
+  typeof getMembershipFromHardLinkedCredential
+> = {
   endpoint: getMembershipFromHardLinkedCredential,
   cases: []
 };

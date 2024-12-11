@@ -10,15 +10,11 @@ import {
   removeFriendRequest
 } from '../../src/endpoints/Social';
 
-export const acceptFriendRequestTests: EndpointTestSuite<
-  typeof acceptFriendRequest
-> = {
+export const acceptFriendRequestTests: EndpointTestSuite<typeof acceptFriendRequest> = {
   endpoint: acceptFriendRequest,
   cases: []
 };
-export const declineFriendRequestTests: EndpointTestSuite<
-  typeof declineFriendRequest
-> = {
+export const declineFriendRequestTests: EndpointTestSuite<typeof declineFriendRequest> = {
   endpoint: declineFriendRequest,
   cases: []
 };
@@ -26,21 +22,15 @@ export const getFriendListTests: EndpointTestSuite<typeof getFriendList> = {
   endpoint: getFriendList,
   cases: []
 };
-export const getFriendRequestListTests: EndpointTestSuite<
-  typeof getFriendRequestList
-> = {
+export const getFriendRequestListTests: EndpointTestSuite<typeof getFriendRequestList> = {
   endpoint: getFriendRequestList,
   cases: []
 };
-export const getPlatformFriendListTests: EndpointTestSuite<
-  typeof getPlatformFriendList
-> = {
+export const getPlatformFriendListTests: EndpointTestSuite<typeof getPlatformFriendList> = {
   endpoint: getPlatformFriendList,
   cases: []
 };
-export const issueFriendRequestTests: EndpointTestSuite<
-  typeof issueFriendRequest
-> = {
+export const issueFriendRequestTests: EndpointTestSuite<typeof issueFriendRequest> = {
   endpoint: issueFriendRequest,
   cases: []
 };
@@ -48,9 +38,7 @@ export const removeFriendTests: EndpointTestSuite<typeof removeFriend> = {
   endpoint: removeFriend,
   cases: []
 };
-export const removeFriendRequestTests: EndpointTestSuite<
-  typeof removeFriendRequest
-> = {
+export const removeFriendRequestTests: EndpointTestSuite<typeof removeFriendRequest> = {
   endpoint: removeFriendRequest,
   cases: []
 };

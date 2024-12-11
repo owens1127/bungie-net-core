@@ -9,8 +9,8 @@ export function resolveParamType(
   importFiles: Map<string, Set<string>>,
   dependency: string[] | null
 ): string {
-  if (isSchemaObject(schema) && schema['x-destiny-component-type-dependency']) {
-    dependency = [`DestinyComponentType.${schema['x-destiny-component-type-dependency']}`];
+  if (isSchemaObject(schema) && 'x-destiny-component-type-dependency' in schema) {
+    dependency = [`"${schema['x-destiny-component-type-dependency']}"`];
   }
 
   let module: DefinitionObject<any>['module'];
@@ -29,18 +29,20 @@ export function resolveParamType(
       throw Error('primtive value');
     case 'enum':
     case 'normal':
-      addValue(importFiles, module.fileName, module.name);
-      return module.name;
+      addValue(importFiles, module.fileName, module.importName);
+      return module.importName;
     case 'normal':
-      addValue(importFiles, module.fileName, module.name);
-      return module.name;
+      addValue(importFiles, module.fileName, module.importName);
+      return module.importName;
     case 'appliedToInterface':
       importInterface(module.interface, importFiles);
 
       const resolvedComponentName = module.child
         ? resolveParamType(module.child, componentMap, importFiles, dependency)
         : null;
-      const args = _.compact([resolvedComponentName, 'T', ...(dependency ?? [])]);
+
+      const args = _.compact([resolvedComponentName, ...(dependency ?? []), 'T']);
+
       return module.parameterName(...args);
     case 'genericParams':
       addValue(importFiles, module.fileName, module.importName);

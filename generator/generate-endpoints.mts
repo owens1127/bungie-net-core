@@ -72,12 +72,13 @@ function generateEndpointDefinition(
 
   const groupedParams = _.groupBy(params, param => param.in) as Partial<Record<ParameterLocation, ParameterObject[]>>;
 
-  const args = ['client: BungieClientProtocol'];
+  const args = ['http: BungieHttpProtocol'];
 
   if (params.length) {
     args.push(`params: ${generateParamsType(params, components, importFiles)}`);
   }
 
+  const httpGenericArgs: string[] = [];
   if (methodDef.requestBody) {
     if (isRequestBodyObject(methodDef.requestBody)) {
       const schema = methodDef.requestBody.content['application/json'].schema!;
@@ -86,11 +87,12 @@ function generateEndpointDefinition(
       const docString = methodDef.requestBody.description ? docComment(methodDef.requestBody.description) + '\n' : '';
 
       args.push(docString + 'body' + (methodDef.requestBody.required ? '' : '?') + `: ${paramType}`);
+      httpGenericArgs.push(paramType);
     } else if (isReferenceObject(methodDef.requestBody)) {
       throw new Error("didn't expect this");
     }
   }
-  addValue(importFiles, './', 'BungieClientProtocol');
+  addValue(importFiles, './', 'BungieHttpProtocol');
   importInterface(ServiceInterfaces.BungieResponse, importFiles);
 
   const hasComponentResponse = !!groupedParams.query?.some(param => param.name === 'components');
@@ -100,41 +102,39 @@ function generateEndpointDefinition(
     addValue(importFiles, './manifest/types', 'AllManifestComponents');
   }
 
-  const paramInitializers = groupedParams.query?.map(param => {
-    return `addParam(url, params.${param.name}, '${param.name}')`;
-  });
-  const searchParamsString = paramInitializers?.join('\n') ?? '';
-  if (searchParamsString) addValue(importFiles, './util', 'addParam');
-
-  const urlString = _.compact([
-    'const url = new URL(`' +
+  const urlString = [
+    'const baseUrl = `' +
       (route.includes('{') ? `${server}${route.replace(/{/g, '${params.')}` : `${server}${route}`) +
-      '`)',
-    searchParamsString
-  ]).join('\n');
-
-  let requestBodyString = '';
-  if (methodDef.requestBody && isRequestBodyObject(methodDef.requestBody)) {
-    requestBodyString = 'body: JSON.stringify(body)';
-  }
+      '`',
+    `const searchParams = ${groupedParams.query ? 'new URLSearchParams()' : 'undefined'}`,
+    ...(groupedParams.query || []).map(param => {
+      return `if (params.${param.name} !== undefined) searchParams.append('${param.name}', params.${param.name}.toString())`;
+    })
+  ].join('\n');
 
   const responseType = resolveParamType(methodDef.responses['200'], components, importFiles, null);
+  httpGenericArgs.unshift(responseType);
 
   const docs = docComment(methodDef.description! + (rateDoc ? '\n' + rateDoc : ''), [link]);
 
   const generic = hasComponentResponse
-    ? '<T extends readonly DestinyComponentType[]>'
+    ? '<K extends readonly DestinyComponentType[]>'
     : getEntity
     ? '<T extends keyof AllManifestComponents>'
     : '';
 
-  const fetchArgs = _.compact([
+  const fetchArgs = [
     `method: '${method}'`,
-    'url',
-    requestBodyString ? [`${requestBodyString}`, 'headers: { "Content-Type": "application/json" }'].join(',\n') : null
-  ]);
+    'baseUrl',
+    'searchParams',
+    ...(methodDef.requestBody && isRequestBodyObject(methodDef.requestBody)
+      ? ['body', 'contentType: "application/json"']
+      : ['body: undefined'])
+  ];
 
-  const functionBody = [urlString, `return client.fetch({${fetchArgs.join(',\n')}})`].join('\n');
+  const functionBody = [urlString, `return await http<${httpGenericArgs.join(', ')}>({${fetchArgs.join(',\n')}})`].join(
+    '\n'
+  );
 
   const definition = [
     `export async function ${camelCase(name)}${generic}(${args.join(', ')}): Promise<${responseType}> {`,
@@ -156,7 +156,7 @@ function generateParamsType(
 
     const isComponent = param.name === 'components' && paramType === 'DestinyComponentType[]';
     if (isComponent) {
-      paramType = '[...T]';
+      paramType = '[...K]';
     }
 
     return docString + param.name + (!param.required && !isComponent ? '?' : '') + `: ${paramType};`;

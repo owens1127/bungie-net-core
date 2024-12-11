@@ -1,21 +1,13 @@
 /**
- * Represents an object to make a Bungie API request with
+ * Represents a method that can be used to make a request to the Bungie API.
  */
-export type BungieFetchConfig = {
-  url: URL;
-  method: string;
-  headers?: Record<string, string>;
-  body?: any;
-};
-
-/**
- * A client for interacting with the Bungie.net API.
- * Implementing this protocol will allow you to interface with the methods
- * provided in this package.
- */
-export interface BungieClientProtocol {
-  fetch<T>(config: BungieFetchConfig): Promise<T>;
-}
+export type BungieHttpProtocol = <R, B = unknown>(config: {
+  baseUrl: string;
+  searchParams?: URLSearchParams;
+  method: 'GET' | 'POST';
+  body?: B;
+  contentType?: 'application/json' | 'application/x-www-form-urlencoded';
+}) => Promise<R>;
 
 export * as App from './endpoints/App';
 export * as CommunityContent from './endpoints/CommunityContent';

@@ -12,25 +12,25 @@ export async function generateManifestTypes(defs: DefinitionObject<'normal'>[], 
 
   const jsonKeys = Object.keys(manifest.jsonWorldComponentContentPaths.en);
   // exclude some tables from the definitionmanifest table because we don't have the format for them
-  const defsToInclude = defs.filter(def => jsonKeys.includes(def.module.name));
+  const defsToInclude = defs.filter(def => jsonKeys.includes(def.module.importName));
 
   const languageList = Object.keys(manifest.jsonWorldComponentContentPaths).sort();
 
   const imports = _.compact(
-    defsToInclude.map(def => generateImports(typesFile, def.module.fileName, [def.module.name]))
+    defsToInclude.map(def => generateImports(typesFile, def.module.fileName, [def.module.importName]))
   );
 
   imports.push(`import { DestinyDefinition } from '../interfaces';`);
 
   // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
-  const extraJsonKeys = jsonKeys.filter(key => !defsToInclude.map(d => d.module.name).includes(key));
+  const extraJsonKeys = jsonKeys.filter(key => !defsToInclude.map(d => d.module.importName).includes(key));
 
   // fun!
   extraJsonKeys.splice(extraJsonKeys.indexOf('DestinyInventoryItemLiteDefinition'), 1);
 
   const allManifestComponentsType = [
     `export type AllManifestComponents = {`,
-    defsToInclude.map(d => `'${d.module.name}': ${d.module.name};`).join('\n'),
+    defsToInclude.map(d => `'${d.module.importName}': ${d.module.importName};`).join('\n'),
     extraJsonKeys.map(k => `'${k}': DestinyDefinition<unknown>;`).join('\n'),
     "'DestinyInventoryItemLiteDefinition': DestinyDefinition<DestinyInventoryItemDefinition> & { hash: never } ;",
     '}'

@@ -416,7 +416,7 @@ export { ItemBindStatus } from './Destiny/ItemBindStatus';
 export { TransferStatuses } from './Destiny/TransferStatuses';
 export { DestinyObjectiveProgress } from './Destiny/Quests/DestinyObjectiveProgress';
 export { DestinyErrorProfile } from './Destiny/Responses/DestinyErrorProfile';
-
+export { DestinyProfileResponse } from './Destiny/Responses/DestinyProfileResponse';
 export { DestinyVendorReceiptsComponent } from './Destiny/Entities/Profiles/DestinyVendorReceiptsComponent';
 export { DestinyVendorReceipt } from './Destiny/Vendors/DestinyVendorReceipt';
 export { ComponentPrivacySetting } from './Components/ComponentPrivacySetting';
@@ -537,9 +537,10 @@ export { DestinyItemPlugComponent } from './Destiny/Components/Items/DestinyItem
 export { DestinyCurrenciesComponent } from './Destiny/Components/Inventory/DestinyCurrenciesComponent';
 export { DestinyMaterialRequirementSetState } from './Destiny/Components/Inventory/DestinyMaterialRequirementSetState';
 export { DestinyMaterialRequirementState } from './Destiny/Components/Inventory/DestinyMaterialRequirementState';
-
+export { DestinyCharacterResponse } from './Destiny/Responses/DestinyCharacterResponse';
 export { ClanBannerSource } from './Config/ClanBanner/ClanBannerSource';
-
+export { DestinyItemResponse } from './Destiny/Responses/DestinyItemResponse';
+export { DestinyVendorsResponse } from './Destiny/Responses/DestinyVendorsResponse';
 export { DestinyVendorGroupComponent } from './Destiny/Components/Vendors/DestinyVendorGroupComponent';
 export { DestinyVendorGroup } from './Destiny/Components/Vendors/DestinyVendorGroup';
 export { DestinyVendorComponent } from './Destiny/Entities/Vendors/DestinyVendorComponent';
@@ -550,11 +551,12 @@ export { DestinyVendorSaleItemComponent } from './Destiny/Entities/Vendors/Desti
 export { VendorItemStatus } from './Destiny/VendorItemStatus';
 export { DestinyUnlockStatus } from './Destiny/DestinyUnlockStatus';
 export { DestinyVendorItemState } from './Destiny/DestinyVendorItemState';
-
+export { DestinyVendorResponse } from './Destiny/Responses/DestinyVendorResponse';
+export { DestinyPublicVendorsResponse } from './Destiny/Responses/DestinyPublicVendorsResponse';
 export { DestinyPublicVendorComponent } from './Destiny/Components/Vendors/DestinyPublicVendorComponent';
 export { PublicDestinyVendorSaleItemSetComponent } from './Destiny/Responses/PublicDestinyVendorSaleItemSetComponent';
 export { DestinyPublicVendorSaleItemComponent } from './Destiny/Components/Vendors/DestinyPublicVendorSaleItemComponent';
-
+export { DestinyCollectibleNodeDetailResponse } from './Destiny/Responses/DestinyCollectibleNodeDetailResponse';
 export { DestinyEquipItemResults } from './Destiny/DestinyEquipItemResults';
 export { DestinyEquipItemResult } from './Destiny/DestinyEquipItemResult';
 export { DestinyInsertPlugsRequestEntry } from './Destiny/Requests/Actions/DestinyInsertPlugsRequestEntry';

@@ -1,6 +1,6 @@
 {
   "name": "bungie-net-core",
-  "version": "2.1.4",
+  "version": "3.0.0",
   "author": "Owen Simpson",
   "homepage": "https://github.com/owensimpson/bungie-net-core",
   "description": "An easy way to interact with the Bungie.net API",
@@ -49,7 +49,7 @@
     "build": "sh ./build.sh",
     "rebuild": "npm run sync && npm run build",
     "generate": "sh ./generate.sh",
-    "format": "prettier --config .prettierrc '{generator,src,test}/**/*.ts' --write",
+    "format": "prettier --config .prettierrc '{generator,src,__test__}/**/*.ts' --write",
     "lint": "tslint -p tsconfig.json",
     "test": "jest",
     "checks": "npm run lint && npm test",

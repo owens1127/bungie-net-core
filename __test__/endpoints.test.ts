@@ -1,4 +1,3 @@
-import { BungieClientProtocol } from '../src';
 import { BungieNetResponse } from '../src/interfaces/BungieNetResponse';
 import { BungieAPIError, sharedTestClient } from './global-setup';
 import * as App from './endpoints/App';
@@ -12,6 +11,7 @@ import * as GroupV2 from './endpoints/GroupV2';
 import * as Social from './endpoints/Social';
 import * as Tokens from './endpoints/Tokens';
 import * as Trending from './endpoints/Trending';
+import { BungieHttpProtocol } from '../src';
 
 const allImports = [
   App,
@@ -27,35 +27,22 @@ const allImports = [
   Trending
 ] as Record<string, EndpointTestSuite>[];
 
-allImports.forEach(imprt =>
-  Object.entries(imprt).forEach(([key, suite]) => performTests(key, suite))
-);
+allImports.forEach(imprt => Object.entries(imprt).forEach(([key, suite]) => performTests(key, suite)));
 
-type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U>
-  ? U
-  : never;
+type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
 
-type ResponseType<T extends (...args: any) => any> = UnwrapPromise<
-  ReturnType<T>
->;
+type ResponseType<T extends (...args: any) => any> = UnwrapPromise<ReturnType<T>>;
 
 export type EndpointTestSuite<
-  E extends (
-    client: BungieClientProtocol,
-    ...args: any[]
-  ) => Promise<BungieNetResponse<any>> = (
-    client: BungieClientProtocol,
+  E extends (http: BungieHttpProtocol, ...args: any[]) => Promise<BungieNetResponse<any>> = (
+    http: BungieHttpProtocol,
     ...args: any[]
   ) => Promise<BungieNetResponse<any>>
 > = {
   endpoint: E;
   cases: {
     name: string;
-    data: Parameters<E> extends [infer _Client, ...infer Data]
-      ? Data extends never[]
-        ? None
-        : Data
-      : None;
+    data: Parameters<E> extends [infer _Client, ...infer Data] ? (Data extends never[] ? None : Data) : None;
     promise: {
       success?: (res: UnwrapPromise<ReturnType<E>>) => void;
       failure?: (e: BungieAPIError<ReturnType<E>>) => void;
@@ -73,7 +60,7 @@ function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
 
         beforeAll(async () => {
           try {
-            res = await endpoint(sharedTestClient, data?.[0], data?.[1]);
+            res = await endpoint(sharedTestClient.http, data?.[0], data?.[1]);
           } catch (e) {
             err = e;
           }
@@ -99,9 +86,7 @@ function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
             expect(err).toHaveProperty('ErrorCode');
           });
           test('it throws the correct error', () =>
-            failure!(
-              new BungieAPIError<ReturnType<typeof endpoint>>(err as any)
-            ));
+            failure!(new BungieAPIError<ReturnType<typeof endpoint>>(err as any)));
         }
       })
     );

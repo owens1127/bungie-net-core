@@ -12,9 +12,9 @@ export function generateSuperIndex(componentsByFile: Record<string, DefinitionOb
   _.forEach(componentsByFile, (components, file) => {
     components.forEach(c => {
       if ((c as DefinitionObject<'enum'>).module.enumFile) {
-        addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.name);
+        addValue(enums, (c as DefinitionObject<'enum'>).module.enumFile, c.module.importName);
       }
-      addValue(models, file, c.module.name);
+      addValue(models, file, c.module.importName);
     });
   });
 
@@ -42,7 +42,7 @@ export function generateComponentFile(
   const importFiles = new Map<string, Set<string>>();
 
   const componentDefinitons = definitions.map(definition =>
-    generateComponentCode(definition, doc, importFiles, componentMap)
+    generateComponentCode(definition, importFiles, componentMap)
   );
 
   const imports = _.compact(
@@ -59,14 +59,13 @@ export function generateComponentFile(
 
 function generateComponentCode(
   definition: DefinitionObject,
-  doc: OpenAPIObject,
   importFiles: Map<string, Set<string>>,
   componentMap: Map<string, DefinitionObject>
 ): string {
   if (definition.ref.enum) {
     return generateEnum(definition);
   } else {
-    return generateInterface(definition, doc, componentMap, importFiles);
+    return generateInterface(definition, componentMap, importFiles);
   }
 }
 
@@ -76,7 +75,8 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
     const doc = value.description ? docComment(value.description) + '\n' : '';
     return [
       doc + `${value.identifier}: ${value.numericValue}`,
-      doc + `${value.identifier} = ${value.numericValue}`
+      doc + `${value.identifier} = ${value.numericValue}`,
+      doc + `"${value.identifier}" | ${value.numericValue}`
     ] as const;
   });
 
@@ -87,22 +87,30 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
 
   const docString = docComment(docs.join('\n'), [link]);
 
+  // Also write out the runtime enum file
   writeOutFile(
     path.join('src/', definition.module.enumFile),
     '.ts',
-    [docString, `export const ${definition.module.name} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`].join(
-      '\n'
-    )
+    [
+      docString,
+      `export const ${definition.module.importName} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`
+    ].join('\n')
   );
 
-  return [docString, `export declare enum ${definition.module.name} {\n${values.map(t => t[1]).join(',\n')}\n}`].join(
-    '\n'
-  );
+  if (definition.module.importName === 'DestinyComponentType') {
+    return [docString, `export type ${definition.module.importName} = \n${values.map(t => t[2]).join(' |\n')}`].join(
+      '\n'
+    );
+  } else {
+    return [
+      docString,
+      `export declare enum ${definition.module.importName} {\n${values.map(t => t[1]).join(',\n')}}`
+    ].join('\n');
+  }
 }
 
 function generateInterface(
   definition: DefinitionObject,
-  doc: OpenAPIObject,
   componentMap: Map<string, DefinitionObject<'genericParams' | 'normal'>>,
   importFiles: Map<string, Set<string>>
 ) {
@@ -116,13 +124,18 @@ function generateInterface(
   }
 
   const classFields = _.map(definition.ref.properties!, (schema: SchemaObject, param) => {
-    const paramDef = resolveParamType(schema, componentMap, importFiles, null);
+    let paramDef = resolveParamType(schema, componentMap, importFiles, null);
+
+    if (!definition.data.hasConditionalComponents && paramDef.includes('<')) {
+      paramDef = paramDef.replace(/<.*>/, '');
+    }
+
     const docs = schema.description ? [schema.description] : [];
 
     if (schema['x-mapped-definition']) {
       const module = componentMap.get(schema['x-mapped-definition'].$ref)!.module!;
 
-      docs.push(`Mapped to ${module?.type === 'normal' ? module.name : module.importName} in the manifest.`);
+      docs.push(`Mapped to ${module.importName} in the manifest.`);
     }
     if (schema['x-enum-is-bitmask']) {
       docs.push(
@@ -144,18 +157,14 @@ function generateInterface(
 
   const link = seeLink(definition.component);
 
-  //     isInterface = false;
-  //     generic = '<T extends keyof AllManifestComponents> ';
-  //     extension = '= AllManifestComponents[T][number] & ';
-  //   }
-
   const docString = docComment(_.compact([definition.ref.description ?? '']).join(' '), [link]);
 
   const module = definition.module as DefinitionObject<'normal' | 'genericParams'>['module'];
+
   return (
     docString +
     '\n\n' +
-    `export interface ${module.type === 'normal' ? module.name : module.interfaceName} {` +
+    `export interface ${module.type === 'normal' ? module.importName : module.interfaceName} {` +
     '\n' +
     indent(classFields.join('\n'), 1) +
     '\n' +

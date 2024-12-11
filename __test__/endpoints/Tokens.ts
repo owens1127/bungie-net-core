@@ -10,7 +10,9 @@ import {
   getPartnerRewardHistory
 } from '../../src/endpoints/Tokens';
 
-export const applyMissingPartnerOffersWithoutClaimTests: EndpointTestSuite<typeof applyMissingPartnerOffersWithoutClaim> = {
+export const applyMissingPartnerOffersWithoutClaimTests: EndpointTestSuite<
+  typeof applyMissingPartnerOffersWithoutClaim
+> = {
   endpoint: applyMissingPartnerOffersWithoutClaim,
   cases: []
 };

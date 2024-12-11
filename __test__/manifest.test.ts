@@ -17,12 +17,12 @@ let res: {
 };
 
 beforeAll(async () => {
-  const { Response: destinyManifest } = await getDestinyManifest(sharedTestClient);
+  const { Response: destinyManifest } = await getDestinyManifest(sharedTestClient.http);
   res = Object.fromEntries(
     await Promise.all(
       tables.map(async table => [
         table,
-        await getDestinyManifestComponent(sharedTestClient, {
+        await getDestinyManifestComponent(sharedTestClient.http, {
           destinyManifest,
           language: 'en',
           tableName: table

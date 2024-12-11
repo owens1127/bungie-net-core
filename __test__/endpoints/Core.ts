@@ -1,5 +1,10 @@
 import { EndpointTestSuite } from '../endpoints.test';
-import { getAvailableLocales, getCommonSettings, getGlobalAlerts, getUserSystemOverrides } from '../../src/endpoints/Core';
+import {
+  getAvailableLocales,
+  getCommonSettings,
+  getGlobalAlerts,
+  getUserSystemOverrides
+} from '../../src/endpoints/Core';
 
 export const getAvailableLocalesTests: EndpointTestSuite<typeof getAvailableLocales> = {
   endpoint: getAvailableLocales,

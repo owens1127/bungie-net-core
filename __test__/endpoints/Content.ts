@@ -13,9 +13,7 @@ export const getContentByIdTests: EndpointTestSuite<typeof getContentById> = {
   endpoint: getContentById,
   cases: []
 };
-export const getContentByTagAndTypeTests: EndpointTestSuite<
-  typeof getContentByTagAndType
-> = {
+export const getContentByTagAndTypeTests: EndpointTestSuite<typeof getContentByTagAndType> = {
   endpoint: getContentByTagAndType,
   cases: []
 };
@@ -27,21 +25,15 @@ export const rssNewsArticlesTests: EndpointTestSuite<typeof rssNewsArticles> = {
   endpoint: rssNewsArticles,
   cases: []
 };
-export const searchContentByTagAndTypeTests: EndpointTestSuite<
-  typeof searchContentByTagAndType
-> = {
+export const searchContentByTagAndTypeTests: EndpointTestSuite<typeof searchContentByTagAndType> = {
   endpoint: searchContentByTagAndType,
   cases: []
 };
-export const searchContentWithTextTests: EndpointTestSuite<
-  typeof searchContentWithText
-> = {
+export const searchContentWithTextTests: EndpointTestSuite<typeof searchContentWithText> = {
   endpoint: searchContentWithText,
   cases: []
 };
-export const searchHelpArticlesTests: EndpointTestSuite<
-  typeof searchHelpArticles
-> = {
+export const searchHelpArticlesTests: EndpointTestSuite<typeof searchHelpArticles> = {
   endpoint: searchHelpArticles,
   cases: []
 };

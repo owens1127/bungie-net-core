@@ -2,14 +2,14 @@ import { createOAuthURL, refreshAuthorization } from '../src/auth';
 import { sharedTestClient } from './global-setup';
 
 describe('refresh token tests', () => {
-  test('tokens received', () => {
+  test('tokens received', async () => {
     return refreshAuthorization(
       process.env.BUNGIE_REFRESH_TOKEN!,
       {
         client_id: process.env.BUNGIE_CLIENT_ID!,
         client_secret: process.env.BUNGIE_CLIENT_SECRET!
       },
-      sharedTestClient
+      sharedTestClient.http
     ).then(tokenResponse => {
       expect(tokenResponse).toHaveProperty('access_token');
       expect(tokenResponse).toHaveProperty('expires_in');

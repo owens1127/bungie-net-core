@@ -8,7 +8,7 @@ rm ./src/manifest/types.ts
 node --experimental-json-modules ./build/index.mjs && echo Generation complete, Library TypeScript generated
 
 # fix small errors
-perl -pi -e 's/readonly item: DestinyItemResponse<T>/readonly item: DestinyItemResponse<DestinyComponentType[]>/g' ./src/models/Destiny/Responses/DestinyItemChangeResponse.ts
+perl -pi -e 's/readonly item: DestinyItemResponse/readonly item: DestinyItemResponse<["ItemCommonData", "ItemInstances", "ItemObjectives", "ItemPerks",  "ItemReusablePlugs", "ItemSockets", "ItemPlugObjectives"]>/g' ./src/models/Destiny/Responses/DestinyItemChangeResponse.ts
 perl -pi -e 's/entityType: string/entityType: T/g' ./src/endpoints/Destiny2.ts
 
 # beautify
