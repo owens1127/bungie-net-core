@@ -1,14 +1,14 @@
 {
   "name": "bungie-net-core",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Owen Simpson",
-  "homepage": "https://github.com/owensimpson/bungie-net-core",
+  "homepage": "https://github.com/owens1127/bungie-net-core",
   "description": "An easy way to interact with the Bungie.net API",
-  "bugs": "https://github.com/owensimpson/bungie-net-core/issues",
+  "bugs": "https://github.com/owens1127/bungie-net-core/issues",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/owensimpson/bungie-net-core"
+    "url": "https://github.com/owens1127/bungie-net-core"
   },
   "keywords": [
     "Destiny 2",
@@ -45,7 +45,7 @@
   "scripts": {
     "create": "git submodule add https://github.com/Bungie-net/api api-src && git submodule init",
     "sync": "git submodule update --remote --merge",
-    "clean": "git checkout HEAD -- ./src/endpoints ./src/models ./src/manifest ./__test__/__api__",
+    "clean": "git checkout HEAD -- ./src/endpoints ./src/models ./src/manifest ./__test__/endpoints",
     "build": "sh ./build.sh",
     "rebuild": "npm run sync && npm run build",
     "generate": "sh ./generate.sh",
