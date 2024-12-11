@@ -12,6 +12,7 @@
 
 import { DestinyProgressionResetEntry } from '../DestinyProgressionResetEntry';
 import { DestinyProgressionRewardItemState } from '../DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemSocketOverrideState } from '../DestinyProgressionRewardItemSocketOverrideState';
 
 /**
  * Mostly for historical purposes, we segregate Faction progressions from other
@@ -92,4 +93,9 @@ export interface DestinyFactionProgression {
    * for it.
    */
   readonly rewardItemStates: DestinyProgressionRewardItemState[];
+  /**
+   * Information about items stats and states that have socket overrides, if there is
+   * any data for it.
+   */
+  readonly rewardItemSocketOverrideStates: { [key: number]: DestinyProgressionRewardItemSocketOverrideState };
 }
