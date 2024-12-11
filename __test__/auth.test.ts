@@ -2,7 +2,7 @@ import { createOAuthURL, refreshAuthorization } from '../src/auth';
 import { sharedTestClient } from './global-setup';
 
 describe('refresh token tests', () => {
-  test('tokens received', () => {
+  test('tokens received', async () => {
     return refreshAuthorization(
       process.env.BUNGIE_REFRESH_TOKEN!,
       {

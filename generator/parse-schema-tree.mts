@@ -211,7 +211,7 @@ function getModule(
   if (data.hasConditionalComponents) {
     return {
       type: 'genericParams',
-      interfaceName: `${componentName}<T extends readonly DestinyComponentType[] = DestinyComponentType[]>`,
+      interfaceName: `${componentName}<T extends readonly DestinyComponentType[]>`,
       parameterName: componentName + `<K>`,
       importName: componentName,
       fileName: `./models/${pathToDefinition}`,

@@ -17,7 +17,17 @@ import { DestinyItemComponent } from '../Entities/Items/DestinyItemComponent';
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemChangeResponse} */
 
 export interface DestinyItemChangeResponse {
-  readonly item: DestinyItemResponse;
+  readonly item: DestinyItemResponse<
+    [
+      'ItemCommonData',
+      'ItemInstances',
+      'ItemObjectives',
+      'ItemPerks',
+      'ItemReusablePlugs',
+      'ItemSockets',
+      'ItemPlugObjectives'
+    ]
+  >;
   /** Items that appeared in the inventory possibly as a result of an action. */
   readonly addedInventoryItems: DestinyItemComponent[];
   /** Items that disappeared from the inventory possibly as a result of an action. */

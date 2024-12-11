@@ -26,7 +26,7 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorsResponse}
  */
 
-export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
+export interface DestinyVendorsResponse<T extends readonly DestinyComponentType[]> {
   /**
    * For Vendors being returned, this will give you the information you need to group
    * them and order them in the same way that the Bungie Companion app performs

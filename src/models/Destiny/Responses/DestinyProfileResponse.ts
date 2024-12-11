@@ -45,7 +45,7 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileResponse}
  */
 
-export interface DestinyProfileResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
+export interface DestinyProfileResponse<T extends readonly DestinyComponentType[]> {
   /**
    * Records the timestamp of when most components were last generated from the world
    * server source. Unless the component type is specified in the documentation for

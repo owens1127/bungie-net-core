@@ -33,7 +33,7 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCharacterResponse}
  */
 
-export interface DestinyCharacterResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
+export interface DestinyCharacterResponse<T extends readonly DestinyComponentType[]> {
   /**
    * The character-level non-equipped inventory items.
    *

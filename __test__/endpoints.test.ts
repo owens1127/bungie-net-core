@@ -27,23 +27,14 @@ const allImports = [
   Trending
 ] as Record<string, EndpointTestSuite>[];
 
-allImports.forEach(imprt =>
-  Object.entries(imprt).forEach(([key, suite]) => performTests(key, suite))
-);
+allImports.forEach(imprt => Object.entries(imprt).forEach(([key, suite]) => performTests(key, suite)));
 
-type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U>
-  ? U
-  : never;
+type UnwrapPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
 
-type ResponseType<T extends (...args: any) => any> = UnwrapPromise<
-  ReturnType<T>
->;
+type ResponseType<T extends (...args: any) => any> = UnwrapPromise<ReturnType<T>>;
 
 export type EndpointTestSuite<
-  E extends (
-    client: BungieClientProtocol,
-    ...args: any[]
-  ) => Promise<BungieNetResponse<any>> = (
+  E extends (client: BungieClientProtocol, ...args: any[]) => Promise<BungieNetResponse<any>> = (
     client: BungieClientProtocol,
     ...args: any[]
   ) => Promise<BungieNetResponse<any>>
@@ -51,11 +42,7 @@ export type EndpointTestSuite<
   endpoint: E;
   cases: {
     name: string;
-    data: Parameters<E> extends [infer _Client, ...infer Data]
-      ? Data extends never[]
-        ? None
-        : Data
-      : None;
+    data: Parameters<E> extends [infer _Client, ...infer Data] ? (Data extends never[] ? None : Data) : None;
     promise: {
       success?: (res: UnwrapPromise<ReturnType<E>>) => void;
       failure?: (e: BungieAPIError<ReturnType<E>>) => void;
@@ -99,9 +86,7 @@ function performTests(key: string, { endpoint, cases }: EndpointTestSuite) {
             expect(err).toHaveProperty('ErrorCode');
           });
           test('it throws the correct error', () =>
-            failure!(
-              new BungieAPIError<ReturnType<typeof endpoint>>(err as any)
-            ));
+            failure!(new BungieAPIError<ReturnType<typeof endpoint>>(err as any)));
         }
       })
     );

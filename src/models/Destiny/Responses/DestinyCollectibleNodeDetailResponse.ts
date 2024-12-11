@@ -21,9 +21,7 @@ import { DestinyItemComponentSet } from '../../../interfaces/DestinyItemComponen
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCollectibleNodeDetailResponse}
  */
 
-export interface DestinyCollectibleNodeDetailResponse<
-  T extends readonly DestinyComponentType[] = DestinyComponentType[]
-> {
+export interface DestinyCollectibleNodeDetailResponse<T extends readonly DestinyComponentType[]> {
   /** COMPONENT TYPE: Collectibles */
   readonly collectibles: SingleComponentResponse<DestinyCollectiblesComponent, 'Collectibles', T>;
   /**
