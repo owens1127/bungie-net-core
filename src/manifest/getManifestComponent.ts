@@ -1,9 +1,9 @@
 import { AllDestinyManifestComponents, DestinyManifestDefinition, DestinyManifestLanguage } from '.';
-import { BungieClientProtocol } from '..';
+import { BungieHttpProtocol } from '..';
 import { DestinyManifest } from '../models/Destiny/Config/DestinyManifest';
 
 export async function getManifestComponentJSON<T extends keyof AllDestinyManifestComponents>(
-  client: BungieClientProtocol,
+  http: BungieHttpProtocol,
   {
     destinyManifest,
     tableName,
@@ -14,6 +14,11 @@ export async function getManifestComponentJSON<T extends keyof AllDestinyManifes
     language: DestinyManifestLanguage;
   }
 ): Promise<Record<string, DestinyManifestDefinition<T>>> {
-  const url = new URL('https://www.bungie.net' + destinyManifest.jsonWorldComponentContentPaths[language][tableName]);
-  return client.fetch({ url, method: 'GET' });
+  const baseUrl = 'https://www.bungie.net' + destinyManifest.jsonWorldComponentContentPaths[language][tableName];
+  return http<Record<string, DestinyManifestDefinition<T>>>({
+    baseUrl,
+    method: 'GET',
+    searchParams: new URLSearchParams(),
+    body: undefined
+  });
 }

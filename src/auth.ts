@@ -1,4 +1,4 @@
-import { BungieClientProtocol } from '.';
+import { BungieHttpProtocol } from '.';
 
 /**
  * Creates an authentication URL for users to click
@@ -40,22 +40,20 @@ export async function authorize(
     client_id: string;
     client_secret: string;
   },
-  client: BungieClientProtocol
+  http: BungieHttpProtocol
 ): Promise<BungieTokensResponse> {
-  const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    url: new URL('https://www.bungie.net/platform/app/oauth/token/'),
+  return await http<BungieTokensResponse, URLSearchParams>({
+    baseUrl: 'https://www.bungie.net/platform/app/oauth/token/',
     method: 'POST',
     body: new URLSearchParams({
       grant_type: 'authorization_code',
       code,
       client_id: credentials.client_id,
       client_secret: credentials.client_secret
-    })
-  };
-  return client.fetch<BungieTokensResponse>(config);
+    }),
+    contentType: 'application/x-www-form-urlencoded',
+    searchParams: undefined
+  });
 }
 
 export async function refreshAuthorization(
@@ -64,20 +62,18 @@ export async function refreshAuthorization(
     client_id: string;
     client_secret: string;
   },
-  client: BungieClientProtocol
+  http: BungieHttpProtocol
 ): Promise<BungieTokensResponse> {
-  const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    url: new URL('https://www.bungie.net/platform/app/oauth/token/'),
+  return await http<BungieTokensResponse, URLSearchParams>({
+    baseUrl: 'https://www.bungie.net/platform/app/oauth/token/',
     method: 'POST',
     body: new URLSearchParams({
       grant_type: 'refresh_token',
       refresh_token: token,
       client_id: credentials.client_id,
       client_secret: credentials.client_secret
-    })
-  };
-  return client.fetch<BungieTokensResponse>(config);
+    }),
+    contentType: 'application/x-www-form-urlencoded',
+    searchParams: undefined
+  });
 }
