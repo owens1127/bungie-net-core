@@ -654,12 +654,18 @@ export async function searchListingsByFilters(
     destinyMembershipId: string;
     /** A valid Destiny membership type. */
     destinyMembershipType: BungieMembershipType;
+    /**
+     * Optional boolean to bypass the offline-only check, so the client can pull
+     * fireteam from the game.
+     */
+    overrideOfflineFilter?: boolean;
   },
   body: DestinyFireteamFinderSearchListingsByFiltersRequest
 ): Promise<BungieNetResponse<DestinyFireteamFinderSearchListingsByFiltersResponse>> {
   const url = new URL(
     `https://www.bungie.net/Platform/FireteamFinder/Search/${params.destinyMembershipType}/${params.destinyMembershipId}/${params.destinyCharacterId}/`
   );
+  addParam(url, params.overrideOfflineFilter, 'overrideOfflineFilter');
   return client.fetch({
     method: 'POST',
     url,

@@ -10,6 +10,8 @@
  */
 //
 
+import { DestinyMaterialRequirementSetState } from './DestinyMaterialRequirementSetState';
+
 /**
  * This component provides a quick lookup of every item the requested character has
  * and how much of that item they have.
@@ -20,7 +22,7 @@
  *
  * You *could* figure this out yourself by doing a GetCharacter or GetProfile
  * request and forming your own lookup table, but that is inconvenient enough that
- * this feels like a worthwhile (and optional) redundency. Don't bother requesting
+ * this feels like a worthwhile (and optional) redundancy. Don't bother requesting
  * it if you have already created your own lookup from prior GetCharacter/
  * GetProfile calls.
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Components.Inventory.DestinyCurrenciesComponent}
@@ -37,4 +39,6 @@ export interface DestinyCurrenciesComponent {
    * DestinyInventoryItemDefinition in the manifest.
    */
   readonly itemQuantities: { [key: number]: number };
+  /** A map of material requirement hashes and their status information. */
+  readonly materialRequirementSetStates: { [key: number]: DestinyMaterialRequirementSetState };
 }

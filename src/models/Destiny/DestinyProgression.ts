@@ -12,6 +12,7 @@
 
 import { DestinyProgressionResetEntry } from './DestinyProgressionResetEntry';
 import { DestinyProgressionRewardItemState } from './DestinyProgressionRewardItemState';
+import { DestinyProgressionRewardItemSocketOverrideState } from './DestinyProgressionRewardItemSocketOverrideState';
 
 /**
  * Information about a current character's status with a Progression. A progression
@@ -82,4 +83,9 @@ export interface DestinyProgression {
    * for it.
    */
   readonly rewardItemStates: DestinyProgressionRewardItemState[];
+  /**
+   * Information about items stats and states that have socket overrides, if there is
+   * any data for it.
+   */
+  readonly rewardItemSocketOverrideStates: { [key: number]: DestinyProgressionRewardItemSocketOverrideState };
 }

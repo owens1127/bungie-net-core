@@ -357,8 +357,12 @@ export { DestinySeasonPreviewDefinition } from './Destiny/Definitions/Seasons/De
 export { DestinySeasonPreviewImageDefinition } from './Destiny/Definitions/Seasons/DestinySeasonPreviewImageDefinition';
 export { DestinyProgressionRewardItemQuantity } from './Destiny/Definitions/DestinyProgressionRewardItemQuantity';
 export { DestinyProgressionRewardItemAcquisitionBehavior } from './Destiny/DestinyProgressionRewardItemAcquisitionBehavior';
+export { DestinyProgressionSocketPlugOverride } from './Destiny/Definitions/DestinyProgressionSocketPlugOverride';
 export { DestinyProgressionResetEntry } from './Destiny/DestinyProgressionResetEntry';
 export { DestinyProgressionRewardItemState } from './Destiny/DestinyProgressionRewardItemState';
+export { DestinyProgressionRewardItemSocketOverrideState } from './Destiny/DestinyProgressionRewardItemSocketOverrideState';
+export { DestinyStat } from './Destiny/DestinyStat';
+export { ItemState } from './Destiny/ItemState';
 export { GroupMember } from './GroupsV2/GroupMember';
 export { GroupAllianceStatus } from './GroupsV2/GroupAllianceStatus';
 export { GroupPotentialMember } from './GroupsV2/GroupPotentialMember';
@@ -410,7 +414,6 @@ export { DestinyPlatformSilverComponent } from './Destiny/Components/Inventory/D
 export { DestinyItemComponent } from './Destiny/Entities/Items/DestinyItemComponent';
 export { ItemBindStatus } from './Destiny/ItemBindStatus';
 export { TransferStatuses } from './Destiny/TransferStatuses';
-export { ItemState } from './Destiny/ItemState';
 export { DestinyObjectiveProgress } from './Destiny/Quests/DestinyObjectiveProgress';
 export { DestinyErrorProfile } from './Destiny/Responses/DestinyErrorProfile';
 
@@ -516,7 +519,6 @@ export { DestinyCraftableComponent } from './Destiny/Components/Craftables/Desti
 export { DestinyCraftableSocketComponent } from './Destiny/Components/Craftables/DestinyCraftableSocketComponent';
 export { DestinyCraftableSocketPlugComponent } from './Destiny/Components/Craftables/DestinyCraftableSocketPlugComponent';
 export { DestinyItemInstanceComponent } from './Destiny/Entities/Items/DestinyItemInstanceComponent';
-export { DestinyStat } from './Destiny/DestinyStat';
 export { DestinyUnlockDefinition } from './Destiny/Definitions/DestinyUnlockDefinition';
 export { EquipFailureReason } from './Destiny/EquipFailureReason';
 export { DestinyItemInstanceEnergy } from './Destiny/Entities/Items/DestinyItemInstanceEnergy';
@@ -533,6 +535,8 @@ export { DestinyTalentNodeState } from './Destiny/DestinyTalentNodeState';
 export { DestinyTalentNodeStatBlock } from './Destiny/DestinyTalentNodeStatBlock';
 export { DestinyItemPlugComponent } from './Destiny/Components/Items/DestinyItemPlugComponent';
 export { DestinyCurrenciesComponent } from './Destiny/Components/Inventory/DestinyCurrenciesComponent';
+export { DestinyMaterialRequirementSetState } from './Destiny/Components/Inventory/DestinyMaterialRequirementSetState';
+export { DestinyMaterialRequirementState } from './Destiny/Components/Inventory/DestinyMaterialRequirementState';
 
 export { ClanBannerSource } from './Config/ClanBanner/ClanBannerSource';
 

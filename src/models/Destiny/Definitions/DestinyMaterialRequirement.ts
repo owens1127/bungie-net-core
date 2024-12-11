@@ -47,4 +47,9 @@ export interface DestinyMaterialRequirement {
    * can't* show it. But we won't show it in our UI.
    */
   readonly omitFromRequirements: boolean;
+  /**
+   * If true, this material requirement references a virtual item stack size value.
+   * You can get that value from a corresponding DestinyMaterialRequirementSetState.
+   */
+  readonly hasVirtualStackSize: boolean;
 }

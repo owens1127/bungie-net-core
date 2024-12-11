@@ -11,14 +11,17 @@
 //
 
 import { DestinyProgressionRewardItemAcquisitionBehavior } from '../DestinyProgressionRewardItemAcquisitionBehavior';
+import { DestinyProgressionSocketPlugOverride } from './DestinyProgressionSocketPlugOverride';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.DestinyProgressionRewardItemQuantity} */
 
 export interface DestinyProgressionRewardItemQuantity {
+  readonly rewardItemIndex: number;
   readonly rewardedAtProgressionLevel: number;
   readonly acquisitionBehavior: DestinyProgressionRewardItemAcquisitionBehavior;
   readonly uiDisplayStyle: string;
   readonly claimUnlockDisplayStrings: string[];
+  readonly socketOverrides: DestinyProgressionSocketPlugOverride[];
   /**
    * The hash identifier for the item in question. Use it to look up the item's
    * DestinyInventoryItemDefinition. Mapped to DestinyInventoryItemDefinition in the
