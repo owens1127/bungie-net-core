@@ -30,9 +30,7 @@ import { DestinyItemPlugObjectivesComponent } from '../Components/Items/DestinyI
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyItemResponse}
  */
 
-export interface DestinyItemResponse<
-  T extends readonly DestinyComponentType[] = DestinyComponentType[]
-> {
+export interface DestinyItemResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
   /**
    * If the item is on a character, this will return the ID of the character that is
    * holding the item.
@@ -81,11 +79,7 @@ export interface DestinyItemResponse<
    *
    * COMPONENT TYPE: ItemTalentGrids
    */
-  readonly talentGrid: SingleComponentResponse<
-    DestinyItemTalentGridComponent,
-    'ItemTalentGrids',
-    T
-  >;
+  readonly talentGrid: SingleComponentResponse<DestinyItemTalentGridComponent, 'ItemTalentGrids', T>;
   /**
    * Information about the sockets of the item: which are currently active, what
    * potential sockets you could have and the stats/abilities/perks you can gain from
@@ -104,20 +98,12 @@ export interface DestinyItemResponse<
    *
    * COMPONENT TYPE: ItemReusablePlugs
    */
-  readonly reusablePlugs: SingleComponentResponse<
-    DestinyItemReusablePlugsComponent,
-    'ItemReusablePlugs',
-    T
-  >;
+  readonly reusablePlugs: SingleComponentResponse<DestinyItemReusablePlugsComponent, 'ItemReusablePlugs', T>;
   /**
    * Information about objectives on Plugs for a given item. See the component's
    * documentation for more info.
    *
    * COMPONENT TYPE: ItemPlugObjectives
    */
-  readonly plugObjectives: SingleComponentResponse<
-    DestinyItemPlugObjectivesComponent,
-    'ItemPlugObjectives',
-    T
-  >;
+  readonly plugObjectives: SingleComponentResponse<DestinyItemPlugObjectivesComponent, 'ItemPlugObjectives', T>;
 }

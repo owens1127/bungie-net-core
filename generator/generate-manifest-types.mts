@@ -6,10 +6,7 @@ import path from 'path';
 
 const typesFile = './manifest/types';
 
-export async function generateManifestTypes(
-  defs: DefinitionObject<'normal'>[],
-  doc: OpenAPIObject
-) {
+export async function generateManifestTypes(defs: DefinitionObject<'normal'>[], doc: OpenAPIObject) {
   let attempt = 0;
   const manifest = await getManifest();
 
@@ -20,17 +17,13 @@ export async function generateManifestTypes(
   const languageList = Object.keys(manifest.jsonWorldComponentContentPaths).sort();
 
   const imports = _.compact(
-    defsToInclude.map(def =>
-      generateImports(typesFile, def.module.fileName, [def.module.importName])
-    )
+    defsToInclude.map(def => generateImports(typesFile, def.module.fileName, [def.module.importName]))
   );
 
   imports.push(`import { DestinyDefinition } from '../interfaces';`);
 
   // defs we have documentation for. some stuff in manifest doesn't have type definitions. idk why.
-  const extraJsonKeys = jsonKeys.filter(
-    key => !defsToInclude.map(d => d.module.importName).includes(key)
-  );
+  const extraJsonKeys = jsonKeys.filter(key => !defsToInclude.map(d => d.module.importName).includes(key));
 
   // fun!
   extraJsonKeys.splice(extraJsonKeys.indexOf('DestinyInventoryItemLiteDefinition'), 1);
@@ -43,9 +36,7 @@ export async function generateManifestTypes(
     '}'
   ].join('\n');
 
-  const languageType = `export type ManifestLanguage = ${languageList
-    .map(l => `'${l}'`)
-    .join(' | ')}`;
+  const languageType = `export type ManifestLanguage = ${languageList.map(l => `'${l}'`).join(' | ')}`;
 
   writeOutFile(
     path.join('./src', typesFile),
@@ -56,9 +47,7 @@ export async function generateManifestTypes(
   async function getManifest(retry: number = 0): Promise<any> {
     try {
       // @ts-ignore
-      const data = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(res =>
-        res.json()
-      );
+      const data = await fetch('https://www.bungie.net/Platform/Destiny2/Manifest/').then(res => res.json());
       if (!data?.Response) {
         if (retry > 3) {
           console.error(new Error('Failed to download Manifest'));

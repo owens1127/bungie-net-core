@@ -33,9 +33,7 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyCharacterResponse}
  */
 
-export interface DestinyCharacterResponse<
-  T extends readonly DestinyComponentType[] = DestinyComponentType[]
-> {
+export interface DestinyCharacterResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
   /**
    * The character-level non-equipped inventory items.
    *
@@ -53,32 +51,20 @@ export interface DestinyCharacterResponse<
    *
    * COMPONENT TYPE: CharacterProgressions
    */
-  readonly progressions: SingleComponentResponse<
-    DestinyCharacterProgressionComponent,
-    'CharacterProgressions',
-    T
-  >;
+  readonly progressions: SingleComponentResponse<DestinyCharacterProgressionComponent, 'CharacterProgressions', T>;
   /**
    * Character rendering data - a minimal set of information about equipment and dyes
    * used for rendering.
    *
    * COMPONENT TYPE: CharacterRenderData
    */
-  readonly renderData: SingleComponentResponse<
-    DestinyCharacterRenderComponent,
-    'CharacterRenderData',
-    T
-  >;
+  readonly renderData: SingleComponentResponse<DestinyCharacterRenderComponent, 'CharacterRenderData', T>;
   /**
    * Activity data - info about current activities available to the player.
    *
    * COMPONENT TYPE: CharacterActivities
    */
-  readonly activities: SingleComponentResponse<
-    DestinyCharacterActivitiesComponent,
-    'CharacterActivities',
-    T
-  >;
+  readonly activities: SingleComponentResponse<DestinyCharacterActivitiesComponent, 'CharacterActivities', T>;
   /**
    * Equipped items on the character.
    *
@@ -109,11 +95,7 @@ export interface DestinyCharacterResponse<
    */
   readonly plugSets: SingleComponentResponse<DestinyPlugSetsComponent, 'ItemSockets', T>;
   /** COMPONENT TYPE: PresentationNodes */
-  readonly presentationNodes: SingleComponentResponse<
-    DestinyPresentationNodesComponent,
-    'PresentationNodes',
-    T
-  >;
+  readonly presentationNodes: SingleComponentResponse<DestinyPresentationNodesComponent, 'PresentationNodes', T>;
   /** COMPONENT TYPE: Records */
   readonly records: SingleComponentResponse<DestinyCharacterRecordsComponent, 'Records', T>;
   /** COMPONENT TYPE: Collectibles */
@@ -139,9 +121,5 @@ export interface DestinyCharacterResponse<
    *
    * COMPONENT TYPE: CurrencyLookups
    */
-  readonly currencyLookups: SingleComponentResponse<
-    DestinyCurrenciesComponent,
-    'CurrencyLookups',
-    T
-  >;
+  readonly currencyLookups: SingleComponentResponse<DestinyCurrenciesComponent, 'CurrencyLookups', T>;
 }

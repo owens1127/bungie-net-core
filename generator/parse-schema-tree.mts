@@ -1,10 +1,4 @@
-import {
-  OpenAPIObject,
-  ParameterObject,
-  PathItemObject,
-  ReferenceObject,
-  SchemaObject
-} from 'openapi3-ts';
+import { OpenAPIObject, ParameterObject, PathItemObject, ReferenceObject, SchemaObject } from 'openapi3-ts';
 import {
   BaseItemComponentSetPattern,
   DefinitionObject,
@@ -16,12 +10,7 @@ import {
   ServiceInterfaces,
   SingleComponentPattern
 } from './types.mjs';
-import {
-  combineSets,
-  getTags,
-  hasConditionalComponents,
-  mappedToMobileManifestEntity
-} from './util.mjs';
+import { combineSets, getTags, hasConditionalComponents, mappedToMobileManifestEntity } from './util.mjs';
 import { getRef, getReferencedTypes, isEnum, isRequestBodyObject } from './open-api-3-util.mjs';
 import _ from 'underscore';
 import { primitiveToDictionaryKey } from './resolve-parameters.mjs';
@@ -39,13 +28,9 @@ export function createTree(paths: [string, PathItemObject][], doc: OpenAPIObject
   return componentDefinitions;
 }
 
-function findReachableComponents(
-  paths: [string, PathItemObject][],
-  doc: OpenAPIObject
-): Set<string> {
+function findReachableComponents(paths: [string, PathItemObject][], doc: OpenAPIObject): Set<string> {
   const pathDefinitions = paths.reduce(
-    (memo: Set<string>, [_, pathDef]) =>
-      combineSets(memo, findReachableComponentsFromPath(pathDef)),
+    (memo: Set<string>, [_, pathDef]) => combineSets(memo, findReachableComponentsFromPath(pathDef)),
     new Set<string>()
   );
 
@@ -59,9 +44,7 @@ function findReachableComponents(
 function findReachableComponentsFromPath(pathDef: PathItemObject): Set<string> {
   const methodDef = pathDef.get || pathDef.post!;
   const params = (methodDef.parameters || []) as ParameterObject[];
-  const paramTypes = new Set(
-    params.map(param => getReferencedTypes(param.schema!)).filter(Boolean)
-  ) as Set<string>;
+  const paramTypes = new Set(params.map(param => getReferencedTypes(param.schema!)).filter(Boolean)) as Set<string>;
 
   const requestBody = methodDef.requestBody;
   if (requestBody && isRequestBodyObject(requestBody)) {
@@ -80,11 +63,7 @@ function findReachableComponentsFromPath(pathDef: PathItemObject): Set<string> {
   return paramTypes;
 }
 
-function addReachableComponentsFromComponent(
-  allDefinitions: Set<string>,
-  definition: string,
-  doc: OpenAPIObject
-) {
+function addReachableComponentsFromComponent(allDefinitions: Set<string>, definition: string, doc: OpenAPIObject) {
   const component = getRef(doc, definition);
   if (!component) {
     return;
@@ -115,22 +94,14 @@ function addDefinitions(allDefinitions: Set<string>, schema: SchemaObject, doc: 
   }
 }
 
-function addDefinitionsFromComponent(
-  allDefinitions: Set<string>,
-  definition: string | undefined,
-  doc: OpenAPIObject
-) {
+function addDefinitionsFromComponent(allDefinitions: Set<string>, definition: string | undefined, doc: OpenAPIObject) {
   if (definition && !allDefinitions.has(definition)) {
     allDefinitions.add(definition);
     addReachableComponentsFromComponent(allDefinitions, definition, doc);
   }
 }
 
-function getDefinition(
-  component: string,
-  tags: Set<string>,
-  doc: OpenAPIObject
-): DefinitionObject<any> {
+function getDefinition(component: string, tags: Set<string>, doc: OpenAPIObject): DefinitionObject<any> {
   const ref = getRef(doc, component)!;
   const data: DefinitionObject['data'] = {
     hasConditionalComponents: hasConditionalComponents(component, doc),
@@ -168,11 +139,7 @@ function getModule(
   }
 
   // handle primitive types
-  if (
-    pathToDefinition === 'boolean' ||
-    pathToDefinition === 'int32' ||
-    pathToDefinition === 'int64'
-  )
+  if (pathToDefinition === 'boolean' || pathToDefinition === 'int32' || pathToDefinition === 'int64')
     return {
       type: 'primitive'
     };
@@ -188,9 +155,7 @@ function getModule(
   const dictionaryComponentMatch = component.match(DictionaryComponentPattern);
   if (dictionaryComponentMatch) {
     const key = primitiveToDictionaryKey(dictionaryComponentMatch[1] as any);
-    const child = (ref.properties!.data as SchemaObject).additionalProperties as
-      | SchemaObject
-      | ReferenceObject;
+    const child = (ref.properties!.data as SchemaObject).additionalProperties as SchemaObject | ReferenceObject;
 
     return {
       type: 'appliedToInterface',
@@ -206,8 +171,7 @@ function getModule(
     const child = ref.properties!.data;
     return {
       type: 'appliedToInterface',
-      parameterName: (...args) =>
-        `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
+      parameterName: (...args) => `${ServiceInterfaces.SingleComponent}<${args[0]}, ${args[1]}, ${args[2]}>`,
       interface: ServiceInterfaces.SingleComponent,
       child
     };
@@ -259,8 +223,7 @@ function getModule(
   if (component === DestinyDefinitionModel) {
     return {
       type: 'appliedToInterface',
-      parameterName: (...args) =>
-        `${ServiceInterfaces.DestinyDefinition}<AllManifestComponents[${args[0]}]>`,
+      parameterName: (...args) => `${ServiceInterfaces.DestinyDefinition}<AllManifestComponents[${args[0]}]>`,
       interface: ServiceInterfaces.DestinyDefinition,
       child: null
     };

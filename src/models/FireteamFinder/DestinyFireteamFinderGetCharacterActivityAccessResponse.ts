@@ -19,7 +19,5 @@ export interface DestinyFireteamFinderGetCharacterActivityAccessResponse {
    * A map of fireteam finder activity graph hashes to visibility and availability
    * states. Mapped to DestinyFireteamFinderActivityGraphDefinition in the manifest.
    */
-  readonly fireteamFinderActivityGraphStates: {
-    [key: number]: DestinyFireteamFinderActivityGraphState;
-  };
+  readonly fireteamFinderActivityGraphStates: { [key: number]: DestinyFireteamFinderActivityGraphState };
 }

@@ -97,7 +97,5 @@ export interface DestinyFactionProgression {
    * Information about items stats and states that have socket overrides, if there is
    * any data for it.
    */
-  readonly rewardItemSocketOverrideStates: {
-    [key: number]: DestinyProgressionRewardItemSocketOverrideState;
-  };
+  readonly rewardItemSocketOverrideStates: { [key: number]: DestinyProgressionRewardItemSocketOverrideState };
 }

@@ -33,9 +33,7 @@ export async function getActivePrivateClanFireteamCount(
     groupId: string;
   }
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/ActiveCount/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -162,8 +160,6 @@ export async function getClanFireteam(
     groupId: string;
   }
 ): Promise<BungieNetResponse<FireteamResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Fireteam/Clan/${params.groupId}/Summary/${params.fireteamId}/`);
   return client.fetch({ method: 'GET', url });
 }

@@ -45,9 +45,7 @@ import { DestinyCurrenciesComponent } from '../Components/Inventory/DestinyCurre
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyProfileResponse}
  */
 
-export interface DestinyProfileResponse<
-  T extends readonly DestinyComponentType[] = DestinyComponentType[]
-> {
+export interface DestinyProfileResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
   /**
    * Records the timestamp of when most components were last generated from the world
    * server source. Unless the component type is specified in the documentation for
@@ -72,31 +70,19 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: VendorReceipts
    */
-  readonly vendorReceipts: SingleComponentResponse<
-    DestinyVendorReceiptsComponent,
-    'VendorReceipts',
-    T
-  >;
+  readonly vendorReceipts: SingleComponentResponse<DestinyVendorReceiptsComponent, 'VendorReceipts', T>;
   /**
    * The profile-level inventory of the Destiny Profile.
    *
    * COMPONENT TYPE: ProfileInventories
    */
-  readonly profileInventory: SingleComponentResponse<
-    DestinyInventoryComponent,
-    'ProfileInventories',
-    T
-  >;
+  readonly profileInventory: SingleComponentResponse<DestinyInventoryComponent, 'ProfileInventories', T>;
   /**
    * The profile-level currencies owned by the Destiny Profile.
    *
    * COMPONENT TYPE: ProfileCurrencies
    */
-  readonly profileCurrencies: SingleComponentResponse<
-    DestinyInventoryComponent,
-    'ProfileCurrencies',
-    T
-  >;
+  readonly profileCurrencies: SingleComponentResponse<DestinyInventoryComponent, 'ProfileCurrencies', T>;
   /**
    * The basic information about the Destiny Profile (formerly "Account").
    *
@@ -108,11 +94,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: PlatformSilver
    */
-  readonly platformSilver: SingleComponentResponse<
-    DestinyPlatformSilverComponent,
-    'PlatformSilver',
-    T
-  >;
+  readonly platformSilver: SingleComponentResponse<DestinyPlatformSilverComponent, 'PlatformSilver', T>;
   /**
    * Items available from Kiosks that are available Profile-wide (i.e. across all
    * characters)
@@ -142,56 +124,27 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: ProfileProgression
    */
-  readonly profileProgression: SingleComponentResponse<
-    DestinyProfileProgressionComponent,
-    'ProfileProgression',
-    T
-  >;
+  readonly profileProgression: SingleComponentResponse<DestinyProfileProgressionComponent, 'ProfileProgression', T>;
   /** COMPONENT TYPE: PresentationNodes */
-  readonly profilePresentationNodes: SingleComponentResponse<
-    DestinyPresentationNodesComponent,
-    'PresentationNodes',
-    T
-  >;
+  readonly profilePresentationNodes: SingleComponentResponse<DestinyPresentationNodesComponent, 'PresentationNodes', T>;
   /** COMPONENT TYPE: Records */
   readonly profileRecords: SingleComponentResponse<DestinyProfileRecordsComponent, 'Records', T>;
   /** COMPONENT TYPE: Collectibles */
-  readonly profileCollectibles: SingleComponentResponse<
-    DestinyProfileCollectiblesComponent,
-    'Collectibles',
-    T
-  >;
+  readonly profileCollectibles: SingleComponentResponse<DestinyProfileCollectiblesComponent, 'Collectibles', T>;
   /** COMPONENT TYPE: Transitory */
-  readonly profileTransitoryData: SingleComponentResponse<
-    DestinyProfileTransitoryComponent,
-    'Transitory',
-    T
-  >;
+  readonly profileTransitoryData: SingleComponentResponse<DestinyProfileTransitoryComponent, 'Transitory', T>;
   /** COMPONENT TYPE: Metrics */
   readonly metrics: SingleComponentResponse<DestinyMetricsComponent, 'Metrics', T>;
   /** COMPONENT TYPE: StringVariables */
-  readonly profileStringVariables: SingleComponentResponse<
-    DestinyStringVariablesComponent,
-    'StringVariables',
-    T
-  >;
+  readonly profileStringVariables: SingleComponentResponse<DestinyStringVariablesComponent, 'StringVariables', T>;
   /** COMPONENT TYPE: SocialCommendations */
-  readonly profileCommendations: SingleComponentResponse<
-    DestinySocialCommendationsComponent,
-    'SocialCommendations',
-    T
-  >;
+  readonly profileCommendations: SingleComponentResponse<DestinySocialCommendationsComponent, 'SocialCommendations', T>;
   /**
    * Basic information about each character, keyed by the CharacterId.
    *
    * COMPONENT TYPE: Characters
    */
-  readonly characters: DictionaryComponentResponse<
-    string,
-    DestinyCharacterComponent,
-    'Characters',
-    T
-  >;
+  readonly characters: DictionaryComponentResponse<string, DestinyCharacterComponent, 'Characters', T>;
   /**
    * The character-level non-equipped inventory items, keyed by the Character's Id.
    *
@@ -208,12 +161,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: CharacterLoadouts
    */
-  readonly characterLoadouts: DictionaryComponentResponse<
-    string,
-    DestinyLoadoutsComponent,
-    'CharacterLoadouts',
-    T
-  >;
+  readonly characterLoadouts: DictionaryComponentResponse<string, DestinyLoadoutsComponent, 'CharacterLoadouts', T>;
   /**
    * Character-level progression data, keyed by the Character's Id.
    *
@@ -254,12 +202,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: CharacterEquipment
    */
-  readonly characterEquipment: DictionaryComponentResponse<
-    string,
-    DestinyInventoryComponent,
-    'CharacterEquipment',
-    T
-  >;
+  readonly characterEquipment: DictionaryComponentResponse<string, DestinyInventoryComponent, 'CharacterEquipment', T>;
   /**
    * Items available from Kiosks that are available to a specific character as
    * opposed to the account as a whole. It must be combined with data from the
@@ -273,12 +216,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: Kiosks
    */
-  readonly characterKiosks: DictionaryComponentResponse<
-    string,
-    DestinyKiosksComponent,
-    'Kiosks',
-    T
-  >;
+  readonly characterKiosks: DictionaryComponentResponse<string, DestinyKiosksComponent, 'Kiosks', T>;
   /**
    * When sockets refer to reusable Plug Sets (see DestinyPlugSetDefinition for more
    * info), this is the set of plugs and their states, per character, that are
@@ -289,12 +227,7 @@ export interface DestinyProfileResponse<
    *
    * COMPONENT TYPE: ItemSockets
    */
-  readonly characterPlugSets: DictionaryComponentResponse<
-    string,
-    DestinyPlugSetsComponent,
-    'ItemSockets',
-    T
-  >;
+  readonly characterPlugSets: DictionaryComponentResponse<string, DestinyPlugSetsComponent, 'ItemSockets', T>;
   /**
    * Do you ever get the feeling that a system was designed *too* flexibly? That it
    * can be used in so many different ways that you end up being unable to provide an
@@ -336,19 +269,9 @@ export interface DestinyProfileResponse<
     T
   >;
   /** COMPONENT TYPE: Records */
-  readonly characterRecords: DictionaryComponentResponse<
-    string,
-    DestinyCharacterRecordsComponent,
-    'Records',
-    T
-  >;
+  readonly characterRecords: DictionaryComponentResponse<string, DestinyCharacterRecordsComponent, 'Records', T>;
   /** COMPONENT TYPE: Collectibles */
-  readonly characterCollectibles: DictionaryComponentResponse<
-    string,
-    DestinyCollectiblesComponent,
-    'Collectibles',
-    T
-  >;
+  readonly characterCollectibles: DictionaryComponentResponse<string, DestinyCollectiblesComponent, 'Collectibles', T>;
   /** COMPONENT TYPE: StringVariables */
   readonly characterStringVariables: DictionaryComponentResponse<
     string,
@@ -357,12 +280,7 @@ export interface DestinyProfileResponse<
     T
   >;
   /** COMPONENT TYPE: Craftables */
-  readonly characterCraftables: DictionaryComponentResponse<
-    string,
-    DestinyCraftablesComponent,
-    'Craftables',
-    T
-  >;
+  readonly characterCraftables: DictionaryComponentResponse<string, DestinyCraftablesComponent, 'Craftables', T>;
   /**
    * Information about instanced items across all returned characters, keyed by the
    * item's instance ID.

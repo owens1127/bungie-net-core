@@ -60,9 +60,7 @@ export async function getAvailableAvatars(
  * Returns a list of all available group themes.
  * @see {@link https://bungie-net.github.io/#GroupV2.GetAvailableThemes}
  */
-export async function getAvailableThemes(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<GroupTheme[]>> {
+export async function getAvailableThemes(client: BungieClientProtocol): Promise<BungieNetResponse<GroupTheme[]>> {
   const url = new URL(`https://www.bungie.net/Platform/GroupV2/GetAvailableThemes/`);
   return client.fetch({ method: 'GET', url });
 }
@@ -79,9 +77,7 @@ export async function getUserClanInviteSetting(
     mType: BungieMembershipType;
   }
 ): Promise<BungieNetResponse<boolean>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/GetUserClanInviteSetting/${params.mType}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -150,9 +146,7 @@ export async function getGroupByName(
     groupType: GroupType;
   }
 ): Promise<BungieNetResponse<GroupResponse>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/Name/${params.groupName}/${params.groupType}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/Name/${params.groupName}/${params.groupType}/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -185,9 +179,7 @@ export async function getGroupOptionalConversations(
     groupId: string;
   }
 ): Promise<BungieNetResponse<GroupOptionalConversation[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/`);
   return client.fetch({ method: 'GET', url });
 }
 
@@ -249,9 +241,7 @@ export async function editFounderOptions(
   },
   body: GroupOptionsEditAction
 ): Promise<BungieNetResponse<number>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditFounderOptions/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/EditFounderOptions/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -273,9 +263,7 @@ export async function addOptionalConversation(
   },
   body: GroupOptionalConversationAddRequest
 ): Promise<BungieNetResponse<string>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Add/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/OptionalConversations/Add/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -350,9 +338,7 @@ export async function getAdminsAndFounderOfGroup(
     groupId: string;
   }
 ): Promise<BungieNetResponse<SearchResultOfGroupMember>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/AdminsAndFounder/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/AdminsAndFounder/`);
   addParam(url, params.currentpage, 'currentpage');
   return client.fetch({ method: 'GET', url });
 }
@@ -544,9 +530,7 @@ export async function getInvitedIndividuals(
     groupId: string;
   }
 ): Promise<BungieNetResponse<SearchResultOfGroupMemberApplication>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/InvitedIndividuals/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/InvitedIndividuals/`);
   addParam(url, params.currentpage, 'currentpage');
   return client.fetch({ method: 'GET', url });
 }
@@ -563,9 +547,7 @@ export async function approveAllPending(
   },
   body: GroupApplicationRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveAll/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveAll/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -607,9 +589,7 @@ export async function approvePendingForList(
   },
   body: GroupApplicationListRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveList/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/ApproveList/`);
   return client.fetch({
     method: 'POST',
     url,
@@ -658,9 +638,7 @@ export async function denyPendingForList(
   },
   body: GroupApplicationListRequest
 ): Promise<BungieNetResponse<EntityActionResult[]>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyList/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/GroupV2/${params.groupId}/Members/DenyList/`);
   return client.fetch({
     method: 'POST',
     url,

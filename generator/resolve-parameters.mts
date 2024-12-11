@@ -81,12 +81,7 @@ function findParamType(
         const key = isReferenceObject(keySchema)
           ? 'number'
           : resolveParamType(keySchema, componentMap, importFiles, dependency);
-        const val = resolveParamType(
-          schema.additionalProperties,
-          componentMap,
-          importFiles,
-          dependency
-        );
+        const val = resolveParamType(schema.additionalProperties, componentMap, importFiles, dependency);
         const keyExp = key === 'number' || key === 'string' ? `key: ${key}` : `key in ${key}`;
         return `{ [${keyExp}]: ${val} }`;
       }

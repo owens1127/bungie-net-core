@@ -23,9 +23,7 @@ import { BungieMembershipType } from '../models/BungieMembershipType';
  * fulfilled and resyncs them.
  * @see {@link https://bungie-net.github.io/#Tokens.ForceDropsRepair}
  */
-export async function forceDropsRepair(
-  client: BungieClientProtocol
-): Promise<BungieNetResponse<boolean>> {
+export async function forceDropsRepair(client: BungieClientProtocol): Promise<BungieNetResponse<boolean>> {
   const url = new URL(`https://www.bungie.net/Platform/Tokens/Partner/ForceDropsRepair/`);
   return client.fetch({ method: 'POST', url });
 }
@@ -127,9 +125,7 @@ export async function getBungieRewardsForUser(
     membershipId: string;
   }
 ): Promise<BungieNetResponse<{ [key: string]: BungieRewardDisplay }>> {
-  const url = new URL(
-    `https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`
-  );
+  const url = new URL(`https://www.bungie.net/Platform/Tokens/Rewards/GetRewardsForUser/${params.membershipId}/`);
   return client.fetch({ method: 'GET', url });
 }
 

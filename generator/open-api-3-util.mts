@@ -6,9 +6,7 @@ export function isRequestBodyObject(
   return (requestBody as RequestBodyObject).content !== undefined;
 }
 
-export function isReferenceObject(
-  schema: SchemaObject | ReferenceObject
-): schema is ReferenceObject {
+export function isReferenceObject(schema: SchemaObject | ReferenceObject): schema is ReferenceObject {
   return (schema as ReferenceObject).$ref !== undefined;
 }
 

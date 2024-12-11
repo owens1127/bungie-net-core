@@ -1,21 +1,12 @@
 import { OpenAPIObject, SchemaObject } from 'openapi3-ts';
 import { DefinitionObject, frequentlyNullProperties } from './types.mjs';
 import path from 'path';
-import {
-  docComment,
-  generateHeader,
-  generateImports,
-  indent,
-  seeLink,
-  writeOutFile
-} from './writing-utils.mjs';
+import { docComment, generateHeader, generateImports, indent, seeLink, writeOutFile } from './writing-utils.mjs';
 import _ from 'underscore';
 import { resolveParamType } from './resolve-parameters.mjs';
 import { addValue, importInterface } from './util.mjs';
 
-export function generateSuperIndex(
-  componentsByFile: Record<string, DefinitionObject<'normal' | 'enum'>[]>
-) {
+export function generateSuperIndex(componentsByFile: Record<string, DefinitionObject<'normal' | 'enum'>[]>) {
   const models = new Map<string, Set<string>>();
   const enums = new Map<string, Set<string>>();
   _.forEach(componentsByFile, (components, file) => {
@@ -35,9 +26,7 @@ export function generateSuperIndex(
   ].join('\n');
 
   const enumContents = Array.from(enums.entries())
-    .map(([file, impts]) =>
-      generateImports(path.join('enum', 'index'), file, Array.from(impts), true)
-    )
+    .map(([file, impts]) => generateImports(path.join('enum', 'index'), file, Array.from(impts), true))
     .join('\n');
 
   writeOutFile(path.join('src', 'models', 'index'), '.ts', modelContents);
@@ -63,8 +52,7 @@ export function generateComponentFile(
     )
   );
 
-  const contents =
-    _.compact([generateHeader(doc), imports.join('\n'), componentDefinitons]).join('\n\n') + '\n';
+  const contents = _.compact([generateHeader(doc), imports.join('\n'), componentDefinitons]).join('\n\n') + '\n';
 
   writeOutFile(path.join('src/', file), '.ts', contents);
 }
@@ -94,9 +82,7 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
 
   const docs = definition.ref.description ? [definition.ref.description] : [];
   if (definition.ref['x-enum-is-bitmask']) {
-    docs.push(
-      `This enum represents a set of flags - use bitwise operators to check which of these match your value.`
-    );
+    docs.push(`This enum represents a set of flags - use bitwise operators to check which of these match your value.`);
   }
 
   const docString = docComment(docs.join('\n'), [link]);
@@ -107,17 +93,14 @@ function generateEnum(definition: DefinitionObject<'enum'>): string {
     '.ts',
     [
       docString,
-      `export const ${definition.module.importName} = {\n${values
-        .map(t => t[0])
-        .join(',\n')}\n} as const`
+      `export const ${definition.module.importName} = {\n${values.map(t => t[0]).join(',\n')}\n} as const`
     ].join('\n')
   );
 
   if (definition.module.importName === 'DestinyComponentType') {
-    return [
-      docString,
-      `export type ${definition.module.importName} = \n${values.map(t => t[2]).join(' |\n')}`
-    ].join('\n');
+    return [docString, `export type ${definition.module.importName} = \n${values.map(t => t[2]).join(' |\n')}`].join(
+      '\n'
+    );
   } else {
     return [
       docString,

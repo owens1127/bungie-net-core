@@ -25,9 +25,7 @@ import { DestinyStringVariablesComponent } from '../Components/StringVariables/D
  * @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Responses.DestinyVendorResponse}
  */
 
-export interface DestinyVendorResponse<
-  T extends readonly DestinyComponentType[] = DestinyComponentType[]
-> {
+export interface DestinyVendorResponse<T extends readonly DestinyComponentType[] = DestinyComponentType[]> {
   /**
    * The base properties of the vendor.
    *
@@ -39,22 +37,13 @@ export interface DestinyVendorResponse<
    *
    * COMPONENT TYPE: VendorCategories
    */
-  readonly categories: SingleComponentResponse<
-    DestinyVendorCategoriesComponent,
-    'VendorCategories',
-    T
-  >;
+  readonly categories: SingleComponentResponse<DestinyVendorCategoriesComponent, 'VendorCategories', T>;
   /**
    * Sales, keyed by the vendorItemIndex of the item being sold.
    *
    * COMPONENT TYPE: VendorSales
    */
-  readonly sales: DictionaryComponentResponse<
-    number,
-    DestinyVendorSaleItemComponent,
-    'VendorSales',
-    T
-  >;
+  readonly sales: DictionaryComponentResponse<number, DestinyVendorSaleItemComponent, 'VendorSales', T>;
   /**
    * Item components, keyed by the vendorItemIndex of the active sale items.
    *
@@ -68,19 +57,11 @@ export interface DestinyVendorResponse<
    *
    * COMPONENT TYPE: CurrencyLookups
    */
-  readonly currencyLookups: SingleComponentResponse<
-    DestinyCurrenciesComponent,
-    'CurrencyLookups',
-    T
-  >;
+  readonly currencyLookups: SingleComponentResponse<DestinyCurrenciesComponent, 'CurrencyLookups', T>;
   /**
    * A map of string variable values by hash for this character context.
    *
    * COMPONENT TYPE: StringVariables
    */
-  readonly stringVariables: SingleComponentResponse<
-    DestinyStringVariablesComponent,
-    'StringVariables',
-    T
-  >;
+  readonly stringVariables: SingleComponentResponse<DestinyStringVariablesComponent, 'StringVariables', T>;
 }

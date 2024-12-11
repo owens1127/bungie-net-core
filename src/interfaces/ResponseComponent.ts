@@ -10,9 +10,7 @@ export type ResponseComponent<
   K extends readonly DestinyComponentType[],
   R extends string & DestinyComponentType,
   T
-> = K extends (R extends K[number]
-  ? DestinyComponentType
-  : R | (typeof DestinyComponentTypeEnum)[R])[]
+> = K extends (R extends K[number] ? DestinyComponentType : R | (typeof DestinyComponentTypeEnum)[R])[]
   ? {
       readonly data?: T;
       readonly privacy: ComponentPrivacySetting;
