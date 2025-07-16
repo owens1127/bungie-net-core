@@ -161,7 +161,15 @@ export interface DestinyActivityDefinition {
    * strings and the states needed in order for the strings to be shown.
    */
   readonly optionalUnlockStrings: DestinyActivityUnlockStringDefinition[];
+  /** Mapped to DestinyActivityFamilyDefinition in the manifest. */
+  readonly activityFamilyHashes: number[];
+  /** Mapped to DestinyTraitDefinition in the manifest. */
+  readonly traitHashes: number[];
   readonly requirements: DestinyActivityRequirementsBlock;
+  /** Mapped to DestinyActivityDifficultyTierCollectionDefinition in the manifest. */
+  readonly difficultyTierCollectionHash?: number;
+  /** Mapped to DestinyActivitySelectableSkullCollectionDefinition in the manifest. */
+  readonly selectableSkullCollectionHashes: number[];
   /**
    * Represents all of the possible activities that could be played in the Playlist,
    * along with information that we can use to determine if they are active at the

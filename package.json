@@ -1,7 +1,6 @@
 {
   "name": "bungie-net-core",
-  "version": "3.0.1",
-  "author": "Owen Simpson",
+  "version": "3.0.2",
   "homepage": "https://github.com/owens1127/bungie-net-core",
   "description": "An easy way to interact with the Bungie.net API",
   "bugs": "https://github.com/owens1127/bungie-net-core/issues",
@@ -16,7 +15,7 @@
     "TypeScript",
     "REST API"
   ],
-  "openapi": "2.18.0",
+  "openapi": "2.21.0",
   "types": "index.d.ts",
   "exports": {
     ".": {

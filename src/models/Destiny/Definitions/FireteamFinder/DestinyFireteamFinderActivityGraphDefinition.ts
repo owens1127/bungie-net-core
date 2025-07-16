@@ -14,6 +14,8 @@ import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayProp
 import { DestinyColor } from '../../Misc/DestinyColor';
 import { DestinyActivityGraphReference } from './DestinyActivityGraphReference';
 import { DestinyActivityInteractableReference } from './DestinyActivityInteractableReference';
+import { DestinyActivityTreeType } from '../../DestinyActivityTreeType';
+import { DestinyActivityTreeChildSortMode } from '../../DestinyActivityTreeChildSortMode';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.FireteamFinder.DestinyFireteamFinderActivityGraphDefinition} */
 
@@ -37,6 +39,10 @@ export interface DestinyFireteamFinderActivityGraphDefinition {
   readonly relatedInteractableActivities: DestinyActivityInteractableReference[];
   /** Mapped to DestinyLocationDefinition in the manifest. */
   readonly relatedLocationHashes: number[];
+  readonly sortMatchmadeActivitiesToFront: boolean;
+  readonly enabledOnTreeTypesListEnum: DestinyActivityTreeType[];
+  readonly activityTreeChildSortMode: DestinyActivityTreeChildSortMode;
+  readonly sortPriority?: number;
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of
    * entity, but not globally.

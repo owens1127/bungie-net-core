@@ -103,4 +103,6 @@ export interface DestinyItemInstanceComponent {
    * energy points.
    */
   readonly energy: DestinyItemInstanceEnergy;
+  /** Gear Tier, if applicable, fished up from the unlock value items.gear_tier */
+  readonly gearTier?: number;
 }

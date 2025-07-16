@@ -826,6 +826,7 @@ export declare enum PlatformErrorCodes {
   FireteamFinderOwnerNotInGame = 3132,
   FireteamFinderPlayerAtMaxLobbyLimit = 3133,
   FireteamFinderLobbyTooFarInTheFuture = 3134,
+  FireteamFinderApplicantNotInGame = 3135,
   FireteamFinderResponseUndefined = 3150,
   FireteamFinderResponseMoved = 3151,
   FireteamFinderResponseLoggingIn = 3152,

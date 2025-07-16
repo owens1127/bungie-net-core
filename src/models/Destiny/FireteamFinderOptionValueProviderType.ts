@@ -16,5 +16,6 @@ export declare enum FireteamFinderOptionValueProviderType {
   Values = 1,
   PlayerCount = 2,
   FireteamFinderLabels = 3,
-  FireteamFinderActivityGraph = 4
+  FireteamFinderActivityGraph = 4,
+  FireteamFinderUIActivityTree = 5
 }

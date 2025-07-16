@@ -18,5 +18,7 @@ export const DestinyGameVersions = {
   Anniversary30th: 128,
   TheWitchQueen: 256,
   Lightfall: 512,
-  TheFinalShape: 1024
+  TheFinalShape: 1024,
+  EdgeOfFate: 28535,
+  Renegades: 28536
 } as const;

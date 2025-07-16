@@ -63,4 +63,9 @@ export interface DestinyEquippingBlockDefinition {
    * one-to-one with requiredUnlockExpressions.
    */
   readonly displayStrings: string[];
+  /**
+   * If this item is part of an item set with bonus perks, this will the hash of that
+   * set. Mapped to DestinyEquipableItemSetDefinition in the manifest.
+   */
+  readonly equipableItemSetHash?: number;
 }

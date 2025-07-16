@@ -11,6 +11,8 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinyColor } from '../../Misc/DestinyColor';
+import { DestinySeasonPassImages } from './DestinySeasonPassImages';
 
 /** @see {@link https://bungie-net.github.io/#/components/schemas/Destiny.Definitions.Seasons.DestinySeasonPassDefinition} */
 
@@ -34,6 +36,9 @@ export interface DestinySeasonPassDefinition {
    * manifest.
    */
   readonly prestigeProgressionHash: number;
+  readonly linkRedirectPath: string;
+  readonly color: DestinyColor;
+  readonly images: DestinySeasonPassImages;
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of
    * entity, but not globally.

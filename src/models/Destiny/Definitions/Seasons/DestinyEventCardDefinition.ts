@@ -31,11 +31,17 @@ export interface DestinyEventCardDefinition {
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly sealPresentationNodeHash: number;
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */
+  readonly eventCardCurrencyList: number[];
+  /** Mapped to DestinyInventoryItemDefinition in the manifest. */
   readonly ticketCurrencyItemHash: number;
   /** Mapped to DestinyVendorDefinition in the manifest. */
   readonly ticketVendorHash: number;
   readonly ticketVendorCategoryHash: number;
   readonly endTime: string;
+  /** Mapped to DestinyProgressionDefinition in the manifest. */
+  readonly rewardProgressionHash?: number;
+  /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
+  readonly weeklyChallengesPresentationNodeHash?: number;
   /**
    * The unique identifier for this entity. Guaranteed to be unique for the type of
    * entity, but not globally.

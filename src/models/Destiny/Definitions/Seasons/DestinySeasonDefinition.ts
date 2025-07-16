@@ -11,6 +11,7 @@
 //
 
 import { DestinyDisplayPropertiesDefinition } from '../Common/DestinyDisplayPropertiesDefinition';
+import { DestinySeasonPassReference } from './DestinySeasonPassReference';
 import { DestinySeasonActDefinition } from './DestinySeasonActDefinition';
 import { DestinySeasonPreviewDefinition } from './DestinySeasonPreviewDefinition';
 
@@ -29,6 +30,8 @@ export interface DestinySeasonDefinition {
   readonly endDate?: string;
   /** Mapped to DestinySeasonPassDefinition in the manifest. */
   readonly seasonPassHash?: number;
+  /** Mapped to DestinySeasonPassDefinition in the manifest. */
+  readonly seasonPassList: DestinySeasonPassReference[];
   /** Mapped to DestinyProgressionDefinition in the manifest. */
   readonly seasonPassProgressionHash?: number;
   /** Mapped to DestinyInventoryItemDefinition in the manifest. */

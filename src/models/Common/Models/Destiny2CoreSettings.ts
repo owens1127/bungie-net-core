@@ -45,6 +45,14 @@ export interface Destiny2CoreSettings {
   readonly guardianRankConstantsHash: number;
   /** Mapped to DestinyFireteamFinderConstantsDefinition in the manifest. */
   readonly fireteamFinderConstantsHash: number;
+  /** Mapped to DestinyInventoryItemConstantsDefinition in the manifest. */
+  readonly inventoryItemConstantsHash: number;
+  /** Mapped to DestinyItemFilterDefinition in the manifest. */
+  readonly featuredItemsListHash: number;
+  /** Mapped to DestinyPlugSetDefinition in the manifest. */
+  readonly armorArchetypePlugSetHash: number;
+  /** Mapped to DestinyEventCardDefinition in the manifest. */
+  readonly seasonalHubEventCardHash: number;
   /** Mapped to DestinyPresentationNodeDefinition in the manifest. */
   readonly guardianRanksRootNodeHash: number;
   /** Mapped to DestinyProgressionDefinition in the manifest. */

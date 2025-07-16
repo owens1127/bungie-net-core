@@ -28,5 +28,12 @@ export interface UserMembershipData {
    * If null, this user has no cross save relationship, nor primary account.
    */
   readonly primaryMembershipId?: string;
+  /**
+   * If this property is populated, it will have the membershipId for the Marathon
+   * Membership on this user's account
+   *
+   * If null, this user has no Marathon (i.e. "GoliathGame") membership.
+   */
+  readonly marathonMembershipId?: string;
   readonly bungieNetUser: GeneralUser;
 }

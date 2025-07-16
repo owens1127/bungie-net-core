@@ -13,6 +13,7 @@ export const BungieMembershipType = {
   TigerStadia: 5,
   TigerEgs: 6,
   TigerDemon: 10,
+  GoliathGame: 20,
   BungieNext: 254,
   /**
    * "All" is only valid for searching capabilities: you need to pass the actual

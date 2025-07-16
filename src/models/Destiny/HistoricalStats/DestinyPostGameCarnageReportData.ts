@@ -30,6 +30,10 @@ export interface DestinyPostGameCarnageReportData {
    * available and the activity was played post Witch Queen release.
    */
   readonly activityWasStartedFromBeginning?: boolean;
+  /** Difficulty tier index value for the activity. */
+  readonly activityDifficultyTier?: number;
+  /** Collection of player-selected skull hashes active for the activity. */
+  readonly selectedSkullHashes: number[];
   /** Details about the activity. */
   readonly activityDetails: DestinyHistoricalStatsActivity;
   /** Collection of players and their data for this activity. */
